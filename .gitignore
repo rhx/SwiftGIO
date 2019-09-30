@@ -3,7 +3,5 @@
 /.docs.old
 /Packages
 /*.xcodeproj
-Sources/GIO/SwiftGio.swift
 Package.pins
 Package.resolved
-*-*.swift
