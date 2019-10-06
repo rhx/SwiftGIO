@@ -7502,7 +7502,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain a Unix device path with g_drive_get_identifier().</p>
+                        <p>The string used to obtain a Unix device path with <code>g_drive_get_identifier()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7989,7 +7989,7 @@ Corresponding <code>GFileAttributeType</code> is <code>G_FILE_ATTRIBUTE_TYPE_BOO
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A key in the <q>filesystem</q> namespace for getting the total size (in bytes) of the file system,
-used in g_file_query_filesystem_info(). Corresponding <code>GFileAttributeType</code>
+used in <code>g_file_query_filesystem_info()</code>. Corresponding <code>GFileAttributeType</code>
 is <code>G_FILE_ATTRIBUTE_TYPE_UINT64</code>.</p>
 
                       </div>
@@ -9981,7 +9981,7 @@ Corresponding <code>GFileAttributeType</code> is <code>G_FILE_ATTRIBUTE_TYPE_UIN
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A key in the <q>unix</q> namespace for getting the device id of the device the
-file is located on (see stat() documentation). This attribute is only
+file is located on (see <code>stat()</code> documentation). This attribute is only
 available for UNIX file systems. Corresponding <code>GFileAttributeType</code> is
 <code>G_FILE_ATTRIBUTE_TYPE_UINT32</code>.</p>
 
@@ -10112,7 +10112,7 @@ Corresponding <code>GFileAttributeType</code> is <code>G_FILE_ATTRIBUTE_TYPE_BOO
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A key in the <q>unix</q> namespace for getting the mode of the file
-(e.g. whether the file is a regular file, symlink, etc). See lstat()
+(e.g. whether the file is a regular file, symlink, etc). See <code>lstat()</code>
 documentation. This attribute is only available for UNIX file systems.
 Corresponding <code>GFileAttributeType</code> is <code>G_FILE_ATTRIBUTE_TYPE_UINT32</code>.</p>
 
@@ -10145,7 +10145,7 @@ Corresponding <code>GFileAttributeType</code> is <code>G_FILE_ATTRIBUTE_TYPE_UIN
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A key in the <q>unix</q> namespace for getting the number of hard links
-for a file. See lstat() documentation. This attribute is only available
+for a file. See <code>lstat()</code> documentation. This attribute is only available
 for UNIX file systems. Corresponding <code>GFileAttributeType</code> is
 <code>G_FILE_ATTRIBUTE_TYPE_UINT32</code>.</p>
 
@@ -10178,7 +10178,7 @@ for UNIX file systems. Corresponding <code>GFileAttributeType</code> is
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A key in the <q>unix</q> namespace for getting the device ID for the file
-(if it is a special file). See lstat() documentation. This attribute
+(if it is a special file). See <code>lstat()</code> documentation. This attribute
 is only available for UNIX file systems. Corresponding <code>GFileAttributeType</code>
 is <code>G_FILE_ATTRIBUTE_TYPE_UINT32</code>.</p>
 
@@ -10247,7 +10247,7 @@ names are namespaced with an identifier for the action group in which the
 action resides. For example, <q>win.</q> for window-specific actions and <q>app.</q>
 for application-wide actions.</p>
 
-<p>See also g_menu_model_get_item_attribute() and g_menu_item_set_attribute().</p>
+<p>See also <code>g_menu_model_get_item_attribute()</code> and <code>g_menu_item_set_attribute()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10310,7 +10310,7 @@ menus that are linked from this item.</p>
                       <div class="abstract">
                         <p>The menu item attribute which holds the icon of the item.</p>
 
-<p>The icon is stored in the format returned by g_icon_serialize().</p>
+<p>The icon is stored in the format returned by <code>g_icon_serialize()</code>.</p>
 
 <p>This attribute is intended only to represent &lsquo;noun&rsquo; icons such as
 favicons for a webpage, or application icons.  It should not be used
@@ -10377,7 +10377,7 @@ for &lsquo;verbs&rsquo; (ie: stock icons).</p>
                         <p>The menu item attribute which holds the target with which the item&rsquo;s action
 will be activated.</p>
 
-<p>See also g_menu_item_set_action_and_target()</p>
+<p>See also <code>g_menu_item_set_action_and_target()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -10411,7 +10411,7 @@ will be activated.</p>
 menu will usually be shown in place of the menu item, using the item&rsquo;s label
 as a header.</p>
 
-<p>See also g_menu_item_set_link().</p>
+<p>See also <code>g_menu_item_set_link()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10443,7 +10443,7 @@ as a header.</p>
                       <div class="abstract">
                         <p>The name of the link that associates a menu item with a submenu.</p>
 
-<p>See also g_menu_item_set_link().</p>
+<p>See also <code>g_menu_item_set_link()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10750,7 +10750,7 @@ See [Extending GIO][extending-gio].</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain the volume class with g_volume_get_identifier().</p>
+                        <p>The string used to obtain the volume class with <code>g_volume_get_identifier()</code>.</p>
 
 <p>Known volume classes include <code>device</code>, <code>network</code>, and <code>loop</code>. Other
 classes may be added in the future.</p>
@@ -10788,7 +10788,7 @@ a <q>Network</q> heading and <code>device</code> volumes under a <q>Devices</q> 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain a filesystem label with g_volume_get_identifier().</p>
+                        <p>The string used to obtain a filesystem label with <code>g_volume_get_identifier()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10818,7 +10818,7 @@ a <q>Network</q> heading and <code>device</code> volumes under a <q>Devices</q> 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain a NFS mount with g_volume_get_identifier().</p>
+                        <p>The string used to obtain a NFS mount with <code>g_volume_get_identifier()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10848,7 +10848,7 @@ a <q>Network</q> heading and <code>device</code> volumes under a <q>Devices</q> 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain a Unix device path with g_volume_get_identifier().</p>
+                        <p>The string used to obtain a Unix device path with <code>g_volume_get_identifier()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10878,7 +10878,7 @@ a <q>Network</q> heading and <code>device</code> volumes under a <q>Devices</q> 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The string used to obtain a UUID with g_volume_get_identifier().</p>
+                        <p>The string used to obtain a UUID with <code>g_volume_get_identifier()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10934,7 +10934,7 @@ See [Extending GIO][extending-gio].</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-09-30)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
