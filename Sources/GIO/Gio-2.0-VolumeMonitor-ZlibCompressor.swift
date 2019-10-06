@@ -14,7 +14,7 @@ import GLibObject
 /// would show in a sidebar.
 /// 
 /// `GVolumeMonitor` is not
-/// [thread-default-context aware][g-main-context-push-thread-default],
+/// [thread-default-context aware](#g-main-context-push-thread-default),
 /// and so should not be used other than from the main thread, with no
 /// thread-default-context active.
 /// 
@@ -37,7 +37,7 @@ public protocol VolumeMonitorProtocol: ObjectProtocol {
 /// would show in a sidebar.
 /// 
 /// `GVolumeMonitor` is not
-/// [thread-default-context aware][g-main-context-push-thread-default],
+/// [thread-default-context aware](#g-main-context-push-thread-default),
 /// and so should not be used other than from the main thread, with no
 /// thread-default-context active.
 /// 
@@ -105,7 +105,7 @@ public extension VolumeMonitorRef {
 /// would show in a sidebar.
 /// 
 /// `GVolumeMonitor` is not
-/// [thread-default-context aware][g-main-context-push-thread-default],
+/// [thread-default-context aware](#g-main-context-push-thread-default),
 /// and so should not be used other than from the main thread, with no
 /// thread-default-context active.
 /// 
@@ -204,7 +204,7 @@ public enum VolumeMonitorSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Emitted when a mountable volume is added to the system.
@@ -528,7 +528,7 @@ public enum ZlibCompressorSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If set to a non-`nil` `GFileInfo` object, and `GZlibCompressor:format` is

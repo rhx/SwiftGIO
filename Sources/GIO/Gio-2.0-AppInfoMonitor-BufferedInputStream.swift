@@ -220,7 +220,7 @@ public enum AppInfoMonitorSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -431,7 +431,7 @@ public enum AppLaunchContextSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -1192,7 +1192,7 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `open` signal is emitted on the primary instance when there are
@@ -1628,7 +1628,7 @@ public extension ApplicationProtocol {
     /// and override `local_command_line()`. In this case, you most likely want
     /// to return `true` from your `local_command_line()` implementation to
     /// suppress the default handling. See
-    /// [gapplication-example-cmdline2.c][gapplication-example-cmdline2]
+    /// [gapplication-example-cmdline2.c](#gapplication-example-cmdline2)
     /// for an example.
     /// 
     /// If, after the above is done, the use count of the application is zero
@@ -1792,7 +1792,7 @@ public extension ApplicationProtocol {
     /// Sets (or unsets) the base resource path of `application`.
     /// 
     /// The path is used to automatically load various [application
-    /// resources][gresource] such as menu layouts and action descriptions.
+    /// resources](#gresource) such as menu layouts and action descriptions.
     /// The various types of resources will be found at fixed names relative
     /// to the given base path.
     /// 
@@ -2063,7 +2063,7 @@ public extension ApplicationProtocol {
         /// Sets (or unsets) the base resource path of `application`.
         /// 
         /// The path is used to automatically load various [application
-        /// resources][gresource] such as menu layouts and action descriptions.
+        /// resources](#gresource) such as menu layouts and action descriptions.
         /// The various types of resources will be found at fixed names relative
         /// to the given base path.
         /// 
@@ -2121,7 +2121,7 @@ public extension ApplicationProtocol {
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
 /// with the `g_application_command_line_get_arguments()` function. See
-/// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
+/// [gapplication-example-cmdline3.c](#gapplication-example-cmdline3)
 /// for an example.
 /// 
 /// The exit status of the originally-invoked process may be set and
@@ -2290,7 +2290,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
 /// with the `g_application_command_line_get_arguments()` function. See
-/// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
+/// [gapplication-example-cmdline3.c](#gapplication-example-cmdline3)
 /// for an example.
 /// 
 /// The exit status of the originally-invoked process may be set and
@@ -2499,7 +2499,7 @@ public extension ApplicationCommandLineRef {
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
 /// with the `g_application_command_line_get_arguments()` function. See
-/// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
+/// [gapplication-example-cmdline3.c](#gapplication-example-cmdline3)
 /// for an example.
 /// 
 /// The exit status of the originally-invoked process may be set and
@@ -2751,7 +2751,7 @@ public enum ApplicationCommandLineSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyArguments = "notify::arguments"
@@ -3396,7 +3396,7 @@ public enum BufferedInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"

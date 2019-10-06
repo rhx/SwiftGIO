@@ -240,7 +240,7 @@ public enum FileIOStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyClosed = "notify::closed"
@@ -563,7 +563,7 @@ public enum FileIconSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The file containing the icon.
@@ -630,7 +630,7 @@ public extension FileIconProtocol {
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
 /// 
-/// See [GFileAttribute][gio-GFileAttribute] for more information on how
+/// See [GFileAttribute](#gio-GFileAttribute) for more information on how
 /// GIO handles file attributes.
 /// 
 /// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
@@ -666,7 +666,7 @@ public protocol FileInfoProtocol: ObjectProtocol {
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
 /// 
-/// See [GFileAttribute][gio-GFileAttribute] for more information on how
+/// See [GFileAttribute](#gio-GFileAttribute) for more information on how
 /// GIO handles file attributes.
 /// 
 /// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
@@ -747,7 +747,7 @@ public extension FileInfoRef {
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
 /// 
-/// See [GFileAttribute][gio-GFileAttribute] for more information on how
+/// See [GFileAttribute](#gio-GFileAttribute) for more information on how
 /// GIO handles file attributes.
 /// 
 /// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
@@ -839,7 +839,7 @@ public enum FileInfoSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -883,7 +883,7 @@ public extension FileInfoProtocol {
     
     }
 
-    /// First clears all of the [GFileAttribute][gio-GFileAttribute] of `dest_info`,
+    /// First clears all of the [GFileAttribute](#gio-GFileAttribute) of `dest_info`,
     /// and then copies all of the file attributes from `src_info` to `dest_info`.
     func copyInto(destInfo dest_info: FileInfoProtocol) {
         g_file_info_copy_into(cast(file_info_ptr), cast(dest_info.ptr))
@@ -1015,7 +1015,7 @@ public extension FileInfoProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Gets the [entity tag][gfile-etag] for a given
+    /// Gets the [entity tag](#gfile-etag) for a given
     /// `GFileInfo`. See `G_FILE_ATTRIBUTE_ETAG_VALUE`.
     func getEtag() -> String! {
         let rv = g_file_info_get_etag(cast(file_info_ptr))
@@ -1379,10 +1379,10 @@ public extension FileInfoProtocol {
         }
     }
 
-    /// Gets the [entity tag][gfile-etag] for a given
+    /// Gets the [entity tag](#gfile-etag) for a given
     /// `GFileInfo`. See `G_FILE_ATTRIBUTE_ETAG_VALUE`.
     var etag: String! {
-        /// Gets the [entity tag][gfile-etag] for a given
+        /// Gets the [entity tag](#gfile-etag) for a given
         /// `GFileInfo`. See `G_FILE_ATTRIBUTE_ETAG_VALUE`.
         get {
             let rv = g_file_info_get_etag(cast(file_info_ptr))
@@ -1713,7 +1713,7 @@ public enum FileInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -1810,7 +1810,7 @@ public extension FileInputStreamProtocol {
 /// To get informed about changes to the file or directory you are
 /// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread that the monitor was created in
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
@@ -1836,7 +1836,7 @@ public protocol FileMonitorProtocol: ObjectProtocol {
 /// To get informed about changes to the file or directory you are
 /// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread that the monitor was created in
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
@@ -1902,7 +1902,7 @@ public extension FileMonitorRef {
 /// To get informed about changes to the file or directory you are
 /// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread that the monitor was created in
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
@@ -2042,7 +2042,7 @@ public enum FileMonitorSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyCancelled = "notify::cancelled"
@@ -2092,7 +2092,7 @@ public extension FileMonitorProtocol {
     /// implementations only.
     /// 
     /// Implementations are responsible to call this method from the
-    /// [thread-default main context][g-main-context-push-thread-default] of the
+    /// [thread-default main context](#g-main-context-push-thread-default) of the
     /// thread that the monitor was created in.
     func emitEvent(child: FileProtocol, otherFile other_file: FileProtocol, eventType event_type: FileMonitorEvent) {
         g_file_monitor_emit_event(cast(file_monitor_ptr), cast(child.ptr), cast(other_file.ptr), event_type)
@@ -2297,7 +2297,7 @@ public enum FileOutputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -2565,7 +2565,7 @@ public enum FilenameCompleterSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -2814,7 +2814,7 @@ public enum FilterInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"
@@ -3087,7 +3087,7 @@ public enum FilterOutputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"
@@ -3330,7 +3330,7 @@ public enum IOModuleSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 

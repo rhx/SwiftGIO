@@ -263,7 +263,7 @@ public extension FileAttributeMatcherRef {
     /// The wildcard "*" may be used to match all keys and namespaces, or
     /// "namespace``*" will match all keys in a given namespace.
     /// 
-    /// ```` Examples of file attribute matcher strings and results
+    /// ## Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
     /// - `"standard`is`-hidden"`: matches only the key is-hidden in the
@@ -340,7 +340,7 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     /// The wildcard "*" may be used to match all keys and namespaces, or
     /// "namespace``*" will match all keys in a given namespace.
     /// 
-    /// ```` Examples of file attribute matcher strings and results
+    /// ## Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
     /// - `"standard`is`-hidden"`: matches only the key is-hidden in the

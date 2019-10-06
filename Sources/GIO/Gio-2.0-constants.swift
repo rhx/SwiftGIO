@@ -519,22 +519,22 @@ public let MENU_LINK_SUBMENU = G_MENU_LINK_SUBMENU /* utf8 90 */
 public let NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME = G_NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 91 */
 
 /// Extension point for network status monitoring functionality.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let NETWORK_MONITOR_EXTENSION_POINT_NAME = G_NETWORK_MONITOR_EXTENSION_POINT_NAME /* utf8 92 */
 
 /// Extension point for proxy functionality.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let PROXY_EXTENSION_POINT_NAME = G_PROXY_EXTENSION_POINT_NAME /* utf8 93 */
 
 /// Extension point for proxy resolving functionality.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let PROXY_RESOLVER_EXTENSION_POINT_NAME = G_PROXY_RESOLVER_EXTENSION_POINT_NAME /* utf8 94 */
 
 /// Extension point for `GSettingsBackend` functionality.
 public let SETTINGS_BACKEND_EXTENSION_POINT_NAME = G_SETTINGS_BACKEND_EXTENSION_POINT_NAME /* utf8 95 */
 
 /// Extension point for TLS functionality via `GTlsBackend`.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let TLS_BACKEND_EXTENSION_POINT_NAME = G_TLS_BACKEND_EXTENSION_POINT_NAME /* utf8 96 */
 
 /// The purpose used to verify the client certificate in a TLS connection.
@@ -546,7 +546,7 @@ public let TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT = G_TLS_DATABASE_PURPOSE_AUT
 public let TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER = G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER /* utf8 98 */
 
 /// Extension point for `GVfs` functionality.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 99 */
 
 /// The string used to obtain the volume class with `g_volume_get_identifier()`.
@@ -579,5 +579,5 @@ public let VOLUME_IDENTIFIER_KIND_UNIX_DEVICE = G_VOLUME_IDENTIFIER_KIND_UNIX_DE
 public let VOLUME_IDENTIFIER_KIND_UUID = G_VOLUME_IDENTIFIER_KIND_UUID /* utf8 105 */
 
 /// Extension point for volume monitor functionality.
-/// See [Extending GIO][extending-gio].
+/// See [Extending GIO](#extending-gio).
 public let VOLUME_MONITOR_EXTENSION_POINT_NAME = G_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 106 */

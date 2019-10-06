@@ -314,7 +314,7 @@ public func busGetSync(busType bus_type: BusType, cancellable: CancellableProtoc
 /// Starts acquiring `name` on the bus specified by `bus_type` and calls
 /// `name_acquired_handler` and `name_lost_handler` when the name is
 /// acquired respectively lost. Callbacks will be invoked in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread you are calling this function from.
 /// 
 /// You are guaranteed that one of the `name_acquired_handler` and `name_lost_handler`
@@ -357,7 +357,7 @@ public func busGetSync(busType bus_type: BusType, cancellable: CancellableProtoc
 /// before `name` is requested from the bus.
 /// 
 /// This behavior makes it very simple to write applications that wants
-/// to [own names][gdbus-owning-names] and export objects.
+/// to [own names](#gdbus-owning-names) and export objects.
 /// Simply register objects to be exported in `bus_acquired_handler` and
 /// unregister the objects (if any) in `name_lost_handler`.
 public func busOwnName(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, busAcquiredHandler bus_acquired_handler: @escaping BusAcquiredCallback, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
@@ -420,7 +420,7 @@ public func busUnwatchName(watcherID watcher_id: CUnsignedInt) {
 /// `name_appeared_handler` and `name_vanished_handler` when the name is
 /// known to have a owner respectively known to lose its
 /// owner. Callbacks will be invoked in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread you are calling this function from.
 /// 
 /// You are guaranteed that one of the handlers will be invoked after
@@ -441,7 +441,7 @@ public func busUnwatchName(watcherID watcher_id: CUnsignedInt) {
 /// will be `name_vanished_handler`. The reverse is also true.
 /// 
 /// This behavior makes it very simple to write applications that want
-/// to take action when a certain [name exists][gdbus-watching-names].
+/// to take action when a certain [name exists](#gdbus-watching-names).
 /// Basically, the application should create object proxies in
 /// `name_appeared_handler` and destroy them again (if any) in
 /// `name_vanished_handler`.
@@ -903,7 +903,7 @@ public func dbusGenerateGuid() -> String! {
 /// - `G_TYPE_VARIANT:` Any `GVariantType`
 /// 
 /// This can fail if e.g. `gvalue` is of type `G_TYPE_STRING` and `type`
-/// is ['i'][G-VARIANT-TYPE-INT32:CAPS]. It will also fail for any `GType`
+/// is ['i'](#G-VARIANT-TYPE-INT32:CAPS). It will also fail for any `GType`
 /// (including e.g. `G_TYPE_OBJECT` and `G_TYPE_BOXED` derived-types) not
 /// in the table above.
 /// 

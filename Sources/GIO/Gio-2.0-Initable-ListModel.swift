@@ -223,7 +223,7 @@ public extension InitableProtocol {
     /// If the object is not initialized, or initialization returns with an
     /// error, then all operations on the object except `g_object_ref()` and
     /// `g_object_unref()` are considered to be invalid, and have undefined
-    /// behaviour. See the [introduction][ginitable] for more details.
+    /// behaviour. See the [introduction](#ginitable) for more details.
     /// 
     /// Callers should not assume that a class which implements `GInitable` can be
     /// initialized multiple times, unless the class explicitly documents itself as
@@ -307,7 +307,7 @@ public extension InitableProtocol {
 /// This interface is intended only to be used from a single thread.  The
 /// thread in which it is appropriate to use it depends on the particular
 /// implementation, but typically it will be from the thread that owns
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 public protocol ListModelProtocol {
     /// Untyped pointer to the underlying `GListModel` instance.
@@ -366,7 +366,7 @@ public protocol ListModelProtocol {
 /// This interface is intended only to be used from a single thread.  The
 /// thread in which it is appropriate to use it depends on the particular
 /// implementation, but typically it will be from the thread that owns
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 public struct ListModelRef: ListModelProtocol {
     /// Untyped pointer to the underlying `GListModel` instance.
@@ -465,7 +465,7 @@ public extension ListModelRef {
 /// This interface is intended only to be used from a single thread.  The
 /// thread in which it is appropriate to use it depends on the particular
 /// implementation, but typically it will be from the thread that owns
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 open class ListModel: ListModelProtocol {
     /// Untyped pointer to the underlying `GListModel` instance.

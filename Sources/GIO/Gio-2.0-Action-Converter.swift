@@ -2495,7 +2495,7 @@ public extension AsyncInitableProtocol {
 /// an asynchronous operation, provide a `GAsyncReadyCallback` to the
 /// asynchronous function. This callback will be triggered when the
 /// operation has completed, and must be run in a later iteration of
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// from where the operation was initiated. It will be passed a
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
@@ -2564,7 +2564,7 @@ public extension AsyncInitableProtocol {
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ```` I/O Priority `` {`io`-priority}
+/// ## I/O Priority # <a name="io-priority"></a>
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which
@@ -2592,7 +2592,7 @@ public protocol AsyncResultProtocol {
 /// an asynchronous operation, provide a `GAsyncReadyCallback` to the
 /// asynchronous function. This callback will be triggered when the
 /// operation has completed, and must be run in a later iteration of
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// from where the operation was initiated. It will be passed a
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
@@ -2661,7 +2661,7 @@ public protocol AsyncResultProtocol {
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ```` I/O Priority `` {`io`-priority}
+/// ## I/O Priority # <a name="io-priority"></a>
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which
@@ -2729,7 +2729,7 @@ public extension AsyncResultRef {
 /// an asynchronous operation, provide a `GAsyncReadyCallback` to the
 /// asynchronous function. This callback will be triggered when the
 /// operation has completed, and must be run in a later iteration of
-/// the [thread-default main context][g-main-context-push-thread-default]
+/// the [thread-default main context](#g-main-context-push-thread-default)
 /// from where the operation was initiated. It will be passed a
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
@@ -2798,7 +2798,7 @@ public extension AsyncResultRef {
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ```` I/O Priority `` {`io`-priority}
+/// ## I/O Priority # <a name="io-priority"></a>
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which

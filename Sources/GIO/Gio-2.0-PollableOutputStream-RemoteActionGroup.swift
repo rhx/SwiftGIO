@@ -152,7 +152,7 @@ public enum PollableOutputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -265,7 +265,7 @@ public extension PollableOutputStreamProtocol {
     }
     /// Checks if `stream` can be written.
     /// 
-    /// Note that some stream types may not be able to implement this 100``
+    /// Note that some stream types may not be able to implement this 100%
     /// reliably, and it is possible that a call to `g_output_stream_write()`
     /// after this returns `true` would still block. To guarantee
     /// non-blocking behavior, you should always use
@@ -274,7 +274,7 @@ public extension PollableOutputStreamProtocol {
     var isWritable: Bool {
         /// Checks if `stream` can be written.
         /// 
-        /// Note that some stream types may not be able to implement this 100``
+        /// Note that some stream types may not be able to implement this 100%
         /// reliably, and it is possible that a call to `g_output_stream_write()`
         /// after this returns `true` would still block. To guarantee
         /// non-blocking behavior, you should always use
@@ -658,7 +658,7 @@ public extension ProxyResolverProtocol {
 
     /// Looks into the system proxy configuration to determine what proxy,
     /// if any, to use to connect to `uri`. The returned proxy URIs are of
-    /// the form `<protocol>://[user[:password]``]host:port` or
+    /// the form `<protocol>://[user[:password]@]host:port` or
     /// `direct://`, where <protocol> could be http, rtsp, socks
     /// or other proxying protocol.
     /// 

@@ -597,7 +597,7 @@ public enum PollableInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -681,7 +681,7 @@ public extension PollableInputStreamProtocol {
     }
     /// Checks if `stream` can be read.
     /// 
-    /// Note that some stream types may not be able to implement this 100``
+    /// Note that some stream types may not be able to implement this 100%
     /// reliably, and it is possible that a call to `g_input_stream_read()`
     /// after this returns `true` would still block. To guarantee
     /// non-blocking behavior, you should always use
@@ -690,7 +690,7 @@ public extension PollableInputStreamProtocol {
     var isReadable: Bool {
         /// Checks if `stream` can be read.
         /// 
-        /// Note that some stream types may not be able to implement this 100``
+        /// Note that some stream types may not be able to implement this 100%
         /// reliably, and it is possible that a call to `g_input_stream_read()`
         /// after this returns `true` would still block. To guarantee
         /// non-blocking behavior, you should always use

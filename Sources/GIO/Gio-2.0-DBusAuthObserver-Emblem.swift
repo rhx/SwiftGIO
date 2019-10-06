@@ -15,7 +15,7 @@ import GLibObject
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ```` Controlling Authentication Mechanisms
+/// ## Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -40,7 +40,7 @@ import GLibObject
 /// }
 /// ```
 /// 
-/// ```` Controlling Authorization `` {`auth`-observer}
+/// ## Controlling Authorization # <a name="auth-observer"></a>
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -90,7 +90,7 @@ public protocol DBusAuthObserverProtocol: ObjectProtocol {
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ```` Controlling Authentication Mechanisms
+/// ## Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -115,7 +115,7 @@ public protocol DBusAuthObserverProtocol: ObjectProtocol {
 /// }
 /// ```
 /// 
-/// ```` Controlling Authorization `` {`auth`-observer}
+/// ## Controlling Authorization # <a name="auth-observer"></a>
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -210,7 +210,7 @@ public extension DBusAuthObserverRef {
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ```` Controlling Authentication Mechanisms
+/// ## Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -235,7 +235,7 @@ public extension DBusAuthObserverRef {
 /// }
 /// ```
 /// 
-/// ```` Controlling Authorization `` {`auth`-observer}
+/// ## Controlling Authorization # <a name="auth-observer"></a>
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -344,7 +344,7 @@ public enum DBusAuthObserverSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -434,22 +434,22 @@ public extension DBusAuthObserverProtocol {
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
 /// free it with `g_object_unref()`.
 /// 
-/// ```` An example D-Bus server `` {`gdbus`-server}
+/// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ```` An example for exporting a GObject `` {`gdbus`-export}
+/// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
@@ -495,22 +495,22 @@ public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, I
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
 /// free it with `g_object_unref()`.
 /// 
-/// ```` An example D-Bus server `` {`gdbus`-server}
+/// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ```` An example for exporting a GObject `` {`gdbus`-export}
+/// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
@@ -732,22 +732,22 @@ public extension DBusConnectionRef {
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
 /// free it with `g_object_unref()`.
 /// 
-/// ```` An example D-Bus server `` {`gdbus`-server}
+/// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ```` An example for exporting a GObject `` {`gdbus`-export}
+/// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
@@ -1053,7 +1053,7 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// A D-Bus address specifying potential endpoints that can be used
@@ -1205,7 +1205,7 @@ public extension DBusConnectionProtocol {
     /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from. You can then call
     /// `g_dbus_connection_call_finish()` to get the result of the operation.
     /// See `g_dbus_connection_call_sync()` for the synchronous version of this
@@ -1318,12 +1318,12 @@ public extension DBusConnectionProtocol {
     /// 
     /// When `connection` has been closed, the `GDBusConnection::closed`
     /// signal is emitted in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread that `connection` was constructed in.
     /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from. You can
     /// then call `g_dbus_connection_close_finish()` to get the result of the
     /// operation. See `g_dbus_connection_close_sync()` for the synchronous
@@ -1432,7 +1432,7 @@ public extension DBusConnectionProtocol {
     /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from. You can
     /// then call `g_dbus_connection_flush_finish()` to get the result of the
     /// operation. See `g_dbus_connection_flush_sync()` for the synchronous
@@ -1539,7 +1539,7 @@ public extension DBusConnectionProtocol {
     /// 
     /// Calls to functions in `vtable` (and `user_data_free_func`) will happen
     /// in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from.
     /// 
     /// Note that all `GVariant` values passed to functions in `vtable` will match
@@ -1571,7 +1571,7 @@ public extension DBusConnectionProtocol {
     /// reference count is -1, see `g_dbus_interface_info_ref()`) for as long
     /// as the object is exported. Also note that `vtable` will be copied.
     /// 
-    /// See this [server][gdbus-server] for an example of how to use this method.
+    /// See this [server](#gdbus-server) for an example of how to use this method.
     func registerObject(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, vtable: DBusInterfaceVTableProtocol, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_register_object(cast(dbus_connection_ptr), object_path, cast(interface_info.ptr), cast(vtable.ptr), cast(user_data), user_data_free_func, &error)
@@ -1608,7 +1608,7 @@ public extension DBusConnectionProtocol {
     /// the request.
     /// 
     /// All calls into user-provided code will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from.
     /// 
     /// If an existing subtree is already registered at `object_path` or
@@ -1624,7 +1624,7 @@ public extension DBusConnectionProtocol {
     /// Note that `vtable` will be copied so you cannot change it after
     /// registration.
     /// 
-    /// See this [server][gdbus-subtree-server] for an example of how to use
+    /// See this [server](#gdbus-subtree-server) for an example of how to use
     /// this method.
     func registerSubtree(objectPath object_path: UnsafePointer<gchar>, vtable: DBusSubtreeVTableProtocol, flags: DBusSubtreeFlags, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1661,7 +1661,7 @@ public extension DBusConnectionProtocol {
     /// `G_IO_ERROR_CLOSED`. If `message` is not well-formed,
     /// the operation fails with `G_IO_ERROR_INVALID_ARGUMENT`.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     /// 
@@ -1692,7 +1692,7 @@ public extension DBusConnectionProtocol {
     /// 
     /// This is an asynchronous method. When the operation is finished, `callback`
     /// will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from. You can then call
     /// `g_dbus_connection_send_message_with_reply_finish()` to get the result of the operation.
     /// See `g_dbus_connection_send_message_with_reply_sync()` for the synchronous version.
@@ -1700,7 +1700,7 @@ public extension DBusConnectionProtocol {
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func sendMessageWithReply(message: DBusMessageProtocol, flags: DBusSendMessageFlags, timeoutMsec timeout_msec: CInt, outSerial out_serial: UnsafeMutablePointer<UInt32>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -1715,7 +1715,7 @@ public extension DBusConnectionProtocol {
     /// be of type `G_DBUS_MESSAGE_TYPE_ERROR`. Use
     /// `g_dbus_message_to_gerror()` to transcode this to a `GError`.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func sendMessageWithReplyFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GDBusMessage>! {
@@ -1749,7 +1749,7 @@ public extension DBusConnectionProtocol {
     /// be of type `G_DBUS_MESSAGE_TYPE_ERROR`. Use
     /// `g_dbus_message_to_gerror()` to transcode this to a `GError`.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     /// 
@@ -1781,7 +1781,7 @@ public extension DBusConnectionProtocol {
 
     /// Subscribes to signals on `connection` and invokes `callback` with a whenever
     /// the signal is received. Note that `callback` will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from.
     /// 
     /// If `connection` is not a message bus connection, `sender` must be
@@ -2209,7 +2209,7 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// Note that this signal is emitted in a thread dedicated to
     /// handling the method call so handlers are allowed to perform
     /// blocking IO. This means that it is appropriate to call e.g.
-    /// `[polkit_authority_check_authorization_sync()`](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`polkit`-authority-check-authorization-sync)
+    /// [`polkit_authority_check_authorization_sync()`](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`polkit`-authority-check-authorization-sync)
     /// with the
     /// [POLKIT_CHECK_AUTHORIZATION_FLAGS_ALLOW_USER_INTERACTION](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`POLKIT`-CHECK-AUTHORIZATION-FLAGS-ALLOW-USER-INTERACTION:CAPS)
     /// flag set.
@@ -2259,7 +2259,7 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Flags from the `GDBusInterfaceSkeletonFlags` enumeration.
@@ -2672,7 +2672,7 @@ public enum DBusMenuModelSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3012,7 +3012,7 @@ public enum DBusMessageSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyLocked = "notify::locked"
@@ -3783,7 +3783,7 @@ public enum DBusMethodInvocationSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3843,7 +3843,7 @@ public extension DBusMethodInvocationProtocol {
     /// descriptor passing, that cannot be properly expressed in the
     /// `GVariant` API.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func getMessage() -> UnsafeMutablePointer<GDBusMessage>! {
@@ -4048,7 +4048,7 @@ public extension DBusMethodInvocationProtocol {
     /// descriptor passing, that cannot be properly expressed in the
     /// `GVariant` API.
     /// 
-    /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     var message: UnsafeMutablePointer<GDBusMessage>! {
@@ -4057,7 +4057,7 @@ public extension DBusMethodInvocationProtocol {
         /// descriptor passing, that cannot be properly expressed in the
         /// `GVariant` API.
         /// 
-        /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
+        /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
         /// for an example of how to use this low-level API to send and receive
         /// UNIX file descriptors.
         get {
@@ -4240,7 +4240,7 @@ public extension DBusMethodInvocationProtocol {
 /// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// that the `GDBusObjectManagerClient` object was constructed
 /// in. Additionally, the `GDBusObjectProxy` and `GDBusProxy` objects
 /// originating from the `GDBusObjectManagerClient` object will be created in
@@ -4327,7 +4327,7 @@ public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitablePr
 /// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// that the `GDBusObjectManagerClient` object was constructed
 /// in. Additionally, the `GDBusObjectProxy` and `GDBusProxy` objects
 /// originating from the `GDBusObjectManagerClient` object will be created in
@@ -4550,7 +4550,7 @@ public extension DBusObjectManagerClientRef {
 /// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// that the `GDBusObjectManagerClient` object was constructed
 /// in. Additionally, the `GDBusObjectProxy` and `GDBusProxy` objects
 /// originating from the `GDBusObjectManagerClient` object will be created in
@@ -4767,7 +4767,7 @@ public enum DBusObjectManagerClientSignalName: String, SignalNameProtocol {
     /// connect signals to all interface proxies managed by `manager`.
     /// 
     /// This signal is emitted in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// that `manager` was constructed in.
     case interfaceProxyPropertiesChanged = "interface-proxy-properties-changed"
     /// Emitted when a D-Bus signal is received on `interface_proxy`.
@@ -4776,7 +4776,7 @@ public enum DBusObjectManagerClientSignalName: String, SignalNameProtocol {
     /// connect signals to all interface proxies managed by `manager`.
     /// 
     /// This signal is emitted in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// that `manager` was constructed in.
     case interfaceProxySignal = "interface-proxy-signal"
     /// The notify signal is emitted on an object when one of its properties has
@@ -4801,7 +4801,7 @@ public enum DBusObjectManagerClientSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If this property is not `G_BUS_TYPE_NONE`, then
@@ -5202,7 +5202,7 @@ public enum DBusObjectManagerServerSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `GDBusConnection` to export objects on.
@@ -5515,7 +5515,7 @@ public enum DBusObjectProxySignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The connection of the proxy.
@@ -5784,7 +5784,7 @@ public enum DBusObjectSkeletonSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The object path where the object is exported.
@@ -5900,13 +5900,13 @@ public extension DBusObjectSkeletonProtocol {
 /// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
-/// class. This [example][gdbus-example-gdbus-codegen] shows how this can
-/// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
+/// class. This [example](#gdbus-example-gdbus-codegen) shows how this can
+/// easily be done using the [gdbus-codegen](#gdbus-codegen) tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
 /// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
 /// and `GObject::notify`) are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
@@ -5949,13 +5949,13 @@ public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusIn
 /// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
-/// class. This [example][gdbus-example-gdbus-codegen] shows how this can
-/// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
+/// class. This [example](#gdbus-example-gdbus-codegen) shows how this can
+/// easily be done using the [gdbus-codegen](#gdbus-codegen) tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
 /// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
 /// and `GObject::notify`) are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
@@ -6028,7 +6028,7 @@ public extension DBusProxyRef {
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6059,7 +6059,7 @@ public extension DBusProxyRef {
     /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6090,7 +6090,7 @@ public extension DBusProxyRef {
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6121,7 +6121,7 @@ public extension DBusProxyRef {
     /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6162,13 +6162,13 @@ public extension DBusProxyRef {
 /// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
-/// class. This [example][gdbus-example-gdbus-codegen] shows how this can
-/// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
+/// class. This [example](#gdbus-example-gdbus-codegen) shows how this can
+/// easily be done using the [gdbus-codegen](#gdbus-codegen) tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
 /// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
 /// and `GObject::notify`) are emitted in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
@@ -6233,7 +6233,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public convenience init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6264,7 +6264,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public convenience init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6296,7 +6296,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6327,7 +6327,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
-    /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
+    /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
@@ -6469,7 +6469,7 @@ public enum DBusProxySignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If this property is not `G_BUS_TYPE_NONE`, then
@@ -6594,7 +6594,7 @@ public extension DBusProxyProtocol {
     /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread you are calling this method from.
     /// You can then call `g_dbus_proxy_call_finish()` to get the result of
     /// the operation. See `g_dbus_proxy_call_sync()` for the synchronous
@@ -7050,7 +7050,7 @@ public extension DBusServerRef {
     /// The returned `GDBusServer` isn't active - you have to start it with
     /// `g_dbus_server_start()`.
     /// 
-    /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
+    /// `GDBusServer` is used in this [example](#gdbus-peer-to-peer).
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
@@ -7078,7 +7078,7 @@ public extension DBusServerRef {
     /// The returned `GDBusServer` isn't active - you have to start it with
     /// `g_dbus_server_start()`.
     /// 
-    /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
+    /// `GDBusServer` is used in this [example](#gdbus-peer-to-peer).
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
@@ -7166,7 +7166,7 @@ open class DBusServer: Object, DBusServerProtocol {
     /// The returned `GDBusServer` isn't active - you have to start it with
     /// `g_dbus_server_start()`.
     /// 
-    /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
+    /// `GDBusServer` is used in this [example](#gdbus-peer-to-peer).
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
@@ -7195,7 +7195,7 @@ open class DBusServer: Object, DBusServerProtocol {
     /// The returned `GDBusServer` isn't active - you have to start it with
     /// `g_dbus_server_start()`.
     /// 
-    /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
+    /// `GDBusServer` is used in this [example](#gdbus-peer-to-peer).
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
@@ -7276,7 +7276,7 @@ public enum DBusServerSignalName: String, SignalNameProtocol {
     /// If `GDBusServer:flags` contains `G_DBUS_SERVER_FLAGS_RUN_IN_THREAD`
     /// then the signal is emitted in a new thread dedicated to the
     /// connection. Otherwise the signal is emitted in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread that `server` was constructed in.
     /// 
     /// You are guaranteed that signal handlers for this signal runs
@@ -7306,7 +7306,7 @@ public enum DBusServerSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether the server is currently active.
@@ -7625,7 +7625,7 @@ public enum DataInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"
@@ -8214,7 +8214,7 @@ public enum DataOutputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"
@@ -8590,7 +8590,7 @@ public enum EmblemSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyIcon = "notify::icon"

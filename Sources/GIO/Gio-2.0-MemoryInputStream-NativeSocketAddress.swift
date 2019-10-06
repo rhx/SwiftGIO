@@ -211,7 +211,7 @@ public enum MemoryInputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -570,7 +570,7 @@ public enum MemoryOutputStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Pointer to buffer where data will be written.
@@ -916,7 +916,7 @@ public enum MenuSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -1245,7 +1245,7 @@ public enum MenuAttributeIterSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -1870,7 +1870,7 @@ public enum MenuItemSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -2229,7 +2229,7 @@ public enum MenuLinkIterSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -2367,7 +2367,7 @@ public extension MenuLinkIterProtocol {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ```` An example menu `` {`menu`-example}
+/// ## An example menu # <a name="menu-example"></a>
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2383,17 +2383,17 @@ public extension MenuLinkIterProtocol {
 /// - the Sources section (containing 2 items)
 /// - the Markup section (containing 2 items)
 /// 
-/// The [example][menu-model] illustrates the conceptual connection between
+/// The [example](#menu-model) illustrates the conceptual connection between
 /// these 8 menus. Each large block in the figure represents a menu and the
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ```` A menu example `` {`menu`-model}
+/// ## A menu example # <a name="menu-model"></a>
 /// 
 /// ![](menu-model.png)
 /// 
-/// Notice that the separators visible in the [example][menu-example]
-/// appear nowhere in the [menu model][menu-model]. This is because
+/// Notice that the separators visible in the [example](#menu-example)
+/// appear nowhere in the [menu model](#menu-model). This is because
 /// separators are not explicitly represented in the menu model. Instead,
 /// a separator is inserted between any two non-empty sections of a menu.
 /// Section items can have labels just like any other item. In that case,
@@ -2404,8 +2404,8 @@ public extension MenuLinkIterProtocol {
 /// outside the application. Examples include global menus, jumplists,
 /// dash boards, etc. To support such uses, it is necessary to 'export'
 /// information about actions and their representation in menus, which
-/// is exactly what the [GActionGroup exporter][gio-GActionGroup-exporter]
-/// and the [GMenuModel exporter][gio-GMenuModel-exporter] do for
+/// is exactly what the [GActionGroup exporter](#gio-GActionGroup-exporter)
+/// and the [GMenuModel exporter](#gio-GMenuModel-exporter) do for
 /// `GActionGroup` and `GMenuModel`. The client-side counterparts to
 /// make use of the exported information are `GDBusActionGroup` and
 /// `GDBusMenuModel`.
@@ -2436,13 +2436,13 @@ public extension MenuLinkIterProtocol {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ```` Stateless
+/// ## Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ```` Boolean State
+/// ## Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2451,7 +2451,7 @@ public extension MenuLinkIterProtocol {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ```` String Parameter and State
+/// ## String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2492,7 +2492,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ```` An example menu `` {`menu`-example}
+/// ## An example menu # <a name="menu-example"></a>
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2508,17 +2508,17 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// - the Sources section (containing 2 items)
 /// - the Markup section (containing 2 items)
 /// 
-/// The [example][menu-model] illustrates the conceptual connection between
+/// The [example](#menu-model) illustrates the conceptual connection between
 /// these 8 menus. Each large block in the figure represents a menu and the
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ```` A menu example `` {`menu`-model}
+/// ## A menu example # <a name="menu-model"></a>
 /// 
 /// ![](menu-model.png)
 /// 
-/// Notice that the separators visible in the [example][menu-example]
-/// appear nowhere in the [menu model][menu-model]. This is because
+/// Notice that the separators visible in the [example](#menu-example)
+/// appear nowhere in the [menu model](#menu-model). This is because
 /// separators are not explicitly represented in the menu model. Instead,
 /// a separator is inserted between any two non-empty sections of a menu.
 /// Section items can have labels just like any other item. In that case,
@@ -2529,8 +2529,8 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// outside the application. Examples include global menus, jumplists,
 /// dash boards, etc. To support such uses, it is necessary to 'export'
 /// information about actions and their representation in menus, which
-/// is exactly what the [GActionGroup exporter][gio-GActionGroup-exporter]
-/// and the [GMenuModel exporter][gio-GMenuModel-exporter] do for
+/// is exactly what the [GActionGroup exporter](#gio-GActionGroup-exporter)
+/// and the [GMenuModel exporter](#gio-GMenuModel-exporter) do for
 /// `GActionGroup` and `GMenuModel`. The client-side counterparts to
 /// make use of the exported information are `GDBusActionGroup` and
 /// `GDBusMenuModel`.
@@ -2561,13 +2561,13 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ```` Stateless
+/// ## Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ```` Boolean State
+/// ## Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2576,7 +2576,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ```` String Parameter and State
+/// ## String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2657,7 +2657,7 @@ public extension MenuModelRef {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ```` An example menu `` {`menu`-example}
+/// ## An example menu # <a name="menu-example"></a>
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2673,17 +2673,17 @@ public extension MenuModelRef {
 /// - the Sources section (containing 2 items)
 /// - the Markup section (containing 2 items)
 /// 
-/// The [example][menu-model] illustrates the conceptual connection between
+/// The [example](#menu-model) illustrates the conceptual connection between
 /// these 8 menus. Each large block in the figure represents a menu and the
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ```` A menu example `` {`menu`-model}
+/// ## A menu example # <a name="menu-model"></a>
 /// 
 /// ![](menu-model.png)
 /// 
-/// Notice that the separators visible in the [example][menu-example]
-/// appear nowhere in the [menu model][menu-model]. This is because
+/// Notice that the separators visible in the [example](#menu-example)
+/// appear nowhere in the [menu model](#menu-model). This is because
 /// separators are not explicitly represented in the menu model. Instead,
 /// a separator is inserted between any two non-empty sections of a menu.
 /// Section items can have labels just like any other item. In that case,
@@ -2694,8 +2694,8 @@ public extension MenuModelRef {
 /// outside the application. Examples include global menus, jumplists,
 /// dash boards, etc. To support such uses, it is necessary to 'export'
 /// information about actions and their representation in menus, which
-/// is exactly what the [GActionGroup exporter][gio-GActionGroup-exporter]
-/// and the [GMenuModel exporter][gio-GMenuModel-exporter] do for
+/// is exactly what the [GActionGroup exporter](#gio-GActionGroup-exporter)
+/// and the [GMenuModel exporter](#gio-GMenuModel-exporter) do for
 /// `GActionGroup` and `GMenuModel`. The client-side counterparts to
 /// make use of the exported information are `GDBusActionGroup` and
 /// `GDBusMenuModel`.
@@ -2726,13 +2726,13 @@ public extension MenuModelRef {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ```` Stateless
+/// ## Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ```` Boolean State
+/// ## Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2741,7 +2741,7 @@ public extension MenuModelRef {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ```` String Parameter and State
+/// ## String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2841,7 +2841,7 @@ public enum MenuModelSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3273,7 +3273,7 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Emitted when the user has replied to the mount operation.
@@ -3803,7 +3803,7 @@ public enum NativeSocketAddressSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyFamily = "notify::family"

@@ -1402,7 +1402,7 @@ public extension DBusNodeInfoRef {
     /// <node> element.
     /// 
     /// Note that this routine is using a
-    /// [GMarkup][glib-Simple-XML-Subset-Parser.description]-based
+    /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     init(xml xml_data: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1418,7 +1418,7 @@ public extension DBusNodeInfoRef {
     /// <node> element.
     /// 
     /// Note that this routine is using a
-    /// [GMarkup][glib-Simple-XML-Subset-Parser.description]-based
+    /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     static func newFor(xml xml_data: UnsafePointer<gchar>) throws -> DBusNodeInfoRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1488,7 +1488,7 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// <node> element.
     /// 
     /// Note that this routine is using a
-    /// [GMarkup][glib-Simple-XML-Subset-Parser.description]-based
+    /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     public convenience init(xml xml_data: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1505,7 +1505,7 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// <node> element.
     /// 
     /// Note that this routine is using a
-    /// [GMarkup][glib-Simple-XML-Subset-Parser.description]-based
+    /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     public static func newFor(xml xml_data: UnsafePointer<gchar>) throws -> DBusNodeInfo! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil

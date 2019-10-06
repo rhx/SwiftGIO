@@ -35,7 +35,7 @@ import GLibObject
 /// 
 /// Normally, a schema has a fixed path that determines where the settings
 /// are stored in the conceptual global tree of settings. However, schemas
-/// can also be '[relocatable][gsettings-relocatable]', i.e. not equipped with
+/// can also be '[relocatable](#gsettings-relocatable)', i.e. not equipped with
 /// a fixed path. This is
 /// useful e.g. when the schema describes an 'account', and you want to be
 /// able to store a arbitrary number of accounts.
@@ -84,13 +84,13 @@ import GLibObject
 /// errors will occur.
 /// 
 /// GSettings uses schemas in a compact binary form that is created
-/// by the [glib-compile-schemas][glib-compile-schemas]
+/// by the [glib-compile-schemas](#glib-compile-schemas)
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
 /// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
 /// 
-/// The [glib-compile-schemas][glib-compile-schemas] tool expects schema
+/// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
@@ -105,7 +105,7 @@ import GLibObject
 /// In addition to `GVariant` types, keys can have types that have
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
-/// [example][schema-enumerated]. The underlying type of such a key
+/// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
@@ -182,13 +182,13 @@ import GLibObject
 /// </schemalist>
 /// ```
 /// 
-/// ```` Vendor overrides
+/// ## Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
 /// to adjust these defaults. Since patching the XML source for the schema
 /// is inconvenient and error-prone,
-/// [glib-compile-schemas][glib-compile-schemas] reads so-called vendor
+/// [glib-compile-schemas](#glib-compile-schemas) reads so-called vendor
 /// override' files. These are keyfiles in the same directory as the XML
 /// schema sources which can override default values. The schema id serves
 /// as the group name in the key file, and the values are expected in
@@ -202,7 +202,7 @@ import GLibObject
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ```` Binding
+/// ## Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
 /// directly to settings, using `g_settings_bind()`. Once a GObject property
@@ -217,7 +217,7 @@ import GLibObject
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ```` Relocatable schemas `` {`gsettings`-relocatable}
+/// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
 /// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
@@ -240,7 +240,7 @@ import GLibObject
 /// </schema>
 /// ```
 /// 
-/// ```` Build system integration `` {`gsettings`-build-system}
+/// ## Build system integration # <a name="gsettings-build-system"></a>
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -331,7 +331,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// 
 /// Normally, a schema has a fixed path that determines where the settings
 /// are stored in the conceptual global tree of settings. However, schemas
-/// can also be '[relocatable][gsettings-relocatable]', i.e. not equipped with
+/// can also be '[relocatable](#gsettings-relocatable)', i.e. not equipped with
 /// a fixed path. This is
 /// useful e.g. when the schema describes an 'account', and you want to be
 /// able to store a arbitrary number of accounts.
@@ -380,13 +380,13 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// errors will occur.
 /// 
 /// GSettings uses schemas in a compact binary form that is created
-/// by the [glib-compile-schemas][glib-compile-schemas]
+/// by the [glib-compile-schemas](#glib-compile-schemas)
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
 /// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
 /// 
-/// The [glib-compile-schemas][glib-compile-schemas] tool expects schema
+/// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
@@ -401,7 +401,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// In addition to `GVariant` types, keys can have types that have
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
-/// [example][schema-enumerated]. The underlying type of such a key
+/// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
@@ -478,13 +478,13 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// </schemalist>
 /// ```
 /// 
-/// ```` Vendor overrides
+/// ## Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
 /// to adjust these defaults. Since patching the XML source for the schema
 /// is inconvenient and error-prone,
-/// [glib-compile-schemas][glib-compile-schemas] reads so-called vendor
+/// [glib-compile-schemas](#glib-compile-schemas) reads so-called vendor
 /// override' files. These are keyfiles in the same directory as the XML
 /// schema sources which can override default values. The schema id serves
 /// as the group name in the key file, and the values are expected in
@@ -498,7 +498,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ```` Binding
+/// ## Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
 /// directly to settings, using `g_settings_bind()`. Once a GObject property
@@ -513,7 +513,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ```` Relocatable schemas `` {`gsettings`-relocatable}
+/// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
 /// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
@@ -536,7 +536,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// </schema>
 /// ```
 /// 
-/// ```` Build system integration `` {`gsettings`-build-system}
+/// ## Build system integration # <a name="gsettings-build-system"></a>
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -815,7 +815,7 @@ public extension SettingsRef {
 /// 
 /// Normally, a schema has a fixed path that determines where the settings
 /// are stored in the conceptual global tree of settings. However, schemas
-/// can also be '[relocatable][gsettings-relocatable]', i.e. not equipped with
+/// can also be '[relocatable](#gsettings-relocatable)', i.e. not equipped with
 /// a fixed path. This is
 /// useful e.g. when the schema describes an 'account', and you want to be
 /// able to store a arbitrary number of accounts.
@@ -864,13 +864,13 @@ public extension SettingsRef {
 /// errors will occur.
 /// 
 /// GSettings uses schemas in a compact binary form that is created
-/// by the [glib-compile-schemas][glib-compile-schemas]
+/// by the [glib-compile-schemas](#glib-compile-schemas)
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
 /// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
 /// 
-/// The [glib-compile-schemas][glib-compile-schemas] tool expects schema
+/// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
@@ -885,7 +885,7 @@ public extension SettingsRef {
 /// In addition to `GVariant` types, keys can have types that have
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
-/// [example][schema-enumerated]. The underlying type of such a key
+/// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
@@ -962,13 +962,13 @@ public extension SettingsRef {
 /// </schemalist>
 /// ```
 /// 
-/// ```` Vendor overrides
+/// ## Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
 /// to adjust these defaults. Since patching the XML source for the schema
 /// is inconvenient and error-prone,
-/// [glib-compile-schemas][glib-compile-schemas] reads so-called vendor
+/// [glib-compile-schemas](#glib-compile-schemas) reads so-called vendor
 /// override' files. These are keyfiles in the same directory as the XML
 /// schema sources which can override default values. The schema id serves
 /// as the group name in the key file, and the values are expected in
@@ -982,7 +982,7 @@ public extension SettingsRef {
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ```` Binding
+/// ## Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
 /// directly to settings, using `g_settings_bind()`. Once a GObject property
@@ -997,7 +997,7 @@ public extension SettingsRef {
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ```` Relocatable schemas `` {`gsettings`-relocatable}
+/// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
 /// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
@@ -1020,7 +1020,7 @@ public extension SettingsRef {
 /// </schema>
 /// ```
 /// 
-/// ```` Build system integration `` {`gsettings`-build-system}
+/// ## Build system integration # <a name="gsettings-build-system"></a>
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -1387,7 +1387,7 @@ public enum SettingsSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The "writable-change-event" signal is emitted once per writability
@@ -2275,7 +2275,7 @@ public enum SettingsBackendSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -2735,7 +2735,7 @@ public enum SimpleActionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If `action` is currently enabled.
@@ -2981,7 +2981,7 @@ public enum SimpleActionGroupSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3122,7 +3122,7 @@ public extension SimpleActionGroupProtocol {
 /// `g_simple_async_result_complete()` will finish an I/O task directly
 /// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GSimpleAsyncResult` was created.
 /// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
@@ -3301,7 +3301,7 @@ public protocol SimpleAsyncResultProtocol: ObjectProtocol, AsyncResultProtocol {
 /// `g_simple_async_result_complete()` will finish an I/O task directly
 /// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GSimpleAsyncResult` was created.
 /// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
@@ -3582,7 +3582,7 @@ public extension SimpleAsyncResultRef {
 /// `g_simple_async_result_complete()` will finish an I/O task directly
 /// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GSimpleAsyncResult` was created.
 /// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
@@ -3831,7 +3831,7 @@ public enum SimpleAsyncResultSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3885,7 +3885,7 @@ public extension SimpleAsyncResultProtocol {
     }
 
     /// Completes an asynchronous function in an idle handler in the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// of the thread that `simple` was initially created in
     /// (and re-pushes that context around the invocation of the callback).
     /// 
@@ -4355,7 +4355,7 @@ public enum SimpleIOStreamSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyClosed = "notify::closed"
@@ -4610,7 +4610,7 @@ public enum SimplePermissionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// `true` if the caller currently has permission to perform the action that
@@ -4902,7 +4902,7 @@ public enum SimpleProxyResolverSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The default proxy URI that will be used for any URI that doesn't
@@ -5494,7 +5494,7 @@ public enum SocketSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBlocking = "notify::blocking"
@@ -5895,7 +5895,7 @@ public extension SocketProtocol {
     /// `getsockopt()`. (If you need to fetch a  non-integer-valued option,
     /// you will need to call `getsockopt()` directly.)
     /// 
-    /// The [<gio/gnetworking.h>][gio-gnetworking.h]
+    /// The [<gio/gnetworking.h>](#gio-gnetworking.h)
     /// header pulls in system headers that will define most of the
     /// standard/portable socket options. For unusual socket protocols or
     /// platform-dependent options, you may need to include additional
@@ -6460,7 +6460,7 @@ public extension SocketProtocol {
     /// `setsockopt()`. (If you need to set a non-integer-valued option,
     /// you will need to call `setsockopt()` directly.)
     /// 
-    /// The [<gio/gnetworking.h>][gio-gnetworking.h]
+    /// The [<gio/gnetworking.h>](#gio-gnetworking.h)
     /// header pulls in system headers that will define most of the
     /// standard/portable socket options. For unusual socket protocols or
     /// platform-dependent options, you may need to include additional
@@ -7022,7 +7022,7 @@ public enum SocketAddressSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyFamily = "notify::family"
@@ -7292,7 +7292,7 @@ public enum SocketAddressEnumeratorSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -7662,7 +7662,7 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyEnableProxy = "notify::enable-proxy"
@@ -8528,7 +8528,7 @@ public enum SocketConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyClosed = "notify::closed"
@@ -8878,7 +8878,7 @@ public enum SocketControlMessageSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -9220,7 +9220,7 @@ public enum SocketListenerSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyListenBacklog = "notify::listen-backlog"
@@ -9482,7 +9482,7 @@ public extension SocketListenerProtocol {
 /// blocking code then see `GThreadedSocketService`.
 /// 
 /// The socket service runs on the main loop of the
-/// [thread-default context][g-main-context-push-thread-default-context]
+/// [thread-default context](#g-main-context-push-thread-default-context)
 /// of the thread it is created in, and is not
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
@@ -9520,7 +9520,7 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
 /// blocking code then see `GThreadedSocketService`.
 /// 
 /// The socket service runs on the main loop of the
-/// [thread-default context][g-main-context-push-thread-default-context]
+/// [thread-default context](#g-main-context-push-thread-default-context)
 /// of the thread it is created in, and is not
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
@@ -9609,7 +9609,7 @@ public extension SocketServiceRef {
 /// blocking code then see `GThreadedSocketService`.
 /// 
 /// The socket service runs on the main loop of the
-/// [thread-default context][g-main-context-push-thread-default-context]
+/// [thread-default context](#g-main-context-push-thread-default-context)
 /// of the thread it is created in, and is not
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
@@ -9745,7 +9745,7 @@ public enum SocketServiceSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether the service is currently accepting connections.
@@ -10225,7 +10225,7 @@ public enum SubprocessSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyArgv = "notify::argv"
@@ -10983,7 +10983,7 @@ public enum SubprocessLauncherSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyFlags = "notify::flags"
@@ -11280,7 +11280,7 @@ public extension SubprocessLauncherProtocol {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ```` Asynchronous operations
+/// ## Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
@@ -11292,7 +11292,7 @@ public extension SubprocessLauncherProtocol {
 /// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
@@ -11395,13 +11395,13 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Chained asynchronous operations
+/// ## Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
 /// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
 /// and `g_task_get_priority()` allow you to get back the task's
-/// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
+/// `GCancellable`, `GMainContext`, and [I/O priority](#io-priority)
 /// when starting a new subtask, so you don't have to keep track
 /// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
@@ -11536,12 +11536,12 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Asynchronous operations from synchronous ones
+/// ## Asynchronous operations from synchronous ones
 /// 
 /// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
@@ -11617,7 +11617,7 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Adding cancellability to uncancellable tasks
+/// ## Adding cancellability to uncancellable tasks
 /// 
 /// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
@@ -11725,7 +11725,7 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Porting from GSimpleAsyncResult
+/// ## Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
@@ -11734,7 +11734,7 @@ public extension SubprocessLauncherProtocol {
 ///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
-///   [priority][io-priority], `GCancellable`, and
+///   [priority](#io-priority), `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
@@ -11794,7 +11794,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ```` Asynchronous operations
+/// ## Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
@@ -11806,7 +11806,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 /// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
@@ -11909,13 +11909,13 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Chained asynchronous operations
+/// ## Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
 /// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
 /// and `g_task_get_priority()` allow you to get back the task's
-/// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
+/// `GCancellable`, `GMainContext`, and [I/O priority](#io-priority)
 /// when starting a new subtask, so you don't have to keep track
 /// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
@@ -12050,12 +12050,12 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Asynchronous operations from synchronous ones
+/// ## Asynchronous operations from synchronous ones
 /// 
 /// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
@@ -12131,7 +12131,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Adding cancellability to uncancellable tasks
+/// ## Adding cancellability to uncancellable tasks
 /// 
 /// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
@@ -12239,7 +12239,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// ```` Porting from GSimpleAsyncResult
+/// ## Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
@@ -12248,7 +12248,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
-///   [priority][io-priority], `GCancellable`, and
+///   [priority](#io-priority), `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
@@ -12342,7 +12342,7 @@ public extension TaskRef {
 
         /// Creates a `GTask` acting on `source_object`, which will eventually be
     /// used to invoke `callback` in the current
-    /// [thread-default main context][g-main-context-push-thread-default].
+    /// [thread-default main context](#g-main-context-push-thread-default).
     /// 
     /// Call this in the "start" method of your asynchronous method, and
     /// pass the `GTask` around throughout the asynchronous operation. You
@@ -12368,7 +12368,7 @@ public extension TaskRef {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ```` Asynchronous operations
+/// ## Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
@@ -12380,7 +12380,7 @@ public extension TaskRef {
 /// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
@@ -12483,13 +12483,13 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// ```` Chained asynchronous operations
+/// ## Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
 /// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
 /// and `g_task_get_priority()` allow you to get back the task's
-/// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
+/// `GCancellable`, `GMainContext`, and [I/O priority](#io-priority)
 /// when starting a new subtask, so you don't have to keep track
 /// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
@@ -12624,12 +12624,12 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// ```` Asynchronous operations from synchronous ones
+/// ## Asynchronous operations from synchronous ones
 /// 
 /// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
@@ -12705,7 +12705,7 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// ```` Adding cancellability to uncancellable tasks
+/// ## Adding cancellability to uncancellable tasks
 /// 
 /// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
@@ -12813,7 +12813,7 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// ```` Porting from GSimpleAsyncResult
+/// ## Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
@@ -12822,7 +12822,7 @@ public extension TaskRef {
 ///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
-///   [priority][io-priority], `GCancellable`, and
+///   [priority](#io-priority), `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
@@ -12908,7 +12908,7 @@ open class Task: Object, TaskProtocol {
 
     /// Creates a `GTask` acting on `source_object`, which will eventually be
     /// used to invoke `callback` in the current
-    /// [thread-default main context][g-main-context-push-thread-default].
+    /// [thread-default main context](#g-main-context-push-thread-default).
     /// 
     /// Call this in the "start" method of your asynchronous method, and
     /// pass the `GTask` around throughout the asynchronous operation. You
@@ -13002,7 +13002,7 @@ public enum TaskSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether the task has completed, meaning its callback (if set) has been
@@ -13051,7 +13051,7 @@ public extension TaskProtocol {
 
     /// A utility function for dealing with async operations where you need
     /// to wait for a `GSource` to trigger. Attaches `source` to `task`'s
-    /// `GMainContext` with `task`'s [priority][io-priority], and sets `source`'s
+    /// `GMainContext` with `task`'s [priority](#io-priority), and sets `source`'s
     /// callback to `callback`, with `task` as the callback's `user_data`.
     /// 
     /// It will set the `source`’s name to the task’s name (as set with
@@ -13086,7 +13086,7 @@ public extension TaskProtocol {
 
     /// Gets the `GMainContext` that `task` will return its result in (that
     /// is, the context that was the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// at the point when `task` was created).
     /// 
     /// This will always return a non-`nil` value, even if the task's
@@ -13447,7 +13447,7 @@ public extension TaskProtocol {
 
     /// Gets the `GMainContext` that `task` will return its result in (that
     /// is, the context that was the
-    /// [thread-default main context][g-main-context-push-thread-default]
+    /// [thread-default main context](#g-main-context-push-thread-default)
     /// at the point when `task` was created).
     /// 
     /// This will always return a non-`nil` value, even if the task's
@@ -13455,7 +13455,7 @@ public extension TaskProtocol {
     var context: UnsafeMutablePointer<GMainContext>! {
         /// Gets the `GMainContext` that `task` will return its result in (that
         /// is, the context that was the
-        /// [thread-default main context][g-main-context-push-thread-default]
+        /// [thread-default main context](#g-main-context-push-thread-default)
         /// at the point when `task` was created).
         /// 
         /// This will always return a non-`nil` value, even if the task's

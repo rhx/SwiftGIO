@@ -188,7 +188,7 @@ public enum TcpConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyClosed = "notify::closed"
@@ -482,7 +482,7 @@ public enum TcpWrapperConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseIoStream = "notify::base-io-stream"
@@ -558,7 +558,7 @@ public extension TcpWrapperConnectionProtocol {
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ```` Creating unit tests using GTestDBus
+/// ## Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -643,7 +643,7 @@ public protocol TestDBusProtocol: ObjectProtocol {
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ```` Creating unit tests using GTestDBus
+/// ## Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -773,7 +773,7 @@ public extension TestDBusRef {
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ```` Creating unit tests using GTestDBus
+/// ## Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -948,7 +948,7 @@ public enum TestDBusSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// `GTestDBusFlags` specifying the behaviour of the D-Bus session.
@@ -1404,7 +1404,7 @@ public enum ThemedIconSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The icon name.
@@ -1747,7 +1747,7 @@ public enum ThreadedSocketServiceSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `run` signal is emitted in a worker thread in response to an
@@ -2289,7 +2289,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The DER (binary) encoded representation of the certificate.
@@ -2721,7 +2721,7 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The list of application-layer protocols that the connection
@@ -3510,7 +3510,7 @@ public enum TLSDatabaseSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3944,7 +3944,7 @@ public enum TLSInteractionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -4350,7 +4350,7 @@ public enum TLSPasswordSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyDescription = "notify::description"
@@ -4714,7 +4714,7 @@ public enum UnixConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyClosed = "notify::closed"

@@ -291,7 +291,7 @@ public extension ResolverPrivateProtocol {
 /// icons, etc. These are often shipped as files in `$datadir/appname`, or
 /// manually included as literal strings in the code.
 /// 
-/// The `GResource` API and the [glib-compile-resources][glib-compile-resources] program
+/// The `GResource` API and the [glib-compile-resources](#glib-compile-resources) program
 /// provide a convenient and efficient alternative to this which has some nice properties. You
 /// maintain the files as normal files, so its easy to edit them, but during the build the files
 /// are combined into a binary bundle that is linked into the executable. This means that loading
@@ -327,7 +327,7 @@ public extension ResolverPrivateProtocol {
 /// include files from a different source directory without exposing the source
 /// directory in the resource namespace, as in the example below.
 /// 
-/// Resource bundles are created by the [glib-compile-resources][glib-compile-resources] program
+/// Resource bundles are created by the [glib-compile-resources](#glib-compile-resources) program
 /// which takes an XML file that describes the bundle, and a set of files that the XML references. These
 /// are combined into a binary resource bundle.
 /// 
@@ -355,12 +355,12 @@ public extension ResolverPrivateProtocol {
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
-/// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
+/// You can then use [glib-compile-resources](#glib-compile-resources) to compile the XML to a
 /// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
 /// This will generate ``get_resource()``, ``register_resource()`` and
 /// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
+/// to [glib-compile-resources](#glib-compile-resources). ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
 /// `g_resources_lookup_data()`.
@@ -428,7 +428,7 @@ public protocol ResourceProtocol {
 /// icons, etc. These are often shipped as files in `$datadir/appname`, or
 /// manually included as literal strings in the code.
 /// 
-/// The `GResource` API and the [glib-compile-resources][glib-compile-resources] program
+/// The `GResource` API and the [glib-compile-resources](#glib-compile-resources) program
 /// provide a convenient and efficient alternative to this which has some nice properties. You
 /// maintain the files as normal files, so its easy to edit them, but during the build the files
 /// are combined into a binary bundle that is linked into the executable. This means that loading
@@ -464,7 +464,7 @@ public protocol ResourceProtocol {
 /// include files from a different source directory without exposing the source
 /// directory in the resource namespace, as in the example below.
 /// 
-/// Resource bundles are created by the [glib-compile-resources][glib-compile-resources] program
+/// Resource bundles are created by the [glib-compile-resources](#glib-compile-resources) program
 /// which takes an XML file that describes the bundle, and a set of files that the XML references. These
 /// are combined into a binary resource bundle.
 /// 
@@ -492,12 +492,12 @@ public protocol ResourceProtocol {
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
-/// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
+/// You can then use [glib-compile-resources](#glib-compile-resources) to compile the XML to a
 /// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
 /// This will generate ``get_resource()``, ``register_resource()`` and
 /// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
+/// to [glib-compile-resources](#glib-compile-resources). ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
 /// `g_resources_lookup_data()`.
@@ -664,7 +664,7 @@ public extension ResourceRef {
 /// icons, etc. These are often shipped as files in `$datadir/appname`, or
 /// manually included as literal strings in the code.
 /// 
-/// The `GResource` API and the [glib-compile-resources][glib-compile-resources] program
+/// The `GResource` API and the [glib-compile-resources](#glib-compile-resources) program
 /// provide a convenient and efficient alternative to this which has some nice properties. You
 /// maintain the files as normal files, so its easy to edit them, but during the build the files
 /// are combined into a binary bundle that is linked into the executable. This means that loading
@@ -700,7 +700,7 @@ public extension ResourceRef {
 /// include files from a different source directory without exposing the source
 /// directory in the resource namespace, as in the example below.
 /// 
-/// Resource bundles are created by the [glib-compile-resources][glib-compile-resources] program
+/// Resource bundles are created by the [glib-compile-resources](#glib-compile-resources) program
 /// which takes an XML file that describes the bundle, and a set of files that the XML references. These
 /// are combined into a binary resource bundle.
 /// 
@@ -728,12 +728,12 @@ public extension ResourceRef {
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
-/// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
+/// You can then use [glib-compile-resources](#glib-compile-resources) to compile the XML to a
 /// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
 /// This will generate ``get_resource()``, ``register_resource()`` and
 /// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
+/// to [glib-compile-resources](#glib-compile-resources). ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
 /// `g_resources_lookup_data()`.

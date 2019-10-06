@@ -3228,7 +3228,7 @@ public extension DtlsServerConnectionProtocol {
 /// shared main loop, such as in the main thread of an application. This avoids
 /// I/O operations blocking other sources on the main loop from being dispatched.
 /// Synchronous I/O operations should be performed from worker threads. See the
-/// [introduction to asynchronous programming section][async-programming] for
+/// [introduction to asynchronous programming section](#async-programming) for
 /// more.
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
@@ -3237,7 +3237,7 @@ public extension DtlsServerConnectionProtocol {
 /// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
 /// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ```` Entity Tags `` {`gfile`-etag}
+/// ## Entity Tags # <a name="gfile-etag"></a>
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -3321,7 +3321,7 @@ public protocol FileProtocol {
 /// shared main loop, such as in the main thread of an application. This avoids
 /// I/O operations blocking other sources on the main loop from being dispatched.
 /// Synchronous I/O operations should be performed from worker threads. See the
-/// [introduction to asynchronous programming section][async-programming] for
+/// [introduction to asynchronous programming section](#async-programming) for
 /// more.
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
@@ -3330,7 +3330,7 @@ public protocol FileProtocol {
 /// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
 /// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ```` Entity Tags `` {`gfile`-etag}
+/// ## Entity Tags # <a name="gfile-etag"></a>
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -3537,7 +3537,7 @@ public extension FileRef {
 /// shared main loop, such as in the main thread of an application. This avoids
 /// I/O operations blocking other sources on the main loop from being dispatched.
 /// Synchronous I/O operations should be performed from worker threads. See the
-/// [introduction to asynchronous programming section][async-programming] for
+/// [introduction to asynchronous programming section](#async-programming) for
 /// more.
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
@@ -3546,7 +3546,7 @@ public extension FileRef {
 /// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
 /// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ```` Entity Tags `` {`gfile`-etag}
+/// ## Entity Tags # <a name="gfile-etag"></a>
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -5558,7 +5558,7 @@ public extension FileProtocol {
     }
 
     /// Checks if `file` supports
-    /// [thread-default contexts][g-main-context-push-thread-default-context].
+    /// [thread-default contexts](#g-main-context-push-thread-default-context).
     /// If this returns `false`, you cannot perform asynchronous operations on
     /// `file` in a thread that has a thread-default context.
     func supportsThreadContexts() -> Bool {

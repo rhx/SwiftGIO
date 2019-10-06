@@ -6,7 +6,7 @@ import GLibObject
 /// operation within GIO has been completed. `GAsyncReadyCallback`
 /// callbacks from `GTask` are guaranteed to be invoked in a later
 /// iteration of the
-/// [thread-default main context][g-main-context-push-thread-default]
+/// [thread-default main context](#g-main-context-push-thread-default)
 /// where the `GTask` was created. All other users of
 /// `GAsyncReadyCallback` must likewise call it asynchronously in a
 /// later iteration of the main context.
@@ -110,7 +110,7 @@ public typealias DBusMessageFilterFunction = GDBusMessageFilterFunction
 /// object proxy (if `interface_name` is `nil`).
 /// 
 /// This function is called in the
-/// [thread-default main loop][g-main-context-push-thread-default]
+/// [thread-default main loop](#g-main-context-push-thread-default)
 /// that `manager` was constructed in.
 public typealias DBusProxyTypeFunc = GDBusProxyTypeFunc
 

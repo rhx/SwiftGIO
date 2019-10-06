@@ -308,7 +308,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// A list of the distinguished names of the Certificate Authorities
@@ -806,7 +806,7 @@ public enum TLSFileDatabaseSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The path to a file containing PEM encoded certificate authority
@@ -1126,7 +1126,7 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     ///                   text_view)
     /// ```
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The list of application-layer protocols that the connection
@@ -1256,7 +1256,7 @@ public extension TLSServerConnectionProtocol {
 /// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ```` Volume Identifiers `` {`volume`-identifier}
+/// ## Volume Identifiers # <a name="volume-identifier"></a>
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1309,7 +1309,7 @@ public protocol VolumeProtocol {
 /// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ```` Volume Identifiers `` {`volume`-identifier}
+/// ## Volume Identifiers # <a name="volume-identifier"></a>
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1402,7 +1402,7 @@ public extension VolumeRef {
 /// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ```` Volume Identifiers `` {`volume`-identifier}
+/// ## Volume Identifiers # <a name="volume-identifier"></a>
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1571,7 +1571,7 @@ public extension VolumeProtocol {
         return Bool(rv != 0)
     }
 
-    /// Gets the kinds of [identifiers][volume-identifier] that `volume` has.
+    /// Gets the kinds of [identifiers](#volume-identifier) that `volume` has.
     /// Use `g_volume_get_identifier()` to obtain the identifiers themselves.
     func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
         let rv = g_volume_enumerate_identifiers(cast(volume_ptr))
@@ -1624,7 +1624,7 @@ public extension VolumeProtocol {
     }
 
     /// Gets the identifier of the given kind for `volume`.
-    /// See the [introduction][volume-identifier] for more
+    /// See the [introduction](#volume-identifier) for more
     /// information about volume identifiers.
     func getIdentifier(kind: UnsafePointer<CChar>) -> String! {
         let rv = g_volume_get_identifier(cast(volume_ptr), kind)
