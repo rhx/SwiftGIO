@@ -159,7 +159,7 @@ public extension DBusInterfaceProtocol {
     /// 
     /// It is not safe to use the returned object if `interface_` or
     /// the returned object is being used from other threads. See
-    /// g_dbus_interface_dup_object() for a thread-safe alternative.
+    /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
     func getObject() -> UnsafeMutablePointer<GDBusObject>! {
         let rv = g_dbus_interface_get_object(cast(dbus_interface_ptr))
         return cast(rv)
@@ -187,13 +187,13 @@ public extension DBusInterfaceProtocol {
     /// 
     /// It is not safe to use the returned object if `interface_` or
     /// the returned object is being used from other threads. See
-    /// g_dbus_interface_dup_object() for a thread-safe alternative.
+    /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
     var object: UnsafeMutablePointer<GDBusObject>! {
         /// Gets the `GDBusObject` that `interface_` belongs to, if any.
         /// 
         /// It is not safe to use the returned object if `interface_` or
         /// the returned object is being used from other threads. See
-        /// g_dbus_interface_dup_object() for a thread-safe alternative.
+        /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
         get {
             let rv = g_dbus_interface_get_object(cast(dbus_interface_ptr))
             return cast(rv)
@@ -682,7 +682,7 @@ public extension DBusObjectManagerProtocol {
 /// It uses vectored scatter/gather I/O by default, allowing for many messages
 /// to be sent or received in a single call. Where possible, implementations of
 /// the interface should take advantage of vectored I/O to minimise processing
-/// or system calls. For example, `GSocket` uses recvmmsg() and sendmmsg() where
+/// or system calls. For example, `GSocket` uses `recvmmsg()` and `sendmmsg()` where
 /// possible. Callers should take advantage of scatter/gather I/O (the use of
 /// multiple buffers per message) to avoid unnecessary copying of data to
 /// assemble or disassemble a message.
@@ -695,9 +695,9 @@ public extension DBusObjectManagerProtocol {
 /// will block until the operation is complete or the timeout expires; if the
 /// timeout expires it will return what progress it made, or
 /// `G_IO_ERROR_TIMED_OUT` if no progress was made. To know when a call would
-/// successfully run you can call g_datagram_based_condition_check() or
-/// g_datagram_based_condition_wait(). You can also use
-/// g_datagram_based_create_source() and attach it to a `GMainContext` to get
+/// successfully run you can call `g_datagram_based_condition_check()` or
+/// `g_datagram_based_condition_wait()`. You can also use
+/// `g_datagram_based_create_source()` and attach it to a `GMainContext` to get
 /// callbacks when I/O is possible.
 /// 
 /// When running a non-blocking operation applications should always be able to
@@ -741,7 +741,7 @@ public protocol DatagramBasedProtocol {
 /// It uses vectored scatter/gather I/O by default, allowing for many messages
 /// to be sent or received in a single call. Where possible, implementations of
 /// the interface should take advantage of vectored I/O to minimise processing
-/// or system calls. For example, `GSocket` uses recvmmsg() and sendmmsg() where
+/// or system calls. For example, `GSocket` uses `recvmmsg()` and `sendmmsg()` where
 /// possible. Callers should take advantage of scatter/gather I/O (the use of
 /// multiple buffers per message) to avoid unnecessary copying of data to
 /// assemble or disassemble a message.
@@ -754,9 +754,9 @@ public protocol DatagramBasedProtocol {
 /// will block until the operation is complete or the timeout expires; if the
 /// timeout expires it will return what progress it made, or
 /// `G_IO_ERROR_TIMED_OUT` if no progress was made. To know when a call would
-/// successfully run you can call g_datagram_based_condition_check() or
-/// g_datagram_based_condition_wait(). You can also use
-/// g_datagram_based_create_source() and attach it to a `GMainContext` to get
+/// successfully run you can call `g_datagram_based_condition_check()` or
+/// `g_datagram_based_condition_wait()`. You can also use
+/// `g_datagram_based_create_source()` and attach it to a `GMainContext` to get
 /// callbacks when I/O is possible.
 /// 
 /// When running a non-blocking operation applications should always be able to
@@ -840,7 +840,7 @@ public extension DatagramBasedRef {
 /// It uses vectored scatter/gather I/O by default, allowing for many messages
 /// to be sent or received in a single call. Where possible, implementations of
 /// the interface should take advantage of vectored I/O to minimise processing
-/// or system calls. For example, `GSocket` uses recvmmsg() and sendmmsg() where
+/// or system calls. For example, `GSocket` uses `recvmmsg()` and `sendmmsg()` where
 /// possible. Callers should take advantage of scatter/gather I/O (the use of
 /// multiple buffers per message) to avoid unnecessary copying of data to
 /// assemble or disassemble a message.
@@ -853,9 +853,9 @@ public extension DatagramBasedRef {
 /// will block until the operation is complete or the timeout expires; if the
 /// timeout expires it will return what progress it made, or
 /// `G_IO_ERROR_TIMED_OUT` if no progress was made. To know when a call would
-/// successfully run you can call g_datagram_based_condition_check() or
-/// g_datagram_based_condition_wait(). You can also use
-/// g_datagram_based_create_source() and attach it to a `GMainContext` to get
+/// successfully run you can call `g_datagram_based_condition_check()` or
+/// `g_datagram_based_condition_wait()`. You can also use
+/// `g_datagram_based_create_source()` and attach it to a `GMainContext` to get
 /// callbacks when I/O is possible.
 /// 
 /// When running a non-blocking operation applications should always be able to
@@ -941,28 +941,28 @@ public extension DatagramBasedProtocol {
     /// currently-satisfied conditions on `datagram_based`. The result is returned.
     /// 
     /// `G_IO_IN` will be set in the return value if data is available to read with
-    /// g_datagram_based_receive_messages(), or if the connection is closed remotely
+    /// `g_datagram_based_receive_messages()`, or if the connection is closed remotely
     /// (EOS); and if the datagram_based has not been closed locally using some
-    /// implementation-specific method (such as g_socket_close() or
-    /// g_socket_shutdown() with `shutdown_read` set, if it’s a `GSocket`).
+    /// implementation-specific method (such as `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_read` set, if it’s a `GSocket`).
     /// 
-    /// If the connection is shut down or closed (by calling g_socket_close() or
-    /// g_socket_shutdown() with `shutdown_read` set, if it’s a `GSocket`, for
+    /// If the connection is shut down or closed (by calling `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_read` set, if it’s a `GSocket`, for
     /// example), all calls to this function will return `G_IO_ERROR_CLOSED`.
     /// 
     /// `G_IO_OUT` will be set if it is expected that at least one byte can be sent
-    /// using g_datagram_based_send_messages() without blocking. It will not be set
+    /// using `g_datagram_based_send_messages()` without blocking. It will not be set
     /// if the datagram_based has been closed locally.
     /// 
     /// `G_IO_HUP` will be set if the connection has been closed locally.
     /// 
     /// `G_IO_ERR` will be set if there was an asynchronous error in transmitting data
-    /// previously enqueued using g_datagram_based_send_messages().
+    /// previously enqueued using `g_datagram_based_send_messages()`.
     /// 
     /// Note that on Windows, it is possible for an operation to return
     /// `G_IO_ERROR_WOULD_BLOCK` even immediately after
-    /// g_datagram_based_condition_check() has claimed that the `GDatagramBased` is
-    /// ready for writing. Rather than calling g_datagram_based_condition_check() and
+    /// `g_datagram_based_condition_check()` has claimed that the `GDatagramBased` is
+    /// ready for writing. Rather than calling `g_datagram_based_condition_check()` and
     /// then writing to the `GDatagramBased` if it succeeds, it is generally better to
     /// simply try writing right away, and try again later if the initial attempt
     /// returns `G_IO_ERROR_WOULD_BLOCK`.
@@ -1005,7 +1005,7 @@ public extension DatagramBasedProtocol {
     /// cause the source to trigger, reporting the current condition (which is
     /// likely 0 unless cancellation happened at the same time as a condition
     /// change). You can check for this in the callback using
-    /// g_cancellable_is_cancelled().
+    /// `g_cancellable_is_cancelled()`.
     func createSource(condition: GLib.IOCondition, cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
         let rv = g_datagram_based_create_source(cast(datagram_based_ptr), condition, cast(cancellable.ptr))
         return cast(rv)
@@ -1023,7 +1023,7 @@ public extension DatagramBasedProtocol {
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too. These
     /// flags affect the overall receive operation. Flags affecting individual
-    /// messages are returned in `GInputMessage`.flags.
+    /// messages are returned in `GInputMessage.flags`.
     /// 
     /// The other members of `GInputMessage` are treated as described in its
     /// documentation.
@@ -1041,19 +1041,19 @@ public extension DatagramBasedProtocol {
     /// before any messages are received, `G_IO_ERROR_TIMED_OUT` is returned,
     /// otherwise it will return the number of messages received before timing out.
     /// (Note: This is effectively the behaviour of `MSG_WAITFORONE` with
-    /// recvmmsg().)
+    /// `recvmmsg()`.)
     /// 
     /// To be notified when messages are available, wait for the `G_IO_IN` condition.
     /// Note though that you may still receive `G_IO_ERROR_WOULD_BLOCK` from
-    /// g_datagram_based_receive_messages() even if you were previously notified of a
+    /// `g_datagram_based_receive_messages()` even if you were previously notified of a
     /// `G_IO_IN` condition.
     /// 
     /// If the remote peer closes the connection, any messages queued in the
     /// underlying receive buffer will be returned, and subsequent calls to
-    /// g_datagram_based_receive_messages() will return 0 (with no error set).
+    /// `g_datagram_based_receive_messages()` will return 0 (with no error set).
     /// 
-    /// If the connection is shut down or closed (by calling g_socket_close() or
-    /// g_socket_shutdown() with `shutdown_read` set, if it’s a `GSocket`, for
+    /// If the connection is shut down or closed (by calling `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_read` set, if it’s a `GSocket`, for
     /// example), all calls to this function will return `G_IO_ERROR_CLOSED`.
     /// 
     /// On error -1 is returned and `error` is set accordingly. An error will only
@@ -1099,12 +1099,12 @@ public extension DatagramBasedProtocol {
     /// 
     /// To be notified when messages can be sent, wait for the `G_IO_OUT` condition.
     /// Note though that you may still receive `G_IO_ERROR_WOULD_BLOCK` from
-    /// g_datagram_based_send_messages() even if you were previously notified of a
+    /// `g_datagram_based_send_messages()` even if you were previously notified of a
     /// `G_IO_OUT` condition. (On Windows in particular, this is very common due to
     /// the way the underlying APIs work.)
     /// 
-    /// If the connection is shut down or closed (by calling g_socket_close() or
-    /// g_socket_shutdown() with `shutdown_write` set, if it’s a `GSocket`, for
+    /// If the connection is shut down or closed (by calling `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_write` set, if it’s a `GSocket`, for
     /// example), all calls to this function will return `G_IO_ERROR_CLOSED`.
     /// 
     /// On error -1 is returned and `error` is set accordingly. An error will only
@@ -1173,7 +1173,7 @@ public extension DatagramBasedProtocol {
 /// multi-disk devices such as RAID devices. Note that the actual
 /// semantics and side-effects of starting/stopping a `GDrive` may vary
 /// according to implementation. To choose the correct verbs in e.g. a
-/// file manager, use g_drive_get_start_stop_type().
+/// file manager, use `g_drive_get_start_stop_type()`.
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
@@ -1211,7 +1211,7 @@ public protocol DriveProtocol {
 /// multi-disk devices such as RAID devices. Note that the actual
 /// semantics and side-effects of starting/stopping a `GDrive` may vary
 /// according to implementation. To choose the correct verbs in e.g. a
-/// file manager, use g_drive_get_start_stop_type().
+/// file manager, use `g_drive_get_start_stop_type()`.
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
@@ -1289,7 +1289,7 @@ public extension DriveRef {
 /// multi-disk devices such as RAID devices. Note that the actual
 /// semantics and side-effects of starting/stopping a `GDrive` may vary
 /// according to implementation. To choose the correct verbs in e.g. a
-/// file manager, use g_drive_get_start_stop_type().
+/// file manager, use `g_drive_get_start_stop_type()`.
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
@@ -1428,7 +1428,7 @@ public extension DriveProtocol {
     /// Asynchronously ejects a drive.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_drive_eject_finish() to obtain the
+    /// You can then call `g_drive_eject_finish()` to obtain the
     /// result of the operation.
     ///
     /// **eject is deprecated:**
@@ -1452,7 +1452,7 @@ public extension DriveProtocol {
     }
 
     /// Ejects a drive. This is an asynchronous operation, and is
-    /// finished by calling g_drive_eject_with_operation_finish() with the `drive`
+    /// finished by calling `g_drive_eject_with_operation_finish()` with the `drive`
     /// and `GAsyncResult` data returned in the `callback`.
     func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_drive_eject_with_operation(cast(drive_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -1471,7 +1471,7 @@ public extension DriveProtocol {
     }
 
     /// Gets the kinds of identifiers that `drive` has.
-    /// Use g_drive_get_identifier() to obtain the identifiers
+    /// Use `g_drive_get_identifier()` to obtain the identifiers
     /// themselves.
     func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
         let rv = g_drive_enumerate_identifiers(cast(drive_ptr))
@@ -1518,15 +1518,15 @@ public extension DriveProtocol {
 
     /// Get a list of mountable volumes for `drive`.
     /// 
-    /// The returned list should be freed with g_list_free(), after
-    /// its elements have been unreffed with g_object_unref().
+    /// The returned list should be freed with `g_list_free()`, after
+    /// its elements have been unreffed with `g_object_unref()`.
     func getVolumes() -> UnsafeMutablePointer<GList>! {
         let rv = g_drive_get_volumes(cast(drive_ptr))
         return cast(rv)
     }
 
     /// Checks if the `drive` has media. Note that the OS may not be polling
-    /// the drive for media changes; see g_drive_is_media_check_automatic()
+    /// the drive for media changes; see `g_drive_is_media_check_automatic()`
     /// for more details.
     func hasMedia() -> Bool {
         let rv = g_drive_has_media(cast(drive_ptr))
@@ -1542,14 +1542,14 @@ public extension DriveProtocol {
     /// Asynchronously polls `drive` to see if media has been inserted or removed.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_drive_poll_for_media_finish() to obtain the
+    /// You can then call `g_drive_poll_for_media_finish()` to obtain the
     /// result of the operation.
     func pollForMedia(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_drive_poll_for_media(cast(drive_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an operation started with g_drive_poll_for_media() on a drive.
+    /// Finishes an operation started with `g_drive_poll_for_media()` on a drive.
     func pollForMediaFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_drive_poll_for_media_finish(cast(drive_ptr), cast(result.ptr), &error)
@@ -1562,7 +1562,7 @@ public extension DriveProtocol {
     /// Asynchronously starts a drive.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_drive_start_finish() to obtain the
+    /// You can then call `g_drive_start_finish()` to obtain the
     /// result of the operation.
     func start(flags: DriveStartFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_drive_start(cast(drive_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -1582,7 +1582,7 @@ public extension DriveProtocol {
     /// Asynchronously stops a drive.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_drive_stop_finish() to obtain the
+    /// You can then call `g_drive_stop_finish()` to obtain the
     /// result of the operation.
     func stop(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_drive_stop(cast(drive_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -1626,10 +1626,10 @@ public extension DriveProtocol {
     }
 
     /// Checks if the `GDrive` and/or its media is considered removable by the user.
-    /// See g_drive_is_media_removable().
+    /// See `g_drive_is_media_removable()`.
     var isRemovable: Bool {
         /// Checks if the `GDrive` and/or its media is considered removable by the user.
-        /// See g_drive_is_media_removable().
+        /// See `g_drive_is_media_removable()`.
         get {
             let rv = g_drive_is_removable(cast(drive_ptr))
             return Bool(rv != 0)
@@ -1674,13 +1674,13 @@ public extension DriveProtocol {
 
     /// Get a list of mountable volumes for `drive`.
     /// 
-    /// The returned list should be freed with g_list_free(), after
-    /// its elements have been unreffed with g_object_unref().
+    /// The returned list should be freed with `g_list_free()`, after
+    /// its elements have been unreffed with `g_object_unref()`.
     var volumes: UnsafeMutablePointer<GList>! {
         /// Get a list of mountable volumes for `drive`.
         /// 
-        /// The returned list should be freed with g_list_free(), after
-        /// its elements have been unreffed with g_object_unref().
+        /// The returned list should be freed with `g_list_free()`, after
+        /// its elements have been unreffed with `g_object_unref()`.
         get {
             let rv = g_drive_get_volumes(cast(drive_ptr))
             return cast(rv)
@@ -1822,9 +1822,9 @@ public enum DtlsClientConnectionPropertyName: String, PropertyNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GDtlsClientConnection`:validation-flags, this object will be used
+    /// `GDtlsClientConnection:validation`-flags, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GDtlsClientConnection`:server-identity is not set,
+    /// connection; if `GDtlsClientConnection:server`-identity is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -1836,7 +1836,7 @@ public enum DtlsClientConnectionPropertyName: String, PropertyNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in all of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GDtlsConnection`::accept-certificate.
+    /// overrides the default via `GDtlsConnection::accept`-certificate.
     case validationFlags = "validation-flags"
 }
 
@@ -1890,9 +1890,9 @@ public enum DtlsClientConnectionSignalName: String, SignalNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GDtlsClientConnection`:validation-flags, this object will be used
+    /// `GDtlsClientConnection:validation`-flags, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GDtlsClientConnection`:server-identity is not set,
+    /// connection; if `GDtlsClientConnection:server`-identity is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -1904,7 +1904,7 @@ public enum DtlsClientConnectionSignalName: String, SignalNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in all of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GDtlsConnection`::accept-certificate.
+    /// overrides the default via `GDtlsConnection::accept`-certificate.
     case notifyValidationFlags = "notify::validation-flags"
 }
 
@@ -2052,13 +2052,13 @@ public extension DtlsClientConnectionProtocol {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection`:base-socket).
+/// (`GDtlsConnection:base`-socket).
 /// 
-/// To close a DTLS connection, use g_dtls_connection_close().
+/// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
 /// Neither `GDtlsServerConnection` or `GDtlsClientConnection` set the peer address
 /// on their base `GDatagramBased` if it is a `GSocket` — it is up to the caller to
-/// do that if they wish. If they do not, and g_socket_close() is called on the
+/// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
 public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
@@ -2083,13 +2083,13 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection`:base-socket).
+/// (`GDtlsConnection:base`-socket).
 /// 
-/// To close a DTLS connection, use g_dtls_connection_close().
+/// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
 /// Neither `GDtlsServerConnection` or `GDtlsClientConnection` set the peer address
 /// on their base `GDatagramBased` if it is a `GSocket` — it is up to the caller to
-/// do that if they wish. If they do not, and g_socket_close() is called on the
+/// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
 public struct DtlsConnectionRef: DtlsConnectionProtocol {
@@ -2154,13 +2154,13 @@ public extension DtlsConnectionRef {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection`:base-socket).
+/// (`GDtlsConnection:base`-socket).
 /// 
-/// To close a DTLS connection, use g_dtls_connection_close().
+/// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
 /// Neither `GDtlsServerConnection` or `GDtlsClientConnection` set the peer address
 /// on their base `GDatagramBased` if it is a `GSocket` — it is up to the caller to
-/// do that if they wish. If they do not, and g_socket_close() is called on the
+/// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
 open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
@@ -2208,42 +2208,42 @@ open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
 public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_dtls_connection_set_advertised_protocols().
+    /// `g_dtls_connection_set_advertised_protocols()`.
     case advertisedProtocols = "advertised-protocols"
     /// The `GDatagramBased` that the connection wraps. Note that this may be any
     /// implementation of `GDatagramBased`, not just a `GSocket`.
     case baseSocket = "base-socket"
     /// The connection's certificate; see
-    /// g_dtls_connection_set_certificate().
+    /// `g_dtls_connection_set_certificate()`.
     case certificate = "certificate"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case database = "database"
     /// A `GTlsInteraction` object to be used when the connection or certificate
     /// database need to interact with the user. This will be used to prompt the
     /// user for passwords where necessary.
     case interaction = "interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_dtls_connection_get_negotiated_protocol().
+    /// handshake. See `g_dtls_connection_get_negotiated_protocol()`.
     case negotiatedProtocol = "negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GDtlsConnection`::accept-certificate.
+    /// `GDtlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GDtlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GDtlsClientConnection`:validation-flags is not
+    /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GDtlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GDtlsConnection`::accept-certificate overrode the default
+    /// `GDtlsConnection::accept`-certificate overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_dtls_connection_set_rehandshake_mode().
+    /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
     /// **rehandshake-mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -2251,7 +2251,7 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     ///   from the TLS protocol in TLS 1.3.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_dtls_connection_set_require_close_notify().
+    /// See `g_dtls_connection_set_require_close_notify()`.
     case requireCloseNotify = "require-close-notify"
 }
 
@@ -2294,19 +2294,19 @@ public extension DtlsConnectionProtocol {
 public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     /// Emitted during the TLS handshake after the peer certificate has
     /// been received. You can examine `peer_cert`'s certification path by
-    /// calling g_tls_certificate_get_issuer() on it.
+    /// calling `g_tls_certificate_get_issuer()` on it.
     /// 
     /// For a client-side connection, `peer_cert` is the server's
     /// certificate, and the signal will only be emitted if the
     /// certificate was not acceptable according to `conn`'s
-    /// `GDtlsClientConnection`:validation_flags. If you would like the
+    /// `GDtlsClientConnection:validation_flags`. If you would like the
     /// certificate to be accepted despite `errors`, return `true` from the
     /// signal handler. Otherwise, if no handler accepts the certificate,
     /// the handshake will fail with `G_TLS_ERROR_BAD_CERTIFICATE`.
     /// 
     /// For a server-side connection, `peer_cert` is the certificate
     /// presented by the client, if this was requested via the server's
-    /// `GDtlsServerConnection`:authentication_mode. On the server side,
+    /// `GDtlsServerConnection:authentication_mode`. On the server side,
     /// the signal is always emitted when the client presents a
     /// certificate, and the certificate will only be accepted if a
     /// handler returns `true`.
@@ -2328,42 +2328,42 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     case acceptCertificate = "accept-certificate"
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_dtls_connection_set_advertised_protocols().
+    /// `g_dtls_connection_set_advertised_protocols()`.
     case notifyAdvertisedProtocols = "notify::advertised-protocols"
     /// The `GDatagramBased` that the connection wraps. Note that this may be any
     /// implementation of `GDatagramBased`, not just a `GSocket`.
     case notifyBaseSocket = "notify::base-socket"
     /// The connection's certificate; see
-    /// g_dtls_connection_set_certificate().
+    /// `g_dtls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case notifyDatabase = "notify::database"
     /// A `GTlsInteraction` object to be used when the connection or certificate
     /// database need to interact with the user. This will be used to prompt the
     /// user for passwords where necessary.
     case notifyInteraction = "notify::interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_dtls_connection_get_negotiated_protocol().
+    /// handshake. See `g_dtls_connection_get_negotiated_protocol()`.
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GDtlsConnection`::accept-certificate.
+    /// `GDtlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GDtlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GDtlsClientConnection`:validation-flags is not
+    /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GDtlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GDtlsConnection`::accept-certificate overrode the default
+    /// `GDtlsConnection::accept`-certificate overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_dtls_connection_set_rehandshake_mode().
+    /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
     /// **rehandshake-mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -2371,7 +2371,7 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     ///   from the TLS protocol in TLS 1.3.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_dtls_connection_set_require_close_notify().
+    /// See `g_dtls_connection_set_require_close_notify()`.
     case notifyRequireCloseNotify = "notify::require-close-notify"
 }
 
@@ -2408,12 +2408,12 @@ public extension DtlsConnectionProtocol {
     var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection> { return ptr.assumingMemoryBound(to: GDtlsConnection.self) }
 
     /// Close the DTLS connection. This is equivalent to calling
-    /// g_dtls_connection_shutdown() to shut down both sides of the connection.
+    /// `g_dtls_connection_shutdown()` to shut down both sides of the connection.
     /// 
     /// Closing a `GDtlsConnection` waits for all buffered but untransmitted data to
     /// be sent before it completes. It then sends a `close_notify` DTLS alert to the
     /// peer and may wait for a `close_notify` to be received from the peer. It does
-    /// not close the underlying `GDtlsConnection`:base-socket; that must be closed
+    /// not close the underlying `GDtlsConnection:base`-socket; that must be closed
     /// separately.
     /// 
     /// Once `conn` is closed, all other operations will return `G_IO_ERROR_CLOSED`.
@@ -2425,7 +2425,7 @@ public extension DtlsConnectionProtocol {
     /// 
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
-    /// g_dtls_connection_close() again to complete closing the `GDtlsConnection`.
+    /// `g_dtls_connection_close()` again to complete closing the `GDtlsConnection`.
     func close(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dtls_connection_close(cast(dtls_connection_ptr), cast(cancellable.ptr), &error)
@@ -2435,14 +2435,14 @@ public extension DtlsConnectionProtocol {
         return Bool(rv != 0)
     }
 
-    /// Asynchronously close the DTLS connection. See g_dtls_connection_close() for
+    /// Asynchronously close the DTLS connection. See `g_dtls_connection_close()` for
     /// more information.
     func closeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dtls_connection_close_async(cast(dtls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finish an asynchronous TLS close operation. See g_dtls_connection_close()
+    /// Finish an asynchronous TLS close operation. See `g_dtls_connection_close()`
     /// for more information.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -2454,21 +2454,21 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Used by `GDtlsConnection` implementations to emit the
-    /// `GDtlsConnection`::accept-certificate signal.
+    /// `GDtlsConnection::accept`-certificate signal.
     func emitAcceptCertificate(peerCert peer_cert: TLSCertificateProtocol, errors: TLSCertificateFlags) -> Bool {
         let rv = g_dtls_connection_emit_accept_certificate(cast(dtls_connection_ptr), cast(peer_cert.ptr), errors)
         return Bool(rv != 0)
     }
 
     /// Gets `conn`'s certificate, as set by
-    /// g_dtls_connection_set_certificate().
+    /// `g_dtls_connection_set_certificate()`.
     func getCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
         let rv = g_dtls_connection_get_certificate(cast(dtls_connection_ptr))
         return cast(rv)
     }
 
     /// Gets the certificate database that `conn` uses to verify
-    /// peer certificates. See g_dtls_connection_set_database().
+    /// peer certificates. See `g_dtls_connection_set_database()`.
     func getDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
         let rv = g_dtls_connection_get_database(cast(dtls_connection_ptr))
         return cast(rv)
@@ -2488,7 +2488,7 @@ public extension DtlsConnectionProtocol {
     /// If the peer did not use the ALPN extension, or did not advertise a
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
-    /// g_dtls_connection_set_advertised_protocols().
+    /// `g_dtls_connection_set_advertised_protocols()`.
     func getNegotiatedProtocol() -> String! {
         let rv = g_dtls_connection_get_negotiated_protocol(cast(dtls_connection_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2496,7 +2496,7 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
-    /// `GDtlsConnection`::accept-certificate.)
+    /// `GDtlsConnection::accept`-certificate.)
     func getPeerCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
         let rv = g_dtls_connection_get_peer_certificate(cast(dtls_connection_ptr))
         return cast(rv)
@@ -2504,14 +2504,14 @@ public extension DtlsConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GDtlsConnection`::accept-certificate.)
+    /// during the emission of `GDtlsConnection::accept`-certificate.)
     func getPeerCertificateErrors() -> GTlsCertificateFlags {
         let rv = g_dtls_connection_get_peer_certificate_errors(cast(dtls_connection_ptr))
         return rv
     }
 
     /// Gets `conn` rehandshaking mode. See
-    /// g_dtls_connection_set_rehandshake_mode() for details.
+    /// `g_dtls_connection_set_rehandshake_mode()` for details.
     func getRehandshakeMode() -> GTlsRehandshakeMode {
         let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
         return rv
@@ -2519,7 +2519,7 @@ public extension DtlsConnectionProtocol {
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
-    /// g_dtls_connection_set_require_close_notify() for details.
+    /// `g_dtls_connection_set_require_close_notify()` for details.
     func getRequireCloseNotify() -> Bool {
         let rv = g_dtls_connection_get_require_close_notify(cast(dtls_connection_ptr))
         return Bool(rv != 0)
@@ -2533,7 +2533,7 @@ public extension DtlsConnectionProtocol {
     /// need to rehandshake later if the server requests it,
     /// `GDtlsConnection` will handle this for you automatically when you try
     /// to send or receive data on the connection. However, you can call
-    /// g_dtls_connection_handshake() manually if you want to know for sure
+    /// `g_dtls_connection_handshake()` manually if you want to know for sure
     /// whether the initial handshake succeeded or failed (as opposed to
     /// just immediately trying to write to `conn`, in which
     /// case if it fails, it may not be possible to tell if it failed
@@ -2544,7 +2544,7 @@ public extension DtlsConnectionProtocol {
     /// function explicitly unless you want clearer error reporting.
     /// 
     /// If TLS 1.2 or older is in use, you may call
-    /// g_dtls_connection_handshake() after the initial handshake to
+    /// `g_dtls_connection_handshake()` after the initial handshake to
     /// rehandshake; however, this usage is deprecated because rehandshaking
     /// is no longer part of the TLS protocol in TLS 1.3. Accordingly, the
     /// behavior of calling this function after the initial handshake is now
@@ -2552,7 +2552,7 @@ public extension DtlsConnectionProtocol {
     /// nondestructive so as to preserve compatibility with code written for
     /// older versions of GLib.
     /// 
-    /// `GDtlsConnection`::accept_certificate may be emitted during the
+    /// `GDtlsConnection::accept_certificate` may be emitted during the
     /// handshake.
     func handshake(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -2564,14 +2564,14 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Asynchronously performs a TLS handshake on `conn`. See
-    /// g_dtls_connection_handshake() for more information.
+    /// `g_dtls_connection_handshake()` for more information.
     func handshakeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dtls_connection_handshake_async(cast(dtls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous TLS handshake operation. See
-    /// g_dtls_connection_handshake() for more information.
+    /// `g_dtls_connection_handshake()` for more information.
     func handshakeFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dtls_connection_handshake_finish(cast(dtls_connection_ptr), cast(result.ptr), &error)
@@ -2585,7 +2585,7 @@ public extension DtlsConnectionProtocol {
     /// caller is willing to speak on this connection. The
     /// Application-Layer Protocol Negotiation (ALPN) extension will be
     /// used to negotiate a compatible protocol with the peer; use
-    /// g_dtls_connection_get_negotiated_protocol() to find the negotiated
+    /// `g_dtls_connection_get_negotiated_protocol()` to find the negotiated
     /// protocol after the handshake.  Specifying `nil` for the the value
     /// of `protocols` will disable ALPN negotiation.
     /// 
@@ -2605,14 +2605,14 @@ public extension DtlsConnectionProtocol {
     /// with `G_TLS_ERROR_CERTIFICATE_REQUIRED`, that means that the server
     /// requires a certificate, and if you try connecting again, you should
     /// call this method first. You can call
-    /// g_dtls_client_connection_get_accepted_cas() on the failed connection
+    /// `g_dtls_client_connection_get_accepted_cas()` on the failed connection
     /// to get a list of Certificate Authorities that the server will
     /// accept certificates from.
     /// 
     /// (It is also possible that a server will allow the connection with
     /// or without a certificate; in that case, if you don't provide a
     /// certificate, you can tell that the server requested one by the fact
-    /// that g_dtls_client_connection_get_accepted_cas() will return
+    /// that `g_dtls_client_connection_get_accepted_cas()` will return
     /// non-`nil`.)
     func set(certificate: TLSCertificateProtocol) {
         g_dtls_connection_set_certificate(cast(dtls_connection_ptr), cast(certificate.ptr))
@@ -2621,12 +2621,12 @@ public extension DtlsConnectionProtocol {
 
     /// Sets the certificate database that is used to verify peer certificates.
     /// This is set to the default database by default. See
-    /// g_tls_backend_get_default_database(). If set to `nil`, then
+    /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GDtlsConnection`::accept-certificate will always be emitted on
+    /// `GDtlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GDtlsClientConnection`:validation-flags).
+    /// `GDtlsClientConnection:validation`-flags).
     func set(database: TLSDatabaseProtocol) {
         g_dtls_connection_set_database(cast(dtls_connection_ptr), cast(database.ptr))
     
@@ -2686,17 +2686,17 @@ public extension DtlsConnectionProtocol {
     /// (because the application-level data includes a length field, or is
     /// somehow self-delimiting); in this case, the close notify is
     /// redundant and may be omitted. You
-    /// can use g_dtls_connection_set_require_close_notify() to tell `conn`
+    /// can use `g_dtls_connection_set_require_close_notify()` to tell `conn`
     /// to allow an "unannounced" connection close, in which case the close
     /// will show up as a 0-length read, as in a non-TLS
     /// `GDatagramBased`, and it is up to the application to check that
     /// the data has been fully received.
     /// 
     /// Note that this only affects the behavior when the peer closes the
-    /// connection; when the application calls g_dtls_connection_close_async() on
+    /// connection; when the application calls `g_dtls_connection_close_async()` on
     /// `conn` itself, this will send a close notification regardless of the
     /// setting of this property. If you explicitly want to do an unclean
-    /// close, you can close `conn`'s `GDtlsConnection`:base-socket rather
+    /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
     /// than closing `conn` itself.
     func set(requireCloseNotify require_close_notify: Bool) {
         g_dtls_connection_set_require_close_notify(cast(dtls_connection_ptr), gboolean(require_close_notify ? 1 : 0))
@@ -2707,18 +2707,18 @@ public extension DtlsConnectionProtocol {
     /// 
     /// If `shutdown_read` is `true` then the receiving side of the connection is shut
     /// down, and further reading is disallowed. Subsequent calls to
-    /// g_datagram_based_receive_messages() will return `G_IO_ERROR_CLOSED`.
+    /// `g_datagram_based_receive_messages()` will return `G_IO_ERROR_CLOSED`.
     /// 
     /// If `shutdown_write` is `true` then the sending side of the connection is shut
     /// down, and further writing is disallowed. Subsequent calls to
-    /// g_datagram_based_send_messages() will return `G_IO_ERROR_CLOSED`.
+    /// `g_datagram_based_send_messages()` will return `G_IO_ERROR_CLOSED`.
     /// 
     /// It is allowed for both `shutdown_read` and `shutdown_write` to be TRUE — this
-    /// is equivalent to calling g_dtls_connection_close().
+    /// is equivalent to calling `g_dtls_connection_close()`.
     /// 
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
-    /// g_dtls_connection_shutdown() again to complete closing the `GDtlsConnection`.
+    /// `g_dtls_connection_shutdown()` again to complete closing the `GDtlsConnection`.
     func shutdown(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dtls_connection_shutdown(cast(dtls_connection_ptr), gboolean(shutdown_read ? 1 : 0), gboolean(shutdown_write ? 1 : 0), cast(cancellable.ptr), &error)
@@ -2729,14 +2729,14 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Asynchronously shut down part or all of the DTLS connection. See
-    /// g_dtls_connection_shutdown() for more information.
+    /// `g_dtls_connection_shutdown()` for more information.
     func shutdownAsync(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dtls_connection_shutdown_async(cast(dtls_connection_ptr), gboolean(shutdown_read ? 1 : 0), gboolean(shutdown_write ? 1 : 0), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous TLS shutdown operation. See
-    /// g_dtls_connection_shutdown() for more information.
+    /// `g_dtls_connection_shutdown()` for more information.
     func shutdownFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dtls_connection_shutdown_finish(cast(dtls_connection_ptr), cast(result.ptr), &error)
@@ -2746,10 +2746,10 @@ public extension DtlsConnectionProtocol {
         return Bool(rv != 0)
     }
     /// The connection's certificate; see
-    /// g_dtls_connection_set_certificate().
+    /// `g_dtls_connection_set_certificate()`.
     var certificate: UnsafeMutablePointer<GTlsCertificate>! {
         /// Gets `conn`'s certificate, as set by
-        /// g_dtls_connection_set_certificate().
+        /// `g_dtls_connection_set_certificate()`.
         get {
             let rv = g_dtls_connection_get_certificate(cast(dtls_connection_ptr))
             return cast(rv)
@@ -2763,14 +2763,14 @@ public extension DtlsConnectionProtocol {
         /// with `G_TLS_ERROR_CERTIFICATE_REQUIRED`, that means that the server
         /// requires a certificate, and if you try connecting again, you should
         /// call this method first. You can call
-        /// g_dtls_client_connection_get_accepted_cas() on the failed connection
+        /// `g_dtls_client_connection_get_accepted_cas()` on the failed connection
         /// to get a list of Certificate Authorities that the server will
         /// accept certificates from.
         /// 
         /// (It is also possible that a server will allow the connection with
         /// or without a certificate; in that case, if you don't provide a
         /// certificate, you can tell that the server requested one by the fact
-        /// that g_dtls_client_connection_get_accepted_cas() will return
+        /// that `g_dtls_client_connection_get_accepted_cas()` will return
         /// non-`nil`.)
         nonmutating set {
             g_dtls_connection_set_certificate(cast(dtls_connection_ptr), cast(newValue))
@@ -2779,22 +2779,22 @@ public extension DtlsConnectionProtocol {
 
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     var database: UnsafeMutablePointer<GTlsDatabase>! {
         /// Gets the certificate database that `conn` uses to verify
-        /// peer certificates. See g_dtls_connection_set_database().
+        /// peer certificates. See `g_dtls_connection_set_database()`.
         get {
             let rv = g_dtls_connection_get_database(cast(dtls_connection_ptr))
             return cast(rv)
         }
         /// Sets the certificate database that is used to verify peer certificates.
         /// This is set to the default database by default. See
-        /// g_tls_backend_get_default_database(). If set to `nil`, then
+        /// `g_tls_backend_get_default_database()`. If set to `nil`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GDtlsConnection`::accept-certificate will always be emitted on
+        /// `GDtlsConnection::accept`-certificate will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GDtlsClientConnection`:validation-flags).
+        /// `GDtlsClientConnection:validation`-flags).
         nonmutating set {
             g_dtls_connection_set_database(cast(dtls_connection_ptr), cast(newValue))
         }
@@ -2828,7 +2828,7 @@ public extension DtlsConnectionProtocol {
     /// If the peer did not use the ALPN extension, or did not advertise a
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
-    /// g_dtls_connection_set_advertised_protocols().
+    /// `g_dtls_connection_set_advertised_protocols()`.
     var negotiatedProtocol: String! {
         /// Gets the name of the application-layer protocol negotiated during
         /// the handshake.
@@ -2836,7 +2836,7 @@ public extension DtlsConnectionProtocol {
         /// If the peer did not use the ALPN extension, or did not advertise a
         /// protocol that matched one of `conn`'s protocols, or the TLS backend
         /// does not support ALPN, then this will be `nil`. See
-        /// g_dtls_connection_set_advertised_protocols().
+        /// `g_dtls_connection_set_advertised_protocols()`.
         get {
             let rv = g_dtls_connection_get_negotiated_protocol(cast(dtls_connection_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2845,11 +2845,11 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
-    /// `GDtlsConnection`::accept-certificate.)
+    /// `GDtlsConnection::accept`-certificate.)
     var peerCertificate: UnsafeMutablePointer<GTlsCertificate>! {
         /// Gets `conn`'s peer's certificate after the handshake has completed.
         /// (It is not set during the emission of
-        /// `GDtlsConnection`::accept-certificate.)
+        /// `GDtlsConnection::accept`-certificate.)
         get {
             let rv = g_dtls_connection_get_peer_certificate(cast(dtls_connection_ptr))
             return cast(rv)
@@ -2858,11 +2858,11 @@ public extension DtlsConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GDtlsConnection`::accept-certificate.)
+    /// during the emission of `GDtlsConnection::accept`-certificate.)
     var peerCertificateErrors: GTlsCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed. (It is not set
-        /// during the emission of `GDtlsConnection`::accept-certificate.)
+        /// during the emission of `GDtlsConnection::accept`-certificate.)
         get {
             let rv = g_dtls_connection_get_peer_certificate_errors(cast(dtls_connection_ptr))
             return rv
@@ -2870,10 +2870,10 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Gets `conn` rehandshaking mode. See
-    /// g_dtls_connection_set_rehandshake_mode() for details.
+    /// `g_dtls_connection_set_rehandshake_mode()` for details.
     var rehandshakeMode: GTlsRehandshakeMode {
         /// Gets `conn` rehandshaking mode. See
-        /// g_dtls_connection_set_rehandshake_mode() for details.
+        /// `g_dtls_connection_set_rehandshake_mode()` for details.
         get {
             let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
             return rv
@@ -2910,11 +2910,11 @@ public extension DtlsConnectionProtocol {
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
-    /// g_dtls_connection_set_require_close_notify() for details.
+    /// `g_dtls_connection_set_require_close_notify()` for details.
     var requireCloseNotify: Bool {
         /// Tests whether or not `conn` expects a proper TLS close notification
         /// when the connection is closed. See
-        /// g_dtls_connection_set_require_close_notify() for details.
+        /// `g_dtls_connection_set_require_close_notify()` for details.
         get {
             let rv = g_dtls_connection_get_require_close_notify(cast(dtls_connection_ptr))
             return Bool(rv != 0)
@@ -2932,17 +2932,17 @@ public extension DtlsConnectionProtocol {
         /// (because the application-level data includes a length field, or is
         /// somehow self-delimiting); in this case, the close notify is
         /// redundant and may be omitted. You
-        /// can use g_dtls_connection_set_require_close_notify() to tell `conn`
+        /// can use `g_dtls_connection_set_require_close_notify()` to tell `conn`
         /// to allow an "unannounced" connection close, in which case the close
         /// will show up as a 0-length read, as in a non-TLS
         /// `GDatagramBased`, and it is up to the application to check that
         /// the data has been fully received.
         /// 
         /// Note that this only affects the behavior when the peer closes the
-        /// connection; when the application calls g_dtls_connection_close_async() on
+        /// connection; when the application calls `g_dtls_connection_close_async()` on
         /// `conn` itself, this will send a close notification regardless of the
         /// setting of this property. If you explicitly want to do an unclean
-        /// close, you can close `conn`'s `GDtlsConnection`:base-socket rather
+        /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
         /// than closing `conn` itself.
         nonmutating set {
             g_dtls_connection_set_require_close_notify(cast(dtls_connection_ptr), gboolean(newValue ? 1 : 0))
@@ -3073,7 +3073,7 @@ open class DtlsServerConnection: DatagramBased, DtlsServerConnectionProtocol {
 
 public enum DtlsServerConnectionPropertyName: String, PropertyNameProtocol {
     /// The `GTlsAuthenticationMode` for the server. This can be changed
-    /// before calling g_dtls_connection_handshake() if you want to
+    /// before calling `g_dtls_connection_handshake()` if you want to
     /// rehandshake with a different mode from the initial handshake.
     case authenticationMode = "authentication-mode"
 }
@@ -3117,7 +3117,7 @@ public extension DtlsServerConnectionProtocol {
 public enum DtlsServerConnectionSignalName: String, SignalNameProtocol {
 
     /// The `GTlsAuthenticationMode` for the server. This can be changed
-    /// before calling g_dtls_connection_handshake() if you want to
+    /// before calling `g_dtls_connection_handshake()` if you want to
     /// rehandshake with a different mode from the initial handshake.
     case notifyAuthenticationMode = "notify::authentication-mode"
 }
@@ -3173,12 +3173,12 @@ public extension DtlsServerConnectionProtocol {
 /// (see `GInputStream` and `GOutputStream`).
 /// 
 /// To construct a `GFile`, you can use:
-/// - g_file_new_for_path() if you have a path.
-/// - g_file_new_for_uri() if you have a URI.
-/// - g_file_new_for_commandline_arg() for a command line argument.
-/// - g_file_new_tmp() to create a temporary file from a template.
-/// - g_file_parse_name() from a UTF-8 string gotten from g_file_get_parse_name().
-/// - g_file_new_build_filename() to create a file from path elements.
+/// - `g_file_new_for_path()` if you have a path.
+/// - `g_file_new_for_uri()` if you have a URI.
+/// - `g_file_new_for_commandline_arg()` for a command line argument.
+/// - `g_file_new_tmp()` to create a temporary file from a template.
+/// - `g_file_parse_name()` from a UTF-8 string gotten from `g_file_get_parse_name()`.
+/// - `g_file_new_build_filename()` to create a file from path elements.
 /// 
 /// One way to think of a `GFile` is as an abstraction of a pathname. For
 /// normal files the system pathname is what is stored internally, but as
@@ -3187,20 +3187,20 @@ public extension DtlsServerConnectionProtocol {
 /// 
 /// `GFiles` make up hierarchies of directories and files that correspond to
 /// the files on a filesystem. You can move through the file system with
-/// `GFile` using g_file_get_parent() to get an identifier for the parent
-/// directory, g_file_get_child() to get a child within a directory,
-/// g_file_resolve_relative_path() to resolve a relative path between two
+/// `GFile` using `g_file_get_parent()` to get an identifier for the parent
+/// directory, `g_file_get_child()` to get a child within a directory,
+/// `g_file_resolve_relative_path()` to resolve a relative path between two
 /// `GFiles`. There can be multiple hierarchies, so you may not end up at
-/// the same root if you repeatedly call g_file_get_parent() on two different
+/// the same root if you repeatedly call `g_file_get_parent()` on two different
 /// files.
 /// 
-/// All `GFiles` have a basename (get with g_file_get_basename()). These names
+/// All `GFiles` have a basename (get with `g_file_get_basename()`). These names
 /// are byte strings that are used to identify the file on the filesystem
 /// (relative to its parent directory) and there is no guarantees that they
 /// have any particular charset encoding or even make any sense at all. If
 /// you want to use filenames in a user interface you should use the display
 /// name that you can get by requesting the
-/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with g_file_query_info().
+/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with `g_file_query_info()`.
 /// This is guaranteed to be in UTF-8 and can be used in a user interface.
 /// But always store the real basename or the `GFile` to use to actually
 /// access the file, because there is no way to go from a display name to
@@ -3219,10 +3219,10 @@ public extension DtlsServerConnectionProtocol {
 /// 
 /// Many `GFile` operations have both synchronous and asynchronous versions
 /// to suit your application. Asynchronous versions of synchronous functions
-/// simply have _async() appended to their function names. The asynchronous
+/// simply have `_async()` appended to their function names. The asynchronous
 /// I/O functions call a `GAsyncReadyCallback` which is then used to finalize
 /// the operation, producing a GAsyncResult which is then passed to the
-/// function's matching _finish() operation.
+/// function's matching `_finish()` operation.
 /// 
 /// It is highly recommended to use asynchronous calls when running within a
 /// shared main loop, such as in the main thread of an application. This avoids
@@ -3233,11 +3233,11 @@ public extension DtlsServerConnectionProtocol {
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
 /// so do not have synchronous analogs. Notable cases include:
-/// - g_file_mount_mountable() to mount a mountable file.
-/// - g_file_unmount_mountable_with_operation() to unmount a mountable file.
-/// - g_file_eject_mountable_with_operation() to eject a mountable file.
+/// - `g_file_mount_mountable()` to mount a mountable file.
+/// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
+/// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ``` Entity Tags `` {`gfile`-etag}
+/// ```` Entity Tags `` {`gfile`-etag}
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -3266,12 +3266,12 @@ public protocol FileProtocol {
 /// (see `GInputStream` and `GOutputStream`).
 /// 
 /// To construct a `GFile`, you can use:
-/// - g_file_new_for_path() if you have a path.
-/// - g_file_new_for_uri() if you have a URI.
-/// - g_file_new_for_commandline_arg() for a command line argument.
-/// - g_file_new_tmp() to create a temporary file from a template.
-/// - g_file_parse_name() from a UTF-8 string gotten from g_file_get_parse_name().
-/// - g_file_new_build_filename() to create a file from path elements.
+/// - `g_file_new_for_path()` if you have a path.
+/// - `g_file_new_for_uri()` if you have a URI.
+/// - `g_file_new_for_commandline_arg()` for a command line argument.
+/// - `g_file_new_tmp()` to create a temporary file from a template.
+/// - `g_file_parse_name()` from a UTF-8 string gotten from `g_file_get_parse_name()`.
+/// - `g_file_new_build_filename()` to create a file from path elements.
 /// 
 /// One way to think of a `GFile` is as an abstraction of a pathname. For
 /// normal files the system pathname is what is stored internally, but as
@@ -3280,20 +3280,20 @@ public protocol FileProtocol {
 /// 
 /// `GFiles` make up hierarchies of directories and files that correspond to
 /// the files on a filesystem. You can move through the file system with
-/// `GFile` using g_file_get_parent() to get an identifier for the parent
-/// directory, g_file_get_child() to get a child within a directory,
-/// g_file_resolve_relative_path() to resolve a relative path between two
+/// `GFile` using `g_file_get_parent()` to get an identifier for the parent
+/// directory, `g_file_get_child()` to get a child within a directory,
+/// `g_file_resolve_relative_path()` to resolve a relative path between two
 /// `GFiles`. There can be multiple hierarchies, so you may not end up at
-/// the same root if you repeatedly call g_file_get_parent() on two different
+/// the same root if you repeatedly call `g_file_get_parent()` on two different
 /// files.
 /// 
-/// All `GFiles` have a basename (get with g_file_get_basename()). These names
+/// All `GFiles` have a basename (get with `g_file_get_basename()`). These names
 /// are byte strings that are used to identify the file on the filesystem
 /// (relative to its parent directory) and there is no guarantees that they
 /// have any particular charset encoding or even make any sense at all. If
 /// you want to use filenames in a user interface you should use the display
 /// name that you can get by requesting the
-/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with g_file_query_info().
+/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with `g_file_query_info()`.
 /// This is guaranteed to be in UTF-8 and can be used in a user interface.
 /// But always store the real basename or the `GFile` to use to actually
 /// access the file, because there is no way to go from a display name to
@@ -3312,10 +3312,10 @@ public protocol FileProtocol {
 /// 
 /// Many `GFile` operations have both synchronous and asynchronous versions
 /// to suit your application. Asynchronous versions of synchronous functions
-/// simply have _async() appended to their function names. The asynchronous
+/// simply have `_async()` appended to their function names. The asynchronous
 /// I/O functions call a `GAsyncReadyCallback` which is then used to finalize
 /// the operation, producing a GAsyncResult which is then passed to the
-/// function's matching _finish() operation.
+/// function's matching `_finish()` operation.
 /// 
 /// It is highly recommended to use asynchronous calls when running within a
 /// shared main loop, such as in the main thread of an application. This avoids
@@ -3326,11 +3326,11 @@ public protocol FileProtocol {
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
 /// so do not have synchronous analogs. Notable cases include:
-/// - g_file_mount_mountable() to mount a mountable file.
-/// - g_file_unmount_mountable_with_operation() to unmount a mountable file.
-/// - g_file_eject_mountable_with_operation() to eject a mountable file.
+/// - `g_file_mount_mountable()` to mount a mountable file.
+/// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
+/// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ``` Entity Tags `` {`gfile`-etag}
+/// ```` Entity Tags `` {`gfile`-etag}
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -3398,9 +3398,9 @@ public extension FileRef {
     /// Note that on Windows, this function expects its argument to be in
     /// UTF-8 -- not the system code page.  This means that you
     /// should not use this function with string from argv as it is passed
-    /// to main().  g_win32_get_command_line() will return a UTF-8 version of
+    /// to `main()`.  `g_win32_get_command_line()` will return a UTF-8 version of
     /// the commandline.  `GApplication` also uses UTF-8 but
-    /// g_application_command_line_create_file_for_arg() may be more useful
+    /// `g_application_command_line_create_file_for_arg()` may be more useful
     /// for you there.  It is also always possible to use this function with
     /// `GOptionContext` arguments of type `G_OPTION_ARG_FILENAME`.
     static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>) -> FileRef! {
@@ -3410,7 +3410,7 @@ public extension FileRef {
 
     /// Creates a `GFile` with the given argument from the command line.
     /// 
-    /// This function is similar to g_file_new_for_commandline_arg() except
+    /// This function is similar to `g_file_new_for_commandline_arg()` except
     /// that it allows for passing the current working directory as an
     /// argument instead of using the current working directory of the
     /// process.
@@ -3418,7 +3418,7 @@ public extension FileRef {
     /// This is useful if the commandline argument was given in a context
     /// other than the invocation of the current process.
     /// 
-    /// See also g_application_command_line_create_file_for_arg().
+    /// See also `g_application_command_line_create_file_for_arg()`.
     static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>, cwd: UnsafePointer<gchar>) -> FileRef! {
         let rv = g_file_new_for_commandline_arg_and_cwd(arg, cwd)
         return rv.map { FileRef(cast($0)) }
@@ -3442,7 +3442,7 @@ public extension FileRef {
     }
 
     /// Opens a file in the preferred directory for temporary files (as
-    /// returned by g_get_tmp_dir()) and returns a `GFile` and
+    /// returned by `g_get_tmp_dir()`) and returns a `GFile` and
     /// `GFileIOStream` pointing to it.
     /// 
     /// `tmpl` should be a string in the GLib file name encoding
@@ -3461,7 +3461,7 @@ public extension FileRef {
     }
 
     /// Constructs a `GFile` with the given `parse_name` (i.e. something
-    /// given by g_file_get_parse_name()). This operation never fails,
+    /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
     static func parseName(parseName parse_name: UnsafePointer<CChar>) -> FileRef! {
@@ -3482,12 +3482,12 @@ public extension FileRef {
 /// (see `GInputStream` and `GOutputStream`).
 /// 
 /// To construct a `GFile`, you can use:
-/// - g_file_new_for_path() if you have a path.
-/// - g_file_new_for_uri() if you have a URI.
-/// - g_file_new_for_commandline_arg() for a command line argument.
-/// - g_file_new_tmp() to create a temporary file from a template.
-/// - g_file_parse_name() from a UTF-8 string gotten from g_file_get_parse_name().
-/// - g_file_new_build_filename() to create a file from path elements.
+/// - `g_file_new_for_path()` if you have a path.
+/// - `g_file_new_for_uri()` if you have a URI.
+/// - `g_file_new_for_commandline_arg()` for a command line argument.
+/// - `g_file_new_tmp()` to create a temporary file from a template.
+/// - `g_file_parse_name()` from a UTF-8 string gotten from `g_file_get_parse_name()`.
+/// - `g_file_new_build_filename()` to create a file from path elements.
 /// 
 /// One way to think of a `GFile` is as an abstraction of a pathname. For
 /// normal files the system pathname is what is stored internally, but as
@@ -3496,20 +3496,20 @@ public extension FileRef {
 /// 
 /// `GFiles` make up hierarchies of directories and files that correspond to
 /// the files on a filesystem. You can move through the file system with
-/// `GFile` using g_file_get_parent() to get an identifier for the parent
-/// directory, g_file_get_child() to get a child within a directory,
-/// g_file_resolve_relative_path() to resolve a relative path between two
+/// `GFile` using `g_file_get_parent()` to get an identifier for the parent
+/// directory, `g_file_get_child()` to get a child within a directory,
+/// `g_file_resolve_relative_path()` to resolve a relative path between two
 /// `GFiles`. There can be multiple hierarchies, so you may not end up at
-/// the same root if you repeatedly call g_file_get_parent() on two different
+/// the same root if you repeatedly call `g_file_get_parent()` on two different
 /// files.
 /// 
-/// All `GFiles` have a basename (get with g_file_get_basename()). These names
+/// All `GFiles` have a basename (get with `g_file_get_basename()`). These names
 /// are byte strings that are used to identify the file on the filesystem
 /// (relative to its parent directory) and there is no guarantees that they
 /// have any particular charset encoding or even make any sense at all. If
 /// you want to use filenames in a user interface you should use the display
 /// name that you can get by requesting the
-/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with g_file_query_info().
+/// `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME` attribute with `g_file_query_info()`.
 /// This is guaranteed to be in UTF-8 and can be used in a user interface.
 /// But always store the real basename or the `GFile` to use to actually
 /// access the file, because there is no way to go from a display name to
@@ -3528,10 +3528,10 @@ public extension FileRef {
 /// 
 /// Many `GFile` operations have both synchronous and asynchronous versions
 /// to suit your application. Asynchronous versions of synchronous functions
-/// simply have _async() appended to their function names. The asynchronous
+/// simply have `_async()` appended to their function names. The asynchronous
 /// I/O functions call a `GAsyncReadyCallback` which is then used to finalize
 /// the operation, producing a GAsyncResult which is then passed to the
-/// function's matching _finish() operation.
+/// function's matching `_finish()` operation.
 /// 
 /// It is highly recommended to use asynchronous calls when running within a
 /// shared main loop, such as in the main thread of an application. This avoids
@@ -3542,11 +3542,11 @@ public extension FileRef {
 /// 
 /// Some `GFile` operations almost always take a noticeable amount of time, and
 /// so do not have synchronous analogs. Notable cases include:
-/// - g_file_mount_mountable() to mount a mountable file.
-/// - g_file_unmount_mountable_with_operation() to unmount a mountable file.
-/// - g_file_eject_mountable_with_operation() to eject a mountable file.
+/// - `g_file_mount_mountable()` to mount a mountable file.
+/// - `g_file_unmount_mountable_with_operation()` to unmount a mountable file.
+/// - `g_file_eject_mountable_with_operation()` to eject a mountable file.
 /// 
-/// ``` Entity Tags `` {`gfile`-etag}
+/// ```` Entity Tags `` {`gfile`-etag}
 /// 
 /// One notable feature of `GFiles` are entity tags, or "etags" for
 /// short. Entity tags are somewhat like a more abstract version of the
@@ -3616,9 +3616,9 @@ open class File: FileProtocol {
     /// Note that on Windows, this function expects its argument to be in
     /// UTF-8 -- not the system code page.  This means that you
     /// should not use this function with string from argv as it is passed
-    /// to main().  g_win32_get_command_line() will return a UTF-8 version of
+    /// to `main()`.  `g_win32_get_command_line()` will return a UTF-8 version of
     /// the commandline.  `GApplication` also uses UTF-8 but
-    /// g_application_command_line_create_file_for_arg() may be more useful
+    /// `g_application_command_line_create_file_for_arg()` may be more useful
     /// for you there.  It is also always possible to use this function with
     /// `GOptionContext` arguments of type `G_OPTION_ARG_FILENAME`.
     public static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>) -> File! {
@@ -3628,7 +3628,7 @@ open class File: FileProtocol {
 
     /// Creates a `GFile` with the given argument from the command line.
     /// 
-    /// This function is similar to g_file_new_for_commandline_arg() except
+    /// This function is similar to `g_file_new_for_commandline_arg()` except
     /// that it allows for passing the current working directory as an
     /// argument instead of using the current working directory of the
     /// process.
@@ -3636,7 +3636,7 @@ open class File: FileProtocol {
     /// This is useful if the commandline argument was given in a context
     /// other than the invocation of the current process.
     /// 
-    /// See also g_application_command_line_create_file_for_arg().
+    /// See also `g_application_command_line_create_file_for_arg()`.
     public static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>, cwd: UnsafePointer<gchar>) -> File! {
         let rv = g_file_new_for_commandline_arg_and_cwd(arg, cwd)
         return rv.map { File(cast($0)) }
@@ -3660,7 +3660,7 @@ open class File: FileProtocol {
     }
 
     /// Opens a file in the preferred directory for temporary files (as
-    /// returned by g_get_tmp_dir()) and returns a `GFile` and
+    /// returned by `g_get_tmp_dir()`) and returns a `GFile` and
     /// `GFileIOStream` pointing to it.
     /// 
     /// `tmpl` should be a string in the GLib file name encoding
@@ -3679,7 +3679,7 @@ open class File: FileProtocol {
     }
 
     /// Constructs a `GFile` with the given `parse_name` (i.e. something
-    /// given by g_file_get_parse_name()). This operation never fails,
+    /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
     public static func parseName(parseName parse_name: UnsafePointer<CChar>) -> File! {
@@ -3726,11 +3726,11 @@ public extension FileProtocol {
 
     /// Asynchronously opens `file` for appending.
     /// 
-    /// For more details, see g_file_append_to() which is
+    /// For more details, see `g_file_append_to()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_append_to_finish() to get the result
+    /// You can then call `g_file_append_to_finish()` to get the result
     /// of the operation.
     func appendToAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_append_to_async(cast(file_ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -3738,7 +3738,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file append operation started with
-    /// g_file_append_to_async().
+    /// `g_file_append_to_async()`.
     func appendToFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_append_to_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -3787,7 +3787,7 @@ public extension FileProtocol {
     /// `G_IO_ERROR_WOULD_RECURSE` error is returned.
     /// 
     /// If you are interested in copying the `GFile` object itself (not the on-disk
-    /// file), see g_file_dup().
+    /// file), see `g_file_dup()`.
     func copy(destination: FileProtocol, flags: FileCopyFlags, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileProgressCallback, progressCallbackData progress_callback_data: UnsafeMutableRawPointer) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_copy(cast(file_ptr), cast(destination.ptr), flags, cast(cancellable.ptr), progress_callback, cast(progress_callback_data), &error)
@@ -3798,15 +3798,15 @@ public extension FileProtocol {
     }
 
     /// Copies the file `source` to the location specified by `destination`
-    /// asynchronously. For details of the behaviour, see g_file_copy().
+    /// asynchronously. For details of the behaviour, see `g_file_copy()`.
     /// 
     /// If `progress_callback` is not `nil`, then that function that will be called
-    /// just like in g_file_copy(). The callback will run in the default main context
-    /// of the thread calling g_file_copy_async() — the same context as `callback` is
+    /// just like in `g_file_copy()`. The callback will run in the default main context
+    /// of the thread calling `g_file_copy_async()` — the same context as `callback` is
     /// run in.
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
-    /// g_file_copy_finish() to get the result of the operation.
+    /// `g_file_copy_finish()` to get the result of the operation.
     func copyAsync(destination: FileProtocol, flags: FileCopyFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileProgressCallback, progressCallbackData progress_callback_data: UnsafeMutableRawPointer, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_copy_async(cast(file_ptr), cast(destination.ptr), flags, io_priority, cast(cancellable.ptr), progress_callback, cast(progress_callback_data), callback, cast(user_data))
     
@@ -3829,7 +3829,7 @@ public extension FileProtocol {
         return Bool(rv != 0)
     }
 
-    /// Finishes copying the file started with g_file_copy_async().
+    /// Finishes copying the file started with `g_file_copy_async()`.
     func copyFinish(res: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_copy_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -3870,11 +3870,11 @@ public extension FileProtocol {
     /// Asynchronously creates a new file and returns an output stream
     /// for writing to it. The file must not already exist.
     /// 
-    /// For more details, see g_file_create() which is
+    /// For more details, see `g_file_create()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_create_finish() to get the result
+    /// You can then call `g_file_create_finish()` to get the result
     /// of the operation.
     func createAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_create_async(cast(file_ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -3882,7 +3882,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file create operation started with
-    /// g_file_create_async().
+    /// `g_file_create_async()`.
     func createFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_create_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -3927,11 +3927,11 @@ public extension FileProtocol {
     /// Asynchronously creates a new file and returns a stream
     /// for reading and writing to it. The file must not already exist.
     /// 
-    /// For more details, see g_file_create_readwrite() which is
+    /// For more details, see `g_file_create_readwrite()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_create_readwrite_finish() to get
+    /// You can then call `g_file_create_readwrite_finish()` to get
     /// the result of the operation.
     func createReadwriteAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_create_readwrite_async(cast(file_ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -3939,7 +3939,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file create operation started with
-    /// g_file_create_readwrite_async().
+    /// `g_file_create_readwrite_async()`.
     func createReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_create_readwrite_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -3950,7 +3950,7 @@ public extension FileProtocol {
     }
 
     /// Deletes a file. If the `file` is a directory, it will only be
-    /// deleted if it is empty. This has the same semantics as g_unlink().
+    /// deleted if it is empty. This has the same semantics as `g_unlink()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -3966,13 +3966,13 @@ public extension FileProtocol {
 
     /// Asynchronously delete a file. If the `file` is a directory, it will
     /// only be deleted if it is empty.  This has the same semantics as
-    /// g_unlink().
+    /// `g_unlink()`.
     func deleteAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_delete_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes deleting a file started with g_file_delete_async().
+    /// Finishes deleting a file started with `g_file_delete_async()`.
     func deleteFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_delete_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -3984,11 +3984,11 @@ public extension FileProtocol {
 
     /// Duplicates a `GFile` handle. This operation does not duplicate
     /// the actual file or directory represented by the `GFile`; see
-    /// g_file_copy() if attempting to copy a file.
+    /// `g_file_copy()` if attempting to copy a file.
     /// 
-    /// g_file_dup() is useful when a second handle is needed to the same underlying
+    /// `g_file_dup()` is useful when a second handle is needed to the same underlying
     /// file, for use in a separate thread (`GFile` is not thread-safe). For use
-    /// within the same thread, use g_object_ref() to increment the existing object’s
+    /// within the same thread, use `g_object_ref()` to increment the existing object’s
     /// reference count.
     /// 
     /// This call does no blocking I/O.
@@ -4000,7 +4000,7 @@ public extension FileProtocol {
     /// Starts an asynchronous eject on a mountable.
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
-    /// g_file_eject_mountable_finish().
+    /// `g_file_eject_mountable_finish()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -4014,7 +4014,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous eject operation started by
-    /// g_file_eject_mountable().
+    /// `g_file_eject_mountable()`.
     ///
     /// **eject_mountable_finish is deprecated:**
     /// Use g_file_eject_mountable_with_operation_finish()
@@ -4031,7 +4031,7 @@ public extension FileProtocol {
     /// Starts an asynchronous eject on a mountable.
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
-    /// g_file_eject_mountable_with_operation_finish().
+    /// `g_file_eject_mountable_with_operation_finish()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -4042,7 +4042,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous eject operation started by
-    /// g_file_eject_mountable_with_operation().
+    /// `g_file_eject_mountable_with_operation()`.
     func ejectMountableWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_eject_mountable_with_operation_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4062,8 +4062,8 @@ public extension FileProtocol {
     /// from a file - it just won't be set. `attributes` should
     /// be a comma-separated list of attributes or attribute wildcards.
     /// The wildcard "*" means all attributes, and a wildcard like
-    /// "standard::*" means all attributes in the standard namespace.
-    /// An example attribute query be "standard::*,owner::user".
+    /// "standard``*" means all attributes in the standard namespace.
+    /// An example attribute query be "standard``*,owner`user`".
     /// The standard attributes are available as defines, like
     /// `G_FILE_ATTRIBUTE_STANDARD_NAME`.
     /// 
@@ -4088,11 +4088,11 @@ public extension FileProtocol {
     /// in a directory. The result is a `GFileEnumerator` object that will
     /// give out `GFileInfo` objects for all the files in the directory.
     /// 
-    /// For more details, see g_file_enumerate_children() which is
+    /// For more details, see `g_file_enumerate_children()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called. You can
-    /// then call g_file_enumerate_children_finish() to get the result of
+    /// then call `g_file_enumerate_children_finish()` to get the result of
     /// the operation.
     func enumerateChildrenAsync(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_enumerate_children_async(cast(file_ptr), attributes, flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -4100,7 +4100,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an async enumerate children operation.
-    /// See g_file_enumerate_children_async().
+    /// See `g_file_enumerate_children_async()`.
     func enumerateChildrenFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileEnumerator>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_enumerate_children_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -4142,11 +4142,11 @@ public extension FileProtocol {
 
     /// Asynchronously gets the mount for the file.
     /// 
-    /// For more details, see g_file_find_enclosing_mount() which is
+    /// For more details, see `g_file_find_enclosing_mount()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_find_enclosing_mount_finish() to
+    /// You can then call `g_file_find_enclosing_mount_finish()` to
     /// get the result of the operation.
     func findEnclosingMountAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_find_enclosing_mount_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -4154,7 +4154,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous find mount request.
-    /// See g_file_find_enclosing_mount_async().
+    /// See `g_file_find_enclosing_mount_async()`.
     func findEnclosingMountFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GMount>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_find_enclosing_mount_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -4174,7 +4174,7 @@ public extension FileProtocol {
     /// or rules other than it may not contain zero bytes.  If you want to use
     /// filenames in a user interface you should use the display name that you
     /// can get by requesting the `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`
-    /// attribute with g_file_query_info().
+    /// attribute with `g_file_query_info()`.
     /// 
     /// This call does no blocking I/O.
     func getBasename() -> String! {
@@ -4224,7 +4224,7 @@ public extension FileProtocol {
     /// Gets the parse name of the `file`.
     /// A parse name is a UTF-8 string that describes the
     /// file such that one can get the `GFile` back using
-    /// g_file_parse_name().
+    /// `g_file_parse_name()`.
     /// 
     /// This is generally used to show the `GFile` as a nice
     /// full-pathname kind of string in a user interface,
@@ -4268,9 +4268,8 @@ public extension FileProtocol {
     /// Gets the URI scheme for a `GFile`.
     /// RFC 3986 decodes the scheme as:
     /// ```
-    /// URI = scheme ":" hier-part [ "?" query ] [ "``" fragment ]
+    /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
     /// ```
-    /// 
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
     /// This call does no blocking I/O.
@@ -4297,7 +4296,7 @@ public extension FileProtocol {
     /// of /foo/bar.
     /// 
     /// A `GFile` is not a prefix of itself. If you want to check for
-    /// equality, use g_file_equal().
+    /// equality, use `g_file_equal()`.
     /// 
     /// This call does no I/O, as it works purely on names. As such it can
     /// sometimes return `false` even if `file` is inside a `prefix` (from a
@@ -4328,13 +4327,13 @@ public extension FileProtocol {
     /// 
     /// If `file` is a resource:// based URI, the resulting bytes will reference the
     /// embedded resource instead of a copy. Otherwise, this is equivalent to calling
-    /// g_file_load_contents() and g_bytes_new_take().
+    /// `g_file_load_contents()` and `g_bytes_new_take()`.
     /// 
     /// For resources, `etag_out` will be set to `nil`.
     /// 
     /// The data contained in the resulting `GBytes` is always zero-terminated, but
     /// this is not included in the `GBytes` length. The resulting `GBytes` should be
-    /// freed with g_bytes_unref() when no longer in use.
+    /// freed with `g_bytes_unref()` when no longer in use.
     func loadBytes(cancellable: CancellableProtocol, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GBytes>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_load_bytes(cast(file_ptr), cast(cancellable.ptr), cast(etag_out), &error)
@@ -4348,26 +4347,26 @@ public extension FileProtocol {
     /// 
     /// If `file` is a resource:// based URI, the resulting bytes will reference the
     /// embedded resource instead of a copy. Otherwise, this is equivalent to calling
-    /// g_file_load_contents_async() and g_bytes_new_take().
+    /// `g_file_load_contents_async()` and `g_bytes_new_take()`.
     /// 
-    /// `callback` should call g_file_load_bytes_finish() to get the result of this
+    /// `callback` should call `g_file_load_bytes_finish()` to get the result of this
     /// asynchronous operation.
     /// 
-    /// See g_file_load_bytes() for more information.
+    /// See `g_file_load_bytes()` for more information.
     func loadBytesAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_load_bytes_async(cast(file_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Completes an asynchronous request to g_file_load_bytes_async().
+    /// Completes an asynchronous request to `g_file_load_bytes_async()`.
     /// 
     /// For resources, `etag_out` will be set to `nil`.
     /// 
     /// The data contained in the resulting `GBytes` is always zero-terminated, but
     /// this is not included in the `GBytes` length. The resulting `GBytes` should be
-    /// freed with g_bytes_unref() when no longer in use.
+    /// freed with `g_bytes_unref()` when no longer in use.
     /// 
-    /// See g_file_load_bytes() for more information.
+    /// See `g_file_load_bytes()` for more information.
     func loadBytesFinish(result: AsyncResultProtocol, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GBytes>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_load_bytes_finish(cast(file_ptr), cast(result.ptr), cast(etag_out), &error)
@@ -4379,7 +4378,7 @@ public extension FileProtocol {
 
     /// Loads the content of the file into memory. The data is always
     /// zero-terminated, but this is not included in the resultant `length`.
-    /// The returned `content` should be freed with g_free() when no longer
+    /// The returned `content` should be freed with `g_free()` when no longer
     /// needed.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
@@ -4396,12 +4395,12 @@ public extension FileProtocol {
 
     /// Starts an asynchronous load of the `file`'s contents.
     /// 
-    /// For more details, see g_file_load_contents() which is
+    /// For more details, see `g_file_load_contents()` which is
     /// the synchronous version of this call.
     /// 
     /// When the load operation has completed, `callback` will be called
     /// with `user` data. To finish the operation, call
-    /// g_file_load_contents_finish() with the `GAsyncResult` returned by
+    /// `g_file_load_contents_finish()` with the `GAsyncResult` returned by
     /// the `callback`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
@@ -4415,7 +4414,7 @@ public extension FileProtocol {
     /// Finishes an asynchronous load of the `file`'s contents.
     /// The contents are placed in `contents`, and `length` is set to the
     /// size of the `contents` string. The `content` should be freed with
-    /// g_free() when no longer needed. If `etag_out` is present, it will be
+    /// `g_free()` when no longer needed. If `etag_out` is present, it will be
     /// set to the new entity tag for the `file`.
     func loadContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4428,8 +4427,8 @@ public extension FileProtocol {
 
     /// Reads the partial contents of a file. A `GFileReadMoreCallback` should
     /// be used to stop reading from the file when appropriate, else this
-    /// function will behave exactly as g_file_load_contents_async(). This
-    /// operation can be finished by g_file_load_partial_contents_finish().
+    /// function will behave exactly as `g_file_load_contents_async()`. This
+    /// operation can be finished by `g_file_load_partial_contents_finish()`.
     /// 
     /// Users of this function should be aware that `user_data` is passed to
     /// both the `read_more_callback` and the `callback`.
@@ -4443,9 +4442,9 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous partial load operation that was started
-    /// with g_file_load_partial_contents_async(). The data is always
+    /// with `g_file_load_partial_contents_async()`. The data is always
     /// zero-terminated, but this is not included in the resultant `length`.
-    /// The returned `content` should be freed with g_free() when no longer
+    /// The returned `content` should be freed with `g_free()` when no longer
     /// needed.
     func loadPartialContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4458,7 +4457,7 @@ public extension FileProtocol {
 
     /// Creates a directory. Note that this will only create a child directory
     /// of the immediate parent directory of the path or URI given by the `GFile`.
-    /// To recursively create directories, see g_file_make_directory_with_parents().
+    /// To recursively create directories, see `g_file_make_directory_with_parents()`.
     /// This function will fail if the parent directory does not exist, setting
     /// `error` to `G_IO_ERROR_NOT_FOUND`. If the file system doesn't support
     /// creating directories, this function will fail, setting `error` to
@@ -4486,7 +4485,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous directory creation, started with
-    /// g_file_make_directory_async().
+    /// `g_file_make_directory_async()`.
     func makeDirectoryFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_make_directory_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4501,7 +4500,7 @@ public extension FileProtocol {
     /// creating directories, this function will fail, setting `error` to
     /// `G_IO_ERROR_NOT_SUPPORTED`. If the directory itself already exists,
     /// this function will fail setting `error` to `G_IO_ERROR_EXISTS`, unlike
-    /// the similar g_mkdir_with_parents().
+    /// the similar `g_mkdir_with_parents()`.
     /// 
     /// For a local `GFile` the newly created directories will have the default
     /// (current) ownership and permissions of the current process.
@@ -4544,7 +4543,7 @@ public extension FileProtocol {
     /// `G_FILE_MEASURE_REPORT_ANY_ERROR` is given in `flags`.
     /// 
     /// The returned size, `disk_usage`, is in bytes and should be formatted
-    /// with g_format_size() in order to get something reasonable for showing
+    /// with `g_format_size()` in order to get something reasonable for showing
     /// in a user interface.
     /// 
     /// `progress_callback` and `progress_data` can be given to request
@@ -4562,7 +4561,7 @@ public extension FileProtocol {
 
     /// Recursively measures the disk usage of `file`.
     /// 
-    /// This is the asynchronous version of g_file_measure_disk_usage().  See
+    /// This is the asynchronous version of `g_file_measure_disk_usage()`.  See
     /// there for more information.
     func measureDiskUsageAsync(flags: FileMeasureFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileMeasureProgressCallback, progressData progress_data: UnsafeMutableRawPointer, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_measure_disk_usage_async(cast(file_ptr), flags, gint(io_priority), cast(cancellable.ptr), progress_callback, cast(progress_data), callback, cast(user_data))
@@ -4570,7 +4569,7 @@ public extension FileProtocol {
     }
 
     /// Collects the results from an earlier call to
-    /// g_file_measure_disk_usage_async().  See g_file_measure_disk_usage() for
+    /// `g_file_measure_disk_usage_async()`.  See `g_file_measure_disk_usage()` for
     /// more information.
     func measureDiskUsageFinish(result: AsyncResultProtocol, diskUsage disk_usage: UnsafeMutablePointer<UInt64>, numDirs num_dirs: UnsafeMutablePointer<UInt64>, numFiles num_files: UnsafeMutablePointer<UInt64>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4607,7 +4606,7 @@ public extension FileProtocol {
     /// `G_FILE_MONITOR_WATCH_HARD_LINKS`, since hard links can not be made to
     /// directories.  It is not possible to monitor all the files in a
     /// directory for changes made via hard links; if you want to do this then
-    /// you must register individual watches with g_file_monitor().
+    /// you must register individual watches with `g_file_monitor()`.
     func monitorDirectory(flags: FileMonitorFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileMonitor>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_monitor_directory(cast(file_ptr), flags, cast(cancellable.ptr), &error)
@@ -4645,7 +4644,7 @@ public extension FileProtocol {
     /// 
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
-    /// g_file_mount_enclosing_volume_finish().
+    /// `g_file_mount_enclosing_volume_finish()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -4655,7 +4654,7 @@ public extension FileProtocol {
     
     }
 
-    /// Finishes a mount operation started by g_file_mount_enclosing_volume().
+    /// Finishes a mount operation started by `g_file_mount_enclosing_volume()`.
     func mountEnclosingVolumeFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_mount_enclosing_volume_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4674,17 +4673,17 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_mount_mountable_finish() to get
+    /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
     func mountMountable(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_mount_mountable(cast(file_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes a mount operation. See g_file_mount_mountable() for details.
+    /// Finishes a mount operation. See `g_file_mount_mountable()` for details.
     /// 
     /// Finish an asynchronous mount operation that was started
-    /// with g_file_mount_mountable().
+    /// with `g_file_mount_mountable()`.
     func mountMountableFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFile>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_mount_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4767,11 +4766,11 @@ public extension FileProtocol {
 
     /// Asynchronously opens `file` for reading and writing.
     /// 
-    /// For more details, see g_file_open_readwrite() which is
+    /// For more details, see `g_file_open_readwrite()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_open_readwrite_finish() to get
+    /// You can then call `g_file_open_readwrite_finish()` to get
     /// the result of the operation.
     func openReadwriteAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_open_readwrite_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -4779,7 +4778,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file read operation started with
-    /// g_file_open_readwrite_async().
+    /// `g_file_open_readwrite_async()`.
     func openReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_open_readwrite_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -4789,8 +4788,8 @@ public extension FileProtocol {
         return cast(rv)
     }
 
-    /// Exactly like g_file_get_path(), but caches the result via
-    /// g_object_set_qdata_full().  This is useful for example in C
+    /// Exactly like `g_file_get_path()`, but caches the result via
+    /// `g_object_set_qdata_full()`.  This is useful for example in C
     /// applications which mix `g_file_*` APIs with native ones.  It
     /// also avoids an extra duplicated string when possible, so will be
     /// generally more efficient.
@@ -4808,17 +4807,17 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_mount_mountable_finish() to get
+    /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
     func pollMountable(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_poll_mountable(cast(file_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes a poll operation. See g_file_poll_mountable() for details.
+    /// Finishes a poll operation. See `g_file_poll_mountable()` for details.
     /// 
     /// Finish an asynchronous poll operation that was polled
-    /// with g_file_poll_mountable().
+    /// with `g_file_poll_mountable()`.
     func pollMountableFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_poll_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4843,13 +4842,13 @@ public extension FileProtocol {
         return cast(rv)
     }
 
-    /// Async version of g_file_query_default_handler().
+    /// Async version of `g_file_query_default_handler()`.
     func queryDefaultHandlerAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_query_default_handler_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes a g_file_query_default_handler_async() operation.
+    /// Finishes a `g_file_query_default_handler_async()` operation.
     func queryDefaultHandlerFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GAppInfo>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_query_default_handler_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -4860,7 +4859,7 @@ public extension FileProtocol {
     }
 
     /// Utility function to check if a particular file exists. This is
-    /// implemented using g_file_query_info() and as such does blocking I/O.
+    /// implemented using `g_file_query_info()` and as such does blocking I/O.
     /// 
     /// Note that in many cases it is [racy to first check for file existence](https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use)
     /// and then execute something based on the outcome of that, because the
@@ -4873,7 +4872,7 @@ public extension FileProtocol {
     /// it, and on error create it; and: check if it exists, if not create it.
     /// These can both result in two processes creating the file (with perhaps
     /// a partially written file as the result). The correct approach is to
-    /// always try to create the file with g_file_create() which will either
+    /// always try to create the file with `g_file_create()` which will either
     /// atomically create the file or fail with a `G_IO_ERROR_EXISTS` error.
     /// 
     /// However, in many cases an existence check is useful in a user interface,
@@ -4887,7 +4886,7 @@ public extension FileProtocol {
     }
 
     /// Utility function to inspect the `GFileType` of a file. This is
-    /// implemented using g_file_query_info() and as such does blocking I/O.
+    /// implemented using `g_file_query_info()` and as such does blocking I/O.
     /// 
     /// The primary use case of this method is to check if a file is
     /// a regular file, directory, or symlink.
@@ -4896,7 +4895,7 @@ public extension FileProtocol {
         return rv
     }
 
-    /// Similar to g_file_query_info(), but obtains information
+    /// Similar to `g_file_query_info()`, but obtains information
     /// about the filesystem the `file` is on, rather than the file itself.
     /// For instance the amount of space available and the type of
     /// the filesystem.
@@ -4906,7 +4905,7 @@ public extension FileProtocol {
     /// to read a particular requested attribute from a file - it just
     /// won't be set. `attributes` should be a comma-separated list of
     /// attributes or attribute wildcards. The wildcard "*" means all
-    /// attributes, and a wildcard like "filesystem::*" means all attributes
+    /// attributes, and a wildcard like "filesystem``*" means all attributes
     /// in the filesystem namespace. The standard namespace for filesystem
     /// attributes is "filesystem". Common attributes of interest are
     /// `G_FILE_ATTRIBUTE_FILESYSTEM_SIZE` (the total size of the filesystem
@@ -4935,11 +4934,11 @@ public extension FileProtocol {
     /// that contains key-value attributes (such as type or size for the
     /// file).
     /// 
-    /// For more details, see g_file_query_filesystem_info() which is the
+    /// For more details, see `g_file_query_filesystem_info()` which is the
     /// synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called. You can
-    /// then call g_file_query_info_finish() to get the result of the
+    /// then call `g_file_query_info_finish()` to get the result of the
     /// operation.
     func queryFilesystemInfoAsync(attributes: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_query_filesystem_info_async(cast(file_ptr), attributes, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -4947,7 +4946,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous filesystem info query.
-    /// See g_file_query_filesystem_info_async().
+    /// See `g_file_query_filesystem_info_async()`.
     func queryFilesystemInfoFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_query_filesystem_info_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -4967,8 +4966,8 @@ public extension FileProtocol {
     /// from a file - it just won't be set. `attributes` should be a
     /// comma-separated list of attributes or attribute wildcards.
     /// The wildcard "*" means all attributes, and a wildcard like
-    /// "standard::*" means all attributes in the standard namespace.
-    /// An example attribute query be "standard::*,owner::user".
+    /// "standard``*" means all attributes in the standard namespace.
+    /// An example attribute query be "standard``*,owner`user`".
     /// The standard attributes are available as defines, like
     /// `G_FILE_ATTRIBUTE_STANDARD_NAME`.
     /// 
@@ -5000,18 +4999,18 @@ public extension FileProtocol {
     /// The result is a `GFileInfo` object that contains key-value attributes
     /// (such as type or size for the file).
     /// 
-    /// For more details, see g_file_query_info() which is the synchronous
+    /// For more details, see `g_file_query_info()` which is the synchronous
     /// version of this call.
     /// 
     /// When the operation is finished, `callback` will be called. You can
-    /// then call g_file_query_info_finish() to get the result of the operation.
+    /// then call `g_file_query_info_finish()` to get the result of the operation.
     func queryInfoAsync(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_query_info_async(cast(file_ptr), attributes, flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an asynchronous file info query.
-    /// See g_file_query_info_async().
+    /// See `g_file_query_info_async()`.
     func queryInfoFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_query_info_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -5078,11 +5077,11 @@ public extension FileProtocol {
 
     /// Asynchronously opens `file` for reading.
     /// 
-    /// For more details, see g_file_read() which is
+    /// For more details, see `g_file_read()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_read_finish() to get the result
+    /// You can then call `g_file_read_finish()` to get the result
     /// of the operation.
     func readAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_read_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -5090,7 +5089,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file read operation started with
-    /// g_file_read_async().
+    /// `g_file_read_async()`.
     func readFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_read_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -5124,9 +5123,9 @@ public extension FileProtocol {
     /// this value is compared to the current entity tag of the file, and if
     /// they differ an `G_IO_ERROR_WRONG_ETAG` error is returned. This
     /// generally means that the file has been changed since you last read
-    /// it. You can get the new etag from g_file_output_stream_get_etag()
+    /// it. You can get the new etag from `g_file_output_stream_get_etag()`
     /// after you've finished writing and closed the `GFileOutputStream`. When
-    /// you load a new file you can use g_file_input_stream_query_info() to
+    /// you load a new file you can use `g_file_input_stream_query_info()` to
     /// get the etag of the file.
     /// 
     /// If `make_backup` is `true`, this function will attempt to make a
@@ -5153,11 +5152,11 @@ public extension FileProtocol {
     /// Asynchronously overwrites the file, replacing the contents,
     /// possibly creating a backup copy of the file first.
     /// 
-    /// For more details, see g_file_replace() which is
+    /// For more details, see `g_file_replace()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_replace_finish() to get the result
+    /// You can then call `g_file_replace_finish()` to get the result
     /// of the operation.
     func replaceAsync(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_replace_async(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -5170,7 +5169,7 @@ public extension FileProtocol {
     /// or the error `G_IO_ERROR_WRONG_ETAG` will be returned.
     /// 
     /// If `make_backup` is `true`, this function will attempt to make a backup
-    /// of `file`. Internally, it uses g_file_replace(), so will try to replace the
+    /// of `file`. Internally, it uses `g_file_replace()`, so will try to replace the
     /// file contents in the safest way possible. For example, atomic renames are
     /// used when replacing local files’ contents.
     /// 
@@ -5195,7 +5194,7 @@ public extension FileProtocol {
     /// 
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
-    /// g_file_replace_contents_finish().
+    /// `g_file_replace_contents_finish()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -5205,7 +5204,7 @@ public extension FileProtocol {
     /// make a backup of `file`.
     /// 
     /// Note that no copy of `content` will be made, so it must stay valid
-    /// until `callback` is called. See g_file_replace_contents_bytes_async()
+    /// until `callback` is called. See `g_file_replace_contents_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to the
     /// contents (without copying) for the duration of the call.
     func replaceContentsAsync(contents: UnsafePointer<CChar>, length: Int, etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -5213,21 +5212,21 @@ public extension FileProtocol {
     
     }
 
-    /// Same as g_file_replace_contents_async() but takes a `GBytes` input instead.
+    /// Same as `g_file_replace_contents_async()` but takes a `GBytes` input instead.
     /// This function will keep a ref on `contents` until the operation is done.
-    /// Unlike g_file_replace_contents_async() this allows forgetting about the
+    /// Unlike `g_file_replace_contents_async()` this allows forgetting about the
     /// content without waiting for the callback.
     /// 
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
-    /// g_file_replace_contents_finish().
+    /// `g_file_replace_contents_finish()`.
     func replaceContentsBytesAsync(contents: BytesProtocol, etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_replace_contents_bytes_async(cast(file_ptr), cast(contents.ptr), etag, gboolean(make_backup ? 1 : 0), flags, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an asynchronous replace of the given `file`. See
-    /// g_file_replace_contents_async(). Sets `new_etag` to the new entity
+    /// `g_file_replace_contents_async()`. Sets `new_etag` to the new entity
     /// tag for the document, if present.
     func replaceContentsFinish(res: AsyncResultProtocol, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -5239,7 +5238,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file replace operation started with
-    /// g_file_replace_async().
+    /// `g_file_replace_async()`.
     func replaceFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_replace_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -5253,7 +5252,7 @@ public extension FileProtocol {
     /// possibly creating a backup copy of the file first. If the file doesn't
     /// exist, it will be created.
     /// 
-    /// For details about the behaviour, see g_file_replace() which does the
+    /// For details about the behaviour, see `g_file_replace()` which does the
     /// same thing but returns an output stream only.
     /// 
     /// Note that in many non-local file cases read and write streams are not
@@ -5272,11 +5271,11 @@ public extension FileProtocol {
     /// replacing the contents, possibly creating a backup copy
     /// of the file first.
     /// 
-    /// For more details, see g_file_replace_readwrite() which is
+    /// For more details, see `g_file_replace_readwrite()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_replace_readwrite_finish() to get
+    /// You can then call `g_file_replace_readwrite_finish()` to get
     /// the result of the operation.
     func replaceReadwriteAsync(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_replace_readwrite_async(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -5284,7 +5283,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file replace operation started with
-    /// g_file_replace_readwrite_async().
+    /// `g_file_replace_readwrite_async()`.
     func replaceReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_replace_readwrite_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -5412,18 +5411,18 @@ public extension FileProtocol {
 
     /// Asynchronously sets the attributes of `file` with `info`.
     /// 
-    /// For more details, see g_file_set_attributes_from_info(),
+    /// For more details, see `g_file_set_attributes_from_info()`,
     /// which is the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_set_attributes_finish() to get
+    /// You can then call `g_file_set_attributes_finish()` to get
     /// the result of the operation.
     func setAttributesAsync(info: FileInfoProtocol, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_set_attributes_async(cast(file_ptr), cast(info.ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes setting an attribute started in g_file_set_attributes_async().
+    /// Finishes setting an attribute started in `g_file_set_attributes_async()`.
     func setAttributesFinish(result: AsyncResultProtocol, info: FileInfoProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_set_attributes_finish(cast(file_ptr), cast(result.ptr), cast(info.ptr), &error)
@@ -5462,7 +5461,7 @@ public extension FileProtocol {
     /// If you want to implement a rename operation in the user interface the
     /// edit name (`G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME`) should be used as the
     /// initial value in the rename widget, and then the result after editing
-    /// should be passed to g_file_set_display_name().
+    /// should be passed to `g_file_set_display_name()`.
     /// 
     /// On success the resulting converted filename is returned.
     /// 
@@ -5480,11 +5479,11 @@ public extension FileProtocol {
 
     /// Asynchronously sets the display name for a given `GFile`.
     /// 
-    /// For more details, see g_file_set_display_name() which is
+    /// For more details, see `g_file_set_display_name()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_set_display_name_finish() to get
+    /// You can then call `g_file_set_display_name_finish()` to get
     /// the result of the operation.
     func setDisplayNameAsync(displayName display_name: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_set_display_name_async(cast(file_ptr), display_name, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -5492,7 +5491,7 @@ public extension FileProtocol {
     }
 
     /// Finishes setting a display name started with
-    /// g_file_set_display_name_async().
+    /// `g_file_set_display_name_async()`.
     func setDisplayNameFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFile>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_set_display_name_finish(cast(file_ptr), cast(res.ptr), &error)
@@ -5511,17 +5510,17 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_mount_mountable_finish() to get
+    /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
     func startMountable(flags: DriveStartFlags, startOperation start_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_start_mountable(cast(file_ptr), flags, cast(start_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes a start operation. See g_file_start_mountable() for details.
+    /// Finishes a start operation. See `g_file_start_mountable()` for details.
     /// 
     /// Finish an asynchronous start operation that was started
-    /// with g_file_start_mountable().
+    /// with `g_file_start_mountable()`.
     func startMountableFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_start_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -5538,17 +5537,17 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_stop_mountable_finish() to get
+    /// You can then call `g_file_stop_mountable_finish()` to get
     /// the result of the operation.
     func stopMountable(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_stop_mountable(cast(file_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an stop operation, see g_file_stop_mountable() for details.
+    /// Finishes an stop operation, see `g_file_stop_mountable()` for details.
     /// 
     /// Finish an asynchronous stop operation that was started
-    /// with g_file_stop_mountable().
+    /// with `g_file_stop_mountable()`.
     func stopMountableFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_stop_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -5591,7 +5590,7 @@ public extension FileProtocol {
     }
 
     /// Finishes an asynchronous file trashing operation, started with
-    /// g_file_trash_async().
+    /// `g_file_trash_async()`.
     func trashFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_trash_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -5608,7 +5607,7 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_unmount_mountable_finish() to get
+    /// You can then call `g_file_unmount_mountable_finish()` to get
     /// the result of the operation.
     ///
     /// **unmount_mountable is deprecated:**
@@ -5618,10 +5617,10 @@ public extension FileProtocol {
     
     }
 
-    /// Finishes an unmount operation, see g_file_unmount_mountable() for details.
+    /// Finishes an unmount operation, see `g_file_unmount_mountable()` for details.
     /// 
     /// Finish an asynchronous unmount operation that was started
-    /// with g_file_unmount_mountable().
+    /// with `g_file_unmount_mountable()`.
     ///
     /// **unmount_mountable_finish is deprecated:**
     /// Use g_file_unmount_mountable_with_operation_finish()
@@ -5642,7 +5641,7 @@ public extension FileProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_file_unmount_mountable_finish() to get
+    /// You can then call `g_file_unmount_mountable_finish()` to get
     /// the result of the operation.
     func unmountMountableWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_unmount_mountable_with_operation(cast(file_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -5650,10 +5649,10 @@ public extension FileProtocol {
     }
 
     /// Finishes an unmount operation,
-    /// see g_file_unmount_mountable_with_operation() for details.
+    /// see `g_file_unmount_mountable_with_operation()` for details.
     /// 
     /// Finish an asynchronous unmount operation that was started
-    /// with g_file_unmount_mountable_with_operation().
+    /// with `g_file_unmount_mountable_with_operation()`.
     func unmountMountableWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_unmount_mountable_with_operation_finish(cast(file_ptr), cast(result.ptr), &error)
@@ -5674,7 +5673,7 @@ public extension FileProtocol {
     /// specification for more on x-content types.
     /// 
     /// This function is useful in the implementation of
-    /// g_mount_guess_content_type().
+    /// `g_mount_guess_content_type()`.
     func contentTypeGuessForTree() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_content_type_guess_for_tree(cast(file_ptr))
         return cast(rv)
@@ -5689,7 +5688,7 @@ public extension FileProtocol {
     /// or rules other than it may not contain zero bytes.  If you want to use
     /// filenames in a user interface you should use the display name that you
     /// can get by requesting the `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`
-    /// attribute with g_file_query_info().
+    /// attribute with `g_file_query_info()`.
     /// 
     /// This call does no blocking I/O.
     var basename: String! {
@@ -5703,7 +5702,7 @@ public extension FileProtocol {
         /// or rules other than it may not contain zero bytes.  If you want to use
         /// filenames in a user interface you should use the display name that you
         /// can get by requesting the `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`
-        /// attribute with g_file_query_info().
+        /// attribute with `g_file_query_info()`.
         /// 
         /// This call does no blocking I/O.
         get {
@@ -5720,7 +5719,7 @@ public extension FileProtocol {
     /// 
     /// On some systems non-native files may be available using the native
     /// filesystem via a userspace filesystem (FUSE), in these cases this call
-    /// will return `false`, but g_file_get_path() will still return a native path.
+    /// will return `false`, but `g_file_get_path()` will still return a native path.
     /// 
     /// This call does no blocking I/O.
     var isNative: Bool {
@@ -5732,7 +5731,7 @@ public extension FileProtocol {
         /// 
         /// On some systems non-native files may be available using the native
         /// filesystem via a userspace filesystem (FUSE), in these cases this call
-        /// will return `false`, but g_file_get_path() will still return a native path.
+        /// will return `false`, but `g_file_get_path()` will still return a native path.
         /// 
         /// This call does no blocking I/O.
         get {
@@ -5761,7 +5760,7 @@ public extension FileProtocol {
     /// Gets the parse name of the `file`.
     /// A parse name is a UTF-8 string that describes the
     /// file such that one can get the `GFile` back using
-    /// g_file_parse_name().
+    /// `g_file_parse_name()`.
     /// 
     /// This is generally used to show the `GFile` as a nice
     /// full-pathname kind of string in a user interface,
@@ -5776,7 +5775,7 @@ public extension FileProtocol {
         /// Gets the parse name of the `file`.
         /// A parse name is a UTF-8 string that describes the
         /// file such that one can get the `GFile` back using
-        /// g_file_parse_name().
+        /// `g_file_parse_name()`.
         /// 
         /// This is generally used to show the `GFile` as a nice
         /// full-pathname kind of string in a user interface,
@@ -5824,9 +5823,8 @@ public extension FileProtocol {
     /// Gets the URI scheme for a `GFile`.
     /// RFC 3986 decodes the scheme as:
     /// ```
-    /// URI = scheme ":" hier-part [ "?" query ] [ "``" fragment ]
+    /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
     /// ```
-    /// 
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
     /// This call does no blocking I/O.
@@ -5834,9 +5832,8 @@ public extension FileProtocol {
         /// Gets the URI scheme for a `GFile`.
         /// RFC 3986 decodes the scheme as:
         /// ```
-        /// URI = scheme ":" hier-part [ "?" query ] [ "``" fragment ]
+        /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
         /// ```
-        /// 
         /// Common schemes include "file", "http", "ftp", etc.
         /// 
         /// This call does no blocking I/O.

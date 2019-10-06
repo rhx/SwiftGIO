@@ -14,14 +14,14 @@ import GLibObject
 /// 
 /// By default, `GBufferedOutputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered output stream, use g_buffered_output_stream_new(),
-/// or g_buffered_output_stream_new_sized() to specify the buffer's size
+/// To create a buffered output stream, use `g_buffered_output_stream_new()`,
+/// or `g_buffered_output_stream_new_sized()` to specify the buffer's size
 /// at construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_output_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_output_stream_get_buffer_size()`. To change the size of a
 /// buffered output stream's buffer, use
-/// g_buffered_output_stream_set_buffer_size(). Note that the buffer's
+/// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, SeekableProtocol {
     /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
@@ -40,14 +40,14 @@ public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, Seekab
 /// 
 /// By default, `GBufferedOutputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered output stream, use g_buffered_output_stream_new(),
-/// or g_buffered_output_stream_new_sized() to specify the buffer's size
+/// To create a buffered output stream, use `g_buffered_output_stream_new()`,
+/// or `g_buffered_output_stream_new_sized()` to specify the buffer's size
 /// at construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_output_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_output_stream_get_buffer_size()`. To change the size of a
 /// buffered output stream's buffer, use
-/// g_buffered_output_stream_set_buffer_size(). Note that the buffer's
+/// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 public struct BufferedOutputStreamRef: BufferedOutputStreamProtocol {
     /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
@@ -122,14 +122,14 @@ public extension BufferedOutputStreamRef {
 /// 
 /// By default, `GBufferedOutputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered output stream, use g_buffered_output_stream_new(),
-/// or g_buffered_output_stream_new_sized() to specify the buffer's size
+/// To create a buffered output stream, use `g_buffered_output_stream_new()`,
+/// or `g_buffered_output_stream_new_sized()` to specify the buffer's size
 /// at construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_output_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_output_stream_get_buffer_size()`. To change the size of a
 /// buffered output stream's buffer, use
-/// g_buffered_output_stream_set_buffer_size(). Note that the buffer's
+/// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -234,27 +234,26 @@ public extension BufferedOutputStreamProtocol {
 
 public enum BufferedOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -527,27 +526,26 @@ public extension BytesIconProtocol {
 
 public enum BytesIconSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -774,7 +772,7 @@ public enum CancellableSignalName: String, SignalNameProtocol {
     /// Note that disconnecting from this signal (or any signal) in a
     /// multi-threaded program is prone to race conditions. For instance
     /// it is possible that a signal handler may be invoked even after
-    /// a call to g_signal_handler_disconnect() for that handler has
+    /// a call to `g_signal_handler_disconnect()` for that handler has
     /// already returned.
     /// 
     /// There is also a problem when cancellation happens right before
@@ -783,8 +781,8 @@ public enum CancellableSignalName: String, SignalNameProtocol {
     /// the signal leaves a race condition where this is still happening.
     /// 
     /// In order to make it safe and easy to connect handlers there
-    /// are two helper functions: g_cancellable_connect() and
-    /// g_cancellable_disconnect() which protect against problems
+    /// are two helper functions: `g_cancellable_connect()` and
+    /// `g_cancellable_disconnect()` which protect against problems
     /// like this.
     /// 
     /// An example of how to us this:
@@ -813,33 +811,31 @@ public enum CancellableSignalName: String, SignalNameProtocol {
     ///     my_data_free (my_data);
     /// ```
     /// 
-    /// 
     /// Note that the cancelled signal is emitted in the thread that
     /// the user cancelled from, which may be the main thread. So, the
     /// cancellable signal should not do something that can block.
     case cancelled = "cancelled"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -880,7 +876,7 @@ public extension CancellableProtocol {
     var cancellable_ptr: UnsafeMutablePointer<GCancellable> { return ptr.assumingMemoryBound(to: GCancellable.self) }
 
     /// Will set `cancellable` to cancelled, and will emit the
-    /// `GCancellable`::cancelled signal. (However, see the warning about
+    /// `GCancellable::cancelled` signal. (However, see the warning about
     /// race conditions in the documentation for that signal if you are
     /// planning to connect to it.)
     /// 
@@ -900,7 +896,7 @@ public extension CancellableProtocol {
     
     }
 
-    /// Convenience function to connect to the `GCancellable`::cancelled
+    /// Convenience function to connect to the `GCancellable::cancelled`
     /// signal. Also handles the race condition that may happen
     /// if the cancellable is cancelled right before connecting.
     /// 
@@ -912,27 +908,27 @@ public extension CancellableProtocol {
     /// disconnected, or immediately if the cancellable is already
     /// cancelled.
     /// 
-    /// See `GCancellable`::cancelled for details on how to use this.
+    /// See `GCancellable::cancelled` for details on how to use this.
     /// 
     /// Since GLib 2.40, the lock protecting `cancellable` is not held when
     /// `callback` is invoked.  This lifts a restriction in place for
     /// earlier GLib versions which now makes it easier to write cleanup
-    /// code that unconditionally invokes e.g. g_cancellable_cancel().
+    /// code that unconditionally invokes e.g. `g_cancellable_cancel()`.
     func connect(callback: @escaping GLibObject.Callback, data: UnsafeMutableRawPointer, dataDestroyFunc data_destroy_func: @escaping GLib.DestroyNotify) -> CUnsignedLong {
         let rv = g_cancellable_connect(cast(cancellable_ptr), callback, cast(data), data_destroy_func)
         return CUnsignedLong(rv)
     }
 
     /// Disconnects a handler from a cancellable instance similar to
-    /// g_signal_handler_disconnect().  Additionally, in the event that a
+    /// `g_signal_handler_disconnect()`.  Additionally, in the event that a
     /// signal handler is currently running, this call will block until the
     /// handler has finished.  Calling this function from a
-    /// `GCancellable`::cancelled signal handler will therefore result in a
+    /// `GCancellable::cancelled` signal handler will therefore result in a
     /// deadlock.
     /// 
     /// This avoids a race condition where a thread cancels at the
     /// same time as the cancellable operation is finished and the
-    /// signal handler is removed. See `GCancellable`::cancelled for
+    /// signal handler is removed. See `GCancellable::cancelled` for
     /// details on how to use this.
     /// 
     /// If `cancellable` is `nil` or `handler_id` is `0` this function does
@@ -948,26 +944,26 @@ public extension CancellableProtocol {
     /// 
     /// You are not supposed to read from the fd yourself, just check for
     /// readable status. Reading to unset the readable status is done
-    /// with g_cancellable_reset().
+    /// with `g_cancellable_reset()`.
     /// 
     /// After a successful return from this function, you should use
-    /// g_cancellable_release_fd() to free up resources allocated for
+    /// `g_cancellable_release_fd()` to free up resources allocated for
     /// the returned file descriptor.
     /// 
-    /// See also g_cancellable_make_pollfd().
+    /// See also `g_cancellable_make_pollfd()`.
     func getFd() -> CInt {
         let rv = g_cancellable_get_fd(cast(cancellable_ptr))
         return rv
     }
 
     /// Creates a `GPollFD` corresponding to `cancellable`; this can be passed
-    /// to g_poll() and used to poll for cancellation. This is useful both
+    /// to `g_poll()` and used to poll for cancellation. This is useful both
     /// for unix systems without a native poll and for portability to
     /// windows.
     /// 
     /// When this function returns `true`, you should use
-    /// g_cancellable_release_fd() to free up resources allocated for the
-    /// `pollfd`. After a `false` return, do not call g_cancellable_release_fd().
+    /// `g_cancellable_release_fd()` to free up resources allocated for the
+    /// `pollfd`. After a `false` return, do not call `g_cancellable_release_fd()`.
     /// 
     /// If this function returns `false`, either no `cancellable` was given or
     /// resource limits prevent this function from allocating the necessary
@@ -977,7 +973,7 @@ public extension CancellableProtocol {
     /// 
     /// You are not supposed to read from the fd yourself, just check for
     /// readable status. Reading to unset the readable status is done
-    /// with g_cancellable_reset().
+    /// with `g_cancellable_reset()`.
     func make(pollfd: PollFDProtocol) -> Bool {
         let rv = g_cancellable_make_pollfd(cast(cancellable_ptr), cast(pollfd.ptr))
         return Bool(rv != 0)
@@ -991,7 +987,7 @@ public extension CancellableProtocol {
     }
 
     /// Pushes `cancellable` onto the cancellable stack. The current
-    /// cancellable can then be received using g_cancellable_get_current().
+    /// cancellable can then be received using `g_cancellable_get_current()`.
     /// 
     /// This is useful when implementing cancellable operations in
     /// code that does not allow you to pass down the cancellable object.
@@ -1003,8 +999,8 @@ public extension CancellableProtocol {
     
     }
 
-    /// Releases a resources previously allocated by g_cancellable_get_fd()
-    /// or g_cancellable_make_pollfd().
+    /// Releases a resources previously allocated by `g_cancellable_get_fd()`
+    /// or `g_cancellable_make_pollfd()`.
     /// 
     /// For compatibility reasons with older releases, calling this function
     /// is not strictly required, the resources will be automatically freed
@@ -1047,7 +1043,7 @@ public extension CancellableProtocol {
     /// Creates a source that triggers if `cancellable` is cancelled and
     /// calls its callback of type `GCancellableSourceFunc`. This is
     /// primarily useful for attaching to another (non-cancellable) source
-    /// with g_source_add_child_source() to add cancellability to it.
+    /// with `g_source_add_child_source()` to add cancellability to it.
     /// 
     /// For convenience, you can call this with a `nil` `GCancellable`,
     /// in which case the source will never trigger.
@@ -1058,7 +1054,7 @@ public extension CancellableProtocol {
         return cast(rv)
     }
 
-    /// Async version of g_app_info_launch_default_for_uri().
+    /// Async version of `g_app_info_launch_default_for_uri()`.
     /// 
     /// This version is useful if you are interested in receiving
     /// error information in the case where the application is
@@ -1074,10 +1070,10 @@ public extension CancellableProtocol {
     }
 
     /// Helper function for constructing `GAsyncInitable` object. This is
-    /// similar to g_object_newv() but also initializes the object asynchronously.
+    /// similar to `g_object_newv()` but also initializes the object asynchronously.
     /// 
     /// When the initialization is finished, `callback` will be called. You can
-    /// then call g_async_initable_new_finish() to get the new object and check
+    /// then call `g_async_initable_new_finish()` to get the new object and check
     /// for any errors.
     ///
     /// **async_initable_newv_async is deprecated:**
@@ -1091,9 +1087,9 @@ public extension CancellableProtocol {
     /// Asynchronously connects to the message bus specified by `bus_type`.
     /// 
     /// When the operation is finished, `callback` will be invoked. You can
-    /// then call g_bus_get_finish() to get the result of the operation.
+    /// then call `g_bus_get_finish()` to get the result of the operation.
     /// 
-    /// This is an asynchronous failable function. See g_bus_get_sync() for
+    /// This is an asynchronous failable function. See `g_bus_get_sync()` for
     /// the synchronous version.
     func busGet(busType bus_type: BusType, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_bus_get(bus_type, cast(cancellable_ptr), callback, cast(user_data))
@@ -1105,17 +1101,17 @@ public extension CancellableProtocol {
     /// e.g. if two separate parts of a process calls this function with
     /// the same `bus_type`, they will share the same object.
     /// 
-    /// This is a synchronous failable function. See g_bus_get() and
-    /// g_bus_get_finish() for the asynchronous version.
+    /// This is a synchronous failable function. See `g_bus_get()` and
+    /// `g_bus_get_finish()` for the asynchronous version.
     /// 
     /// The returned object is a singleton, that is, shared with other
-    /// callers of g_bus_get() and g_bus_get_sync() for `bus_type`. In the
+    /// callers of `g_bus_get()` and `g_bus_get_sync()` for `bus_type`. In the
     /// event that you need a private message bus connection, use
-    /// g_dbus_address_get_for_bus_sync() and
-    /// g_dbus_connection_new_for_address().
+    /// `g_dbus_address_get_for_bus_sync()` and
+    /// `g_dbus_connection_new_for_address()`.
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
-    /// the `GDBusConnection`:exit-on-close property set to `true`.
+    /// the `GDBusConnection:exit`-on-close property set to `true`.
     func busGetSync(busType bus_type: BusType) throws -> UnsafeMutablePointer<GDBusConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_bus_get_sync(bus_type, cast(cancellable_ptr), &error)
@@ -1146,11 +1142,11 @@ public extension CancellableProtocol {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// When the operation is finished, `callback` will be invoked. You can
-    /// then call g_dbus_address_get_stream_finish() to get the result of
+    /// then call `g_dbus_address_get_stream_finish()` to get the result of
     /// the operation.
     /// 
     /// This is an asynchronous failable function. See
-    /// g_dbus_address_get_stream_sync() for the synchronous version.
+    /// `g_dbus_address_get_stream_sync()` for the synchronous version.
     func dbusAddressGetStream(address: UnsafePointer<gchar>, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dbus_address_get_stream(address, cast(cancellable_ptr), callback, cast(user_data))
     
@@ -1162,7 +1158,7 @@ public extension CancellableProtocol {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// This is a synchronous failable function. See
-    /// g_dbus_address_get_stream() for the asynchronous version.
+    /// `g_dbus_address_get_stream()` for the asynchronous version.
     func dbusAddressGetStreamSync(address: UnsafePointer<gchar>, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_address_get_stream_sync(address, cast(out_guid), cast(cancellable_ptr), &error)
@@ -1173,7 +1169,7 @@ public extension CancellableProtocol {
     }
 
     /// Helper function for constructing `GInitable` object. This is
-    /// similar to g_object_newv() but also initializes the object
+    /// similar to `g_object_newv()` but also initializes the object
     /// and returns `nil`, setting an error on failure.
     ///
     /// **initable_newv is deprecated:**
@@ -1194,8 +1190,8 @@ public extension CancellableProtocol {
     /// regardless whether the job was cancelled or has run to completion.
     /// 
     /// If `cancellable` is not `nil`, it can be used to cancel the I/O job
-    /// by calling g_cancellable_cancel() or by calling
-    /// g_io_scheduler_cancel_all_jobs().
+    /// by calling `g_cancellable_cancel()` or by calling
+    /// `g_io_scheduler_cancel_all_jobs()`.
     ///
     /// **io_scheduler_push_job is deprecated:**
     /// use #GThreadPool or g_task_run_in_thread()
@@ -1206,20 +1202,20 @@ public extension CancellableProtocol {
 
     /// Utility method for `GPollableInputStream` and `GPollableOutputStream`
     /// implementations. Creates a new `GSource`, as with
-    /// g_pollable_source_new(), but also attaching `child_source` (with a
+    /// `g_pollable_source_new()`, but also attaching `child_source` (with a
     /// dummy callback), and `cancellable`, if they are non-`nil`.
     func pollableSourceNewFull(pollableStream pollable_stream: ObjectProtocol, childSource child_source: SourceProtocol) -> UnsafeMutablePointer<GSource>! {
         let rv = g_pollable_source_new_full(cast(pollable_stream.ptr), cast(child_source.ptr), cast(cancellable_ptr))
         return cast(rv)
     }
 
-    /// Tries to read from `stream`, as with g_input_stream_read() (if
-    /// `blocking` is `true`) or g_pollable_input_stream_read_nonblocking()
+    /// Tries to read from `stream`, as with `g_input_stream_read()` (if
+    /// `blocking` is `true`) or `g_pollable_input_stream_read_nonblocking()`
     /// (if `blocking` is `false`). This can be used to more easily share
     /// code between blocking and non-blocking implementations of a method.
     /// 
     /// If `blocking` is `false`, then `stream` must be a
-    /// `GPollableInputStream` for which g_pollable_input_stream_can_poll()
+    /// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
     /// returns `true`, or else the behavior is undefined. If `blocking` is
     /// `true`, then `stream` does not need to be a `GPollableInputStream`.
     func pollableStreamRead(stream: InputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool) throws -> gssize {
@@ -1231,14 +1227,14 @@ public extension CancellableProtocol {
         return rv
     }
 
-    /// Tries to write to `stream`, as with g_output_stream_write() (if
-    /// `blocking` is `true`) or g_pollable_output_stream_write_nonblocking()
+    /// Tries to write to `stream`, as with `g_output_stream_write()` (if
+    /// `blocking` is `true`) or `g_pollable_output_stream_write_nonblocking()`
     /// (if `blocking` is `false`). This can be used to more easily share
     /// code between blocking and non-blocking implementations of a method.
     /// 
     /// If `blocking` is `false`, then `stream` must be a
     /// `GPollableOutputStream` for which
-    /// g_pollable_output_stream_can_poll() returns `true` or else the
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWrite(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool) throws -> gssize {
@@ -1251,8 +1247,8 @@ public extension CancellableProtocol {
     }
 
     /// Tries to write `count` bytes to `stream`, as with
-    /// g_output_stream_write_all(), but using g_pollable_stream_write()
-    /// rather than g_output_stream_write().
+    /// `g_output_stream_write_all()`, but using `g_pollable_stream_write()`
+    /// rather than `g_output_stream_write()`.
     /// 
     /// On a successful write of `count` bytes, `true` is returned, and
     /// `bytes_written` is set to `count`.
@@ -1263,9 +1259,9 @@ public extension CancellableProtocol {
     /// `bytes_written` is updated to contain the number of bytes written
     /// into the stream before the error occurred.
     /// 
-    /// As with g_pollable_stream_write(), if `blocking` is `false`, then
+    /// As with `g_pollable_stream_write()`, if `blocking` is `false`, then
     /// `stream` must be a `GPollableOutputStream` for which
-    /// g_pollable_output_stream_can_poll() returns `true` or else the
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWriteAll(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
@@ -1282,13 +1278,13 @@ public extension CancellableProtocol {
     /// 
     /// You are not supposed to read from the fd yourself, just check for
     /// readable status. Reading to unset the readable status is done
-    /// with g_cancellable_reset().
+    /// with `g_cancellable_reset()`.
     /// 
     /// After a successful return from this function, you should use
-    /// g_cancellable_release_fd() to free up resources allocated for
+    /// `g_cancellable_release_fd()` to free up resources allocated for
     /// the returned file descriptor.
     /// 
-    /// See also g_cancellable_make_pollfd().
+    /// See also `g_cancellable_make_pollfd()`.
     var fd: CInt {
         /// Gets the file descriptor for a cancellable job. This can be used to
         /// implement cancellable operations on Unix systems. The returned fd will
@@ -1296,13 +1292,13 @@ public extension CancellableProtocol {
         /// 
         /// You are not supposed to read from the fd yourself, just check for
         /// readable status. Reading to unset the readable status is done
-        /// with g_cancellable_reset().
+        /// with `g_cancellable_reset()`.
         /// 
         /// After a successful return from this function, you should use
-        /// g_cancellable_release_fd() to free up resources allocated for
+        /// `g_cancellable_release_fd()` to free up resources allocated for
         /// the returned file descriptor.
         /// 
-        /// See also g_cancellable_make_pollfd().
+        /// See also `g_cancellable_make_pollfd()`.
         get {
             let rv = g_cancellable_get_fd(cast(cancellable_ptr))
             return rv

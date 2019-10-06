@@ -2,7 +2,7 @@ import CGLib
 import GLib
 import GLibObject
 
-/// The string used to obtain a Unix device path with g_drive_get_identifier().
+/// The string used to obtain a Unix device path with `g_drive_get_identifier()`.
 public let DRIVE_IDENTIFIER_KIND_UNIX_DEVICE = G_DRIVE_IDENTIFIER_KIND_UNIX_DEVICE /* utf8 0 */
 
 /// A key in the "access" namespace for checking deletion privileges.
@@ -84,7 +84,7 @@ public let FILE_ATTRIBUTE_FILESYSTEM_READONLY = G_FILE_ATTRIBUTE_FILESYSTEM_READ
 public let FILE_ATTRIBUTE_FILESYSTEM_REMOTE = G_FILE_ATTRIBUTE_FILESYSTEM_REMOTE /* utf8 14 */
 
 /// A key in the "filesystem" namespace for getting the total size (in bytes) of the file system,
-/// used in g_file_query_filesystem_info(). Corresponding `GFileAttributeType`
+/// used in `g_file_query_filesystem_info()`. Corresponding `GFileAttributeType`
 /// is `G_FILE_ATTRIBUTE_TYPE_UINT64`.
 public let FILE_ATTRIBUTE_FILESYSTEM_SIZE = G_FILE_ATTRIBUTE_FILESYSTEM_SIZE /* utf8 15 */
 
@@ -429,7 +429,7 @@ public let FILE_ATTRIBUTE_UNIX_BLOCKS = G_FILE_ATTRIBUTE_UNIX_BLOCKS /* utf8 74 
 public let FILE_ATTRIBUTE_UNIX_BLOCK_SIZE = G_FILE_ATTRIBUTE_UNIX_BLOCK_SIZE /* utf8 75 */
 
 /// A key in the "unix" namespace for getting the device id of the device the
-/// file is located on (see stat() documentation). This attribute is only
+/// file is located on (see `stat()` documentation). This attribute is only
 /// available for UNIX file systems. Corresponding `GFileAttributeType` is
 /// `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_DEVICE = G_FILE_ATTRIBUTE_UNIX_DEVICE /* utf8 76 */
@@ -452,19 +452,19 @@ public let FILE_ATTRIBUTE_UNIX_INODE = G_FILE_ATTRIBUTE_UNIX_INODE /* utf8 78 */
 public let FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT = G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT /* utf8 79 */
 
 /// A key in the "unix" namespace for getting the mode of the file
-/// (e.g. whether the file is a regular file, symlink, etc). See lstat()
+/// (e.g. whether the file is a regular file, symlink, etc). See `lstat()`
 /// documentation. This attribute is only available for UNIX file systems.
 /// Corresponding `GFileAttributeType` is `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_MODE = G_FILE_ATTRIBUTE_UNIX_MODE /* utf8 80 */
 
 /// A key in the "unix" namespace for getting the number of hard links
-/// for a file. See lstat() documentation. This attribute is only available
+/// for a file. See `lstat()` documentation. This attribute is only available
 /// for UNIX file systems. Corresponding `GFileAttributeType` is
 /// `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_NLINK = G_FILE_ATTRIBUTE_UNIX_NLINK /* utf8 81 */
 
 /// A key in the "unix" namespace for getting the device ID for the file
-/// (if it is a special file). See lstat() documentation. This attribute
+/// (if it is a special file). See `lstat()` documentation. This attribute
 /// is only available for UNIX file systems. Corresponding `GFileAttributeType`
 /// is `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_RDEV = G_FILE_ATTRIBUTE_UNIX_RDEV /* utf8 82 */
@@ -479,7 +479,7 @@ public let FILE_ATTRIBUTE_UNIX_UID = G_FILE_ATTRIBUTE_UNIX_UID /* utf8 83 */
 /// action resides. For example, "win." for window-specific actions and "app."
 /// for application-wide actions.
 /// 
-/// See also g_menu_model_get_item_attribute() and g_menu_item_set_attribute().
+/// See also `g_menu_model_get_item_attribute()` and `g_menu_item_set_attribute()`.
 public let MENU_ATTRIBUTE_ACTION = G_MENU_ATTRIBUTE_ACTION /* utf8 84 */
 
 /// The menu item attribute that holds the namespace for all action names in
@@ -488,7 +488,7 @@ public let MENU_ATTRIBUTE_ACTION_NAMESPACE = G_MENU_ATTRIBUTE_ACTION_NAMESPACE /
 
 /// The menu item attribute which holds the icon of the item.
 /// 
-/// The icon is stored in the format returned by g_icon_serialize().
+/// The icon is stored in the format returned by `g_icon_serialize()`.
 /// 
 /// This attribute is intended only to represent 'noun' icons such as
 /// favicons for a webpage, or application icons.  It should not be used
@@ -501,19 +501,19 @@ public let MENU_ATTRIBUTE_LABEL = G_MENU_ATTRIBUTE_LABEL /* utf8 87 */
 /// The menu item attribute which holds the target with which the item's action
 /// will be activated.
 /// 
-/// See also g_menu_item_set_action_and_target()
+/// See also `g_menu_item_set_action_and_target()`
 public let MENU_ATTRIBUTE_TARGET = G_MENU_ATTRIBUTE_TARGET /* utf8 88 */
 
 /// The name of the link that associates a menu item with a section.  The linked
 /// menu will usually be shown in place of the menu item, using the item's label
 /// as a header.
 /// 
-/// See also g_menu_item_set_link().
+/// See also `g_menu_item_set_link()`.
 public let MENU_LINK_SECTION = G_MENU_LINK_SECTION /* utf8 89 */
 
 /// The name of the link that associates a menu item with a submenu.
 /// 
-/// See also g_menu_item_set_link().
+/// See also `g_menu_item_set_link()`.
 public let MENU_LINK_SUBMENU = G_MENU_LINK_SUBMENU /* utf8 90 */
 
 public let NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME = G_NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 91 */
@@ -549,7 +549,7 @@ public let TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER = G_TLS_DATABASE_PURPOSE_AUT
 /// See [Extending GIO][extending-gio].
 public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 99 */
 
-/// The string used to obtain the volume class with g_volume_get_identifier().
+/// The string used to obtain the volume class with `g_volume_get_identifier()`.
 /// 
 /// Known volume classes include `device`, `network`, and `loop`. Other
 /// classes may be added in the future.
@@ -560,22 +560,22 @@ public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 99 */
 /// a "Network" heading and `device` volumes under a "Devices" heading.
 public let VOLUME_IDENTIFIER_KIND_CLASS = G_VOLUME_IDENTIFIER_KIND_CLASS /* utf8 100 */
 
-/// The string used to obtain a Hal UDI with g_volume_get_identifier().
+/// The string used to obtain a Hal UDI with `g_volume_get_identifier()`.
 ///
 /// **VOLUME_IDENTIFIER_KIND_HAL_UDI is deprecated:**
 /// Do not use, HAL is deprecated.
 // deprecated G_VOLUME_IDENTIFIER_KIND_HAL_UDI = G_VOLUME_IDENTIFIER_KIND_HAL_UDI /* utf8 101 */
 
-/// The string used to obtain a filesystem label with g_volume_get_identifier().
+/// The string used to obtain a filesystem label with `g_volume_get_identifier()`.
 public let VOLUME_IDENTIFIER_KIND_LABEL = G_VOLUME_IDENTIFIER_KIND_LABEL /* utf8 102 */
 
-/// The string used to obtain a NFS mount with g_volume_get_identifier().
+/// The string used to obtain a NFS mount with `g_volume_get_identifier()`.
 public let VOLUME_IDENTIFIER_KIND_NFS_MOUNT = G_VOLUME_IDENTIFIER_KIND_NFS_MOUNT /* utf8 103 */
 
-/// The string used to obtain a Unix device path with g_volume_get_identifier().
+/// The string used to obtain a Unix device path with `g_volume_get_identifier()`.
 public let VOLUME_IDENTIFIER_KIND_UNIX_DEVICE = G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE /* utf8 104 */
 
-/// The string used to obtain a UUID with g_volume_get_identifier().
+/// The string used to obtain a UUID with `g_volume_get_identifier()`.
 public let VOLUME_IDENTIFIER_KIND_UUID = G_VOLUME_IDENTIFIER_KIND_UUID /* utf8 105 */
 
 /// Extension point for volume monitor functionality.

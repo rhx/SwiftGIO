@@ -145,7 +145,7 @@ open class NetworkMonitor: Initable, NetworkMonitorProtocol {
 
 public enum NetworkMonitorPropertyName: String, PropertyNameProtocol {
     /// More detailed information about the host's network connectivity.
-    /// See g_network_monitor_get_connectivity() and
+    /// See `g_network_monitor_get_connectivity()` and
     /// `GNetworkConnectivity` for more details.
     case connectivity = "connectivity"
     /// Whether the network is considered available. That is, whether the
@@ -157,14 +157,14 @@ public enum NetworkMonitorPropertyName: String, PropertyNameProtocol {
     /// connected to a functioning router that has lost its own upstream
     /// connectivity. Some hosts might only be accessible when a VPN is
     /// active. Other hosts might only be accessible when the VPN is
-    /// not active. Thus, it is best to use g_network_monitor_can_reach()
-    /// or g_network_monitor_can_reach_async() to test for reachability
+    /// not active. Thus, it is best to use `g_network_monitor_can_reach()`
+    /// or `g_network_monitor_can_reach_async()` to test for reachability
     /// on a host-by-host basis. (On the other hand, when the property is
     /// `false`, the application can reasonably expect that no remote
     /// hosts at all are reachable, and should indicate this to the user
     /// in its UI.)
     /// 
-    /// See also `GNetworkMonitor`::network-changed.
+    /// See also `GNetworkMonitor::network`-changed.
     case networkAvailable = "network-available"
     /// Whether the network is considered metered. That is, whether the
     /// system has traffic flowing through the default connection that is
@@ -182,7 +182,7 @@ public enum NetworkMonitorPropertyName: String, PropertyNameProtocol {
     /// If this information is not available then no networks will be
     /// marked as metered.
     /// 
-    /// See also `GNetworkMonitor`:network-available.
+    /// See also `GNetworkMonitor:network`-available.
     case networkMetered = "network-metered"
 }
 
@@ -226,7 +226,7 @@ public enum NetworkMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when the network configuration changes.
     case networkChanged = "network-changed"
     /// More detailed information about the host's network connectivity.
-    /// See g_network_monitor_get_connectivity() and
+    /// See `g_network_monitor_get_connectivity()` and
     /// `GNetworkConnectivity` for more details.
     case notifyConnectivity = "notify::connectivity"
     /// Whether the network is considered available. That is, whether the
@@ -238,14 +238,14 @@ public enum NetworkMonitorSignalName: String, SignalNameProtocol {
     /// connected to a functioning router that has lost its own upstream
     /// connectivity. Some hosts might only be accessible when a VPN is
     /// active. Other hosts might only be accessible when the VPN is
-    /// not active. Thus, it is best to use g_network_monitor_can_reach()
-    /// or g_network_monitor_can_reach_async() to test for reachability
+    /// not active. Thus, it is best to use `g_network_monitor_can_reach()`
+    /// or `g_network_monitor_can_reach_async()` to test for reachability
     /// on a host-by-host basis. (On the other hand, when the property is
     /// `false`, the application can reasonably expect that no remote
     /// hosts at all are reachable, and should indicate this to the user
     /// in its UI.)
     /// 
-    /// See also `GNetworkMonitor`::network-changed.
+    /// See also `GNetworkMonitor::network`-changed.
     case notifyNetworkAvailable = "notify::network-available"
     /// Whether the network is considered metered. That is, whether the
     /// system has traffic flowing through the default connection that is
@@ -263,7 +263,7 @@ public enum NetworkMonitorSignalName: String, SignalNameProtocol {
     /// If this information is not available then no networks will be
     /// marked as metered.
     /// 
-    /// See also `GNetworkMonitor`:network-available.
+    /// See also `GNetworkMonitor:network`-available.
     case notifyNetworkMetered = "notify::network-metered"
 }
 
@@ -303,7 +303,7 @@ public extension NetworkMonitorProtocol {
     /// `connectable` can be reached, without actually trying to connect to
     /// it.
     /// 
-    /// This may return `true` even when `GNetworkMonitor`:network-available
+    /// This may return `true` even when `GNetworkMonitor:network`-available
     /// is `false`, if, for example, `monitor` can determine that
     /// `connectable` refers to a host on a local network.
     /// 
@@ -315,7 +315,7 @@ public extension NetworkMonitorProtocol {
     /// Note that although this does not attempt to connect to
     /// `connectable`, it may still block for a brief period of time (eg,
     /// trying to do multicast DNS on the local network), so if you do not
-    /// want to block, you should use g_network_monitor_can_reach_async().
+    /// want to block, you should use `g_network_monitor_can_reach_async()`.
     func canReach(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_network_monitor_can_reach(cast(network_monitor_ptr), cast(connectable.ptr), cast(cancellable.ptr), &error)
@@ -329,10 +329,10 @@ public extension NetworkMonitorProtocol {
     /// pointed to by `connectable` can be reached, without actually
     /// trying to connect to it.
     /// 
-    /// For more details, see g_network_monitor_can_reach().
+    /// For more details, see `g_network_monitor_can_reach()`.
     /// 
     /// When the operation is finished, `callback` will be called.
-    /// You can then call g_network_monitor_can_reach_finish()
+    /// You can then call `g_network_monitor_can_reach_finish()`
     /// to get the result of the operation.
     func canReachAsync(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_network_monitor_can_reach_async(cast(network_monitor_ptr), cast(connectable.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -340,7 +340,7 @@ public extension NetworkMonitorProtocol {
     }
 
     /// Finishes an async network connectivity test.
-    /// See g_network_monitor_can_reach_async().
+    /// See `g_network_monitor_can_reach_async()`.
     func canReachFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_network_monitor_can_reach_finish(cast(network_monitor_ptr), cast(result.ptr), &error)
@@ -351,12 +351,12 @@ public extension NetworkMonitorProtocol {
     }
 
     /// Gets a more detailed networking state than
-    /// g_network_monitor_get_network_available().
+    /// `g_network_monitor_get_network_available()`.
     /// 
-    /// If `GNetworkMonitor`:network-available is `false`, then the
+    /// If `GNetworkMonitor:network`-available is `false`, then the
     /// connectivity state will be `G_NETWORK_CONNECTIVITY_LOCAL`.
     /// 
-    /// If `GNetworkMonitor`:network-available is `true`, then the
+    /// If `GNetworkMonitor:network`-available is `true`, then the
     /// connectivity state will be `G_NETWORK_CONNECTIVITY_FULL` (if there
     /// is full Internet connectivity), `G_NETWORK_CONNECTIVITY_LIMITED` (if
     /// the host has a default route, but appears to be unable to actually
@@ -377,29 +377,29 @@ public extension NetworkMonitorProtocol {
     /// Checks if the network is available. "Available" here means that the
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
-    /// reachable. See `GNetworkMonitor`:network-available for more details.
+    /// reachable. See `GNetworkMonitor:network`-available for more details.
     func getNetworkAvailable() -> Bool {
         let rv = g_network_monitor_get_network_available(cast(network_monitor_ptr))
         return Bool(rv != 0)
     }
 
     /// Checks if the network is metered.
-    /// See `GNetworkMonitor`:network-metered for more details.
+    /// See `GNetworkMonitor:network`-metered for more details.
     func getNetworkMetered() -> Bool {
         let rv = g_network_monitor_get_network_metered(cast(network_monitor_ptr))
         return Bool(rv != 0)
     }
     /// More detailed information about the host's network connectivity.
-    /// See g_network_monitor_get_connectivity() and
+    /// See `g_network_monitor_get_connectivity()` and
     /// `GNetworkConnectivity` for more details.
     var connectivity: GNetworkConnectivity {
         /// Gets a more detailed networking state than
-        /// g_network_monitor_get_network_available().
+        /// `g_network_monitor_get_network_available()`.
         /// 
-        /// If `GNetworkMonitor`:network-available is `false`, then the
+        /// If `GNetworkMonitor:network`-available is `false`, then the
         /// connectivity state will be `G_NETWORK_CONNECTIVITY_LOCAL`.
         /// 
-        /// If `GNetworkMonitor`:network-available is `true`, then the
+        /// If `GNetworkMonitor:network`-available is `true`, then the
         /// connectivity state will be `G_NETWORK_CONNECTIVITY_FULL` (if there
         /// is full Internet connectivity), `G_NETWORK_CONNECTIVITY_LIMITED` (if
         /// the host has a default route, but appears to be unable to actually
@@ -421,12 +421,12 @@ public extension NetworkMonitorProtocol {
     /// Checks if the network is available. "Available" here means that the
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
-    /// reachable. See `GNetworkMonitor`:network-available for more details.
+    /// reachable. See `GNetworkMonitor:network`-available for more details.
     var networkAvailable: Bool {
         /// Checks if the network is available. "Available" here means that the
         /// system has a default route available for at least one of IPv4 or
         /// IPv6. It does not necessarily imply that the public Internet is
-        /// reachable. See `GNetworkMonitor`:network-available for more details.
+        /// reachable. See `GNetworkMonitor:network`-available for more details.
         get {
             let rv = g_network_monitor_get_network_available(cast(network_monitor_ptr))
             return Bool(rv != 0)
@@ -434,10 +434,10 @@ public extension NetworkMonitorProtocol {
     }
 
     /// Checks if the network is metered.
-    /// See `GNetworkMonitor`:network-metered for more details.
+    /// See `GNetworkMonitor:network`-metered for more details.
     var networkMetered: Bool {
         /// Checks if the network is metered.
-        /// See `GNetworkMonitor`:network-metered for more details.
+        /// See `GNetworkMonitor:network`-metered for more details.
         get {
             let rv = g_network_monitor_get_network_metered(cast(network_monitor_ptr))
             return Bool(rv != 0)
@@ -576,27 +576,26 @@ open class PollableInputStream: InputStream, PollableInputStreamProtocol {
 
 public enum PollableInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -652,19 +651,19 @@ public extension PollableInputStreamProtocol {
     /// `cancellable` is triggered or an error occurs. The callback on the
     /// source is of the `GPollableSourceFunc` type.
     /// 
-    /// As with g_pollable_input_stream_is_readable(), it is possible that
+    /// As with `g_pollable_input_stream_is_readable()`, it is possible that
     /// the stream may not actually be readable even after the source
-    /// triggers, so you should use g_pollable_input_stream_read_nonblocking()
-    /// rather than g_input_stream_read() from the callback.
+    /// triggers, so you should use `g_pollable_input_stream_read_nonblocking()`
+    /// rather than `g_input_stream_read()` from the callback.
     func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
         let rv = g_pollable_input_stream_create_source(cast(pollable_input_stream_ptr), cast(cancellable.ptr))
         return cast(rv)
     }
 
     /// Attempts to read up to `count` bytes from `stream` into `buffer`, as
-    /// with g_input_stream_read(). If `stream` is not currently readable,
+    /// with `g_input_stream_read()`. If `stream` is not currently readable,
     /// this will immediately return `G_IO_ERROR_WOULD_BLOCK`, and you can
-    /// use g_pollable_input_stream_create_source() to create a `GSource`
+    /// use `g_pollable_input_stream_create_source()` to create a `GSource`
     /// that will be triggered when `stream` is readable.
     /// 
     /// Note that since this method never blocks, you cannot actually
@@ -683,19 +682,19 @@ public extension PollableInputStreamProtocol {
     /// Checks if `stream` can be read.
     /// 
     /// Note that some stream types may not be able to implement this 100``
-    /// reliably, and it is possible that a call to g_input_stream_read()
+    /// reliably, and it is possible that a call to `g_input_stream_read()`
     /// after this returns `true` would still block. To guarantee
     /// non-blocking behavior, you should always use
-    /// g_pollable_input_stream_read_nonblocking(), which will return a
+    /// `g_pollable_input_stream_read_nonblocking()`, which will return a
     /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
     var isReadable: Bool {
         /// Checks if `stream` can be read.
         /// 
         /// Note that some stream types may not be able to implement this 100``
-        /// reliably, and it is possible that a call to g_input_stream_read()
+        /// reliably, and it is possible that a call to `g_input_stream_read()`
         /// after this returns `true` would still block. To guarantee
         /// non-blocking behavior, you should always use
-        /// g_pollable_input_stream_read_nonblocking(), which will return a
+        /// `g_pollable_input_stream_read_nonblocking()`, which will return a
         /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
         get {
             let rv = g_pollable_input_stream_is_readable(cast(pollable_input_stream_ptr))

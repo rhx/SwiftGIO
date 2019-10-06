@@ -9,12 +9,12 @@ import GLibObject
 /// For a concrete class that implements these methods and properties, see `OutputStream`.
 /// Alternatively, use `OutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GOutputStream` has functions to write to a stream (g_output_stream_write()),
-/// to close a stream (g_output_stream_close()) and to flush pending writes
-/// (g_output_stream_flush()).
+/// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
+/// to close a stream (`g_output_stream_close()`) and to flush pending writes
+/// (`g_output_stream_flush()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -32,12 +32,12 @@ public protocol OutputStreamProtocol: ObjectProtocol {
 /// It exposes methods that can operate on this data type through `OutputStreamProtocol` conformance.
 /// Use `OutputStreamRef` only as an `unowned` reference to an existing `GOutputStream` instance.
 ///
-/// `GOutputStream` has functions to write to a stream (g_output_stream_write()),
-/// to close a stream (g_output_stream_close()) and to flush pending writes
-/// (g_output_stream_flush()).
+/// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
+/// to close a stream (`g_output_stream_close()`) and to flush pending writes
+/// (`g_output_stream_flush()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -95,12 +95,12 @@ public extension OutputStreamRef {
 /// It provides the methods that can operate on this data type through `OutputStreamProtocol` conformance.
 /// Use `OutputStream` as a strong reference or owner of a `GOutputStream` instance.
 ///
-/// `GOutputStream` has functions to write to a stream (g_output_stream_write()),
-/// to close a stream (g_output_stream_close()) and to flush pending writes
-/// (g_output_stream_flush()).
+/// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
+/// to close a stream (`g_output_stream_close()`) and to flush pending writes
+/// (`g_output_stream_flush()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -152,27 +152,26 @@ open class OutputStream: Object, OutputStreamProtocol {
 
 public enum OutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -258,10 +257,10 @@ public extension OutputStreamProtocol {
 
     /// Requests an asynchronous close of the stream, releasing resources
     /// related to it. When the operation is finished `callback` will be
-    /// called. You can then call g_output_stream_close_finish() to get
+    /// called. You can then call `g_output_stream_close_finish()` to get
     /// the result of the operation.
     /// 
-    /// For behaviour details see g_output_stream_close().
+    /// For behaviour details see `g_output_stream_close()`.
     /// 
     /// The asynchronous methods have a default fallback that uses threads
     /// to implement asynchronicity, so they are optional for inheriting
@@ -301,10 +300,10 @@ public extension OutputStreamProtocol {
 
     /// Forces an asynchronous write of all user-space buffered data for
     /// the given `stream`.
-    /// For behaviour details see g_output_stream_flush().
+    /// For behaviour details see `g_output_stream_flush()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_output_stream_flush_finish() to get the
+    /// called. You can then call `g_output_stream_flush_finish()` to get the
     /// result of the operation.
     func flushAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_output_stream_flush_async(cast(output_stream_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -355,11 +354,11 @@ public extension OutputStreamProtocol {
 
     /// Splices a stream asynchronously.
     /// When the operation is finished `callback` will be called.
-    /// You can then call g_output_stream_splice_finish() to get the
+    /// You can then call `g_output_stream_splice_finish()` to get the
     /// result of the operation.
     /// 
     /// For the synchronous, blocking version of this function, see
-    /// g_output_stream_splice().
+    /// `g_output_stream_splice()`.
     func spliceAsync(source: InputStreamProtocol, flags: OutputStreamSpliceFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_output_stream_splice_async(cast(output_stream_ptr), cast(source.ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
@@ -375,18 +374,18 @@ public extension OutputStreamProtocol {
         return rv
     }
 
-    /// This is a utility function around g_output_stream_write_all(). It
-    /// uses g_strdup_vprintf() to turn `format` and `args` into a string that
+    /// This is a utility function around `g_output_stream_write_all()`. It
+    /// uses `g_strdup_vprintf()` to turn `format` and `args` into a string that
     /// is then written to `stream`.
     /// 
-    /// See the documentation of g_output_stream_write_all() about the
+    /// See the documentation of `g_output_stream_write_all()` about the
     /// behavior of the actual write operation.
     /// 
     /// Note that partial writes cannot be properly checked with this
     /// function due to the variable length of the written string, if you
     /// need precise control over partial write failures, you need to
-    /// create you own printf()-like wrapper around g_output_stream_write()
-    /// or g_output_stream_write_all().
+    /// create you own `printf()`-like wrapper around `g_output_stream_write()`
+    /// or `g_output_stream_write_all()`.
     func vprintf(bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol, error: ErrorTypeProtocol, format: UnsafePointer<gchar>, args: CVaListPointer) -> Bool {
         let rv = g_output_stream_vprintf(cast(output_stream_ptr), cast(bytes_written), cast(cancellable.ptr), cast(error.ptr), format, args)
         return Bool(rv != 0)
@@ -424,7 +423,7 @@ public extension OutputStreamProtocol {
     /// Tries to write `count` bytes from `buffer` into the stream. Will block
     /// during the operation.
     /// 
-    /// This function is similar to g_output_stream_write(), except it tries to
+    /// This function is similar to `g_output_stream_write()`, except it tries to
     /// write as many bytes as requested, only stopping on an error.
     /// 
     /// On a successful write of `count` bytes, `true` is returned, and `bytes_written`
@@ -439,7 +438,7 @@ public extension OutputStreamProtocol {
     /// successfully written before the error was encountered.  This
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
-    /// g_output_stream_write().
+    /// `g_output_stream_write()`.
     func writeAll(buffer: UnsafeMutableRawPointer, count: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_output_stream_write_all(cast(output_stream_ptr), cast(buffer), gsize(count), cast(bytes_written), cast(cancellable.ptr), &error)
@@ -451,12 +450,12 @@ public extension OutputStreamProtocol {
 
     /// Request an asynchronous write of `count` bytes from `buffer` into
     /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call g_output_stream_write_all_finish() to get the result of the
+    /// You can then call `g_output_stream_write_all_finish()` to get the result of the
     /// operation.
     /// 
-    /// This is the asynchronous version of g_output_stream_write_all().
+    /// This is the asynchronous version of `g_output_stream_write_all()`.
     /// 
-    /// Call g_output_stream_write_all_finish() to collect the result.
+    /// Call `g_output_stream_write_all_finish()` to collect the result.
     /// 
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
@@ -470,7 +469,7 @@ public extension OutputStreamProtocol {
     }
 
     /// Finishes an asynchronous stream write operation started with
-    /// g_output_stream_write_all_async().
+    /// `g_output_stream_write_all_async()`.
     /// 
     /// As a special exception to the normal conventions for functions that
     /// use `GError`, if this function returns `false` (and sets `error`) then
@@ -478,7 +477,7 @@ public extension OutputStreamProtocol {
     /// successfully written before the error was encountered.  This
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
-    /// g_output_stream_write_async().
+    /// `g_output_stream_write_async()`.
     func writeAllFinish(result: AsyncResultProtocol, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_output_stream_write_all_finish(cast(output_stream_ptr), cast(result.ptr), cast(bytes_written), &error)
@@ -490,7 +489,7 @@ public extension OutputStreamProtocol {
 
     /// Request an asynchronous write of `count` bytes from `buffer` into
     /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call g_output_stream_write_finish() to get the result of the
+    /// You can then call `g_output_stream_write_finish()` to get the result of the
     /// operation.
     /// 
     /// During an async request no other sync and async calls are allowed,
@@ -517,10 +516,10 @@ public extension OutputStreamProtocol {
     /// classes. However, if you override one you must override all.
     /// 
     /// For the synchronous, blocking version of this function, see
-    /// g_output_stream_write().
+    /// `g_output_stream_write()`.
     /// 
     /// Note that no copy of `buffer` will be made, so it must stay valid
-    /// until `callback` is called. See g_output_stream_write_bytes_async()
+    /// until `callback` is called. See `g_output_stream_write_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to
     /// the contents (without copying) for the duration of the call.
     func writeAsync(buffer: UnsafeMutableRawPointer, count: Int, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -528,15 +527,15 @@ public extension OutputStreamProtocol {
     
     }
 
-    /// A wrapper function for g_output_stream_write() which takes a
+    /// A wrapper function for `g_output_stream_write()` which takes a
     /// `GBytes` as input.  This can be more convenient for use by language
     /// bindings or in other cases where the refcounted nature of `GBytes`
     /// is helpful over a bare pointer interface.
     /// 
     /// However, note that this function may still perform partial writes,
-    /// just like g_output_stream_write().  If that occurs, to continue
+    /// just like `g_output_stream_write()`.  If that occurs, to continue
     /// writing, you will need to create a new `GBytes` containing just the
-    /// remaining bytes, using g_bytes_new_from_bytes(). Passing the same
+    /// remaining bytes, using `g_bytes_new_from_bytes()`. Passing the same
     /// `GBytes` instance multiple times potentially can result in duplicated
     /// data in the output stream.
     func write(bytes: BytesProtocol, cancellable: CancellableProtocol) throws -> gssize {
@@ -548,19 +547,19 @@ public extension OutputStreamProtocol {
         return rv
     }
 
-    /// This function is similar to g_output_stream_write_async(), but
+    /// This function is similar to `g_output_stream_write_async()`, but
     /// takes a `GBytes` as input.  Due to the refcounted nature of `GBytes`,
     /// this allows the stream to avoid taking a copy of the data.
     /// 
     /// However, note that this function may still perform partial writes,
-    /// just like g_output_stream_write_async(). If that occurs, to continue
+    /// just like `g_output_stream_write_async()`. If that occurs, to continue
     /// writing, you will need to create a new `GBytes` containing just the
-    /// remaining bytes, using g_bytes_new_from_bytes(). Passing the same
+    /// remaining bytes, using `g_bytes_new_from_bytes()`. Passing the same
     /// `GBytes` instance multiple times potentially can result in duplicated
     /// data in the output stream.
     /// 
     /// For the synchronous, blocking version of this function, see
-    /// g_output_stream_write_bytes().
+    /// `g_output_stream_write_bytes()`.
     func writeBytesAsync(bytes: BytesProtocol, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_output_stream_write_bytes_async(cast(output_stream_ptr), cast(bytes.ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
@@ -605,7 +604,7 @@ public extension OutputStreamProtocol {
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     /// 
-    /// Some implementations of g_output_stream_writev() may have limitations on the
+    /// Some implementations of `g_output_stream_writev()` may have limitations on the
     /// aggregate buffer size, and will return `G_IO_ERROR_INVALID_ARGUMENT` if these
     /// are exceeded. For example, when writing to a local file on UNIX platforms,
     /// the aggregate buffer size must not exceed `G_MAXSSIZE` bytes.
@@ -621,7 +620,7 @@ public extension OutputStreamProtocol {
     /// Tries to write the bytes contained in the `n_vectors` `vectors` into the
     /// stream. Will block during the operation.
     /// 
-    /// This function is similar to g_output_stream_writev(), except it tries to
+    /// This function is similar to `g_output_stream_writev()`, except it tries to
     /// write as many bytes as requested, only stopping on an error.
     /// 
     /// On a successful write of all `n_vectors` vectors, `true` is returned, and
@@ -636,7 +635,7 @@ public extension OutputStreamProtocol {
     /// successfully written before the error was encountered.  This
     /// functionality is only available from C. If you need it from another
     /// language then you must write your own loop around
-    /// g_output_stream_write().
+    /// `g_output_stream_write()`.
     /// 
     /// The content of the individual elements of `vectors` might be changed by this
     /// function.
@@ -651,12 +650,12 @@ public extension OutputStreamProtocol {
 
     /// Request an asynchronous write of the bytes contained in the `n_vectors` `vectors` into
     /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call g_output_stream_writev_all_finish() to get the result of the
+    /// You can then call `g_output_stream_writev_all_finish()` to get the result of the
     /// operation.
     /// 
-    /// This is the asynchronous version of g_output_stream_writev_all().
+    /// This is the asynchronous version of `g_output_stream_writev_all()`.
     /// 
-    /// Call g_output_stream_writev_all_finish() to collect the result.
+    /// Call `g_output_stream_writev_all_finish()` to collect the result.
     /// 
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
@@ -671,7 +670,7 @@ public extension OutputStreamProtocol {
     }
 
     /// Finishes an asynchronous stream write operation started with
-    /// g_output_stream_writev_all_async().
+    /// `g_output_stream_writev_all_async()`.
     /// 
     /// As a special exception to the normal conventions for functions that
     /// use `GError`, if this function returns `false` (and sets `error`) then
@@ -679,7 +678,7 @@ public extension OutputStreamProtocol {
     /// successfully written before the error was encountered.  This
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
-    /// g_output_stream_writev_async().
+    /// `g_output_stream_writev_async()`.
     func writevAllFinish(result: AsyncResultProtocol, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_output_stream_writev_all_finish(cast(output_stream_ptr), cast(result.ptr), cast(bytes_written), &error)
@@ -691,7 +690,7 @@ public extension OutputStreamProtocol {
 
     /// Request an asynchronous write of the bytes contained in `n_vectors` `vectors` into
     /// the stream. When the operation is finished `callback` will be called.
-    /// You can then call g_output_stream_writev_finish() to get the result of the
+    /// You can then call `g_output_stream_writev_finish()` to get the result of the
     /// operation.
     /// 
     /// During an async request no other sync and async calls are allowed,
@@ -715,7 +714,7 @@ public extension OutputStreamProtocol {
     /// classes. However, if you override one you must override all.
     /// 
     /// For the synchronous, blocking version of this function, see
-    /// g_output_stream_writev().
+    /// `g_output_stream_writev()`.
     /// 
     /// Note that no copy of `vectors` will be made, so it must stay valid
     /// until `callback` is called.
@@ -734,14 +733,14 @@ public extension OutputStreamProtocol {
         return Bool(rv != 0)
     }
 
-    /// Tries to write to `stream`, as with g_output_stream_write() (if
-    /// `blocking` is `true`) or g_pollable_output_stream_write_nonblocking()
+    /// Tries to write to `stream`, as with `g_output_stream_write()` (if
+    /// `blocking` is `true`) or `g_pollable_output_stream_write_nonblocking()`
     /// (if `blocking` is `false`). This can be used to more easily share
     /// code between blocking and non-blocking implementations of a method.
     /// 
     /// If `blocking` is `false`, then `stream` must be a
     /// `GPollableOutputStream` for which
-    /// g_pollable_output_stream_can_poll() returns `true` or else the
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWrite(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
@@ -754,8 +753,8 @@ public extension OutputStreamProtocol {
     }
 
     /// Tries to write `count` bytes to `stream`, as with
-    /// g_output_stream_write_all(), but using g_pollable_stream_write()
-    /// rather than g_output_stream_write().
+    /// `g_output_stream_write_all()`, but using `g_pollable_stream_write()`
+    /// rather than `g_output_stream_write()`.
     /// 
     /// On a successful write of `count` bytes, `true` is returned, and
     /// `bytes_written` is set to `count`.
@@ -766,9 +765,9 @@ public extension OutputStreamProtocol {
     /// `bytes_written` is updated to contain the number of bytes written
     /// into the stream before the error occurred.
     /// 
-    /// As with g_pollable_stream_write(), if `blocking` is `false`, then
+    /// As with `g_pollable_stream_write()`, if `blocking` is `false`, then
     /// `stream` must be a `GPollableOutputStream` for which
-    /// g_pollable_output_stream_can_poll() returns `true` or else the
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWriteAll(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
@@ -969,10 +968,10 @@ public enum PermissionPropertyName: String, PropertyNameProtocol {
     /// `permission` represents the permission to perform.
     case allowed = "allowed"
     /// `true` if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     case canAcquire = "can-acquire"
     /// `true` if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     case canRelease = "can-release"
 }
 
@@ -1014,27 +1013,26 @@ public extension PermissionProtocol {
 
 public enum PermissionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1043,10 +1041,10 @@ public enum PermissionSignalName: String, SignalNameProtocol {
     /// `permission` represents the permission to perform.
     case notifyAllowed = "notify::allowed"
     /// `true` if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     case notifyCanAcquire = "notify::can-acquire"
     /// `true` if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     case notifyCanRelease = "notify::can-release"
 }
 
@@ -1088,14 +1086,14 @@ public extension PermissionProtocol {
     /// and the underlying authentication mechanism.  A simple example is
     /// that a dialog may appear asking the user to enter their password.
     /// 
-    /// You should check with g_permission_get_can_acquire() before calling
+    /// You should check with `g_permission_get_can_acquire()` before calling
     /// this function.
     /// 
     /// If the permission is acquired then `true` is returned.  Otherwise,
     /// `false` is returned and `error` is set appropriately.
     /// 
     /// This call is blocking, likely for a very long time (in the case that
-    /// user interaction is required).  See g_permission_acquire_async() for
+    /// user interaction is required).  See `g_permission_acquire_async()` for
     /// the non-blocking version.
     func acquire(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1109,7 +1107,7 @@ public extension PermissionProtocol {
     /// Attempts to acquire the permission represented by `permission`.
     /// 
     /// This is the first half of the asynchronous version of
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     func acquireAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_permission_acquire_async(cast(permission_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
@@ -1119,7 +1117,7 @@ public extension PermissionProtocol {
     /// represented by `permission`.
     /// 
     /// This is the second half of the asynchronous version of
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     func acquireFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_permission_acquire_finish(cast(permission_ptr), cast(result.ptr), &error)
@@ -1139,7 +1137,7 @@ public extension PermissionProtocol {
 
     /// Gets the value of the 'can-acquire' property.  This property is `true`
     /// if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     func getCanAcquire() -> Bool {
         let rv = g_permission_get_can_acquire(cast(permission_ptr))
         return Bool(rv != 0)
@@ -1147,7 +1145,7 @@ public extension PermissionProtocol {
 
     /// Gets the value of the 'can-release' property.  This property is `true`
     /// if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     func getCanRelease() -> Bool {
         let rv = g_permission_get_can_release(cast(permission_ptr))
         return Bool(rv != 0)
@@ -1169,14 +1167,14 @@ public extension PermissionProtocol {
     /// and the underlying authentication mechanism.  In most cases the
     /// permission will be dropped immediately without further action.
     /// 
-    /// You should check with g_permission_get_can_release() before calling
+    /// You should check with `g_permission_get_can_release()` before calling
     /// this function.
     /// 
     /// If the permission is released then `true` is returned.  Otherwise,
     /// `false` is returned and `error` is set appropriately.
     /// 
     /// This call is blocking, likely for a very long time (in the case that
-    /// user interaction is required).  See g_permission_release_async() for
+    /// user interaction is required).  See `g_permission_release_async()` for
     /// the non-blocking version.
     func release(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1190,7 +1188,7 @@ public extension PermissionProtocol {
     /// Attempts to release the permission represented by `permission`.
     /// 
     /// This is the first half of the asynchronous version of
-    /// g_permission_release().
+    /// `g_permission_release()`.
     func releaseAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_permission_release_async(cast(permission_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
@@ -1200,7 +1198,7 @@ public extension PermissionProtocol {
     /// represented by `permission`.
     /// 
     /// This is the second half of the asynchronous version of
-    /// g_permission_release().
+    /// `g_permission_release()`.
     func releaseFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_permission_release_finish(cast(permission_ptr), cast(result.ptr), &error)
@@ -1223,11 +1221,11 @@ public extension PermissionProtocol {
 
     /// Gets the value of the 'can-acquire' property.  This property is `true`
     /// if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     var canAcquire: Bool {
         /// Gets the value of the 'can-acquire' property.  This property is `true`
         /// if it is generally possible to acquire the permission by calling
-        /// g_permission_acquire().
+        /// `g_permission_acquire()`.
         get {
             let rv = g_permission_get_can_acquire(cast(permission_ptr))
             return Bool(rv != 0)
@@ -1236,11 +1234,11 @@ public extension PermissionProtocol {
 
     /// Gets the value of the 'can-release' property.  This property is `true`
     /// if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     var canRelease: Bool {
         /// Gets the value of the 'can-release' property.  This property is `true`
         /// if it is generally possible to release the permission by calling
-        /// g_permission_release().
+        /// `g_permission_release()`.
         get {
             let rv = g_permission_get_can_release(cast(permission_ptr))
             return Bool(rv != 0)

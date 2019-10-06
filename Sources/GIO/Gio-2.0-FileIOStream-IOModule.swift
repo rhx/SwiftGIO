@@ -18,13 +18,13 @@ import GLibObject
 /// operations.
 /// 
 /// To find the position of a file io stream, use
-/// g_seekable_tell().
+/// `g_seekable_tell()`.
 /// 
-/// To find out if a file io stream supports seeking, use g_seekable_can_seek().
-/// To position a file io stream, use g_seekable_seek().
+/// To find out if a file io stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file io stream, use `g_seekable_seek()`.
 /// To find out if a file io stream supports truncating, use
-/// g_seekable_can_truncate(). To truncate a file io
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_truncate()`. To truncate a file io
+/// stream, use `g_seekable_truncate()`.
 /// 
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
@@ -50,13 +50,13 @@ public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
 /// operations.
 /// 
 /// To find the position of a file io stream, use
-/// g_seekable_tell().
+/// `g_seekable_tell()`.
 /// 
-/// To find out if a file io stream supports seeking, use g_seekable_can_seek().
-/// To position a file io stream, use g_seekable_seek().
+/// To find out if a file io stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file io stream, use `g_seekable_seek()`.
 /// To find out if a file io stream supports truncating, use
-/// g_seekable_can_truncate(). To truncate a file io
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_truncate()`. To truncate a file io
+/// stream, use `g_seekable_truncate()`.
 /// 
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
@@ -122,13 +122,13 @@ public extension FileIOStreamRef {
 /// operations.
 /// 
 /// To find the position of a file io stream, use
-/// g_seekable_tell().
+/// `g_seekable_tell()`.
 /// 
-/// To find out if a file io stream supports seeking, use g_seekable_can_seek().
-/// To position a file io stream, use g_seekable_seek().
+/// To find out if a file io stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file io stream, use `g_seekable_seek()`.
 /// To find out if a file io stream supports truncating, use
-/// g_seekable_can_truncate(). To truncate a file io
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_truncate()`. To truncate a file io
+/// stream, use `g_seekable_truncate()`.
 /// 
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
@@ -219,27 +219,26 @@ public extension FileIOStreamProtocol {
 
 public enum FileIOStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -291,7 +290,7 @@ public extension FileIOStreamProtocol {
 
     /// Queries a file io stream for the given `attributes`.
     /// This function blocks while querying the stream. For the asynchronous
-    /// version of this function, see g_file_io_stream_query_info_async().
+    /// version of this function, see `g_file_io_stream_query_info_async()`.
     /// While the stream is blocked, the stream will set the pending flag
     /// internally, and any other operations on the stream will fail with
     /// `G_IO_ERROR_PENDING`.
@@ -317,17 +316,17 @@ public extension FileIOStreamProtocol {
 
     /// Asynchronously queries the `stream` for a `GFileInfo`. When completed,
     /// `callback` will be called with a `GAsyncResult` which can be used to
-    /// finish the operation with g_file_io_stream_query_info_finish().
+    /// finish the operation with `g_file_io_stream_query_info_finish()`.
     /// 
     /// For the synchronous version of this function, see
-    /// g_file_io_stream_query_info().
+    /// `g_file_io_stream_query_info()`.
     func queryInfoAsync(attributes: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_io_stream_query_info_async(cast(file_io_stream_ptr), attributes, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finalizes the asynchronous query started
-    /// by g_file_io_stream_query_info_async().
+    /// by `g_file_io_stream_query_info_async()`.
     func queryInfoFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_io_stream_query_info_finish(cast(file_io_stream_ptr), cast(result.ptr), &error)
@@ -338,7 +337,7 @@ public extension FileIOStreamProtocol {
     }
 
     /// Opens a file in the preferred directory for temporary files (as
-    /// returned by g_get_tmp_dir()) and returns a `GFile` and
+    /// returned by `g_get_tmp_dir()`) and returns a `GFile` and
     /// `GFileIOStream` pointing to it.
     /// 
     /// `tmpl` should be a string in the GLib file name encoding
@@ -543,27 +542,26 @@ public extension FileIconProtocol {
 
 public enum FileIconSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -635,19 +633,19 @@ public extension FileIconProtocol {
 /// See [GFileAttribute][gio-GFileAttribute] for more information on how
 /// GIO handles file attributes.
 /// 
-/// To obtain a `GFileInfo` for a `GFile`, use g_file_query_info() (or its
+/// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
 /// async variant). To obtain a `GFileInfo` for a file input or output
-/// stream, use g_file_input_stream_query_info() or
-/// g_file_output_stream_query_info() (or their async variants).
+/// stream, use `g_file_input_stream_query_info()` or
+/// `g_file_output_stream_query_info()` (or their async variants).
 /// 
 /// To change the actual attributes of a file, you should then set the
-/// attribute in the `GFileInfo` and call g_file_set_attributes_from_info()
-/// or g_file_set_attributes_async() on a GFile.
+/// attribute in the `GFileInfo` and call `g_file_set_attributes_from_info()`
+/// or `g_file_set_attributes_async()` on a GFile.
 /// 
 /// However, not all attributes can be changed in the file. For instance,
-/// the actual size of a file cannot be changed via g_file_info_set_size().
-/// You may call g_file_query_settable_attributes() and
-/// g_file_query_writable_namespaces() to discover the settable attributes
+/// the actual size of a file cannot be changed via `g_file_info_set_size()`.
+/// You may call `g_file_query_settable_attributes()` and
+/// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
@@ -671,19 +669,19 @@ public protocol FileInfoProtocol: ObjectProtocol {
 /// See [GFileAttribute][gio-GFileAttribute] for more information on how
 /// GIO handles file attributes.
 /// 
-/// To obtain a `GFileInfo` for a `GFile`, use g_file_query_info() (or its
+/// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
 /// async variant). To obtain a `GFileInfo` for a file input or output
-/// stream, use g_file_input_stream_query_info() or
-/// g_file_output_stream_query_info() (or their async variants).
+/// stream, use `g_file_input_stream_query_info()` or
+/// `g_file_output_stream_query_info()` (or their async variants).
 /// 
 /// To change the actual attributes of a file, you should then set the
-/// attribute in the `GFileInfo` and call g_file_set_attributes_from_info()
-/// or g_file_set_attributes_async() on a GFile.
+/// attribute in the `GFileInfo` and call `g_file_set_attributes_from_info()`
+/// or `g_file_set_attributes_async()` on a GFile.
 /// 
 /// However, not all attributes can be changed in the file. For instance,
-/// the actual size of a file cannot be changed via g_file_info_set_size().
-/// You may call g_file_query_settable_attributes() and
-/// g_file_query_writable_namespaces() to discover the settable attributes
+/// the actual size of a file cannot be changed via `g_file_info_set_size()`.
+/// You may call `g_file_query_settable_attributes()` and
+/// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
@@ -752,19 +750,19 @@ public extension FileInfoRef {
 /// See [GFileAttribute][gio-GFileAttribute] for more information on how
 /// GIO handles file attributes.
 /// 
-/// To obtain a `GFileInfo` for a `GFile`, use g_file_query_info() (or its
+/// To obtain a `GFileInfo` for a `GFile`, use `g_file_query_info()` (or its
 /// async variant). To obtain a `GFileInfo` for a file input or output
-/// stream, use g_file_input_stream_query_info() or
-/// g_file_output_stream_query_info() (or their async variants).
+/// stream, use `g_file_input_stream_query_info()` or
+/// `g_file_output_stream_query_info()` (or their async variants).
 /// 
 /// To change the actual attributes of a file, you should then set the
-/// attribute in the `GFileInfo` and call g_file_set_attributes_from_info()
-/// or g_file_set_attributes_async() on a GFile.
+/// attribute in the `GFileInfo` and call `g_file_set_attributes_from_info()`
+/// or `g_file_set_attributes_async()` on a GFile.
 /// 
 /// However, not all attributes can be changed in the file. For instance,
-/// the actual size of a file cannot be changed via g_file_info_set_size().
-/// You may call g_file_query_settable_attributes() and
-/// g_file_query_writable_namespaces() to discover the settable attributes
+/// the actual size of a file cannot be changed via `g_file_info_set_size()`.
+/// You may call `g_file_query_settable_attributes()` and
+/// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
@@ -820,27 +818,26 @@ open class FileInfo: Object, FileInfoProtocol {
 
 public enum FileInfoSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1026,7 +1023,7 @@ public extension FileInfoProtocol {
     }
 
     /// Gets a file's type (whether it is a regular file, symlink, etc).
-    /// This is different from the file's content type, see g_file_info_get_content_type().
+    /// This is different from the file's content type, see `g_file_info_get_content_type()`.
     func getFileType() -> GFileType {
         let rv = g_file_info_get_file_type(cast(file_info_ptr))
         return rv
@@ -1179,7 +1176,7 @@ public extension FileInfoProtocol {
     }
 
     /// Sets the attribute status for an attribute key. This is only
-    /// needed by external code that implement g_file_set_attributes_from_info()
+    /// needed by external code that implement `g_file_set_attributes_from_info()`
     /// or similar functions.
     /// 
     /// The attribute must exist in `info` for this to work. Otherwise `false`
@@ -1321,7 +1318,7 @@ public extension FileInfoProtocol {
     
     }
 
-    /// Unsets a mask set by g_file_info_set_attribute_mask(), if one
+    /// Unsets a mask set by `g_file_info_set_attribute_mask()`, if one
     /// is set.
     func unsetAttributeMask() {
         g_file_info_unset_attribute_mask(cast(file_info_ptr))
@@ -1394,10 +1391,10 @@ public extension FileInfoProtocol {
     }
 
     /// Gets a file's type (whether it is a regular file, symlink, etc).
-    /// This is different from the file's content type, see g_file_info_get_content_type().
+    /// This is different from the file's content type, see `g_file_info_get_content_type()`.
     var fileType: GFileType {
         /// Gets a file's type (whether it is a regular file, symlink, etc).
-        /// This is different from the file's content type, see g_file_info_get_content_type().
+        /// This is different from the file's content type, see `g_file_info_get_content_type()`.
         get {
             let rv = g_file_info_get_file_type(cast(file_info_ptr))
             return rv
@@ -1564,9 +1561,9 @@ public extension FileInfoProtocol {
 /// GFileInputStream implements `GSeekable`, which allows the input
 /// stream to jump to arbitrary positions in the file, provided the
 /// filesystem of the file allows it. To find the position of a file
-/// input stream, use g_seekable_tell(). To find out if a file input
-/// stream supports seeking, use g_seekable_can_seek().
-/// To position a file input stream, use g_seekable_seek().
+/// input stream, use `g_seekable_tell()`. To find out if a file input
+/// stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file input stream, use `g_seekable_seek()`.
 public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
     /// Untyped pointer to the underlying `GFileInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1585,9 +1582,9 @@ public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
 /// GFileInputStream implements `GSeekable`, which allows the input
 /// stream to jump to arbitrary positions in the file, provided the
 /// filesystem of the file allows it. To find the position of a file
-/// input stream, use g_seekable_tell(). To find out if a file input
-/// stream supports seeking, use g_seekable_can_seek().
-/// To position a file input stream, use g_seekable_seek().
+/// input stream, use `g_seekable_tell()`. To find out if a file input
+/// stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file input stream, use `g_seekable_seek()`.
 public struct FileInputStreamRef: FileInputStreamProtocol {
     /// Untyped pointer to the underlying `GFileInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_input_stream_ptr` property instead.
@@ -1646,9 +1643,9 @@ public extension FileInputStreamRef {
 /// GFileInputStream implements `GSeekable`, which allows the input
 /// stream to jump to arbitrary positions in the file, provided the
 /// filesystem of the file allows it. To find the position of a file
-/// input stream, use g_seekable_tell(). To find out if a file input
-/// stream supports seeking, use g_seekable_can_seek().
-/// To position a file input stream, use g_seekable_seek().
+/// input stream, use `g_seekable_tell()`. To find out if a file input
+/// stream supports seeking, use `g_seekable_can_seek()`.
+/// To position a file input stream, use `g_seekable_seek()`.
 open class FileInputStream: InputStream, FileInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `FileInputStream` instance.
@@ -1695,27 +1692,26 @@ open class FileInputStream: InputStream, FileInputStreamProtocol {
 
 public enum FileInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1757,7 +1753,7 @@ public extension FileInputStreamProtocol {
 
     /// Queries a file input stream the given `attributes`. This function blocks
     /// while querying the stream. For the asynchronous (non-blocking) version
-    /// of this function, see g_file_input_stream_query_info_async(). While the
+    /// of this function, see `g_file_input_stream_query_info_async()`. While the
     /// stream is blocked, the stream will set the pending flag internally, and
     /// any other operations on the stream will fail with `G_IO_ERROR_PENDING`.
     func queryInfo(attributes: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
@@ -1771,11 +1767,11 @@ public extension FileInputStreamProtocol {
 
     /// Queries the stream information asynchronously.
     /// When the operation is finished `callback` will be called.
-    /// You can then call g_file_input_stream_query_info_finish()
+    /// You can then call `g_file_input_stream_query_info_finish()`
     /// to get the result of the operation.
     /// 
     /// For the synchronous version of this function,
-    /// see g_file_input_stream_query_info().
+    /// see `g_file_input_stream_query_info()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -1808,11 +1804,11 @@ public extension FileInputStreamProtocol {
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
-/// g_file_monitor(), g_file_monitor_file(), or
-/// g_file_monitor_directory().
+/// `g_file_monitor()`, `g_file_monitor_file()`, or
+/// `g_file_monitor_directory()`.
 /// 
 /// To get informed about changes to the file or directory you are
-/// monitoring, connect to the `GFileMonitor`::changed signal. The
+/// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread that the monitor was created in
@@ -1834,11 +1830,11 @@ public protocol FileMonitorProtocol: ObjectProtocol {
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
-/// g_file_monitor(), g_file_monitor_file(), or
-/// g_file_monitor_directory().
+/// `g_file_monitor()`, `g_file_monitor_file()`, or
+/// `g_file_monitor_directory()`.
 /// 
 /// To get informed about changes to the file or directory you are
-/// monitoring, connect to the `GFileMonitor`::changed signal. The
+/// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread that the monitor was created in
@@ -1900,11 +1896,11 @@ public extension FileMonitorRef {
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
-/// g_file_monitor(), g_file_monitor_file(), or
-/// g_file_monitor_directory().
+/// `g_file_monitor()`, `g_file_monitor_file()`, or
+/// `g_file_monitor_directory()`.
 /// 
 /// To get informed about changes to the file or directory you are
-/// monitoring, connect to the `GFileMonitor`::changed signal. The
+/// monitoring, connect to the `GFileMonitor::changed` signal. The
 /// signal will be emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread that the monitor was created in
@@ -2025,27 +2021,26 @@ public enum FileMonitorSignalName: String, SignalNameProtocol {
     /// In all the other cases, `other_file` will be set to `NULL`.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2092,7 +2087,7 @@ public extension FileMonitorProtocol {
         return Bool(rv != 0)
     }
 
-    /// Emits the `GFileMonitor`::changed signal if a change
+    /// Emits the `GFileMonitor::changed` signal if a change
     /// has taken place. Should be called from file monitor
     /// implementations only.
     /// 
@@ -2137,12 +2132,12 @@ public extension FileMonitorProtocol {
 /// the file, provided the filesystem of the file supports these
 /// operations.
 /// 
-/// To find the position of a file output stream, use g_seekable_tell().
+/// To find the position of a file output stream, use `g_seekable_tell()`.
 /// To find out if a file output stream supports seeking, use
-/// g_seekable_can_seek().To position a file output stream, use
-/// g_seekable_seek(). To find out if a file output stream supports
-/// truncating, use g_seekable_can_truncate(). To truncate a file output
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_seek()`.To position a file output stream, use
+/// `g_seekable_seek()`. To find out if a file output stream supports
+/// truncating, use `g_seekable_can_truncate()`. To truncate a file output
+/// stream, use `g_seekable_truncate()`.
 public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol {
     /// Untyped pointer to the underlying `GFileOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -2163,12 +2158,12 @@ public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol
 /// the file, provided the filesystem of the file supports these
 /// operations.
 /// 
-/// To find the position of a file output stream, use g_seekable_tell().
+/// To find the position of a file output stream, use `g_seekable_tell()`.
 /// To find out if a file output stream supports seeking, use
-/// g_seekable_can_seek().To position a file output stream, use
-/// g_seekable_seek(). To find out if a file output stream supports
-/// truncating, use g_seekable_can_truncate(). To truncate a file output
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_seek()`.To position a file output stream, use
+/// `g_seekable_seek()`. To find out if a file output stream supports
+/// truncating, use `g_seekable_can_truncate()`. To truncate a file output
+/// stream, use `g_seekable_truncate()`.
 public struct FileOutputStreamRef: FileOutputStreamProtocol {
     /// Untyped pointer to the underlying `GFileOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_output_stream_ptr` property instead.
@@ -2229,12 +2224,12 @@ public extension FileOutputStreamRef {
 /// the file, provided the filesystem of the file supports these
 /// operations.
 /// 
-/// To find the position of a file output stream, use g_seekable_tell().
+/// To find the position of a file output stream, use `g_seekable_tell()`.
 /// To find out if a file output stream supports seeking, use
-/// g_seekable_can_seek().To position a file output stream, use
-/// g_seekable_seek(). To find out if a file output stream supports
-/// truncating, use g_seekable_can_truncate(). To truncate a file output
-/// stream, use g_seekable_truncate().
+/// `g_seekable_can_seek()`.To position a file output stream, use
+/// `g_seekable_seek()`. To find out if a file output stream supports
+/// truncating, use `g_seekable_can_truncate()`. To truncate a file output
+/// stream, use `g_seekable_truncate()`.
 open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `FileOutputStream` instance.
@@ -2281,27 +2276,26 @@ open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
 
 public enum FileOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2351,7 +2345,7 @@ public extension FileOutputStreamProtocol {
 
     /// Queries a file output stream for the given `attributes`.
     /// This function blocks while querying the stream. For the asynchronous
-    /// version of this function, see g_file_output_stream_query_info_async().
+    /// version of this function, see `g_file_output_stream_query_info_async()`.
     /// While the stream is blocked, the stream will set the pending flag
     /// internally, and any other operations on the stream will fail with
     /// `G_IO_ERROR_PENDING`.
@@ -2377,17 +2371,17 @@ public extension FileOutputStreamProtocol {
 
     /// Asynchronously queries the `stream` for a `GFileInfo`. When completed,
     /// `callback` will be called with a `GAsyncResult` which can be used to
-    /// finish the operation with g_file_output_stream_query_info_finish().
+    /// finish the operation with `g_file_output_stream_query_info_finish()`.
     /// 
     /// For the synchronous version of this function, see
-    /// g_file_output_stream_query_info().
+    /// `g_file_output_stream_query_info()`.
     func queryInfoAsync(attributes: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_output_stream_query_info_async(cast(file_output_stream_ptr), attributes, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finalizes the asynchronous query started
-    /// by g_file_output_stream_query_info_async().
+    /// by `g_file_output_stream_query_info_async()`.
     func queryInfoFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_output_stream_query_info_finish(cast(file_output_stream_ptr), cast(result.ptr), &error)
@@ -2550,27 +2544,26 @@ public enum FilenameCompleterSignalName: String, SignalNameProtocol {
     /// Emitted when the file name completion information comes available.
     case gotCompletionData = "got-completion-data"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2800,27 +2793,26 @@ public extension FilterInputStreamProtocol {
 
 public enum FilterInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3074,27 +3066,26 @@ public extension FilterOutputStreamProtocol {
 
 public enum FilterOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3318,27 +3309,26 @@ open class IOModule: TypeModule, IOModuleProtocol {
 
 public enum IOModuleSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3382,7 +3372,7 @@ public extension IOModuleProtocol {
     /// 
     /// This function is run after the module has been loaded into GIO,
     /// to initialize the module. Typically, this function will call
-    /// g_io_extension_point_implement().
+    /// `g_io_extension_point_implement()`.
     /// 
     /// Since 2.56, this function should be named `g_io_<modulename>_load`, where
     /// `modulename` is the plugin’s filename with the `lib` or `libgio` prefix and

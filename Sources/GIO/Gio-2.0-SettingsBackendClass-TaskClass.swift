@@ -627,7 +627,6 @@ public extension SettingsPrivateProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// The code above shows how hooks should be added to the code that
 /// initialises (or enables) the plugin to create the schema source and
 /// how an API can be added to the plugin system to provide a convenient
@@ -649,7 +648,6 @@ public extension SettingsPrivateProtocol {
 ///   ...
 /// }
 /// ```
-/// 
 /// 
 /// It's also possible that the plugin system expects the schema source
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
@@ -733,7 +731,6 @@ public protocol SettingsSchemaProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// The code above shows how hooks should be added to the code that
 /// initialises (or enables) the plugin to create the schema source and
 /// how an API can be added to the plugin system to provide a convenient
@@ -755,7 +752,6 @@ public protocol SettingsSchemaProtocol {
 ///   ...
 /// }
 /// ```
-/// 
 /// 
 /// It's also possible that the plugin system expects the schema source
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
@@ -879,7 +875,6 @@ public extension SettingsSchemaRef {
 /// }
 /// ```
 /// 
-/// 
 /// The code above shows how hooks should be added to the code that
 /// initialises (or enables) the plugin to create the schema source and
 /// how an API can be added to the plugin system to provide a convenient
@@ -901,7 +896,6 @@ public extension SettingsSchemaRef {
 ///   ...
 /// }
 /// ```
-/// 
 /// 
 /// It's also possible that the plugin system expects the schema source
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
@@ -976,7 +970,7 @@ public extension SettingsSchemaProtocol {
     /// Gets the key named `name` from `schema`.
     /// 
     /// It is a programmer error to request a key that does not exist.  See
-    /// g_settings_schema_list_keys().
+    /// `g_settings_schema_list_keys()`.
     func getKey(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GSettingsSchemaKey>! {
         let rv = g_settings_schema_get_key(cast(settings_schema_ptr), name)
         return cast(rv)
@@ -1004,7 +998,7 @@ public extension SettingsSchemaProtocol {
 
     /// Gets the list of children in `schema`.
     /// 
-    /// You should free the return value with g_strfreev() when you are done
+    /// You should free the return value with `g_strfreev()` when you are done
     /// with it.
     func listChildren() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_settings_schema_list_children(cast(settings_schema_ptr))
@@ -1274,7 +1268,7 @@ public extension SettingsSchemaKeyProtocol {
     /// format may change in any way in the future -- but particularly, new
     /// forms may be added to the possibilities described above.
     /// 
-    /// You should free the returned value with g_variant_unref() when it is
+    /// You should free the returned value with `g_variant_unref()` when it is
     /// no longer needed.
     func getRange() -> UnsafeMutablePointer<GVariant>! {
         let rv = g_settings_schema_key_get_range(cast(settings_schema_key_ptr))
@@ -1419,7 +1413,7 @@ public extension SettingsSchemaKeyProtocol {
     /// format may change in any way in the future -- but particularly, new
     /// forms may be added to the possibilities described above.
     /// 
-    /// You should free the returned value with g_variant_unref() when it is
+    /// You should free the returned value with `g_variant_unref()` when it is
     /// no longer needed.
     var range: UnsafeMutablePointer<GVariant>! {
         /// Queries the range of a key.
@@ -1456,7 +1450,7 @@ public extension SettingsSchemaKeyProtocol {
         /// format may change in any way in the future -- but particularly, new
         /// forms may be added to the possibilities described above.
         /// 
-        /// You should free the returned value with g_variant_unref() when it is
+        /// You should free the returned value with `g_variant_unref()` when it is
         /// no longer needed.
         get {
             let rv = g_settings_schema_key_get_range(cast(settings_schema_key_ptr))
@@ -1596,7 +1590,7 @@ public extension SettingsSchemaSourceRef {
     /// 
     /// If `parent` is non-`nil` then there are two effects.
     /// 
-    /// First, if g_settings_schema_source_lookup() is called with the
+    /// First, if `g_settings_schema_source_lookup()` is called with the
     /// `recursive` flag set to `true` and the schema can not be found in the
     /// source, the lookup will recurse to the parent.
     /// 
@@ -1606,7 +1600,7 @@ public extension SettingsSchemaSourceRef {
     /// 
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
-    /// returned by g_settings_schema_source_get_default().
+    /// returned by `g_settings_schema_source_get_default()`.
     init(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
@@ -1635,7 +1629,7 @@ public extension SettingsSchemaSourceRef {
     /// 
     /// If `parent` is non-`nil` then there are two effects.
     /// 
-    /// First, if g_settings_schema_source_lookup() is called with the
+    /// First, if `g_settings_schema_source_lookup()` is called with the
     /// `recursive` flag set to `true` and the schema can not be found in the
     /// source, the lookup will recurse to the parent.
     /// 
@@ -1645,7 +1639,7 @@ public extension SettingsSchemaSourceRef {
     /// 
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
-    /// returned by g_settings_schema_source_get_default().
+    /// returned by `g_settings_schema_source_get_default()`.
     static func newFrom(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws -> SettingsSchemaSourceRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
@@ -1746,7 +1740,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// 
     /// If `parent` is non-`nil` then there are two effects.
     /// 
-    /// First, if g_settings_schema_source_lookup() is called with the
+    /// First, if `g_settings_schema_source_lookup()` is called with the
     /// `recursive` flag set to `true` and the schema can not be found in the
     /// source, the lookup will recurse to the parent.
     /// 
@@ -1756,7 +1750,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// 
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
-    /// returned by g_settings_schema_source_get_default().
+    /// returned by `g_settings_schema_source_get_default()`.
     public convenience init(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
@@ -1786,7 +1780,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// 
     /// If `parent` is non-`nil` then there are two effects.
     /// 
-    /// First, if g_settings_schema_source_lookup() is called with the
+    /// First, if `g_settings_schema_source_lookup()` is called with the
     /// `recursive` flag set to `true` and the schema can not be found in the
     /// source, the lookup will recurse to the parent.
     /// 
@@ -1796,7 +1790,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// 
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
-    /// returned by g_settings_schema_source_get_default().
+    /// returned by `g_settings_schema_source_get_default()`.
     public static func newFrom(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws -> SettingsSchemaSource! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
@@ -1842,8 +1836,8 @@ public extension SettingsSchemaSourceProtocol {
     /// probably want `true`.
     /// 
     /// Non-relocatable schemas are those for which you can call
-    /// g_settings_new().  Relocatable schemas are those for which you must
-    /// use g_settings_new_with_path().
+    /// `g_settings_new()`.  Relocatable schemas are those for which you must
+    /// use `g_settings_new_with_path()`.
     /// 
     /// Do not call this function from normal programs.  This is designed for
     /// use by database editors, commandline tools, etc.
@@ -4660,8 +4654,8 @@ public extension SocketServicePrivateProtocol {
 /// would look up the "xmpp-client" SRV record for "example.com", and
 /// then connect to whatever host was pointed to by that record.
 /// 
-/// You can use g_resolver_lookup_service() or
-/// g_resolver_lookup_service_async() to find the `GSrvTargets`
+/// You can use `g_resolver_lookup_service()` or
+/// `g_resolver_lookup_service_async()` to find the `GSrvTargets`
 /// for a given service. However, if you are simply planning to connect
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
@@ -4686,8 +4680,8 @@ public protocol SrvTargetProtocol {
 /// would look up the "xmpp-client" SRV record for "example.com", and
 /// then connect to whatever host was pointed to by that record.
 /// 
-/// You can use g_resolver_lookup_service() or
-/// g_resolver_lookup_service_async() to find the `GSrvTargets`
+/// You can use `g_resolver_lookup_service()` or
+/// `g_resolver_lookup_service_async()` to find the `GSrvTargets`
 /// for a given service. However, if you are simply planning to connect
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
@@ -4760,8 +4754,8 @@ public extension SrvTargetRef {
 /// would look up the "xmpp-client" SRV record for "example.com", and
 /// then connect to whatever host was pointed to by that record.
 /// 
-/// You can use g_resolver_lookup_service() or
-/// g_resolver_lookup_service_async() to find the `GSrvTargets`
+/// You can use `g_resolver_lookup_service()` or
+/// `g_resolver_lookup_service_async()` to find the `GSrvTargets`
 /// for a given service. However, if you are simply planning to connect
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
@@ -4847,9 +4841,9 @@ public extension SrvTargetProtocol {
     }
 
     /// Gets `target`'s hostname (in ASCII form; if you are going to present
-    /// this to the user, you should use g_hostname_is_ascii_encoded() to
+    /// this to the user, you should use `g_hostname_is_ascii_encoded()` to
     /// check if it contains encoded Unicode segments, and use
-    /// g_hostname_to_unicode() to convert it if it does.)
+    /// `g_hostname_to_unicode()` to convert it if it does.)
     func getHostname() -> String! {
         let rv = g_srv_target_get_hostname(cast(srv_target_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4877,14 +4871,14 @@ public extension SrvTargetProtocol {
         return UInt16(rv)
     }
     /// Gets `target`'s hostname (in ASCII form; if you are going to present
-    /// this to the user, you should use g_hostname_is_ascii_encoded() to
+    /// this to the user, you should use `g_hostname_is_ascii_encoded()` to
     /// check if it contains encoded Unicode segments, and use
-    /// g_hostname_to_unicode() to convert it if it does.)
+    /// `g_hostname_to_unicode()` to convert it if it does.)
     var hostname: String! {
         /// Gets `target`'s hostname (in ASCII form; if you are going to present
-        /// this to the user, you should use g_hostname_is_ascii_encoded() to
+        /// this to the user, you should use `g_hostname_is_ascii_encoded()` to
         /// check if it contains encoded Unicode segments, and use
-        /// g_hostname_to_unicode() to convert it if it does.)
+        /// `g_hostname_to_unicode()` to convert it if it does.)
         get {
             let rv = g_srv_target_get_hostname(cast(srv_target_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -5066,7 +5060,7 @@ public extension StaticResourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GStaticResource` instance.
     var _ptr: UnsafeMutablePointer<GStaticResource> { return ptr.assumingMemoryBound(to: GStaticResource.self) }
 
-    /// Finalized a GResource initialized by g_static_resource_init().
+    /// Finalized a GResource initialized by `g_static_resource_init()`.
     /// 
     /// This is normally used by code generated by
     /// [glib-compile-resources][glib-compile-resources]
@@ -5076,7 +5070,7 @@ public extension StaticResourceProtocol {
     
     }
 
-    /// Gets the GResource that was registered by a call to g_static_resource_init().
+    /// Gets the GResource that was registered by a call to `g_static_resource_init()`.
     /// 
     /// This is normally used by code generated by
     /// [glib-compile-resources][glib-compile-resources]
@@ -5096,13 +5090,13 @@ public extension StaticResourceProtocol {
         g_static_resource_init(cast(_ptr))
     
     }
-    /// Gets the GResource that was registered by a call to g_static_resource_init().
+    /// Gets the GResource that was registered by a call to `g_static_resource_init()`.
     /// 
     /// This is normally used by code generated by
     /// [glib-compile-resources][glib-compile-resources]
     /// and is not typically used by other code.
     var resource: UnsafeMutablePointer<GResource>! {
-        /// Gets the GResource that was registered by a call to g_static_resource_init().
+        /// Gets the GResource that was registered by a call to `g_static_resource_init()`.
         /// 
         /// This is normally used by code generated by
         /// [glib-compile-resources][glib-compile-resources]

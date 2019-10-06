@@ -132,7 +132,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case acceptedCas = "accepted-cas"
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case advertisedProtocols = "advertised-protocols"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
     /// to this stream, and may run operations on the stream from other threads
@@ -141,12 +141,12 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case baseIoStream = "base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case database = "database"
     case inputStream = "input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -154,37 +154,37 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// user for passwords where necessary.
     case interaction = "interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case requireCloseNotify = "require-close-notify"
     /// A `GSocketConnectable` describing the identity of the server that
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GTlsClientConnection`:validation-flags, this object will be used
+    /// `GTlsClientConnection:validation`-flags, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GTlsClientConnection`:server-identity is not set,
+    /// connection; if `GTlsClientConnection:server`-identity is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -195,7 +195,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case serverIdentity = "server-identity"
     /// If `true`, forces the connection to use a fallback version of TLS
     /// or SSL, rather than trying to negotiate the best version of TLS
-    /// to use. See g_tls_client_connection_set_use_ssl3().
+    /// to use. See `g_tls_client_connection_set_use_ssl3()`.
     ///
     /// **use-ssl3 is deprecated:**
     /// SSL 3.0 is insecure, and this property does not
@@ -203,7 +203,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case useSSL3 = "use-ssl3"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -211,7 +211,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in all of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GTlsConnection`::accept-certificate.
+    /// overrides the default via `GTlsConnection::accept`-certificate.
     case validationFlags = "validation-flags"
 }
 
@@ -254,19 +254,19 @@ public extension TLSClientConnectionProtocol {
 public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// Emitted during the TLS handshake after the peer certificate has
     /// been received. You can examine `peer_cert`'s certification path by
-    /// calling g_tls_certificate_get_issuer() on it.
+    /// calling `g_tls_certificate_get_issuer()` on it.
     /// 
     /// For a client-side connection, `peer_cert` is the server's
     /// certificate, and the signal will only be emitted if the
     /// certificate was not acceptable according to `conn`'s
-    /// `GTlsClientConnection`:validation_flags. If you would like the
+    /// `GTlsClientConnection:validation_flags`. If you would like the
     /// certificate to be accepted despite `errors`, return `true` from the
     /// signal handler. Otherwise, if no handler accepts the certificate,
     /// the handshake will fail with `G_TLS_ERROR_BAD_CERTIFICATE`.
     /// 
     /// For a server-side connection, `peer_cert` is the certificate
     /// presented by the client, if this was requested via the server's
-    /// `GTlsServerConnection`:authentication_mode. On the server side,
+    /// `GTlsServerConnection:authentication_mode`. On the server side,
     /// the signal is always emitted when the client presents a
     /// certificate, and the certificate will only be accepted if a
     /// handler returns `true`.
@@ -287,27 +287,26 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// handler until the UI thread returns an answer.
     case acceptCertificate = "accept-certificate"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -322,7 +321,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyAcceptedCas = "notify::accepted-cas"
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case notifyAdvertisedProtocols = "notify::advertised-protocols"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
     /// to this stream, and may run operations on the stream from other threads
@@ -331,12 +330,12 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case notifyBaseIoStream = "notify::base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case notifyDatabase = "notify::database"
     case notifyInputStream = "notify::input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -344,37 +343,37 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// user for passwords where necessary.
     case notifyInteraction = "notify::interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case notifyRequireCloseNotify = "notify::require-close-notify"
     /// A `GSocketConnectable` describing the identity of the server that
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GTlsClientConnection`:validation-flags, this object will be used
+    /// `GTlsClientConnection:validation`-flags, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GTlsClientConnection`:server-identity is not set,
+    /// connection; if `GTlsClientConnection:server`-identity is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -385,7 +384,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyServerIdentity = "notify::server-identity"
     /// If `true`, forces the connection to use a fallback version of TLS
     /// or SSL, rather than trying to negotiate the best version of TLS
-    /// to use. See g_tls_client_connection_set_use_ssl3().
+    /// to use. See `g_tls_client_connection_set_use_ssl3()`.
     ///
     /// **use-ssl3 is deprecated:**
     /// SSL 3.0 is insecure, and this property does not
@@ -393,7 +392,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyUseSSL3 = "notify::use-ssl3"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -401,7 +400,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in all of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GTlsConnection`::accept-certificate.
+    /// overrides the default via `GTlsConnection::accept`-certificate.
     case notifyValidationFlags = "notify::validation-flags"
 }
 
@@ -468,7 +467,7 @@ public extension TLSClientConnectionProtocol {
 
     /// Gets whether `conn` will force the lowest-supported TLS protocol
     /// version rather than attempt to negotiate the highest mutually-
-    /// supported version of TLS; see g_tls_client_connection_set_use_ssl3().
+    /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
     ///
     /// **get_use_ssl3 is deprecated:**
     /// SSL 3.0 is insecure, and this function does not
@@ -561,7 +560,7 @@ public extension TLSClientConnectionProtocol {
 
     /// Gets whether `conn` will force the lowest-supported TLS protocol
     /// version rather than attempt to negotiate the highest mutually-
-    /// supported version of TLS; see g_tls_client_connection_set_use_ssl3().
+    /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
     ///
     /// **get_use_ssl3 is deprecated:**
     /// SSL 3.0 is insecure, and this function does not
@@ -569,7 +568,7 @@ public extension TLSClientConnectionProtocol {
     var useSSL3: Bool {
         /// Gets whether `conn` will force the lowest-supported TLS protocol
         /// version rather than attempt to negotiate the highest mutually-
-        /// supported version of TLS; see g_tls_client_connection_set_use_ssl3().
+        /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
         ///
         /// **get_use_ssl3 is deprecated:**
         /// SSL 3.0 is insecure, and this function does not
@@ -744,7 +743,7 @@ public enum TLSFileDatabasePropertyName: String, PropertyNameProtocol {
     /// The path to a file containing PEM encoded certificate authority
     /// root anchors. The certificates in this file will be treated as
     /// root authorities for the purpose of verifying other certificates
-    /// via the g_tls_database_verify_chain() operation.
+    /// via the `g_tls_database_verify_chain()` operation.
     case anchors = "anchors"
 }
 
@@ -786,27 +785,26 @@ public extension TLSFileDatabaseProtocol {
 
 public enum TLSFileDatabaseSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -814,7 +812,7 @@ public enum TLSFileDatabaseSignalName: String, SignalNameProtocol {
     /// The path to a file containing PEM encoded certificate authority
     /// root anchors. The certificates in this file will be treated as
     /// root authorities for the purpose of verifying other certificates
-    /// via the g_tls_database_verify_chain() operation.
+    /// via the `g_tls_database_verify_chain()` operation.
     case notifyAnchors = "notify::anchors"
 }
 
@@ -976,10 +974,10 @@ open class TLSServerConnection: TLSConnection, TLSServerConnectionProtocol {
 public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case advertisedProtocols = "advertised-protocols"
     /// The `GTlsAuthenticationMode` for the server. This can be changed
-    /// before calling g_tls_connection_handshake() if you want to
+    /// before calling `g_tls_connection_handshake()` if you want to
     /// rehandshake with a different mode from the initial handshake.
     case authenticationMode = "authentication-mode"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
@@ -989,12 +987,12 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case baseIoStream = "base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case database = "database"
     case inputStream = "input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -1002,33 +1000,33 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     /// user for passwords where necessary.
     case interaction = "interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case requireCloseNotify = "require-close-notify"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -1074,19 +1072,19 @@ public extension TLSServerConnectionProtocol {
 public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// Emitted during the TLS handshake after the peer certificate has
     /// been received. You can examine `peer_cert`'s certification path by
-    /// calling g_tls_certificate_get_issuer() on it.
+    /// calling `g_tls_certificate_get_issuer()` on it.
     /// 
     /// For a client-side connection, `peer_cert` is the server's
     /// certificate, and the signal will only be emitted if the
     /// certificate was not acceptable according to `conn`'s
-    /// `GTlsClientConnection`:validation_flags. If you would like the
+    /// `GTlsClientConnection:validation_flags`. If you would like the
     /// certificate to be accepted despite `errors`, return `true` from the
     /// signal handler. Otherwise, if no handler accepts the certificate,
     /// the handshake will fail with `G_TLS_ERROR_BAD_CERTIFICATE`.
     /// 
     /// For a server-side connection, `peer_cert` is the certificate
     /// presented by the client, if this was requested via the server's
-    /// `GTlsServerConnection`:authentication_mode. On the server side,
+    /// `GTlsServerConnection:authentication_mode`. On the server side,
     /// the signal is always emitted when the client presents a
     /// certificate, and the certificate will only be accepted if a
     /// handler returns `true`.
@@ -1107,37 +1105,36 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// handler until the UI thread returns an answer.
     case acceptCertificate = "accept-certificate"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case notifyAdvertisedProtocols = "notify::advertised-protocols"
     /// The `GTlsAuthenticationMode` for the server. This can be changed
-    /// before calling g_tls_connection_handshake() if you want to
+    /// before calling `g_tls_connection_handshake()` if you want to
     /// rehandshake with a different mode from the initial handshake.
     case notifyAuthenticationMode = "notify::authentication-mode"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
@@ -1147,12 +1144,12 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case notifyBaseIoStream = "notify::base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case notifyDatabase = "notify::database"
     case notifyInputStream = "notify::input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -1160,33 +1157,33 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// user for passwords where necessary.
     case notifyInteraction = "notify::interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case notifyRequireCloseNotify = "notify::require-close-notify"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -1242,7 +1239,7 @@ public extension TLSServerConnectionProtocol {
 /// 
 /// Mounting a `GVolume` instance is an asynchronous operation. For more
 /// information about asynchronous operations, see `GAsyncResult` and
-/// `GTask`. To mount a `GVolume`, first call g_volume_mount() with (at
+/// `GTask`. To mount a `GVolume`, first call `g_volume_mount()` with (at
 /// least) the `GVolume` instance, optionally a `GMountOperation` object
 /// and a `GAsyncReadyCallback`.
 /// 
@@ -1254,12 +1251,12 @@ public extension TLSServerConnectionProtocol {
 /// The callback will be fired when the operation has resolved (either
 /// with success or failure), and a `GAsyncResult` instance will be
 /// passed to the callback.  That callback should then call
-/// g_volume_mount_finish() with the `GVolume` instance and the
+/// `g_volume_mount_finish()` with the `GVolume` instance and the
 /// `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_volume_mount_finish()
+/// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ``` Volume Identifiers `` {`volume`-identifier}
+/// ```` Volume Identifiers `` {`volume`-identifier}
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1269,14 +1266,14 @@ public extension TLSServerConnectionProtocol {
 /// traditional Unix devices (e.g. `/dev/sda2`), UUIDs. GIO uses predefined
 /// strings as names for the different kinds of identifiers:
 /// `G_VOLUME_IDENTIFIER_KIND_UUID`, `G_VOLUME_IDENTIFIER_KIND_LABEL`, etc.
-/// Use g_volume_get_identifier() to obtain an identifier for a volume.
+/// Use `g_volume_get_identifier()` to obtain an identifier for a volume.
 /// 
 /// 
 /// Note that `G_VOLUME_IDENTIFIER_KIND_HAL_UDI` will only be available
 /// when the gvfs hal volume monitor is in use. Other volume monitors
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
-/// libhal_manager_find_device_string_match().
+/// `libhal_manager_find_device_string_match()`.
 public protocol VolumeProtocol {
     /// Untyped pointer to the underlying `GVolume` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1295,7 +1292,7 @@ public protocol VolumeProtocol {
 /// 
 /// Mounting a `GVolume` instance is an asynchronous operation. For more
 /// information about asynchronous operations, see `GAsyncResult` and
-/// `GTask`. To mount a `GVolume`, first call g_volume_mount() with (at
+/// `GTask`. To mount a `GVolume`, first call `g_volume_mount()` with (at
 /// least) the `GVolume` instance, optionally a `GMountOperation` object
 /// and a `GAsyncReadyCallback`.
 /// 
@@ -1307,12 +1304,12 @@ public protocol VolumeProtocol {
 /// The callback will be fired when the operation has resolved (either
 /// with success or failure), and a `GAsyncResult` instance will be
 /// passed to the callback.  That callback should then call
-/// g_volume_mount_finish() with the `GVolume` instance and the
+/// `g_volume_mount_finish()` with the `GVolume` instance and the
 /// `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_volume_mount_finish()
+/// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ``` Volume Identifiers `` {`volume`-identifier}
+/// ```` Volume Identifiers `` {`volume`-identifier}
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1322,14 +1319,14 @@ public protocol VolumeProtocol {
 /// traditional Unix devices (e.g. `/dev/sda2`), UUIDs. GIO uses predefined
 /// strings as names for the different kinds of identifiers:
 /// `G_VOLUME_IDENTIFIER_KIND_UUID`, `G_VOLUME_IDENTIFIER_KIND_LABEL`, etc.
-/// Use g_volume_get_identifier() to obtain an identifier for a volume.
+/// Use `g_volume_get_identifier()` to obtain an identifier for a volume.
 /// 
 /// 
 /// Note that `G_VOLUME_IDENTIFIER_KIND_HAL_UDI` will only be available
 /// when the gvfs hal volume monitor is in use. Other volume monitors
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
-/// libhal_manager_find_device_string_match().
+/// `libhal_manager_find_device_string_match()`.
 public struct VolumeRef: VolumeProtocol {
     /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.
@@ -1388,7 +1385,7 @@ public extension VolumeRef {
 /// 
 /// Mounting a `GVolume` instance is an asynchronous operation. For more
 /// information about asynchronous operations, see `GAsyncResult` and
-/// `GTask`. To mount a `GVolume`, first call g_volume_mount() with (at
+/// `GTask`. To mount a `GVolume`, first call `g_volume_mount()` with (at
 /// least) the `GVolume` instance, optionally a `GMountOperation` object
 /// and a `GAsyncReadyCallback`.
 /// 
@@ -1400,12 +1397,12 @@ public extension VolumeRef {
 /// The callback will be fired when the operation has resolved (either
 /// with success or failure), and a `GAsyncResult` instance will be
 /// passed to the callback.  That callback should then call
-/// g_volume_mount_finish() with the `GVolume` instance and the
+/// `g_volume_mount_finish()` with the `GVolume` instance and the
 /// `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_volume_mount_finish()
+/// successfully.  If an `error` is present when `g_volume_mount_finish()`
 /// is called, then it will be filled with any error information.
 /// 
-/// ``` Volume Identifiers `` {`volume`-identifier}
+/// ```` Volume Identifiers `` {`volume`-identifier}
 /// 
 /// It is sometimes necessary to directly access the underlying
 /// operating system object behind a volume (e.g. for passing a volume
@@ -1415,14 +1412,14 @@ public extension VolumeRef {
 /// traditional Unix devices (e.g. `/dev/sda2`), UUIDs. GIO uses predefined
 /// strings as names for the different kinds of identifiers:
 /// `G_VOLUME_IDENTIFIER_KIND_UUID`, `G_VOLUME_IDENTIFIER_KIND_LABEL`, etc.
-/// Use g_volume_get_identifier() to obtain an identifier for a volume.
+/// Use `g_volume_get_identifier()` to obtain an identifier for a volume.
 /// 
 /// 
 /// Note that `G_VOLUME_IDENTIFIER_KIND_HAL_UDI` will only be available
 /// when the gvfs hal volume monitor is in use. Other volume monitors
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
-/// libhal_manager_find_device_string_match().
+/// `libhal_manager_find_device_string_match()`.
 open class Volume: VolumeProtocol {
     /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.
@@ -1531,7 +1528,7 @@ public extension VolumeProtocol {
     }
 
     /// Ejects a volume. This is an asynchronous operation, and is
-    /// finished by calling g_volume_eject_finish() with the `volume`
+    /// finished by calling `g_volume_eject_finish()` with the `volume`
     /// and `GAsyncResult` returned in the `callback`.
     ///
     /// **eject is deprecated:**
@@ -1556,7 +1553,7 @@ public extension VolumeProtocol {
     }
 
     /// Ejects a volume. This is an asynchronous operation, and is
-    /// finished by calling g_volume_eject_with_operation_finish() with the `volume`
+    /// finished by calling `g_volume_eject_with_operation_finish()` with the `volume`
     /// and `GAsyncResult` data returned in the `callback`.
     func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_volume_eject_with_operation(cast(volume_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -1575,7 +1572,7 @@ public extension VolumeProtocol {
     }
 
     /// Gets the kinds of [identifiers][volume-identifier] that `volume` has.
-    /// Use g_volume_get_identifier() to obtain the identifiers themselves.
+    /// Use `g_volume_get_identifier()` to obtain the identifiers themselves.
     func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
         let rv = g_volume_enumerate_identifiers(cast(volume_ptr))
         return cast(rv)
@@ -1583,8 +1580,8 @@ public extension VolumeProtocol {
 
     /// Gets the activation root for a `GVolume` if it is known ahead of
     /// mount time. Returns `nil` otherwise. If not `nil` and if `volume`
-    /// is mounted, then the result of g_mount_get_root() on the
-    /// `GMount` object obtained from g_volume_get_mount() will always
+    /// is mounted, then the result of `g_mount_get_root()` on the
+    /// `GMount` object obtained from `g_volume_get_mount()` will always
     /// either be equal or a prefix of what this function returns. In
     /// other words, in code
     /// 
@@ -1598,19 +1595,17 @@ public extension VolumeProtocol {
     ///   mount_root = g_mount_get_root (mount);
     ///   volume_activation_root = g_volume_get_activation_root (volume); // assume not NULL
     /// ```
-    /// 
     /// then the expression
     /// (C Language Example):
     /// ```C
     ///   (g_file_has_prefix (volume_activation_root, mount_root) ||
     ///    g_file_equal (volume_activation_root, mount_root))
     /// ```
-    /// 
     /// will always be `true`.
     /// 
     /// Activation roots are typically used in `GVolumeMonitor`
     /// implementations to find the underlying mount to shadow, see
-    /// g_mount_is_shadowed() for more details.
+    /// `g_mount_is_shadowed()` for more details.
     func getActivationRoot() -> UnsafeMutablePointer<GFile>! {
         let rv = g_volume_get_activation_root(cast(volume_ptr))
         return cast(rv)
@@ -1670,7 +1665,7 @@ public extension VolumeProtocol {
     }
 
     /// Mounts a volume. This is an asynchronous operation, and is
-    /// finished by calling g_volume_mount_finish() with the `volume`
+    /// finished by calling `g_volume_mount_finish()` with the `volume`
     /// and `GAsyncResult` returned in the `callback`.
     func mount(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_volume_mount(cast(volume_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -1680,7 +1675,7 @@ public extension VolumeProtocol {
     /// Finishes mounting a volume. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
     /// 
-    /// If the mount operation succeeded, g_volume_get_mount() on `volume`
+    /// If the mount operation succeeded, `g_volume_get_mount()` on `volume`
     /// is guaranteed to return the mount right after calling this
     /// function; there's no need to listen for the 'mount-added' signal on
     /// `GVolumeMonitor`.
@@ -1700,8 +1695,8 @@ public extension VolumeProtocol {
     }
     /// Gets the activation root for a `GVolume` if it is known ahead of
     /// mount time. Returns `nil` otherwise. If not `nil` and if `volume`
-    /// is mounted, then the result of g_mount_get_root() on the
-    /// `GMount` object obtained from g_volume_get_mount() will always
+    /// is mounted, then the result of `g_mount_get_root()` on the
+    /// `GMount` object obtained from `g_volume_get_mount()` will always
     /// either be equal or a prefix of what this function returns. In
     /// other words, in code
     /// 
@@ -1715,24 +1710,22 @@ public extension VolumeProtocol {
     ///   mount_root = g_mount_get_root (mount);
     ///   volume_activation_root = g_volume_get_activation_root (volume); // assume not NULL
     /// ```
-    /// 
     /// then the expression
     /// (C Language Example):
     /// ```C
     ///   (g_file_has_prefix (volume_activation_root, mount_root) ||
     ///    g_file_equal (volume_activation_root, mount_root))
     /// ```
-    /// 
     /// will always be `true`.
     /// 
     /// Activation roots are typically used in `GVolumeMonitor`
     /// implementations to find the underlying mount to shadow, see
-    /// g_mount_is_shadowed() for more details.
+    /// `g_mount_is_shadowed()` for more details.
     var activationRoot: UnsafeMutablePointer<GFile>! {
         /// Gets the activation root for a `GVolume` if it is known ahead of
         /// mount time. Returns `nil` otherwise. If not `nil` and if `volume`
-        /// is mounted, then the result of g_mount_get_root() on the
-        /// `GMount` object obtained from g_volume_get_mount() will always
+        /// is mounted, then the result of `g_mount_get_root()` on the
+        /// `GMount` object obtained from `g_volume_get_mount()` will always
         /// either be equal or a prefix of what this function returns. In
         /// other words, in code
         /// 
@@ -1746,19 +1739,17 @@ public extension VolumeProtocol {
         ///   mount_root = g_mount_get_root (mount);
         ///   volume_activation_root = g_volume_get_activation_root (volume); // assume not NULL
         /// ```
-        /// 
         /// then the expression
         /// (C Language Example):
         /// ```C
         ///   (g_file_has_prefix (volume_activation_root, mount_root) ||
         ///    g_file_equal (volume_activation_root, mount_root))
         /// ```
-        /// 
         /// will always be `true`.
         /// 
         /// Activation roots are typically used in `GVolumeMonitor`
         /// implementations to find the underlying mount to shadow, see
-        /// g_mount_is_shadowed() for more details.
+        /// `g_mount_is_shadowed()` for more details.
         get {
             let rv = g_volume_get_activation_root(cast(volume_ptr))
             return cast(rv)

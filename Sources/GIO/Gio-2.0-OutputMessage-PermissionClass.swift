@@ -15,7 +15,7 @@ import GLibObject
 /// were one buffer.
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
-/// (as previously set by g_socket_connect()).
+/// (as previously set by `g_socket_connect()`).
 public protocol OutputMessageProtocol {
     /// Untyped pointer to the underlying `GOutputMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -34,7 +34,7 @@ public protocol OutputMessageProtocol {
 /// were one buffer.
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
-/// (as previously set by g_socket_connect()).
+/// (as previously set by `g_socket_connect()`).
 public struct OutputMessageRef: OutputMessageProtocol {
     /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -93,7 +93,7 @@ public extension OutputMessageRef {
 /// were one buffer.
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
-/// (as previously set by g_socket_connect()).
+/// (as previously set by `g_socket_connect()`).
 open class OutputMessage: OutputMessageProtocol {
     /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

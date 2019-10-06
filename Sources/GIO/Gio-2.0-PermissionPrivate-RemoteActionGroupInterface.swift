@@ -152,8 +152,8 @@ public extension PermissionPrivateProtocol {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `read_nonblocking` calls
-/// g_pollable_input_stream_is_readable(), and then calls
-/// g_input_stream_read() if it returns `true`. This means you only need
+/// `g_pollable_input_stream_is_readable()`, and then calls
+/// `g_input_stream_read()` if it returns `true`. This means you only need
 /// to override it if it is possible that your `is_readable`
 /// implementation may return `true` when the stream is not actually
 /// readable.
@@ -174,8 +174,8 @@ public protocol PollableInputStreamInterfaceProtocol {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `read_nonblocking` calls
-/// g_pollable_input_stream_is_readable(), and then calls
-/// g_input_stream_read() if it returns `true`. This means you only need
+/// `g_pollable_input_stream_is_readable()`, and then calls
+/// `g_input_stream_read()` if it returns `true`. This means you only need
 /// to override it if it is possible that your `is_readable`
 /// implementation may return `true` when the stream is not actually
 /// readable.
@@ -236,8 +236,8 @@ public extension PollableInputStreamInterfaceRef {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `read_nonblocking` calls
-/// g_pollable_input_stream_is_readable(), and then calls
-/// g_input_stream_read() if it returns `true`. This means you only need
+/// `g_pollable_input_stream_is_readable()`, and then calls
+/// `g_input_stream_read()` if it returns `true`. This means you only need
 /// to override it if it is possible that your `is_readable`
 /// implementation may return `true` when the stream is not actually
 /// readable.
@@ -317,14 +317,14 @@ public extension PollableInputStreamInterfaceProtocol {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `write_nonblocking` calls
-/// g_pollable_output_stream_is_writable(), and then calls
-/// g_output_stream_write() if it returns `true`. This means you only
+/// `g_pollable_output_stream_is_writable()`, and then calls
+/// `g_output_stream_write()` if it returns `true`. This means you only
 /// need to override it if it is possible that your `is_writable`
 /// implementation may return `true` when the stream is not actually
 /// writable.
 /// 
 /// The default implementation of `writev_nonblocking` calls
-/// g_pollable_output_stream_write_nonblocking() for each vector, and converts
+/// `g_pollable_output_stream_write_nonblocking()` for each vector, and converts
 /// its return value and error (if set) to a `GPollableReturn`. You should
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
@@ -345,14 +345,14 @@ public protocol PollableOutputStreamInterfaceProtocol {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `write_nonblocking` calls
-/// g_pollable_output_stream_is_writable(), and then calls
-/// g_output_stream_write() if it returns `true`. This means you only
+/// `g_pollable_output_stream_is_writable()`, and then calls
+/// `g_output_stream_write()` if it returns `true`. This means you only
 /// need to override it if it is possible that your `is_writable`
 /// implementation may return `true` when the stream is not actually
 /// writable.
 /// 
 /// The default implementation of `writev_nonblocking` calls
-/// g_pollable_output_stream_write_nonblocking() for each vector, and converts
+/// `g_pollable_output_stream_write_nonblocking()` for each vector, and converts
 /// its return value and error (if set) to a `GPollableReturn`. You should
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
@@ -413,14 +413,14 @@ public extension PollableOutputStreamInterfaceRef {
 /// The default implementation of `can_poll` always returns `true`.
 /// 
 /// The default implementation of `write_nonblocking` calls
-/// g_pollable_output_stream_is_writable(), and then calls
-/// g_output_stream_write() if it returns `true`. This means you only
+/// `g_pollable_output_stream_is_writable()`, and then calls
+/// `g_output_stream_write()` if it returns `true`. This means you only
 /// need to override it if it is possible that your `is_writable`
 /// implementation may return `true` when the stream is not actually
 /// writable.
 /// 
 /// The default implementation of `writev_nonblocking` calls
-/// g_pollable_output_stream_write_nonblocking() for each vector, and converts
+/// `g_pollable_output_stream_write_nonblocking()` for each vector, and converts
 /// its return value and error (if set) to a `GPollableReturn`. You should
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.

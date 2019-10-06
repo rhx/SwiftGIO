@@ -258,17 +258,17 @@ public extension FileAttributeMatcherRef {
     /// automatically destroyed.
     /// 
     /// The `attribute` string should be formatted with specific keys separated
-    /// from namespaces with a double colon. Several "namespace::key" strings may be
-    /// concatenated with a single comma (e.g. "standard::type,standard::is-hidden").
+    /// from namespaces with a double colon. Several "namespace`key`" strings may be
+    /// concatenated with a single comma (e.g. "standard`type`,standard`is`-hidden").
     /// The wildcard "*" may be used to match all keys and namespaces, or
-    /// "namespace::*" will match all keys in a given namespace.
+    /// "namespace``*" will match all keys in a given namespace.
     /// 
-    /// ``` Examples of file attribute matcher strings and results
+    /// ```` Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
-    /// - `"standard::is-hidden"`: matches only the key is-hidden in the
+    /// - `"standard`is`-hidden"`: matches only the key is-hidden in the
     ///   standard namespace.
-    /// - `"standard::type,unix::*"`: matches the type key in the standard
+    /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
     init( attributes: UnsafePointer<CChar>) {
         let rv = g_file_attribute_matcher_new(attributes)
@@ -335,17 +335,17 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     /// automatically destroyed.
     /// 
     /// The `attribute` string should be formatted with specific keys separated
-    /// from namespaces with a double colon. Several "namespace::key" strings may be
-    /// concatenated with a single comma (e.g. "standard::type,standard::is-hidden").
+    /// from namespaces with a double colon. Several "namespace`key`" strings may be
+    /// concatenated with a single comma (e.g. "standard`type`,standard`is`-hidden").
     /// The wildcard "*" may be used to match all keys and namespaces, or
-    /// "namespace::*" will match all keys in a given namespace.
+    /// "namespace``*" will match all keys in a given namespace.
     /// 
-    /// ``` Examples of file attribute matcher strings and results
+    /// ```` Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
-    /// - `"standard::is-hidden"`: matches only the key is-hidden in the
+    /// - `"standard`is`-hidden"`: matches only the key is-hidden in the
     ///   standard namespace.
-    /// - `"standard::type,unix::*"`: matches the type key in the standard
+    /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
     public convenience init( attributes: UnsafePointer<CChar>) {
         let rv = g_file_attribute_matcher_new(attributes)
@@ -366,7 +366,7 @@ public extension FileAttributeMatcherProtocol {
 
     /// Checks if the matcher will match all of the keys in a given namespace.
     /// This will always return `true` if a wildcard character is in use (e.g. if
-    /// matcher was created with "standard::*" and `ns` is "standard", or if matcher was created
+    /// matcher was created with "standard``*" and `ns` is "standard", or if matcher was created
     /// using "*" and namespace is anything.)
     /// 
     /// TODO: this is awkwardly worded.
@@ -416,7 +416,7 @@ public extension FileAttributeMatcherProtocol {
     }
 
     /// Prints what the matcher is matching against. The format will be
-    /// equal to the format passed to g_file_attribute_matcher_new().
+    /// equal to the format passed to `g_file_attribute_matcher_new()`.
     /// The output however, might not be identical, as the matcher may
     /// decide to use a different order or omit needless parts.
     func toString() -> String! {

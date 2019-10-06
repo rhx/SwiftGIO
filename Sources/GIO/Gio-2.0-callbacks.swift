@@ -32,7 +32,7 @@ public typealias BusNameLostCallback = GBusNameLostCallback
 public typealias BusNameVanishedCallback = GBusNameVanishedCallback
 
 /// This is the function type of the callback used for the `GSource`
-/// returned by g_cancellable_source_new().
+/// returned by `g_cancellable_source_new()`.
 public typealias CancellableSourceFunc = GCancellableSourceFunc
 
 /// The type of the `get_property` function in `GDBusInterfaceVTable`.
@@ -44,7 +44,7 @@ public typealias DBusInterfaceMethodCallFunc = GDBusInterfaceMethodCallFunc
 /// The type of the `set_property` function in `GDBusInterfaceVTable`.
 public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
 
-/// Signature for function used in g_dbus_connection_add_filter().
+/// Signature for function used in `g_dbus_connection_add_filter()`.
 /// 
 /// A filter function is passed a `GDBusMessage` and expected to return
 /// a `GDBusMessage` too. Passive filter functions that don't modify the
@@ -56,11 +56,10 @@ public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
 ///                 gboolean         incoming,
 ///                 gpointer         user_data)
 /// {
-///   // inspect `message`
+///   // inspect @message
 ///   return message;
 /// }
 /// ```
-/// 
 /// Filter functions that wants to drop a message can simply return `nil`:
 /// ```
 /// static GDBusMessage *
@@ -77,7 +76,6 @@ public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
 ///   return message;
 /// }
 /// ```
-/// 
 /// Finally, a filter function may modify a message by copying it:
 /// ```
 /// static GDBusMessage *
@@ -91,20 +89,19 @@ public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
 /// 
 ///   error = NULL;
 ///   copy = g_dbus_message_copy (message, &error);
-///   // handle `error` being set
+///   // handle @error being set
 ///   g_object_unref (message);
 /// 
-///   // modify `copy`
+///   // modify @copy
 /// 
 ///   return copy;
 /// }
 /// ```
-/// 
 /// If the returned `GDBusMessage` is different from `message` and cannot
 /// be sent on `connection` (it could use features, such as file
 /// descriptors, not compatible with `connection`), then a warning is
 /// logged to standard error. Applications can
-/// check this ahead of time using g_dbus_message_to_blob() passing a
+/// check this ahead of time using `g_dbus_message_to_blob()` passing a
 /// `GDBusCapabilityFlags` value obtained from `connection`.
 public typealias DBusMessageFilterFunction = GDBusMessageFilterFunction
 
@@ -117,7 +114,7 @@ public typealias DBusMessageFilterFunction = GDBusMessageFilterFunction
 /// that `manager` was constructed in.
 public typealias DBusProxyTypeFunc = GDBusProxyTypeFunc
 
-/// Signature for callback function used in g_dbus_connection_signal_subscribe().
+/// Signature for callback function used in `g_dbus_connection_signal_subscribe()`.
 public typealias DBusSignalCallback = GDBusSignalCallback
 
 /// The type of the `dispatch` function in `GDBusSubtreeVTable`.
@@ -136,7 +133,7 @@ public typealias DBusSubtreeDispatchFunc = GDBusSubtreeDispatchFunc
 /// Hierarchies are not supported; the items that you return should not
 /// contain the '/' character.
 /// 
-/// The return value will be freed with g_strfreev().
+/// The return value will be freed with `g_strfreev()`.
 public typealias DBusSubtreeEnumerateFunc = GDBusSubtreeEnumerateFunc
 
 /// The type of the `introspect` function in `GDBusSubtreeVTable`.
@@ -150,8 +147,8 @@ public typealias DBusSubtreeEnumerateFunc = GDBusSubtreeEnumerateFunc
 /// If this function returns non-`nil`, the return value is expected to
 /// be a `nil`-terminated array of pointers to `GDBusInterfaceInfo`
 /// structures describing the interfaces implemented by `node`.  This
-/// array will have g_dbus_interface_info_unref() called on each item
-/// before being freed with g_free().
+/// array will have `g_dbus_interface_info_unref()` called on each item
+/// before being freed with `g_free()`.
 /// 
 /// The difference between returning `nil` and an array containing zero
 /// items is that the standard DBus interfaces will returned to the
@@ -160,10 +157,10 @@ public typealias DBusSubtreeEnumerateFunc = GDBusSubtreeEnumerateFunc
 public typealias DBusSubtreeIntrospectFunc = GDBusSubtreeIntrospectFunc
 
 /// This is the function type of the callback used for the `GSource`
-/// returned by g_datagram_based_create_source().
+/// returned by `g_datagram_based_create_source()`.
 public typealias DatagramBasedSourceFunc = GDatagramBasedSourceFunc
 
-/// This callback type is used by g_file_measure_disk_usage() to make
+/// This callback type is used by `g_file_measure_disk_usage()` to make
 /// periodic progress reports when measuring the amount of disk spaced
 /// used by a directory.
 /// 
@@ -177,8 +174,8 @@ public typealias DatagramBasedSourceFunc = GDatagramBasedSourceFunc
 /// all-zeros during the first (immediate) call.  In this way, you can
 /// know which type of progress UI to show without a delay.
 /// 
-/// For g_file_measure_disk_usage() the callback is made directly.  For
-/// g_file_measure_disk_usage_async() the callback is made via the
+/// For `g_file_measure_disk_usage()` the callback is made directly.  For
+/// `g_file_measure_disk_usage_async()` the callback is made via the
 /// default main context of the calling thread (ie: the same way that the
 /// final async result would be reported).
 /// 
@@ -197,7 +194,7 @@ public typealias FileMeasureProgressCallback = GFileMeasureProgressCallback
 /// far along that operation is to the application.
 public typealias FileProgressCallback = GFileProgressCallback
 
-/// When loading the partial contents of a file with g_file_load_partial_contents_async(),
+/// When loading the partial contents of a file with `g_file_load_partial_contents_async()`,
 /// it may become necessary to determine if any more data from the file should be loaded.
 /// A `GFileReadMoreCallback` function facilitates this by returning `true` if more data
 /// should be read, or `false` otherwise.
@@ -210,14 +207,14 @@ public typealias FileReadMoreCallback = GFileReadMoreCallback
 public typealias IOSchedulerJobFunc = GIOSchedulerJobFunc
 
 /// This is the function type of the callback used for the `GSource`
-/// returned by g_pollable_input_stream_create_source() and
-/// g_pollable_output_stream_create_source().
+/// returned by `g_pollable_input_stream_create_source()` and
+/// `g_pollable_output_stream_create_source()`.
 public typealias PollableSourceFunc = GPollableSourceFunc
 
 /// Changes the size of the memory block pointed to by `data` to
 /// `size` bytes.
 /// 
-/// The function should have the same semantics as realloc().
+/// The function should have the same semantics as `realloc()`.
 public typealias ReallocFunc = GReallocFunc
 
 /// The type for the function that is used to convert from `GSettings` to
@@ -246,27 +243,27 @@ public typealias SettingsGetMapping = GSettingsGetMapping
 public typealias SimpleAsyncThreadFunc = GSimpleAsyncThreadFunc
 
 /// This is the function type of the callback used for the `GSource`
-/// returned by g_socket_create_source().
+/// returned by `g_socket_create_source()`.
 public typealias SocketSourceFunc = GSocketSourceFunc
 
 /// The prototype for a task function to be run in a thread via
-/// g_task_run_in_thread() or g_task_run_in_thread_sync().
+/// `g_task_run_in_thread()` or `g_task_run_in_thread_sync()`.
 /// 
 /// If the return-on-cancel flag is set on `task`, and `cancellable` gets
 /// cancelled, then the `GTask` will be completed immediately (as though
-/// g_task_return_error_if_cancelled() had been called), without
+/// `g_task_return_error_if_cancelled()` had been called), without
 /// waiting for the task function to complete. However, the task
 /// function will continue running in its thread in the background. The
 /// function therefore needs to be careful about how it uses
 /// externally-visible state in this case. See
-/// g_task_set_return_on_cancel() for more details.
+/// `g_task_set_return_on_cancel()` for more details.
 /// 
 /// Other than in that case, `task` will be completed when the
 /// `GTaskThreadFunc` returns, not when it calls a
 /// `g_task_return_` function.
 public typealias TaskThreadFunc = GTaskThreadFunc
 
-/// This function type is used by g_vfs_register_uri_scheme() to make it
+/// This function type is used by `g_vfs_register_uri_scheme()` to make it
 /// possible for a client to associate an URI scheme to a different `GFile`
 /// implementation.
 /// 

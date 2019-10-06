@@ -58,8 +58,8 @@ import GLibObject
 /// property of a `GtkStack` if this value is actually stored in
 /// `GSettings`.  In that case, the real source of the value is
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
-/// `GSettings`, see g_settings_create_action() instead, and possibly
-/// combine its use with g_settings_bind().
+/// `GSettings`, see `g_settings_create_action()` instead, and possibly
+/// combine its use with `g_settings_bind()`.
 public protocol PropertyActionProtocol: ObjectProtocol, ActionProtocol {
     /// Untyped pointer to the underlying `GPropertyAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -121,8 +121,8 @@ public protocol PropertyActionProtocol: ObjectProtocol, ActionProtocol {
 /// property of a `GtkStack` if this value is actually stored in
 /// `GSettings`.  In that case, the real source of the value is
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
-/// `GSettings`, see g_settings_create_action() instead, and possibly
-/// combine its use with g_settings_bind().
+/// `GSettings`, see `g_settings_create_action()` instead, and possibly
+/// combine its use with `g_settings_bind()`.
 public struct PropertyActionRef: PropertyActionProtocol {
     /// Untyped pointer to the underlying `GPropertyAction` instance.
     /// For type-safe access, use the generated, typed pointer `property_action_ptr` property instead.
@@ -236,8 +236,8 @@ public extension PropertyActionRef {
 /// property of a `GtkStack` if this value is actually stored in
 /// `GSettings`.  In that case, the real source of the value is
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
-/// `GSettings`, see g_settings_create_action() instead, and possibly
-/// combine its use with g_settings_bind().
+/// `GSettings`, see `g_settings_create_action()` instead, and possibly
+/// combine its use with `g_settings_bind()`.
 open class PropertyAction: Object, PropertyActionProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `PropertyAction` instance.
@@ -295,8 +295,8 @@ open class PropertyAction: Object, PropertyActionProtocol {
 public enum PropertyActionPropertyName: String, PropertyNameProtocol {
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case enabled = "enabled"
     /// If `true`, the state of the action will be the negation of the
     /// property value, provided the property is boolean.
@@ -361,35 +361,34 @@ public extension PropertyActionProtocol {
 
 public enum PropertyActionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case notifyEnabled = "notify::enabled"
     /// If `true`, the state of the action will be the negation of the
     /// property value, provided the property is boolean.
@@ -522,8 +521,8 @@ public extension ProxyAddressRef {
         /// Creates a new `GProxyAddress` for `inetaddr` with `protocol` that should
     /// tunnel through `dest_hostname` and `dest_port`.
     /// 
-    /// (Note that this method doesn't set the `GProxyAddress`:uri or
-    /// `GProxyAddress`:destination-protocol fields; use g_object_new()
+    /// (Note that this method doesn't set the `GProxyAddress:uri` or
+    /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
     init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
         let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
@@ -577,8 +576,8 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// Creates a new `GProxyAddress` for `inetaddr` with `protocol` that should
     /// tunnel through `dest_hostname` and `dest_port`.
     /// 
-    /// (Note that this method doesn't set the `GProxyAddress`:uri or
-    /// `GProxyAddress`:destination-protocol fields; use g_object_new()
+    /// (Note that this method doesn't set the `GProxyAddress:uri` or
+    /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
     public convenience init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
         let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
@@ -646,27 +645,26 @@ public extension ProxyAddressProtocol {
 
 public enum ProxyAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -852,10 +850,10 @@ public extension ProxyAddressProtocol {
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator`:proxy-resolver.
+/// `GProxyAddressEnumerator:proxy`-resolver.
 /// 
 /// This enumerator will be returned (for example, by
-/// g_socket_connectable_enumerate()) as appropriate when a proxy is configured;
+/// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol {
@@ -873,10 +871,10 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator`:proxy-resolver.
+/// `GProxyAddressEnumerator:proxy`-resolver.
 /// 
 /// This enumerator will be returned (for example, by
-/// g_socket_connectable_enumerate()) as appropriate when a proxy is configured;
+/// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 public struct ProxyAddressEnumeratorRef: ProxyAddressEnumeratorProtocol {
@@ -934,10 +932,10 @@ public extension ProxyAddressEnumeratorRef {
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator`:proxy-resolver.
+/// `GProxyAddressEnumerator:proxy`-resolver.
 /// 
 /// This enumerator will be returned (for example, by
-/// g_socket_connectable_enumerate()) as appropriate when a proxy is configured;
+/// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumeratorProtocol {
@@ -984,7 +982,7 @@ open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumerat
 
 public enum ProxyAddressEnumeratorPropertyName: String, PropertyNameProtocol {
     case connectable = "connectable"
-    /// The default port to use if `GProxyAddressEnumerator`:uri does not
+    /// The default port to use if `GProxyAddressEnumerator:uri` does not
     /// specify one.
     case defaultPort = "default-port"
     /// The proxy resolver to use.
@@ -1030,33 +1028,32 @@ public extension ProxyAddressEnumeratorProtocol {
 
 public enum ProxyAddressEnumeratorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyConnectable = "notify::connectable"
-    /// The default port to use if `GProxyAddressEnumerator`:uri does not
+    /// The default port to use if `GProxyAddressEnumerator:uri` does not
     /// specify one.
     case notifyDefaultPort = "notify::default-port"
     /// The proxy resolver to use.
@@ -1108,9 +1105,9 @@ public extension ProxyAddressEnumeratorProtocol {
 /// Alternatively, use `ResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
-/// resolution, for hostnames (g_resolver_lookup_by_address(),
-/// g_resolver_lookup_by_name() and their async variants) and SRV
-/// (service) records (g_resolver_lookup_service()).
+/// resolution, for hostnames (`g_resolver_lookup_by_address()`,
+/// `g_resolver_lookup_by_name()` and their async variants) and SRV
+/// (service) records (`g_resolver_lookup_service()`).
 /// 
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
@@ -1128,9 +1125,9 @@ public protocol ResolverProtocol: ObjectProtocol {
 /// Use `ResolverRef` only as an `unowned` reference to an existing `GResolver` instance.
 ///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
-/// resolution, for hostnames (g_resolver_lookup_by_address(),
-/// g_resolver_lookup_by_name() and their async variants) and SRV
-/// (service) records (g_resolver_lookup_service()).
+/// resolution, for hostnames (`g_resolver_lookup_by_address()`,
+/// `g_resolver_lookup_by_name()` and their async variants) and SRV
+/// (service) records (`g_resolver_lookup_service()`).
 /// 
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
@@ -1195,9 +1192,9 @@ public extension ResolverRef {
 /// Use `Resolver` as a strong reference or owner of a `GResolver` instance.
 ///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
-/// resolution, for hostnames (g_resolver_lookup_by_address(),
-/// g_resolver_lookup_by_name() and their async variants) and SRV
-/// (service) records (g_resolver_lookup_service()).
+/// resolution, for hostnames (`g_resolver_lookup_by_address()`,
+/// `g_resolver_lookup_by_name()` and their async variants) and SRV
+/// (service) records (`g_resolver_lookup_service()`).
 /// 
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
@@ -1255,27 +1252,26 @@ open class Resolver: Object, ResolverProtocol {
 
 public enum ResolverSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1338,14 +1334,14 @@ public extension ResolverProtocol {
 
     /// Begins asynchronously reverse-resolving `address` to determine its
     /// associated hostname, and eventually calls `callback`, which must
-    /// call g_resolver_lookup_by_address_finish() to get the final result.
+    /// call `g_resolver_lookup_by_address_finish()` to get the final result.
     func lookupByAddressAsync(address: InetAddressProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_resolver_lookup_by_address_async(cast(resolver_ptr), cast(address.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Retrieves the result of a previous call to
-    /// g_resolver_lookup_by_address_async().
+    /// `g_resolver_lookup_by_address_async()`.
     /// 
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
@@ -1360,17 +1356,17 @@ public extension ResolverProtocol {
     }
 
     /// Synchronously resolves `hostname` to determine its associated IP
-    /// address(es). `hostname` may be an ASCII-only or UTF-8 hostname, or
+    /// `address(es)`. `hostname` may be an ASCII-only or UTF-8 hostname, or
     /// the textual form of an IP address (in which case this just becomes
-    /// a wrapper around g_inet_address_new_from_string()).
+    /// a wrapper around `g_inet_address_new_from_string()`).
     /// 
-    /// On success, g_resolver_lookup_by_name() will return a non-empty `GList` of
+    /// On success, `g_resolver_lookup_by_name()` will return a non-empty `GList` of
     /// `GInetAddress`, sorted in order of preference and guaranteed to not
     /// contain duplicates. That is, if using the result to connect to
     /// `hostname`, you should attempt to connect to the first address
     /// first, then the second if the first fails, etc. If you are using
     /// the result to listen on a socket, it is appropriate to add each
-    /// result using e.g. g_socket_listener_add_address().
+    /// result using e.g. `g_socket_listener_add_address()`.
     /// 
     /// If the DNS resolution fails, `error` (if non-`nil`) will be set to a
     /// value from `GResolverError` and `nil` will be returned.
@@ -1392,16 +1388,16 @@ public extension ResolverProtocol {
     }
 
     /// Begins asynchronously resolving `hostname` to determine its
-    /// associated IP address(es), and eventually calls `callback`, which
-    /// must call g_resolver_lookup_by_name_finish() to get the result.
-    /// See g_resolver_lookup_by_name() for more details.
+    /// associated IP `address(es)`, and eventually calls `callback`, which
+    /// must call `g_resolver_lookup_by_name_finish()` to get the result.
+    /// See `g_resolver_lookup_by_name()` for more details.
     func lookupByNameAsync(hostname: UnsafePointer<gchar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_resolver_lookup_by_name_async(cast(resolver_ptr), hostname, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Retrieves the result of a call to
-    /// g_resolver_lookup_by_name_async().
+    /// `g_resolver_lookup_by_name_async()`.
     /// 
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
@@ -1415,7 +1411,7 @@ public extension ResolverProtocol {
         return cast(rv)
     }
 
-    /// This differs from g_resolver_lookup_by_name() in that you can modify
+    /// This differs from `g_resolver_lookup_by_name()` in that you can modify
     /// the lookup behavior with `flags`. For example this can be used to limit
     /// results with `G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY`.
     func lookupByNameWithFlags(hostname: UnsafePointer<gchar>, flags: ResolverNameLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
@@ -1428,16 +1424,16 @@ public extension ResolverProtocol {
     }
 
     /// Begins asynchronously resolving `hostname` to determine its
-    /// associated IP address(es), and eventually calls `callback`, which
-    /// must call g_resolver_lookup_by_name_with_flags_finish() to get the result.
-    /// See g_resolver_lookup_by_name() for more details.
+    /// associated IP `address(es)`, and eventually calls `callback`, which
+    /// must call `g_resolver_lookup_by_name_with_flags_finish()` to get the result.
+    /// See `g_resolver_lookup_by_name()` for more details.
     func lookupByNameWithFlagsAsync(hostname: UnsafePointer<gchar>, flags: ResolverNameLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_resolver_lookup_by_name_with_flags_async(cast(resolver_ptr), hostname, flags, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Retrieves the result of a call to
-    /// g_resolver_lookup_by_name_with_flags_async().
+    /// `g_resolver_lookup_by_name_with_flags_async()`.
     /// 
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
@@ -1472,15 +1468,15 @@ public extension ResolverProtocol {
 
     /// Begins asynchronously performing a DNS lookup for the given
     /// `rrname`, and eventually calls `callback`, which must call
-    /// g_resolver_lookup_records_finish() to get the final result. See
-    /// g_resolver_lookup_records() for more details.
+    /// `g_resolver_lookup_records_finish()` to get the final result. See
+    /// `g_resolver_lookup_records()` for more details.
     func lookupRecordsAsync(rrname: UnsafePointer<gchar>, recordType record_type: ResolverRecordType, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_resolver_lookup_records_async(cast(resolver_ptr), rrname, record_type, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Retrieves the result of a previous call to
-    /// g_resolver_lookup_records_async(). Returns a non-empty list of records as
+    /// `g_resolver_lookup_records_async()`. Returns a non-empty list of records as
     /// `GVariant` tuples. See `GResolverRecordType` for information on what the
     /// records contain.
     /// 
@@ -1502,7 +1498,7 @@ public extension ResolverProtocol {
     /// `service` and `protocol` arguments do not include the leading underscore
     /// that appears in the actual DNS entry.
     /// 
-    /// On success, g_resolver_lookup_service() will return a non-empty `GList` of
+    /// On success, `g_resolver_lookup_service()` will return a non-empty `GList` of
     /// `GSrvTarget`, sorted in order of preference. (That is, you should
     /// attempt to connect to the first target first, then the second if
     /// the first fails, etc.)
@@ -1528,8 +1524,8 @@ public extension ResolverProtocol {
 
     /// Begins asynchronously performing a DNS SRV lookup for the given
     /// `service` and `protocol` in the given `domain`, and eventually calls
-    /// `callback`, which must call g_resolver_lookup_service_finish() to
-    /// get the final result. See g_resolver_lookup_service() for more
+    /// `callback`, which must call `g_resolver_lookup_service_finish()` to
+    /// get the final result. See `g_resolver_lookup_service()` for more
     /// details.
     func lookupServiceAsync(service: UnsafePointer<gchar>, protocol_: UnsafePointer<gchar>, domain: UnsafePointer<gchar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_resolver_lookup_service_async(cast(resolver_ptr), service, protocol_, domain, cast(cancellable.ptr), callback, cast(user_data))
@@ -1537,7 +1533,7 @@ public extension ResolverProtocol {
     }
 
     /// Retrieves the result of a previous call to
-    /// g_resolver_lookup_service_async().
+    /// `g_resolver_lookup_service_async()`.
     /// 
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
@@ -1553,7 +1549,7 @@ public extension ResolverProtocol {
 
     /// Sets `resolver` to be the application's default resolver (reffing
     /// `resolver`, and unreffing the previous default resolver, if any).
-    /// Future calls to g_resolver_get_default() will return this resolver.
+    /// Future calls to `g_resolver_get_default()` will return this resolver.
     /// 
     /// This can be used if an application wants to perform any sort of DNS
     /// caching or "pinning"; it can implement its own `GResolver` that

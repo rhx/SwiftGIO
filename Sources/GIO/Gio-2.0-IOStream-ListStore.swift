@@ -19,7 +19,7 @@ import GLibObject
 /// file handle opened in read-write mode.
 /// 
 /// To do the actual reading and writing you need to get the substreams
-/// with g_io_stream_get_input_stream() and g_io_stream_get_output_stream().
+/// with `g_io_stream_get_input_stream()` and `g_io_stream_get_output_stream()`.
 /// 
 /// The `GIOStream` object owns the input and the output streams, not the other
 /// way around, so keeping the substreams alive will not keep the `GIOStream`
@@ -27,7 +27,7 @@ import GLibObject
 /// closing the substreams, so even if the substreams stay alive they will
 /// always return `G_IO_ERROR_CLOSED` for all operations.
 /// 
-/// To close a stream use g_io_stream_close() which will close the common
+/// To close a stream use `g_io_stream_close()` which will close the common
 /// stream object and also the individual substreams. You can also close
 /// the substreams themselves. In most cases this only marks the
 /// substream as closed, so further I/O on it fails but common state in the
@@ -77,7 +77,7 @@ public protocol IOStreamProtocol: ObjectProtocol {
 /// file handle opened in read-write mode.
 /// 
 /// To do the actual reading and writing you need to get the substreams
-/// with g_io_stream_get_input_stream() and g_io_stream_get_output_stream().
+/// with `g_io_stream_get_input_stream()` and `g_io_stream_get_output_stream()`.
 /// 
 /// The `GIOStream` object owns the input and the output streams, not the other
 /// way around, so keeping the substreams alive will not keep the `GIOStream`
@@ -85,7 +85,7 @@ public protocol IOStreamProtocol: ObjectProtocol {
 /// closing the substreams, so even if the substreams stay alive they will
 /// always return `G_IO_ERROR_CLOSED` for all operations.
 /// 
-/// To close a stream use g_io_stream_close() which will close the common
+/// To close a stream use `g_io_stream_close()` which will close the common
 /// stream object and also the individual substreams. You can also close
 /// the substreams themselves. In most cases this only marks the
 /// substream as closed, so further I/O on it fails but common state in the
@@ -175,7 +175,7 @@ public extension IOStreamRef {
 /// file handle opened in read-write mode.
 /// 
 /// To do the actual reading and writing you need to get the substreams
-/// with g_io_stream_get_input_stream() and g_io_stream_get_output_stream().
+/// with `g_io_stream_get_input_stream()` and `g_io_stream_get_output_stream()`.
 /// 
 /// The `GIOStream` object owns the input and the output streams, not the other
 /// way around, so keeping the substreams alive will not keep the `GIOStream`
@@ -183,7 +183,7 @@ public extension IOStreamRef {
 /// closing the substreams, so even if the substreams stay alive they will
 /// always return `G_IO_ERROR_CLOSED` for all operations.
 /// 
-/// To close a stream use g_io_stream_close() which will close the common
+/// To close a stream use `g_io_stream_close()` which will close the common
 /// stream object and also the individual substreams. You can also close
 /// the substreams themselves. In most cases this only marks the
 /// substream as closed, so further I/O on it fails but common state in the
@@ -297,27 +297,26 @@ public extension IOStreamProtocol {
 
 public enum IOStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -409,10 +408,10 @@ public extension IOStreamProtocol {
 
     /// Requests an asynchronous close of the stream, releasing resources
     /// related to it. When the operation is finished `callback` will be
-    /// called. You can then call g_io_stream_close_finish() to get
+    /// called. You can then call `g_io_stream_close_finish()` to get
     /// the result of the operation.
     /// 
-    /// For behaviour details see g_io_stream_close().
+    /// For behaviour details see `g_io_stream_close()`.
     /// 
     /// The asynchronous methods have a default fallback that uses threads
     /// to implement asynchronicity, so they are optional for inheriting
@@ -469,7 +468,7 @@ public extension IOStreamProtocol {
     /// `stream1`.
     /// 
     /// When the operation is finished `callback` will be called.
-    /// You can then call g_io_stream_splice_finish() to get the
+    /// You can then call `g_io_stream_splice_finish()` to get the
     /// result of the operation.
     func spliceAsync(stream2: IOStreamProtocol, flags: IOStreamSpliceFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_io_stream_splice_async(cast(io_stream_ptr), cast(stream2.ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
@@ -480,7 +479,7 @@ public extension IOStreamProtocol {
     /// must have pollable input and output streams) which is assumed to
     /// communicate with the server identified by `server_identity`.
     /// 
-    /// See the documentation for `GTlsConnection`:base-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsClientConnectionNew(serverIdentity server_identity: SocketConnectableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
@@ -495,7 +494,7 @@ public extension IOStreamProtocol {
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
     /// must have pollable input and output streams).
     /// 
-    /// See the documentation for `GTlsConnection`:base-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsServerConnectionNew(certificate: TLSCertificateProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
@@ -548,10 +547,10 @@ public extension IOStreamProtocol {
 /// Alternatively, use `InetAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
-/// g_resolver_lookup_by_name() or g_resolver_lookup_by_name_async() to
+/// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
-/// g_resolver_lookup_by_address() or
-/// g_resolver_lookup_by_address_async() to look up the hostname for a
+/// `g_resolver_lookup_by_address()` or
+/// `g_resolver_lookup_by_address_async()` to look up the hostname for a
 /// `GInetAddress`.
 /// 
 /// To actually connect to a remote host, you will need a
@@ -570,10 +569,10 @@ public protocol InetAddressProtocol: ObjectProtocol {
 /// Use `InetAddressRef` only as an `unowned` reference to an existing `GInetAddress` instance.
 ///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
-/// g_resolver_lookup_by_name() or g_resolver_lookup_by_name_async() to
+/// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
-/// g_resolver_lookup_by_address() or
-/// g_resolver_lookup_by_address_async() to look up the hostname for a
+/// `g_resolver_lookup_by_address()` or
+/// `g_resolver_lookup_by_address_async()` to look up the hostname for a
 /// `GInetAddress`.
 /// 
 /// To actually connect to a remote host, you will need a
@@ -684,10 +683,10 @@ public extension InetAddressRef {
 /// Use `InetAddress` as a strong reference or owner of a `GInetAddress` instance.
 ///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
-/// g_resolver_lookup_by_name() or g_resolver_lookup_by_name_async() to
+/// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
-/// g_resolver_lookup_by_address() or
-/// g_resolver_lookup_by_address_async() to look up the hostname for a
+/// `g_resolver_lookup_by_address()` or
+/// `g_resolver_lookup_by_address_async()` to look up the hostname for a
 /// `GInetAddress`.
 /// 
 /// To actually connect to a remote host, you will need a
@@ -791,34 +790,34 @@ public enum InetAddressPropertyName: String, PropertyNameProtocol {
     case bytes = "bytes"
     case family = "family"
     /// Whether this is the "any" address for its family.
-    /// See g_inet_address_get_is_any().
+    /// See `g_inet_address_get_is_any()`.
     case isAny = "is-any"
     /// Whether this is a link-local address.
-    /// See g_inet_address_get_is_link_local().
+    /// See `g_inet_address_get_is_link_local()`.
     case isLinkLocal = "is-link-local"
     /// Whether this is the loopback address for its family.
-    /// See g_inet_address_get_is_loopback().
+    /// See `g_inet_address_get_is_loopback()`.
     case isLoopback = "is-loopback"
     /// Whether this is a global multicast address.
-    /// See g_inet_address_get_is_mc_global().
+    /// See `g_inet_address_get_is_mc_global()`.
     case isMcGlobal = "is-mc-global"
     /// Whether this is a link-local multicast address.
-    /// See g_inet_address_get_is_mc_link_local().
+    /// See `g_inet_address_get_is_mc_link_local()`.
     case isMcLinkLocal = "is-mc-link-local"
     /// Whether this is a node-local multicast address.
-    /// See g_inet_address_get_is_mc_node_local().
+    /// See `g_inet_address_get_is_mc_node_local()`.
     case isMcNodeLocal = "is-mc-node-local"
     /// Whether this is an organization-local multicast address.
-    /// See g_inet_address_get_is_mc_org_local().
+    /// See `g_inet_address_get_is_mc_org_local()`.
     case isMcOrgLocal = "is-mc-org-local"
     /// Whether this is a site-local multicast address.
-    /// See g_inet_address_get_is_mc_site_local().
+    /// See `g_inet_address_get_is_mc_site_local()`.
     case isMcSiteLocal = "is-mc-site-local"
     /// Whether this is a multicast address.
-    /// See g_inet_address_get_is_multicast().
+    /// See `g_inet_address_get_is_multicast()`.
     case isMulticast = "is-multicast"
     /// Whether this is a site-local address.
-    /// See g_inet_address_get_is_loopback().
+    /// See `g_inet_address_get_is_loopback()`.
     case isSiteLocal = "is-site-local"
 }
 
@@ -860,27 +859,26 @@ public extension InetAddressProtocol {
 
 public enum InetAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -888,34 +886,34 @@ public enum InetAddressSignalName: String, SignalNameProtocol {
     case notifyBytes = "notify::bytes"
     case notifyFamily = "notify::family"
     /// Whether this is the "any" address for its family.
-    /// See g_inet_address_get_is_any().
+    /// See `g_inet_address_get_is_any()`.
     case notifyIsAny = "notify::is-any"
     /// Whether this is a link-local address.
-    /// See g_inet_address_get_is_link_local().
+    /// See `g_inet_address_get_is_link_local()`.
     case notifyIsLinkLocal = "notify::is-link-local"
     /// Whether this is the loopback address for its family.
-    /// See g_inet_address_get_is_loopback().
+    /// See `g_inet_address_get_is_loopback()`.
     case notifyIsLoopback = "notify::is-loopback"
     /// Whether this is a global multicast address.
-    /// See g_inet_address_get_is_mc_global().
+    /// See `g_inet_address_get_is_mc_global()`.
     case notifyIsMcGlobal = "notify::is-mc-global"
     /// Whether this is a link-local multicast address.
-    /// See g_inet_address_get_is_mc_link_local().
+    /// See `g_inet_address_get_is_mc_link_local()`.
     case notifyIsMcLinkLocal = "notify::is-mc-link-local"
     /// Whether this is a node-local multicast address.
-    /// See g_inet_address_get_is_mc_node_local().
+    /// See `g_inet_address_get_is_mc_node_local()`.
     case notifyIsMcNodeLocal = "notify::is-mc-node-local"
     /// Whether this is an organization-local multicast address.
-    /// See g_inet_address_get_is_mc_org_local().
+    /// See `g_inet_address_get_is_mc_org_local()`.
     case notifyIsMcOrgLocal = "notify::is-mc-org-local"
     /// Whether this is a site-local multicast address.
-    /// See g_inet_address_get_is_mc_site_local().
+    /// See `g_inet_address_get_is_mc_site_local()`.
     case notifyIsMcSiteLocal = "notify::is-mc-site-local"
     /// Whether this is a multicast address.
-    /// See g_inet_address_get_is_multicast().
+    /// See `g_inet_address_get_is_multicast()`.
     case notifyIsMulticast = "notify::is-multicast"
     /// Whether this is a site-local address.
-    /// See g_inet_address_get_is_loopback().
+    /// See `g_inet_address_get_is_loopback()`.
     case notifyIsSiteLocal = "notify::is-site-local"
 }
 
@@ -1029,7 +1027,7 @@ public extension InetAddressProtocol {
     }
 
     /// Gets the size of the native raw binary address for `address`. This
-    /// is the size of the data that you get from g_inet_address_to_bytes().
+    /// is the size of the data that you get from `g_inet_address_to_bytes()`.
     func getNativeSize() -> Int {
         let rv = g_inet_address_get_native_size(cast(inet_address_ptr))
         return Int(rv)
@@ -1155,10 +1153,10 @@ public extension InetAddressProtocol {
     }
 
     /// Gets the size of the native raw binary address for `address`. This
-    /// is the size of the data that you get from g_inet_address_to_bytes().
+    /// is the size of the data that you get from `g_inet_address_to_bytes()`.
     var nativeSize: Int {
         /// Gets the size of the native raw binary address for `address`. This
-        /// is the size of the data that you get from g_inet_address_to_bytes().
+        /// is the size of the data that you get from `g_inet_address_to_bytes()`.
         get {
             let rv = g_inet_address_get_native_size(cast(inet_address_ptr))
             return Int(rv)
@@ -1178,7 +1176,7 @@ public extension InetAddressProtocol {
 /// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
-/// often given in string form. Eg, "10.0.0.0/8", or "fe80::/10".
+/// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 public protocol InetAddressMaskProtocol: ObjectProtocol, InitableProtocol {
     /// Untyped pointer to the underlying `GInetAddressMask` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1194,7 +1192,7 @@ public protocol InetAddressMaskProtocol: ObjectProtocol, InitableProtocol {
 /// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
-/// often given in string form. Eg, "10.0.0.0/8", or "fe80::/10".
+/// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 public struct InetAddressMaskRef: InetAddressMaskProtocol {
     /// Untyped pointer to the underlying `GInetAddressMask` instance.
     /// For type-safe access, use the generated, typed pointer `inet_address_mask_ptr` property instead.
@@ -1285,7 +1283,7 @@ public extension InetAddressMaskRef {
 /// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
-/// often given in string form. Eg, "10.0.0.0/8", or "fe80::/10".
+/// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `InetAddressMask` instance.
@@ -1407,27 +1405,26 @@ public extension InetAddressMaskProtocol {
 
 public enum InetAddressMaskSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1741,27 +1738,26 @@ public extension InetSocketAddressProtocol {
 
 public enum InetSocketAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1878,12 +1874,12 @@ public extension InetSocketAddressProtocol {
 /// For a concrete class that implements these methods and properties, see `InputStream`.
 /// Alternatively, use `InputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GInputStream` has functions to read from a stream (g_input_stream_read()),
-/// to close a stream (g_input_stream_close()) and to skip some content
-/// (g_input_stream_skip()).
+/// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
+/// to close a stream (`g_input_stream_close()`) and to skip some content
+/// (`g_input_stream_skip()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -1901,12 +1897,12 @@ public protocol InputStreamProtocol: ObjectProtocol {
 /// It exposes methods that can operate on this data type through `InputStreamProtocol` conformance.
 /// Use `InputStreamRef` only as an `unowned` reference to an existing `GInputStream` instance.
 ///
-/// `GInputStream` has functions to read from a stream (g_input_stream_read()),
-/// to close a stream (g_input_stream_close()) and to skip some content
-/// (g_input_stream_skip()).
+/// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
+/// to close a stream (`g_input_stream_close()`) and to skip some content
+/// (`g_input_stream_skip()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -1964,12 +1960,12 @@ public extension InputStreamRef {
 /// It provides the methods that can operate on this data type through `InputStreamProtocol` conformance.
 /// Use `InputStream` as a strong reference or owner of a `GInputStream` instance.
 ///
-/// `GInputStream` has functions to read from a stream (g_input_stream_read()),
-/// to close a stream (g_input_stream_close()) and to skip some content
-/// (g_input_stream_skip()).
+/// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
+/// to close a stream (`g_input_stream_close()`) and to skip some content
+/// (`g_input_stream_skip()`).
 /// 
 /// To copy the content of an input stream to an output stream without
-/// manually handling the reads and writes, use g_output_stream_splice().
+/// manually handling the reads and writes, use `g_output_stream_splice()`.
 /// 
 /// See the documentation for `GIOStream` for details of thread safety of
 /// streaming APIs.
@@ -2021,27 +2017,26 @@ open class InputStream: Object, InputStreamProtocol {
 
 public enum InputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2121,10 +2116,10 @@ public extension InputStreamProtocol {
 
     /// Requests an asynchronous closes of the stream, releasing resources related to it.
     /// When the operation is finished `callback` will be called.
-    /// You can then call g_input_stream_close_finish() to get the result of the
+    /// You can then call `g_input_stream_close_finish()` to get the result of the
     /// operation.
     /// 
-    /// For behaviour details see g_input_stream_close().
+    /// For behaviour details see `g_input_stream_close()`.
     /// 
     /// The asynchronous methods have a default fallback that uses threads to implement
     /// asynchronicity, so they are optional for inheriting classes. However, if you
@@ -2134,7 +2129,7 @@ public extension InputStreamProtocol {
     
     }
 
-    /// Finishes closing a stream asynchronously, started from g_input_stream_close_async().
+    /// Finishes closing a stream asynchronously, started from `g_input_stream_close_async()`.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_input_stream_close_finish(cast(input_stream_ptr), cast(result.ptr), &error)
@@ -2183,7 +2178,7 @@ public extension InputStreamProtocol {
     /// Tries to read `count` bytes from the stream into the buffer starting at
     /// `buffer`. Will block during this read.
     /// 
-    /// This function is similar to g_input_stream_read(), except it tries to
+    /// This function is similar to `g_input_stream_read()`, except it tries to
     /// read as many bytes as requested, only stopping on an error or end of stream.
     /// 
     /// On a successful read of `count` bytes, or if we reached the end of the
@@ -2198,7 +2193,7 @@ public extension InputStreamProtocol {
     /// `bytes_read` will be set to the number of bytes that were successfully
     /// read before the error was encountered.  This functionality is only
     /// available from C.  If you need it from another language then you must
-    /// write your own loop around g_input_stream_read().
+    /// write your own loop around `g_input_stream_read()`.
     func readAll(buffer: UnsafeMutableRawPointer, count: Int, bytesRead bytes_read: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_input_stream_read_all(cast(input_stream_ptr), cast(buffer), gsize(count), cast(bytes_read), cast(cancellable.ptr), &error)
@@ -2211,9 +2206,9 @@ public extension InputStreamProtocol {
     /// Request an asynchronous read of `count` bytes from the stream into the
     /// buffer starting at `buffer`.
     /// 
-    /// This is the asynchronous equivalent of g_input_stream_read_all().
+    /// This is the asynchronous equivalent of `g_input_stream_read_all()`.
     /// 
-    /// Call g_input_stream_read_all_finish() to collect the result.
+    /// Call `g_input_stream_read_all_finish()` to collect the result.
     /// 
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
@@ -2224,14 +2219,14 @@ public extension InputStreamProtocol {
     }
 
     /// Finishes an asynchronous stream read operation started with
-    /// g_input_stream_read_all_async().
+    /// `g_input_stream_read_all_async()`.
     /// 
     /// As a special exception to the normal conventions for functions that
     /// use `GError`, if this function returns `false` (and sets `error`) then
     /// `bytes_read` will be set to the number of bytes that were successfully
     /// read before the error was encountered.  This functionality is only
     /// available from C.  If you need it from another language then you must
-    /// write your own loop around g_input_stream_read_async().
+    /// write your own loop around `g_input_stream_read_async()`.
     func readAllFinish(result: AsyncResultProtocol, bytesRead bytes_read: UnsafeMutablePointer<Int>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_input_stream_read_all_finish(cast(input_stream_ptr), cast(result.ptr), cast(bytes_read), &error)
@@ -2243,7 +2238,7 @@ public extension InputStreamProtocol {
 
     /// Request an asynchronous read of `count` bytes from the stream into the buffer
     /// starting at `buffer`. When the operation is finished `callback` will be called.
-    /// You can then call g_input_stream_read_finish() to get the result of the
+    /// You can then call `g_input_stream_read_finish()` to get the result of the
     /// operation.
     /// 
     /// During an async request no other sync and async calls are allowed on `stream`, and will
@@ -2269,7 +2264,7 @@ public extension InputStreamProtocol {
     
     }
 
-    /// Like g_input_stream_read(), this tries to read `count` bytes from
+    /// Like `g_input_stream_read()`, this tries to read `count` bytes from
     /// the stream in a blocking fashion. However, rather than reading into
     /// a user-supplied buffer, this will create a new `GBytes` containing
     /// the data that was read. This may be easier to use from language
@@ -2303,7 +2298,7 @@ public extension InputStreamProtocol {
 
     /// Request an asynchronous read of `count` bytes from the stream into a
     /// new `GBytes`. When the operation is finished `callback` will be
-    /// called. You can then call g_input_stream_read_bytes_finish() to get the
+    /// called. You can then call `g_input_stream_read_bytes_finish()` to get the
     /// result of the operation.
     /// 
     /// During an async request no other sync and async calls are allowed
@@ -2360,7 +2355,7 @@ public extension InputStreamProtocol {
 
     /// Tries to skip `count` bytes from the stream. Will block during the operation.
     /// 
-    /// This is identical to g_input_stream_read(), from a behaviour standpoint,
+    /// This is identical to `g_input_stream_read()`, from a behaviour standpoint,
     /// but the bytes that are skipped are not returned to the user. Some
     /// streams have an implementation that is more efficient than reading the data.
     /// 
@@ -2383,7 +2378,7 @@ public extension InputStreamProtocol {
 
     /// Request an asynchronous skip of `count` bytes from the stream.
     /// When the operation is finished `callback` will be called.
-    /// You can then call g_input_stream_skip_finish() to get the result
+    /// You can then call `g_input_stream_skip_finish()` to get the result
     /// of the operation.
     /// 
     /// During an async request no other sync and async calls are allowed,
@@ -2419,13 +2414,13 @@ public extension InputStreamProtocol {
         return rv
     }
 
-    /// Tries to read from `stream`, as with g_input_stream_read() (if
-    /// `blocking` is `true`) or g_pollable_input_stream_read_nonblocking()
+    /// Tries to read from `stream`, as with `g_input_stream_read()` (if
+    /// `blocking` is `true`) or `g_pollable_input_stream_read_nonblocking()`
     /// (if `blocking` is `false`). This can be used to more easily share
     /// code between blocking and non-blocking implementations of a method.
     /// 
     /// If `blocking` is `false`, then `stream` must be a
-    /// `GPollableInputStream` for which g_pollable_input_stream_can_poll()
+    /// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
     /// returns `true`, or else the behavior is undefined. If `blocking` is
     /// `true`, then `stream` does not need to be a `GPollableInputStream`.
     func pollableStreamRead(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
@@ -2632,27 +2627,26 @@ public extension ListStoreProtocol {
 
 public enum ListStoreSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2694,11 +2688,11 @@ public extension ListStoreProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListStore` instance.
     var list_store_ptr: UnsafeMutablePointer<GListStore> { return ptr.assumingMemoryBound(to: GListStore.self) }
 
-    /// Appends `item` to `store`. `item` must be of type `GListStore`:item-type.
+    /// Appends `item` to `store`. `item` must be of type `GListStore:item`-type.
     /// 
     /// This function takes a ref on `item`.
     /// 
-    /// Use g_list_store_splice() to append multiple items at the same time
+    /// Use `g_list_store_splice()` to append multiple items at the same time
     /// efficiently.
     func append(item: ObjectProtocol) {
         g_list_store_append(cast(list_store_ptr), cast(item.ptr))
@@ -2706,12 +2700,12 @@ public extension ListStoreProtocol {
     }
 
     /// Inserts `item` into `store` at `position`. `item` must be of type
-    /// `GListStore`:item-type or derived from it. `position` must be smaller
+    /// `GListStore:item`-type or derived from it. `position` must be smaller
     /// than the length of the list, or equal to it to append.
     /// 
     /// This function takes a ref on `item`.
     /// 
-    /// Use g_list_store_splice() to insert multiple items at the same time
+    /// Use `g_list_store_splice()` to insert multiple items at the same time
     /// efficiently.
     func insert(position: CUnsignedInt, item: ObjectProtocol) {
         g_list_store_insert(cast(list_store_ptr), guint(position), cast(item.ptr))
@@ -2734,7 +2728,7 @@ public extension ListStoreProtocol {
     /// Removes the item from `store` that is at `position`. `position` must be
     /// smaller than the current length of the list.
     /// 
-    /// Use g_list_store_splice() to remove multiple items at the same time
+    /// Use `g_list_store_splice()` to remove multiple items at the same time
     /// efficiently.
     func remove(position: CUnsignedInt) {
         g_list_store_remove(cast(list_store_ptr), guint(position))
@@ -2755,11 +2749,11 @@ public extension ListStoreProtocol {
 
     /// Changes `store` by removing `n_removals` items and adding `n_additions`
     /// items to it. `additions` must contain `n_additions` items of type
-    /// `GListStore`:item-type.  `nil` is not permitted.
+    /// `GListStore:item`-type.  `nil` is not permitted.
     /// 
-    /// This function is more efficient than g_list_store_insert() and
-    /// g_list_store_remove(), because it only emits
-    /// `GListModel`::items-changed once for the change.
+    /// This function is more efficient than `g_list_store_insert()` and
+    /// `g_list_store_remove()`, because it only emits
+    /// `GListModel::items`-changed once for the change.
     /// 
     /// This function takes a ref on each item in `additions`.
     /// 

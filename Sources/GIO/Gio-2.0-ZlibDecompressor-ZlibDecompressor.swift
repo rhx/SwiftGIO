@@ -132,7 +132,7 @@ public enum ZlibDecompressorPropertyName: String, PropertyNameProtocol {
     /// A `GFileInfo` containing the information found in the GZIP header
     /// of the data stream processed, or `nil` if the header was not yet
     /// fully processed, is not present at all, or the compressor's
-    /// `GZlibDecompressor`:format property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`.
+    /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`.
     case fileInfo = "file-info"
     case format = "format"
 }
@@ -175,27 +175,26 @@ public extension ZlibDecompressorProtocol {
 
 public enum ZlibDecompressorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -203,7 +202,7 @@ public enum ZlibDecompressorSignalName: String, SignalNameProtocol {
     /// A `GFileInfo` containing the information found in the GZIP header
     /// of the data stream processed, or `nil` if the header was not yet
     /// fully processed, is not present at all, or the compressor's
-    /// `GZlibDecompressor`:format property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`.
+    /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`.
     case notifyFileInfo = "notify::file-info"
     case notifyFormat = "notify::format"
 }
@@ -242,7 +241,7 @@ public extension ZlibDecompressorProtocol {
 
     /// Retrieves the `GFileInfo` constructed from the GZIP header data
     /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
-    /// `GZlibDecompressor`:format property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
+    /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
     /// or the header data was not fully processed yet, or it not present in the
     /// data stream at all.
     func getFileInfo() -> UnsafeMutablePointer<GFileInfo>! {
@@ -251,13 +250,13 @@ public extension ZlibDecompressorProtocol {
     }
     /// Retrieves the `GFileInfo` constructed from the GZIP header data
     /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
-    /// `GZlibDecompressor`:format property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
+    /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
     /// or the header data was not fully processed yet, or it not present in the
     /// data stream at all.
     var fileInfo: UnsafeMutablePointer<GFileInfo>! {
         /// Retrieves the `GFileInfo` constructed from the GZIP header data
         /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
-        /// `GZlibDecompressor`:format property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
+        /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
         /// or the header data was not fully processed yet, or it not present in the
         /// data stream at all.
         get {

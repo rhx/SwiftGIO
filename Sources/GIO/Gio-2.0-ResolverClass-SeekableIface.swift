@@ -344,7 +344,6 @@ public extension ResolverPrivateProtocol {
 /// </gresources>
 /// ```
 /// 
-/// 
 /// This will create a resource bundle with the following files:
 /// ```
 /// /org/gtk/Example/data/splashscreen.png
@@ -353,22 +352,21 @@ public extension ResolverPrivateProtocol {
 /// /org/gtk/Example/example.css
 /// ```
 /// 
-/// 
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
 /// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
-/// binary bundle that you can load with g_resource_load(). However, its more common to use the --generate-source and
+/// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
-/// This will generate `get_resource()`, `register_resource()` and
-/// `unregister_resource()` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. `get_resource()` returns
+/// This will generate ``get_resource()``, ``register_resource()`` and
+/// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
+/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
-/// g_resources_lookup_data().
+/// `g_resources_lookup_data()`.
 /// 
 /// Once a `GResource` has been created and registered all the data in it can be accessed globally in the process by
-/// using API calls like g_resources_open_stream() to stream the data or g_resources_lookup_data() to get a direct pointer
+/// using API calls like `g_resources_open_stream()` to stream the data or `g_resources_lookup_data()` to get a direct pointer
 /// to the data. You can also use URIs like "resource:///org/gtk/Example/data/splashscreen.png" with `GFile` to access
 /// the resource data.
 /// 
@@ -398,7 +396,6 @@ public extension ResolverPrivateProtocol {
 /// ```
 ///    /org/gtk/libgtk=/home/desrt/gtk-overlay
 /// ```
-/// 
 /// 
 /// The part before the `=` is the resource subpath for which the overlay applies.  The part after is a
 /// filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
@@ -484,7 +481,6 @@ public protocol ResourceProtocol {
 /// </gresources>
 /// ```
 /// 
-/// 
 /// This will create a resource bundle with the following files:
 /// ```
 /// /org/gtk/Example/data/splashscreen.png
@@ -493,22 +489,21 @@ public protocol ResourceProtocol {
 /// /org/gtk/Example/example.css
 /// ```
 /// 
-/// 
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
 /// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
-/// binary bundle that you can load with g_resource_load(). However, its more common to use the --generate-source and
+/// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
-/// This will generate `get_resource()`, `register_resource()` and
-/// `unregister_resource()` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. `get_resource()` returns
+/// This will generate ``get_resource()``, ``register_resource()`` and
+/// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
+/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
-/// g_resources_lookup_data().
+/// `g_resources_lookup_data()`.
 /// 
 /// Once a `GResource` has been created and registered all the data in it can be accessed globally in the process by
-/// using API calls like g_resources_open_stream() to stream the data or g_resources_lookup_data() to get a direct pointer
+/// using API calls like `g_resources_open_stream()` to stream the data or `g_resources_lookup_data()` to get a direct pointer
 /// to the data. You can also use URIs like "resource:///org/gtk/Example/data/splashscreen.png" with `GFile` to access
 /// the resource data.
 /// 
@@ -538,7 +533,6 @@ public protocol ResourceProtocol {
 /// ```
 ///    /org/gtk/libgtk=/home/desrt/gtk-overlay
 /// ```
-/// 
 /// 
 /// The part before the `=` is the resource subpath for which the overlay applies.  The part after is a
 /// filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
@@ -604,7 +598,7 @@ public extension ResourceRef {
     /// the data should not be modified or freed.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// Note: `data` must be backed by memory that is at least pointer aligned.
     /// Otherwise this function will internally create a copy of the memory since
@@ -624,7 +618,7 @@ public extension ResourceRef {
     /// the data should not be modified or freed.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// Note: `data` must be backed by memory that is at least pointer aligned.
     /// Otherwise this function will internally create a copy of the memory since
@@ -644,11 +638,11 @@ public extension ResourceRef {
     /// you to query it for data.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// If `filename` is empty or the data in it is corrupt,
     /// `G_RESOURCE_ERROR_INTERNAL` will be returned. If `filename` doesn’t exist, or
-    /// there is an error in reading it, an error from g_mapped_file_new() will be
+    /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
     static func load(String_: UnsafePointer<gchar>) throws -> ResourceRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -723,7 +717,6 @@ public extension ResourceRef {
 /// </gresources>
 /// ```
 /// 
-/// 
 /// This will create a resource bundle with the following files:
 /// ```
 /// /org/gtk/Example/data/splashscreen.png
@@ -732,22 +725,21 @@ public extension ResourceRef {
 /// /org/gtk/Example/example.css
 /// ```
 /// 
-/// 
 /// Note that all resources in the process share the same namespace, so use Java-style
 /// path prefixes (like in the above example) to avoid conflicts.
 /// 
 /// You can then use [glib-compile-resources][glib-compile-resources] to compile the XML to a
-/// binary bundle that you can load with g_resource_load(). However, its more common to use the --generate-source and
+/// binary bundle that you can load with `g_resource_load()`. However, its more common to use the --generate-source and
 /// --generate-header arguments to create a source file and header to link directly into your application.
-/// This will generate `get_resource()`, `register_resource()` and
-/// `unregister_resource()` functions, prefixed by the `--c-name` argument passed
-/// to [glib-compile-resources][glib-compile-resources]. `get_resource()` returns
+/// This will generate ``get_resource()``, ``register_resource()`` and
+/// ``unregister_resource()`` functions, prefixed by the `--c-name` argument passed
+/// to [glib-compile-resources][glib-compile-resources]. ``get_resource()`` returns
 /// the generated `GResource` object. The register and unregister functions
 /// register the resource so its files can be accessed using
-/// g_resources_lookup_data().
+/// `g_resources_lookup_data()`.
 /// 
 /// Once a `GResource` has been created and registered all the data in it can be accessed globally in the process by
-/// using API calls like g_resources_open_stream() to stream the data or g_resources_lookup_data() to get a direct pointer
+/// using API calls like `g_resources_open_stream()` to stream the data or `g_resources_lookup_data()` to get a direct pointer
 /// to the data. You can also use URIs like "resource:///org/gtk/Example/data/splashscreen.png" with `GFile` to access
 /// the resource data.
 /// 
@@ -777,7 +769,6 @@ public extension ResourceRef {
 /// ```
 ///    /org/gtk/libgtk=/home/desrt/gtk-overlay
 /// ```
-/// 
 /// 
 /// The part before the `=` is the resource subpath for which the overlay applies.  The part after is a
 /// filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
@@ -844,7 +835,7 @@ open class Resource: ResourceProtocol {
     /// the data should not be modified or freed.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// Note: `data` must be backed by memory that is at least pointer aligned.
     /// Otherwise this function will internally create a copy of the memory since
@@ -865,7 +856,7 @@ open class Resource: ResourceProtocol {
     /// the data should not be modified or freed.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// Note: `data` must be backed by memory that is at least pointer aligned.
     /// Otherwise this function will internally create a copy of the memory since
@@ -885,11 +876,11 @@ open class Resource: ResourceProtocol {
     /// you to query it for data.
     /// 
     /// If you want to use this resource in the global resource namespace you need
-    /// to register it with g_resources_register().
+    /// to register it with `g_resources_register()`.
     /// 
     /// If `filename` is empty or the data in it is corrupt,
     /// `G_RESOURCE_ERROR_INTERNAL` will be returned. If `filename` doesn’t exist, or
-    /// there is an error in reading it, an error from g_mapped_file_new() will be
+    /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
     public static func load(String_: UnsafePointer<gchar>) throws -> Resource! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -913,7 +904,7 @@ public extension ResourceProtocol {
 
     /// Registers the resource with the process-global set of resources.
     /// Once a resource is registered the files in it can be accessed
-    /// with the global resource lookup functions like g_resources_lookup_data().
+    /// with the global resource lookup functions like `g_resources_lookup_data()`.
     func Register() {
         g_resources_register(cast(resource_ptr))
     
@@ -927,7 +918,7 @@ public extension ResourceProtocol {
 
     /// Returns all the names of children at the specified `path` in the resource.
     /// The return result is a `nil` terminated list of strings which should
-    /// be released with g_strfreev().
+    /// be released with `g_strfreev()`.
     /// 
     /// If `path` is invalid or does not exist in the `GResource`,
     /// `G_RESOURCE_ERROR_NOT_FOUND` will be returned.
@@ -1009,7 +1000,7 @@ public extension ResourceProtocol {
 
     /// Registers the resource with the process-global set of resources.
     /// Once a resource is registered the files in it can be accessed
-    /// with the global resource lookup functions like g_resources_lookup_data().
+    /// with the global resource lookup functions like `g_resources_lookup_data()`.
     func resourcesRegister() {
         g_resources_register(cast(resource_ptr))
     

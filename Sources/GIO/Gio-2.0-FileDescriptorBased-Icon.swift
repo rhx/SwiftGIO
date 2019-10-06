@@ -183,12 +183,12 @@ public extension FileDescriptorBasedProtocol {
 /// of GIO's scope, however implementations of `GIcon` may contain the name
 /// of an icon (see `GThemedIcon`), or the path to an icon (see `GLoadableIcon`).
 /// 
-/// To obtain a hash of a `GIcon`, see g_icon_hash().
+/// To obtain a hash of a `GIcon`, see `g_icon_hash()`.
 /// 
-/// To check if two `GIcons` are equal, see g_icon_equal().
+/// To check if two `GIcons` are equal, see `g_icon_equal()`.
 /// 
-/// For serializing a `GIcon`, use g_icon_serialize() and
-/// g_icon_deserialize().
+/// For serializing a `GIcon`, use `g_icon_serialize()` and
+/// `g_icon_deserialize()`.
 /// 
 /// If you want to consume `GIcon` (for example, in a toolkit) you must
 /// be prepared to handle at least the three following cases:
@@ -200,8 +200,8 @@ public extension FileDescriptorBasedProtocol {
 /// If your application or library provides one or more `GIcon`
 /// implementations you need to ensure that your new implementation also
 /// implements `GLoadableIcon`.  Additionally, you must provide an
-/// implementation of g_icon_serialize() that gives a result that is
-/// understood by g_icon_deserialize(), yielding one of the built-in icon
+/// implementation of `g_icon_serialize()` that gives a result that is
+/// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 public protocol IconProtocol {
     /// Untyped pointer to the underlying `GIcon` instance.
@@ -223,12 +223,12 @@ public protocol IconProtocol {
 /// of GIO's scope, however implementations of `GIcon` may contain the name
 /// of an icon (see `GThemedIcon`), or the path to an icon (see `GLoadableIcon`).
 /// 
-/// To obtain a hash of a `GIcon`, see g_icon_hash().
+/// To obtain a hash of a `GIcon`, see `g_icon_hash()`.
 /// 
-/// To check if two `GIcons` are equal, see g_icon_equal().
+/// To check if two `GIcons` are equal, see `g_icon_equal()`.
 /// 
-/// For serializing a `GIcon`, use g_icon_serialize() and
-/// g_icon_deserialize().
+/// For serializing a `GIcon`, use `g_icon_serialize()` and
+/// `g_icon_deserialize()`.
 /// 
 /// If you want to consume `GIcon` (for example, in a toolkit) you must
 /// be prepared to handle at least the three following cases:
@@ -240,8 +240,8 @@ public protocol IconProtocol {
 /// If your application or library provides one or more `GIcon`
 /// implementations you need to ensure that your new implementation also
 /// implements `GLoadableIcon`.  Additionally, you must provide an
-/// implementation of g_icon_serialize() that gives a result that is
-/// understood by g_icon_deserialize(), yielding one of the built-in icon
+/// implementation of `g_icon_serialize()` that gives a result that is
+/// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 public struct IconRef: IconProtocol {
     /// Untyped pointer to the underlying `GIcon` instance.
@@ -289,18 +289,18 @@ public extension IconRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Deserializes a `GIcon` previously serialized using g_icon_serialize().
+        /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
     static func deserialize(value: VariantProtocol) -> IconRef! {
         let rv = g_icon_deserialize(cast(value.ptr))
         return rv.map { IconRef(cast($0)) }
     }
 
     /// Generate a `GIcon` instance from `str`. This function can fail if
-    /// `str` is not valid - see g_icon_to_string() for discussion.
+    /// `str` is not valid - see `g_icon_to_string()` for discussion.
     /// 
     /// If your application or library provides one or more `GIcon`
     /// implementations you need to ensure that each `GType` is registered
-    /// with the type system prior to calling g_icon_new_for_string().
+    /// with the type system prior to calling `g_icon_new_for_string()`.
     static func newFor(string str: UnsafePointer<gchar>) throws -> IconRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_icon_new_for_string(str, &error)
@@ -323,12 +323,12 @@ public extension IconRef {
 /// of GIO's scope, however implementations of `GIcon` may contain the name
 /// of an icon (see `GThemedIcon`), or the path to an icon (see `GLoadableIcon`).
 /// 
-/// To obtain a hash of a `GIcon`, see g_icon_hash().
+/// To obtain a hash of a `GIcon`, see `g_icon_hash()`.
 /// 
-/// To check if two `GIcons` are equal, see g_icon_equal().
+/// To check if two `GIcons` are equal, see `g_icon_equal()`.
 /// 
-/// For serializing a `GIcon`, use g_icon_serialize() and
-/// g_icon_deserialize().
+/// For serializing a `GIcon`, use `g_icon_serialize()` and
+/// `g_icon_deserialize()`.
 /// 
 /// If you want to consume `GIcon` (for example, in a toolkit) you must
 /// be prepared to handle at least the three following cases:
@@ -340,8 +340,8 @@ public extension IconRef {
 /// If your application or library provides one or more `GIcon`
 /// implementations you need to ensure that your new implementation also
 /// implements `GLoadableIcon`.  Additionally, you must provide an
-/// implementation of g_icon_serialize() that gives a result that is
-/// understood by g_icon_deserialize(), yielding one of the built-in icon
+/// implementation of `g_icon_serialize()` that gives a result that is
+/// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 open class Icon: IconProtocol {
     /// Untyped pointer to the underlying `GIcon` instance.
@@ -391,18 +391,18 @@ open class Icon: IconProtocol {
     }
 
 
-    /// Deserializes a `GIcon` previously serialized using g_icon_serialize().
+    /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
     public static func deserialize(value: VariantProtocol) -> Icon! {
         let rv = g_icon_deserialize(cast(value.ptr))
         return rv.map { Icon(cast($0)) }
     }
 
     /// Generate a `GIcon` instance from `str`. This function can fail if
-    /// `str` is not valid - see g_icon_to_string() for discussion.
+    /// `str` is not valid - see `g_icon_to_string()` for discussion.
     /// 
     /// If your application or library provides one or more `GIcon`
     /// implementations you need to ensure that each `GType` is registered
-    /// with the type system prior to calling g_icon_new_for_string().
+    /// with the type system prior to calling `g_icon_new_for_string()`.
     public static func newFor(string str: UnsafePointer<gchar>) throws -> Icon! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_icon_new_for_string(str, &error)
@@ -430,7 +430,7 @@ public extension IconProtocol {
     }
 
     /// Serializes a `GIcon` into a `GVariant`. An equivalent `GIcon` can be retrieved
-    /// back by calling g_icon_deserialize() on the returned value.
+    /// back by calling `g_icon_deserialize()` on the returned value.
     /// As serialization will avoid using raw icon data when possible, it only
     /// makes sense to transfer the `GVariant` between processes on the same machine,
     /// (as opposed to over the network), and within the same file system namespace.
@@ -441,7 +441,7 @@ public extension IconProtocol {
 
     /// Generates a textual representation of `icon` that can be used for
     /// serialization such as when passing `icon` to a different process or
-    /// saving it to persistent storage. Use g_icon_new_for_string() to
+    /// saving it to persistent storage. Use `g_icon_new_for_string()` to
     /// get `icon` back from the returned string.
     /// 
     /// The encoding of the returned string is proprietary to `GIcon` except
@@ -450,8 +450,8 @@ public extension IconProtocol {
     /// - If `icon` is a `GFileIcon`, the returned string is a native path
     ///   (such as `/path/to/my icon.png`) without escaping
     ///   if the `GFile` for `icon` is a native file.  If the file is not
-    ///   native, the returned string is the result of g_file_get_uri()
-    ///   (such as `sftp://path/to/my`20icon`.png`).
+    ///   native, the returned string is the result of `g_file_get_uri()`
+    ///   (such as `sftp://path/to/my`20icon.png``).
     /// 
     /// - If `icon` is a `GThemedIcon` with exactly one name and no fallbacks,
     ///   the encoding is simply the name (such as `network-server`).

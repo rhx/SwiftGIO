@@ -190,27 +190,26 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
 
 public enum MemoryInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -276,7 +275,7 @@ public extension MemoryInputStreamProtocol {
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
-/// `GPollableOutputStream`: it always polls as ready.
+/// `GPollableOutputStream:` it always polls as ready.
 public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutputStreamProtocol, SeekableProtocol {
     /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -293,7 +292,7 @@ public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutput
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
-/// `GPollableOutputStream`: it always polls as ready.
+/// `GPollableOutputStream:` it always polls as ready.
 public struct MemoryOutputStreamRef: MemoryOutputStreamProtocol {
     /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_output_stream_ptr` property instead.
@@ -343,7 +342,7 @@ public extension MemoryOutputStreamRef {
         /// Creates a new `GMemoryOutputStream`.
     /// 
     /// In most cases this is not the function you want.  See
-    /// g_memory_output_stream_new_resizable() instead.
+    /// `g_memory_output_stream_new_resizable()` instead.
     /// 
     /// If `data` is non-`nil`, the stream will use that for its internal storage.
     /// 
@@ -360,7 +359,7 @@ public extension MemoryOutputStreamRef {
     /// an 'out of space' error.  Attempting to seek past the end will fail.
     /// Unlike the resizable case, seeking to an offset within the stream and
     /// writing will preserve the bytes passed in as `data` before that point
-    /// and will return them as part of g_memory_output_stream_steal_data().
+    /// and will return them as part of `g_memory_output_stream_steal_data()`.
     /// If you intend to seek you should probably therefore ensure that `data`
     /// is properly initialised.
     /// 
@@ -387,7 +386,7 @@ public extension MemoryOutputStreamRef {
         let rv = g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function)
         self.init(cast(rv))
     }
-    /// Creates a new `GMemoryOutputStream`, using g_realloc() and g_free()
+    /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
     static func newResizable() -> MemoryOutputStreamRef! {
         let rv = g_memory_output_stream_new_resizable()
@@ -403,7 +402,7 @@ public extension MemoryOutputStreamRef {
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
-/// `GPollableOutputStream`: it always polls as ready.
+/// `GPollableOutputStream:` it always polls as ready.
 open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `MemoryOutputStream` instance.
@@ -445,7 +444,7 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// Creates a new `GMemoryOutputStream`.
     /// 
     /// In most cases this is not the function you want.  See
-    /// g_memory_output_stream_new_resizable() instead.
+    /// `g_memory_output_stream_new_resizable()` instead.
     /// 
     /// If `data` is non-`nil`, the stream will use that for its internal storage.
     /// 
@@ -462,7 +461,7 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// an 'out of space' error.  Attempting to seek past the end will fail.
     /// Unlike the resizable case, seeking to an offset within the stream and
     /// writing will preserve the bytes passed in as `data` before that point
-    /// and will return them as part of g_memory_output_stream_steal_data().
+    /// and will return them as part of `g_memory_output_stream_steal_data()`.
     /// If you intend to seek you should probably therefore ensure that `data`
     /// is properly initialised.
     /// 
@@ -490,7 +489,7 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
         self.init(cast(rv))
     }
 
-    /// Creates a new `GMemoryOutputStream`, using g_realloc() and g_free()
+    /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
     public static func newResizable() -> MemoryOutputStream! {
         let rv = g_memory_output_stream_new_resizable()
@@ -550,27 +549,26 @@ public extension MemoryOutputStreamProtocol {
 
 public enum MemoryOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -636,20 +634,20 @@ public extension MemoryOutputStreamProtocol {
     }
 
     /// Gets the size of the currently allocated data area (available from
-    /// g_memory_output_stream_get_data()).
+    /// `g_memory_output_stream_get_data()`).
     /// 
     /// You probably don't want to use this function on resizable streams.
-    /// See g_memory_output_stream_get_data_size() instead.  For resizable
+    /// See `g_memory_output_stream_get_data_size()` instead.  For resizable
     /// streams the size returned by this function is an implementation
     /// detail and may be change at any time in response to operations on the
     /// stream.
     /// 
     /// If the stream is fixed-sized (ie: no realloc was passed to
-    /// g_memory_output_stream_new()) then this is the maximum size of the
+    /// `g_memory_output_stream_new()`) then this is the maximum size of the
     /// stream and further writes will return `G_IO_ERROR_NO_SPACE`.
     /// 
     /// In any case, if you want the number of bytes currently written to the
-    /// stream, use g_memory_output_stream_get_data_size().
+    /// stream, use `g_memory_output_stream_get_data_size()`.
     func getSize() -> Int {
         let rv = g_memory_output_stream_get_size(cast(memory_output_stream_ptr))
         return Int(rv)
@@ -665,7 +663,7 @@ public extension MemoryOutputStreamProtocol {
     /// Gets any loaded data from the `ostream`. Ownership of the data
     /// is transferred to the caller; when no longer needed it must be
     /// freed using the free function set in `ostream`'s
-    /// `GMemoryOutputStream`:destroy-function property.
+    /// `GMemoryOutputStream:destroy`-function property.
     /// 
     /// `ostream` must be closed before calling this function.
     func stealData() -> UnsafeMutableRawPointer! {
@@ -698,20 +696,20 @@ public extension MemoryOutputStreamProtocol {
     /// Current size of the data buffer.
     var size: Int {
         /// Gets the size of the currently allocated data area (available from
-        /// g_memory_output_stream_get_data()).
+        /// `g_memory_output_stream_get_data()`).
         /// 
         /// You probably don't want to use this function on resizable streams.
-        /// See g_memory_output_stream_get_data_size() instead.  For resizable
+        /// See `g_memory_output_stream_get_data_size()` instead.  For resizable
         /// streams the size returned by this function is an implementation
         /// detail and may be change at any time in response to operations on the
         /// stream.
         /// 
         /// If the stream is fixed-sized (ie: no realloc was passed to
-        /// g_memory_output_stream_new()) then this is the maximum size of the
+        /// `g_memory_output_stream_new()`) then this is the maximum size of the
         /// stream and further writes will return `G_IO_ERROR_NO_SPACE`.
         /// 
         /// In any case, if you want the number of bytes currently written to the
-        /// stream, use g_memory_output_stream_get_data_size().
+        /// stream, use `g_memory_output_stream_get_data_size()`.
         get {
             let rv = g_memory_output_stream_get_size(cast(memory_output_stream_ptr))
             return Int(rv)
@@ -733,9 +731,9 @@ public extension MemoryOutputStreamProtocol {
 /// 
 /// There are some convenience functions to allow you to directly
 /// add items (avoiding `GMenuItem`) for the common cases. To add
-/// a regular item, use g_menu_insert(). To add a section, use
-/// g_menu_insert_section(). To add a submenu, use
-/// g_menu_insert_submenu().
+/// a regular item, use `g_menu_insert()`. To add a section, use
+/// `g_menu_insert_section()`. To add a submenu, use
+/// `g_menu_insert_submenu()`.
 public protocol MenuProtocol: MenuModelProtocol {
     /// Untyped pointer to the underlying `GMenu` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -753,9 +751,9 @@ public protocol MenuProtocol: MenuModelProtocol {
 /// 
 /// There are some convenience functions to allow you to directly
 /// add items (avoiding `GMenuItem`) for the common cases. To add
-/// a regular item, use g_menu_insert(). To add a section, use
-/// g_menu_insert_section(). To add a submenu, use
-/// g_menu_insert_submenu().
+/// a regular item, use `g_menu_insert()`. To add a section, use
+/// `g_menu_insert_section()`. To add a submenu, use
+/// `g_menu_insert_submenu()`.
 public struct MenuRef: MenuProtocol {
     /// Untyped pointer to the underlying `GMenu` instance.
     /// For type-safe access, use the generated, typed pointer `menu_ptr` property instead.
@@ -820,9 +818,9 @@ public extension MenuRef {
 /// 
 /// There are some convenience functions to allow you to directly
 /// add items (avoiding `GMenuItem`) for the common cases. To add
-/// a regular item, use g_menu_insert(). To add a section, use
-/// g_menu_insert_section(). To add a submenu, use
-/// g_menu_insert_submenu().
+/// a regular item, use `g_menu_insert()`. To add a section, use
+/// `g_menu_insert_section()`. To add a submenu, use
+/// `g_menu_insert_submenu()`.
 open class Menu: MenuModel, MenuProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Menu` instance.
@@ -897,27 +895,26 @@ public enum MenuSignalName: String, SignalNameProtocol {
     /// reported.  The signal is emitted after the modification.
     case itemsChanged = "items-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -958,7 +955,7 @@ public extension MenuProtocol {
     var menu_ptr: UnsafeMutablePointer<GMenu> { return ptr.assumingMemoryBound(to: GMenu.self) }
 
     /// Convenience function for appending a normal menu item to the end of
-    /// `menu`.  Combine g_menu_item_new() and g_menu_insert_item() for a more
+    /// `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
     func append(label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         g_menu_append(cast(menu_ptr), label, detailed_action)
@@ -967,14 +964,14 @@ public extension MenuProtocol {
 
     /// Appends `item` to the end of `menu`.
     /// 
-    /// See g_menu_insert_item() for more information.
+    /// See `g_menu_insert_item()` for more information.
     func append(item: MenuItemProtocol) {
         g_menu_append_item(cast(menu_ptr), cast(item.ptr))
     
     }
 
     /// Convenience function for appending a section menu item to the end of
-    /// `menu`.  Combine g_menu_item_new_section() and g_menu_insert_item() for a
+    /// `menu`.  Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for a
     /// more flexible alternative.
     func appendSection(label: UnsafePointer<gchar>, section: MenuModelProtocol) {
         g_menu_append_section(cast(menu_ptr), label, cast(section.ptr))
@@ -982,7 +979,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for appending a submenu menu item to the end of
-    /// `menu`.  Combine g_menu_item_new_submenu() and g_menu_insert_item() for a
+    /// `menu`.  Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for a
     /// more flexible alternative.
     func appendSubmenu(label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         g_menu_append_submenu(cast(menu_ptr), label, cast(submenu.ptr))
@@ -995,7 +992,7 @@ public extension MenuProtocol {
     /// changes to it.  In effect this means that the `GMenu` API must no
     /// longer be used.
     /// 
-    /// This function causes g_menu_model_is_mutable() to begin returning
+    /// This function causes `g_menu_model_is_mutable()` to begin returning
     /// `false`, which has some positive performance implications.
     func freeze() {
         g_menu_freeze(cast(menu_ptr))
@@ -1003,7 +1000,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for inserting a normal menu item into `menu`.
-    /// Combine g_menu_item_new() and g_menu_insert_item() for a more flexible
+    /// Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more flexible
     /// alternative.
     func insert(position: CInt, label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         g_menu_insert(cast(menu_ptr), gint(position), label, detailed_action)
@@ -1024,8 +1021,8 @@ public extension MenuProtocol {
     /// You should probably just free `item` once you're done.
     /// 
     /// There are many convenience functions to take care of common cases.
-    /// See g_menu_insert(), g_menu_insert_section() and
-    /// g_menu_insert_submenu() as well as "prepend" and "append" variants of
+    /// See `g_menu_insert()`, `g_menu_insert_section()` and
+    /// `g_menu_insert_submenu()` as well as "prepend" and "append" variants of
     /// each of these functions.
     func insertItem(position: CInt, item: MenuItemProtocol) {
         g_menu_insert_item(cast(menu_ptr), gint(position), cast(item.ptr))
@@ -1033,7 +1030,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for inserting a section menu item into `menu`.
-    /// Combine g_menu_item_new_section() and g_menu_insert_item() for a more
+    /// Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
     func insertSection(position: CInt, label: UnsafePointer<gchar>, section: MenuModelProtocol) {
         g_menu_insert_section(cast(menu_ptr), gint(position), label, cast(section.ptr))
@@ -1041,7 +1038,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for inserting a submenu menu item into `menu`.
-    /// Combine g_menu_item_new_submenu() and g_menu_insert_item() for a more
+    /// Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
     func insertSubmenu(position: CInt, label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         g_menu_insert_submenu(cast(menu_ptr), gint(position), label, cast(submenu.ptr))
@@ -1049,7 +1046,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for prepending a normal menu item to the start
-    /// of `menu`.  Combine g_menu_item_new() and g_menu_insert_item() for a more
+    /// of `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
     func prepend(label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         g_menu_prepend(cast(menu_ptr), label, detailed_action)
@@ -1058,14 +1055,14 @@ public extension MenuProtocol {
 
     /// Prepends `item` to the start of `menu`.
     /// 
-    /// See g_menu_insert_item() for more information.
+    /// See `g_menu_insert_item()` for more information.
     func prepend(item: MenuItemProtocol) {
         g_menu_prepend_item(cast(menu_ptr), cast(item.ptr))
     
     }
 
     /// Convenience function for prepending a section menu item to the start
-    /// of `menu`.  Combine g_menu_item_new_section() and g_menu_insert_item() for
+    /// of `menu`.  Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for
     /// a more flexible alternative.
     func prependSection(label: UnsafePointer<gchar>, section: MenuModelProtocol) {
         g_menu_prepend_section(cast(menu_ptr), label, cast(section.ptr))
@@ -1073,7 +1070,7 @@ public extension MenuProtocol {
     }
 
     /// Convenience function for prepending a submenu menu item to the start
-    /// of `menu`.  Combine g_menu_item_new_submenu() and g_menu_insert_item() for
+    /// of `menu`.  Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for
     /// a more flexible alternative.
     func prependSubmenu(label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         g_menu_prepend_submenu(cast(menu_ptr), label, cast(submenu.ptr))
@@ -1227,27 +1224,26 @@ open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
 
 public enum MenuAttributeIterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1296,8 +1292,8 @@ public extension MenuAttributeIterProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// This function combines g_menu_attribute_iter_next() with
-    /// g_menu_attribute_iter_get_name() and g_menu_attribute_iter_get_value().
+    /// This function combines `g_menu_attribute_iter_next()` with
+    /// `g_menu_attribute_iter_get_name()` and `g_menu_attribute_iter_get_value()`.
     /// 
     /// First the iterator is advanced to the next (possibly first) attribute.
     /// If that fails, then `false` is returned and there are no other
@@ -1305,12 +1301,12 @@ public extension MenuAttributeIterProtocol {
     /// 
     /// If successful, `name` and `value` are set to the name and value of the
     /// attribute that has just been advanced to.  At this point,
-    /// g_menu_attribute_iter_get_name() and g_menu_attribute_iter_get_value() will
+    /// `g_menu_attribute_iter_get_name()` and `g_menu_attribute_iter_get_value()` will
     /// return the same values again.
     /// 
     /// The value returned in `name` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
-    /// be unreffed using g_variant_unref() when it is no longer in use.
+    /// be unreffed using `g_variant_unref()` when it is no longer in use.
     func getNext(outName out_name: UnsafePointer<UnsafePointer<gchar>>, value: VariantProtocol) -> Bool {
         let rv = g_menu_attribute_iter_get_next(cast(menu_attribute_iter_ptr), cast(out_name), cast(value.ptr))
         return Bool(rv != 0)
@@ -1444,7 +1440,7 @@ public extension MenuItemRef {
     /// 
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
-    /// g_menu_item_set_detailed_action() for more information.
+    /// `g_menu_item_set_detailed_action()` for more information.
     init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         let rv = g_menu_item_new(label, detailed_action)
         self.init(cast(rv))
@@ -1454,7 +1450,7 @@ public extension MenuItemRef {
     /// `GMenuModel`.
     /// 
     /// `item_index` must be valid (ie: be sure to call
-    /// g_menu_model_get_n_items() first).
+    /// `g_menu_model_get_n_items()` first).
     init(model: MenuModelProtocol, itemIndex item_index: CInt) {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
         self.init(cast(rv))
@@ -1462,8 +1458,8 @@ public extension MenuItemRef {
 
     /// Creates a new `GMenuItem` representing a section.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_section().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_section()`.
     /// 
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
@@ -1496,7 +1492,6 @@ public extension MenuItemRef {
     ///   </section>
     /// </menu>
     /// ```
-    /// 
     /// 
     /// The following example is exactly equivalent.  It is more illustrative
     /// of the exact relationship between the menus and items (keeping in
@@ -1529,8 +1524,8 @@ public extension MenuItemRef {
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_submenu().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_submenu()`.
     init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
         self.init(cast(rv))
@@ -1539,7 +1534,7 @@ public extension MenuItemRef {
     /// `GMenuModel`.
     /// 
     /// `item_index` must be valid (ie: be sure to call
-    /// g_menu_model_get_n_items() first).
+    /// `g_menu_model_get_n_items()` first).
     static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItemRef! {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
         return rv.map { MenuItemRef(cast($0)) }
@@ -1547,8 +1542,8 @@ public extension MenuItemRef {
 
     /// Creates a new `GMenuItem` representing a section.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_section().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_section()`.
     /// 
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
@@ -1582,7 +1577,6 @@ public extension MenuItemRef {
     /// </menu>
     /// ```
     /// 
-    /// 
     /// The following example is exactly equivalent.  It is more illustrative
     /// of the exact relationship between the menus and items (keeping in
     /// mind that the 'link' element defines a new menu that is linked to the
@@ -1614,8 +1608,8 @@ public extension MenuItemRef {
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_submenu().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_submenu()`.
     static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItemRef! {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
         return rv.map { MenuItemRef(cast($0)) }
@@ -1673,7 +1667,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
-    /// g_menu_item_set_detailed_action() for more information.
+    /// `g_menu_item_set_detailed_action()` for more information.
     public convenience init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         let rv = g_menu_item_new(label, detailed_action)
         self.init(cast(rv))
@@ -1683,7 +1677,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// `GMenuModel`.
     /// 
     /// `item_index` must be valid (ie: be sure to call
-    /// g_menu_model_get_n_items() first).
+    /// `g_menu_model_get_n_items()` first).
     public convenience init(model: MenuModelProtocol, itemIndex item_index: CInt) {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
         self.init(cast(rv))
@@ -1691,8 +1685,8 @@ open class MenuItem: Object, MenuItemProtocol {
 
     /// Creates a new `GMenuItem` representing a section.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_section().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_section()`.
     /// 
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
@@ -1725,7 +1719,6 @@ open class MenuItem: Object, MenuItemProtocol {
     ///   </section>
     /// </menu>
     /// ```
-    /// 
     /// 
     /// The following example is exactly equivalent.  It is more illustrative
     /// of the exact relationship between the menus and items (keeping in
@@ -1758,8 +1751,8 @@ open class MenuItem: Object, MenuItemProtocol {
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_submenu().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_submenu()`.
     public convenience init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
         self.init(cast(rv))
@@ -1769,7 +1762,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// `GMenuModel`.
     /// 
     /// `item_index` must be valid (ie: be sure to call
-    /// g_menu_model_get_n_items() first).
+    /// `g_menu_model_get_n_items()` first).
     public static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItem! {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
         return rv.map { MenuItem(cast($0)) }
@@ -1777,8 +1770,8 @@ open class MenuItem: Object, MenuItemProtocol {
 
     /// Creates a new `GMenuItem` representing a section.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_section().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_section()`.
     /// 
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
@@ -1812,7 +1805,6 @@ open class MenuItem: Object, MenuItemProtocol {
     /// </menu>
     /// ```
     /// 
-    /// 
     /// The following example is exactly equivalent.  It is more illustrative
     /// of the exact relationship between the menus and items (keeping in
     /// mind that the 'link' element defines a new menu that is linked to the
@@ -1844,8 +1836,8 @@ open class MenuItem: Object, MenuItemProtocol {
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
-    /// This is a convenience API around g_menu_item_new() and
-    /// g_menu_item_set_submenu().
+    /// This is a convenience API around `g_menu_item_new()` and
+    /// `g_menu_item_set_submenu()`.
     public static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItem! {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
         return rv.map { MenuItem(cast($0)) }
@@ -1857,27 +1849,26 @@ open class MenuItem: Object, MenuItemProtocol {
 
 public enum MenuItemSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1974,8 +1965,8 @@ public extension MenuItemProtocol {
     /// indication).  The item should be marked as 'selected' when the string
     /// state is equal to the value of the `target` property.
     /// 
-    /// See g_menu_item_set_action_and_target() or
-    /// g_menu_item_set_detailed_action() for two equivalent calls that are
+    /// See `g_menu_item_set_action_and_target()` or
+    /// `g_menu_item_set_detailed_action()` for two equivalent calls that are
     /// probably more convenient for most uses.
     func setActionAndTargetValue(action: UnsafePointer<gchar>, targetValue target_value: VariantProtocol) {
         g_menu_item_set_action_and_target_value(cast(menu_item_ptr), action, cast(target_value.ptr))
@@ -2003,7 +1994,7 @@ public extension MenuItemProtocol {
     /// attribute.  If `value` is `nil` then the attribute is unset. If
     /// the `value` `GVariant` is floating, it is consumed.
     /// 
-    /// See also g_menu_item_set_attribute() for a more convenient way to do
+    /// See also `g_menu_item_set_attribute()` for a more convenient way to do
     /// the same.
     func setAttributeValue(attribute: UnsafePointer<gchar>, value: VariantProtocol) {
         g_menu_item_set_attribute_value(cast(menu_item_ptr), attribute, cast(value.ptr))
@@ -2013,13 +2004,13 @@ public extension MenuItemProtocol {
     /// Sets the "action" and possibly the "target" attribute of `menu_item`.
     /// 
     /// The format of `detailed_action` is the same format parsed by
-    /// g_action_parse_detailed_name().
+    /// `g_action_parse_detailed_name()`.
     /// 
-    /// See g_menu_item_set_action_and_target() or
-    /// g_menu_item_set_action_and_target_value() for more flexible (but
+    /// See `g_menu_item_set_action_and_target()` or
+    /// `g_menu_item_set_action_and_target_value()` for more flexible (but
     /// slightly less convenient) alternatives.
     /// 
-    /// See also g_menu_item_set_action_and_target_value() for a description of
+    /// See also `g_menu_item_set_action_and_target_value()` for a description of
     /// the semantics of the action and target attributes.
     func set(detailedAction detailed_action: UnsafePointer<gchar>) {
         g_menu_item_set_detailed_action(cast(menu_item_ptr), detailed_action)
@@ -2028,8 +2019,8 @@ public extension MenuItemProtocol {
 
     /// Sets (or unsets) the icon on `menu_item`.
     /// 
-    /// This call is the same as calling g_icon_serialize() and using the
-    /// result as the value to g_menu_item_set_attribute_value() for
+    /// This call is the same as calling `g_icon_serialize()` and using the
+    /// result as the value to `g_menu_item_set_attribute_value()` for
     /// `G_MENU_ATTRIBUTE_ICON`.
     /// 
     /// This API is only intended for use with "noun" menu items; things like
@@ -2071,7 +2062,7 @@ public extension MenuItemProtocol {
     /// 
     /// The effect of having one menu appear as a section of another is
     /// exactly as it sounds: the items from `section` become a direct part of
-    /// the menu that `menu_item` is added to.  See g_menu_item_new_section()
+    /// the menu that `menu_item` is added to.  See `g_menu_item_new_section()`
     /// for more information about what it means for a menu item to be a
     /// section.
     func set(section: MenuModelProtocol) {
@@ -2217,27 +2208,26 @@ open class MenuLinkIter: Object, MenuLinkIterProtocol {
 
 public enum MenuLinkIterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2285,20 +2275,20 @@ public extension MenuLinkIterProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// This function combines g_menu_link_iter_next() with
-    /// g_menu_link_iter_get_name() and g_menu_link_iter_get_value().
+    /// This function combines `g_menu_link_iter_next()` with
+    /// `g_menu_link_iter_get_name()` and `g_menu_link_iter_get_value()`.
     /// 
     /// First the iterator is advanced to the next (possibly first) link.
     /// If that fails, then `false` is returned and there are no other effects.
     /// 
     /// If successful, `out_link` and `value` are set to the name and `GMenuModel`
     /// of the link that has just been advanced to.  At this point,
-    /// g_menu_link_iter_get_name() and g_menu_link_iter_get_value() will return the
+    /// `g_menu_link_iter_get_name()` and `g_menu_link_iter_get_value()` will return the
     /// same values again.
     /// 
     /// The value returned in `out_link` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
-    /// be unreffed using g_object_unref() when it is no longer in use.
+    /// be unreffed using `g_object_unref()` when it is no longer in use.
     func getNext(outLink out_link: UnsafePointer<UnsafePointer<gchar>>, value: MenuModelProtocol) -> Bool {
         let rv = g_menu_link_iter_get_next(cast(menu_link_iter_ptr), cast(out_link), cast(value.ptr))
         return Bool(rv != 0)
@@ -2377,7 +2367,7 @@ public extension MenuLinkIterProtocol {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ``` An example menu `` {`menu`-example}
+/// ```` An example menu `` {`menu`-example}
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2398,7 +2388,7 @@ public extension MenuLinkIterProtocol {
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ``` A menu example `` {`menu`-model}
+/// ```` A menu example `` {`menu`-model}
 /// 
 /// ![](menu-model.png)
 /// 
@@ -2421,8 +2411,8 @@ public extension MenuLinkIterProtocol {
 /// `GDBusMenuModel`.
 /// 
 /// The API of `GMenuModel` is very generic, with iterators for the
-/// attributes and links of an item, see g_menu_model_iterate_item_attributes()
-/// and g_menu_model_iterate_item_links(). The 'standard' attributes and
+/// attributes and links of an item, see `g_menu_model_iterate_item_attributes()`
+/// and `g_menu_model_iterate_item_links()`. The 'standard' attributes and
 /// link types have predefined names: `G_MENU_ATTRIBUTE_LABEL`,
 /// `G_MENU_ATTRIBUTE_ACTION`, `G_MENU_ATTRIBUTE_TARGET`, `G_MENU_LINK_SECTION`
 /// and `G_MENU_LINK_SUBMENU`.
@@ -2431,7 +2421,7 @@ public extension MenuLinkIterProtocol {
 /// an action that can get activated when the user interacts with the
 /// menu item. The reference to the action is encoded by the string id
 /// in the `G_MENU_ATTRIBUTE_ACTION` attribute. An action id uniquely
-/// identifies an action in an action group. Which action group(s) provide
+/// identifies an action in an action group. Which action `group(s)` provide
 /// actions depends on the context in which the menu model is used.
 /// E.g. when the model is exported as the application menu of a
 /// `GtkApplication`, actions can be application-wide or window-specific
@@ -2446,13 +2436,13 @@ public extension MenuLinkIterProtocol {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ``` Stateless
+/// ```` Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ``` Boolean State
+/// ```` Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2461,7 +2451,7 @@ public extension MenuLinkIterProtocol {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ``` String Parameter and State
+/// ```` String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2502,7 +2492,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ``` An example menu `` {`menu`-example}
+/// ```` An example menu `` {`menu`-example}
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2523,7 +2513,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ``` A menu example `` {`menu`-model}
+/// ```` A menu example `` {`menu`-model}
 /// 
 /// ![](menu-model.png)
 /// 
@@ -2546,8 +2536,8 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// `GDBusMenuModel`.
 /// 
 /// The API of `GMenuModel` is very generic, with iterators for the
-/// attributes and links of an item, see g_menu_model_iterate_item_attributes()
-/// and g_menu_model_iterate_item_links(). The 'standard' attributes and
+/// attributes and links of an item, see `g_menu_model_iterate_item_attributes()`
+/// and `g_menu_model_iterate_item_links()`. The 'standard' attributes and
 /// link types have predefined names: `G_MENU_ATTRIBUTE_LABEL`,
 /// `G_MENU_ATTRIBUTE_ACTION`, `G_MENU_ATTRIBUTE_TARGET`, `G_MENU_LINK_SECTION`
 /// and `G_MENU_LINK_SUBMENU`.
@@ -2556,7 +2546,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// an action that can get activated when the user interacts with the
 /// menu item. The reference to the action is encoded by the string id
 /// in the `G_MENU_ATTRIBUTE_ACTION` attribute. An action id uniquely
-/// identifies an action in an action group. Which action group(s) provide
+/// identifies an action in an action group. Which action `group(s)` provide
 /// actions depends on the context in which the menu model is used.
 /// E.g. when the model is exported as the application menu of a
 /// `GtkApplication`, actions can be application-wide or window-specific
@@ -2571,13 +2561,13 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ``` Stateless
+/// ```` Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ``` Boolean State
+/// ```` Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2586,7 +2576,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ``` String Parameter and State
+/// ```` String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2667,7 +2657,7 @@ public extension MenuModelRef {
 /// 
 /// As an example, consider the visible portions of this menu:
 /// 
-/// ``` An example menu `` {`menu`-example}
+/// ```` An example menu `` {`menu`-example}
 /// 
 /// ![](menu-example.png)
 /// 
@@ -2688,7 +2678,7 @@ public extension MenuModelRef {
 /// smaller blocks within the large block represent items in that menu. Some
 /// items contain references to other menus.
 /// 
-/// ``` A menu example `` {`menu`-model}
+/// ```` A menu example `` {`menu`-model}
 /// 
 /// ![](menu-model.png)
 /// 
@@ -2711,8 +2701,8 @@ public extension MenuModelRef {
 /// `GDBusMenuModel`.
 /// 
 /// The API of `GMenuModel` is very generic, with iterators for the
-/// attributes and links of an item, see g_menu_model_iterate_item_attributes()
-/// and g_menu_model_iterate_item_links(). The 'standard' attributes and
+/// attributes and links of an item, see `g_menu_model_iterate_item_attributes()`
+/// and `g_menu_model_iterate_item_links()`. The 'standard' attributes and
 /// link types have predefined names: `G_MENU_ATTRIBUTE_LABEL`,
 /// `G_MENU_ATTRIBUTE_ACTION`, `G_MENU_ATTRIBUTE_TARGET`, `G_MENU_LINK_SECTION`
 /// and `G_MENU_LINK_SUBMENU`.
@@ -2721,7 +2711,7 @@ public extension MenuModelRef {
 /// an action that can get activated when the user interacts with the
 /// menu item. The reference to the action is encoded by the string id
 /// in the `G_MENU_ATTRIBUTE_ACTION` attribute. An action id uniquely
-/// identifies an action in an action group. Which action group(s) provide
+/// identifies an action in an action group. Which action `group(s)` provide
 /// actions depends on the context in which the menu model is used.
 /// E.g. when the model is exported as the application menu of a
 /// `GtkApplication`, actions can be application-wide or window-specific
@@ -2736,13 +2726,13 @@ public extension MenuModelRef {
 /// - an action with no parameter type and boolean state
 /// - an action with string parameter type and string state
 /// 
-/// ``` Stateless
+/// ```` Stateless
 /// 
 /// A stateless action typically corresponds to an ordinary menu item.
 /// 
 /// Selecting such a menu item will activate the action (with no parameter).
 /// 
-/// ``` Boolean State
+/// ```` Boolean State
 /// 
 /// An action with a boolean state will most typically be used with a "toggle"
 /// or "switch" menu item. The state can be set directly, but activating the
@@ -2751,7 +2741,7 @@ public extension MenuModelRef {
 /// Selecting a toggle menu item will activate the action. The menu item should
 /// be rendered as "checked" when the state is true.
 /// 
-/// ``` String Parameter and State
+/// ```` String Parameter and State
 /// 
 /// Actions with string parameters and state will most typically be used to
 /// represent an enumerated choice over the items available for a group of
@@ -2830,27 +2820,26 @@ public enum MenuModelSignalName: String, SignalNameProtocol {
     /// reported.  The signal is emitted after the modification.
     case itemsChanged = "items-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2926,7 +2915,7 @@ public extension MenuModelProtocol {
         return CInt(rv)
     }
 
-    /// Requests emission of the `GMenuModel`::items-changed signal on `model`.
+    /// Requests emission of the `GMenuModel::items`-changed signal on `model`.
     /// 
     /// This function should never be called except by `GMenuModel`
     /// subclasses.  Any other calls to this function will very likely lead
@@ -2949,7 +2938,7 @@ public extension MenuModelProtocol {
     /// Creates a `GMenuAttributeIter` to iterate over the attributes of
     /// the item at position `item_index` in `model`.
     /// 
-    /// You must free the iterator with g_object_unref() when you are done.
+    /// You must free the iterator with `g_object_unref()` when you are done.
     func iterateItemAttributes(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuAttributeIter>! {
         let rv = g_menu_model_iterate_item_attributes(cast(menu_model_ptr), gint(item_index))
         return cast(rv)
@@ -2958,19 +2947,19 @@ public extension MenuModelProtocol {
     /// Creates a `GMenuLinkIter` to iterate over the links of the item at
     /// position `item_index` in `model`.
     /// 
-    /// You must free the iterator with g_object_unref() when you are done.
+    /// You must free the iterator with `g_object_unref()` when you are done.
     func iterateItemLinks(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuLinkIter>! {
         let rv = g_menu_model_iterate_item_links(cast(menu_model_ptr), gint(item_index))
         return cast(rv)
     }
     /// Queries if `model` is mutable.
     /// 
-    /// An immutable `GMenuModel` will never emit the `GMenuModel`::items-changed
+    /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
     /// signal. Consumers of the model may make optimisations accordingly.
     var isMutable: Bool {
         /// Queries if `model` is mutable.
         /// 
-        /// An immutable `GMenuModel` will never emit the `GMenuModel`::items-changed
+        /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
         /// signal. Consumers of the model may make optimisations accordingly.
         get {
             let rv = g_menu_model_is_mutable(cast(menu_model_ptr))
@@ -3004,8 +2993,8 @@ public extension MenuModelProtocol {
 /// preventing unmount or eject operations from completing.
 /// 
 /// Note that `GMountOperation` is used for more than just `GMount`
-/// objects – for example it is also used in g_drive_start() and
-/// g_drive_stop().
+/// objects – for example it is also used in `g_drive_start()` and
+/// `g_drive_stop()`.
 /// 
 /// Users should instantiate a subclass of this that implements all the
 /// various callbacks to show the required dialogs, such as
@@ -3037,8 +3026,8 @@ public protocol MountOperationProtocol: ObjectProtocol {
 /// preventing unmount or eject operations from completing.
 /// 
 /// Note that `GMountOperation` is used for more than just `GMount`
-/// objects – for example it is also used in g_drive_start() and
-/// g_drive_stop().
+/// objects – for example it is also used in `g_drive_start()` and
+/// `g_drive_stop()`.
 /// 
 /// Users should instantiate a subclass of this that implements all the
 /// various callbacks to show the required dialogs, such as
@@ -3115,8 +3104,8 @@ public extension MountOperationRef {
 /// preventing unmount or eject operations from completing.
 /// 
 /// Note that `GMountOperation` is used for more than just `GMount`
-/// objects – for example it is also used in g_drive_start() and
-/// g_drive_stop().
+/// objects – for example it is also used in `g_drive_start()` and
+/// `g_drive_stop()`.
 /// 
 /// Users should instantiate a subclass of this that implements all the
 /// various callbacks to show the required dialogs, such as
@@ -3180,18 +3169,18 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case anonymous = "anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation`::ask-question signal.
+    /// mount operation. See the `GMountOperation::ask`-question signal.
     case choice = "choice"
     /// The domain to use for the mount operation.
     case domain = "domain"
     /// Whether the device to be unlocked is a TCRYPT hidden volume.
-    /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume`.html).
+    /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume.html`).
     case isTcryptHiddenVolume = "is-tcrypt-hidden-volume"
     /// Whether the device to be unlocked is a TCRYPT system volume.
     /// In this context, a system volume is a volume with a bootloader
     /// and operating system installed. This is only supported for Windows
     /// operating systems. For further documentation, see
-    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption`.html).
+    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption.html`).
     case isTcryptSystemVolume = "is-tcrypt-system-volume"
     /// The password that is used for authentication when carrying out
     /// the mount operation.
@@ -3199,7 +3188,7 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// Determines if and how the password information should be saved.
     case passwordSave = "password-save"
     /// The VeraCrypt PIM value, when unlocking a VeraCrypt volume. See
-    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations`20Multiplier`20`(PIM).html).
+    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations``20Multiplier``20``(PIM)`.html).
     case pim = "pim"
     /// The user name that is used for authentication when carrying out
     /// the mount operation.
@@ -3263,27 +3252,26 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// primary text in a `GtkMessageDialog`.
     case askQuestion = "ask-question"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3295,8 +3283,8 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// 
     /// Note that this signal may be emitted several times to update the
     /// list of blocking processes as processes close files. The
-    /// application should only respond with g_mount_operation_reply() to
-    /// the latest signal (setting `GMountOperation`:choice to the choice
+    /// application should only respond with `g_mount_operation_reply()` to
+    /// the latest signal (setting `GMountOperation:choice` to the choice
     /// the user made).
     /// 
     /// If the message contains a line break, the first line should be
@@ -3323,18 +3311,18 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case notifyAnonymous = "notify::anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation`::ask-question signal.
+    /// mount operation. See the `GMountOperation::ask`-question signal.
     case notifyChoice = "notify::choice"
     /// The domain to use for the mount operation.
     case notifyDomain = "notify::domain"
     /// Whether the device to be unlocked is a TCRYPT hidden volume.
-    /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume`.html).
+    /// See [the VeraCrypt documentation](https://www.veracrypt.fr/en/Hidden`20Volume.html`).
     case notifyIsTcryptHiddenVolume = "notify::is-tcrypt-hidden-volume"
     /// Whether the device to be unlocked is a TCRYPT system volume.
     /// In this context, a system volume is a volume with a bootloader
     /// and operating system installed. This is only supported for Windows
     /// operating systems. For further documentation, see
-    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption`.html).
+    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/System`20Encryption.html`).
     case notifyIsTcryptSystemVolume = "notify::is-tcrypt-system-volume"
     /// The password that is used for authentication when carrying out
     /// the mount operation.
@@ -3342,7 +3330,7 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// Determines if and how the password information should be saved.
     case notifyPasswordSave = "notify::password-save"
     /// The VeraCrypt PIM value, when unlocking a VeraCrypt volume. See
-    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations`20Multiplier`20`(PIM).html).
+    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations``20Multiplier``20``(PIM)`.html).
     case notifyPim = "notify::pim"
     /// The user name that is used for authentication when carrying out
     /// the mount operation.
@@ -3438,7 +3426,7 @@ public extension MountOperationProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Emits the `GMountOperation`::reply signal.
+    /// Emits the `GMountOperation::reply` signal.
     func reply(result: MountOperationResult) {
         g_mount_operation_reply(cast(mount_operation_ptr), result)
     
@@ -3512,7 +3500,7 @@ public extension MountOperationProtocol {
     }
 
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation`::ask-question signal.
+    /// mount operation. See the `GMountOperation::ask`-question signal.
     var choice: CInt {
         /// Gets a choice from the mount operation.
         get {
@@ -3596,7 +3584,7 @@ public extension MountOperationProtocol {
     }
 
     /// The VeraCrypt PIM value, when unlocking a VeraCrypt volume. See
-    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations`20Multiplier`20`(PIM).html).
+    /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations``20Multiplier``20``(PIM)`.html).
     var pim: CUnsignedInt {
         /// Gets a PIM from the mount operation.
         get {
@@ -3794,27 +3782,26 @@ public extension NativeSocketAddressProtocol {
 
 public enum NativeSocketAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.

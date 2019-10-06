@@ -131,7 +131,7 @@ public extension LoadableIconProtocol {
     var loadable_icon_ptr: UnsafeMutablePointer<GLoadableIcon> { return ptr.assumingMemoryBound(to: GLoadableIcon.self) }
 
     /// Loads a loadable icon. For the asynchronous version of this function,
-    /// see g_loadable_icon_load_async().
+    /// see `g_loadable_icon_load_async()`.
     func load(size: CInt, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GInputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_loadable_icon_load(cast(loadable_icon_ptr), size, cast(type), cast(cancellable.ptr), &error)
@@ -142,14 +142,14 @@ public extension LoadableIconProtocol {
     }
 
     /// Loads an icon asynchronously. To finish this function, see
-    /// g_loadable_icon_load_finish(). For the synchronous, blocking
-    /// version of this function, see g_loadable_icon_load().
+    /// `g_loadable_icon_load_finish()`. For the synchronous, blocking
+    /// version of this function, see `g_loadable_icon_load()`.
     func loadAsync(size: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_loadable_icon_load_async(cast(loadable_icon_ptr), size, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an asynchronous icon load started in g_loadable_icon_load_async().
+    /// Finishes an asynchronous icon load started in `g_loadable_icon_load_async()`.
     func loadFinish(res: AsyncResultProtocol, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> UnsafeMutablePointer<GInputStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_loadable_icon_load_finish(cast(loadable_icon_ptr), cast(res.ptr), cast(type), &error)
@@ -180,13 +180,13 @@ public extension LoadableIconProtocol {
 /// Unmounting a `GMount` instance is an asynchronous operation. For
 /// more information about asynchronous operations, see `GAsyncResult`
 /// and `GTask`. To unmount a `GMount` instance, first call
-/// g_mount_unmount_with_operation() with (at least) the `GMount` instance and a
+/// `g_mount_unmount_with_operation()` with (at least) the `GMount` instance and a
 /// `GAsyncReadyCallback`.  The callback will be fired when the
 /// operation has resolved (either with success or failure), and a
 /// `GAsyncResult` structure will be passed to the callback.  That
-/// callback should then call g_mount_unmount_with_operation_finish() with the `GMount`
+/// callback should then call `g_mount_unmount_with_operation_finish()` with the `GMount`
 /// and the `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_mount_unmount_with_operation_finish()
+/// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 public protocol MountProtocol {
     /// Untyped pointer to the underlying `GMount` instance.
@@ -211,13 +211,13 @@ public protocol MountProtocol {
 /// Unmounting a `GMount` instance is an asynchronous operation. For
 /// more information about asynchronous operations, see `GAsyncResult`
 /// and `GTask`. To unmount a `GMount` instance, first call
-/// g_mount_unmount_with_operation() with (at least) the `GMount` instance and a
+/// `g_mount_unmount_with_operation()` with (at least) the `GMount` instance and a
 /// `GAsyncReadyCallback`.  The callback will be fired when the
 /// operation has resolved (either with success or failure), and a
 /// `GAsyncResult` structure will be passed to the callback.  That
-/// callback should then call g_mount_unmount_with_operation_finish() with the `GMount`
+/// callback should then call `g_mount_unmount_with_operation_finish()` with the `GMount`
 /// and the `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_mount_unmount_with_operation_finish()
+/// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 public struct MountRef: MountProtocol {
     /// Untyped pointer to the underlying `GMount` instance.
@@ -282,13 +282,13 @@ public extension MountRef {
 /// Unmounting a `GMount` instance is an asynchronous operation. For
 /// more information about asynchronous operations, see `GAsyncResult`
 /// and `GTask`. To unmount a `GMount` instance, first call
-/// g_mount_unmount_with_operation() with (at least) the `GMount` instance and a
+/// `g_mount_unmount_with_operation()` with (at least) the `GMount` instance and a
 /// `GAsyncReadyCallback`.  The callback will be fired when the
 /// operation has resolved (either with success or failure), and a
 /// `GAsyncResult` structure will be passed to the callback.  That
-/// callback should then call g_mount_unmount_with_operation_finish() with the `GMount`
+/// callback should then call `g_mount_unmount_with_operation_finish()` with the `GMount`
 /// and the `GAsyncResult` data to see if the operation was completed
-/// successfully.  If an `error` is present when g_mount_unmount_with_operation_finish()
+/// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 open class Mount: MountProtocol {
     /// Untyped pointer to the underlying `GMount` instance.
@@ -405,7 +405,7 @@ public extension MountProtocol {
     }
 
     /// Ejects a mount. This is an asynchronous operation, and is
-    /// finished by calling g_mount_eject_finish() with the `mount`
+    /// finished by calling `g_mount_eject_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     ///
     /// **eject is deprecated:**
@@ -430,7 +430,7 @@ public extension MountProtocol {
     }
 
     /// Ejects a mount. This is an asynchronous operation, and is
-    /// finished by calling g_mount_eject_with_operation_finish() with the `mount`
+    /// finished by calling `g_mount_eject_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_mount_eject_with_operation(cast(mount_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -518,8 +518,8 @@ public extension MountProtocol {
     /// specification for more on x-content types.
     /// 
     /// This is an asynchronous operation (see
-    /// g_mount_guess_content_type_sync() for the synchronous version), and
-    /// is finished by calling g_mount_guess_content_type_finish() with the
+    /// `g_mount_guess_content_type_sync()` for the synchronous version), and
+    /// is finished by calling `g_mount_guess_content_type_finish()` with the
     /// `mount` and `GAsyncResult` data returned in the `callback`.
     func guessContentType(forceRescan force_rescan: Bool, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_mount_guess_content_type(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), callback, cast(user_data))
@@ -548,7 +548,7 @@ public extension MountProtocol {
     /// specification for more on x-content types.
     /// 
     /// This is an synchronous operation and as such may block doing IO;
-    /// see g_mount_guess_content_type() for the asynchronous version.
+    /// see `g_mount_guess_content_type()` for the asynchronous version.
     func guessContentTypeSync(forceRescan force_rescan: Bool, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_mount_guess_content_type_sync(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), &error)
@@ -559,7 +559,7 @@ public extension MountProtocol {
     }
 
     /// Remounts a mount. This is an asynchronous operation, and is
-    /// finished by calling g_mount_remount_finish() with the `mount`
+    /// finished by calling `g_mount_remount_finish()` with the `mount`
     /// and `GAsyncResults` data returned in the `callback`.
     /// 
     /// Remounting is useful when some setting affecting the operation
@@ -585,15 +585,15 @@ public extension MountProtocol {
 
     /// Increments the shadow count on `mount`. Usually used by
     /// `GVolumeMonitor` implementations when creating a shadow mount for
-    /// `mount`, see g_mount_is_shadowed() for more information. The caller
-    /// will need to emit the `GMount`::changed signal on `mount` manually.
+    /// `mount`, see `g_mount_is_shadowed()` for more information. The caller
+    /// will need to emit the `GMount::changed` signal on `mount` manually.
     func shadow() {
         g_mount_shadow(cast(mount_ptr))
     
     }
 
     /// Unmounts a mount. This is an asynchronous operation, and is
-    /// finished by calling g_mount_unmount_finish() with the `mount`
+    /// finished by calling `g_mount_unmount_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     ///
     /// **unmount is deprecated:**
@@ -618,7 +618,7 @@ public extension MountProtocol {
     }
 
     /// Unmounts a mount. This is an asynchronous operation, and is
-    /// finished by calling g_mount_unmount_with_operation_finish() with the `mount`
+    /// finished by calling `g_mount_unmount_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     func unmountWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_mount_unmount_with_operation(cast(mount_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
@@ -638,8 +638,8 @@ public extension MountProtocol {
 
     /// Decrements the shadow count on `mount`. Usually used by
     /// `GVolumeMonitor` implementations when destroying a shadow mount for
-    /// `mount`, see g_mount_is_shadowed() for more information. The caller
-    /// will need to emit the `GMount`::changed signal on `mount` manually.
+    /// `mount`, see `g_mount_is_shadowed()` for more information. The caller
+    /// will need to emit the `GMount::changed` signal on `mount` manually.
     func unshadow() {
         g_mount_unshadow(cast(mount_ptr))
     

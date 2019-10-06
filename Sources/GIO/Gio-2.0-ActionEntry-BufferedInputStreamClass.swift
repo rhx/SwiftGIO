@@ -10,7 +10,7 @@ import GLibObject
 /// Alternatively, use `ActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// This struct defines a single action.  It is for use with
-/// g_action_map_add_action_entries().
+/// `g_action_map_add_action_entries()`.
 /// 
 /// The order of the items in the structure are intended to reflect
 /// frequency of use.  It is permissible to use an incomplete initialiser
@@ -18,7 +18,7 @@ import GLibObject
 /// after `name` are optional.  Additional optional fields may be added in
 /// the future.
 /// 
-/// See g_action_map_add_action_entries() for an example.
+/// See `g_action_map_add_action_entries()` for an example.
 public protocol ActionEntryProtocol {
     /// Untyped pointer to the underlying `GActionEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -32,7 +32,7 @@ public protocol ActionEntryProtocol {
 /// Use `ActionEntryRef` only as an `unowned` reference to an existing `GActionEntry` instance.
 ///
 /// This struct defines a single action.  It is for use with
-/// g_action_map_add_action_entries().
+/// `g_action_map_add_action_entries()`.
 /// 
 /// The order of the items in the structure are intended to reflect
 /// frequency of use.  It is permissible to use an incomplete initialiser
@@ -40,7 +40,7 @@ public protocol ActionEntryProtocol {
 /// after `name` are optional.  Additional optional fields may be added in
 /// the future.
 /// 
-/// See g_action_map_add_action_entries() for an example.
+/// See `g_action_map_add_action_entries()` for an example.
 public struct ActionEntryRef: ActionEntryProtocol {
     /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -94,7 +94,7 @@ public extension ActionEntryRef {
 /// Use `ActionEntry` as a strong reference or owner of a `GActionEntry` instance.
 ///
 /// This struct defines a single action.  It is for use with
-/// g_action_map_add_action_entries().
+/// `g_action_map_add_action_entries()`.
 /// 
 /// The order of the items in the structure are intended to reflect
 /// frequency of use.  It is permissible to use an incomplete initialiser
@@ -102,7 +102,7 @@ public extension ActionEntryRef {
 /// after `name` are optional.  Additional optional fields may be added in
 /// the future.
 /// 
-/// See g_action_map_add_action_entries() for an example.
+/// See `g_action_map_add_action_entries()` for an example.
 open class ActionEntry: ActionEntryProtocol {
     /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -15,7 +15,7 @@ import GLibObject
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ``` Controlling Authentication Mechanisms
+/// ```` Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -40,8 +40,7 @@ import GLibObject
 /// }
 /// ```
 /// 
-/// 
-/// ``` Controlling Authorization `` {`auth`-observer}
+/// ```` Controlling Authorization `` {`auth`-observer}
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -91,7 +90,7 @@ public protocol DBusAuthObserverProtocol: ObjectProtocol {
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ``` Controlling Authentication Mechanisms
+/// ```` Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -116,8 +115,7 @@ public protocol DBusAuthObserverProtocol: ObjectProtocol {
 /// }
 /// ```
 /// 
-/// 
-/// ``` Controlling Authorization `` {`auth`-observer}
+/// ```` Controlling Authorization `` {`auth`-observer}
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -212,7 +210,7 @@ public extension DBusAuthObserverRef {
 /// signals you are interested in. Note that new signals may be added
 /// in the future
 /// 
-/// ``` Controlling Authentication Mechanisms
+/// ```` Controlling Authentication Mechanisms
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will allow
 /// any authentication mechanism to be used. If you only
@@ -237,8 +235,7 @@ public extension DBusAuthObserverRef {
 /// }
 /// ```
 /// 
-/// 
-/// ``` Controlling Authorization `` {`auth`-observer}
+/// ```` Controlling Authorization `` {`auth`-observer}
 /// 
 /// By default, a `GDBusServer` or server-side `GDBusConnection` will accept
 /// connections from any successfully authenticated user (but not from
@@ -326,27 +323,26 @@ public enum DBusAuthObserverSignalName: String, SignalNameProtocol {
     /// is authorized.
     case authorizeAuthenticatedPeer = "authorize-authenticated-peer"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -386,13 +382,13 @@ public extension DBusAuthObserverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusAuthObserver` instance.
     var dbus_auth_observer_ptr: UnsafeMutablePointer<GDBusAuthObserver> { return ptr.assumingMemoryBound(to: GDBusAuthObserver.self) }
 
-    /// Emits the `GDBusAuthObserver`::allow-mechanism signal on `observer`.
+    /// Emits the `GDBusAuthObserver::allow`-mechanism signal on `observer`.
     func allow(mechanism: UnsafePointer<gchar>) -> Bool {
         let rv = g_dbus_auth_observer_allow_mechanism(cast(dbus_auth_observer_ptr), mechanism)
         return Bool(rv != 0)
     }
 
-    /// Emits the `GDBusAuthObserver`::authorize-authenticated-peer signal on `observer`.
+    /// Emits the `GDBusAuthObserver::authorize`-authenticated-peer signal on `observer`.
     func authorizeAuthenticatedPeer(stream: IOStreamProtocol, credentials: CredentialsProtocol) -> Bool {
         let rv = g_dbus_auth_observer_authorize_authenticated_peer(cast(dbus_auth_observer_ptr), cast(stream.ptr), cast(credentials.ptr))
         return Bool(rv != 0)
@@ -414,48 +410,48 @@ public extension DBusAuthObserverProtocol {
 /// over any transport that can by represented as a `GIOStream`.
 /// 
 /// This class is rarely used directly in D-Bus clients. If you are writing
-/// a D-Bus client, it is often easier to use the g_bus_own_name(),
-/// g_bus_watch_name() or g_dbus_proxy_new_for_bus() APIs.
+/// a D-Bus client, it is often easier to use the `g_bus_own_name()`,
+/// `g_bus_watch_name()` or `g_dbus_proxy_new_for_bus()` APIs.
 /// 
 /// As an exception to the usual GLib rule that a particular object must not
 /// be used by two threads at the same time, `GDBusConnection`'s methods may be
-/// called from any thread. This is so that g_bus_get() and g_bus_get_sync()
+/// called from any thread. This is so that `g_bus_get()` and `g_bus_get_sync()`
 /// can safely return the same `GDBusConnection` when called from any thread.
 /// 
 /// Most of the ways to obtain a `GDBusConnection` automatically initialize it
-/// (i.e. connect to D-Bus): for instance, g_dbus_connection_new() and
-/// g_bus_get(), and the synchronous versions of those methods, give you an
+/// (i.e. connect to D-Bus): for instance, `g_dbus_connection_new()` and
+/// `g_bus_get()`, and the synchronous versions of those methods, give you an
 /// initialized connection. Language bindings for GIO should use
-/// g_initable_new() or g_async_initable_new_async(), which also initialize the
+/// `g_initable_new()` or `g_async_initable_new_async()`, which also initialize the
 /// connection.
 /// 
 /// If you construct an uninitialized `GDBusConnection`, such as via
-/// g_object_new(), you must initialize it via g_initable_init() or
-/// g_async_initable_init_async() before using its methods or properties.
+/// `g_object_new()`, you must initialize it via `g_initable_init()` or
+/// `g_async_initable_init_async()` before using its methods or properties.
 /// Calling methods or accessing properties on a `GDBusConnection` that has not
 /// completed initialization successfully is considered to be invalid, and leads
 /// to undefined behaviour. In particular, if initialization fails with a
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
-/// free it with g_object_unref().
+/// free it with `g_object_unref()`.
 /// 
-/// ``` An example D-Bus server `` {`gdbus`-server}
+/// ```` An example D-Bus server `` {`gdbus`-server}
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ``` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ``` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ``` An example for exporting a GObject `` {`gdbus`-export}
+/// ```` An example for exporting a GObject `` {`gdbus`-export}
 /// 
-/// Here is an example for exporting a `GObject`:
+/// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, InitableProtocol {
     /// Untyped pointer to the underlying `GDBusConnection` instance.
@@ -475,48 +471,48 @@ public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, I
 /// over any transport that can by represented as a `GIOStream`.
 /// 
 /// This class is rarely used directly in D-Bus clients. If you are writing
-/// a D-Bus client, it is often easier to use the g_bus_own_name(),
-/// g_bus_watch_name() or g_dbus_proxy_new_for_bus() APIs.
+/// a D-Bus client, it is often easier to use the `g_bus_own_name()`,
+/// `g_bus_watch_name()` or `g_dbus_proxy_new_for_bus()` APIs.
 /// 
 /// As an exception to the usual GLib rule that a particular object must not
 /// be used by two threads at the same time, `GDBusConnection`'s methods may be
-/// called from any thread. This is so that g_bus_get() and g_bus_get_sync()
+/// called from any thread. This is so that `g_bus_get()` and `g_bus_get_sync()`
 /// can safely return the same `GDBusConnection` when called from any thread.
 /// 
 /// Most of the ways to obtain a `GDBusConnection` automatically initialize it
-/// (i.e. connect to D-Bus): for instance, g_dbus_connection_new() and
-/// g_bus_get(), and the synchronous versions of those methods, give you an
+/// (i.e. connect to D-Bus): for instance, `g_dbus_connection_new()` and
+/// `g_bus_get()`, and the synchronous versions of those methods, give you an
 /// initialized connection. Language bindings for GIO should use
-/// g_initable_new() or g_async_initable_new_async(), which also initialize the
+/// `g_initable_new()` or `g_async_initable_new_async()`, which also initialize the
 /// connection.
 /// 
 /// If you construct an uninitialized `GDBusConnection`, such as via
-/// g_object_new(), you must initialize it via g_initable_init() or
-/// g_async_initable_init_async() before using its methods or properties.
+/// `g_object_new()`, you must initialize it via `g_initable_init()` or
+/// `g_async_initable_init_async()` before using its methods or properties.
 /// Calling methods or accessing properties on a `GDBusConnection` that has not
 /// completed initialization successfully is considered to be invalid, and leads
 /// to undefined behaviour. In particular, if initialization fails with a
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
-/// free it with g_object_unref().
+/// free it with `g_object_unref()`.
 /// 
-/// ``` An example D-Bus server `` {`gdbus`-server}
+/// ```` An example D-Bus server `` {`gdbus`-server}
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ``` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ``` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ``` An example for exporting a GObject `` {`gdbus`-export}
+/// ```` An example for exporting a GObject `` {`gdbus`-export}
 /// 
-/// Here is an example for exporting a `GObject`:
+/// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 public struct DBusConnectionRef: DBusConnectionProtocol {
     /// Untyped pointer to the underlying `GDBusConnection` instance.
@@ -564,7 +560,7 @@ public extension DBusConnectionRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Finishes an operation started with g_dbus_connection_new().
+        /// Finishes an operation started with `g_dbus_connection_new()`.
     init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
@@ -574,7 +570,7 @@ public extension DBusConnectionRef {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_connection_new_for_address().
+    /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     init(addressFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
@@ -590,13 +586,13 @@ public extension DBusConnectionRef {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// This constructor can only be used to initiate client-side
-    /// connections - use g_dbus_connection_new_sync() if you need to act
+    /// connections - use `g_dbus_connection_new_sync()` if you need to act
     /// as the server. In particular, `flags` cannot contain the
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` or
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS` flags.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new_for_address() for the asynchronous version.
+    /// `g_dbus_connection_new_for_address()` for the asynchronous version.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
@@ -617,13 +613,13 @@ public extension DBusConnectionRef {
     /// 
     /// The D-Bus connection will interact with `stream` from a worker thread.
     /// As a result, the caller should not interact with `stream` after this
-    /// method has been called, except by calling g_object_unref() on it.
+    /// method has been called, except by calling `g_object_unref()` on it.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new() for the asynchronous version.
+    /// `g_dbus_connection_new()` for the asynchronous version.
     init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
@@ -632,7 +628,7 @@ public extension DBusConnectionRef {
         }
         self.init(cast(rv))
     }
-    /// Finishes an operation started with g_dbus_connection_new().
+    /// Finishes an operation started with `g_dbus_connection_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusConnectionRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
@@ -642,7 +638,7 @@ public extension DBusConnectionRef {
         return rv.map { DBusConnectionRef(cast($0)) }
     }
 
-    /// Finishes an operation started with g_dbus_connection_new_for_address().
+    /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     static func newFor(addressFinish res: AsyncResultProtocol) throws -> DBusConnectionRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
@@ -658,13 +654,13 @@ public extension DBusConnectionRef {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// This constructor can only be used to initiate client-side
-    /// connections - use g_dbus_connection_new_sync() if you need to act
+    /// connections - use `g_dbus_connection_new_sync()` if you need to act
     /// as the server. In particular, `flags` cannot contain the
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` or
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS` flags.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new_for_address() for the asynchronous version.
+    /// `g_dbus_connection_new_for_address()` for the asynchronous version.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
@@ -685,13 +681,13 @@ public extension DBusConnectionRef {
     /// 
     /// The D-Bus connection will interact with `stream` from a worker thread.
     /// As a result, the caller should not interact with `stream` after this
-    /// method has been called, except by calling g_object_unref() on it.
+    /// method has been called, except by calling `g_object_unref()` on it.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new() for the asynchronous version.
+    /// `g_dbus_connection_new()` for the asynchronous version.
     static func new(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnectionRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
@@ -712,48 +708,48 @@ public extension DBusConnectionRef {
 /// over any transport that can by represented as a `GIOStream`.
 /// 
 /// This class is rarely used directly in D-Bus clients. If you are writing
-/// a D-Bus client, it is often easier to use the g_bus_own_name(),
-/// g_bus_watch_name() or g_dbus_proxy_new_for_bus() APIs.
+/// a D-Bus client, it is often easier to use the `g_bus_own_name()`,
+/// `g_bus_watch_name()` or `g_dbus_proxy_new_for_bus()` APIs.
 /// 
 /// As an exception to the usual GLib rule that a particular object must not
 /// be used by two threads at the same time, `GDBusConnection`'s methods may be
-/// called from any thread. This is so that g_bus_get() and g_bus_get_sync()
+/// called from any thread. This is so that `g_bus_get()` and `g_bus_get_sync()`
 /// can safely return the same `GDBusConnection` when called from any thread.
 /// 
 /// Most of the ways to obtain a `GDBusConnection` automatically initialize it
-/// (i.e. connect to D-Bus): for instance, g_dbus_connection_new() and
-/// g_bus_get(), and the synchronous versions of those methods, give you an
+/// (i.e. connect to D-Bus): for instance, `g_dbus_connection_new()` and
+/// `g_bus_get()`, and the synchronous versions of those methods, give you an
 /// initialized connection. Language bindings for GIO should use
-/// g_initable_new() or g_async_initable_new_async(), which also initialize the
+/// `g_initable_new()` or `g_async_initable_new_async()`, which also initialize the
 /// connection.
 /// 
 /// If you construct an uninitialized `GDBusConnection`, such as via
-/// g_object_new(), you must initialize it via g_initable_init() or
-/// g_async_initable_init_async() before using its methods or properties.
+/// `g_object_new()`, you must initialize it via `g_initable_init()` or
+/// `g_async_initable_init_async()` before using its methods or properties.
 /// Calling methods or accessing properties on a `GDBusConnection` that has not
 /// completed initialization successfully is considered to be invalid, and leads
 /// to undefined behaviour. In particular, if initialization fails with a
 /// `GError`, the only valid thing you can do with that `GDBusConnection` is to
-/// free it with g_object_unref().
+/// free it with `g_object_unref()`.
 /// 
-/// ``` An example D-Bus server `` {`gdbus`-server}
+/// ```` An example D-Bus server `` {`gdbus`-server}
 /// 
 /// Here is an example for a D-Bus server:
 /// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
 /// 
-/// ``` An example for exporting a subtree `` {`gdbus`-subtree-server}
+/// ```` An example for exporting a subtree `` {`gdbus`-subtree-server}
 /// 
 /// Here is an example for exporting a subtree:
 /// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
 /// 
-/// ``` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
+/// ```` An example for file descriptor passing `` {`gdbus`-unix-fd-client}
 /// 
 /// Here is an example for passing UNIX file descriptors:
 /// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
-/// ``` An example for exporting a GObject `` {`gdbus`-export}
+/// ```` An example for exporting a GObject `` {`gdbus`-export}
 /// 
-/// Here is an example for exporting a `GObject`:
+/// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 open class DBusConnection: Object, DBusConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -793,7 +789,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
         self.init(UnsafeMutablePointer<GDBusConnection>(opaquePointer))
     }
 
-    /// Finishes an operation started with g_dbus_connection_new().
+    /// Finishes an operation started with `g_dbus_connection_new()`.
     public convenience init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
@@ -803,7 +799,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_connection_new_for_address().
+    /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     public convenience init(addressFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
@@ -819,13 +815,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// This constructor can only be used to initiate client-side
-    /// connections - use g_dbus_connection_new_sync() if you need to act
+    /// connections - use `g_dbus_connection_new_sync()` if you need to act
     /// as the server. In particular, `flags` cannot contain the
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` or
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS` flags.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new_for_address() for the asynchronous version.
+    /// `g_dbus_connection_new_for_address()` for the asynchronous version.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
@@ -846,13 +842,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// The D-Bus connection will interact with `stream` from a worker thread.
     /// As a result, the caller should not interact with `stream` after this
-    /// method has been called, except by calling g_object_unref() on it.
+    /// method has been called, except by calling `g_object_unref()` on it.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new() for the asynchronous version.
+    /// `g_dbus_connection_new()` for the asynchronous version.
     public convenience init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
@@ -862,7 +858,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_connection_new().
+    /// Finishes an operation started with `g_dbus_connection_new()`.
     public static func new(finish res: AsyncResultProtocol) throws -> DBusConnection! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
@@ -872,7 +868,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
         return rv.map { DBusConnection(cast($0)) }
     }
 
-    /// Finishes an operation started with g_dbus_connection_new_for_address().
+    /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     public static func newFor(addressFinish res: AsyncResultProtocol) throws -> DBusConnection! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
@@ -888,13 +884,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
     /// This constructor can only be used to initiate client-side
-    /// connections - use g_dbus_connection_new_sync() if you need to act
+    /// connections - use `g_dbus_connection_new_sync()` if you need to act
     /// as the server. In particular, `flags` cannot contain the
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` or
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS` flags.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new_for_address() for the asynchronous version.
+    /// `g_dbus_connection_new_for_address()` for the asynchronous version.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
@@ -915,13 +911,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// The D-Bus connection will interact with `stream` from a worker thread.
     /// As a result, the caller should not interact with `stream` after this
-    /// method has been called, except by calling g_object_unref() on it.
+    /// method has been called, except by calling `g_object_unref()` on it.
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     /// 
     /// This is a synchronous failable constructor. See
-    /// g_dbus_connection_new() for the asynchronous version.
+    /// `g_dbus_connection_new()` for the asynchronous version.
     public static func new(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnection! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
@@ -945,11 +941,11 @@ public enum DBusConnectionPropertyName: String, PropertyNameProtocol {
     /// A boolean specifying whether the connection has been closed.
     case closed = "closed"
     /// A boolean specifying whether the process will be terminated (by
-    /// calling `raise(SIGTERM)`) if the connection is closed by the
+    /// calling ``raise(SIGTERM)``) if the connection is closed by the
     /// remote peer.
     /// 
-    /// Note that `GDBusConnection` objects returned by g_bus_get_finish()
-    /// and g_bus_get_sync() will (usually) have this property set to `true`.
+    /// Note that `GDBusConnection` objects returned by `g_bus_get_finish()`
+    /// and `g_bus_get_sync()` will (usually) have this property set to `true`.
     case exitOnClose = "exit-on-close"
     /// Flags from the `GDBusConnectionFlags` enumeration.
     case flags = "flags"
@@ -958,12 +954,12 @@ public enum DBusConnectionPropertyName: String, PropertyNameProtocol {
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` in the
-    /// `GDBusConnection`:flags property then you MUST also set this
+    /// `GDBusConnection:flags` property then you MUST also set this
     /// property to a valid guid.
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_CLIENT` in the
-    /// `GDBusConnection`:flags property you will be able to read the GUID
+    /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
     case guid = "guid"
@@ -1022,7 +1018,7 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// 
     /// The cause of this event can be
     /// 
-    /// - If g_dbus_connection_close() is called. In this case
+    /// - If `g_dbus_connection_close()` is called. In this case
     ///   `remote_peer_vanished` is set to `false` and `error` is `nil`.
     /// 
     /// - If the remote peer closes the connection. In this case
@@ -1036,27 +1032,26 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// once.
     case closed = "closed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1072,11 +1067,11 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// A boolean specifying whether the connection has been closed.
     case notifyClosed = "notify::closed"
     /// A boolean specifying whether the process will be terminated (by
-    /// calling `raise(SIGTERM)`) if the connection is closed by the
+    /// calling ``raise(SIGTERM)``) if the connection is closed by the
     /// remote peer.
     /// 
-    /// Note that `GDBusConnection` objects returned by g_bus_get_finish()
-    /// and g_bus_get_sync() will (usually) have this property set to `true`.
+    /// Note that `GDBusConnection` objects returned by `g_bus_get_finish()`
+    /// and `g_bus_get_sync()` will (usually) have this property set to `true`.
     case notifyExitOnClose = "notify::exit-on-close"
     /// Flags from the `GDBusConnectionFlags` enumeration.
     case notifyFlags = "notify::flags"
@@ -1085,12 +1080,12 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` in the
-    /// `GDBusConnection`:flags property then you MUST also set this
+    /// `GDBusConnection:flags` property then you MUST also set this
     /// property to a valid guid.
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_CLIENT` in the
-    /// `GDBusConnection`:flags property you will be able to read the GUID
+    /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
     case notifyGuid = "notify::guid"
@@ -1151,13 +1146,13 @@ public extension DBusConnectionProtocol {
     /// Note that filters are run in a dedicated message handling thread so
     /// they can't block and, generally, can't do anything but signal a
     /// worker thread. Also note that filters are rarely needed - use API
-    /// such as g_dbus_connection_send_message_with_reply(),
-    /// g_dbus_connection_signal_subscribe() or g_dbus_connection_call() instead.
+    /// such as `g_dbus_connection_send_message_with_reply()`,
+    /// `g_dbus_connection_signal_subscribe()` or `g_dbus_connection_call()` instead.
     /// 
     /// If a filter consumes an incoming message the message is not
     /// dispatched anywhere else - not even the standard dispatch machinery
-    /// (that API such as g_dbus_connection_signal_subscribe() and
-    /// g_dbus_connection_send_message_with_reply() relies on) will see the
+    /// (that API such as `g_dbus_connection_signal_subscribe()` and
+    /// `g_dbus_connection_send_message_with_reply()` relies on) will see the
     /// message. Similarly, if a filter consumes an outgoing message, the
     /// message will not be sent to the other peer.
     /// 
@@ -1189,7 +1184,7 @@ public extension DBusConnectionProtocol {
     /// values.
     /// 
     /// If the `parameters` `GVariant` is floating, it is consumed. This allows
-    /// convenient 'inline' use of g_variant_new(), e.g.:
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
     /// (C Language Example):
     /// ```C
     ///  g_dbus_connection_call (connection,
@@ -1208,13 +1203,12 @@ public extension DBusConnectionProtocol {
     ///                          NULL);
     /// ```
     /// 
-    /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from. You can then call
-    /// g_dbus_connection_call_finish() to get the result of the operation.
-    /// See g_dbus_connection_call_sync() for the synchronous version of this
+    /// `g_dbus_connection_call_finish()` to get the result of the operation.
+    /// See `g_dbus_connection_call_sync()` for the synchronous version of this
     /// function.
     /// 
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
@@ -1224,7 +1218,7 @@ public extension DBusConnectionProtocol {
     
     }
 
-    /// Finishes an operation started with g_dbus_connection_call().
+    /// Finishes an operation started with `g_dbus_connection_call()`.
     func callFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_call_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
@@ -1250,7 +1244,7 @@ public extension DBusConnectionProtocol {
     /// value will be of this type.
     /// 
     /// If the `parameters` `GVariant` is floating, it is consumed.
-    /// This allows convenient 'inline' use of g_variant_new(), e.g.:
+    /// This allows convenient 'inline' use of `g_variant_new()`, e.g.:
     /// (C Language Example):
     /// ```C
     ///  g_dbus_connection_call_sync (connection,
@@ -1268,9 +1262,8 @@ public extension DBusConnectionProtocol {
     ///                               &error);
     /// ```
     /// 
-    /// 
     /// The calling thread is blocked until a reply is received. See
-    /// g_dbus_connection_call() for the asynchronous version of
+    /// `g_dbus_connection_call()` for the asynchronous version of
     /// this method.
     func callSync(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1281,7 +1274,7 @@ public extension DBusConnectionProtocol {
         return cast(rv)
     }
 
-    /// Like g_dbus_connection_call() but also takes a `GUnixFDList` object.
+    /// Like `g_dbus_connection_call()` but also takes a `GUnixFDList` object.
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdList(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -1289,7 +1282,7 @@ public extension DBusConnectionProtocol {
     
     }
 
-    /// Finishes an operation started with g_dbus_connection_call_with_unix_fd_list().
+    /// Finishes an operation started with `g_dbus_connection_call_with_unix_fd_list()`.
     func callWithUnixFdListFinish(outFdList out_fd_list: UnixFDListProtocol, res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_call_with_unix_fd_list_finish(cast(dbus_connection_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error)
@@ -1299,7 +1292,7 @@ public extension DBusConnectionProtocol {
         return cast(rv)
     }
 
-    /// Like g_dbus_connection_call_sync() but also takes and returns `GUnixFDList` objects.
+    /// Like `g_dbus_connection_call_sync()` but also takes and returns `GUnixFDList` objects.
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdListSync(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, outFdList out_fd_list: UnixFDListProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
@@ -1313,17 +1306,17 @@ public extension DBusConnectionProtocol {
 
     /// Closes `connection`. Note that this never causes the process to
     /// exit (this might only happen if the other end of a shared message
-    /// bus connection disconnects, see `GDBusConnection`:exit-on-close).
+    /// bus connection disconnects, see `GDBusConnection:exit`-on-close).
     /// 
     /// Once the connection is closed, operations such as sending a message
     /// will return with the error `G_IO_ERROR_CLOSED`. Closing a connection
     /// will not automatically flush the connection so queued messages may
-    /// be lost. Use g_dbus_connection_flush() if you need such guarantees.
+    /// be lost. Use `g_dbus_connection_flush()` if you need such guarantees.
     /// 
     /// If `connection` is already closed, this method fails with
     /// `G_IO_ERROR_CLOSED`.
     /// 
-    /// When `connection` has been closed, the `GDBusConnection`::closed
+    /// When `connection` has been closed, the `GDBusConnection::closed`
     /// signal is emitted in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread that `connection` was constructed in.
@@ -1332,15 +1325,15 @@ public extension DBusConnectionProtocol {
     /// `callback` will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from. You can
-    /// then call g_dbus_connection_close_finish() to get the result of the
-    /// operation. See g_dbus_connection_close_sync() for the synchronous
+    /// then call `g_dbus_connection_close_finish()` to get the result of the
+    /// operation. See `g_dbus_connection_close_sync()` for the synchronous
     /// version.
     func close(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dbus_connection_close(cast(dbus_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an operation started with g_dbus_connection_close().
+    /// Finishes an operation started with `g_dbus_connection_close()`.
     func closeFinish(res: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_close_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
@@ -1351,7 +1344,7 @@ public extension DBusConnectionProtocol {
     }
 
     /// Synchronously closes `connection`. The calling thread is blocked
-    /// until this is done. See g_dbus_connection_close() for the
+    /// until this is done. See `g_dbus_connection_close()` for the
     /// asynchronous version of this method and more details about what it
     /// does.
     func closeSync(cancellable: CancellableProtocol) throws -> Bool {
@@ -1389,7 +1382,7 @@ public extension DBusConnectionProtocol {
     /// returned (with `error` set accordingly).
     /// 
     /// You can unexport the action group using
-    /// g_dbus_connection_unexport_action_group() with the return value of
+    /// `g_dbus_connection_unexport_action_group()` with the return value of
     /// this function.
     /// 
     /// The thread default main context is taken at the time of this call.
@@ -1419,7 +1412,7 @@ public extension DBusConnectionProtocol {
     /// returned (with `error` set accordingly).
     /// 
     /// You can unexport the menu model using
-    /// g_dbus_connection_unexport_menu_model() with the return value of
+    /// `g_dbus_connection_unexport_menu_model()` with the return value of
     /// this function.
     func exportMenuModel(objectPath object_path: UnsafePointer<gchar>, menu: MenuModelProtocol) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1432,7 +1425,7 @@ public extension DBusConnectionProtocol {
 
     /// Asynchronously flushes `connection`, that is, writes all queued
     /// outgoing message to the transport and then flushes the transport
-    /// (using g_output_stream_flush_async()). This is useful in programs
+    /// (using `g_output_stream_flush_async()`). This is useful in programs
     /// that wants to emit a D-Bus signal and then exit immediately. Without
     /// flushing the connection, there is no guaranteed that the message has
     /// been sent to the networking buffers in the OS kernel.
@@ -1441,15 +1434,15 @@ public extension DBusConnectionProtocol {
     /// `callback` will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from. You can
-    /// then call g_dbus_connection_flush_finish() to get the result of the
-    /// operation. See g_dbus_connection_flush_sync() for the synchronous
+    /// then call `g_dbus_connection_flush_finish()` to get the result of the
+    /// operation. See `g_dbus_connection_flush_sync()` for the synchronous
     /// version.
     func flush(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_dbus_connection_flush(cast(dbus_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an operation started with g_dbus_connection_flush().
+    /// Finishes an operation started with `g_dbus_connection_flush()`.
     func flushFinish(res: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_flush_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
@@ -1460,7 +1453,7 @@ public extension DBusConnectionProtocol {
     }
 
     /// Synchronously flushes `connection`. The calling thread is blocked
-    /// until this is done. See g_dbus_connection_flush() for the
+    /// until this is done. See `g_dbus_connection_flush()` for the
     /// asynchronous version of this method and more details about what it
     /// does.
     func flushSync(cancellable: CancellableProtocol) throws -> Bool {
@@ -1480,7 +1473,7 @@ public extension DBusConnectionProtocol {
 
     /// Gets whether the process is terminated when `connection` is
     /// closed by the remote peer. See
-    /// `GDBusConnection`:exit-on-close for more details.
+    /// `GDBusConnection:exit`-on-close for more details.
     func getExitOnClose() -> Bool {
         let rv = g_dbus_connection_get_exit_on_close(cast(dbus_connection_ptr))
         return Bool(rv != 0)
@@ -1493,7 +1486,7 @@ public extension DBusConnectionProtocol {
     }
 
     /// The GUID of the peer performing the role of server when
-    /// authenticating. See `GDBusConnection`:guid for more details.
+    /// authenticating. See `GDBusConnection:guid` for more details.
     func getGuid() -> String! {
         let rv = g_dbus_connection_get_guid(cast(dbus_connection_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1501,9 +1494,9 @@ public extension DBusConnectionProtocol {
 
     /// Retrieves the last serial number assigned to a `GDBusMessage` on
     /// the current thread. This includes messages sent via both low-level
-    /// API such as g_dbus_connection_send_message() as well as
-    /// high-level API such as g_dbus_connection_emit_signal(),
-    /// g_dbus_connection_call() or g_dbus_proxy_call().
+    /// API such as `g_dbus_connection_send_message()` as well as
+    /// high-level API such as `g_dbus_connection_emit_signal()`,
+    /// `g_dbus_connection_call()` or `g_dbus_proxy_call()`.
     func getLastSerial() -> UInt32 {
         let rv = g_dbus_connection_get_last_serial(cast(dbus_connection_ptr))
         return UInt32(rv)
@@ -1575,7 +1568,7 @@ public extension DBusConnectionProtocol {
     /// 
     /// Note that the reference count on `interface_info` will be
     /// incremented by 1 (unless allocated statically, e.g. if the
-    /// reference count is -1, see g_dbus_interface_info_ref()) for as long
+    /// reference count is -1, see `g_dbus_interface_info_ref()`) for as long
     /// as the object is exported. Also note that `vtable` will be copied.
     /// 
     /// See this [server][gdbus-server] for an example of how to use this method.
@@ -1588,7 +1581,7 @@ public extension DBusConnectionProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Version of g_dbus_connection_register_object() using closures instead of a
+    /// Version of `g_dbus_connection_register_object()` using closures instead of a
     /// `GDBusInterfaceVTable` for easier binding in other languages.
     func registerObjectWithClosures(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, methodCallClosure method_call_closure: ClosureProtocol, getPropertyClosure get_property_closure: ClosureProtocol, setPropertyClosure set_property_closure: ClosureProtocol) throws -> CUnsignedInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1622,11 +1615,11 @@ public extension DBusConnectionProtocol {
     /// then `error` is set to `G_IO_ERROR_EXISTS`.
     /// 
     /// Note that it is valid to register regular objects (using
-    /// g_dbus_connection_register_object()) in a subtree registered with
-    /// g_dbus_connection_register_subtree() - if so, the subtree handler
+    /// `g_dbus_connection_register_object()`) in a subtree registered with
+    /// `g_dbus_connection_register_subtree()` - if so, the subtree handler
     /// is tried as the last resort. One way to think about a subtree
     /// handler is to consider it a fallback handler for object paths not
-    /// registered via g_dbus_connection_register_object() or other bindings.
+    /// registered via `g_dbus_connection_register_object()` or other bindings.
     /// 
     /// Note that `vtable` will be copied so you cannot change it after
     /// registration.
@@ -1646,9 +1639,9 @@ public extension DBusConnectionProtocol {
     /// 
     /// Note that since filters run in a different thread, there is a race
     /// condition where it is possible that the filter will be running even
-    /// after calling g_dbus_connection_remove_filter(), so you cannot just
+    /// after calling `g_dbus_connection_remove_filter()`, so you cannot just
     /// free data that the filter might be using. Instead, you should pass
-    /// a `GDestroyNotify` to g_dbus_connection_add_filter(), which will be
+    /// a `GDestroyNotify` to `g_dbus_connection_add_filter()`, which will be
     /// called when it is guaranteed that the data is no longer needed.
     func removeFilter(filterID filter_id: CUnsignedInt) {
         g_dbus_connection_remove_filter(cast(dbus_connection_ptr), guint(filter_id))
@@ -1660,7 +1653,7 @@ public extension DBusConnectionProtocol {
     /// Unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag, the serial number
     /// will be assigned by `connection` and set on `message` via
-    /// g_dbus_message_set_serial(). If `out_serial` is not `nil`, then the
+    /// `g_dbus_message_set_serial()`. If `out_serial` is not `nil`, then the
     /// serial number used will be written to this location prior to
     /// submitting the message to the underlying transport.
     /// 
@@ -1688,7 +1681,7 @@ public extension DBusConnectionProtocol {
     /// Unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag, the serial number
     /// will be assigned by `connection` and set on `message` via
-    /// g_dbus_message_set_serial(). If `out_serial` is not `nil`, then the
+    /// `g_dbus_message_set_serial()`. If `out_serial` is not `nil`, then the
     /// serial number used will be written to this location prior to
     /// submitting the message to the underlying transport.
     /// 
@@ -1701,8 +1694,8 @@ public extension DBusConnectionProtocol {
     /// will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from. You can then call
-    /// g_dbus_connection_send_message_with_reply_finish() to get the result of the operation.
-    /// See g_dbus_connection_send_message_with_reply_sync() for the synchronous version.
+    /// `g_dbus_connection_send_message_with_reply_finish()` to get the result of the operation.
+    /// See `g_dbus_connection_send_message_with_reply_sync()` for the synchronous version.
     /// 
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
@@ -1715,12 +1708,12 @@ public extension DBusConnectionProtocol {
     
     }
 
-    /// Finishes an operation started with g_dbus_connection_send_message_with_reply().
+    /// Finishes an operation started with `g_dbus_connection_send_message_with_reply()`.
     /// 
     /// Note that `error` is only set if a local in-process error
     /// occurred. That is to say that the returned `GDBusMessage` object may
     /// be of type `G_DBUS_MESSAGE_TYPE_ERROR`. Use
-    /// g_dbus_message_to_gerror() to transcode this to a `GError`.
+    /// `g_dbus_message_to_gerror()` to transcode this to a `GError`.
     /// 
     /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
     /// for an example of how to use this low-level API to send and receive
@@ -1736,13 +1729,13 @@ public extension DBusConnectionProtocol {
 
     /// Synchronously sends `message` to the peer represented by `connection`
     /// and blocks the calling thread until a reply is received or the
-    /// timeout is reached. See g_dbus_connection_send_message_with_reply()
+    /// timeout is reached. See `g_dbus_connection_send_message_with_reply()`
     /// for the asynchronous version of this method.
     /// 
     /// Unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag, the serial number
     /// will be assigned by `connection` and set on `message` via
-    /// g_dbus_message_set_serial(). If `out_serial` is not `nil`, then the
+    /// `g_dbus_message_set_serial()`. If `out_serial` is not `nil`, then the
     /// serial number used will be written to this location prior to
     /// submitting the message to the underlying transport.
     /// 
@@ -1754,7 +1747,7 @@ public extension DBusConnectionProtocol {
     /// Note that `error` is only set if a local in-process error
     /// occurred. That is to say that the returned `GDBusMessage` object may
     /// be of type `G_DBUS_MESSAGE_TYPE_ERROR`. Use
-    /// g_dbus_message_to_gerror() to transcode this to a `GError`.
+    /// `g_dbus_message_to_gerror()` to transcode this to a `GError`.
     /// 
     /// See this [server][gdbus-server] and [client][gdbus-unix-fd-client]
     /// for an example of how to use this low-level API to send and receive
@@ -1772,7 +1765,7 @@ public extension DBusConnectionProtocol {
     }
 
     /// Sets whether the process should be terminated when `connection` is
-    /// closed by the remote peer. See `GDBusConnection`:exit-on-close for
+    /// closed by the remote peer. See `GDBusConnection:exit`-on-close for
     /// more details.
     /// 
     /// Note that this function should be used with care. Most modern UNIX
@@ -1838,10 +1831,10 @@ public extension DBusConnectionProtocol {
     }
 
     /// Reverses the effect of a previous call to
-    /// g_dbus_connection_export_action_group().
+    /// `g_dbus_connection_export_action_group()`.
     /// 
     /// It is an error to call this function with an ID that wasn't returned
-    /// from g_dbus_connection_export_action_group() or to call it with the
+    /// from `g_dbus_connection_export_action_group()` or to call it with the
     /// same ID more than once.
     func unexportActionGroup(exportID export_id: CUnsignedInt) {
         g_dbus_connection_unexport_action_group(cast(dbus_connection_ptr), guint(export_id))
@@ -1849,10 +1842,10 @@ public extension DBusConnectionProtocol {
     }
 
     /// Reverses the effect of a previous call to
-    /// g_dbus_connection_export_menu_model().
+    /// `g_dbus_connection_export_menu_model()`.
     /// 
     /// It is an error to call this function with an ID that wasn't returned
-    /// from g_dbus_connection_export_menu_model() or to call it with the
+    /// from `g_dbus_connection_export_menu_model()` or to call it with the
     /// same ID more than once.
     func unexportMenuModel(exportID export_id: CUnsignedInt) {
         g_dbus_connection_unexport_menu_model(cast(dbus_connection_ptr), guint(export_id))
@@ -1871,28 +1864,28 @@ public extension DBusConnectionProtocol {
         return Bool(rv != 0)
     }
 
-    /// Like g_bus_own_name() but takes a `GDBusConnection` instead of a
+    /// Like `g_bus_own_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
     func busOwnNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
         let rv = g_bus_own_name_on_connection(cast(dbus_connection_ptr), name, flags, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func)
         return CUnsignedInt(rv)
     }
 
-    /// Version of g_bus_own_name_on_connection() using closures instead of
+    /// Version of `g_bus_own_name_on_connection()` using closures instead of
     /// callbacks for easier binding in other languages.
     func busOwnNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> CUnsignedInt {
         let rv = g_bus_own_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags, cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr))
         return CUnsignedInt(rv)
     }
 
-    /// Like g_bus_watch_name() but takes a `GDBusConnection` instead of a
+    /// Like `g_bus_watch_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
     func busWatchNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
         let rv = g_bus_watch_name_on_connection(cast(dbus_connection_ptr), name, flags, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func)
         return CUnsignedInt(rv)
     }
 
-    /// Version of g_bus_watch_name_on_connection() using closures instead of callbacks for
+    /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
     /// easier binding in other languages.
     func busWatchNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> CUnsignedInt {
         let rv = g_bus_watch_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr))
@@ -1910,17 +1903,17 @@ public extension DBusConnectionProtocol {
 
     /// Gets whether the process is terminated when `connection` is
     /// closed by the remote peer. See
-    /// `GDBusConnection`:exit-on-close for more details.
+    /// `GDBusConnection:exit`-on-close for more details.
     var exitOnClose: Bool {
         /// Gets whether the process is terminated when `connection` is
         /// closed by the remote peer. See
-        /// `GDBusConnection`:exit-on-close for more details.
+        /// `GDBusConnection:exit`-on-close for more details.
         get {
             let rv = g_dbus_connection_get_exit_on_close(cast(dbus_connection_ptr))
             return Bool(rv != 0)
         }
         /// Sets whether the process should be terminated when `connection` is
-        /// closed by the remote peer. See `GDBusConnection`:exit-on-close for
+        /// closed by the remote peer. See `GDBusConnection:exit`-on-close for
         /// more details.
         /// 
         /// Note that this function should be used with care. Most modern UNIX
@@ -1948,17 +1941,17 @@ public extension DBusConnectionProtocol {
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_SERVER` in the
-    /// `GDBusConnection`:flags property then you MUST also set this
+    /// `GDBusConnection:flags` property then you MUST also set this
     /// property to a valid guid.
     /// 
     /// If you are constructing a `GDBusConnection` and pass
     /// `G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_CLIENT` in the
-    /// `GDBusConnection`:flags property you will be able to read the GUID
+    /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
     var guid: String! {
         /// The GUID of the peer performing the role of server when
-        /// authenticating. See `GDBusConnection`:guid for more details.
+        /// authenticating. See `GDBusConnection:guid` for more details.
         get {
             let rv = g_dbus_connection_get_guid(cast(dbus_connection_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1976,15 +1969,15 @@ public extension DBusConnectionProtocol {
 
     /// Retrieves the last serial number assigned to a `GDBusMessage` on
     /// the current thread. This includes messages sent via both low-level
-    /// API such as g_dbus_connection_send_message() as well as
-    /// high-level API such as g_dbus_connection_emit_signal(),
-    /// g_dbus_connection_call() or g_dbus_proxy_call().
+    /// API such as `g_dbus_connection_send_message()` as well as
+    /// high-level API such as `g_dbus_connection_emit_signal()`,
+    /// `g_dbus_connection_call()` or `g_dbus_proxy_call()`.
     var lastSerial: UInt32 {
         /// Retrieves the last serial number assigned to a `GDBusMessage` on
         /// the current thread. This includes messages sent via both low-level
-        /// API such as g_dbus_connection_send_message() as well as
-        /// high-level API such as g_dbus_connection_emit_signal(),
-        /// g_dbus_connection_call() or g_dbus_proxy_call().
+        /// API such as `g_dbus_connection_send_message()` as well as
+        /// high-level API such as `g_dbus_connection_emit_signal()`,
+        /// `g_dbus_connection_call()` or `g_dbus_proxy_call()`.
         get {
             let rv = g_dbus_connection_get_last_serial(cast(dbus_connection_ptr))
             return UInt32(rv)
@@ -2216,7 +2209,7 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// Note that this signal is emitted in a thread dedicated to
     /// handling the method call so handlers are allowed to perform
     /// blocking IO. This means that it is appropriate to call e.g.
-    /// [polkit_authority_check_authorization_sync()](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`polkit`-authority-check-authorization-sync)
+    /// `[polkit_authority_check_authorization_sync()`](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`polkit`-authority-check-authorization-sync)
     /// with the
     /// [POLKIT_CHECK_AUTHORIZATION_FLAGS_ALLOW_USER_INTERACTION](http://hal.freedesktop.org/docs/polkit/PolkitAuthority.html`POLKIT`-CHECK-AUTHORIZATION-FLAGS-ALLOW-USER-INTERACTION:CAPS)
     /// flag set.
@@ -2224,12 +2217,12 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// If `false` is returned then no further handlers are run and the
     /// signal handler must take a reference to `invocation` and finish
     /// handling the call (e.g. return an error via
-    /// g_dbus_method_invocation_return_error()).
+    /// `g_dbus_method_invocation_return_error()`).
     /// 
     /// Otherwise, if `true` is returned, signal emission continues. If no
     /// handlers return `false`, then the method is dispatched. If
     /// `interface` has an enclosing `GDBusObjectSkeleton`, then the
-    /// `GDBusObjectSkeleton`::authorize-method signal handlers run before
+    /// `GDBusObjectSkeleton::authorize`-method signal handlers run before
     /// the handlers for this signal.
     /// 
     /// The default class handler just returns `true`.
@@ -2237,7 +2230,7 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// Please note that the common case is optimized: if no signals
     /// handlers are connected and the default class handler isn't
     /// overridden (for both `interface` and the enclosing
-    /// `GDBusObjectSkeleton`, if any) and `GDBusInterfaceSkeleton`:g-flags does
+    /// `GDBusObjectSkeleton`, if any) and `GDBusInterfaceSkeleton:g`-flags does
     /// not have the
     /// `G_DBUS_INTERFACE_SKELETON_FLAGS_HANDLE_METHOD_INVOCATIONS_IN_THREAD`
     /// flags set, no dedicated thread is ever used and the call will be
@@ -2245,27 +2238,26 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// to was exported in.
     case gAuthorizeMethod = "g-authorize-method"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2312,7 +2304,7 @@ public extension DBusInterfaceSkeletonProtocol {
     /// onto multiple connections however the `object_path` provided must be
     /// the same for all connections.
     /// 
-    /// Use g_dbus_interface_skeleton_unexport() to unexport the object.
+    /// Use `g_dbus_interface_skeleton_unexport()` to unexport the object.
     func export(connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_interface_skeleton_export(cast(dbus_interface_skeleton_ptr), cast(connection.ptr), object_path, &error)
@@ -2396,7 +2388,7 @@ public extension DBusInterfaceSkeletonProtocol {
     /// Stops exporting `interface_` on all connections it is exported on.
     /// 
     /// To unexport `interface_` from only a single connection, use
-    /// g_dbus_interface_skeleton_unexport_from_connection()
+    /// `g_dbus_interface_skeleton_unexport_from_connection()`
     func unexport() {
         g_dbus_interface_skeleton_unexport(cast(dbus_interface_skeleton_ptr))
     
@@ -2405,7 +2397,7 @@ public extension DBusInterfaceSkeletonProtocol {
     /// Stops exporting `interface_` on `connection`.
     /// 
     /// To stop exporting on all connections the interface is exported on,
-    /// use g_dbus_interface_skeleton_unexport().
+    /// use `g_dbus_interface_skeleton_unexport()`.
     func unexportFrom(connection: DBusConnectionProtocol) {
         g_dbus_interface_skeleton_unexport_from_connection(cast(dbus_interface_skeleton_ptr), cast(connection.ptr))
     
@@ -2497,7 +2489,7 @@ public extension DBusInterfaceSkeletonProtocol {
 ///
 /// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
 /// as a proxy for a menu model that is exported over D-Bus with
-/// g_dbus_connection_export_menu_model().
+/// `g_dbus_connection_export_menu_model()`.
 public protocol DBusMenuModelProtocol: MenuModelProtocol {
     /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -2512,7 +2504,7 @@ public protocol DBusMenuModelProtocol: MenuModelProtocol {
 ///
 /// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
 /// as a proxy for a menu model that is exported over D-Bus with
-/// g_dbus_connection_export_menu_model().
+/// `g_dbus_connection_export_menu_model()`.
 public struct DBusMenuModelRef: DBusMenuModelProtocol {
     /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_menu_model_ptr` property instead.
@@ -2579,7 +2571,7 @@ public extension DBusMenuModelRef {
 ///
 /// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
 /// as a proxy for a menu model that is exported over D-Bus with
-/// g_dbus_connection_export_menu_model().
+/// `g_dbus_connection_export_menu_model()`.
 open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `DBusMenuModel` instance.
@@ -2659,27 +2651,26 @@ public enum DBusMenuModelSignalName: String, SignalNameProtocol {
     /// reported.  The signal is emitted after the modification.
     case itemsChanged = "items-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2800,7 +2791,7 @@ public extension DBusMessageRef {
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
     /// order that the message was in can be retrieved using
-    /// g_dbus_message_get_byte_order().
+    /// `g_dbus_message_get_byte_order()`.
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
@@ -2826,7 +2817,7 @@ public extension DBusMessageRef {
     }
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
     /// order that the message was in can be retrieved using
-    /// g_dbus_message_get_byte_order().
+    /// `g_dbus_message_get_byte_order()`.
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
@@ -2904,7 +2895,7 @@ open class DBusMessage: Object, DBusMessageProtocol {
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
     /// order that the message was in can be retrieved using
-    /// g_dbus_message_get_byte_order().
+    /// `g_dbus_message_get_byte_order()`.
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
@@ -2931,7 +2922,7 @@ open class DBusMessage: Object, DBusMessageProtocol {
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
     /// order that the message was in can be retrieved using
-    /// g_dbus_message_get_byte_order().
+    /// `g_dbus_message_get_byte_order()`.
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
@@ -3000,27 +2991,26 @@ public extension DBusMessageProtocol {
 
 public enum DBusMessageSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3133,8 +3123,8 @@ public extension DBusMessageProtocol {
     }
 
     /// Checks whether `message` is locked. To monitor changes to this
-    /// value, conncet to the `GObject`::notify signal to listen for changes
-    /// on the `GDBusMessage`:locked property.
+    /// value, conncet to the `GObject::notify` signal to listen for changes
+    /// on the `GDBusMessage:locked` property.
     func getLocked() -> Bool {
         let rv = g_dbus_message_get_locked(cast(dbus_message_ptr))
         return Bool(rv != 0)
@@ -3212,7 +3202,7 @@ public extension DBusMessageProtocol {
         return cast(rv)
     }
 
-    /// Like g_dbus_message_new_method_error() but intended for language bindings.
+    /// Like `g_dbus_message_new_method_error()` but intended for language bindings.
     func newMethodErrorValist(errorName error_name: UnsafePointer<gchar>, errorMessageFormat error_message_format: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) -> UnsafeMutablePointer<GDBusMessage>! {
         let rv = g_dbus_message_new_method_error_valist(cast(dbus_message_ptr), error_name, error_message_format, var_args)
         return cast(rv)
@@ -3242,7 +3232,6 @@ public extension DBusMessageProtocol {
     /// UNIX File Descriptors:
     ///   (none)
     /// ```
-    /// 
     /// or
     /// ```
     /// Flags:   no-reply-expected
@@ -3371,7 +3360,7 @@ public extension DBusMessageProtocol {
     }
 
     /// Serializes `message` to a blob. The byte order returned by
-    /// g_dbus_message_get_byte_order() will be used.
+    /// `g_dbus_message_get_byte_order()` will be used.
     func toBlob(outSize out_size: UnsafeMutablePointer<Int>, capabilities: DBusCapabilityFlags) throws -> UnsafeMutablePointer<guchar>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_message_to_blob(cast(dbus_message_ptr), cast(out_size), capabilities, &error)
@@ -3385,7 +3374,7 @@ public extension DBusMessageProtocol {
     /// nothing and returns `false`.
     /// 
     /// Otherwise this method encodes the error in `message` as a `GError`
-    /// using g_dbus_error_set_dbus_error() using the information in the
+    /// using `g_dbus_error_set_dbus_error()` using the information in the
     /// `G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME` header field of `message` as
     /// well as the first string item in `message`'s body.
     func toGerror() throws -> Bool {
@@ -3498,8 +3487,8 @@ public extension DBusMessageProtocol {
 
     var locked: Bool {
         /// Checks whether `message` is locked. To monitor changes to this
-        /// value, conncet to the `GObject`::notify signal to listen for changes
-        /// on the `GDBusMessage`:locked property.
+        /// value, conncet to the `GObject::notify` signal to listen for changes
+        /// on the `GDBusMessage:locked` property.
         get {
             let rv = g_dbus_message_get_locked(cast(dbus_message_ptr))
             return Bool(rv != 0)
@@ -3647,8 +3636,8 @@ public extension DBusMessageProtocol {
 /// return results and errors.
 /// 
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
-/// it as an argument to the handle_method_call() function in a
-/// `GDBusInterfaceVTable` that was passed to g_dbus_connection_register_object().
+/// it as an argument to the `handle_method_call()` function in a
+/// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 public protocol DBusMethodInvocationProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -3666,8 +3655,8 @@ public protocol DBusMethodInvocationProtocol: ObjectProtocol {
 /// return results and errors.
 /// 
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
-/// it as an argument to the handle_method_call() function in a
-/// `GDBusInterfaceVTable` that was passed to g_dbus_connection_register_object().
+/// it as an argument to the `handle_method_call()` function in a
+/// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 public struct DBusMethodInvocationRef: DBusMethodInvocationProtocol {
     /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_invocation_ptr` property instead.
@@ -3725,8 +3714,8 @@ public extension DBusMethodInvocationRef {
 /// return results and errors.
 /// 
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
-/// it as an argument to the handle_method_call() function in a
-/// `GDBusInterfaceVTable` that was passed to g_dbus_connection_register_object().
+/// it as an argument to the `handle_method_call()` function in a
+/// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `DBusMethodInvocation` instance.
@@ -3773,27 +3762,26 @@ open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
 
 public enum DBusMethodInvocationSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3867,7 +3855,7 @@ public extension DBusMethodInvocationProtocol {
     /// 
     /// If this method invocation is a property Get, Set or GetAll call that
     /// has been redirected to the method call handler then `nil` will be
-    /// returned.  See g_dbus_method_invocation_get_property_info() and
+    /// returned.  See `g_dbus_method_invocation_get_property_info()` and
     /// `GDBusInterfaceVTable` for more information.
     func getMethodInfo() -> UnsafePointer<GDBusMethodInfo>! {
         let rv = g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr))
@@ -3898,8 +3886,8 @@ public extension DBusMethodInvocationProtocol {
     /// 
     /// This will only be set in the case of an invocation in response to a
     /// property Get or Set call that has been directed to the method call
-    /// handler for an object on account of its property_get() or
-    /// property_set() vtable pointers being unset.
+    /// handler for an object on account of its `property_get()` or
+    /// `property_set()` vtable pointers being unset.
     /// 
     /// See `GDBusInterfaceVTable` for more information.
     /// 
@@ -3915,7 +3903,7 @@ public extension DBusMethodInvocationProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Gets the `user_data` `gpointer` passed to g_dbus_connection_register_object().
+    /// Gets the `user_data` `gpointer` passed to `g_dbus_connection_register_object()`.
     func getUserData() -> UnsafeMutableRawPointer! {
         let rv = g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr))
         return cast(rv)
@@ -3935,7 +3923,7 @@ public extension DBusMethodInvocationProtocol {
     // *** returnError() is not available because it has a varargs (...) parameter!
 
 
-    /// Like g_dbus_method_invocation_return_error() but without printf()-style formatting.
+    /// Like `g_dbus_method_invocation_return_error()` but without `printf()`-style formatting.
     /// 
     /// This method will take ownership of `invocation`. See
     /// `GDBusInterfaceVTable` for more information about the ownership of
@@ -3945,7 +3933,7 @@ public extension DBusMethodInvocationProtocol {
     
     }
 
-    /// Like g_dbus_method_invocation_return_error() but intended for
+    /// Like `g_dbus_method_invocation_return_error()` but intended for
     /// language bindings.
     /// 
     /// This method will take ownership of `invocation`. See
@@ -3956,7 +3944,7 @@ public extension DBusMethodInvocationProtocol {
     
     }
 
-    /// Like g_dbus_method_invocation_return_error() but takes a `GError`
+    /// Like `g_dbus_method_invocation_return_error()` but takes a `GError`
     /// instead of the error domain, error code and message.
     /// 
     /// This method will take ownership of `invocation`. See
@@ -3989,9 +3977,8 @@ public extension DBusMethodInvocationProtocol {
     ///   g_dbus_method_invocation_return_value (invocation,
     ///                                          g_variant_new ("(s)", result_string));
     /// 
-    /// // Do not free `invocation` here; returning a value does that
+    /// // Do not free @invocation here; returning a value does that
     /// ```
-    /// 
     /// 
     /// This method will take ownership of `invocation`. See
     /// `GDBusInterfaceVTable` for more information about the ownership of
@@ -4006,7 +3993,7 @@ public extension DBusMethodInvocationProtocol {
     
     }
 
-    /// Like g_dbus_method_invocation_return_value() but also takes a `GUnixFDList`.
+    /// Like `g_dbus_method_invocation_return_value()` but also takes a `GUnixFDList`.
     /// 
     /// This method is only available on UNIX.
     /// 
@@ -4018,7 +4005,7 @@ public extension DBusMethodInvocationProtocol {
     
     }
 
-    /// Like g_dbus_method_invocation_return_gerror() but takes ownership
+    /// Like `g_dbus_method_invocation_return_gerror()` but takes ownership
     /// of `error` so the caller does not need to free it.
     /// 
     /// This method will take ownership of `invocation`. See
@@ -4083,14 +4070,14 @@ public extension DBusMethodInvocationProtocol {
     /// 
     /// If this method invocation is a property Get, Set or GetAll call that
     /// has been redirected to the method call handler then `nil` will be
-    /// returned.  See g_dbus_method_invocation_get_property_info() and
+    /// returned.  See `g_dbus_method_invocation_get_property_info()` and
     /// `GDBusInterfaceVTable` for more information.
     var methodInfo: UnsafePointer<GDBusMethodInfo>! {
         /// Gets information about the method call, if any.
         /// 
         /// If this method invocation is a property Get, Set or GetAll call that
         /// has been redirected to the method call handler then `nil` will be
-        /// returned.  See g_dbus_method_invocation_get_property_info() and
+        /// returned.  See `g_dbus_method_invocation_get_property_info()` and
         /// `GDBusInterfaceVTable` for more information.
         get {
             let rv = g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr))
@@ -4132,8 +4119,8 @@ public extension DBusMethodInvocationProtocol {
     /// 
     /// This will only be set in the case of an invocation in response to a
     /// property Get or Set call that has been directed to the method call
-    /// handler for an object on account of its property_get() or
-    /// property_set() vtable pointers being unset.
+    /// handler for an object on account of its `property_get()` or
+    /// `property_set()` vtable pointers being unset.
     /// 
     /// See `GDBusInterfaceVTable` for more information.
     /// 
@@ -4144,8 +4131,8 @@ public extension DBusMethodInvocationProtocol {
         /// 
         /// This will only be set in the case of an invocation in response to a
         /// property Get or Set call that has been directed to the method call
-        /// handler for an object on account of its property_get() or
-        /// property_set() vtable pointers being unset.
+        /// handler for an object on account of its `property_get()` or
+        /// `property_set()` vtable pointers being unset.
         /// 
         /// See `GDBusInterfaceVTable` for more information.
         /// 
@@ -4165,9 +4152,9 @@ public extension DBusMethodInvocationProtocol {
         }
     }
 
-    /// Gets the `user_data` `gpointer` passed to g_dbus_connection_register_object().
+    /// Gets the `user_data` `gpointer` passed to `g_dbus_connection_register_object()`.
     var userData: UnsafeMutableRawPointer! {
-        /// Gets the `user_data` `gpointer` passed to g_dbus_connection_register_object().
+        /// Gets the `user_data` `gpointer` passed to `g_dbus_connection_register_object()`.
         get {
             let rv = g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr))
             return cast(rv)
@@ -4191,10 +4178,10 @@ public extension DBusMethodInvocationProtocol {
 /// interface).
 /// 
 /// Once an instance of this type has been created, you can connect to
-/// the `GDBusObjectManager`::object-added and
-/// `GDBusObjectManager`::object-removed signals and inspect the
+/// the `GDBusObjectManager::object`-added and
+/// `GDBusObjectManager::object`-removed signals and inspect the
 /// `GDBusObjectProxy` objects returned by
-/// g_dbus_object_manager_get_objects().
+/// `g_dbus_object_manager_get_objects()`.
 /// 
 /// If the name for a `GDBusObjectManagerClient` is not owned by anyone at
 /// object construction time, the default behavior is to request the
@@ -4205,34 +4192,34 @@ public extension DBusMethodInvocationProtocol {
 /// is not possible to launch an owner for the requested name. In this
 /// case, `GDBusObjectManagerClient` object construction still succeeds but
 /// there will be no object proxies
-/// (e.g. g_dbus_object_manager_get_objects() returns the empty list) and
-/// the `GDBusObjectManagerClient`:name-owner property is `nil`.
+/// (e.g. `g_dbus_object_manager_get_objects()` returns the empty list) and
+/// the `GDBusObjectManagerClient:name`-owner property is `nil`.
 /// 
 /// The owner of the requested name can come and go (for example
 /// consider a system service being restarted) – `GDBusObjectManagerClient`
-/// handles this case too; simply connect to the `GObject`::notify
-/// signal to watch for changes on the `GDBusObjectManagerClient`:name-owner
+/// handles this case too; simply connect to the `GObject::notify`
+/// signal to watch for changes on the `GDBusObjectManagerClient:name`-owner
 /// property. When the name owner vanishes, the behavior is that
-/// `GDBusObjectManagerClient`:name-owner is set to `nil` (this includes
-/// emission of the `GObject`::notify signal) and then
-/// `GDBusObjectManager`::object-removed signals are synthesized
+/// `GDBusObjectManagerClient:name`-owner is set to `nil` (this includes
+/// emission of the `GObject::notify` signal) and then
+/// `GDBusObjectManager::object`-removed signals are synthesized
 /// for all currently existing object proxies. Since
-/// `GDBusObjectManagerClient`:name-owner is `nil` when this happens, you can
+/// `GDBusObjectManagerClient:name`-owner is `nil` when this happens, you can
 /// use this information to disambiguate a synthesized signal from a
 /// genuine signal caused by object removal on the remote
 /// `GDBusObjectManager`. Similarly, when a new name owner appears,
-/// `GDBusObjectManager`::object-added signals are synthesized
-/// while `GDBusObjectManagerClient`:name-owner is still `nil`. Only when all
-/// object proxies have been added, the `GDBusObjectManagerClient`:name-owner
+/// `GDBusObjectManager::object`-added signals are synthesized
+/// while `GDBusObjectManagerClient:name`-owner is still `nil`. Only when all
+/// object proxies have been added, the `GDBusObjectManagerClient:name`-owner
 /// is set to the new name owner (this includes emission of the
-/// `GObject`::notify signal).  Furthermore, you are guaranteed that
-/// `GDBusObjectManagerClient`:name-owner will alternate between a name owner
+/// `GObject::notify` signal).  Furthermore, you are guaranteed that
+/// `GDBusObjectManagerClient:name`-owner will alternate between a name owner
 /// (e.g. `:1.42`) and `nil` even in the case where
 /// the name of interest is atomically replaced
 /// 
 /// Ultimately, `GDBusObjectManagerClient` is used to obtain `GDBusProxy`
 /// instances. All signals (including the
-/// org.freedesktop.DBus.Properties::PropertiesChanged signal)
+/// org.freedesktop.DBus.Properties`PropertiesChanged` signal)
 /// delivered to `GDBusProxy` instances are guaranteed to originate
 /// from the name owner. This guarantee along with the behavior
 /// described above, means that certain race conditions including the
@@ -4241,16 +4228,16 @@ public extension DBusMethodInvocationProtocol {
 /// 
 /// To avoid having the application connect to signals on the returned
 /// `GDBusObjectProxy` and `GDBusProxy` objects, the
-/// `GDBusObject`::interface-added,
-/// `GDBusObject`::interface-removed,
-/// `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals
+/// `GDBusObject::interface`-added,
+/// `GDBusObject::interface`-removed,
+/// `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals
 /// are also emitted on the `GDBusObjectManagerClient` instance managing these
 /// objects. The signals emitted are
-/// `GDBusObjectManager`::interface-added,
-/// `GDBusObjectManager`::interface-removed,
-/// `GDBusObjectManagerClient`::interface-proxy-properties-changed and
-/// `GDBusObjectManagerClient`::interface-proxy-signal.
+/// `GDBusObjectManager::interface`-added,
+/// `GDBusObjectManager::interface`-removed,
+/// `GDBusObjectManagerClient::interface`-proxy-properties-changed and
+/// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
@@ -4278,10 +4265,10 @@ public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitablePr
 /// interface).
 /// 
 /// Once an instance of this type has been created, you can connect to
-/// the `GDBusObjectManager`::object-added and
-/// `GDBusObjectManager`::object-removed signals and inspect the
+/// the `GDBusObjectManager::object`-added and
+/// `GDBusObjectManager::object`-removed signals and inspect the
 /// `GDBusObjectProxy` objects returned by
-/// g_dbus_object_manager_get_objects().
+/// `g_dbus_object_manager_get_objects()`.
 /// 
 /// If the name for a `GDBusObjectManagerClient` is not owned by anyone at
 /// object construction time, the default behavior is to request the
@@ -4292,34 +4279,34 @@ public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitablePr
 /// is not possible to launch an owner for the requested name. In this
 /// case, `GDBusObjectManagerClient` object construction still succeeds but
 /// there will be no object proxies
-/// (e.g. g_dbus_object_manager_get_objects() returns the empty list) and
-/// the `GDBusObjectManagerClient`:name-owner property is `nil`.
+/// (e.g. `g_dbus_object_manager_get_objects()` returns the empty list) and
+/// the `GDBusObjectManagerClient:name`-owner property is `nil`.
 /// 
 /// The owner of the requested name can come and go (for example
 /// consider a system service being restarted) – `GDBusObjectManagerClient`
-/// handles this case too; simply connect to the `GObject`::notify
-/// signal to watch for changes on the `GDBusObjectManagerClient`:name-owner
+/// handles this case too; simply connect to the `GObject::notify`
+/// signal to watch for changes on the `GDBusObjectManagerClient:name`-owner
 /// property. When the name owner vanishes, the behavior is that
-/// `GDBusObjectManagerClient`:name-owner is set to `nil` (this includes
-/// emission of the `GObject`::notify signal) and then
-/// `GDBusObjectManager`::object-removed signals are synthesized
+/// `GDBusObjectManagerClient:name`-owner is set to `nil` (this includes
+/// emission of the `GObject::notify` signal) and then
+/// `GDBusObjectManager::object`-removed signals are synthesized
 /// for all currently existing object proxies. Since
-/// `GDBusObjectManagerClient`:name-owner is `nil` when this happens, you can
+/// `GDBusObjectManagerClient:name`-owner is `nil` when this happens, you can
 /// use this information to disambiguate a synthesized signal from a
 /// genuine signal caused by object removal on the remote
 /// `GDBusObjectManager`. Similarly, when a new name owner appears,
-/// `GDBusObjectManager`::object-added signals are synthesized
-/// while `GDBusObjectManagerClient`:name-owner is still `nil`. Only when all
-/// object proxies have been added, the `GDBusObjectManagerClient`:name-owner
+/// `GDBusObjectManager::object`-added signals are synthesized
+/// while `GDBusObjectManagerClient:name`-owner is still `nil`. Only when all
+/// object proxies have been added, the `GDBusObjectManagerClient:name`-owner
 /// is set to the new name owner (this includes emission of the
-/// `GObject`::notify signal).  Furthermore, you are guaranteed that
-/// `GDBusObjectManagerClient`:name-owner will alternate between a name owner
+/// `GObject::notify` signal).  Furthermore, you are guaranteed that
+/// `GDBusObjectManagerClient:name`-owner will alternate between a name owner
 /// (e.g. `:1.42`) and `nil` even in the case where
 /// the name of interest is atomically replaced
 /// 
 /// Ultimately, `GDBusObjectManagerClient` is used to obtain `GDBusProxy`
 /// instances. All signals (including the
-/// org.freedesktop.DBus.Properties::PropertiesChanged signal)
+/// org.freedesktop.DBus.Properties`PropertiesChanged` signal)
 /// delivered to `GDBusProxy` instances are guaranteed to originate
 /// from the name owner. This guarantee along with the behavior
 /// described above, means that certain race conditions including the
@@ -4328,16 +4315,16 @@ public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitablePr
 /// 
 /// To avoid having the application connect to signals on the returned
 /// `GDBusObjectProxy` and `GDBusProxy` objects, the
-/// `GDBusObject`::interface-added,
-/// `GDBusObject`::interface-removed,
-/// `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals
+/// `GDBusObject::interface`-added,
+/// `GDBusObject::interface`-removed,
+/// `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals
 /// are also emitted on the `GDBusObjectManagerClient` instance managing these
 /// objects. The signals emitted are
-/// `GDBusObjectManager`::interface-added,
-/// `GDBusObjectManager`::interface-removed,
-/// `GDBusObjectManagerClient`::interface-proxy-properties-changed and
-/// `GDBusObjectManagerClient`::interface-proxy-signal.
+/// `GDBusObjectManager::interface`-added,
+/// `GDBusObjectManager::interface`-removed,
+/// `GDBusObjectManagerClient::interface`-proxy-properties-changed and
+/// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
@@ -4392,7 +4379,7 @@ public extension DBusObjectManagerClientRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Finishes an operation started with g_dbus_object_manager_client_new().
+        /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
@@ -4402,7 +4389,7 @@ public extension DBusObjectManagerClientRef {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new_for_bus().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     init(busFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
@@ -4412,11 +4399,11 @@ public extension DBusObjectManagerClientRef {
         self.init(cast(rv))
     }
 
-    /// Like g_dbus_object_manager_client_new_sync() but takes a `GBusType` instead
+    /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
     /// of a `GDBusConnection`.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new_for_bus()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4430,7 +4417,7 @@ public extension DBusObjectManagerClientRef {
     /// Creates a new `GDBusObjectManagerClient` object.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4440,7 +4427,7 @@ public extension DBusObjectManagerClientRef {
         }
         self.init(cast(rv))
     }
-    /// Finishes an operation started with g_dbus_object_manager_client_new().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusObjectManagerClientRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
@@ -4450,7 +4437,7 @@ public extension DBusObjectManagerClientRef {
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new_for_bus().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusObjectManagerClientRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
@@ -4460,11 +4447,11 @@ public extension DBusObjectManagerClientRef {
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 
-    /// Like g_dbus_object_manager_client_new_sync() but takes a `GBusType` instead
+    /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
     /// of a `GDBusConnection`.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new_for_bus()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     static func newFor(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClientRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4478,7 +4465,7 @@ public extension DBusObjectManagerClientRef {
     /// Creates a new `GDBusObjectManagerClient` object.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     static func new(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClientRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4501,10 +4488,10 @@ public extension DBusObjectManagerClientRef {
 /// interface).
 /// 
 /// Once an instance of this type has been created, you can connect to
-/// the `GDBusObjectManager`::object-added and
-/// `GDBusObjectManager`::object-removed signals and inspect the
+/// the `GDBusObjectManager::object`-added and
+/// `GDBusObjectManager::object`-removed signals and inspect the
 /// `GDBusObjectProxy` objects returned by
-/// g_dbus_object_manager_get_objects().
+/// `g_dbus_object_manager_get_objects()`.
 /// 
 /// If the name for a `GDBusObjectManagerClient` is not owned by anyone at
 /// object construction time, the default behavior is to request the
@@ -4515,34 +4502,34 @@ public extension DBusObjectManagerClientRef {
 /// is not possible to launch an owner for the requested name. In this
 /// case, `GDBusObjectManagerClient` object construction still succeeds but
 /// there will be no object proxies
-/// (e.g. g_dbus_object_manager_get_objects() returns the empty list) and
-/// the `GDBusObjectManagerClient`:name-owner property is `nil`.
+/// (e.g. `g_dbus_object_manager_get_objects()` returns the empty list) and
+/// the `GDBusObjectManagerClient:name`-owner property is `nil`.
 /// 
 /// The owner of the requested name can come and go (for example
 /// consider a system service being restarted) – `GDBusObjectManagerClient`
-/// handles this case too; simply connect to the `GObject`::notify
-/// signal to watch for changes on the `GDBusObjectManagerClient`:name-owner
+/// handles this case too; simply connect to the `GObject::notify`
+/// signal to watch for changes on the `GDBusObjectManagerClient:name`-owner
 /// property. When the name owner vanishes, the behavior is that
-/// `GDBusObjectManagerClient`:name-owner is set to `nil` (this includes
-/// emission of the `GObject`::notify signal) and then
-/// `GDBusObjectManager`::object-removed signals are synthesized
+/// `GDBusObjectManagerClient:name`-owner is set to `nil` (this includes
+/// emission of the `GObject::notify` signal) and then
+/// `GDBusObjectManager::object`-removed signals are synthesized
 /// for all currently existing object proxies. Since
-/// `GDBusObjectManagerClient`:name-owner is `nil` when this happens, you can
+/// `GDBusObjectManagerClient:name`-owner is `nil` when this happens, you can
 /// use this information to disambiguate a synthesized signal from a
 /// genuine signal caused by object removal on the remote
 /// `GDBusObjectManager`. Similarly, when a new name owner appears,
-/// `GDBusObjectManager`::object-added signals are synthesized
-/// while `GDBusObjectManagerClient`:name-owner is still `nil`. Only when all
-/// object proxies have been added, the `GDBusObjectManagerClient`:name-owner
+/// `GDBusObjectManager::object`-added signals are synthesized
+/// while `GDBusObjectManagerClient:name`-owner is still `nil`. Only when all
+/// object proxies have been added, the `GDBusObjectManagerClient:name`-owner
 /// is set to the new name owner (this includes emission of the
-/// `GObject`::notify signal).  Furthermore, you are guaranteed that
-/// `GDBusObjectManagerClient`:name-owner will alternate between a name owner
+/// `GObject::notify` signal).  Furthermore, you are guaranteed that
+/// `GDBusObjectManagerClient:name`-owner will alternate between a name owner
 /// (e.g. `:1.42`) and `nil` even in the case where
 /// the name of interest is atomically replaced
 /// 
 /// Ultimately, `GDBusObjectManagerClient` is used to obtain `GDBusProxy`
 /// instances. All signals (including the
-/// org.freedesktop.DBus.Properties::PropertiesChanged signal)
+/// org.freedesktop.DBus.Properties`PropertiesChanged` signal)
 /// delivered to `GDBusProxy` instances are guaranteed to originate
 /// from the name owner. This guarantee along with the behavior
 /// described above, means that certain race conditions including the
@@ -4551,16 +4538,16 @@ public extension DBusObjectManagerClientRef {
 /// 
 /// To avoid having the application connect to signals on the returned
 /// `GDBusObjectProxy` and `GDBusProxy` objects, the
-/// `GDBusObject`::interface-added,
-/// `GDBusObject`::interface-removed,
-/// `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals
+/// `GDBusObject::interface`-added,
+/// `GDBusObject::interface`-removed,
+/// `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals
 /// are also emitted on the `GDBusObjectManagerClient` instance managing these
 /// objects. The signals emitted are
-/// `GDBusObjectManager`::interface-added,
-/// `GDBusObjectManager`::interface-removed,
-/// `GDBusObjectManagerClient`::interface-proxy-properties-changed and
-/// `GDBusObjectManagerClient`::interface-proxy-signal.
+/// `GDBusObjectManager::interface`-added,
+/// `GDBusObjectManager::interface`-removed,
+/// `GDBusObjectManagerClient::interface`-proxy-properties-changed and
+/// `GDBusObjectManagerClient::interface`-proxy-signal.
 /// 
 /// Note that all callbacks and signals are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
@@ -4607,7 +4594,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         self.init(UnsafeMutablePointer<GDBusObjectManagerClient>(opaquePointer))
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     public convenience init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
@@ -4617,7 +4604,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new_for_bus().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     public convenience init(busFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
@@ -4627,11 +4614,11 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         self.init(cast(rv))
     }
 
-    /// Like g_dbus_object_manager_client_new_sync() but takes a `GBusType` instead
+    /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
     /// of a `GDBusConnection`.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new_for_bus()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     public convenience init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4645,7 +4632,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// Creates a new `GDBusObjectManagerClient` object.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     public convenience init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4656,7 +4643,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         self.init(cast(rv))
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     public static func new(finish res: AsyncResultProtocol) throws -> DBusObjectManagerClient! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
@@ -4666,7 +4653,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
-    /// Finishes an operation started with g_dbus_object_manager_client_new_for_bus().
+    /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     public static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusObjectManagerClient! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
@@ -4676,11 +4663,11 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
-    /// Like g_dbus_object_manager_client_new_sync() but takes a `GBusType` instead
+    /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
     /// of a `GDBusConnection`.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new_for_bus()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     public static func newFor(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClient! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4694,7 +4681,7 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// Creates a new `GDBusObjectManagerClient` object.
     /// 
     /// This is a synchronous failable constructor - the calling thread is
-    /// blocked until a reply is received. See g_dbus_object_manager_client_new()
+    /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     public static func new(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClient! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4709,26 +4696,26 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
 
 public enum DBusObjectManagerClientPropertyName: String, PropertyNameProtocol {
     /// If this property is not `G_BUS_TYPE_NONE`, then
-    /// `GDBusObjectManagerClient`:connection must be `nil` and will be set to the
-    /// `GDBusConnection` obtained by calling g_bus_get() with the value
+    /// `GDBusObjectManagerClient:connection` must be `nil` and will be set to the
+    /// `GDBusConnection` obtained by calling `g_bus_get()` with the value
     /// of this property.
     case busType = "bus-type"
     /// The `GDBusConnection` to use.
     case connection = "connection"
     /// Flags from the `GDBusObjectManagerClientFlags` enumeration.
     case flags = "flags"
-    /// A `GDestroyNotify` for the `gpointer` user_data in `GDBusObjectManagerClient`:get-proxy-type-user-data.
+    /// A `GDestroyNotify` for the `gpointer` user_data in `GDBusObjectManagerClient:get`-proxy-type-user-data.
     case getProxyTypeDestroyNotify = "get-proxy-type-destroy-notify"
     /// The `GDBusProxyTypeFunc` to use when determining what `GType` to
     /// use for interface proxies or `nil`.
     case getProxyTypeFunc = "get-proxy-type-func"
-    /// The `gpointer` user_data to pass to `GDBusObjectManagerClient`:get-proxy-type-func.
+    /// The `gpointer` user_data to pass to `GDBusObjectManagerClient:get`-proxy-type-func.
     case getProxyTypeUserData = "get-proxy-type-user-data"
     /// The well-known name or unique name that the manager is for.
     case name = "name"
-    /// The unique name that owns `GDBusObjectManagerClient`:name or `nil` if
+    /// The unique name that owns `GDBusObjectManagerClient:name` or `nil` if
     /// no-one is currently owning the name. Connect to the
-    /// `GObject`::notify signal to track changes to this property.
+    /// `GObject::notify` signal to track changes to this property.
     case nameOwner = "name-owner"
     /// The object path the manager is for.
     case objectPath = "object-path"
@@ -4793,52 +4780,51 @@ public enum DBusObjectManagerClientSignalName: String, SignalNameProtocol {
     /// that `manager` was constructed in.
     case interfaceProxySignal = "interface-proxy-signal"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If this property is not `G_BUS_TYPE_NONE`, then
-    /// `GDBusObjectManagerClient`:connection must be `nil` and will be set to the
-    /// `GDBusConnection` obtained by calling g_bus_get() with the value
+    /// `GDBusObjectManagerClient:connection` must be `nil` and will be set to the
+    /// `GDBusConnection` obtained by calling `g_bus_get()` with the value
     /// of this property.
     case notifyBusType = "notify::bus-type"
     /// The `GDBusConnection` to use.
     case notifyConnection = "notify::connection"
     /// Flags from the `GDBusObjectManagerClientFlags` enumeration.
     case notifyFlags = "notify::flags"
-    /// A `GDestroyNotify` for the `gpointer` user_data in `GDBusObjectManagerClient`:get-proxy-type-user-data.
+    /// A `GDestroyNotify` for the `gpointer` user_data in `GDBusObjectManagerClient:get`-proxy-type-user-data.
     case notifyGetProxyTypeDestroyNotify = "notify::get-proxy-type-destroy-notify"
     /// The `GDBusProxyTypeFunc` to use when determining what `GType` to
     /// use for interface proxies or `nil`.
     case notifyGetProxyTypeFunc = "notify::get-proxy-type-func"
-    /// The `gpointer` user_data to pass to `GDBusObjectManagerClient`:get-proxy-type-func.
+    /// The `gpointer` user_data to pass to `GDBusObjectManagerClient:get`-proxy-type-func.
     case notifyGetProxyTypeUserData = "notify::get-proxy-type-user-data"
     /// The well-known name or unique name that the manager is for.
     case notifyName = "notify::name"
-    /// The unique name that owns `GDBusObjectManagerClient`:name or `nil` if
+    /// The unique name that owns `GDBusObjectManagerClient:name` or `nil` if
     /// no-one is currently owning the name. Connect to the
-    /// `GObject`::notify signal to track changes to this property.
+    /// `GObject::notify` signal to track changes to this property.
     case notifyNameOwner = "notify::name-owner"
     /// The object path the manager is for.
     case notifyObjectPath = "notify::object-path"
@@ -4897,8 +4883,8 @@ public extension DBusObjectManagerClientProtocol {
 
     /// The unique name that owns the name that `manager` is for or `nil` if
     /// no-one currently owns that name. You can connect to the
-    /// `GObject`::notify signal to track changes to the
-    /// `GDBusObjectManagerClient`:name-owner property.
+    /// `GObject::notify` signal to track changes to the
+    /// `GDBusObjectManagerClient:name`-owner property.
     func getNameOwner() -> String! {
         let rv = g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4933,13 +4919,13 @@ public extension DBusObjectManagerClientProtocol {
 
     /// The unique name that owns the name that `manager` is for or `nil` if
     /// no-one currently owns that name. You can connect to the
-    /// `GObject`::notify signal to track changes to the
-    /// `GDBusObjectManagerClient`:name-owner property.
+    /// `GObject::notify` signal to track changes to the
+    /// `GDBusObjectManagerClient:name`-owner property.
     var nameOwner: String! {
         /// The unique name that owns the name that `manager` is for or `nil` if
         /// no-one currently owns that name. You can connect to the
-        /// `GObject`::notify signal to track changes to the
-        /// `GDBusObjectManagerClient`:name-owner property.
+        /// `GObject::notify` signal to track changes to the
+        /// `GDBusObjectManagerClient:name`-owner property.
         get {
             let rv = g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -5061,7 +5047,7 @@ public extension DBusObjectManagerServerRef {
         /// Creates a new `GDBusObjectManagerServer` object.
     /// 
     /// The returned server isn't yet exported on any connection. To do so,
-    /// use g_dbus_object_manager_server_set_connection(). Normally you
+    /// use `g_dbus_object_manager_server_set_connection()`. Normally you
     /// want to export all of your objects before doing so to avoid
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
@@ -5138,7 +5124,7 @@ open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
     /// Creates a new `GDBusObjectManagerServer` object.
     /// 
     /// The returned server isn't yet exported on any connection. To do so,
-    /// use g_dbus_object_manager_server_set_connection(). Normally you
+    /// use `g_dbus_object_manager_server_set_connection()`. Normally you
     /// want to export all of your objects before doing so to avoid
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
@@ -5195,27 +5181,26 @@ public extension DBusObjectManagerServerProtocol {
 
 public enum DBusObjectManagerServerSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -5273,10 +5258,10 @@ public extension DBusObjectManagerServerProtocol {
     
     }
 
-    /// Like g_dbus_object_manager_server_export() but appends a string of
+    /// Like `g_dbus_object_manager_server_export()` but appends a string of
     /// the form _N (with N being a natural number) to `object`'s object path
     /// if an object with the given path already exists. As such, the
-    /// `GDBusObjectProxy`:g-object-path property of `object` may be modified.
+    /// `GDBusObjectProxy:g`-object-path property of `object` may be modified.
     func exportUniquely(object: DBusObjectSkeletonProtocol) {
         g_dbus_object_manager_server_export_uniquely(cast(dbus_object_manager_server_ptr), cast(object.ptr))
     
@@ -5509,27 +5494,26 @@ public extension DBusObjectProxyProtocol {
 
 public enum DBusObjectProxySignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -5773,33 +5757,32 @@ public enum DBusObjectSkeletonSignalName: String, SignalNameProtocol {
     /// determine if the method call is authorized.
     /// 
     /// This signal is like `GDBusInterfaceSkeleton`'s
-    /// `GDBusInterfaceSkeleton`::g-authorize-method signal,
+    /// `GDBusInterfaceSkeleton::g`-authorize-method signal,
     /// except that it is for the enclosing object.
     /// 
     /// The default class handler just returns `true`.
     case authorizeMethod = "authorize-method"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -5852,7 +5835,7 @@ public extension DBusObjectSkeletonProtocol {
     
     }
 
-    /// This method simply calls g_dbus_interface_skeleton_flush() on all
+    /// This method simply calls `g_dbus_interface_skeleton_flush()` on all
     /// interfaces belonging to `object`. See that method for when flushing
     /// is useful.
     func flush() {
@@ -5903,7 +5886,7 @@ public extension DBusObjectSkeletonProtocol {
 /// vanishes and reloaded when a name owner appears.
 /// 
 /// The unique name owner of the proxy's name is tracked and can be read from
-/// `GDBusProxy`:g-name-owner. Connect to the `GObject`::notify signal to
+/// `GDBusProxy:g`-name-owner. Connect to the `GObject::notify` signal to
 /// get notified of changes. Additionally, only signals and property
 /// changes emitted from the current name owner are considered and
 /// calls are always sent to the current name owner. This avoids a
@@ -5913,16 +5896,16 @@ public extension DBusObjectSkeletonProtocol {
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
-/// The generic `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals are not very convenient to work with.
+/// The generic `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
 /// class. This [example][gdbus-example-gdbus-codegen] shows how this can
 /// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
-/// that all signals (e.g. `GDBusProxy`::g-signal, `GDBusProxy`::g-properties-changed
-/// and `GObject`::notify) are emitted in the
+/// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
+/// and `GObject::notify`) are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread where the instance was constructed.
 /// 
@@ -5952,7 +5935,7 @@ public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusIn
 /// vanishes and reloaded when a name owner appears.
 /// 
 /// The unique name owner of the proxy's name is tracked and can be read from
-/// `GDBusProxy`:g-name-owner. Connect to the `GObject`::notify signal to
+/// `GDBusProxy:g`-name-owner. Connect to the `GObject::notify` signal to
 /// get notified of changes. Additionally, only signals and property
 /// changes emitted from the current name owner are considered and
 /// calls are always sent to the current name owner. This avoids a
@@ -5962,16 +5945,16 @@ public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusIn
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
-/// The generic `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals are not very convenient to work with.
+/// The generic `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
 /// class. This [example][gdbus-example-gdbus-codegen] shows how this can
 /// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
-/// that all signals (e.g. `GDBusProxy`::g-signal, `GDBusProxy`::g-properties-changed
-/// and `GObject`::notify) are emitted in the
+/// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
+/// and `GObject::notify`) are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread where the instance was constructed.
 /// 
@@ -6043,7 +6026,7 @@ public extension DBusProxyRef {
         self.init(cast(rv))
     }
 
-    /// Like g_dbus_proxy_new_sync() but takes a `GBusType` instead of a `GDBusConnection`.
+    /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
@@ -6061,7 +6044,7 @@ public extension DBusProxyRef {
     /// `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` flag is used.
     /// 
     /// If the `G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS` flag is not set, also sets up
-    /// match rules for signals. Connect to the `GDBusProxy`::g-signal signal
+    /// match rules for signals. Connect to the `GDBusProxy::g`-signal signal
     /// to handle signals from the remote object.
     /// 
     /// If both `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` and
@@ -6073,8 +6056,8 @@ public extension DBusProxyRef {
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     /// 
-    /// This is a synchronous failable constructor. See g_dbus_proxy_new()
-    /// and g_dbus_proxy_new_finish() for the asynchronous version.
+    /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
+    /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
@@ -6105,7 +6088,7 @@ public extension DBusProxyRef {
         return rv.map { DBusProxyRef(cast($0)) }
     }
 
-    /// Like g_dbus_proxy_new_sync() but takes a `GBusType` instead of a `GDBusConnection`.
+    /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
@@ -6123,7 +6106,7 @@ public extension DBusProxyRef {
     /// `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` flag is used.
     /// 
     /// If the `G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS` flag is not set, also sets up
-    /// match rules for signals. Connect to the `GDBusProxy`::g-signal signal
+    /// match rules for signals. Connect to the `GDBusProxy::g`-signal signal
     /// to handle signals from the remote object.
     /// 
     /// If both `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` and
@@ -6135,8 +6118,8 @@ public extension DBusProxyRef {
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     /// 
-    /// This is a synchronous failable constructor. See g_dbus_proxy_new()
-    /// and g_dbus_proxy_new_finish() for the asynchronous version.
+    /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
+    /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
@@ -6165,7 +6148,7 @@ public extension DBusProxyRef {
 /// vanishes and reloaded when a name owner appears.
 /// 
 /// The unique name owner of the proxy's name is tracked and can be read from
-/// `GDBusProxy`:g-name-owner. Connect to the `GObject`::notify signal to
+/// `GDBusProxy:g`-name-owner. Connect to the `GObject::notify` signal to
 /// get notified of changes. Additionally, only signals and property
 /// changes emitted from the current name owner are considered and
 /// calls are always sent to the current name owner. This avoids a
@@ -6175,16 +6158,16 @@ public extension DBusProxyRef {
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
-/// The generic `GDBusProxy`::g-properties-changed and
-/// `GDBusProxy`::g-signal signals are not very convenient to work with.
+/// The generic `GDBusProxy::g`-properties-changed and
+/// `GDBusProxy::g`-signal signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
 /// `GDBusProxy`, and have more natural properties and signals in your derived
 /// class. This [example][gdbus-example-gdbus-codegen] shows how this can
 /// easily be done using the [gdbus-codegen][gdbus-codegen] tool.
 /// 
 /// A `GDBusProxy` instance can be used from multiple threads but note
-/// that all signals (e.g. `GDBusProxy`::g-signal, `GDBusProxy`::g-properties-changed
-/// and `GObject`::notify) are emitted in the
+/// that all signals (e.g. `GDBusProxy::g`-signal, `GDBusProxy::g`-properties-changed
+/// and `GObject::notify`) are emitted in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// of the thread where the instance was constructed.
 /// 
@@ -6248,7 +6231,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
         self.init(cast(rv))
     }
 
-    /// Like g_dbus_proxy_new_sync() but takes a `GBusType` instead of a `GDBusConnection`.
+    /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     public convenience init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
@@ -6266,7 +6249,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` flag is used.
     /// 
     /// If the `G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS` flag is not set, also sets up
-    /// match rules for signals. Connect to the `GDBusProxy`::g-signal signal
+    /// match rules for signals. Connect to the `GDBusProxy::g`-signal signal
     /// to handle signals from the remote object.
     /// 
     /// If both `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` and
@@ -6278,8 +6261,8 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     /// 
-    /// This is a synchronous failable constructor. See g_dbus_proxy_new()
-    /// and g_dbus_proxy_new_finish() for the asynchronous version.
+    /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
+    /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     public convenience init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
@@ -6311,7 +6294,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
         return rv.map { DBusProxy(cast($0)) }
     }
 
-    /// Like g_dbus_proxy_new_sync() but takes a `GBusType` instead of a `GDBusConnection`.
+    /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     public static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
@@ -6329,7 +6312,7 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` flag is used.
     /// 
     /// If the `G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS` flag is not set, also sets up
-    /// match rules for signals. Connect to the `GDBusProxy`::g-signal signal
+    /// match rules for signals. Connect to the `GDBusProxy::g`-signal signal
     /// to handle signals from the remote object.
     /// 
     /// If both `G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES` and
@@ -6341,8 +6324,8 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// flags aren't set and no name owner currently exists, the message bus
     /// will be requested to launch a name owner for the name.
     /// 
-    /// This is a synchronous failable constructor. See g_dbus_proxy_new()
-    /// and g_dbus_proxy_new_finish() for the asynchronous version.
+    /// This is a synchronous failable constructor. See `g_dbus_proxy_new()`
+    /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example][gdbus-wellknown-proxy].
     public static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
@@ -6358,15 +6341,15 @@ open class DBusProxy: Object, DBusProxyProtocol {
 
 public enum DBusProxyPropertyName: String, PropertyNameProtocol {
     /// If this property is not `G_BUS_TYPE_NONE`, then
-    /// `GDBusProxy`:g-connection must be `nil` and will be set to the
-    /// `GDBusConnection` obtained by calling g_bus_get() with the value
+    /// `GDBusProxy:g`-connection must be `nil` and will be set to the
+    /// `GDBusConnection` obtained by calling `g_bus_get()` with the value
     /// of this property.
     case gBusType = "g-bus-type"
     /// The `GDBusConnection` the proxy is for.
     case gConnection = "g-connection"
     /// The timeout to use if -1 (specifying default timeout) is passed
-    /// as `timeout_msec` in the g_dbus_proxy_call() and
-    /// g_dbus_proxy_call_sync() functions.
+    /// as `timeout_msec` in the `g_dbus_proxy_call()` and
+    /// `g_dbus_proxy_call_sync()` functions.
     /// 
     /// This allows applications to set a proxy-wide timeout for all
     /// remote method invocations on the proxy. If this property is -1,
@@ -6386,14 +6369,14 @@ public enum DBusProxyPropertyName: String, PropertyNameProtocol {
     ///   discarded and the `GError` is set to `G_IO_ERROR_INVALID_ARGUMENT`.
     /// 
     /// - Received signals that have a type signature mismatch are dropped and
-    ///   a warning is logged via g_warning().
+    ///   a warning is logged via `g_warning()`.
     /// 
-    /// - Properties received via the initial `GetAll()` call or via the
-    ///   `::PropertiesChanged` signal (on the
+    /// - Properties received via the initial ``GetAll()`` call or via the
+    ///   ``PropertiesChanged`` signal (on the
     ///   [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties)
-    ///   interface) or set using g_dbus_proxy_set_cached_property()
+    ///   interface) or set using `g_dbus_proxy_set_cached_property()`
     ///   with a type signature mismatch are ignored and a warning is
-    ///   logged via g_warning().
+    ///   logged via `g_warning()`.
     /// 
     /// Note that these checks are never done on methods, signals and
     /// properties that are not referenced in the given
@@ -6404,8 +6387,8 @@ public enum DBusProxyPropertyName: String, PropertyNameProtocol {
     case gInterfaceName = "g-interface-name"
     /// The well-known or unique name that the proxy is for.
     case gName = "g-name"
-    /// The unique name that owns `GDBusProxy`:g-name or `nil` if no-one
-    /// currently owns that name. You may connect to `GObject`::notify signal to
+    /// The unique name that owns `GDBusProxy:g`-name or `nil` if no-one
+    /// currently owns that name. You may connect to `GObject::notify` signal to
     /// track changes to this property.
     case gNameOwner = "g-name-owner"
     /// The object path the proxy is for.
@@ -6465,41 +6448,40 @@ public enum DBusProxySignalName: String, SignalNameProtocol {
     /// Emitted when a signal from the remote object and interface that `proxy` is for, has been received.
     case gSignal = "g-signal"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If this property is not `G_BUS_TYPE_NONE`, then
-    /// `GDBusProxy`:g-connection must be `nil` and will be set to the
-    /// `GDBusConnection` obtained by calling g_bus_get() with the value
+    /// `GDBusProxy:g`-connection must be `nil` and will be set to the
+    /// `GDBusConnection` obtained by calling `g_bus_get()` with the value
     /// of this property.
     case notifyGBusType = "notify::g-bus-type"
     /// The `GDBusConnection` the proxy is for.
     case notifyGConnection = "notify::g-connection"
     /// The timeout to use if -1 (specifying default timeout) is passed
-    /// as `timeout_msec` in the g_dbus_proxy_call() and
-    /// g_dbus_proxy_call_sync() functions.
+    /// as `timeout_msec` in the `g_dbus_proxy_call()` and
+    /// `g_dbus_proxy_call_sync()` functions.
     /// 
     /// This allows applications to set a proxy-wide timeout for all
     /// remote method invocations on the proxy. If this property is -1,
@@ -6519,14 +6501,14 @@ public enum DBusProxySignalName: String, SignalNameProtocol {
     ///   discarded and the `GError` is set to `G_IO_ERROR_INVALID_ARGUMENT`.
     /// 
     /// - Received signals that have a type signature mismatch are dropped and
-    ///   a warning is logged via g_warning().
+    ///   a warning is logged via `g_warning()`.
     /// 
-    /// - Properties received via the initial `GetAll()` call or via the
-    ///   `::PropertiesChanged` signal (on the
+    /// - Properties received via the initial ``GetAll()`` call or via the
+    ///   ``PropertiesChanged`` signal (on the
     ///   [org.freedesktop.DBus.Properties](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties)
-    ///   interface) or set using g_dbus_proxy_set_cached_property()
+    ///   interface) or set using `g_dbus_proxy_set_cached_property()`
     ///   with a type signature mismatch are ignored and a warning is
-    ///   logged via g_warning().
+    ///   logged via `g_warning()`.
     /// 
     /// Note that these checks are never done on methods, signals and
     /// properties that are not referenced in the given
@@ -6537,8 +6519,8 @@ public enum DBusProxySignalName: String, SignalNameProtocol {
     case notifyGInterfaceName = "notify::g-interface-name"
     /// The well-known or unique name that the proxy is for.
     case notifyGName = "notify::g-name"
-    /// The unique name that owns `GDBusProxy`:g-name or `nil` if no-one
-    /// currently owns that name. You may connect to `GObject`::notify signal to
+    /// The unique name that owns `GDBusProxy:g`-name or `nil` if no-one
+    /// currently owns that name. You may connect to `GObject::notify` signal to
     /// track changes to this property.
     case notifyGNameOwner = "notify::g-name-owner"
     /// The object path the proxy is for.
@@ -6591,7 +6573,7 @@ public extension DBusProxyProtocol {
     /// `G_IO_ERROR_INVALID_ARGUMENT`.
     /// 
     /// If the `parameters` `GVariant` is floating, it is consumed. This allows
-    /// convenient 'inline' use of g_variant_new(), e.g.:
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
     /// (C Language Example):
     /// ```C
     ///  g_dbus_proxy_call (proxy,
@@ -6606,17 +6588,16 @@ public extension DBusProxyProtocol {
     ///                     &data);
     /// ```
     /// 
-    /// 
     /// If `proxy` has an expected interface (see
-    /// `GDBusProxy`:g-interface-info) and `method_name` is referenced by it,
+    /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
     /// then the return value is checked against the return type.
     /// 
     /// This is an asynchronous method. When the operation is finished,
     /// `callback` will be invoked in the
     /// [thread-default main context][g-main-context-push-thread-default]
     /// of the thread you are calling this method from.
-    /// You can then call g_dbus_proxy_call_finish() to get the result of
-    /// the operation. See g_dbus_proxy_call_sync() for the synchronous
+    /// You can then call `g_dbus_proxy_call_finish()` to get the result of
+    /// the operation. See `g_dbus_proxy_call_sync()` for the synchronous
     /// version of this method.
     /// 
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
@@ -6626,7 +6607,7 @@ public extension DBusProxyProtocol {
     
     }
 
-    /// Finishes an operation started with g_dbus_proxy_call().
+    /// Finishes an operation started with `g_dbus_proxy_call()`.
     func callFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_call_finish(cast(dbus_proxy_ptr), cast(res.ptr), &error)
@@ -6650,7 +6631,7 @@ public extension DBusProxyProtocol {
     /// `G_IO_ERROR_INVALID_ARGUMENT`.
     /// 
     /// If the `parameters` `GVariant` is floating, it is consumed. This allows
-    /// convenient 'inline' use of g_variant_new(), e.g.:
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
     /// (C Language Example):
     /// ```C
     ///  g_dbus_proxy_call_sync (proxy,
@@ -6664,13 +6645,12 @@ public extension DBusProxyProtocol {
     ///                          &error);
     /// ```
     /// 
-    /// 
     /// The calling thread is blocked until a reply is received. See
-    /// g_dbus_proxy_call() for the asynchronous version of this
+    /// `g_dbus_proxy_call()` for the asynchronous version of this
     /// method.
     /// 
     /// If `proxy` has an expected interface (see
-    /// `GDBusProxy`:g-interface-info) and `method_name` is referenced by it,
+    /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
     /// then the return value is checked against the return type.
     func callSync(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -6681,7 +6661,7 @@ public extension DBusProxyProtocol {
         return cast(rv)
     }
 
-    /// Like g_dbus_proxy_call() but also takes a `GUnixFDList` object.
+    /// Like `g_dbus_proxy_call()` but also takes a `GUnixFDList` object.
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdList(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -6689,7 +6669,7 @@ public extension DBusProxyProtocol {
     
     }
 
-    /// Finishes an operation started with g_dbus_proxy_call_with_unix_fd_list().
+    /// Finishes an operation started with `g_dbus_proxy_call_with_unix_fd_list()`.
     func callWithUnixFdListFinish(outFdList out_fd_list: UnixFDListProtocol, res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_call_with_unix_fd_list_finish(cast(dbus_proxy_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error)
@@ -6699,7 +6679,7 @@ public extension DBusProxyProtocol {
         return cast(rv)
     }
 
-    /// Like g_dbus_proxy_call_sync() but also takes and returns `GUnixFDList` objects.
+    /// Like `g_dbus_proxy_call_sync()` but also takes and returns `GUnixFDList` objects.
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdListSync(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, outFdList out_fd_list: UnixFDListProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
@@ -6715,7 +6695,7 @@ public extension DBusProxyProtocol {
     /// blocking IO.
     /// 
     /// If `proxy` has an expected interface (see
-    /// `GDBusProxy`:g-interface-info) and `property_name` is referenced by
+    /// `GDBusProxy:g`-interface-info) and `property_name` is referenced by
     /// it, then `value` is checked against the type of the property.
     func getCachedProperty(propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
         let rv = g_dbus_proxy_get_cached_property(cast(dbus_proxy_ptr), property_name)
@@ -6735,10 +6715,10 @@ public extension DBusProxyProtocol {
     }
 
     /// Gets the timeout to use if -1 (specifying default timeout) is
-    /// passed as `timeout_msec` in the g_dbus_proxy_call() and
-    /// g_dbus_proxy_call_sync() functions.
+    /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
+    /// `g_dbus_proxy_call_sync()` functions.
     /// 
-    /// See the `GDBusProxy`:g-default-timeout property for more details.
+    /// See the `GDBusProxy:g`-default-timeout property for more details.
     func getDefaultTimeout() -> CInt {
         let rv = g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr))
         return CInt(rv)
@@ -6751,7 +6731,7 @@ public extension DBusProxyProtocol {
     }
 
     /// Returns the `GDBusInterfaceInfo`, if any, specifying the interface
-    /// that `proxy` conforms to. See the `GDBusProxy`:g-interface-info
+    /// that `proxy` conforms to. See the `GDBusProxy:g`-interface-info
     /// property for more details.
     func getInterfaceInfo() -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
         let rv = g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr))
@@ -6772,8 +6752,8 @@ public extension DBusProxyProtocol {
 
     /// The unique name that owns the name that `proxy` is for or `nil` if
     /// no-one currently owns that name. You may connect to the
-    /// `GObject`::notify signal to track changes to the
-    /// `GDBusProxy`:g-name-owner property.
+    /// `GObject::notify` signal to track changes to the
+    /// `GDBusProxy:g`-name-owner property.
     func getNameOwner() -> String! {
         let rv = g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6792,11 +6772,11 @@ public extension DBusProxyProtocol {
     /// property cache.
     /// 
     /// If `proxy` has an expected interface (see
-    /// `GDBusProxy`:g-interface-info) and `property_name` is referenced by
+    /// `GDBusProxy:g`-interface-info) and `property_name` is referenced by
     /// it, then `value` is checked against the type of the property.
     /// 
     /// If the `value` `GVariant` is floating, it is consumed. This allows
-    /// convenient 'inline' use of g_variant_new(), e.g.
+    /// convenient 'inline' use of `g_variant_new()`, e.g.
     /// (C Language Example):
     /// ```C
     ///  g_dbus_proxy_set_cached_property (proxy,
@@ -6805,7 +6785,6 @@ public extension DBusProxyProtocol {
     ///                                                  "A String",
     ///                                                  42));
     /// ```
-    /// 
     /// 
     /// Normally you will not need to use this method since `proxy`
     /// is tracking changes using the
@@ -6818,25 +6797,25 @@ public extension DBusProxyProtocol {
     /// `ChatroomParticipants` which is an array of strings. Instead of
     /// transmitting the same (long) array every time the property changes,
     /// it is more efficient to only transmit the delta using e.g. signals
-    /// `ChatroomParticipantJoined(String name)` and
-    /// `ChatroomParticipantParted(String name)`.
+    /// ``ChatroomParticipantJoined(String name)`` and
+    /// ``ChatroomParticipantParted(String name)``.
     func setCachedProperty(propertyName property_name: UnsafePointer<gchar>, value: VariantProtocol) {
         g_dbus_proxy_set_cached_property(cast(dbus_proxy_ptr), property_name, cast(value.ptr))
     
     }
 
     /// Sets the timeout to use if -1 (specifying default timeout) is
-    /// passed as `timeout_msec` in the g_dbus_proxy_call() and
-    /// g_dbus_proxy_call_sync() functions.
+    /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
+    /// `g_dbus_proxy_call_sync()` functions.
     /// 
-    /// See the `GDBusProxy`:g-default-timeout property for more details.
+    /// See the `GDBusProxy:g`-default-timeout property for more details.
     func setDefaultTimeout(timeoutMsec timeout_msec: CInt) {
         g_dbus_proxy_set_default_timeout(cast(dbus_proxy_ptr), gint(timeout_msec))
     
     }
 
     /// Ensure that interactions with `proxy` conform to the given
-    /// interface. See the `GDBusProxy`:g-interface-info property for more
+    /// interface. See the `GDBusProxy:g`-interface-info property for more
     /// details.
     func setInterface(info: DBusInterfaceInfoProtocol) {
         g_dbus_proxy_set_interface_info(cast(dbus_proxy_ptr), cast(info.ptr))
@@ -6861,25 +6840,25 @@ public extension DBusProxyProtocol {
     }
 
     /// Gets the timeout to use if -1 (specifying default timeout) is
-    /// passed as `timeout_msec` in the g_dbus_proxy_call() and
-    /// g_dbus_proxy_call_sync() functions.
+    /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
+    /// `g_dbus_proxy_call_sync()` functions.
     /// 
-    /// See the `GDBusProxy`:g-default-timeout property for more details.
+    /// See the `GDBusProxy:g`-default-timeout property for more details.
     var defaultTimeout: CInt {
         /// Gets the timeout to use if -1 (specifying default timeout) is
-        /// passed as `timeout_msec` in the g_dbus_proxy_call() and
-        /// g_dbus_proxy_call_sync() functions.
+        /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
+        /// `g_dbus_proxy_call_sync()` functions.
         /// 
-        /// See the `GDBusProxy`:g-default-timeout property for more details.
+        /// See the `GDBusProxy:g`-default-timeout property for more details.
         get {
             let rv = g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr))
             return CInt(rv)
         }
         /// Sets the timeout to use if -1 (specifying default timeout) is
-        /// passed as `timeout_msec` in the g_dbus_proxy_call() and
-        /// g_dbus_proxy_call_sync() functions.
+        /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
+        /// `g_dbus_proxy_call_sync()` functions.
         /// 
-        /// See the `GDBusProxy`:g-default-timeout property for more details.
+        /// See the `GDBusProxy:g`-default-timeout property for more details.
         nonmutating set {
             g_dbus_proxy_set_default_timeout(cast(dbus_proxy_ptr), gint(newValue))
         }
@@ -6895,18 +6874,18 @@ public extension DBusProxyProtocol {
     }
 
     /// Returns the `GDBusInterfaceInfo`, if any, specifying the interface
-    /// that `proxy` conforms to. See the `GDBusProxy`:g-interface-info
+    /// that `proxy` conforms to. See the `GDBusProxy:g`-interface-info
     /// property for more details.
     var interfaceInfo: UnsafeMutablePointer<GDBusInterfaceInfo>! {
         /// Returns the `GDBusInterfaceInfo`, if any, specifying the interface
-        /// that `proxy` conforms to. See the `GDBusProxy`:g-interface-info
+        /// that `proxy` conforms to. See the `GDBusProxy:g`-interface-info
         /// property for more details.
         get {
             let rv = g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr))
             return cast(rv)
         }
         /// Ensure that interactions with `proxy` conform to the given
-        /// interface. See the `GDBusProxy`:g-interface-info property for more
+        /// interface. See the `GDBusProxy:g`-interface-info property for more
         /// details.
         nonmutating set {
             g_dbus_proxy_set_interface_info(cast(dbus_proxy_ptr), cast(newValue))
@@ -6933,13 +6912,13 @@ public extension DBusProxyProtocol {
 
     /// The unique name that owns the name that `proxy` is for or `nil` if
     /// no-one currently owns that name. You may connect to the
-    /// `GObject`::notify signal to track changes to the
-    /// `GDBusProxy`:g-name-owner property.
+    /// `GObject::notify` signal to track changes to the
+    /// `GDBusProxy:g`-name-owner property.
     var nameOwner: String! {
         /// The unique name that owns the name that `proxy` is for or `nil` if
         /// no-one currently owns that name. You may connect to the
-        /// `GObject`::notify signal to track changes to the
-        /// `GDBusProxy`:g-name-owner property.
+        /// `GObject::notify` signal to track changes to the
+        /// `GDBusProxy:g`-name-owner property.
         get {
             let rv = g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6972,7 +6951,7 @@ public extension DBusProxyProtocol {
 /// implement the org.freedesktop.DBus interface.
 /// 
 /// To just export an object on a well-known name on a message bus, such as the
-/// session or system bus, you should instead use g_bus_own_name().
+/// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with G-DBus can be found
 /// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
@@ -7000,7 +6979,7 @@ public protocol DBusServerProtocol: ObjectProtocol, InitableProtocol {
 /// implement the org.freedesktop.DBus interface.
 /// 
 /// To just export an object on a well-known name on a message bus, such as the
-/// session or system bus, you should instead use g_bus_own_name().
+/// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with G-DBus can be found
 /// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
@@ -7058,18 +7037,18 @@ public extension DBusServerRef {
         /// Creates a new D-Bus server that listens on the first address in
     /// `address` that works.
     /// 
-    /// Once constructed, you can use g_dbus_server_get_client_address() to
+    /// Once constructed, you can use `g_dbus_server_get_client_address()` to
     /// get a D-Bus address string that clients can use to connect.
     /// 
     /// To have control over the available authentication mechanisms and
     /// the users that are authorized to connect, it is strongly recommended
     /// to provide a non-`nil` `GDBusAuthObserver`.
     /// 
-    /// Connect to the `GDBusServer`::new-connection signal to handle
+    /// Connect to the `GDBusServer::new`-connection signal to handle
     /// incoming connections.
     /// 
     /// The returned `GDBusServer` isn't active - you have to start it with
-    /// g_dbus_server_start().
+    /// `g_dbus_server_start()`.
     /// 
     /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
     /// 
@@ -7086,18 +7065,18 @@ public extension DBusServerRef {
     /// Creates a new D-Bus server that listens on the first address in
     /// `address` that works.
     /// 
-    /// Once constructed, you can use g_dbus_server_get_client_address() to
+    /// Once constructed, you can use `g_dbus_server_get_client_address()` to
     /// get a D-Bus address string that clients can use to connect.
     /// 
     /// To have control over the available authentication mechanisms and
     /// the users that are authorized to connect, it is strongly recommended
     /// to provide a non-`nil` `GDBusAuthObserver`.
     /// 
-    /// Connect to the `GDBusServer`::new-connection signal to handle
+    /// Connect to the `GDBusServer::new`-connection signal to handle
     /// incoming connections.
     /// 
     /// The returned `GDBusServer` isn't active - you have to start it with
-    /// g_dbus_server_start().
+    /// `g_dbus_server_start()`.
     /// 
     /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
     /// 
@@ -7124,7 +7103,7 @@ public extension DBusServerRef {
 /// implement the org.freedesktop.DBus interface.
 /// 
 /// To just export an object on a well-known name on a message bus, such as the
-/// session or system bus, you should instead use g_bus_own_name().
+/// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with G-DBus can be found
 /// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
@@ -7174,18 +7153,18 @@ open class DBusServer: Object, DBusServerProtocol {
     /// Creates a new D-Bus server that listens on the first address in
     /// `address` that works.
     /// 
-    /// Once constructed, you can use g_dbus_server_get_client_address() to
+    /// Once constructed, you can use `g_dbus_server_get_client_address()` to
     /// get a D-Bus address string that clients can use to connect.
     /// 
     /// To have control over the available authentication mechanisms and
     /// the users that are authorized to connect, it is strongly recommended
     /// to provide a non-`nil` `GDBusAuthObserver`.
     /// 
-    /// Connect to the `GDBusServer`::new-connection signal to handle
+    /// Connect to the `GDBusServer::new`-connection signal to handle
     /// incoming connections.
     /// 
     /// The returned `GDBusServer` isn't active - you have to start it with
-    /// g_dbus_server_start().
+    /// `g_dbus_server_start()`.
     /// 
     /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
     /// 
@@ -7203,18 +7182,18 @@ open class DBusServer: Object, DBusServerProtocol {
     /// Creates a new D-Bus server that listens on the first address in
     /// `address` that works.
     /// 
-    /// Once constructed, you can use g_dbus_server_get_client_address() to
+    /// Once constructed, you can use `g_dbus_server_get_client_address()` to
     /// get a D-Bus address string that clients can use to connect.
     /// 
     /// To have control over the available authentication mechanisms and
     /// the users that are authorized to connect, it is strongly recommended
     /// to provide a non-`nil` `GDBusAuthObserver`.
     /// 
-    /// Connect to the `GDBusServer`::new-connection signal to handle
+    /// Connect to the `GDBusServer::new`-connection signal to handle
     /// incoming connections.
     /// 
     /// The returned `GDBusServer` isn't active - you have to start it with
-    /// g_dbus_server_start().
+    /// `g_dbus_server_start()`.
     /// 
     /// `GDBusServer` is used in this [example][gdbus-peer-to-peer].
     /// 
@@ -7284,17 +7263,17 @@ public extension DBusServerProtocol {
 
 public enum DBusServerSignalName: String, SignalNameProtocol {
     /// Emitted when a new authenticated connection has been made. Use
-    /// g_dbus_connection_get_peer_credentials() to figure out what
+    /// `g_dbus_connection_get_peer_credentials()` to figure out what
     /// identity (if any), was authenticated.
     /// 
     /// If you want to accept the connection, take a reference to the
     /// `connection` object and return `true`. When you are done with the
-    /// connection call g_dbus_connection_close() and give up your
+    /// connection call `g_dbus_connection_close()` and give up your
     /// reference. Note that the other peer may disconnect at any time -
     /// a typical thing to do when accepting a connection is to listen to
-    /// the `GDBusConnection`::closed signal.
+    /// the `GDBusConnection::closed` signal.
     /// 
-    /// If `GDBusServer`:flags contains `G_DBUS_SERVER_FLAGS_RUN_IN_THREAD`
+    /// If `GDBusServer:flags` contains `G_DBUS_SERVER_FLAGS_RUN_IN_THREAD`
     /// then the signal is emitted in a new thread dedicated to the
     /// connection. Otherwise the signal is emitted in the
     /// [thread-default main context][g-main-context-push-thread-default]
@@ -7302,31 +7281,30 @@ public enum DBusServerSignalName: String, SignalNameProtocol {
     /// 
     /// You are guaranteed that signal handlers for this signal runs
     /// before incoming messages on `connection` are processed. This means
-    /// that it's suitable to call g_dbus_connection_register_object() or
+    /// that it's suitable to call `g_dbus_connection_register_object()` or
     /// similar from the signal handler.
     case newConnection = "new-connection"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -7626,27 +7604,26 @@ public extension DataInputStreamProtocol {
 
 public enum DataInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -7715,7 +7692,7 @@ public extension DataInputStreamProtocol {
     /// Reads a 16-bit/2-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order() and g_data_input_stream_set_byte_order().
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     func readInt16(cancellable: CancellableProtocol) throws -> Int16 {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_data_input_stream_read_int16(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
@@ -7728,7 +7705,7 @@ public extension DataInputStreamProtocol {
     /// Reads a signed 32-bit/4-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order() and g_data_input_stream_set_byte_order().
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -7745,7 +7722,7 @@ public extension DataInputStreamProtocol {
     /// Reads a 64-bit/8-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order() and g_data_input_stream_set_byte_order().
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -7775,11 +7752,11 @@ public extension DataInputStreamProtocol {
         return cast(rv)
     }
 
-    /// The asynchronous version of g_data_input_stream_read_line().  It is
+    /// The asynchronous version of `g_data_input_stream_read_line()`.  It is
     /// an error to have two outstanding calls to this function.
     /// 
     /// When the operation is finished, `callback` will be called. You
-    /// can then call g_data_input_stream_read_line_finish() to get
+    /// can then call `g_data_input_stream_read_line_finish()` to get
     /// the result of the operation.
     func readLineAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_data_input_stream_read_line_async(cast(data_input_stream_ptr), gint(io_priority), cast(cancellable.ptr), callback, cast(user_data))
@@ -7787,8 +7764,8 @@ public extension DataInputStreamProtocol {
     }
 
     /// Finish an asynchronous call started by
-    /// g_data_input_stream_read_line_async().  Note the warning about
-    /// string encoding in g_data_input_stream_read_line() applies here as
+    /// `g_data_input_stream_read_line_async()`.  Note the warning about
+    /// string encoding in `g_data_input_stream_read_line()` applies here as
     /// well.
     func readLineFinish(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<CChar>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -7800,7 +7777,7 @@ public extension DataInputStreamProtocol {
     }
 
     /// Finish an asynchronous call started by
-    /// g_data_input_stream_read_line_async().
+    /// `g_data_input_stream_read_line_async()`.
     func readLineFinishUTF8(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> String! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_data_input_stream_read_line_finish_utf8(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error)
@@ -7827,7 +7804,7 @@ public extension DataInputStreamProtocol {
     /// Reads an unsigned 16-bit/2-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order() and g_data_input_stream_set_byte_order().
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     func readUint16(cancellable: CancellableProtocol) throws -> UInt16 {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_data_input_stream_read_uint16(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
@@ -7840,7 +7817,7 @@ public extension DataInputStreamProtocol {
     /// Reads an unsigned 32-bit/4-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order() and g_data_input_stream_set_byte_order().
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -7857,7 +7834,7 @@ public extension DataInputStreamProtocol {
     /// Reads an unsigned 64-bit/8-byte value from `stream`.
     /// 
     /// In order to get the correct byte order for this read operation,
-    /// see g_data_input_stream_get_byte_order().
+    /// see `g_data_input_stream_get_byte_order()`.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -7874,13 +7851,13 @@ public extension DataInputStreamProtocol {
     /// Reads a string from the data input stream, up to the first
     /// occurrence of any of the stop characters.
     /// 
-    /// Note that, in contrast to g_data_input_stream_read_until_async(),
+    /// Note that, in contrast to `g_data_input_stream_read_until_async()`,
     /// this function consumes the stop character that it finds.
     /// 
     /// Don't use this function in new code.  Its functionality is
-    /// inconsistent with g_data_input_stream_read_until_async().  Both
+    /// inconsistent with `g_data_input_stream_read_until_async()`.  Both
     /// functions will be marked as deprecated in a future release.  Use
-    /// g_data_input_stream_read_upto() instead, but note that that function
+    /// `g_data_input_stream_read_upto()` instead, but note that that function
     /// does not consume the stop character.
     ///
     /// **read_until is deprecated:**
@@ -7895,21 +7872,21 @@ public extension DataInputStreamProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// The asynchronous version of g_data_input_stream_read_until().
+    /// The asynchronous version of `g_data_input_stream_read_until()`.
     /// It is an error to have two outstanding calls to this function.
     /// 
-    /// Note that, in contrast to g_data_input_stream_read_until(),
+    /// Note that, in contrast to `g_data_input_stream_read_until()`,
     /// this function does not consume the stop character that it finds.  You
     /// must read it for yourself.
     /// 
     /// When the operation is finished, `callback` will be called. You
-    /// can then call g_data_input_stream_read_until_finish() to get
+    /// can then call `g_data_input_stream_read_until_finish()` to get
     /// the result of the operation.
     /// 
     /// Don't use this function in new code.  Its functionality is
-    /// inconsistent with g_data_input_stream_read_until().  Both functions
+    /// inconsistent with `g_data_input_stream_read_until()`.  Both functions
     /// will be marked as deprecated in a future release.  Use
-    /// g_data_input_stream_read_upto_async() instead.
+    /// `g_data_input_stream_read_upto_async()` instead.
     ///
     /// **read_until_async is deprecated:**
     /// Use g_data_input_stream_read_upto_async() instead, which
@@ -7920,7 +7897,7 @@ public extension DataInputStreamProtocol {
     }
 
     /// Finish an asynchronous call started by
-    /// g_data_input_stream_read_until_async().
+    /// `g_data_input_stream_read_until_async()`.
     ///
     /// **read_until_finish is deprecated:**
     /// Use g_data_input_stream_read_upto_finish() instead, which
@@ -7937,10 +7914,10 @@ public extension DataInputStreamProtocol {
     /// Reads a string from the data input stream, up to the first
     /// occurrence of any of the stop characters.
     /// 
-    /// In contrast to g_data_input_stream_read_until(), this function
+    /// In contrast to `g_data_input_stream_read_until()`, this function
     /// does not consume the stop character. You have to use
-    /// g_data_input_stream_read_byte() to get it before calling
-    /// g_data_input_stream_read_upto() again.
+    /// `g_data_input_stream_read_byte()` to get it before calling
+    /// `g_data_input_stream_read_upto()` again.
     /// 
     /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
     /// specified.
@@ -7955,19 +7932,19 @@ public extension DataInputStreamProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// The asynchronous version of g_data_input_stream_read_upto().
+    /// The asynchronous version of `g_data_input_stream_read_upto()`.
     /// It is an error to have two outstanding calls to this function.
     /// 
-    /// In contrast to g_data_input_stream_read_until(), this function
+    /// In contrast to `g_data_input_stream_read_until()`, this function
     /// does not consume the stop character. You have to use
-    /// g_data_input_stream_read_byte() to get it before calling
-    /// g_data_input_stream_read_upto() again.
+    /// `g_data_input_stream_read_byte()` to get it before calling
+    /// `g_data_input_stream_read_upto()` again.
     /// 
     /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
     /// specified.
     /// 
     /// When the operation is finished, `callback` will be called. You
-    /// can then call g_data_input_stream_read_upto_finish() to get
+    /// can then call `g_data_input_stream_read_upto_finish()` to get
     /// the result of the operation.
     func readUptoAsync(stopChars stop_chars: UnsafePointer<gchar>, stopCharsLen stop_chars_len: gssize, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_data_input_stream_read_upto_async(cast(data_input_stream_ptr), stop_chars, stop_chars_len, gint(io_priority), cast(cancellable.ptr), callback, cast(user_data))
@@ -7975,11 +7952,11 @@ public extension DataInputStreamProtocol {
     }
 
     /// Finish an asynchronous call started by
-    /// g_data_input_stream_read_upto_async().
+    /// `g_data_input_stream_read_upto_async()`.
     /// 
     /// Note that this function does not consume the stop character. You
-    /// have to use g_data_input_stream_read_byte() to get it before calling
-    /// g_data_input_stream_read_upto_async() again.
+    /// have to use `g_data_input_stream_read_byte()` to get it before calling
+    /// `g_data_input_stream_read_upto_async()` again.
     /// 
     /// The returned string will always be nul-terminated on success.
     func readUptoFinish(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> String! {
@@ -8216,27 +8193,26 @@ public extension DataOutputStreamProtocol {
 
 public enum DataOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -8593,27 +8569,26 @@ public extension EmblemProtocol {
 
 public enum EmblemSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.

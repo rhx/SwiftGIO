@@ -12,13 +12,13 @@ import GLibObject
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
-/// g_action_activate().  This results in the 'activate' signal being
+/// `g_action_activate()`.  This results in the 'activate' signal being
 /// emitted.  An activation has a `GVariant` parameter (which may be
 /// `nil`).  The correct type for the parameter is determined by a static
 /// parameter type (which is given at construction time).
 /// 
 /// An action may optionally have a state, in which case the state may be
-/// set with g_action_change_state().  This call takes a `GVariant`.  The
+/// set with `g_action_change_state()`.  This call takes a `GVariant`.  The
 /// correct type for the state is determined by a static state type
 /// (which is given at construction time).
 /// 
@@ -33,7 +33,7 @@ import GLibObject
 /// name of the action, the parameter type, the enabled state, the
 /// optional state type and the state and emitting the appropriate
 /// signals when these change.  The implementor is responsible for filtering
-/// calls to g_action_activate() and g_action_change_state() for type
+/// calls to `g_action_activate()` and `g_action_change_state()` for type
 /// safety and for the state being enabled.
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
@@ -53,13 +53,13 @@ public protocol ActionProtocol {
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
-/// g_action_activate().  This results in the 'activate' signal being
+/// `g_action_activate()`.  This results in the 'activate' signal being
 /// emitted.  An activation has a `GVariant` parameter (which may be
 /// `nil`).  The correct type for the parameter is determined by a static
 /// parameter type (which is given at construction time).
 /// 
 /// An action may optionally have a state, in which case the state may be
-/// set with g_action_change_state().  This call takes a `GVariant`.  The
+/// set with `g_action_change_state()`.  This call takes a `GVariant`.  The
 /// correct type for the state is determined by a static state type
 /// (which is given at construction time).
 /// 
@@ -74,7 +74,7 @@ public protocol ActionProtocol {
 /// name of the action, the parameter type, the enabled state, the
 /// optional state type and the state and emitting the appropriate
 /// signals when these change.  The implementor is responsible for filtering
-/// calls to g_action_activate() and g_action_change_state() for type
+/// calls to `g_action_activate()` and `g_action_change_state()` for type
 /// safety and for the state being enabled.
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
@@ -134,13 +134,13 @@ public extension ActionRef {
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
-/// g_action_activate().  This results in the 'activate' signal being
+/// `g_action_activate()`.  This results in the 'activate' signal being
 /// emitted.  An activation has a `GVariant` parameter (which may be
 /// `nil`).  The correct type for the parameter is determined by a static
 /// parameter type (which is given at construction time).
 /// 
 /// An action may optionally have a state, in which case the state may be
-/// set with g_action_change_state().  This call takes a `GVariant`.  The
+/// set with `g_action_change_state()`.  This call takes a `GVariant`.  The
 /// correct type for the state is determined by a static state type
 /// (which is given at construction time).
 /// 
@@ -155,7 +155,7 @@ public extension ActionRef {
 /// name of the action, the parameter type, the enabled state, the
 /// optional state type and the state and emitting the appropriate
 /// signals when these change.  The implementor is responsible for filtering
-/// calls to g_action_activate() and g_action_change_state() for type
+/// calls to `g_action_activate()` and `g_action_change_state()` for type
 /// safety and for the state being enabled.
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
@@ -214,8 +214,8 @@ open class Action: ActionProtocol {
 public enum ActionPropertyName: String, PropertyNameProtocol {
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case enabled = "enabled"
     /// The name of the action.  This is mostly meaningful for identifying
     /// the action once it has been added to a `GActionGroup`. It is immutable.
@@ -271,8 +271,8 @@ public enum ActionSignalName: String, SignalNameProtocol {
 
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case notifyEnabled = "notify::enabled"
     /// The name of the action.  This is mostly meaningful for identifying
     /// the action once it has been added to a `GActionGroup`. It is immutable.
@@ -335,11 +335,11 @@ public extension ActionProtocol {
     /// Request for the state of `action` to be changed to `value`.
     /// 
     /// The action must be stateful and `value` must be of the correct type.
-    /// See g_action_get_state_type().
+    /// See `g_action_get_state_type()`.
     /// 
     /// This call merely requests a change.  The action may refuse to change
     /// its state or may change its state to something other than `value`.
-    /// See g_action_get_state_hint().
+    /// See `g_action_get_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
     func changeState(value: VariantProtocol) {
@@ -365,7 +365,7 @@ public extension ActionProtocol {
     /// Queries the type of the parameter that must be given when activating
     /// `action`.
     /// 
-    /// When activating the action using g_action_activate(), the `GVariant`
+    /// When activating the action using `g_action_activate()`, the `GVariant`
     /// given to that function must be of the type returned by this function.
     /// 
     /// In the case that this function returns `nil`, you must not give any
@@ -379,10 +379,10 @@ public extension ActionProtocol {
     /// 
     /// If the action is not stateful then `nil` will be returned.  If the
     /// action is stateful then the type of the return value is the type
-    /// given by g_action_get_state_type().
+    /// given by `g_action_get_state_type()`.
     /// 
     /// The return value (if non-`nil`) should be freed with
-    /// g_variant_unref() when it is no longer required.
+    /// `g_variant_unref()` when it is no longer required.
     func getState() -> UnsafeMutablePointer<GVariant>! {
         let rv = g_action_get_state(cast(action_ptr))
         return cast(rv)
@@ -405,7 +405,7 @@ public extension ActionProtocol {
     /// within the range may fail.
     /// 
     /// The return value (if non-`nil`) should be freed with
-    /// g_variant_unref() when it is no longer required.
+    /// `g_variant_unref()` when it is no longer required.
     func getStateHint() -> UnsafeMutablePointer<GVariant>! {
         let rv = g_action_get_state_hint(cast(action_ptr))
         return cast(rv)
@@ -414,23 +414,23 @@ public extension ActionProtocol {
     /// Queries the type of the state of `action`.
     /// 
     /// If the action is stateful (e.g. created with
-    /// g_simple_action_new_stateful()) then this function returns the
+    /// `g_simple_action_new_stateful()`) then this function returns the
     /// `GVariantType` of the state.  This is the type of the initial value
-    /// given as the state. All calls to g_action_change_state() must give a
-    /// `GVariant` of this type and g_action_get_state() will return a
+    /// given as the state. All calls to `g_action_change_state()` must give a
+    /// `GVariant` of this type and `g_action_get_state()` will return a
     /// `GVariant` of the same type.
     /// 
-    /// If the action is not stateful (e.g. created with g_simple_action_new())
-    /// then this function will return `nil`. In that case, g_action_get_state()
-    /// will return `nil` and you must not call g_action_change_state().
+    /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
+    /// then this function will return `nil`. In that case, `g_action_get_state()`
+    /// will return `nil` and you must not call `g_action_change_state()`.
     func getStateType() -> UnsafePointer<GVariantType>! {
         let rv = g_action_get_state_type(cast(action_ptr))
         return cast(rv)
     }
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     var enabled: Bool {
         /// Checks if `action` is currently enabled.
         /// 
@@ -455,7 +455,7 @@ public extension ActionProtocol {
     /// Queries the type of the parameter that must be given when activating
     /// `action`.
     /// 
-    /// When activating the action using g_action_activate(), the `GVariant`
+    /// When activating the action using `g_action_activate()`, the `GVariant`
     /// given to that function must be of the type returned by this function.
     /// 
     /// In the case that this function returns `nil`, you must not give any
@@ -464,7 +464,7 @@ public extension ActionProtocol {
         /// Queries the type of the parameter that must be given when activating
         /// `action`.
         /// 
-        /// When activating the action using g_action_activate(), the `GVariant`
+        /// When activating the action using `g_action_activate()`, the `GVariant`
         /// given to that function must be of the type returned by this function.
         /// 
         /// In the case that this function returns `nil`, you must not give any
@@ -481,10 +481,10 @@ public extension ActionProtocol {
         /// 
         /// If the action is not stateful then `nil` will be returned.  If the
         /// action is stateful then the type of the return value is the type
-        /// given by g_action_get_state_type().
+        /// given by `g_action_get_state_type()`.
         /// 
         /// The return value (if non-`nil`) should be freed with
-        /// g_variant_unref() when it is no longer required.
+        /// `g_variant_unref()` when it is no longer required.
         get {
             let rv = g_action_get_state(cast(action_ptr))
             return cast(rv)
@@ -508,7 +508,7 @@ public extension ActionProtocol {
     /// within the range may fail.
     /// 
     /// The return value (if non-`nil`) should be freed with
-    /// g_variant_unref() when it is no longer required.
+    /// `g_variant_unref()` when it is no longer required.
     var stateHint: UnsafeMutablePointer<GVariant>! {
         /// Requests a hint about the valid range of values for the state of
         /// `action`.
@@ -527,7 +527,7 @@ public extension ActionProtocol {
         /// within the range may fail.
         /// 
         /// The return value (if non-`nil`) should be freed with
-        /// g_variant_unref() when it is no longer required.
+        /// `g_variant_unref()` when it is no longer required.
         get {
             let rv = g_action_get_state_hint(cast(action_ptr))
             return cast(rv)
@@ -537,28 +537,28 @@ public extension ActionProtocol {
     /// Queries the type of the state of `action`.
     /// 
     /// If the action is stateful (e.g. created with
-    /// g_simple_action_new_stateful()) then this function returns the
+    /// `g_simple_action_new_stateful()`) then this function returns the
     /// `GVariantType` of the state.  This is the type of the initial value
-    /// given as the state. All calls to g_action_change_state() must give a
-    /// `GVariant` of this type and g_action_get_state() will return a
+    /// given as the state. All calls to `g_action_change_state()` must give a
+    /// `GVariant` of this type and `g_action_get_state()` will return a
     /// `GVariant` of the same type.
     /// 
-    /// If the action is not stateful (e.g. created with g_simple_action_new())
-    /// then this function will return `nil`. In that case, g_action_get_state()
-    /// will return `nil` and you must not call g_action_change_state().
+    /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
+    /// then this function will return `nil`. In that case, `g_action_get_state()`
+    /// will return `nil` and you must not call `g_action_change_state()`.
     var stateType: UnsafePointer<GVariantType>! {
         /// Queries the type of the state of `action`.
         /// 
         /// If the action is stateful (e.g. created with
-        /// g_simple_action_new_stateful()) then this function returns the
+        /// `g_simple_action_new_stateful()`) then this function returns the
         /// `GVariantType` of the state.  This is the type of the initial value
-        /// given as the state. All calls to g_action_change_state() must give a
-        /// `GVariant` of this type and g_action_get_state() will return a
+        /// given as the state. All calls to `g_action_change_state()` must give a
+        /// `GVariant` of this type and `g_action_get_state()` will return a
         /// `GVariant` of the same type.
         /// 
-        /// If the action is not stateful (e.g. created with g_simple_action_new())
-        /// then this function will return `nil`. In that case, g_action_get_state()
-        /// will return `nil` and you must not call g_action_change_state().
+        /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
+        /// then this function will return `nil`. In that case, `g_action_get_state()`
+        /// will return `nil` and you must not call `g_action_change_state()`.
         get {
             let rv = g_action_get_state_type(cast(action_ptr))
             return cast(rv)
@@ -583,17 +583,17 @@ public extension ActionProtocol {
 /// a menu.
 /// 
 /// The main way to interact with the actions in a GActionGroup is to
-/// activate them with g_action_group_activate_action(). Activating an
+/// activate them with `g_action_group_activate_action()`. Activating an
 /// action may require a `GVariant` parameter. The required type of the
-/// parameter can be inquired with g_action_group_get_action_parameter_type().
-/// Actions may be disabled, see g_action_group_get_action_enabled().
+/// parameter can be inquired with `g_action_group_get_action_parameter_type()`.
+/// Actions may be disabled, see `g_action_group_get_action_enabled()`.
 /// Activating a disabled action has no effect.
 /// 
 /// Actions may optionally have a state in the form of a `GVariant`. The
 /// current state of an action can be inquired with
-/// g_action_group_get_action_state(). Activating a stateful action may
+/// `g_action_group_get_action_state()`. Activating a stateful action may
 /// change its state, but it is also possible to set the state by calling
-/// g_action_group_change_action_state().
+/// `g_action_group_change_action_state()`.
 /// 
 /// As typical example, consider a text editing application which has an
 /// option to change the current font to 'bold'. A good way to represent
@@ -601,7 +601,7 @@ public extension ActionProtocol {
 /// action would toggle the state.
 /// 
 /// Each action in the group has a unique name (which is a string).  All
-/// method calls, except g_action_group_list_actions() take the name of
+/// method calls, except `g_action_group_list_actions()` take the name of
 /// an action as an argument.
 /// 
 /// The `GActionGroup` API is meant to be the 'public' API to the action
@@ -609,17 +609,17 @@ public extension ActionProtocol {
 /// forces' (eg: UI, incoming D-Bus messages, etc.) are supposed to have
 /// with actions.  'Internal' APIs (ie: ones meant only to be accessed by
 /// the action group implementation) are found on subclasses.  This is
-/// why you will find - for example - g_action_group_get_action_enabled()
-/// but not an equivalent set() call.
+/// why you will find - for example - `g_action_group_get_action_enabled()`
+/// but not an equivalent `set()` call.
 /// 
 /// Signals are emitted on the action group in response to state changes
 /// on individual actions.
 /// 
 /// Implementations of `GActionGroup` should provide implementations for
-/// the virtual functions g_action_group_list_actions() and
-/// g_action_group_query_action().  The other virtual functions should
+/// the virtual functions `g_action_group_list_actions()` and
+/// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
-/// calls to g_action_group_query_action().
+/// calls to `g_action_group_query_action()`.
 public protocol ActionGroupProtocol {
     /// Untyped pointer to the underlying `GActionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -640,17 +640,17 @@ public protocol ActionGroupProtocol {
 /// a menu.
 /// 
 /// The main way to interact with the actions in a GActionGroup is to
-/// activate them with g_action_group_activate_action(). Activating an
+/// activate them with `g_action_group_activate_action()`. Activating an
 /// action may require a `GVariant` parameter. The required type of the
-/// parameter can be inquired with g_action_group_get_action_parameter_type().
-/// Actions may be disabled, see g_action_group_get_action_enabled().
+/// parameter can be inquired with `g_action_group_get_action_parameter_type()`.
+/// Actions may be disabled, see `g_action_group_get_action_enabled()`.
 /// Activating a disabled action has no effect.
 /// 
 /// Actions may optionally have a state in the form of a `GVariant`. The
 /// current state of an action can be inquired with
-/// g_action_group_get_action_state(). Activating a stateful action may
+/// `g_action_group_get_action_state()`. Activating a stateful action may
 /// change its state, but it is also possible to set the state by calling
-/// g_action_group_change_action_state().
+/// `g_action_group_change_action_state()`.
 /// 
 /// As typical example, consider a text editing application which has an
 /// option to change the current font to 'bold'. A good way to represent
@@ -658,7 +658,7 @@ public protocol ActionGroupProtocol {
 /// action would toggle the state.
 /// 
 /// Each action in the group has a unique name (which is a string).  All
-/// method calls, except g_action_group_list_actions() take the name of
+/// method calls, except `g_action_group_list_actions()` take the name of
 /// an action as an argument.
 /// 
 /// The `GActionGroup` API is meant to be the 'public' API to the action
@@ -666,17 +666,17 @@ public protocol ActionGroupProtocol {
 /// forces' (eg: UI, incoming D-Bus messages, etc.) are supposed to have
 /// with actions.  'Internal' APIs (ie: ones meant only to be accessed by
 /// the action group implementation) are found on subclasses.  This is
-/// why you will find - for example - g_action_group_get_action_enabled()
-/// but not an equivalent set() call.
+/// why you will find - for example - `g_action_group_get_action_enabled()`
+/// but not an equivalent `set()` call.
 /// 
 /// Signals are emitted on the action group in response to state changes
 /// on individual actions.
 /// 
 /// Implementations of `GActionGroup` should provide implementations for
-/// the virtual functions g_action_group_list_actions() and
-/// g_action_group_query_action().  The other virtual functions should
+/// the virtual functions `g_action_group_list_actions()` and
+/// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
-/// calls to g_action_group_query_action().
+/// calls to `g_action_group_query_action()`.
 public struct ActionGroupRef: ActionGroupProtocol {
     /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
@@ -737,17 +737,17 @@ public extension ActionGroupRef {
 /// a menu.
 /// 
 /// The main way to interact with the actions in a GActionGroup is to
-/// activate them with g_action_group_activate_action(). Activating an
+/// activate them with `g_action_group_activate_action()`. Activating an
 /// action may require a `GVariant` parameter. The required type of the
-/// parameter can be inquired with g_action_group_get_action_parameter_type().
-/// Actions may be disabled, see g_action_group_get_action_enabled().
+/// parameter can be inquired with `g_action_group_get_action_parameter_type()`.
+/// Actions may be disabled, see `g_action_group_get_action_enabled()`.
 /// Activating a disabled action has no effect.
 /// 
 /// Actions may optionally have a state in the form of a `GVariant`. The
 /// current state of an action can be inquired with
-/// g_action_group_get_action_state(). Activating a stateful action may
+/// `g_action_group_get_action_state()`. Activating a stateful action may
 /// change its state, but it is also possible to set the state by calling
-/// g_action_group_change_action_state().
+/// `g_action_group_change_action_state()`.
 /// 
 /// As typical example, consider a text editing application which has an
 /// option to change the current font to 'bold'. A good way to represent
@@ -755,7 +755,7 @@ public extension ActionGroupRef {
 /// action would toggle the state.
 /// 
 /// Each action in the group has a unique name (which is a string).  All
-/// method calls, except g_action_group_list_actions() take the name of
+/// method calls, except `g_action_group_list_actions()` take the name of
 /// an action as an argument.
 /// 
 /// The `GActionGroup` API is meant to be the 'public' API to the action
@@ -763,17 +763,17 @@ public extension ActionGroupRef {
 /// forces' (eg: UI, incoming D-Bus messages, etc.) are supposed to have
 /// with actions.  'Internal' APIs (ie: ones meant only to be accessed by
 /// the action group implementation) are found on subclasses.  This is
-/// why you will find - for example - g_action_group_get_action_enabled()
-/// but not an equivalent set() call.
+/// why you will find - for example - `g_action_group_get_action_enabled()`
+/// but not an equivalent `set()` call.
 /// 
 /// Signals are emitted on the action group in response to state changes
 /// on individual actions.
 /// 
 /// Implementations of `GActionGroup` should provide implementations for
-/// the virtual functions g_action_group_list_actions() and
-/// g_action_group_query_action().  The other virtual functions should
+/// the virtual functions `g_action_group_list_actions()` and
+/// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
-/// calls to g_action_group_query_action().
+/// calls to `g_action_group_query_action()`.
 open class ActionGroup: ActionGroupProtocol {
     /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
@@ -875,7 +875,7 @@ public extension ActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionGroup` instance.
     var action_group_ptr: UnsafeMutablePointer<GActionGroup> { return ptr.assumingMemoryBound(to: GActionGroup.self) }
 
-    /// Emits the `GActionGroup`::action-added signal on `action_group`.
+    /// Emits the `GActionGroup::action`-added signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     func actionAdded(actionName action_name: UnsafePointer<gchar>) {
@@ -883,7 +883,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup`::action-enabled-changed signal on `action_group`.
+    /// Emits the `GActionGroup::action`-enabled-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     func actionEnabledChanged(actionName action_name: UnsafePointer<gchar>, enabled: Bool) {
@@ -891,7 +891,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup`::action-removed signal on `action_group`.
+    /// Emits the `GActionGroup::action`-removed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     func actionRemoved(actionName action_name: UnsafePointer<gchar>) {
@@ -899,7 +899,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup`::action-state-changed signal on `action_group`.
+    /// Emits the `GActionGroup::action`-state-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     func actionStateChanged(actionName action_name: UnsafePointer<gchar>, state: VariantProtocol) {
@@ -912,7 +912,7 @@ public extension ActionGroupProtocol {
     /// If the action is expecting a parameter, then the correct type of
     /// parameter must be given as `parameter`.  If the action is expecting no
     /// parameters then `parameter` must be `nil`.  See
-    /// g_action_group_get_action_parameter_type().
+    /// `g_action_group_get_action_parameter_type()`.
     func activateAction(actionName action_name: UnsafePointer<gchar>, parameter: VariantProtocol) {
         g_action_group_activate_action(cast(action_group_ptr), action_name, cast(parameter.ptr))
     
@@ -922,11 +922,11 @@ public extension ActionGroupProtocol {
     /// changed to `value`.
     /// 
     /// The action must be stateful and `value` must be of the correct type.
-    /// See g_action_group_get_action_state_type().
+    /// See `g_action_group_get_action_state_type()`.
     /// 
     /// This call merely requests a change.  The action may refuse to change
     /// its state or may change its state to something other than `value`.
-    /// See g_action_group_get_action_state_hint().
+    /// See `g_action_group_get_action_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
     func changeActionState(actionName action_name: UnsafePointer<gchar>, value: VariantProtocol) {
@@ -946,7 +946,7 @@ public extension ActionGroupProtocol {
     /// Queries the type of the parameter that must be given when activating
     /// the named action within `action_group`.
     /// 
-    /// When activating the action using g_action_group_activate_action(),
+    /// When activating the action using `g_action_group_activate_action()`,
     /// the `GVariant` given to that function must be of the type returned
     /// by this function.
     /// 
@@ -965,10 +965,10 @@ public extension ActionGroupProtocol {
     /// 
     /// If the action is not stateful then `nil` will be returned.  If the
     /// action is stateful then the type of the return value is the type
-    /// given by g_action_group_get_action_state_type().
+    /// given by `g_action_group_get_action_state_type()`.
     /// 
     /// The return value (if non-`nil`) should be freed with
-    /// g_variant_unref() when it is no longer required.
+    /// `g_variant_unref()` when it is no longer required.
     func getActionState(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
         let rv = g_action_group_get_action_state(cast(action_group_ptr), action_name)
         return cast(rv)
@@ -991,7 +991,7 @@ public extension ActionGroupProtocol {
     /// within the range may fail.
     /// 
     /// The return value (if non-`nil`) should be freed with
-    /// g_variant_unref() when it is no longer required.
+    /// `g_variant_unref()` when it is no longer required.
     func getActionStateHint(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
         let rv = g_action_group_get_action_state_hint(cast(action_group_ptr), action_name)
         return cast(rv)
@@ -1002,13 +1002,13 @@ public extension ActionGroupProtocol {
     /// 
     /// If the action is stateful then this function returns the
     /// `GVariantType` of the state.  All calls to
-    /// g_action_group_change_action_state() must give a `GVariant` of this
-    /// type and g_action_group_get_action_state() will return a `GVariant`
+    /// `g_action_group_change_action_state()` must give a `GVariant` of this
+    /// type and `g_action_group_get_action_state()` will return a `GVariant`
     /// of the same type.
     /// 
     /// If the action is not stateful then this function will return `nil`.
-    /// In that case, g_action_group_get_action_state() will return `nil`
-    /// and you must not call g_action_group_change_action_state().
+    /// In that case, `g_action_group_get_action_state()` will return `nil`
+    /// and you must not call `g_action_group_change_action_state()`.
     /// 
     /// The state type of a particular action will never change but it is
     /// possible for an action to be removed and for a new action to be added
@@ -1026,7 +1026,7 @@ public extension ActionGroupProtocol {
 
     /// Lists the actions contained within `action_group`.
     /// 
-    /// The caller is responsible for freeing the list with g_strfreev() when
+    /// The caller is responsible for freeing the list with `g_strfreev()` when
     /// it is no longer required.
     func listActions() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_action_group_list_actions(cast(action_group_ptr))
@@ -1036,11 +1036,11 @@ public extension ActionGroupProtocol {
     /// Queries all aspects of the named action within an `action_group`.
     /// 
     /// This function acquires the information available from
-    /// g_action_group_has_action(), g_action_group_get_action_enabled(),
-    /// g_action_group_get_action_parameter_type(),
-    /// g_action_group_get_action_state_type(),
-    /// g_action_group_get_action_state_hint() and
-    /// g_action_group_get_action_state() with a single function call.
+    /// `g_action_group_has_action()`, `g_action_group_get_action_enabled()`,
+    /// `g_action_group_get_action_parameter_type()`,
+    /// `g_action_group_get_action_state_type()`,
+    /// `g_action_group_get_action_state_hint()` and
+    /// `g_action_group_get_action_state()` with a single function call.
     /// 
     /// This provides two main benefits.
     /// 
@@ -1257,7 +1257,7 @@ public extension ActionMapProtocol {
     ///                        GVariant      *parameter,
     ///                        gpointer       user_data)
     /// {
-    ///   g_print ("`s`\n", g_variant_get_string (parameter, NULL));
+    ///   g_print ("%s\n", g_variant_get_string (parameter, NULL));
     /// }
     /// 
     /// static GActionGroup *
@@ -1311,7 +1311,7 @@ public extension ActionMapProtocol {
 /// applications installed on the system.
 /// 
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
-/// (using g_file_get_path()) when using g_app_info_launch() even if
+/// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
 /// for an desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
@@ -1326,10 +1326,10 @@ public extension ActionMapProtocol {
 /// Specifically for gvfs 2.26 and later, the POSIX URI will be mapped
 /// back to the GIO URI in the `GFile` constructors (since gvfs
 /// implements the `GVfs` extension point). As such, if the application
-/// needs to examine the URI, it needs to use g_file_get_uri() or
+/// needs to examine the URI, it needs to use `g_file_get_uri()` or
 /// similar on `GFile`. In other words, an application cannot assume
-/// that the URI passed to e.g. g_file_new_for_commandline_arg() is
-/// equal to the result of g_file_get_uri(). The following snippet
+/// that the URI passed to e.g. `g_file_new_for_commandline_arg()` is
+/// equal to the result of `g_file_get_uri()`. The following snippet
 /// illustrates this:
 /// 
 /// ```
@@ -1348,7 +1348,6 @@ public extension ActionMapProtocol {
 ///   }
 /// g_object_unref (file);
 /// ```
-/// 
 /// 
 /// This code will work when both `cdda://sr0/Track 1.wav` and
 /// `/home/user/.gvfs/cdda on sr0/Track 1.wav` is passed to the
@@ -1372,7 +1371,7 @@ public protocol AppInfoProtocol {
 /// applications installed on the system.
 /// 
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
-/// (using g_file_get_path()) when using g_app_info_launch() even if
+/// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
 /// for an desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
@@ -1387,10 +1386,10 @@ public protocol AppInfoProtocol {
 /// Specifically for gvfs 2.26 and later, the POSIX URI will be mapped
 /// back to the GIO URI in the `GFile` constructors (since gvfs
 /// implements the `GVfs` extension point). As such, if the application
-/// needs to examine the URI, it needs to use g_file_get_uri() or
+/// needs to examine the URI, it needs to use `g_file_get_uri()` or
 /// similar on `GFile`. In other words, an application cannot assume
-/// that the URI passed to e.g. g_file_new_for_commandline_arg() is
-/// equal to the result of g_file_get_uri(). The following snippet
+/// that the URI passed to e.g. `g_file_new_for_commandline_arg()` is
+/// equal to the result of `g_file_get_uri()`. The following snippet
 /// illustrates this:
 /// 
 /// ```
@@ -1409,7 +1408,6 @@ public protocol AppInfoProtocol {
 ///   }
 /// g_object_unref (file);
 /// ```
-/// 
 /// 
 /// This code will work when both `cdda://sr0/Track 1.wav` and
 /// `/home/user/.gvfs/cdda on sr0/Track 1.wav` is passed to the
@@ -1503,7 +1501,7 @@ public extension AppInfoRef {
 /// applications installed on the system.
 /// 
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
-/// (using g_file_get_path()) when using g_app_info_launch() even if
+/// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
 /// for an desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
@@ -1518,10 +1516,10 @@ public extension AppInfoRef {
 /// Specifically for gvfs 2.26 and later, the POSIX URI will be mapped
 /// back to the GIO URI in the `GFile` constructors (since gvfs
 /// implements the `GVfs` extension point). As such, if the application
-/// needs to examine the URI, it needs to use g_file_get_uri() or
+/// needs to examine the URI, it needs to use `g_file_get_uri()` or
 /// similar on `GFile`. In other words, an application cannot assume
-/// that the URI passed to e.g. g_file_new_for_commandline_arg() is
-/// equal to the result of g_file_get_uri(). The following snippet
+/// that the URI passed to e.g. `g_file_new_for_commandline_arg()` is
+/// equal to the result of `g_file_get_uri()`. The following snippet
 /// illustrates this:
 /// 
 /// ```
@@ -1540,7 +1538,6 @@ public extension AppInfoRef {
 ///   }
 /// g_object_unref (file);
 /// ```
-/// 
 /// 
 /// This code will work when both `cdda://sr0/Track 1.wav` and
 /// `/home/user/.gvfs/cdda on sr0/Track 1.wav` is passed to the
@@ -1650,7 +1647,7 @@ public extension AppInfoProtocol {
     }
 
     /// Obtains the information whether the `GAppInfo` can be deleted.
-    /// See g_app_info_delete().
+    /// See `g_app_info_delete()`.
     func canDelete() -> Bool {
         let rv = g_app_info_can_delete(cast(app_info_ptr))
         return Bool(rv != 0)
@@ -1666,7 +1663,7 @@ public extension AppInfoProtocol {
     /// 
     /// On some platforms, there may be a difference between user-defined
     /// `GAppInfos` which can be deleted, and system-wide ones which cannot.
-    /// See g_app_info_can_delete().
+    /// See `g_app_info_can_delete()`.
     func delete() -> Bool {
         let rv = g_app_info_delete(cast(app_info_ptr))
         return Bool(rv != 0)
@@ -1742,7 +1739,7 @@ public extension AppInfoProtocol {
     /// If this information is not provided by the environment, this function
     /// will return `nil`.
     /// This function does not take in consideration associations added with
-    /// g_app_info_add_supports_type(), but only those exported directly by
+    /// `g_app_info_add_supports_type()`, but only those exported directly by
     /// the application.
     func getSupportedTypes() -> UnsafePointer<UnsafePointer<CChar>>! {
         let rv = g_app_info_get_supported_types(cast(app_info_ptr))
@@ -1763,11 +1760,11 @@ public extension AppInfoProtocol {
     /// Some URIs can be changed when passed through a GFile (for instance
     /// unsupported URIs with strange formats like mailto:), so if you have
     /// a textual URI you want to pass in as argument, consider using
-    /// g_app_info_launch_uris() instead.
+    /// `g_app_info_launch_uris()` instead.
     /// 
     /// The launched application inherits the environment of the launching
-    /// process, but it can be modified with g_app_launch_context_setenv()
-    /// and g_app_launch_context_unsetenv().
+    /// process, but it can be modified with `g_app_launch_context_setenv()`
+    /// and `g_app_launch_context_unsetenv()`.
     /// 
     /// On UNIX, this function sets the `GIO_LAUNCHED_DESKTOP_FILE`
     /// environment variable with the path of the launched desktop file and
@@ -1804,18 +1801,18 @@ public extension AppInfoProtocol {
         return Bool(rv != 0)
     }
 
-    /// Async version of g_app_info_launch_uris().
+    /// Async version of `g_app_info_launch_uris()`.
     /// 
     /// The `callback` is invoked immediately after the application launch, but it
     /// waits for activation in case of D-Bus–activated applications and also provides
     /// extended error information for sandboxed applications, see notes for
-    /// g_app_info_launch_default_for_uri_async().
+    /// `g_app_info_launch_default_for_uri_async()`.
     func launchURIsAsync(uris: ListProtocol, context: AppLaunchContextProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_app_info_launch_uris_async(cast(app_info_ptr), cast(uris.ptr), cast(context.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes a g_app_info_launch_uris_async() operation.
+    /// Finishes a `g_app_info_launch_uris_async()` operation.
     func launchURIsFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_app_info_launch_uris_finish(cast(app_info_ptr), cast(result.ptr), &error)
@@ -1857,7 +1854,7 @@ public extension AppInfoProtocol {
 
     /// Sets the application as the last used application for a given type.
     /// This will make the application appear as first in the list returned
-    /// by g_app_info_get_recommended_for_type(), regardless of the default
+    /// by `g_app_info_get_recommended_for_type()`, regardless of the default
     /// application for that content type.
     func setAsLastUsedForType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1969,14 +1966,14 @@ public extension AppInfoProtocol {
     /// If this information is not provided by the environment, this function
     /// will return `nil`.
     /// This function does not take in consideration associations added with
-    /// g_app_info_add_supports_type(), but only those exported directly by
+    /// `g_app_info_add_supports_type()`, but only those exported directly by
     /// the application.
     var supportedTypes: UnsafePointer<UnsafePointer<CChar>>! {
         /// Retrieves the list of content types that `app_info` claims to support.
         /// If this information is not provided by the environment, this function
         /// will return `nil`.
         /// This function does not take in consideration associations added with
-        /// g_app_info_add_supports_type(), but only those exported directly by
+        /// `g_app_info_add_supports_type()`, but only those exported directly by
         /// the application.
         get {
             let rv = g_app_info_get_supported_types(cast(app_info_ptr))
@@ -2002,9 +1999,9 @@ public extension AppInfoProtocol {
 /// 
 /// Users of objects implementing this are not intended to use the interface
 /// method directly; instead it will be used automatically in various ways.
-/// For C applications you generally just call g_async_initable_new_async()
-/// directly, or indirectly via a foo_thing_new_async() wrapper. This will call
-/// g_async_initable_init_async() under the cover, calling back with `nil` and
+/// For C applications you generally just call `g_async_initable_new_async()`
+/// directly, or indirectly via a `foo_thing_new_async()` wrapper. This will call
+/// `g_async_initable_init_async()` under the cover, calling back with `nil` and
 /// a set `GError` on failure.
 /// 
 /// A typical implementation might look something like this:
@@ -2114,9 +2111,9 @@ public protocol AsyncInitableProtocol {
 /// 
 /// Users of objects implementing this are not intended to use the interface
 /// method directly; instead it will be used automatically in various ways.
-/// For C applications you generally just call g_async_initable_new_async()
-/// directly, or indirectly via a foo_thing_new_async() wrapper. This will call
-/// g_async_initable_init_async() under the cover, calling back with `nil` and
+/// For C applications you generally just call `g_async_initable_new_async()`
+/// directly, or indirectly via a `foo_thing_new_async()` wrapper. This will call
+/// `g_async_initable_init_async()` under the cover, calling back with `nil` and
 /// a set `GError` on failure.
 /// 
 /// A typical implementation might look something like this:
@@ -2266,9 +2263,9 @@ public extension AsyncInitableRef {
 /// 
 /// Users of objects implementing this are not intended to use the interface
 /// method directly; instead it will be used automatically in various ways.
-/// For C applications you generally just call g_async_initable_new_async()
-/// directly, or indirectly via a foo_thing_new_async() wrapper. This will call
-/// g_async_initable_init_async() under the cover, calling back with `nil` and
+/// For C applications you generally just call `g_async_initable_new_async()`
+/// directly, or indirectly via a `foo_thing_new_async()` wrapper. This will call
+/// `g_async_initable_init_async()` under the cover, calling back with `nil` and
 /// a set `GError` on failure.
 /// 
 /// A typical implementation might look something like this:
@@ -2421,13 +2418,13 @@ public extension AsyncInitableProtocol {
     /// Starts asynchronous initialization of the object implementing the
     /// interface. This must be done before any real use of the object after
     /// initial construction. If the object also implements `GInitable` you can
-    /// optionally call g_initable_init() instead.
+    /// optionally call `g_initable_init()` instead.
     /// 
     /// This method is intended for language bindings. If writing in C,
-    /// g_async_initable_new_async() should typically be used instead.
+    /// `g_async_initable_new_async()` should typically be used instead.
     /// 
     /// When the initialization is finished, `callback` will be called. You can
-    /// then call g_async_initable_init_finish() to get the result of the
+    /// then call `g_async_initable_init_finish()` to get the result of the
     /// initialization.
     /// 
     /// Implementations may also support cancellation. If `cancellable` is not
@@ -2439,18 +2436,18 @@ public extension AsyncInitableProtocol {
     /// 
     /// As with `GInitable`, if the object is not initialized, or initialization
     /// returns with an error, then all operations on the object except
-    /// g_object_ref() and g_object_unref() are considered to be invalid, and
-    /// have undefined behaviour. They will often fail with g_critical() or
-    /// g_warning(), but this must not be relied on.
+    /// `g_object_ref()` and `g_object_unref()` are considered to be invalid, and
+    /// have undefined behaviour. They will often fail with `g_critical()` or
+    /// `g_warning()`, but this must not be relied on.
     /// 
     /// Callers should not assume that a class which implements `GAsyncInitable` can
-    /// be initialized multiple times; for more information, see g_initable_init().
+    /// be initialized multiple times; for more information, see `g_initable_init()`.
     /// If a class explicitly supports being initialized multiple times,
-    /// implementation requires yielding all subsequent calls to init_async() on the
+    /// implementation requires yielding all subsequent calls to `init_async()` on the
     /// results of the first call.
     /// 
     /// For classes that also support the `GInitable` interface, the default
-    /// implementation of this method will run the g_initable_init() function
+    /// implementation of this method will run the `g_initable_init()` function
     /// in a thread, so if you want to support asynchronous initialization via
     /// threads, just implement the `GAsyncInitable` interface without overriding
     /// any interface methods.
@@ -2460,7 +2457,7 @@ public extension AsyncInitableProtocol {
     }
 
     /// Finishes asynchronous initialization and returns the result.
-    /// See g_async_initable_init_async().
+    /// See `g_async_initable_init_async()`.
     func initFinish(res: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_async_initable_init_finish(cast(async_initable_ptr), cast(res.ptr), &error)
@@ -2503,22 +2500,22 @@ public extension AsyncInitableProtocol {
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
 /// started for and any error codes returned. The asynchronous callback
-/// function is then expected to call the corresponding "_finish()"
+/// function is then expected to call the corresponding `"_finish()`"
 /// function, passing the object the function was called for, the
 /// `GAsyncResult` instance, and (optionally) an `error` to grab any
 /// error conditions that may have occurred.
 /// 
-/// The "_finish()" function for an operation takes the generic result
+/// The `"_finish()`" function for an operation takes the generic result
 /// (of type `GAsyncResult`) and returns the specific result that the
 /// operation in question yields (e.g. a `GFileEnumerator` for a
 /// "enumerate children" operation). If the result or error status of the
-/// operation is not needed, there is no need to call the "_finish()"
+/// operation is not needed, there is no need to call the `"_finish()`"
 /// function; GIO will take care of cleaning up the result and error
 /// information after the `GAsyncReadyCallback` returns. You can pass
 /// `nil` for the `GAsyncReadyCallback` if you don't need to take any
 /// action at all after the operation completes. Applications may also
-/// take a reference to the `GAsyncResult` and call "_finish()" later;
-/// however, the "_finish()" function may be called at most once.
+/// take a reference to the `GAsyncResult` and call `"_finish()`" later;
+/// however, the `"_finish()`" function may be called at most once.
 /// 
 /// Example of a typical asynchronous operation flow:
 /// (C Language Example):
@@ -2563,12 +2560,11 @@ public extension AsyncInitableProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// The callback for an asynchronous operation is called only once, and is
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ``` I/O Priority `` {`io`-priority}
+/// ```` I/O Priority `` {`io`-priority}
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which
@@ -2601,22 +2597,22 @@ public protocol AsyncResultProtocol {
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
 /// started for and any error codes returned. The asynchronous callback
-/// function is then expected to call the corresponding "_finish()"
+/// function is then expected to call the corresponding `"_finish()`"
 /// function, passing the object the function was called for, the
 /// `GAsyncResult` instance, and (optionally) an `error` to grab any
 /// error conditions that may have occurred.
 /// 
-/// The "_finish()" function for an operation takes the generic result
+/// The `"_finish()`" function for an operation takes the generic result
 /// (of type `GAsyncResult`) and returns the specific result that the
 /// operation in question yields (e.g. a `GFileEnumerator` for a
 /// "enumerate children" operation). If the result or error status of the
-/// operation is not needed, there is no need to call the "_finish()"
+/// operation is not needed, there is no need to call the `"_finish()`"
 /// function; GIO will take care of cleaning up the result and error
 /// information after the `GAsyncReadyCallback` returns. You can pass
 /// `nil` for the `GAsyncReadyCallback` if you don't need to take any
 /// action at all after the operation completes. Applications may also
-/// take a reference to the `GAsyncResult` and call "_finish()" later;
-/// however, the "_finish()" function may be called at most once.
+/// take a reference to the `GAsyncResult` and call `"_finish()`" later;
+/// however, the `"_finish()`" function may be called at most once.
 /// 
 /// Example of a typical asynchronous operation flow:
 /// (C Language Example):
@@ -2661,12 +2657,11 @@ public protocol AsyncResultProtocol {
 /// }
 /// ```
 /// 
-/// 
 /// The callback for an asynchronous operation is called only once, and is
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ``` I/O Priority `` {`io`-priority}
+/// ```` I/O Priority `` {`io`-priority}
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which
@@ -2739,22 +2734,22 @@ public extension AsyncResultRef {
 /// `GAsyncResult` instance filled with the details of the operation's
 /// success or failure, the object the asynchronous function was
 /// started for and any error codes returned. The asynchronous callback
-/// function is then expected to call the corresponding "_finish()"
+/// function is then expected to call the corresponding `"_finish()`"
 /// function, passing the object the function was called for, the
 /// `GAsyncResult` instance, and (optionally) an `error` to grab any
 /// error conditions that may have occurred.
 /// 
-/// The "_finish()" function for an operation takes the generic result
+/// The `"_finish()`" function for an operation takes the generic result
 /// (of type `GAsyncResult`) and returns the specific result that the
 /// operation in question yields (e.g. a `GFileEnumerator` for a
 /// "enumerate children" operation). If the result or error status of the
-/// operation is not needed, there is no need to call the "_finish()"
+/// operation is not needed, there is no need to call the `"_finish()`"
 /// function; GIO will take care of cleaning up the result and error
 /// information after the `GAsyncReadyCallback` returns. You can pass
 /// `nil` for the `GAsyncReadyCallback` if you don't need to take any
 /// action at all after the operation completes. Applications may also
-/// take a reference to the `GAsyncResult` and call "_finish()" later;
-/// however, the "_finish()" function may be called at most once.
+/// take a reference to the `GAsyncResult` and call `"_finish()`" later;
+/// however, the `"_finish()`" function may be called at most once.
 /// 
 /// Example of a typical asynchronous operation flow:
 /// (C Language Example):
@@ -2799,12 +2794,11 @@ public extension AsyncResultRef {
 /// }
 /// ```
 /// 
-/// 
 /// The callback for an asynchronous operation is called only once, and is
 /// always called, even in the case of a cancelled operation. On cancellation
 /// the result is a `G_IO_ERROR_CANCELLED` error.
 /// 
-/// ``` I/O Priority `` {`io`-priority}
+/// ```` I/O Priority `` {`io`-priority}
 /// 
 /// Many I/O-related asynchronous operations have a priority parameter,
 /// which is used in certain cases to determine the order in which
@@ -2893,10 +2887,10 @@ public extension AsyncResultProtocol {
     }
 
     /// If `res` is a `GSimpleAsyncResult`, this is equivalent to
-    /// g_simple_async_result_propagate_error(). Otherwise it returns
+    /// `g_simple_async_result_propagate_error()`. Otherwise it returns
     /// `false`.
     /// 
-    /// This can be used for legacy error handling in async *_finish()
+    /// This can be used for legacy error handling in async `*_finish()`
     /// wrapper functions that traditionally handled `GSimpleAsyncResult`
     /// error returns themselves rather than calling into the virtual method.
     /// This should not be used in new code; `GAsyncResult` errors that are
@@ -2921,16 +2915,16 @@ public extension AsyncResultProtocol {
         return Bool(rv != 0)
     }
 
-    /// Finishes an operation started with g_bus_get().
+    /// Finishes an operation started with `g_bus_get()`.
     /// 
     /// The returned object is a singleton, that is, shared with other
-    /// callers of g_bus_get() and g_bus_get_sync() for `bus_type`. In the
+    /// callers of `g_bus_get()` and `g_bus_get_sync()` for `bus_type`. In the
     /// event that you need a private message bus connection, use
-    /// g_dbus_address_get_for_bus_sync() and
-    /// g_dbus_connection_new_for_address().
+    /// `g_dbus_address_get_for_bus_sync()` and
+    /// `g_dbus_connection_new_for_address()`.
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
-    /// the `GDBusConnection`:exit-on-close property set to `true`.
+    /// the `GDBusConnection:exit`-on-close property set to `true`.
     func busGetFinish() throws -> UnsafeMutablePointer<GDBusConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_bus_get_finish(cast(async_result_ptr), &error)
@@ -2940,7 +2934,7 @@ public extension AsyncResultProtocol {
         return cast(rv)
     }
 
-    /// Finishes an operation started with g_dbus_address_get_stream().
+    /// Finishes an operation started with `g_dbus_address_get_stream()`.
     func dbusAddressGetStreamFinish(outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_address_get_stream_finish(cast(async_result_ptr), cast(out_guid), &error)
@@ -3175,10 +3169,10 @@ public extension ConverterProtocol {
     /// `G_IO_ERROR_PARTIAL_INPUT` in e.g. a charset conversion where the
     /// input is actually partial).
     /// 
-    /// After g_converter_convert() has returned `G_CONVERTER_FINISHED` the
+    /// After `g_converter_convert()` has returned `G_CONVERTER_FINISHED` the
     /// converter object is in an invalid state where its not allowed
-    /// to call g_converter_convert() anymore. At this time you can only
-    /// free the object or call g_converter_reset() to reset it to the
+    /// to call `g_converter_convert()` anymore. At this time you can only
+    /// free the object or call `g_converter_reset()` to reset it to the
     /// initial state.
     /// 
     /// If the flag `G_CONVERTER_FLUSH` is set then conversion is modified

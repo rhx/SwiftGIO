@@ -183,27 +183,26 @@ public extension CharsetConverterProtocol {
 
 public enum CharsetConverterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -251,13 +250,13 @@ public extension CharsetConverterProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// Gets the `GCharsetConverter`:use-fallback property.
+    /// Gets the `GCharsetConverter:use`-fallback property.
     func getUseFallback() -> Bool {
         let rv = g_charset_converter_get_use_fallback(cast(charset_converter_ptr))
         return Bool(rv != 0)
     }
 
-    /// Sets the `GCharsetConverter`:use-fallback property.
+    /// Sets the `GCharsetConverter:use`-fallback property.
     func set(useFallback use_fallback: Bool) {
         g_charset_converter_set_use_fallback(cast(charset_converter_ptr), gboolean(use_fallback ? 1 : 0))
     
@@ -271,14 +270,14 @@ public extension CharsetConverterProtocol {
         }
     }
 
-    /// Gets the `GCharsetConverter`:use-fallback property.
+    /// Gets the `GCharsetConverter:use`-fallback property.
     var useFallback: Bool {
-        /// Gets the `GCharsetConverter`:use-fallback property.
+        /// Gets the `GCharsetConverter:use`-fallback property.
         get {
             let rv = g_charset_converter_get_use_fallback(cast(charset_converter_ptr))
             return Bool(rv != 0)
         }
-        /// Sets the `GCharsetConverter`:use-fallback property.
+        /// Sets the `GCharsetConverter:use`-fallback property.
         nonmutating set {
             g_charset_converter_set_use_fallback(cast(charset_converter_ptr), gboolean(newValue ? 1 : 0))
         }
@@ -469,27 +468,26 @@ public extension ConverterInputStreamProtocol {
 
 public enum ConverterInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -729,27 +727,26 @@ public extension ConverterOutputStreamProtocol {
 
 public enum ConverterOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -820,15 +817,15 @@ public extension ConverterOutputStreamProtocol {
 /// 
 /// Some operating systems supports looking up the credentials of the
 /// remote peer of a communication endpoint - see e.g.
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 /// 
 /// Some operating systems supports securely sending and receiving
 /// credentials over a Unix Domain Socket, see
-/// `GUnixCredentialsMessage`, g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials() for details.
+/// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()` for details.
 /// 
 /// On Linux, the native credential type is a struct ucred - see the
-/// unix(7) man page for details. This corresponds to
+/// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
@@ -862,15 +859,15 @@ public protocol CredentialsProtocol: ObjectProtocol {
 /// 
 /// Some operating systems supports looking up the credentials of the
 /// remote peer of a communication endpoint - see e.g.
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 /// 
 /// Some operating systems supports securely sending and receiving
 /// credentials over a Unix Domain Socket, see
-/// `GUnixCredentialsMessage`, g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials() for details.
+/// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()` for details.
 /// 
 /// On Linux, the native credential type is a struct ucred - see the
-/// unix(7) man page for details. This corresponds to
+/// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
@@ -950,15 +947,15 @@ public extension CredentialsRef {
 /// 
 /// Some operating systems supports looking up the credentials of the
 /// remote peer of a communication endpoint - see e.g.
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 /// 
 /// Some operating systems supports securely sending and receiving
 /// credentials over a Unix Domain Socket, see
-/// `GUnixCredentialsMessage`, g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials() for details.
+/// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()` for details.
 /// 
 /// On Linux, the native credential type is a struct ucred - see the
-/// unix(7) man page for details. This corresponds to
+/// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
@@ -1026,27 +1023,26 @@ open class Credentials: Object, CredentialsProtocol {
 
 public enum CredentialsSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1187,7 +1183,7 @@ public extension CredentialsProtocol {
 ///
 /// `GDBusActionGroup` is an implementation of the `GActionGroup`
 /// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with g_dbus_connection_export_action_group().
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 public protocol DBusActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, RemoteActionGroupProtocol {
     /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1202,7 +1198,7 @@ public protocol DBusActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, Re
 ///
 /// `GDBusActionGroup` is an implementation of the `GActionGroup`
 /// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with g_dbus_connection_export_action_group().
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 public struct DBusActionGroupRef: DBusActionGroupProtocol {
     /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_action_group_ptr` property instead.
@@ -1261,7 +1257,7 @@ public extension DBusActionGroupRef {
     /// This call is non-blocking.  The returned action group may or may not
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
-    /// g_action_group_list_actions() to get the initial list.
+    /// `g_action_group_list_actions()` to get the initial list.
     static func dbusActionGroupGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusActionGroupRef! {
         let rv = g_dbus_action_group_get(cast(connection.ptr), bus_name, object_path)
         return rv.map { DBusActionGroupRef(cast($0)) }
@@ -1274,7 +1270,7 @@ public extension DBusActionGroupRef {
 ///
 /// `GDBusActionGroup` is an implementation of the `GActionGroup`
 /// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with g_dbus_connection_export_action_group().
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `DBusActionGroup` instance.
@@ -1326,7 +1322,7 @@ open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// This call is non-blocking.  The returned action group may or may not
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
-    /// g_action_group_list_actions() to get the initial list.
+    /// `g_action_group_list_actions()` to get the initial list.
     public static func dbusActionGroupGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusActionGroup! {
         let rv = g_dbus_action_group_get(cast(connection.ptr), bus_name, object_path)
         return rv.map { DBusActionGroup(cast($0)) }
@@ -1338,27 +1334,26 @@ open class DBusActionGroup: Object, DBusActionGroupProtocol {
 
 public enum DBusActionGroupSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.

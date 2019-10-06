@@ -31,14 +31,14 @@ public extension ApplicationFlags {
     static let is_launcher = G_APPLICATION_IS_LAUNCHER /* 2 */
     /// This application handles opening files (in
     ///     the primary instance). Note that this flag only affects the default
-    ///     implementation of local_command_line(), and has no effect if
+    ///     implementation of `local_command_line()`, and has no effect if
     ///     `G_APPLICATION_HANDLES_COMMAND_LINE` is given.
-    ///     See g_application_run() for details.
+    ///     See `g_application_run()` for details.
     static let handles_open = G_APPLICATION_HANDLES_OPEN /* 4 */
     /// This application handles command line
     ///     arguments (in the primary instance). Note that this flag only affect
-    ///     the default implementation of local_command_line().
-    ///     See g_application_run() for details.
+    ///     the default implementation of `local_command_line()`.
+    ///     See `g_application_run()` for details.
     static let handles_command_line = G_APPLICATION_HANDLES_COMMAND_LINE /* 8 */
     /// Send the environment of the
     ///     launching process to the primary instance. Set this flag if your
@@ -46,8 +46,8 @@ public extension ApplicationFlags {
     ///     environment variables. For instance, an editor might be expected
     ///     to use the `GIT_COMMITTER_NAME` environment variable
     ///     when editing a git commit message. The environment is available
-    ///     to the `GApplication`::command-line signal handler, via
-    ///     g_application_command_line_getenv().
+    ///     to the `GApplication::command`-line signal handler, via
+    ///     `g_application_command_line_getenv()`.
     static let send_environment = G_APPLICATION_SEND_ENVIRONMENT /* 16 */
     /// Make no attempts to do any of the typical
     ///     single-instance application negotiation, even if the application
@@ -89,7 +89,7 @@ public extension AskPasswordFlags {
     static let tcrypt = G_ASK_PASSWORD_TCRYPT /* 32 */
 }
 
-/// Flags used in g_bus_own_name().
+/// Flags used in `g_bus_own_name()`.
 public typealias BusNameOwnerFlags = GBusNameOwnerFlags
 
 public extension BusNameOwnerFlags {
@@ -101,11 +101,11 @@ public extension BusNameOwnerFlags {
     /// specified `G_BUS_NAME_OWNER_FLAGS_ALLOW_REPLACEMENT`, then take the name from the other connection.
     static let replace = G_BUS_NAME_OWNER_FLAGS_REPLACE /* 2 */
     /// If another message bus connection owns the name, immediately
-    /// return an error from g_bus_own_name() rather than entering the waiting queue for that name. (Since 2.54)
+    /// return an error from `g_bus_own_name()` rather than entering the waiting queue for that name. (Since 2.54)
     static let do_not_queue = G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE /* 4 */
 }
 
-/// Flags used in g_bus_watch_name().
+/// Flags used in `g_bus_watch_name()`.
 public typealias BusNameWatcherFlags = GBusNameWatcherFlags
 
 public extension BusNameWatcherFlags {
@@ -117,7 +117,7 @@ public extension BusNameWatcherFlags {
     static let auto_start = G_BUS_NAME_WATCHER_FLAGS_AUTO_START /* 1 */
 }
 
-/// Flags used when calling a g_converter_convert().
+/// Flags used when calling a `g_converter_convert()`.
 public typealias ConverterFlags = GConverterFlags
 
 public extension ConverterFlags {
@@ -129,7 +129,7 @@ public extension ConverterFlags {
     static let flush = G_CONVERTER_FLUSH /* 2 */
 }
 
-/// Flags used in g_dbus_connection_call() and similar APIs.
+/// Flags used in `g_dbus_connection_call()` and similar APIs.
 public typealias DBusCallFlags = GDBusCallFlags
 
 public extension DBusCallFlags {
@@ -170,10 +170,10 @@ public extension DBusConnectionFlags {
     /// method.
     static let authentication_allow_anonymous = G_DBUS_CONNECTION_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS /* 4 */
     /// Pass this flag if connecting to a peer that is a
-    /// message bus. This means that the Hello() method will be invoked as part of the connection setup.
+    /// message bus. This means that the `Hello()` method will be invoked as part of the connection setup.
     static let message_bus_connection = G_DBUS_CONNECTION_FLAGS_MESSAGE_BUS_CONNECTION /* 8 */
     /// If set, processing of D-Bus messages is
-    /// delayed until g_dbus_connection_start_message_processing() is called.
+    /// delayed until `g_dbus_connection_start_message_processing()` is called.
     static let delay_message_processing = G_DBUS_CONNECTION_FLAGS_DELAY_MESSAGE_PROCESSING /* 16 */
 }
 
@@ -246,7 +246,7 @@ public extension DBusProxyFlags {
     /// do not ask the bus to launch an owner during proxy initialization or a method call.
     /// This flag is only meaningful in proxies for well-known names.
     static let do_not_auto_start = G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START /* 4 */
-    /// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties) D-Bus signal and the property will not cause emission of the `GDBusProxy`::g-properties-changed signal. When the value is received the `GDBusProxy`::g-properties-changed signal is emitted for the property along with the retrieved value. Since 2.32.
+    /// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties) D-Bus signal and the property will not cause emission of the `GDBusProxy::g`-properties-changed signal. When the value is received the `GDBusProxy::g`-properties-changed signal is emitted for the property along with the retrieved value. Since 2.32.
     static let get_invalidated_properties = G_DBUS_PROXY_FLAGS_GET_INVALIDATED_PROPERTIES /* 8 */
     /// If the proxy is for a well-known name,
     /// do not ask the bus to launch an owner during proxy initialization, but allow it to be
@@ -273,7 +273,7 @@ public typealias DBusServerFlags = GDBusServerFlags
 public extension DBusServerFlags {
     /// No flags set.
     static let none_ = G_DBUS_SERVER_FLAGS_NONE /* 0 */
-    /// All `GDBusServer`::new-connection
+    /// All `GDBusServer::new`-connection
     /// signals will run in separated dedicated threads (see signal for
     /// details).
     static let run_in_thread = G_DBUS_SERVER_FLAGS_RUN_IN_THREAD /* 1 */
@@ -282,7 +282,7 @@ public extension DBusServerFlags {
     static let authentication_allow_anonymous = G_DBUS_SERVER_FLAGS_AUTHENTICATION_ALLOW_ANONYMOUS /* 2 */
 }
 
-/// Flags used when subscribing to signals via g_dbus_connection_signal_subscribe().
+/// Flags used when subscribing to signals via `g_dbus_connection_signal_subscribe()`.
 public typealias DBusSignalFlags = GDBusSignalFlags
 
 public extension DBusSignalFlags {
@@ -301,7 +301,7 @@ public extension DBusSignalFlags {
     static let match_arg0_path = G_DBUS_SIGNAL_FLAGS_MATCH_ARG0_PATH /* 4 */
 }
 
-/// Flags passed to g_dbus_connection_register_subtree().
+/// Flags passed to `g_dbus_connection_register_subtree()`.
 public typealias DBusSubtreeFlags = GDBusSubtreeFlags
 
 public extension DBusSubtreeFlags {
@@ -373,7 +373,7 @@ public extension FileCreateFlags {
     static let replace_destination = G_FILE_CREATE_REPLACE_DESTINATION /* 2 */
 }
 
-/// Flags that can be used with g_file_measure_disk_usage().
+/// Flags that can be used with `g_file_measure_disk_usage()`.
 public typealias FileMeasureFlags = GFileMeasureFlags
 
 public extension FileMeasureFlags {
@@ -482,7 +482,7 @@ public extension OutputStreamSpliceFlags {
 public typealias ResolverNameLookupFlags = GResolverNameLookupFlags
 
 public extension ResolverNameLookupFlags {
-    /// default behavior (same as g_resolver_lookup_by_name())
+    /// default behavior (same as `g_resolver_lookup_by_name()`)
     static let default_ = G_RESOLVER_NAME_LOOKUP_FLAGS_DEFAULT /* 0 */
     /// only resolve ipv4 addresses
     static let ipv4_only = G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY /* 1 */
@@ -528,13 +528,13 @@ public extension SettingsBindFlags {
     /// When set in addition to `G_SETTINGS_BIND_GET`, set the `GObject` property
     ///     value initially from the setting, but do not listen for changes of the setting
     static let get_no_changes = G_SETTINGS_BIND_GET_NO_CHANGES /* 8 */
-    /// When passed to g_settings_bind(), uses a pair of mapping functions that invert
+    /// When passed to `g_settings_bind()`, uses a pair of mapping functions that invert
     ///     the boolean value when mapping between the setting and the property.  The setting and property must both
-    ///     be booleans.  You cannot pass this flag to g_settings_bind_with_mapping().
+    ///     be booleans.  You cannot pass this flag to `g_settings_bind_with_mapping()`.
     static let invert_boolean = G_SETTINGS_BIND_INVERT_BOOLEAN /* 16 */
 }
 
-/// Flags used in g_socket_receive_message() and g_socket_send_message().
+/// Flags used in `g_socket_receive_message()` and `g_socket_send_message()`.
 /// The flags listed in the enum are some commonly available flags, but the
 /// values used for them are the same as on the platform, and any other flags
 /// are passed in/out as is. So to use a platform specific flag, just include
@@ -570,21 +570,21 @@ public extension SubprocessFlags {
     static let none_ = G_SUBPROCESS_FLAGS_NONE /* 0 */
     /// create a pipe for the stdin of the
     ///   spawned process that can be accessed with
-    ///   g_subprocess_get_stdin_pipe().
+    ///   `g_subprocess_get_stdin_pipe()`.
     static let stdin_pipe = G_SUBPROCESS_FLAGS_STDIN_PIPE /* 1 */
     /// stdin is inherited from the
     ///   calling process.
     static let stdin_inherit = G_SUBPROCESS_FLAGS_STDIN_INHERIT /* 2 */
     /// create a pipe for the stdout of the
     ///   spawned process that can be accessed with
-    ///   g_subprocess_get_stdout_pipe().
+    ///   `g_subprocess_get_stdout_pipe()`.
     static let stdout_pipe = G_SUBPROCESS_FLAGS_STDOUT_PIPE /* 4 */
     /// silence the stdout of the spawned
     ///   process (ie: redirect to `/dev/null`).
     static let stdout_silence = G_SUBPROCESS_FLAGS_STDOUT_SILENCE /* 8 */
     /// create a pipe for the stderr of the
     ///   spawned process that can be accessed with
-    ///   g_subprocess_get_stderr_pipe().
+    ///   `g_subprocess_get_stderr_pipe()`.
     static let stderr_pipe = G_SUBPROCESS_FLAGS_STDERR_PIPE /* 16 */
     /// silence the stderr of the spawned
     ///   process (ie: redirect to `/dev/null`).
@@ -610,9 +610,9 @@ public extension TestDBusFlags {
 
 /// A set of flags describing TLS certification validation. This can be
 /// used to set which validation steps to perform (eg, with
-/// g_tls_client_connection_set_validation_flags()), or to describe why
+/// `g_tls_client_connection_set_validation_flags()`), or to describe why
 /// a particular certificate was rejected (eg, in
-/// `GTlsConnection`::accept-certificate).
+/// `GTlsConnection::accept`-certificate).
 public typealias TLSCertificateFlags = GTlsCertificateFlags
 
 public extension TLSCertificateFlags {
@@ -641,7 +641,7 @@ public extension TLSCertificateFlags {
     static let validate_all = G_TLS_CERTIFICATE_VALIDATE_ALL /* 127 */
 }
 
-/// Flags for g_tls_database_verify_chain().
+/// Flags for `g_tls_database_verify_chain()`.
 public typealias TLSDatabaseVerifyFlags = GTlsDatabaseVerifyFlags
 
 public extension TLSDatabaseVerifyFlags {

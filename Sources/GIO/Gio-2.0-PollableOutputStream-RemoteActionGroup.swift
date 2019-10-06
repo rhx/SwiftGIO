@@ -131,27 +131,26 @@ open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
 
 public enum PollableOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -207,19 +206,19 @@ public extension PollableOutputStreamProtocol {
     /// `cancellable` is triggered or an error occurs. The callback on the
     /// source is of the `GPollableSourceFunc` type.
     /// 
-    /// As with g_pollable_output_stream_is_writable(), it is possible that
+    /// As with `g_pollable_output_stream_is_writable()`, it is possible that
     /// the stream may not actually be writable even after the source
-    /// triggers, so you should use g_pollable_output_stream_write_nonblocking()
-    /// rather than g_output_stream_write() from the callback.
+    /// triggers, so you should use `g_pollable_output_stream_write_nonblocking()`
+    /// rather than `g_output_stream_write()` from the callback.
     func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
         let rv = g_pollable_output_stream_create_source(cast(pollable_output_stream_ptr), cast(cancellable.ptr))
         return cast(rv)
     }
 
     /// Attempts to write up to `count` bytes from `buffer` to `stream`, as
-    /// with g_output_stream_write(). If `stream` is not currently writable,
+    /// with `g_output_stream_write()`. If `stream` is not currently writable,
     /// this will immediately return `G_IO_ERROR_WOULD_BLOCK`, and you can
-    /// use g_pollable_output_stream_create_source() to create a `GSource`
+    /// use `g_pollable_output_stream_create_source()` to create a `GSource`
     /// that will be triggered when `stream` is writable.
     /// 
     /// Note that since this method never blocks, you cannot actually
@@ -241,9 +240,9 @@ public extension PollableOutputStreamProtocol {
     }
 
     /// Attempts to write the bytes contained in the `n_vectors` `vectors` to `stream`,
-    /// as with g_output_stream_writev(). If `stream` is not currently writable,
-    /// this will immediately return ``G_POLLABLE_RETURN_WOULD_BLOCK`, and you can
-    /// use g_pollable_output_stream_create_source() to create a `GSource`
+    /// as with `g_output_stream_writev()`. If `stream` is not currently writable,
+    /// this will immediately return ```G_POLLABLE_RETURN_WOULD_BLOCK`, and you can
+    /// use `g_pollable_output_stream_create_source()` to create a `GSource`
     /// that will be triggered when `stream` is writable. `error` will *not* be
     /// set in that case.
     /// 
@@ -267,19 +266,19 @@ public extension PollableOutputStreamProtocol {
     /// Checks if `stream` can be written.
     /// 
     /// Note that some stream types may not be able to implement this 100``
-    /// reliably, and it is possible that a call to g_output_stream_write()
+    /// reliably, and it is possible that a call to `g_output_stream_write()`
     /// after this returns `true` would still block. To guarantee
     /// non-blocking behavior, you should always use
-    /// g_pollable_output_stream_write_nonblocking(), which will return a
+    /// `g_pollable_output_stream_write_nonblocking()`, which will return a
     /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
     var isWritable: Bool {
         /// Checks if `stream` can be written.
         /// 
         /// Note that some stream types may not be able to implement this 100``
-        /// reliably, and it is possible that a call to g_output_stream_write()
+        /// reliably, and it is possible that a call to `g_output_stream_write()`
         /// after this returns `true` would still block. To guarantee
         /// non-blocking behavior, you should always use
-        /// g_pollable_output_stream_write_nonblocking(), which will return a
+        /// `g_pollable_output_stream_write_nonblocking()`, which will return a
         /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
         get {
             let rv = g_pollable_output_stream_is_writable(cast(pollable_output_stream_ptr))
@@ -302,7 +301,7 @@ public extension PollableOutputStreamProtocol {
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
-/// g_io_extension_point_get_extension_by_name().
+/// `g_io_extension_point_get_extension_by_name()`.
 public protocol ProxyProtocol {
     /// Untyped pointer to the underlying `GProxy` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -320,7 +319,7 @@ public protocol ProxyProtocol {
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
-/// g_io_extension_point_get_extension_by_name().
+/// `g_io_extension_point_get_extension_by_name()`.
 public struct ProxyRef: ProxyProtocol {
     /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
@@ -384,7 +383,7 @@ public extension ProxyRef {
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
-/// g_io_extension_point_get_extension_by_name().
+/// `g_io_extension_point_get_extension_by_name()`.
 open class Proxy: ProxyProtocol {
     /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
@@ -464,13 +463,13 @@ public extension ProxyProtocol {
         return cast(rv)
     }
 
-    /// Asynchronous version of g_proxy_connect().
+    /// Asynchronous version of `g_proxy_connect()`.
     func connectAsync(connection: IOStreamProtocol, proxyAddress proxy_address: ProxyAddressProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_proxy_connect_async(cast(proxy_ptr), cast(connection.ptr), cast(proxy_address.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// See g_proxy_connect().
+    /// See `g_proxy_connect()`.
     func connectFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_proxy_connect_finish(cast(proxy_ptr), cast(result.ptr), &error)
@@ -486,7 +485,7 @@ public extension ProxyProtocol {
     /// implementing such a protocol. When `false` is returned, the caller
     /// should resolve the destination hostname first, and then pass a
     /// `GProxyAddress` containing the stringified IP address to
-    /// g_proxy_connect() or g_proxy_connect_async().
+    /// `g_proxy_connect()` or `g_proxy_connect_async()`.
     func supportsHostname() -> Bool {
         let rv = g_proxy_supports_hostname(cast(proxy_ptr))
         return Bool(rv != 0)
@@ -504,7 +503,7 @@ public extension ProxyProtocol {
 ///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
-/// the method g_socket_connectable_proxy_enumerate().
+/// the method `g_socket_connectable_proxy_enumerate()`.
 /// 
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
@@ -523,7 +522,7 @@ public protocol ProxyResolverProtocol {
 ///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
-/// the method g_socket_connectable_proxy_enumerate().
+/// the method `g_socket_connectable_proxy_enumerate()`.
 /// 
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
@@ -587,7 +586,7 @@ public extension ProxyResolverRef {
 ///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
-/// the method g_socket_connectable_proxy_enumerate().
+/// the method `g_socket_connectable_proxy_enumerate()`.
 /// 
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
@@ -681,7 +680,7 @@ public extension ProxyResolverProtocol {
         return cast(rv)
     }
 
-    /// Asynchronous lookup of proxy. See g_proxy_resolver_lookup() for more
+    /// Asynchronous lookup of proxy. See `g_proxy_resolver_lookup()` for more
     /// details.
     func lookupAsync(uri: UnsafePointer<gchar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_proxy_resolver_lookup_async(cast(proxy_resolver_ptr), uri, cast(cancellable.ptr), callback, cast(user_data))
@@ -689,8 +688,8 @@ public extension ProxyResolverProtocol {
     }
 
     /// Call this function to obtain the array of proxy URIs when
-    /// g_proxy_resolver_lookup_async() is complete. See
-    /// g_proxy_resolver_lookup() for more details.
+    /// `g_proxy_resolver_lookup_async()` is complete. See
+    /// `g_proxy_resolver_lookup()` for more details.
     func lookupFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_proxy_resolver_lookup_finish(cast(proxy_resolver_ptr), cast(result.ptr), &error)
@@ -700,11 +699,11 @@ public extension ProxyResolverProtocol {
         return cast(rv)
     }
     /// Checks if `resolver` can be used on this system. (This is used
-    /// internally; g_proxy_resolver_get_default() will only return a proxy
+    /// internally; `g_proxy_resolver_get_default()` will only return a proxy
     /// resolver that returns `true` for this method.)
     var isSupported: Bool {
         /// Checks if `resolver` can be used on this system. (This is used
-        /// internally; g_proxy_resolver_get_default() will only return a proxy
+        /// internally; `g_proxy_resolver_get_default()` will only return a proxy
         /// resolver that returns `true` for this method.)
         get {
             let rv = g_proxy_resolver_is_supported(cast(proxy_resolver_ptr))
@@ -729,8 +728,8 @@ public extension ProxyResolverProtocol {
 /// 
 /// The interface has `_full` variants of the two
 /// methods on `GActionGroup` used to activate actions:
-/// g_action_group_activate_action() and
-/// g_action_group_change_action_state(). These variants allow a
+/// `g_action_group_activate_action()` and
+/// `g_action_group_change_action_state()`. These variants allow a
 /// "platform data" `GVariant` to be specified: a dictionary providing
 /// context for the action invocation (for example: timestamps, startup
 /// notification IDs, etc).
@@ -738,7 +737,7 @@ public extension ProxyResolverProtocol {
 /// `GDBusActionGroup` implements `GRemoteActionGroup`.  This provides a
 /// mechanism to send platform data for action invocations over D-Bus.
 /// 
-/// Additionally, g_dbus_connection_export_action_group() will check if
+/// Additionally, `g_dbus_connection_export_action_group()` will check if
 /// the exported `GActionGroup` implements `GRemoteActionGroup` and use the
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
@@ -762,8 +761,8 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
 /// 
 /// The interface has `_full` variants of the two
 /// methods on `GActionGroup` used to activate actions:
-/// g_action_group_activate_action() and
-/// g_action_group_change_action_state(). These variants allow a
+/// `g_action_group_activate_action()` and
+/// `g_action_group_change_action_state()`. These variants allow a
 /// "platform data" `GVariant` to be specified: a dictionary providing
 /// context for the action invocation (for example: timestamps, startup
 /// notification IDs, etc).
@@ -771,7 +770,7 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
 /// `GDBusActionGroup` implements `GRemoteActionGroup`.  This provides a
 /// mechanism to send platform data for action invocations over D-Bus.
 /// 
-/// Additionally, g_dbus_connection_export_action_group() will check if
+/// Additionally, `g_dbus_connection_export_action_group()` will check if
 /// the exported `GActionGroup` implements `GRemoteActionGroup` and use the
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
@@ -835,8 +834,8 @@ public extension RemoteActionGroupRef {
 /// 
 /// The interface has `_full` variants of the two
 /// methods on `GActionGroup` used to activate actions:
-/// g_action_group_activate_action() and
-/// g_action_group_change_action_state(). These variants allow a
+/// `g_action_group_activate_action()` and
+/// `g_action_group_change_action_state()`. These variants allow a
 /// "platform data" `GVariant` to be specified: a dictionary providing
 /// context for the action invocation (for example: timestamps, startup
 /// notification IDs, etc).
@@ -844,7 +843,7 @@ public extension RemoteActionGroupRef {
 /// `GDBusActionGroup` implements `GRemoteActionGroup`.  This provides a
 /// mechanism to send platform data for action invocations over D-Bus.
 /// 
-/// Additionally, g_dbus_connection_export_action_group() will check if
+/// Additionally, `g_dbus_connection_export_action_group()` will check if
 /// the exported `GActionGroup` implements `GRemoteActionGroup` and use the
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
@@ -943,7 +942,7 @@ public extension RemoteActionGroupProtocol {
 
     /// Activates the remote action.
     /// 
-    /// This is the same as g_action_group_activate_action() except that it
+    /// This is the same as `g_action_group_activate_action()` except that it
     /// allows for provision of "platform data" to be sent along with the
     /// activation request.  This typically contains details such as the user
     /// interaction timestamp or startup notification information.
@@ -957,7 +956,7 @@ public extension RemoteActionGroupProtocol {
 
     /// Changes the state of a remote action.
     /// 
-    /// This is the same as g_action_group_change_action_state() except that
+    /// This is the same as `g_action_group_change_action_state()` except that
     /// it allows for provision of "platform data" to be sent along with the
     /// state change request.  This typically contains details such as the
     /// user interaction timestamp or startup notification information.

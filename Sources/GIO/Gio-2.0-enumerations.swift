@@ -16,7 +16,7 @@ public extension BusType {
     static let session = G_BUS_TYPE_SESSION /* 2 */
 }
 
-/// Results returned from g_converter_convert().
+/// Results returned from `g_converter_convert()`.
 public typealias ConverterResult = GConverterResult
 
 public extension ConverterResult {
@@ -108,9 +108,9 @@ public extension DBusError {
     static let match_rule_not_found = G_DBUS_ERROR_MATCH_RULE_NOT_FOUND /* 21 */
     /// The match rule isn't syntactically valid.
     static let match_rule_invalid = G_DBUS_ERROR_MATCH_RULE_INVALID /* 22 */
-    /// While starting a new process, the exec() call failed.
+    /// While starting a new process, the `exec()` call failed.
     static let spawn_exec_failed = G_DBUS_ERROR_SPAWN_EXEC_FAILED /* 23 */
-    /// While starting a new process, the fork() call failed.
+    /// While starting a new process, the `fork()` call failed.
     static let spawn_fork_failed = G_DBUS_ERROR_SPAWN_FORK_FAILED /* 24 */
     /// While starting a new process, the child exited with a status code.
     static let spawn_child_exited = G_DBUS_ERROR_SPAWN_CHILD_EXITED /* 25 */
@@ -272,7 +272,7 @@ public extension EmblemOrigin {
     static let tag = G_EMBLEM_ORIGIN_TAG /* 3 */
 }
 
-/// Used by g_file_set_attributes_from_info() when setting file attributes.
+/// Used by `g_file_set_attributes_from_info()` when setting file attributes.
 public typealias FileAttributeStatus = GFileAttributeStatus
 
 public extension FileAttributeStatus {
@@ -404,7 +404,6 @@ public extension FilesystemPreviewType {
 ///     ...
 ///   }
 /// ```
-/// 
 /// but should instead treat all unrecognized error codes the same as
 /// `G_IO_ERROR_FAILED`.
 /// 
@@ -491,8 +490,8 @@ public extension IOErrorEnum {
     static let invalid_data = G_IO_ERROR_INVALID_DATA /* 35 */
     /// A remote object generated an error that
     ///     doesn't correspond to a locally registered `GError` error
-    ///     domain. Use g_dbus_error_get_remote_error() to extract the D-Bus
-    ///     error name and g_dbus_error_strip_remote_error() to fix up the
+    ///     domain. Use `g_dbus_error_get_remote_error()` to extract the D-Bus
+    ///     error name and `g_dbus_error_strip_remote_error()` to fix up the
     ///     message so it matches what was received on the wire. Since 2.26.
     static let dbus_error = G_IO_ERROR_DBUS_ERROR /* 36 */
     /// Host unreachable. Since 2.26
@@ -524,7 +523,7 @@ public extension IOErrorEnum {
     static let message_too_large = G_IO_ERROR_MESSAGE_TOO_LARGE /* 46 */
 }
 
-/// Flags for use with g_io_module_scope_new().
+/// Flags for use with `g_io_module_scope_new()`.
 public typealias IOModuleScopeFlags = GIOModuleScopeFlags
 
 public extension IOModuleScopeFlags {
@@ -644,8 +643,8 @@ public extension ResolverError {
     static let internal_ = G_RESOLVER_ERROR_INTERNAL /* 2 */
 }
 
-/// The type of record that g_resolver_lookup_records() or
-/// g_resolver_lookup_records_async() should retrieve. The records are returned
+/// The type of record that `g_resolver_lookup_records()` or
+/// `g_resolver_lookup_records_async()` should retrieve. The records are returned
 /// as lists of `GVariant` tuples. Each record type has different values in
 /// the variant tuples returned.
 /// 
@@ -701,7 +700,7 @@ public extension ResourceError {
 }
 
 /// Describes an event occurring on a `GSocketClient`. See the
-/// `GSocketClient`::event signal for more details.
+/// `GSocketClient::event` signal for more details.
 /// 
 /// Additional values may be added to this type in the future.
 public typealias SocketClientEvent = GSocketClientEvent
@@ -751,7 +750,7 @@ public extension SocketFamily {
 }
 
 /// Describes an event occurring on a `GSocketListener`. See the
-/// `GSocketListener`::event signal for more details.
+/// `GSocketListener::event` signal for more details.
 /// 
 /// Additional values may be added to this type in the future.
 public typealias SocketListenerEvent = GSocketListenerEvent
@@ -820,9 +819,9 @@ public extension TLSAuthenticationMode {
     static let required_ = G_TLS_AUTHENTICATION_REQUIRED /* 2 */
 }
 
-/// Flags for g_tls_interaction_request_certificate(),
-/// g_tls_interaction_request_certificate_async(), and
-/// g_tls_interaction_invoke_request_certificate().
+/// Flags for `g_tls_interaction_request_certificate()`,
+/// `g_tls_interaction_request_certificate_async()`, and
+/// `g_tls_interaction_invoke_request_certificate()`.
 public typealias TLSCertificateRequestFlags = GTlsCertificateRequestFlags
 
 public extension TLSCertificateRequestFlags {
@@ -830,9 +829,9 @@ public extension TLSCertificateRequestFlags {
     static let none_ = G_TLS_CERTIFICATE_REQUEST_NONE /* 0 */
 }
 
-/// Flags for g_tls_database_lookup_certificate_for_handle(),
-/// g_tls_database_lookup_certificate_issuer(),
-/// and g_tls_database_lookup_certificates_issued_by().
+/// Flags for `g_tls_database_lookup_certificate_for_handle()`,
+/// `g_tls_database_lookup_certificate_issuer()`,
+/// and `g_tls_database_lookup_certificates_issued_by()`.
 public typealias TLSDatabaseLookupFlags = GTlsDatabaseLookupFlags
 
 public extension TLSDatabaseLookupFlags {
@@ -863,11 +862,11 @@ public extension TLSError {
     static let handshake = G_TLS_ERROR_HANDSHAKE /* 4 */
     /// The TLS handshake failed because
     ///   the server requested a client-side certificate, but none was
-    ///   provided. See g_tls_connection_set_certificate().
+    ///   provided. See `g_tls_connection_set_certificate()`.
     static let certificate_required = G_TLS_ERROR_CERTIFICATE_REQUIRED /* 5 */
     /// The TLS connection was closed without proper
     ///   notice, which may indicate an attack. See
-    ///   g_tls_connection_set_require_close_notify().
+    ///   `g_tls_connection_set_require_close_notify()`.
     static let eof = G_TLS_ERROR_EOF /* 6 */
     /// The TLS handshake failed
     ///   because the client sent the fallback SCSV, indicating a protocol
@@ -892,7 +891,7 @@ public extension TLSInteractionResult {
 }
 
 /// When to allow rehandshaking. See
-/// g_tls_connection_set_rehandshake_mode().
+/// `g_tls_connection_set_rehandshake_mode()`.
 ///
 /// **TLSRehandshakeMode is deprecated:**
 /// Changing the rehandshake mode is no longer
@@ -913,14 +912,14 @@ public extension TLSRehandshakeMode {
 /// `G_UNIX_SOCKET_ADDRESS_PATH` indicates a traditional unix domain
 /// socket bound to a filesystem path. `G_UNIX_SOCKET_ADDRESS_ANONYMOUS`
 /// indicates a socket not bound to any name (eg, a client-side socket,
-/// or a socket created with socketpair()).
+/// or a socket created with `socketpair()`).
 /// 
 /// For abstract sockets, there are two incompatible ways of naming
 /// them; the man pages suggest using the entire `struct sockaddr_un`
 /// as the name, padding the unused parts of the `sun_path` field with
 /// zeroes; this corresponds to `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`.
 /// However, many programs instead just use a portion of `sun_path`, and
-/// pass an appropriate smaller length to bind() or connect(). This is
+/// pass an appropriate smaller length to `bind()` or `connect()`. This is
 /// `G_UNIX_SOCKET_ADDRESS_ABSTRACT`.
 public typealias UnixSocketAddressType = GUnixSocketAddressType
 

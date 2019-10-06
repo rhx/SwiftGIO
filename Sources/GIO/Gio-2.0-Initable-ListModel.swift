@@ -12,20 +12,20 @@ import GLibObject
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
-/// either via g_initable_init() or g_async_initable_init_async()
+/// either via `g_initable_init()` or `g_async_initable_init_async()`
 /// (the latter is only available if it also implements `GAsyncInitable`).
 /// 
 /// If the object is not initialized, or initialization returns with an
-/// error, then all operations on the object except g_object_ref() and
-/// g_object_unref() are considered to be invalid, and have undefined
-/// behaviour. They will often fail with g_critical() or g_warning(), but
+/// error, then all operations on the object except `g_object_ref()` and
+/// `g_object_unref()` are considered to be invalid, and have undefined
+/// behaviour. They will often fail with `g_critical()` or `g_warning()`, but
 /// this must not be relied on.
 /// 
 /// Users of objects implementing this are not intended to use
 /// the interface method directly, instead it will be used automatically
 /// in various ways. For C applications you generally just call
-/// g_initable_new() directly, or indirectly via a foo_thing_new() wrapper.
-/// This will call g_initable_init() under the cover, returning `nil` and
+/// `g_initable_new()` directly, or indirectly via a `foo_thing_new()` wrapper.
+/// This will call `g_initable_init()` under the cover, returning `nil` and
 /// setting a `GError` on failure (at which point the instance is
 /// unreferenced).
 /// 
@@ -48,20 +48,20 @@ public protocol InitableProtocol {
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
-/// either via g_initable_init() or g_async_initable_init_async()
+/// either via `g_initable_init()` or `g_async_initable_init_async()`
 /// (the latter is only available if it also implements `GAsyncInitable`).
 /// 
 /// If the object is not initialized, or initialization returns with an
-/// error, then all operations on the object except g_object_ref() and
-/// g_object_unref() are considered to be invalid, and have undefined
-/// behaviour. They will often fail with g_critical() or g_warning(), but
+/// error, then all operations on the object except `g_object_ref()` and
+/// `g_object_unref()` are considered to be invalid, and have undefined
+/// behaviour. They will often fail with `g_critical()` or `g_warning()`, but
 /// this must not be relied on.
 /// 
 /// Users of objects implementing this are not intended to use
 /// the interface method directly, instead it will be used automatically
 /// in various ways. For C applications you generally just call
-/// g_initable_new() directly, or indirectly via a foo_thing_new() wrapper.
-/// This will call g_initable_init() under the cover, returning `nil` and
+/// `g_initable_new()` directly, or indirectly via a `foo_thing_new()` wrapper.
+/// This will call `g_initable_init()` under the cover, returning `nil` and
 /// setting a `GError` on failure (at which point the instance is
 /// unreferenced).
 /// 
@@ -124,20 +124,20 @@ public extension InitableRef {
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
-/// either via g_initable_init() or g_async_initable_init_async()
+/// either via `g_initable_init()` or `g_async_initable_init_async()`
 /// (the latter is only available if it also implements `GAsyncInitable`).
 /// 
 /// If the object is not initialized, or initialization returns with an
-/// error, then all operations on the object except g_object_ref() and
-/// g_object_unref() are considered to be invalid, and have undefined
-/// behaviour. They will often fail with g_critical() or g_warning(), but
+/// error, then all operations on the object except `g_object_ref()` and
+/// `g_object_unref()` are considered to be invalid, and have undefined
+/// behaviour. They will often fail with `g_critical()` or `g_warning()`, but
 /// this must not be relied on.
 /// 
 /// Users of objects implementing this are not intended to use
 /// the interface method directly, instead it will be used automatically
 /// in various ways. For C applications you generally just call
-/// g_initable_new() directly, or indirectly via a foo_thing_new() wrapper.
-/// This will call g_initable_init() under the cover, returning `nil` and
+/// `g_initable_new()` directly, or indirectly via a `foo_thing_new()` wrapper.
+/// This will call `g_initable_init()` under the cover, returning `nil` and
 /// setting a `GError` on failure (at which point the instance is
 /// unreferenced).
 /// 
@@ -208,10 +208,10 @@ public extension InitableProtocol {
     /// Initializes the object implementing the interface.
     /// 
     /// This method is intended for language bindings. If writing in C,
-    /// g_initable_new() should typically be used instead.
+    /// `g_initable_new()` should typically be used instead.
     /// 
     /// The object must be initialized before any real use after initial
-    /// construction, either with this function or g_async_initable_init_async().
+    /// construction, either with this function or `g_async_initable_init_async()`.
     /// 
     /// Implementations may also support cancellation. If `cancellable` is not `nil`,
     /// then initialization can be cancelled by triggering the cancellable object
@@ -221,13 +221,13 @@ public extension InitableProtocol {
     /// `G_IO_ERROR_NOT_SUPPORTED` will be returned.
     /// 
     /// If the object is not initialized, or initialization returns with an
-    /// error, then all operations on the object except g_object_ref() and
-    /// g_object_unref() are considered to be invalid, and have undefined
+    /// error, then all operations on the object except `g_object_ref()` and
+    /// `g_object_unref()` are considered to be invalid, and have undefined
     /// behaviour. See the [introduction][ginitable] for more details.
     /// 
     /// Callers should not assume that a class which implements `GInitable` can be
     /// initialized multiple times, unless the class explicitly documents itself as
-    /// supporting this. Generally, a class’ implementation of init() can assume
+    /// supporting this. Generally, a class’ implementation of `init()` can assume
     /// (and assert) that it will only be called once. Previously, this documentation
     /// recommended all `GInitable` implementations should be idempotent; that
     /// recommendation was relaxed in GLib 2.54.
@@ -239,9 +239,9 @@ public extension InitableProtocol {
     /// 
     /// One reason why a class might need to support idempotent initialization is if
     /// it is designed to be used via the singleton pattern, with a
-    /// `GObjectClass`.constructor that sometimes returns an existing instance.
-    /// In this pattern, a caller would expect to be able to call g_initable_init()
-    /// on the result of g_object_new(), regardless of whether it is in fact a new
+    /// `GObjectClass.constructor` that sometimes returns an existing instance.
+    /// In this pattern, a caller would expect to be able to call `g_initable_init()`
+    /// on the result of `g_object_new()`, regardless of whether it is in fact a new
     /// instance.
     func init_(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -269,8 +269,8 @@ public extension InitableProtocol {
 /// updates.
 /// 
 /// Each object in the list may also report changes in itself via some
-/// mechanism (normally the `GObject`::notify signal).  Taken together
-/// with the `GListModel`::items-changed signal, this provides for a list
+/// mechanism (normally the `GObject::notify` signal).  Taken together
+/// with the `GListModel::items`-changed signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -285,15 +285,15 @@ public extension InitableProtocol {
 /// interested in.
 /// 
 /// All items in a `GListModel` are of (or derived from) the same type.
-/// g_list_model_get_item_type() returns that type.  The type may be an
+/// `g_list_model_get_item_type()` returns that type.  The type may be an
 /// interface, in which case all objects in the list must implement it.
 /// 
 /// The semantics are close to that of an array:
-/// g_list_model_get_n_items() returns the number of items in the list and
-/// g_list_model_get_item() returns an item at a (0-based) position. In
+/// `g_list_model_get_n_items()` returns the number of items in the list and
+/// `g_list_model_get_item()` returns an item at a (0-based) position. In
 /// order to allow implementations to calculate the list length lazily,
 /// you can also iterate over items: starting from 0, repeatedly call
-/// g_list_model_get_item() until it returns `nil`.
+/// `g_list_model_get_item()` until it returns `nil`.
 /// 
 /// An implementation may create objects lazily, but must take care to
 /// return the same object for a given position until all references to
@@ -328,8 +328,8 @@ public protocol ListModelProtocol {
 /// updates.
 /// 
 /// Each object in the list may also report changes in itself via some
-/// mechanism (normally the `GObject`::notify signal).  Taken together
-/// with the `GListModel`::items-changed signal, this provides for a list
+/// mechanism (normally the `GObject::notify` signal).  Taken together
+/// with the `GListModel::items`-changed signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -344,15 +344,15 @@ public protocol ListModelProtocol {
 /// interested in.
 /// 
 /// All items in a `GListModel` are of (or derived from) the same type.
-/// g_list_model_get_item_type() returns that type.  The type may be an
+/// `g_list_model_get_item_type()` returns that type.  The type may be an
 /// interface, in which case all objects in the list must implement it.
 /// 
 /// The semantics are close to that of an array:
-/// g_list_model_get_n_items() returns the number of items in the list and
-/// g_list_model_get_item() returns an item at a (0-based) position. In
+/// `g_list_model_get_n_items()` returns the number of items in the list and
+/// `g_list_model_get_item()` returns an item at a (0-based) position. In
 /// order to allow implementations to calculate the list length lazily,
 /// you can also iterate over items: starting from 0, repeatedly call
-/// g_list_model_get_item() until it returns `nil`.
+/// `g_list_model_get_item()` until it returns `nil`.
 /// 
 /// An implementation may create objects lazily, but must take care to
 /// return the same object for a given position until all references to
@@ -427,8 +427,8 @@ public extension ListModelRef {
 /// updates.
 /// 
 /// Each object in the list may also report changes in itself via some
-/// mechanism (normally the `GObject`::notify signal).  Taken together
-/// with the `GListModel`::items-changed signal, this provides for a list
+/// mechanism (normally the `GObject::notify` signal).  Taken together
+/// with the `GListModel::items`-changed signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -443,15 +443,15 @@ public extension ListModelRef {
 /// interested in.
 /// 
 /// All items in a `GListModel` are of (or derived from) the same type.
-/// g_list_model_get_item_type() returns that type.  The type may be an
+/// `g_list_model_get_item_type()` returns that type.  The type may be an
 /// interface, in which case all objects in the list must implement it.
 /// 
 /// The semantics are close to that of an array:
-/// g_list_model_get_n_items() returns the number of items in the list and
-/// g_list_model_get_item() returns an item at a (0-based) position. In
+/// `g_list_model_get_n_items()` returns the number of items in the list and
+/// `g_list_model_get_item()` returns an item at a (0-based) position. In
 /// order to allow implementations to calculate the list length lazily,
 /// you can also iterate over items: starting from 0, repeatedly call
-/// g_list_model_get_item() until it returns `nil`.
+/// `g_list_model_get_item()` until it returns `nil`.
 /// 
 /// An implementation may create objects lazily, but must take care to
 /// return the same object for a given position until all references to
@@ -567,14 +567,14 @@ public extension ListModelProtocol {
     /// items in `list`, `nil` is returned.
     /// 
     /// `nil` is never returned for an index that is smaller than the length
-    /// of the list.  See g_list_model_get_n_items().
+    /// of the list.  See `g_list_model_get_n_items()`.
     func getItem(position: CUnsignedInt) -> UnsafeMutableRawPointer! {
         let rv = g_list_model_get_item(cast(list_model_ptr), guint(position))
         return cast(rv)
     }
 
     /// Gets the type of the items in `list`. All items returned from
-    /// g_list_model_get_type() are of that type or a subtype, or are an
+    /// `g_list_model_get_type()` are of that type or a subtype, or are an
     /// implementation of that interface.
     /// 
     /// The item type of a `GListModel` can not change during the life of the
@@ -588,7 +588,7 @@ public extension ListModelProtocol {
     /// 
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
-    /// `position` until g_list_model_get_item() returns `nil`.
+    /// `position` until `g_list_model_get_item()` returns `nil`.
     func getNItems() -> CUnsignedInt {
         let rv = g_list_model_get_n_items(cast(list_model_ptr))
         return CUnsignedInt(rv)
@@ -598,13 +598,13 @@ public extension ListModelProtocol {
     /// items in `list`, `nil` is returned.
     /// 
     /// `nil` is never returned for an index that is smaller than the length
-    /// of the list.  See g_list_model_get_n_items().
+    /// of the list.  See `g_list_model_get_n_items()`.
     func getObject(position: CUnsignedInt) -> UnsafeMutablePointer<GObject>! {
         let rv = g_list_model_get_object(cast(list_model_ptr), guint(position))
         return cast(rv)
     }
 
-    /// Emits the `GListModel`::items-changed signal on `list`.
+    /// Emits the `GListModel::items`-changed signal on `list`.
     /// 
     /// This function should only be called by classes implementing
     /// `GListModel`. It has to be called after the internal representation
@@ -629,14 +629,14 @@ public extension ListModelProtocol {
     
     }
     /// Gets the type of the items in `list`. All items returned from
-    /// g_list_model_get_type() are of that type or a subtype, or are an
+    /// `g_list_model_get_type()` are of that type or a subtype, or are an
     /// implementation of that interface.
     /// 
     /// The item type of a `GListModel` can not change during the life of the
     /// model.
     var itemType: GType {
         /// Gets the type of the items in `list`. All items returned from
-        /// g_list_model_get_type() are of that type or a subtype, or are an
+        /// `g_list_model_get_type()` are of that type or a subtype, or are an
         /// implementation of that interface.
         /// 
         /// The item type of a `GListModel` can not change during the life of the
@@ -651,13 +651,13 @@ public extension ListModelProtocol {
     /// 
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
-    /// `position` until g_list_model_get_item() returns `nil`.
+    /// `position` until `g_list_model_get_item()` returns `nil`.
     var nItems: CUnsignedInt {
         /// Gets the number of items in `list`.
         /// 
         /// Depending on the model implementation, calling this function may be
         /// less efficient than iterating the list with increasing values for
-        /// `position` until g_list_model_get_item() returns `nil`.
+        /// `position` until `g_list_model_get_item()` returns `nil`.
         get {
             let rv = g_list_model_get_n_items(cast(list_model_ptr))
             return CUnsignedInt(rv)

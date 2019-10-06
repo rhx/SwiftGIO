@@ -13,7 +13,7 @@ import GLibObject
 /// info database for changes (ie: newly installed or removed
 /// applications).
 /// 
-/// Call g_app_info_monitor_get() to get a `GAppInfoMonitor` and connect
+/// Call `g_app_info_monitor_get()` to get a `GAppInfoMonitor` and connect
 /// to the "changed" signal.
 /// 
 /// In the usual case, applications should try to make note of the change
@@ -42,7 +42,7 @@ public protocol AppInfoMonitorProtocol: ObjectProtocol {
 /// info database for changes (ie: newly installed or removed
 /// applications).
 /// 
-/// Call g_app_info_monitor_get() to get a `GAppInfoMonitor` and connect
+/// Call `g_app_info_monitor_get()` to get a `GAppInfoMonitor` and connect
 /// to the "changed" signal.
 /// 
 /// In the usual case, applications should try to make note of the change
@@ -106,9 +106,9 @@ public extension AppInfoMonitorRef {
     /// 
     /// The `GAppInfoMonitor` will emit a "changed" signal in the
     /// thread-default main context whenever the list of installed
-    /// applications (as reported by g_app_info_get_all()) may have changed.
+    /// applications (as reported by `g_app_info_get_all()`) may have changed.
     /// 
-    /// You must only call g_object_unref() on the return value from under
+    /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
     static func appInfoMonitorGet() -> AppInfoMonitorRef! {
         let rv = g_app_info_monitor_get()
@@ -124,7 +124,7 @@ public extension AppInfoMonitorRef {
 /// info database for changes (ie: newly installed or removed
 /// applications).
 /// 
-/// Call g_app_info_monitor_get() to get a `GAppInfoMonitor` and connect
+/// Call `g_app_info_monitor_get()` to get a `GAppInfoMonitor` and connect
 /// to the "changed" signal.
 /// 
 /// In the usual case, applications should try to make note of the change
@@ -181,9 +181,9 @@ open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
     /// 
     /// The `GAppInfoMonitor` will emit a "changed" signal in the
     /// thread-default main context whenever the list of installed
-    /// applications (as reported by g_app_info_get_all()) may have changed.
+    /// applications (as reported by `g_app_info_get_all()`) may have changed.
     /// 
-    /// You must only call g_object_unref() on the return value from under
+    /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
     public static func appInfoMonitorGet() -> AppInfoMonitor! {
         let rv = g_app_info_monitor_get()
@@ -199,27 +199,26 @@ public enum AppInfoMonitorSignalName: String, SignalNameProtocol {
     /// or removed applications).
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -400,38 +399,37 @@ open class AppLaunchContext: Object, AppLaunchContextProtocol {
 // MARK: - no AppLaunchContext properties
 
 public enum AppLaunchContextSignalName: String, SignalNameProtocol {
-    /// The ::launch-failed signal is emitted when a `GAppInfo` launch
+    /// The `launch`-failed signal is emitted when a `GAppInfo` launch
     /// fails. The startup notification id is provided, so that the launcher
     /// can cancel the startup notification.
     case launchFailed = "launch-failed"
-    /// The ::launched signal is emitted when a `GAppInfo` is successfully
+    /// The `launched` signal is emitted when a `GAppInfo` is successfully
     /// launched. The `platform_data` is an GVariant dictionary mapping
     /// strings to variants (ie a{sv}), which contains additional,
     /// platform-specific data about this launch. On UNIX, at least the
     /// "pid" and "startup-notification-id" keys will be present.
     case launched = "launched"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -499,7 +497,7 @@ public extension AppLaunchContextProtocol {
     }
 
     /// Called when an application has failed to launch, so that it can cancel
-    /// the application startup notification started in g_app_launch_context_get_startup_notify_id().
+    /// the application startup notification started in `g_app_launch_context_get_startup_notify_id()`.
     func launchFailed(startupNotifyID startup_notify_id: UnsafePointer<CChar>) {
         g_app_launch_context_launch_failed(cast(app_launch_context_ptr), startup_notify_id)
     
@@ -526,7 +524,7 @@ public extension AppLaunchContextProtocol {
     /// 
     /// The D-Bus–activated applications don't have to be started if your application
     /// terminates too soon after this function. To prevent this, use
-    /// g_app_info_launch_default_for_uri_async() instead.
+    /// `g_app_info_launch_default_for_uri_async()` instead.
     func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_app_info_launch_default_for_uri(uri, cast(app_launch_context_ptr), &error)
@@ -536,7 +534,7 @@ public extension AppLaunchContextProtocol {
         return Bool(rv != 0)
     }
 
-    /// Async version of g_app_info_launch_default_for_uri().
+    /// Async version of `g_app_info_launch_default_for_uri()`.
     /// 
     /// This version is useful if you are interested in receiving
     /// error information in the case where the application is
@@ -583,7 +581,7 @@ public extension AppLaunchContextProtocol {
 /// 
 /// GApplication provides convenient life cycle management by maintaining
 /// a "use count" for the primary application instance. The use count can
-/// be changed using g_application_hold() and g_application_release(). If
+/// be changed using `g_application_hold()` and `g_application_release()`. If
 /// it drops to zero, the application exits. Higher-level classes such as
 /// `GtkApplication` employ the use count to ensure that the application
 /// stays alive as long as it has any opened windows.
@@ -603,14 +601,14 @@ public extension AppLaunchContextProtocol {
 /// The use of `GApplication` differs from some other commonly-used
 /// uniqueness libraries (such as libunique) in important ways. The
 /// application is not expected to manually register itself and check
-/// if it is the primary instance. Instead, the main() function of a
+/// if it is the primary instance. Instead, the `main()` function of a
 /// `GApplication` should do very little more than instantiating the
 /// application instance, possibly connecting signal handlers, then
-/// calling g_application_run(). All checks for uniqueness are done
+/// calling `g_application_run()`. All checks for uniqueness are done
 /// internally. If the application is the primary instance then the
 /// startup signal is emitted and the mainloop runs. If the application
 /// is not the primary instance then a signal is sent to the primary
-/// instance and g_application_run() promptly returns. See the code
+/// instance and `g_application_run()` promptly returns. See the code
 /// examples below.
 /// 
 /// If used, the expected form of an application identifier is the same as
@@ -618,7 +616,7 @@ public extension AppLaunchContextProtocol {
 /// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
-/// For details on valid application identifiers, see g_application_id_is_valid().
+/// For details on valid application identifiers, see `g_application_id_is_valid()`.
 /// 
 /// On Linux, the application identifier is claimed as a well-known bus name
 /// on the user's session bus.  This means that the uniqueness of your
@@ -630,13 +628,13 @@ public extension AppLaunchContextProtocol {
 /// (even if a main loop is not running).  For this reason, you must ensure that
 /// any object paths that you wish to register are registered before `GApplication`
 /// attempts to acquire the bus name of your application (which happens in
-/// g_application_register()).  Unfortunately, this means that you cannot use
-/// g_application_get_is_remote() to decide if you want to register object paths.
+/// `g_application_register()`).  Unfortunately, this means that you cannot use
+/// `g_application_get_is_remote()` to decide if you want to register object paths.
 /// 
 /// GApplication also implements the `GActionGroup` and `GActionMap`
 /// interfaces and lets you easily export actions by adding them with
-/// g_action_map_add_action(). When invoking an action by calling
-/// g_action_group_activate_action() on the application, it is always
+/// `g_action_map_add_action()`. When invoking an action by calling
+/// `g_action_group_activate_action()` on the application, it is always
 /// invoked in the primary instance. The actions are also exported on
 /// the session bus, and GIO provides the `GDBusActionGroup` wrapper to
 /// conveniently access them remotely. GIO provides a `GDBusMenuModel` wrapper
@@ -652,7 +650,7 @@ public extension AppLaunchContextProtocol {
 /// 
 /// - via activating an action
 /// 
-/// The `GApplication`::startup signal lets you handle the application
+/// The `GApplication::startup` signal lets you handle the application
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
@@ -662,9 +660,9 @@ public extension AppLaunchContextProtocol {
 /// data, override the `before_emit` or `after_emit` virtual functions
 /// in your `GApplication` subclass. When dealing with
 /// `GApplicationCommandLine` objects, the platform data is
-/// directly available via g_application_command_line_get_cwd(),
-/// g_application_command_line_get_environ() and
-/// g_application_command_line_get_platform_data().
+/// directly available via `g_application_command_line_get_cwd()`,
+/// `g_application_command_line_get_environ()` and
+/// `g_application_command_line_get_platform_data()`.
 /// 
 /// As the name indicates, the platform data may vary depending on the
 /// operating system, but it always includes the current directory (key
@@ -677,7 +675,7 @@ public extension AppLaunchContextProtocol {
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication`::command-line signal or override the local_command_line()
+/// `GApplication::command`-line signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -709,7 +707,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// 
 /// GApplication provides convenient life cycle management by maintaining
 /// a "use count" for the primary application instance. The use count can
-/// be changed using g_application_hold() and g_application_release(). If
+/// be changed using `g_application_hold()` and `g_application_release()`. If
 /// it drops to zero, the application exits. Higher-level classes such as
 /// `GtkApplication` employ the use count to ensure that the application
 /// stays alive as long as it has any opened windows.
@@ -729,14 +727,14 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// The use of `GApplication` differs from some other commonly-used
 /// uniqueness libraries (such as libunique) in important ways. The
 /// application is not expected to manually register itself and check
-/// if it is the primary instance. Instead, the main() function of a
+/// if it is the primary instance. Instead, the `main()` function of a
 /// `GApplication` should do very little more than instantiating the
 /// application instance, possibly connecting signal handlers, then
-/// calling g_application_run(). All checks for uniqueness are done
+/// calling `g_application_run()`. All checks for uniqueness are done
 /// internally. If the application is the primary instance then the
 /// startup signal is emitted and the mainloop runs. If the application
 /// is not the primary instance then a signal is sent to the primary
-/// instance and g_application_run() promptly returns. See the code
+/// instance and `g_application_run()` promptly returns. See the code
 /// examples below.
 /// 
 /// If used, the expected form of an application identifier is the same as
@@ -744,7 +742,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
-/// For details on valid application identifiers, see g_application_id_is_valid().
+/// For details on valid application identifiers, see `g_application_id_is_valid()`.
 /// 
 /// On Linux, the application identifier is claimed as a well-known bus name
 /// on the user's session bus.  This means that the uniqueness of your
@@ -756,13 +754,13 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// (even if a main loop is not running).  For this reason, you must ensure that
 /// any object paths that you wish to register are registered before `GApplication`
 /// attempts to acquire the bus name of your application (which happens in
-/// g_application_register()).  Unfortunately, this means that you cannot use
-/// g_application_get_is_remote() to decide if you want to register object paths.
+/// `g_application_register()`).  Unfortunately, this means that you cannot use
+/// `g_application_get_is_remote()` to decide if you want to register object paths.
 /// 
 /// GApplication also implements the `GActionGroup` and `GActionMap`
 /// interfaces and lets you easily export actions by adding them with
-/// g_action_map_add_action(). When invoking an action by calling
-/// g_action_group_activate_action() on the application, it is always
+/// `g_action_map_add_action()`. When invoking an action by calling
+/// `g_action_group_activate_action()` on the application, it is always
 /// invoked in the primary instance. The actions are also exported on
 /// the session bus, and GIO provides the `GDBusActionGroup` wrapper to
 /// conveniently access them remotely. GIO provides a `GDBusMenuModel` wrapper
@@ -778,7 +776,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// 
 /// - via activating an action
 /// 
-/// The `GApplication`::startup signal lets you handle the application
+/// The `GApplication::startup` signal lets you handle the application
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
@@ -788,9 +786,9 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// data, override the `before_emit` or `after_emit` virtual functions
 /// in your `GApplication` subclass. When dealing with
 /// `GApplicationCommandLine` objects, the platform data is
-/// directly available via g_application_command_line_get_cwd(),
-/// g_application_command_line_get_environ() and
-/// g_application_command_line_get_platform_data().
+/// directly available via `g_application_command_line_get_cwd()`,
+/// `g_application_command_line_get_environ()` and
+/// `g_application_command_line_get_platform_data()`.
 /// 
 /// As the name indicates, the platform data may vary depending on the
 /// operating system, but it always includes the current directory (key
@@ -803,7 +801,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication`::command-line signal or override the local_command_line()
+/// `GApplication::command`-line signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -864,7 +862,7 @@ public extension ApplicationRef {
         /// Creates a new `GApplication` instance.
     /// 
     /// If non-`nil`, the application id must be valid.  See
-    /// g_application_id_is_valid().
+    /// `g_application_id_is_valid()`.
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
@@ -876,7 +874,7 @@ public extension ApplicationRef {
     /// 
     /// Normally there is only one `GApplication` per process and it becomes
     /// the default when it is created.  You can exercise more control over
-    /// this by using g_application_set_default().
+    /// this by using `g_application_set_default()`.
     /// 
     /// If there is no default application then `nil` is returned.
     static func getDefault() -> ApplicationRef! {
@@ -897,7 +895,7 @@ public extension ApplicationRef {
 /// 
 /// GApplication provides convenient life cycle management by maintaining
 /// a "use count" for the primary application instance. The use count can
-/// be changed using g_application_hold() and g_application_release(). If
+/// be changed using `g_application_hold()` and `g_application_release()`. If
 /// it drops to zero, the application exits. Higher-level classes such as
 /// `GtkApplication` employ the use count to ensure that the application
 /// stays alive as long as it has any opened windows.
@@ -917,14 +915,14 @@ public extension ApplicationRef {
 /// The use of `GApplication` differs from some other commonly-used
 /// uniqueness libraries (such as libunique) in important ways. The
 /// application is not expected to manually register itself and check
-/// if it is the primary instance. Instead, the main() function of a
+/// if it is the primary instance. Instead, the `main()` function of a
 /// `GApplication` should do very little more than instantiating the
 /// application instance, possibly connecting signal handlers, then
-/// calling g_application_run(). All checks for uniqueness are done
+/// calling `g_application_run()`. All checks for uniqueness are done
 /// internally. If the application is the primary instance then the
 /// startup signal is emitted and the mainloop runs. If the application
 /// is not the primary instance then a signal is sent to the primary
-/// instance and g_application_run() promptly returns. See the code
+/// instance and `g_application_run()` promptly returns. See the code
 /// examples below.
 /// 
 /// If used, the expected form of an application identifier is the same as
@@ -932,7 +930,7 @@ public extension ApplicationRef {
 /// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
-/// For details on valid application identifiers, see g_application_id_is_valid().
+/// For details on valid application identifiers, see `g_application_id_is_valid()`.
 /// 
 /// On Linux, the application identifier is claimed as a well-known bus name
 /// on the user's session bus.  This means that the uniqueness of your
@@ -944,13 +942,13 @@ public extension ApplicationRef {
 /// (even if a main loop is not running).  For this reason, you must ensure that
 /// any object paths that you wish to register are registered before `GApplication`
 /// attempts to acquire the bus name of your application (which happens in
-/// g_application_register()).  Unfortunately, this means that you cannot use
-/// g_application_get_is_remote() to decide if you want to register object paths.
+/// `g_application_register()`).  Unfortunately, this means that you cannot use
+/// `g_application_get_is_remote()` to decide if you want to register object paths.
 /// 
 /// GApplication also implements the `GActionGroup` and `GActionMap`
 /// interfaces and lets you easily export actions by adding them with
-/// g_action_map_add_action(). When invoking an action by calling
-/// g_action_group_activate_action() on the application, it is always
+/// `g_action_map_add_action()`. When invoking an action by calling
+/// `g_action_group_activate_action()` on the application, it is always
 /// invoked in the primary instance. The actions are also exported on
 /// the session bus, and GIO provides the `GDBusActionGroup` wrapper to
 /// conveniently access them remotely. GIO provides a `GDBusMenuModel` wrapper
@@ -966,7 +964,7 @@ public extension ApplicationRef {
 /// 
 /// - via activating an action
 /// 
-/// The `GApplication`::startup signal lets you handle the application
+/// The `GApplication::startup` signal lets you handle the application
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
@@ -976,9 +974,9 @@ public extension ApplicationRef {
 /// data, override the `before_emit` or `after_emit` virtual functions
 /// in your `GApplication` subclass. When dealing with
 /// `GApplicationCommandLine` objects, the platform data is
-/// directly available via g_application_command_line_get_cwd(),
-/// g_application_command_line_get_environ() and
-/// g_application_command_line_get_platform_data().
+/// directly available via `g_application_command_line_get_cwd()`,
+/// `g_application_command_line_get_environ()` and
+/// `g_application_command_line_get_platform_data()`.
 /// 
 /// As the name indicates, the platform data may vary depending on the
 /// operating system, but it always includes the current directory (key
@@ -991,7 +989,7 @@ public extension ApplicationRef {
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication`::command-line signal or override the local_command_line()
+/// `GApplication::command`-line signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -1044,7 +1042,7 @@ open class Application: Object, ApplicationProtocol {
     /// Creates a new `GApplication` instance.
     /// 
     /// If non-`nil`, the application id must be valid.  See
-    /// g_application_id_is_valid().
+    /// `g_application_id_is_valid()`.
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
@@ -1057,7 +1055,7 @@ open class Application: Object, ApplicationProtocol {
     /// 
     /// Normally there is only one `GApplication` per process and it becomes
     /// the default when it is created.  You can exercise more control over
-    /// this by using g_application_set_default().
+    /// this by using `g_application_set_default()`.
     /// 
     /// If there is no default application then `nil` is returned.
     public static func getDefault() -> Application! {
@@ -1073,7 +1071,7 @@ public enum ApplicationPropertyName: String, PropertyNameProtocol {
     case flags = "flags"
     case inactivityTimeout = "inactivity-timeout"
     /// Whether the application is currently marked as busy through
-    /// g_application_mark_busy() or g_application_bind_busy_property().
+    /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
     case isBusy = "is-busy"
     case isRegistered = "is-registered"
     case isRemote = "is-remote"
@@ -1117,19 +1115,19 @@ public extension ApplicationProtocol {
 }
 
 public enum ApplicationSignalName: String, SignalNameProtocol {
-    /// The ::activate signal is emitted on the primary instance when an
-    /// activation occurs. See g_application_activate().
+    /// The `activate` signal is emitted on the primary instance when an
+    /// activation occurs. See `g_application_activate()`.
     case activate = "activate"
-    /// The ::command-line signal is emitted on the primary instance when
-    /// a commandline is not handled locally. See g_application_run() and
+    /// The `command`-line signal is emitted on the primary instance when
+    /// a commandline is not handled locally. See `g_application_run()` and
     /// the `GApplicationCommandLine` documentation for more information.
     case commandLine = "command-line"
-    /// The ::handle-local-options signal is emitted on the local instance
+    /// The `handle`-local-options signal is emitted on the local instance
     /// after the parsing of the commandline options has occurred.
     /// 
     /// You can add options to be recognised during commandline option
-    /// parsing using g_application_add_main_option_entries() and
-    /// g_application_add_option_group().
+    /// parsing using `g_application_add_main_option_entries()` and
+    /// `g_application_add_option_group()`.
     /// 
     /// Signal handlers can inspect `options` (along with values pointed to
     /// from the `arg_data` of an installed `GOptionEntrys`) in order to
@@ -1139,80 +1137,79 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// In the event that the application is marked
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` the "normal processing" will
     /// send the `options` dictionary to the primary instance where it can be
-    /// read with g_application_command_line_get_options_dict().  The signal
+    /// read with `g_application_command_line_get_options_dict()`.  The signal
     /// handler can modify the dictionary before returning, and the
     /// modified dictionary will be sent.
     /// 
     /// In the event that `G_APPLICATION_HANDLES_COMMAND_LINE` is not set,
     /// "normal processing" will treat the remaining uncollected command
     /// line arguments as filenames or URIs.  If there are no arguments,
-    /// the application is activated by g_application_activate().  One or
-    /// more arguments results in a call to g_application_open().
+    /// the application is activated by `g_application_activate()`.  One or
+    /// more arguments results in a call to `g_application_open()`.
     /// 
     /// If you want to handle the local commandline arguments for yourself
-    /// by converting them to calls to g_application_open() or
-    /// g_action_group_activate_action() then you must be sure to register
+    /// by converting them to calls to `g_application_open()` or
+    /// `g_action_group_activate_action()` then you must be sure to register
     /// the application first.  You should probably not call
-    /// g_application_activate() for yourself, however: just return -1 and
+    /// `g_application_activate()` for yourself, however: just return -1 and
     /// allow the default handler to do it for you.  This will ensure that
     /// the `--gapplication-service` switch works properly (i.e. no activation
     /// in that case).
     /// 
     /// Note that this signal is emitted from the default implementation of
-    /// local_command_line().  If you override that function and don't
+    /// `local_command_line()`.  If you override that function and don't
     /// chain up then this signal will never be emitted.
     /// 
-    /// You can override local_command_line() if you need more powerful
+    /// You can override `local_command_line()` if you need more powerful
     /// capabilities than what is provided here, but this should not
     /// normally be required.
     case handleLocalOptions = "handle-local-options"
-    /// The ::name-lost signal is emitted only on the registered primary instance
+    /// The `name`-lost signal is emitted only on the registered primary instance
     /// when a new instance has taken over. This can only happen if the application
     /// is using the `G_APPLICATION_ALLOW_REPLACEMENT` flag.
     /// 
-    /// The default handler for this signal calls g_application_quit().
+    /// The default handler for this signal calls `g_application_quit()`.
     case nameLost = "name-lost"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::open signal is emitted on the primary instance when there are
-    /// files to open. See g_application_open() for more information.
+    /// The `open` signal is emitted on the primary instance when there are
+    /// files to open. See `g_application_open()` for more information.
     case open = "open"
-    /// The ::shutdown signal is emitted only on the registered primary instance
+    /// The `shutdown` signal is emitted only on the registered primary instance
     /// immediately after the main loop terminates.
     case shutdown = "shutdown"
-    /// The ::startup signal is emitted on the primary instance immediately
-    /// after registration. See g_application_register().
+    /// The `startup` signal is emitted on the primary instance immediately
+    /// after registration. See `g_application_register()`.
     case startup = "startup"
     case notifyActionGroup = "notify::action-group"
     case notifyApplicationID = "notify::application-id"
     case notifyFlags = "notify::flags"
     case notifyInactivityTimeout = "notify::inactivity-timeout"
     /// Whether the application is currently marked as busy through
-    /// g_application_mark_busy() or g_application_bind_busy_property().
+    /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
     case notifyIsBusy = "notify::is-busy"
     case notifyIsRegistered = "notify::is-registered"
     case notifyIsRemote = "notify::is-remote"
@@ -1253,7 +1250,7 @@ public extension ApplicationProtocol {
 
     /// Activates the application.
     /// 
-    /// In essence, this results in the `GApplication`::activate signal being
+    /// In essence, this results in the `GApplication::activate` signal being
     /// emitted in the primary instance.
     /// 
     /// The application must be registered before calling this function.
@@ -1265,14 +1262,14 @@ public extension ApplicationProtocol {
     /// Add an option to be handled by `application`.
     /// 
     /// Calling this function is the equivalent of calling
-    /// g_application_add_main_option_entries() with a single `GOptionEntry`
+    /// `g_application_add_main_option_entries()` with a single `GOptionEntry`
     /// that has its arg_data member set to `nil`.
     /// 
     /// The parsed arguments will be packed into a `GVariantDict` which
-    /// is passed to `GApplication`::handle-local-options. If
+    /// is passed to `GApplication::handle`-local-options. If
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` is set, then it will also
     /// be sent to the primary instance. See
-    /// g_application_add_main_option_entries() for more details.
+    /// `g_application_add_main_option_entries()` for more details.
     /// 
     /// See `GOptionEntry` for more documentation of the arguments.
     func addMainOption(longName long_name: UnsafePointer<CChar>, shortName short_name: gchar, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: UnsafePointer<CChar>, argDescription arg_description: UnsafePointer<CChar>) {
@@ -1282,20 +1279,20 @@ public extension ApplicationProtocol {
 
     /// Adds main option entries to be handled by `application`.
     /// 
-    /// This function is comparable to g_option_context_add_main_entries().
+    /// This function is comparable to `g_option_context_add_main_entries()`.
     /// 
     /// After the commandline arguments are parsed, the
-    /// `GApplication`::handle-local-options signal will be emitted.  At this
+    /// `GApplication::handle`-local-options signal will be emitted.  At this
     /// point, the application can inspect the values pointed to by `arg_data`
     /// in the given `GOptionEntrys`.
     /// 
     /// Unlike `GOptionContext`, `GApplication` supports giving a `nil`
     /// `arg_data` for a non-callback `GOptionEntry`.  This results in the
     /// argument in question being packed into a `GVariantDict` which is also
-    /// passed to `GApplication`::handle-local-options, where it can be
+    /// passed to `GApplication::handle`-local-options, where it can be
     /// inspected and modified.  If `G_APPLICATION_HANDLES_COMMAND_LINE` is
     /// set, then the resulting dictionary is sent to the primary instance,
-    /// where g_application_command_line_get_options_dict() will return it.
+    /// where `g_application_command_line_get_options_dict()` will return it.
     /// This "packing" is done according to the type of the argument --
     /// booleans for normal flags, strings for strings, bytestrings for
     /// filenames, etc.  The packing only occurs if the flag is given (ie: we
@@ -1304,7 +1301,7 @@ public extension ApplicationProtocol {
     /// In general, it is recommended that all commandline arguments are
     /// parsed locally.  The options dictionary should then be used to
     /// transmit the result of the parsing to the primary instance, where
-    /// g_variant_dict_lookup() can be used.  For local options, it is
+    /// `g_variant_dict_lookup()` can be used.  For local options, it is
     /// possible to either use `arg_data` in the usual way, or to consult (and
     /// potentially remove) the option from the options dictionary.
     /// 
@@ -1316,7 +1313,7 @@ public extension ApplicationProtocol {
     /// treated as errors.  Unrecognised options have never been ignored when
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` is unset.
     /// 
-    /// If `GApplication`::handle-local-options needs to see the list of
+    /// If `GApplication::handle`-local-options needs to see the list of
     /// filenames, then the use of `G_OPTION_REMAINING` is recommended.  If
     /// `arg_data` is `nil` then `G_OPTION_REMAINING` can be used as a key into
     /// the options dictionary.  If you do use `G_OPTION_REMAINING` then you
@@ -1325,7 +1322,7 @@ public extension ApplicationProtocol {
     /// (which treats them as filenames to be opened).
     /// 
     /// It is important to use the proper GVariant format when retrieving
-    /// the options with g_variant_dict_lookup():
+    /// the options with `g_variant_dict_lookup()`:
     /// - for `G_OPTION_ARG_NONE`, use b
     /// - for `G_OPTION_ARG_STRING`, use &s
     /// - for `G_OPTION_ARG_INT`, use i
@@ -1341,16 +1338,16 @@ public extension ApplicationProtocol {
 
     /// Adds a `GOptionGroup` to the commandline handling of `application`.
     /// 
-    /// This function is comparable to g_option_context_add_group().
+    /// This function is comparable to `g_option_context_add_group()`.
     /// 
-    /// Unlike g_application_add_main_option_entries(), this function does
+    /// Unlike `g_application_add_main_option_entries()`, this function does
     /// not deal with `nil` `arg_data` and never transmits options to the
     /// primary instance.
     /// 
     /// The reason for that is because, by the time the options arrive at the
     /// primary instance, it is typically too late to do anything with them.
     /// Taking the GTK option group as an example: GTK will already have been
-    /// initialised by the time the `GApplication`::command-line handler runs.
+    /// initialised by the time the `GApplication::command`-line handler runs.
     /// In the case that this is not the first-running instance of the
     /// application, the existing instance may already have been running for
     /// a very long time.
@@ -1369,7 +1366,7 @@ public extension ApplicationProtocol {
     
     }
 
-    /// Marks `application` as busy (see g_application_mark_busy()) while
+    /// Marks `application` as busy (see `g_application_mark_busy()`) while
     /// `property` on `object` is `true`.
     /// 
     /// The binding holds a reference to `application` while it is active, but
@@ -1398,7 +1395,7 @@ public extension ApplicationProtocol {
     /// normally be in use but we were unable to connect to the bus.
     /// 
     /// This function must not be called before the application has been
-    /// registered.  See g_application_get_is_registered().
+    /// registered.  See `g_application_get_is_registered()`.
     func getDbusConnection() -> UnsafeMutablePointer<GDBusConnection>! {
         let rv = g_application_get_dbus_connection(cast(application_ptr))
         return cast(rv)
@@ -1417,7 +1414,7 @@ public extension ApplicationProtocol {
     /// normally be in use but we were unable to connect to the bus.
     /// 
     /// This function must not be called before the application has been
-    /// registered.  See g_application_get_is_registered().
+    /// registered.  See `g_application_get_is_registered()`.
     func getDbusObjectPath() -> String! {
         let rv = g_application_get_dbus_object_path(cast(application_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1434,14 +1431,14 @@ public extension ApplicationProtocol {
     /// Gets the current inactivity timeout for the application.
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
-    /// g_application_release() before the application stops running.
+    /// `g_application_release()` before the application stops running.
     func getInactivityTimeout() -> CUnsignedInt {
         let rv = g_application_get_inactivity_timeout(cast(application_ptr))
         return CUnsignedInt(rv)
     }
 
     /// Gets the application's current busy state, as set through
-    /// g_application_mark_busy() or g_application_bind_busy_property().
+    /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
     func getIsBusy() -> Bool {
         let rv = g_application_get_is_busy(cast(application_ptr))
         return Bool(rv != 0)
@@ -1449,7 +1446,7 @@ public extension ApplicationProtocol {
 
     /// Checks if `application` is registered.
     /// 
-    /// An application is registered if g_application_register() has been
+    /// An application is registered if `g_application_register()` has been
     /// successfully called.
     func getIsRegistered() -> Bool {
         let rv = g_application_get_is_registered(cast(application_ptr))
@@ -1464,8 +1461,8 @@ public extension ApplicationProtocol {
     /// performed by the primary instance.
     /// 
     /// The value of this property cannot be accessed before
-    /// g_application_register() has been called.  See
-    /// g_application_get_is_registered().
+    /// `g_application_register()` has been called.  See
+    /// `g_application_get_is_registered()`.
     func getIsRemote() -> Bool {
         let rv = g_application_get_is_remote(cast(application_ptr))
         return Bool(rv != 0)
@@ -1473,7 +1470,7 @@ public extension ApplicationProtocol {
 
     /// Gets the resource base path of `application`.
     /// 
-    /// See g_application_set_resource_base_path() for more information.
+    /// See `g_application_set_resource_base_path()` for more information.
     func getResourceBasePath() -> String! {
         let rv = g_application_get_resource_base_path(cast(application_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1482,10 +1479,10 @@ public extension ApplicationProtocol {
     /// Increases the use count of `application`.
     /// 
     /// Use this function to indicate that the application has a reason to
-    /// continue to run.  For example, g_application_hold() is called by GTK+
+    /// continue to run.  For example, `g_application_hold()` is called by GTK+
     /// when a toplevel window is on the screen.
     /// 
-    /// To cancel the hold, call g_application_release().
+    /// To cancel the hold, call `g_application_release()`.
     func hold() {
         g_application_hold(cast(application_ptr))
     
@@ -1500,7 +1497,7 @@ public extension ApplicationProtocol {
     /// use that information to indicate the state to the user (e.g. with a
     /// spinner).
     /// 
-    /// To cancel the busy indication, use g_application_unmark_busy().
+    /// To cancel the busy indication, use `g_application_unmark_busy()`.
     func markBusy() {
         g_application_mark_busy(cast(application_ptr))
     
@@ -1508,12 +1505,12 @@ public extension ApplicationProtocol {
 
     /// Opens the given files.
     /// 
-    /// In essence, this results in the `GApplication`::open signal being emitted
+    /// In essence, this results in the `GApplication::open` signal being emitted
     /// in the primary instance.
     /// 
     /// `n_files` must be greater than zero.
     /// 
-    /// `hint` is simply passed through to the ::open signal.  It is
+    /// `hint` is simply passed through to the `open` signal.  It is
     /// intended to be used by applications that have multiple modes for
     /// opening files (eg: "view" vs "edit", etc).  Unless you have a need
     /// for this functionality, you should use "".
@@ -1527,16 +1524,16 @@ public extension ApplicationProtocol {
 
     /// Immediately quits the application.
     /// 
-    /// Upon return to the mainloop, g_application_run() will return,
+    /// Upon return to the mainloop, `g_application_run()` will return,
     /// calling only the 'shutdown' function before doing so.
     /// 
     /// The hold count is ignored.
-    /// Take care if your code has called g_application_hold() on the application and
+    /// Take care if your code has called `g_application_hold()` on the application and
     /// is therefore still expecting it to exist.
-    /// (Note that you may have called g_application_hold() indirectly, for example
-    /// through gtk_application_add_window().)
+    /// (Note that you may have called `g_application_hold()` indirectly, for example
+    /// through `gtk_application_add_window()`.)
     /// 
-    /// The result of calling g_application_run() again after it returns is
+    /// The result of calling `g_application_run()` again after it returns is
     /// unspecified.
     func quit() {
         g_application_quit(cast(application_ptr))
@@ -1562,7 +1559,7 @@ public extension ApplicationProtocol {
     /// If the application has already been registered then `true` is
     /// returned with no work performed.
     /// 
-    /// The `GApplication`::startup signal is emitted if registration succeeds
+    /// The `GApplication::startup` signal is emitted if registration succeeds
     /// and `application` is the primary instance (including the non-unique
     /// case).
     /// 
@@ -1572,7 +1569,7 @@ public extension ApplicationProtocol {
     /// 
     /// Note: the return value of this function is not an indicator that this
     /// instance is or is not the primary instance of the application.  See
-    /// g_application_get_is_remote() for that.
+    /// `g_application_get_is_remote()` for that.
     func register(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_application_register(cast(application_ptr), cast(cancellable.ptr), &error)
@@ -1587,7 +1584,7 @@ public extension ApplicationProtocol {
     /// When the use count reaches zero, the application will stop running.
     /// 
     /// Never call this function except to cancel the effect of a previous
-    /// call to g_application_hold().
+    /// call to `g_application_hold()`.
     func release() {
         g_application_release(cast(application_ptr))
     
@@ -1595,41 +1592,41 @@ public extension ApplicationProtocol {
 
     /// Runs the application.
     /// 
-    /// This function is intended to be run from main() and its return value
-    /// is intended to be returned by main(). Although you are expected to pass
-    /// the `argc`, `argv` parameters from main() to this function, it is possible
+    /// This function is intended to be run from `main()` and its return value
+    /// is intended to be returned by `main()`. Although you are expected to pass
+    /// the `argc`, `argv` parameters from `main()` to this function, it is possible
     /// to pass `nil` if `argv` is not available or commandline handling is not
     /// required.  Note that on Windows, `argc` and `argv` are ignored, and
-    /// g_win32_get_command_line() is called internally (for proper support
+    /// `g_win32_get_command_line()` is called internally (for proper support
     /// of Unicode commandline arguments).
     /// 
     /// `GApplication` will attempt to parse the commandline arguments.  You
     /// can add commandline flags to the list of recognised options by way of
-    /// g_application_add_main_option_entries().  After this, the
-    /// `GApplication`::handle-local-options signal is emitted, from which the
+    /// `g_application_add_main_option_entries()`.  After this, the
+    /// `GApplication::handle`-local-options signal is emitted, from which the
     /// application can inspect the values of its `GOptionEntrys`.
     /// 
-    /// `GApplication`::handle-local-options is a good place to handle options
+    /// `GApplication::handle`-local-options is a good place to handle options
     /// such as `--version`, where an immediate reply from the local process is
     /// desired (instead of communicating with an already-running instance).
-    /// A `GApplication`::handle-local-options handler can stop further processing
+    /// A `GApplication::handle`-local-options handler can stop further processing
     /// by returning a non-negative value, which then becomes the exit status of
     /// the process.
     /// 
     /// What happens next depends on the flags: if
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` was specified then the remaining
     /// commandline arguments are sent to the primary instance, where a
-    /// `GApplication`::command-line signal is emitted.  Otherwise, the
+    /// `GApplication::command`-line signal is emitted.  Otherwise, the
     /// remaining commandline arguments are assumed to be a list of files.
     /// If there are no files listed, the application is activated via the
-    /// `GApplication`::activate signal.  If there are one or more files, and
+    /// `GApplication::activate` signal.  If there are one or more files, and
     /// `G_APPLICATION_HANDLES_OPEN` was specified then the files are opened
-    /// via the `GApplication`::open signal.
+    /// via the `GApplication::open` signal.
     /// 
     /// If you are interested in doing more complicated local handling of the
     /// commandline then you should implement your own `GApplication` subclass
-    /// and override local_command_line(). In this case, you most likely want
-    /// to return `true` from your local_command_line() implementation to
+    /// and override `local_command_line()`. In this case, you most likely want
+    /// to return `true` from your `local_command_line()` implementation to
     /// suppress the default handling. See
     /// [gapplication-example-cmdline2.c][gapplication-example-cmdline2]
     /// for an example.
@@ -1643,13 +1640,13 @@ public extension ApplicationProtocol {
     /// run for as much as 10 seconds with a use count of zero while waiting
     /// for the message that caused the activation to arrive.  After that,
     /// if the use count falls to zero the application will exit immediately,
-    /// except in the case that g_application_set_inactivity_timeout() is in
+    /// except in the case that `g_application_set_inactivity_timeout()` is in
     /// use.
     /// 
-    /// This function sets the prgname (g_set_prgname()), if not already set,
+    /// This function sets the prgname (`g_set_prgname()`), if not already set,
     /// to the basename of argv[0].
     /// 
-    /// Much like g_main_loop_run(), this function will acquire the main context
+    /// Much like `g_main_loop_run()`, this function will acquire the main context
     /// for the duration that the application is running.
     /// 
     /// Since 2.40, applications that are not explicitly flagged as services
@@ -1698,7 +1695,7 @@ public extension ApplicationProtocol {
     /// notifications without an id.
     /// 
     /// If `notification` is no longer relevant, it can be withdrawn with
-    /// g_application_withdraw_notification().
+    /// `g_application_withdraw_notification()`.
     func sendNotification(id: UnsafePointer<gchar>, notification: NotificationProtocol) {
         g_application_send_notification(cast(application_ptr), id, cast(notification.ptr))
     
@@ -1724,14 +1721,14 @@ public extension ApplicationProtocol {
     /// been registered.
     /// 
     /// If non-`nil`, the application id must be valid.  See
-    /// g_application_id_is_valid().
+    /// `g_application_id_is_valid()`.
     func set(applicationID application_id: UnsafePointer<gchar>) {
         g_application_set_application_id(cast(application_ptr), application_id)
     
     }
 
     /// Sets or unsets the default application for the process, as returned
-    /// by g_application_get_default().
+    /// by `g_application_get_default()`.
     /// 
     /// This function does not take its own reference on `application`.  If
     /// `application` is destroyed then the default application will revert
@@ -1755,10 +1752,10 @@ public extension ApplicationProtocol {
     /// Sets the current inactivity timeout for the application.
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
-    /// g_application_release() before the application stops running.
+    /// `g_application_release()` before the application stops running.
     /// 
     /// This call has no side effects of its own.  The value set here is only
-    /// used for next time g_application_release() drops the use count to
+    /// used for next time `g_application_release()` drops the use count to
     /// zero.  Any timeouts currently in progress are not impacted.
     func set(inactivityTimeout inactivity_timeout: CUnsignedInt) {
         g_application_set_inactivity_timeout(cast(application_ptr), guint(inactivity_timeout))
@@ -1767,7 +1764,7 @@ public extension ApplicationProtocol {
 
     /// Adds a description to the `application` option context.
     /// 
-    /// See g_option_context_set_description() for more information.
+    /// See `g_option_context_set_description()` for more information.
     func setOptionContext(description: UnsafePointer<gchar>) {
         g_application_set_option_context_description(cast(application_ptr), description)
     
@@ -1775,10 +1772,10 @@ public extension ApplicationProtocol {
 
     /// Sets the parameter string to be used by the commandline handling of `application`.
     /// 
-    /// This function registers the argument to be passed to g_option_context_new()
+    /// This function registers the argument to be passed to `g_option_context_new()`
     /// when the internal `GOptionContext` of `application` is created.
     /// 
-    /// See g_option_context_new() for more information about `parameter_string`.
+    /// See `g_option_context_new()` for more information about `parameter_string`.
     func setOptionContext(parameterString parameter_string: UnsafePointer<gchar>) {
         g_application_set_option_context_parameter_string(cast(application_ptr), parameter_string)
     
@@ -1786,7 +1783,7 @@ public extension ApplicationProtocol {
 
     /// Adds a summary to the `application` option context.
     /// 
-    /// See g_option_context_set_summary() for more information.
+    /// See `g_option_context_set_summary()` for more information.
     func setOptionContext(summary: UnsafePointer<gchar>) {
         g_application_set_option_context_summary(cast(application_ptr), summary)
     
@@ -1821,9 +1818,9 @@ public extension ApplicationProtocol {
     /// not recommended.  The point at which the resource path is consulted
     /// for forming paths for various purposes is unspecified.  When writing
     /// a sub-class of `GApplication` you should either set the
-    /// `GApplication`:resource-base-path property at construction time, or call
+    /// `GApplication:resource`-base-path property at construction time, or call
     /// this function during the instance initialization. Alternatively, you
-    /// can call this function in the `GApplicationClass`.startup virtual function,
+    /// can call this function in the `GApplicationClass.startup` virtual function,
     /// before chaining up to the parent implementation.
     func setResourceBasePath(resourcePath resource_path: UnsafePointer<gchar>) {
         g_application_set_resource_base_path(cast(application_ptr), resource_path)
@@ -1832,7 +1829,7 @@ public extension ApplicationProtocol {
 
     /// Destroys a binding between `property` and the busy state of
     /// `application` that was previously created with
-    /// g_application_bind_busy_property().
+    /// `g_application_bind_busy_property()`.
     func unbindBusyProperty(object: ObjectProtocol, property: UnsafePointer<gchar>) {
         g_application_unbind_busy_property(cast(application_ptr), cast(object.ptr), property)
     
@@ -1844,14 +1841,14 @@ public extension ApplicationProtocol {
     /// to other processes.
     /// 
     /// This function must only be called to cancel the effect of a previous
-    /// call to g_application_mark_busy().
+    /// call to `g_application_mark_busy()`.
     func unmarkBusy() {
         g_application_unmark_busy(cast(application_ptr))
     
     }
 
     /// Withdraws a notification that was sent with
-    /// g_application_send_notification().
+    /// `g_application_send_notification()`.
     /// 
     /// This call does nothing if a notification with `id` doesn't exist or
     /// the notification was never sent.
@@ -1880,7 +1877,7 @@ public extension ApplicationProtocol {
         /// been registered.
         /// 
         /// If non-`nil`, the application id must be valid.  See
-        /// g_application_id_is_valid().
+        /// `g_application_id_is_valid()`.
         nonmutating set {
             g_application_set_application_id(cast(application_ptr), newValue)
         }
@@ -1898,7 +1895,7 @@ public extension ApplicationProtocol {
     /// normally be in use but we were unable to connect to the bus.
     /// 
     /// This function must not be called before the application has been
-    /// registered.  See g_application_get_is_registered().
+    /// registered.  See `g_application_get_is_registered()`.
     var dbusConnection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the `GDBusConnection` being used by the application, or `nil`.
         /// 
@@ -1912,7 +1909,7 @@ public extension ApplicationProtocol {
         /// normally be in use but we were unable to connect to the bus.
         /// 
         /// This function must not be called before the application has been
-        /// registered.  See g_application_get_is_registered().
+        /// registered.  See `g_application_get_is_registered()`.
         get {
             let rv = g_application_get_dbus_connection(cast(application_ptr))
             return cast(rv)
@@ -1932,7 +1929,7 @@ public extension ApplicationProtocol {
     /// normally be in use but we were unable to connect to the bus.
     /// 
     /// This function must not be called before the application has been
-    /// registered.  See g_application_get_is_registered().
+    /// registered.  See `g_application_get_is_registered()`.
     var dbusObjectPath: String! {
         /// Gets the D-Bus object path being used by the application, or `nil`.
         /// 
@@ -1947,7 +1944,7 @@ public extension ApplicationProtocol {
         /// normally be in use but we were unable to connect to the bus.
         /// 
         /// This function must not be called before the application has been
-        /// registered.  See g_application_get_is_registered().
+        /// registered.  See `g_application_get_is_registered()`.
         get {
             let rv = g_application_get_dbus_object_path(cast(application_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1976,12 +1973,12 @@ public extension ApplicationProtocol {
     /// Gets the current inactivity timeout for the application.
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
-    /// g_application_release() before the application stops running.
+    /// `g_application_release()` before the application stops running.
     var inactivityTimeout: CUnsignedInt {
         /// Gets the current inactivity timeout for the application.
         /// 
         /// This is the amount of time (in milliseconds) after the last call to
-        /// g_application_release() before the application stops running.
+        /// `g_application_release()` before the application stops running.
         get {
             let rv = g_application_get_inactivity_timeout(cast(application_ptr))
             return CUnsignedInt(rv)
@@ -1989,10 +1986,10 @@ public extension ApplicationProtocol {
         /// Sets the current inactivity timeout for the application.
         /// 
         /// This is the amount of time (in milliseconds) after the last call to
-        /// g_application_release() before the application stops running.
+        /// `g_application_release()` before the application stops running.
         /// 
         /// This call has no side effects of its own.  The value set here is only
-        /// used for next time g_application_release() drops the use count to
+        /// used for next time `g_application_release()` drops the use count to
         /// zero.  Any timeouts currently in progress are not impacted.
         nonmutating set {
             g_application_set_inactivity_timeout(cast(application_ptr), guint(newValue))
@@ -2000,10 +1997,10 @@ public extension ApplicationProtocol {
     }
 
     /// Gets the application's current busy state, as set through
-    /// g_application_mark_busy() or g_application_bind_busy_property().
+    /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
     var isBusy: Bool {
         /// Gets the application's current busy state, as set through
-        /// g_application_mark_busy() or g_application_bind_busy_property().
+        /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
         get {
             let rv = g_application_get_is_busy(cast(application_ptr))
             return Bool(rv != 0)
@@ -2012,12 +2009,12 @@ public extension ApplicationProtocol {
 
     /// Checks if `application` is registered.
     /// 
-    /// An application is registered if g_application_register() has been
+    /// An application is registered if `g_application_register()` has been
     /// successfully called.
     var isRegistered: Bool {
         /// Checks if `application` is registered.
         /// 
-        /// An application is registered if g_application_register() has been
+        /// An application is registered if `g_application_register()` has been
         /// successfully called.
         get {
             let rv = g_application_get_is_registered(cast(application_ptr))
@@ -2033,8 +2030,8 @@ public extension ApplicationProtocol {
     /// performed by the primary instance.
     /// 
     /// The value of this property cannot be accessed before
-    /// g_application_register() has been called.  See
-    /// g_application_get_is_registered().
+    /// `g_application_register()` has been called.  See
+    /// `g_application_get_is_registered()`.
     var isRemote: Bool {
         /// Checks if `application` is remote.
         /// 
@@ -2044,8 +2041,8 @@ public extension ApplicationProtocol {
         /// performed by the primary instance.
         /// 
         /// The value of this property cannot be accessed before
-        /// g_application_register() has been called.  See
-        /// g_application_get_is_registered().
+        /// `g_application_register()` has been called.  See
+        /// `g_application_get_is_registered()`.
         get {
             let rv = g_application_get_is_remote(cast(application_ptr))
             return Bool(rv != 0)
@@ -2054,11 +2051,11 @@ public extension ApplicationProtocol {
 
     /// Gets the resource base path of `application`.
     /// 
-    /// See g_application_set_resource_base_path() for more information.
+    /// See `g_application_set_resource_base_path()` for more information.
     var resourceBasePath: String! {
         /// Gets the resource base path of `application`.
         /// 
-        /// See g_application_set_resource_base_path() for more information.
+        /// See `g_application_set_resource_base_path()` for more information.
         get {
             let rv = g_application_get_resource_base_path(cast(application_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2092,9 +2089,9 @@ public extension ApplicationProtocol {
         /// not recommended.  The point at which the resource path is consulted
         /// for forming paths for various purposes is unspecified.  When writing
         /// a sub-class of `GApplication` you should either set the
-        /// `GApplication`:resource-base-path property at construction time, or call
+        /// `GApplication:resource`-base-path property at construction time, or call
         /// this function during the instance initialization. Alternatively, you
-        /// can call this function in the `GApplicationClass`.startup virtual function,
+        /// can call this function in the `GApplicationClass.startup` virtual function,
         /// before chaining up to the parent implementation.
         nonmutating set {
             g_application_set_resource_base_path(cast(application_ptr), newValue)
@@ -2113,7 +2110,7 @@ public extension ApplicationProtocol {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication`::command-line signal and virtual function.
+/// in the `GApplication::command`-line signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -2123,7 +2120,7 @@ public extension ApplicationProtocol {
 /// 
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
-/// with the g_application_command_line_get_arguments() function. See
+/// with the `g_application_command_line_get_arguments()` function. See
 /// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
 /// for an example.
 /// 
@@ -2134,7 +2131,7 @@ public extension ApplicationProtocol {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication`::command-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -2143,7 +2140,7 @@ public extension ApplicationProtocol {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication`::command-line handler. The launching instance exits
+/// `GApplication::command`-line handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -2164,14 +2161,13 @@ public extension ApplicationProtocol {
 ///                                     "to stdout of the caller\n");
 /// 
 ///   for (i = 0; i < argc; i++)
-///     g_print ("argument `d`: `s`\n", i, argv[i]);
+///     g_print ("argument %d: %s\n", i, argv[i]);
 /// 
 ///   g_strfreev (argv);
 /// 
 ///   return 0;
 /// }
 /// ```
-/// 
 /// The complete example can be found here:
 /// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
 /// 
@@ -2194,14 +2190,14 @@ public extension ApplicationProtocol {
 ///     {
 ///       if (g_str_has_prefix (argv[i], "--local-"))
 ///         {
-///           g_print ("handling argument `s` locally\n", argv[i]);
+///           g_print ("handling argument %s locally\n", argv[i]);
 ///           g_free (argv[i]);
 ///           for (j = i; argv[j]; j++)
 ///             argv[j] = argv[j + 1];
 ///         }
 ///       else
 ///         {
-///           g_print ("not handling argument `s` locally\n", argv[i]);
+///           g_print ("not handling argument %s locally\n", argv[i]);
 ///           i++;
 ///         }
 ///     }
@@ -2219,10 +2215,9 @@ public extension ApplicationProtocol {
 ///   ...
 /// }
 /// ```
-/// 
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication`::command-line handler which runs in the primary
+/// to the `GApplication::command`-line handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -2262,9 +2257,8 @@ public extension ApplicationProtocol {
 ///   return 0;
 /// }
 /// ```
-/// 
 /// In this example the commandline is not completely handled before
-/// the `GApplication`::command-line handler returns. Instead, we keep
+/// the `GApplication::command`-line handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -2285,7 +2279,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication`::command-line signal and virtual function.
+/// in the `GApplication::command`-line signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -2295,7 +2289,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 /// 
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
-/// with the g_application_command_line_get_arguments() function. See
+/// with the `g_application_command_line_get_arguments()` function. See
 /// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
 /// for an example.
 /// 
@@ -2306,7 +2300,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication`::command-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -2315,7 +2309,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication`::command-line handler. The launching instance exits
+/// `GApplication::command`-line handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -2336,14 +2330,13 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 ///                                     "to stdout of the caller\n");
 /// 
 ///   for (i = 0; i < argc; i++)
-///     g_print ("argument `d`: `s`\n", i, argv[i]);
+///     g_print ("argument %d: %s\n", i, argv[i]);
 /// 
 ///   g_strfreev (argv);
 /// 
 ///   return 0;
 /// }
 /// ```
-/// 
 /// The complete example can be found here:
 /// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
 /// 
@@ -2366,14 +2359,14 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 ///     {
 ///       if (g_str_has_prefix (argv[i], "--local-"))
 ///         {
-///           g_print ("handling argument `s` locally\n", argv[i]);
+///           g_print ("handling argument %s locally\n", argv[i]);
 ///           g_free (argv[i]);
 ///           for (j = i; argv[j]; j++)
 ///             argv[j] = argv[j + 1];
 ///         }
 ///       else
 ///         {
-///           g_print ("not handling argument `s` locally\n", argv[i]);
+///           g_print ("not handling argument %s locally\n", argv[i]);
 ///           i++;
 ///         }
 ///     }
@@ -2391,10 +2384,9 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 ///   ...
 /// }
 /// ```
-/// 
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication`::command-line handler which runs in the primary
+/// to the `GApplication::command`-line handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -2434,9 +2426,8 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 ///   return 0;
 /// }
 /// ```
-/// 
 /// In this example the commandline is not completely handled before
-/// the `GApplication`::command-line handler returns. Instead, we keep
+/// the `GApplication::command`-line handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -2497,7 +2488,7 @@ public extension ApplicationCommandLineRef {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication`::command-line signal and virtual function.
+/// in the `GApplication::command`-line signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -2507,7 +2498,7 @@ public extension ApplicationCommandLineRef {
 /// 
 /// The GApplicationCommandLine object can provide the `argc` and `argv`
 /// parameters for use with the `GOptionContext` command-line parsing API,
-/// with the g_application_command_line_get_arguments() function. See
+/// with the `g_application_command_line_get_arguments()` function. See
 /// [gapplication-example-cmdline3.c][gapplication-example-cmdline3]
 /// for an example.
 /// 
@@ -2518,7 +2509,7 @@ public extension ApplicationCommandLineRef {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication`::command-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -2527,7 +2518,7 @@ public extension ApplicationCommandLineRef {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication`::command-line handler. The launching instance exits
+/// `GApplication::command`-line handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -2548,14 +2539,13 @@ public extension ApplicationCommandLineRef {
 ///                                     "to stdout of the caller\n");
 /// 
 ///   for (i = 0; i < argc; i++)
-///     g_print ("argument `d`: `s`\n", i, argv[i]);
+///     g_print ("argument %d: %s\n", i, argv[i]);
 /// 
 ///   g_strfreev (argv);
 /// 
 ///   return 0;
 /// }
 /// ```
-/// 
 /// The complete example can be found here:
 /// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
 /// 
@@ -2578,14 +2568,14 @@ public extension ApplicationCommandLineRef {
 ///     {
 ///       if (g_str_has_prefix (argv[i], "--local-"))
 ///         {
-///           g_print ("handling argument `s` locally\n", argv[i]);
+///           g_print ("handling argument %s locally\n", argv[i]);
 ///           g_free (argv[i]);
 ///           for (j = i; argv[j]; j++)
 ///             argv[j] = argv[j + 1];
 ///         }
 ///       else
 ///         {
-///           g_print ("not handling argument `s` locally\n", argv[i]);
+///           g_print ("not handling argument %s locally\n", argv[i]);
 ///           i++;
 ///         }
 ///     }
@@ -2603,10 +2593,9 @@ public extension ApplicationCommandLineRef {
 ///   ...
 /// }
 /// ```
-/// 
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication`::command-line handler which runs in the primary
+/// to the `GApplication::command`-line handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -2646,9 +2635,8 @@ public extension ApplicationCommandLineRef {
 ///   return 0;
 /// }
 /// ```
-/// 
 /// In this example the commandline is not completely handled before
-/// the `GApplication`::command-line handler returns. Instead, we keep
+/// the `GApplication::command`-line handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -2742,27 +2730,26 @@ public extension ApplicationCommandLineProtocol {
 
 public enum ApplicationCommandLineSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2808,7 +2795,7 @@ public extension ApplicationCommandLineProtocol {
     /// Creates a `GFile` corresponding to a filename that was given as part
     /// of the invocation of `cmdline`.
     /// 
-    /// This differs from g_file_new_for_commandline_arg() in that it
+    /// This differs from `g_file_new_for_commandline_arg()` in that it
     /// resolves relative pathnames using the current working directory of
     /// the invoking process rather than the local process.
     func createFileFor(arg: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFile>! {
@@ -2823,10 +2810,10 @@ public extension ApplicationCommandLineProtocol {
     /// UTF-8 on Windows.
     /// 
     /// If you wish to use the return value with `GOptionContext`, you must
-    /// use g_option_context_parse_strv().
+    /// use `g_option_context_parse_strv()`.
     /// 
     /// The return value is `nil`-terminated and should be freed using
-    /// g_strfreev().
+    /// `g_strfreev()`.
     func getArguments(argc: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_application_command_line_get_arguments(cast(application_command_line_ptr), cast(argc))
         return cast(rv)
@@ -2846,7 +2833,7 @@ public extension ApplicationCommandLineProtocol {
     }
 
     /// Gets the contents of the 'environ' variable of the command line
-    /// invocation, as would be returned by g_get_environ(), ie as a
+    /// invocation, as would be returned by `g_get_environ()`, ie as a
     /// `nil`-terminated list of strings in the form 'NAME=VALUE'.
     /// The strings may contain non-utf8 data.
     /// 
@@ -2858,7 +2845,7 @@ public extension ApplicationCommandLineProtocol {
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
     /// 
-    /// See g_application_command_line_getenv() if you are only interested
+    /// See `g_application_command_line_getenv()` if you are only interested
     /// in the value of a single environment variable.
     func getEnviron() -> UnsafePointer<UnsafePointer<gchar>>! {
         let rv = g_application_command_line_get_environ(cast(application_command_line_ptr))
@@ -2866,7 +2853,7 @@ public extension ApplicationCommandLineProtocol {
     }
 
     /// Gets the exit status of `cmdline`.  See
-    /// g_application_command_line_set_exit_status() for more information.
+    /// `g_application_command_line_set_exit_status()` for more information.
     func getExitStatus() -> CInt {
         let rv = g_application_command_line_get_exit_status(cast(application_command_line_ptr))
         return rv
@@ -2878,12 +2865,12 @@ public extension ApplicationCommandLineProtocol {
         return Bool(rv != 0)
     }
 
-    /// Gets the options there were passed to g_application_command_line().
+    /// Gets the options there were passed to `g_application_command_line()`.
     /// 
-    /// If you did not override local_command_line() then these are the same
+    /// If you did not override `local_command_line()` then these are the same
     /// options that were parsed according to the `GOptionEntrys` added to the
-    /// application with g_application_add_main_option_entries() and possibly
-    /// modified from your GApplication::handle-local-options handler.
+    /// application with `g_application_add_main_option_entries()` and possibly
+    /// modified from your GApplication`handle`-local-options handler.
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
@@ -2921,7 +2908,7 @@ public extension ApplicationCommandLineProtocol {
     }
 
     /// Gets the value of a particular environment variable of the command
-    /// line invocation, as would be returned by g_getenv().  The strings may
+    /// line invocation, as would be returned by `g_getenv()`.  The strings may
     /// contain non-utf8 data.
     /// 
     /// The remote application usually does not send an environment.  Use
@@ -2947,7 +2934,7 @@ public extension ApplicationCommandLineProtocol {
     /// Sets the exit status that will be used when the invoking process
     /// exits.
     /// 
-    /// The return value of the `GApplication`::command-line signal is
+    /// The return value of the `GApplication::command`-line signal is
     /// passed to this function when the handler returns.  This is the usual
     /// way of setting the exit status.
     /// 
@@ -2993,7 +2980,7 @@ public extension ApplicationCommandLineProtocol {
     }
 
     /// Gets the contents of the 'environ' variable of the command line
-    /// invocation, as would be returned by g_get_environ(), ie as a
+    /// invocation, as would be returned by `g_get_environ()`, ie as a
     /// `nil`-terminated list of strings in the form 'NAME=VALUE'.
     /// The strings may contain non-utf8 data.
     /// 
@@ -3005,11 +2992,11 @@ public extension ApplicationCommandLineProtocol {
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
     /// 
-    /// See g_application_command_line_getenv() if you are only interested
+    /// See `g_application_command_line_getenv()` if you are only interested
     /// in the value of a single environment variable.
     var environ: UnsafePointer<UnsafePointer<gchar>>! {
         /// Gets the contents of the 'environ' variable of the command line
-        /// invocation, as would be returned by g_get_environ(), ie as a
+        /// invocation, as would be returned by `g_get_environ()`, ie as a
         /// `nil`-terminated list of strings in the form 'NAME=VALUE'.
         /// The strings may contain non-utf8 data.
         /// 
@@ -3021,7 +3008,7 @@ public extension ApplicationCommandLineProtocol {
         /// The return value should not be modified or freed and is valid for as
         /// long as `cmdline` exists.
         /// 
-        /// See g_application_command_line_getenv() if you are only interested
+        /// See `g_application_command_line_getenv()` if you are only interested
         /// in the value of a single environment variable.
         get {
             let rv = g_application_command_line_get_environ(cast(application_command_line_ptr))
@@ -3030,10 +3017,10 @@ public extension ApplicationCommandLineProtocol {
     }
 
     /// Gets the exit status of `cmdline`.  See
-    /// g_application_command_line_set_exit_status() for more information.
+    /// `g_application_command_line_set_exit_status()` for more information.
     var exitStatus: CInt {
         /// Gets the exit status of `cmdline`.  See
-        /// g_application_command_line_set_exit_status() for more information.
+        /// `g_application_command_line_set_exit_status()` for more information.
         get {
             let rv = g_application_command_line_get_exit_status(cast(application_command_line_ptr))
             return rv
@@ -3041,7 +3028,7 @@ public extension ApplicationCommandLineProtocol {
         /// Sets the exit status that will be used when the invoking process
         /// exits.
         /// 
-        /// The return value of the `GApplication`::command-line signal is
+        /// The return value of the `GApplication::command`-line signal is
         /// passed to this function when the handler returns.  This is the usual
         /// way of setting the exit status.
         /// 
@@ -3073,22 +3060,22 @@ public extension ApplicationCommandLineProtocol {
         }
     }
 
-    /// Gets the options there were passed to g_application_command_line().
+    /// Gets the options there were passed to `g_application_command_line()`.
     /// 
-    /// If you did not override local_command_line() then these are the same
+    /// If you did not override `local_command_line()` then these are the same
     /// options that were parsed according to the `GOptionEntrys` added to the
-    /// application with g_application_add_main_option_entries() and possibly
-    /// modified from your GApplication::handle-local-options handler.
+    /// application with `g_application_add_main_option_entries()` and possibly
+    /// modified from your GApplication`handle`-local-options handler.
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
     var optionsDict: UnsafeMutablePointer<GVariantDict>! {
-        /// Gets the options there were passed to g_application_command_line().
+        /// Gets the options there were passed to `g_application_command_line()`.
         /// 
-        /// If you did not override local_command_line() then these are the same
+        /// If you did not override `local_command_line()` then these are the same
         /// options that were parsed according to the `GOptionEntrys` added to the
-        /// application with g_application_add_main_option_entries() and possibly
-        /// modified from your GApplication::handle-local-options handler.
+        /// application with `g_application_add_main_option_entries()` and possibly
+        /// modified from your GApplication`handle`-local-options handler.
         /// 
         /// If no options were sent then an empty dictionary is returned so that
         /// you don't need to check for `nil`.
@@ -3163,14 +3150,14 @@ public extension ApplicationCommandLineProtocol {
 /// 
 /// By default, `GBufferedInputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered input stream, use g_buffered_input_stream_new(),
-/// or g_buffered_input_stream_new_sized() to specify the buffer's size at
+/// To create a buffered input stream, use `g_buffered_input_stream_new()`,
+/// or `g_buffered_input_stream_new_sized()` to specify the buffer's size at
 /// construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_input_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_input_stream_get_buffer_size()`. To change the size of a
 /// buffered input stream's buffer, use
-/// g_buffered_input_stream_set_buffer_size(). Note that the buffer's size
+/// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, SeekableProtocol {
     /// Untyped pointer to the underlying `GBufferedInputStream` instance.
@@ -3189,14 +3176,14 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
 /// 
 /// By default, `GBufferedInputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered input stream, use g_buffered_input_stream_new(),
-/// or g_buffered_input_stream_new_sized() to specify the buffer's size at
+/// To create a buffered input stream, use `g_buffered_input_stream_new()`,
+/// or `g_buffered_input_stream_new_sized()` to specify the buffer's size at
 /// construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_input_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_input_stream_get_buffer_size()`. To change the size of a
 /// buffered input stream's buffer, use
-/// g_buffered_input_stream_set_buffer_size(). Note that the buffer's size
+/// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 public struct BufferedInputStreamRef: BufferedInputStreamProtocol {
     /// Untyped pointer to the underlying `GBufferedInputStream` instance.
@@ -3274,14 +3261,14 @@ public extension BufferedInputStreamRef {
 /// 
 /// By default, `GBufferedInputStream`'s buffer size is set at 4 kilobytes.
 /// 
-/// To create a buffered input stream, use g_buffered_input_stream_new(),
-/// or g_buffered_input_stream_new_sized() to specify the buffer's size at
+/// To create a buffered input stream, use `g_buffered_input_stream_new()`,
+/// or `g_buffered_input_stream_new_sized()` to specify the buffer's size at
 /// construction.
 /// 
 /// To get the size of a buffer within a buffered input stream, use
-/// g_buffered_input_stream_get_buffer_size(). To change the size of a
+/// `g_buffered_input_stream_get_buffer_size()`. To change the size of a
 /// buffered input stream's buffer, use
-/// g_buffered_input_stream_set_buffer_size(). Note that the buffer's size
+/// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -3388,27 +3375,26 @@ public extension BufferedInputStreamProtocol {
 
 public enum BufferedInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3473,7 +3459,7 @@ public extension BufferedInputStreamProtocol {
     /// On error -1 is returned and `error` is set accordingly.
     /// 
     /// For the asynchronous, non-blocking, version of this function, see
-    /// g_buffered_input_stream_fill_async().
+    /// `g_buffered_input_stream_fill_async()`.
     func fill(count: gssize, cancellable: CancellableProtocol) throws -> gssize {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_buffered_input_stream_fill(cast(buffered_input_stream_ptr), count, cast(cancellable.ptr), &error)
@@ -3485,7 +3471,7 @@ public extension BufferedInputStreamProtocol {
 
     /// Reads data into `stream`'s buffer asynchronously, up to `count` size.
     /// `io_priority` can be used to prioritize reads. For the synchronous
-    /// version of this function, see g_buffered_input_stream_fill().
+    /// version of this function, see `g_buffered_input_stream_fill()`.
     /// 
     /// If `count` is -1 then the attempted read size is equal to the number
     /// of bytes that are required to fill the buffer.

@@ -143,27 +143,26 @@ public enum NativeVolumeMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when a mount is removed.
     case mountRemoved = "mount-removed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -304,7 +303,7 @@ public extension NetworkAddressRef {
     /// Note that depending on the configuration of the machine, a
     /// `hostname` of `localhost` may refer to the IPv4 loopback address
     /// only, or to both IPv4 and IPv6; use
-    /// g_network_address_new_loopback() to create a `GNetworkAddress` that
+    /// `g_network_address_new_loopback()` to create a `GNetworkAddress` that
     /// is guaranteed to resolve to both addresses.
     init( hostname: UnsafePointer<gchar>, port: UInt16) {
         let rv = g_network_address_new(hostname, guint16(port))
@@ -318,10 +317,10 @@ public extension NetworkAddressRef {
     /// 
     /// The connectable will return IPv4 and IPv6 loopback addresses,
     /// regardless of how the host resolves `localhost`. By contrast,
-    /// g_network_address_new() will often only return an IPv4 address when
+    /// `g_network_address_new()` will often only return an IPv4 address when
     /// resolving `localhost`, and an IPv6 address for `localhost6`.
     /// 
-    /// g_network_address_get_hostname() will always return `localhost` for
+    /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     init(loopback port: UInt16) {
         let rv = g_network_address_new_loopback(guint16(port))
@@ -334,10 +333,10 @@ public extension NetworkAddressRef {
     /// 
     /// The connectable will return IPv4 and IPv6 loopback addresses,
     /// regardless of how the host resolves `localhost`. By contrast,
-    /// g_network_address_new() will often only return an IPv4 address when
+    /// `g_network_address_new()` will often only return an IPv4 address when
     /// resolving `localhost`, and an IPv6 address for `localhost6`.
     /// 
-    /// g_network_address_get_hostname() will always return `localhost` for
+    /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     static func new(loopback port: UInt16) -> NetworkAddressRef! {
         let rv = g_network_address_new_loopback(guint16(port))
@@ -377,8 +376,8 @@ public extension NetworkAddressRef {
     /// Creates a new `GSocketConnectable` for connecting to the given
     /// `uri`. May fail and return `nil` in case parsing `uri` fails.
     /// 
-    /// Using this rather than g_network_address_new() or
-    /// g_network_address_parse() allows `GSocketClient` to determine
+    /// Using this rather than `g_network_address_new()` or
+    /// `g_network_address_parse()` allows `GSocketClient` to determine
     /// when to use application-specific proxy protocols.
     static func parse(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddressRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -448,7 +447,7 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// Note that depending on the configuration of the machine, a
     /// `hostname` of `localhost` may refer to the IPv4 loopback address
     /// only, or to both IPv4 and IPv6; use
-    /// g_network_address_new_loopback() to create a `GNetworkAddress` that
+    /// `g_network_address_new_loopback()` to create a `GNetworkAddress` that
     /// is guaranteed to resolve to both addresses.
     public convenience init( hostname: UnsafePointer<gchar>, port: UInt16) {
         let rv = g_network_address_new(hostname, guint16(port))
@@ -462,10 +461,10 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// 
     /// The connectable will return IPv4 and IPv6 loopback addresses,
     /// regardless of how the host resolves `localhost`. By contrast,
-    /// g_network_address_new() will often only return an IPv4 address when
+    /// `g_network_address_new()` will often only return an IPv4 address when
     /// resolving `localhost`, and an IPv6 address for `localhost6`.
     /// 
-    /// g_network_address_get_hostname() will always return `localhost` for
+    /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     public convenience init(loopback port: UInt16) {
         let rv = g_network_address_new_loopback(guint16(port))
@@ -479,10 +478,10 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// 
     /// The connectable will return IPv4 and IPv6 loopback addresses,
     /// regardless of how the host resolves `localhost`. By contrast,
-    /// g_network_address_new() will often only return an IPv4 address when
+    /// `g_network_address_new()` will often only return an IPv4 address when
     /// resolving `localhost`, and an IPv6 address for `localhost6`.
     /// 
-    /// g_network_address_get_hostname() will always return `localhost` for
+    /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     public static func new(loopback port: UInt16) -> NetworkAddress! {
         let rv = g_network_address_new_loopback(guint16(port))
@@ -522,8 +521,8 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// Creates a new `GSocketConnectable` for connecting to the given
     /// `uri`. May fail and return `nil` in case parsing `uri` fails.
     /// 
-    /// Using this rather than g_network_address_new() or
-    /// g_network_address_parse() allows `GSocketClient` to determine
+    /// Using this rather than `g_network_address_new()` or
+    /// `g_network_address_parse()` allows `GSocketClient` to determine
     /// when to use application-specific proxy protocols.
     public static func parse(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddress! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -580,27 +579,26 @@ public extension NetworkAddressProtocol {
 
 public enum NetworkAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -887,27 +885,26 @@ public extension NetworkServiceProtocol {
 
 public enum NetworkServiceSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1051,7 +1048,7 @@ public extension NetworkServiceProtocol {
 /// the application is autostarted as a result of a notification being
 /// clicked.
 /// 
-/// A notification can be sent with g_application_send_notification().
+/// A notification can be sent with `g_application_send_notification()`.
 public protocol NotificationProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GNotification` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1084,7 +1081,7 @@ public protocol NotificationProtocol: ObjectProtocol {
 /// the application is autostarted as a result of a notification being
 /// clicked.
 /// 
-/// A notification can be sent with g_application_send_notification().
+/// A notification can be sent with `g_application_send_notification()`.
 public struct NotificationRef: NotificationProtocol {
     /// Untyped pointer to the underlying `GNotification` instance.
     /// For type-safe access, use the generated, typed pointer `notification_ptr` property instead.
@@ -1134,7 +1131,7 @@ public extension NotificationRef {
         /// Creates a new `GNotification` with `title` as its title.
     /// 
     /// After populating `notification` with more details, it can be sent to
-    /// the desktop shell with g_application_send_notification(). Changing
+    /// the desktop shell with `g_application_send_notification()`. Changing
     /// any properties after this call will not have any effect until
     /// resending `notification`.
     init( title: UnsafePointer<gchar>) {
@@ -1167,7 +1164,7 @@ public extension NotificationRef {
 /// the application is autostarted as a result of a notification being
 /// clicked.
 /// 
-/// A notification can be sent with g_application_send_notification().
+/// A notification can be sent with `g_application_send_notification()`.
 open class Notification: Object, NotificationProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Notification` instance.
@@ -1209,7 +1206,7 @@ open class Notification: Object, NotificationProtocol {
     /// Creates a new `GNotification` with `title` as its title.
     /// 
     /// After populating `notification` with more details, it can be sent to
-    /// the desktop shell with g_application_send_notification(). Changing
+    /// the desktop shell with `g_application_send_notification()`. Changing
     /// any properties after this call will not have any effect until
     /// resending `notification`.
     public convenience init( title: UnsafePointer<gchar>) {
@@ -1224,27 +1221,26 @@ open class Notification: Object, NotificationProtocol {
 
 public enum NotificationSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1290,7 +1286,7 @@ public extension NotificationProtocol {
     /// contains a target, the action will be activated with that target as
     /// its parameter.
     /// 
-    /// See g_action_parse_detailed_name() for a description of the format
+    /// See `g_action_parse_detailed_name()` for a description of the format
     /// for `detailed_action`.
     func addButton(label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         g_notification_add_button(cast(notification_ptr), label, detailed_action)
@@ -1323,7 +1319,7 @@ public extension NotificationProtocol {
     /// The action in `detailed_action` must be an application-wide action (it
     /// must start with "app."). If `detailed_action` contains a target, the
     /// given action will be activated with that target as its parameter.
-    /// See g_action_parse_detailed_name() for a description of the format
+    /// See `g_action_parse_detailed_name()` for a description of the format
     /// for `detailed_action`.
     /// 
     /// When no default action is set, the application that the notification
@@ -1370,7 +1366,7 @@ public extension NotificationProtocol {
     
     }
 
-    /// Deprecated in favor of g_notification_set_priority().
+    /// Deprecated in favor of `g_notification_set_priority()`.
     ///
     /// **set_urgent is deprecated:**
     /// Since 2.42, this has been deprecated in favour of
@@ -1503,27 +1499,26 @@ open class OsxAppInfo: Object, OsxAppInfoProtocol {
 
 public enum OsxAppInfoSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.

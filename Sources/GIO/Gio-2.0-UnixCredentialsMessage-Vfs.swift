@@ -10,16 +10,16 @@ import GLibObject
 /// Alternatively, use `UnixCredentialsMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
-/// may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family).
 /// 
 /// For an easier way to send and receive credentials over
 /// stream-oriented UNIX sockets, see
-/// g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials(). To receive credentials of
+/// `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
     /// Untyped pointer to the underlying `GUnixCredentialsMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -33,16 +33,16 @@ public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
 /// Use `UnixCredentialsMessageRef` only as an `unowned` reference to an existing `GUnixCredentialsMessage` instance.
 ///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
-/// may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family).
 /// 
 /// For an easier way to send and receive credentials over
 /// stream-oriented UNIX sockets, see
-/// g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials(). To receive credentials of
+/// `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 public struct UnixCredentialsMessageRef: UnixCredentialsMessageProtocol {
     /// Untyped pointer to the underlying `GUnixCredentialsMessage` instance.
     /// For type-safe access, use the generated, typed pointer `unix_credentials_message_ptr` property instead.
@@ -112,16 +112,16 @@ public extension UnixCredentialsMessageRef {
 /// Use `UnixCredentialsMessage` as a strong reference or owner of a `GUnixCredentialsMessage` instance.
 ///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
-/// may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family).
 /// 
 /// For an easier way to send and receive credentials over
 /// stream-oriented UNIX sockets, see
-/// g_unix_connection_send_credentials() and
-/// g_unix_connection_receive_credentials(). To receive credentials of
+/// `g_unix_connection_send_credentials()` and
+/// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
-/// g_socket_get_credentials().
+/// `g_socket_get_credentials()`.
 open class UnixCredentialsMessage: SocketControlMessage, UnixCredentialsMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `UnixCredentialsMessage` instance.
@@ -223,27 +223,26 @@ public extension UnixCredentialsMessageProtocol {
 
 public enum UnixCredentialsMessageSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -312,8 +311,8 @@ public extension UnixCredentialsMessageProtocol {
 /// descriptors that it contains, closing them when finalized.
 /// 
 /// It may be wrapped in a `GUnixFDMessage` and sent over a `GSocket` in
-/// the `G_SOCKET_FAMILY_UNIX` family by using g_socket_send_message()
-/// and received using g_socket_receive_message().
+/// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
+/// and received using `g_socket_receive_message()`.
 /// 
 /// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -334,8 +333,8 @@ public protocol UnixFDListProtocol: ObjectProtocol {
 /// descriptors that it contains, closing them when finalized.
 /// 
 /// It may be wrapped in a `GUnixFDMessage` and sent over a `GSocket` in
-/// the `G_SOCKET_FAMILY_UNIX` family by using g_socket_send_message()
-/// and received using g_socket_receive_message().
+/// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
+/// and received using `g_socket_receive_message()`.
 /// 
 /// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -426,8 +425,8 @@ public extension UnixFDListRef {
 /// descriptors that it contains, closing them when finalized.
 /// 
 /// It may be wrapped in a `GUnixFDMessage` and sent over a `GSocket` in
-/// the `G_SOCKET_FAMILY_UNIX` family by using g_socket_send_message()
-/// and received using g_socket_receive_message().
+/// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
+/// and received using `g_socket_receive_message()`.
 /// 
 /// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -508,27 +507,26 @@ open class UnixFDList: Object, UnixFDListProtocol {
 
 public enum UnixFDListSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -570,7 +568,7 @@ public extension UnixFDListProtocol {
 
     /// Adds a file descriptor to `list`.
     /// 
-    /// The file descriptor is duplicated using dup(). You keep your copy
+    /// The file descriptor is duplicated using `dup()`. You keep your copy
     /// of the descriptor and the copy contained in `list` will be closed
     /// when `list` is finalized.
     /// 
@@ -578,7 +576,7 @@ public extension UnixFDListProtocol {
     /// system-wide file descriptor limit.
     /// 
     /// The index of the file descriptor in the list is returned.  If you use
-    /// this index with g_unix_fd_list_get() then you will receive back a
+    /// this index with `g_unix_fd_list_get()` then you will receive back a
     /// duplicated copy of the same file descriptor.
     func append(fd: CInt) throws -> CInt {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -593,10 +591,10 @@ public extension UnixFDListProtocol {
     /// 
     /// `index_` specifies the index of the file descriptor to get.  It is a
     /// programmer error for `index_` to be out of range; see
-    /// g_unix_fd_list_get_length().
+    /// `g_unix_fd_list_get_length()`.
     /// 
-    /// The file descriptor is duplicated using dup() and set as
-    /// close-on-exec before being returned.  You must call close() on it
+    /// The file descriptor is duplicated using `dup()` and set as
+    /// close-on-exec before being returned.  You must call `close()` on it
     /// when you are done.
     /// 
     /// A possible cause of failure is exceeding the per-process or
@@ -642,7 +640,7 @@ public extension UnixFDListProtocol {
     /// `list`. Further calls will return an empty list (unless more
     /// descriptors have been added).
     /// 
-    /// The return result of this function must be freed with g_free().
+    /// The return result of this function must be freed with `g_free()`.
     /// The caller is also responsible for closing all of the file
     /// descriptors.  The file descriptors in the array are set to
     /// close-on-exec.
@@ -679,14 +677,14 @@ public extension UnixFDListProtocol {
 /// Alternatively, use `UnixFDMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
-/// It may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// It may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family). The file descriptors are copied
 /// between processes by the kernel.
 /// 
 /// For an easier way to send and receive file descriptors over
-/// stream-oriented UNIX sockets, see g_unix_connection_send_fd() and
-/// g_unix_connection_receive_fd().
+/// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
+/// `g_unix_connection_receive_fd()`.
 /// 
 /// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -704,14 +702,14 @@ public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
 /// Use `UnixFDMessageRef` only as an `unowned` reference to an existing `GUnixFDMessage` instance.
 ///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
-/// It may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// It may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family). The file descriptors are copied
 /// between processes by the kernel.
 /// 
 /// For an easier way to send and receive file descriptors over
-/// stream-oriented UNIX sockets, see g_unix_connection_send_fd() and
-/// g_unix_connection_receive_fd().
+/// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
+/// `g_unix_connection_receive_fd()`.
 /// 
 /// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -786,14 +784,14 @@ public extension UnixFDMessageRef {
 /// Use `UnixFDMessage` as a strong reference or owner of a `GUnixFDMessage` instance.
 ///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
-/// It may be sent using g_socket_send_message() and received using
-/// g_socket_receive_message() over UNIX sockets (ie: sockets in the
+/// It may be sent using `g_socket_send_message()` and received using
+/// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
 /// `G_SOCKET_FAMILY_UNIX` family). The file descriptors are copied
 /// between processes by the kernel.
 /// 
 /// For an easier way to send and receive file descriptors over
-/// stream-oriented UNIX sockets, see g_unix_connection_send_fd() and
-/// g_unix_connection_receive_fd().
+/// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
+/// `g_unix_connection_receive_fd()`.
 /// 
 /// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
@@ -899,27 +897,26 @@ public extension UnixFDMessageProtocol {
 
 public enum UnixFDMessageSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -961,7 +958,7 @@ public extension UnixFDMessageProtocol {
 
     /// Adds a file descriptor to `message`.
     /// 
-    /// The file descriptor is duplicated using dup(). You keep your copy
+    /// The file descriptor is duplicated using `dup()`. You keep your copy
     /// of the descriptor and the copy contained in `message` will be closed
     /// when `message` is finalized.
     /// 
@@ -991,7 +988,7 @@ public extension UnixFDMessageProtocol {
     /// `message`. Further calls will return an empty list (unless more
     /// descriptors have been added).
     /// 
-    /// The return result of this function must be freed with g_free().
+    /// The return result of this function must be freed with `g_free()`.
     /// The caller is also responsible for closing all of the file
     /// descriptors.
     /// 
@@ -1030,7 +1027,7 @@ public extension UnixFDMessageProtocol {
 ///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1051,7 +1048,7 @@ public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBase
 ///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1120,7 +1117,7 @@ public extension UnixInputStreamRef {
 ///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1222,27 +1219,26 @@ public extension UnixInputStreamProtocol {
 
 public enum UnixInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1399,7 +1395,7 @@ public extension UnixMountMonitorRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Deprecated alias for g_unix_mount_monitor_get().
+        /// Deprecated alias for `g_unix_mount_monitor_get()`.
     /// 
     /// This function was never a true constructor, which is why it was
     /// renamed.
@@ -1417,7 +1413,7 @@ public extension UnixMountMonitorRef {
     /// mounted filesystems as well as the list of mount points (ie: fstab
     /// entries).
     /// 
-    /// You must only call g_object_unref() on the return value from under
+    /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you called this function.
     static func unixMountMonitorGet() -> UnixMountMonitorRef! {
         let rv = g_unix_mount_monitor_get()
@@ -1468,7 +1464,7 @@ open class UnixMountMonitor: Object, UnixMountMonitorProtocol {
         self.init(UnsafeMutablePointer<GUnixMountMonitor>(opaquePointer))
     }
 
-    /// Deprecated alias for g_unix_mount_monitor_get().
+    /// Deprecated alias for `g_unix_mount_monitor_get()`.
     /// 
     /// This function was never a true constructor, which is why it was
     /// renamed.
@@ -1487,7 +1483,7 @@ open class UnixMountMonitor: Object, UnixMountMonitorProtocol {
     /// mounted filesystems as well as the list of mount points (ie: fstab
     /// entries).
     /// 
-    /// You must only call g_object_unref() on the return value from under
+    /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you called this function.
     public static func unixMountMonitorGet() -> UnixMountMonitor! {
         let rv = g_unix_mount_monitor_get()
@@ -1504,27 +1500,26 @@ public enum UnixMountMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when the unix mounts have changed.
     case mountsChanged = "mounts-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1591,7 +1586,7 @@ public extension UnixMountMonitorProtocol {
 ///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1612,7 +1607,7 @@ public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBa
 ///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1681,7 +1676,7 @@ public extension UnixOutputStreamRef {
 ///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
-/// descriptor refers to a socket or pipe, this will use poll() to do
+/// descriptor refers to a socket or pipe, this will use `poll()` to do
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
@@ -1783,27 +1778,26 @@ public extension UnixOutputStreamProtocol {
 
 public enum UnixOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1908,7 +1902,7 @@ public extension UnixOutputStreamProtocol {
 /// permissions, visibility, etc. Currently this is only supported
 /// under Linux. If you attempt to use abstract sockets on other
 /// systems, function calls may return `G_IO_ERROR_NOT_SUPPORTED`
-/// errors. You can use g_unix_socket_address_abstract_names_supported()
+/// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
 /// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
@@ -1934,7 +1928,7 @@ public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
 /// permissions, visibility, etc. Currently this is only supported
 /// under Linux. If you attempt to use abstract sockets on other
 /// systems, function calls may return `G_IO_ERROR_NOT_SUPPORTED`
-/// errors. You can use g_unix_socket_address_abstract_names_supported()
+/// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
 /// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
@@ -1989,7 +1983,7 @@ public extension UnixSocketAddressRef {
         /// Creates a new `GUnixSocketAddress` for `path`.
     /// 
     /// To create abstract socket addresses, on systems that support that,
-    /// use g_unix_socket_address_new_abstract().
+    /// use `g_unix_socket_address_new_abstract()`.
     init( path: UnsafePointer<gchar>) {
         let rv = g_unix_socket_address_new(path)
         self.init(cast(rv))
@@ -2008,7 +2002,7 @@ public extension UnixSocketAddressRef {
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_PATH`, this is equivalent to
-    /// calling g_unix_socket_address_new().
+    /// calling `g_unix_socket_address_new()`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_ANONYMOUS`, `path` and `path_len` will be
     /// ignored.
@@ -2017,7 +2011,7 @@ public extension UnixSocketAddressRef {
     /// bytes of `path` will be copied to the socket's path, and only those
     /// bytes will be considered part of the name. (If `path_len` is -1,
     /// then `path` is assumed to be NUL-terminated.) For example, if `path`
-    /// was "test", then calling g_socket_address_get_native_size() on the
+    /// was "test", then calling `g_socket_address_get_native_size()` on the
     /// returned socket would return 7 (2 bytes of overhead, 1 byte for the
     /// abstract-socket indicator byte, and 4 bytes for the name "test").
     /// 
@@ -2026,9 +2020,9 @@ public extension UnixSocketAddressRef {
     /// rest of the path will be padded with 0 bytes, and the entire
     /// zero-padded buffer will be considered the name. (As above, if
     /// `path_len` is -1, then `path` is assumed to be NUL-terminated.) In
-    /// this case, g_socket_address_get_native_size() will always return
+    /// this case, `g_socket_address_get_native_size()` will always return
     /// the full size of a `struct sockaddr_un`, although
-    /// g_unix_socket_address_get_path_len() will still return just the
+    /// `g_unix_socket_address_get_path_len()` will still return just the
     /// length of `path`.
     /// 
     /// `G_UNIX_SOCKET_ADDRESS_ABSTRACT` is preferred over
@@ -2053,7 +2047,7 @@ public extension UnixSocketAddressRef {
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_PATH`, this is equivalent to
-    /// calling g_unix_socket_address_new().
+    /// calling `g_unix_socket_address_new()`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_ANONYMOUS`, `path` and `path_len` will be
     /// ignored.
@@ -2062,7 +2056,7 @@ public extension UnixSocketAddressRef {
     /// bytes of `path` will be copied to the socket's path, and only those
     /// bytes will be considered part of the name. (If `path_len` is -1,
     /// then `path` is assumed to be NUL-terminated.) For example, if `path`
-    /// was "test", then calling g_socket_address_get_native_size() on the
+    /// was "test", then calling `g_socket_address_get_native_size()` on the
     /// returned socket would return 7 (2 bytes of overhead, 1 byte for the
     /// abstract-socket indicator byte, and 4 bytes for the name "test").
     /// 
@@ -2071,9 +2065,9 @@ public extension UnixSocketAddressRef {
     /// rest of the path will be padded with 0 bytes, and the entire
     /// zero-padded buffer will be considered the name. (As above, if
     /// `path_len` is -1, then `path` is assumed to be NUL-terminated.) In
-    /// this case, g_socket_address_get_native_size() will always return
+    /// this case, `g_socket_address_get_native_size()` will always return
     /// the full size of a `struct sockaddr_un`, although
-    /// g_unix_socket_address_get_path_len() will still return just the
+    /// `g_unix_socket_address_get_path_len()` will still return just the
     /// length of `path`.
     /// 
     /// `G_UNIX_SOCKET_ADDRESS_ABSTRACT` is preferred over
@@ -2099,7 +2093,7 @@ public extension UnixSocketAddressRef {
 /// permissions, visibility, etc. Currently this is only supported
 /// under Linux. If you attempt to use abstract sockets on other
 /// systems, function calls may return `G_IO_ERROR_NOT_SUPPORTED`
-/// errors. You can use g_unix_socket_address_abstract_names_supported()
+/// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
 /// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
@@ -2146,7 +2140,7 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// Creates a new `GUnixSocketAddress` for `path`.
     /// 
     /// To create abstract socket addresses, on systems that support that,
-    /// use g_unix_socket_address_new_abstract().
+    /// use `g_unix_socket_address_new_abstract()`.
     public convenience init( path: UnsafePointer<gchar>) {
         let rv = g_unix_socket_address_new(path)
         self.init(cast(rv))
@@ -2165,7 +2159,7 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_PATH`, this is equivalent to
-    /// calling g_unix_socket_address_new().
+    /// calling `g_unix_socket_address_new()`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_ANONYMOUS`, `path` and `path_len` will be
     /// ignored.
@@ -2174,7 +2168,7 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// bytes of `path` will be copied to the socket's path, and only those
     /// bytes will be considered part of the name. (If `path_len` is -1,
     /// then `path` is assumed to be NUL-terminated.) For example, if `path`
-    /// was "test", then calling g_socket_address_get_native_size() on the
+    /// was "test", then calling `g_socket_address_get_native_size()` on the
     /// returned socket would return 7 (2 bytes of overhead, 1 byte for the
     /// abstract-socket indicator byte, and 4 bytes for the name "test").
     /// 
@@ -2183,9 +2177,9 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// rest of the path will be padded with 0 bytes, and the entire
     /// zero-padded buffer will be considered the name. (As above, if
     /// `path_len` is -1, then `path` is assumed to be NUL-terminated.) In
-    /// this case, g_socket_address_get_native_size() will always return
+    /// this case, `g_socket_address_get_native_size()` will always return
     /// the full size of a `struct sockaddr_un`, although
-    /// g_unix_socket_address_get_path_len() will still return just the
+    /// `g_unix_socket_address_get_path_len()` will still return just the
     /// length of `path`.
     /// 
     /// `G_UNIX_SOCKET_ADDRESS_ABSTRACT` is preferred over
@@ -2211,7 +2205,7 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_PATH`, this is equivalent to
-    /// calling g_unix_socket_address_new().
+    /// calling `g_unix_socket_address_new()`.
     /// 
     /// If `type` is `G_UNIX_SOCKET_ADDRESS_ANONYMOUS`, `path` and `path_len` will be
     /// ignored.
@@ -2220,7 +2214,7 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// bytes of `path` will be copied to the socket's path, and only those
     /// bytes will be considered part of the name. (If `path_len` is -1,
     /// then `path` is assumed to be NUL-terminated.) For example, if `path`
-    /// was "test", then calling g_socket_address_get_native_size() on the
+    /// was "test", then calling `g_socket_address_get_native_size()` on the
     /// returned socket would return 7 (2 bytes of overhead, 1 byte for the
     /// abstract-socket indicator byte, and 4 bytes for the name "test").
     /// 
@@ -2229,9 +2223,9 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// rest of the path will be padded with 0 bytes, and the entire
     /// zero-padded buffer will be considered the name. (As above, if
     /// `path_len` is -1, then `path` is assumed to be NUL-terminated.) In
-    /// this case, g_socket_address_get_native_size() will always return
+    /// this case, `g_socket_address_get_native_size()` will always return
     /// the full size of a `struct sockaddr_un`, although
-    /// g_unix_socket_address_get_path_len() will still return just the
+    /// `g_unix_socket_address_get_path_len()` will still return just the
     /// length of `path`.
     /// 
     /// `G_UNIX_SOCKET_ADDRESS_ABSTRACT` is preferred over
@@ -2298,27 +2292,26 @@ public extension UnixSocketAddressProtocol {
 
 public enum UnixSocketAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2387,7 +2380,7 @@ public extension UnixSocketAddressProtocol {
     /// 
     /// Guaranteed to be zero-terminated, but an abstract socket
     /// may contain embedded zeros, and thus you should use
-    /// g_unix_socket_address_get_path_len() to get the true length
+    /// `g_unix_socket_address_get_path_len()` to get the true length
     /// of this string.
     func getPath() -> String! {
         let rv = g_unix_socket_address_get_path(cast(unix_socket_address_ptr))
@@ -2396,7 +2389,7 @@ public extension UnixSocketAddressProtocol {
 
     /// Gets the length of `address`'s path.
     /// 
-    /// For details, see g_unix_socket_address_get_path().
+    /// For details, see `g_unix_socket_address_get_path()`.
     func getPathLen() -> Int {
         let rv = g_unix_socket_address_get_path_len(cast(unix_socket_address_ptr))
         return Int(rv)
@@ -2430,7 +2423,7 @@ public extension UnixSocketAddressProtocol {
         /// 
         /// Guaranteed to be zero-terminated, but an abstract socket
         /// may contain embedded zeros, and thus you should use
-        /// g_unix_socket_address_get_path_len() to get the true length
+        /// `g_unix_socket_address_get_path_len()` to get the true length
         /// of this string.
         get {
             let rv = g_unix_socket_address_get_path(cast(unix_socket_address_ptr))
@@ -2440,11 +2433,11 @@ public extension UnixSocketAddressProtocol {
 
     /// Gets the length of `address`'s path.
     /// 
-    /// For details, see g_unix_socket_address_get_path().
+    /// For details, see `g_unix_socket_address_get_path()`.
     var pathLen: Int {
         /// Gets the length of `address`'s path.
         /// 
-        /// For details, see g_unix_socket_address_get_path().
+        /// For details, see `g_unix_socket_address_get_path()`.
         get {
             let rv = g_unix_socket_address_get_path_len(cast(unix_socket_address_ptr))
             return Int(rv)
@@ -2596,27 +2589,26 @@ open class Vfs: Object, VfsProtocol {
 
 public enum VfsSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2692,27 +2684,27 @@ public extension VfsProtocol {
     /// opposed to desktop-wide as it happens with GVfs backends.
     /// 
     /// When a `GFile` is requested with an URI containing `scheme` (e.g. through
-    /// g_file_new_for_uri()), `uri_func` will be called to allow a custom
+    /// `g_file_new_for_uri()`), `uri_func` will be called to allow a custom
     /// constructor. The implementation of `uri_func` should not be blocking, and
-    /// must not call g_vfs_register_uri_scheme() or g_vfs_unregister_uri_scheme().
+    /// must not call `g_vfs_register_uri_scheme()` or `g_vfs_unregister_uri_scheme()`.
     /// 
-    /// When g_file_parse_name() is called with a parse name obtained from such file,
+    /// When `g_file_parse_name()` is called with a parse name obtained from such file,
     /// `parse_name_func` will be called to allow the `GFile` to be created again. In
     /// that case, it's responsibility of `parse_name_func` to make sure the parse
     /// name matches what the custom `GFile` implementation returned when
-    /// g_file_get_parse_name() was previously called. The implementation of
+    /// `g_file_get_parse_name()` was previously called. The implementation of
     /// `parse_name_func` should not be blocking, and must not call
-    /// g_vfs_register_uri_scheme() or g_vfs_unregister_uri_scheme().
+    /// `g_vfs_register_uri_scheme()` or `g_vfs_unregister_uri_scheme()`.
     /// 
     /// It's an error to call this function twice with the same scheme. To unregister
-    /// a custom URI scheme, use g_vfs_unregister_uri_scheme().
+    /// a custom URI scheme, use `g_vfs_unregister_uri_scheme()`.
     func registerURI(scheme: UnsafePointer<CChar>, uriFunc uri_func: @escaping VfsFileLookupFunc, uriData uri_data: UnsafeMutableRawPointer, uriDestroy uri_destroy: @escaping GLib.DestroyNotify, parseNameFunc parse_name_func: @escaping VfsFileLookupFunc, parseNameData parse_name_data: UnsafeMutableRawPointer, parseNameDestroy parse_name_destroy: @escaping GLib.DestroyNotify) -> Bool {
         let rv = g_vfs_register_uri_scheme(cast(vfs_ptr), scheme, uri_func, cast(uri_data), uri_destroy, parse_name_func, cast(parse_name_data), parse_name_destroy)
         return Bool(rv != 0)
     }
 
     /// Unregisters the URI handler for `scheme` previously registered with
-    /// g_vfs_register_uri_scheme().
+    /// `g_vfs_register_uri_scheme()`.
     func unregisterURI(scheme: UnsafePointer<CChar>) -> Bool {
         let rv = g_vfs_unregister_uri_scheme(cast(vfs_ptr), scheme)
         return Bool(rv != 0)

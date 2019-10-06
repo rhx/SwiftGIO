@@ -16,12 +16,12 @@ import GLibObject
 /// fixed-size.
 /// 
 /// `GSeekable` on fixed-sized streams is approximately the same as POSIX
-/// lseek() on a block device (for example: attempting to seek past the
+/// `lseek()` on a block device (for example: attempting to seek past the
 /// end of the device is an error).  Fixed streams typically cannot be
 /// truncated.
 /// 
 /// `GSeekable` on resizable streams is approximately the same as POSIX
-/// lseek() on a normal file.  Seeking past the end and writing data will
+/// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 public protocol SeekableProtocol {
     /// Untyped pointer to the underlying `GSeekable` instance.
@@ -42,12 +42,12 @@ public protocol SeekableProtocol {
 /// fixed-size.
 /// 
 /// `GSeekable` on fixed-sized streams is approximately the same as POSIX
-/// lseek() on a block device (for example: attempting to seek past the
+/// `lseek()` on a block device (for example: attempting to seek past the
 /// end of the device is an error).  Fixed streams typically cannot be
 /// truncated.
 /// 
 /// `GSeekable` on resizable streams is approximately the same as POSIX
-/// lseek() on a normal file.  Seeking past the end and writing data will
+/// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 public struct SeekableRef: SeekableProtocol {
     /// Untyped pointer to the underlying `GSeekable` instance.
@@ -108,12 +108,12 @@ public extension SeekableRef {
 /// fixed-size.
 /// 
 /// `GSeekable` on fixed-sized streams is approximately the same as POSIX
-/// lseek() on a block device (for example: attempting to seek past the
+/// `lseek()` on a block device (for example: attempting to seek past the
 /// end of the device is an error).  Fixed streams typically cannot be
 /// truncated.
 /// 
 /// `GSeekable` on resizable streams is approximately the same as POSIX
-/// lseek() on a normal file.  Seeking past the end and writing data will
+/// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 open class Seekable: SeekableProtocol {
     /// Untyped pointer to the underlying `GSeekable` instance.
@@ -182,7 +182,7 @@ public extension SeekableProtocol {
     }
 
     /// Tests if the length of the stream can be adjusted with
-    /// g_seekable_truncate().
+    /// `g_seekable_truncate()`.
     func canTruncate() -> Bool {
         let rv = g_seekable_can_truncate(cast(seekable_ptr))
         return Bool(rv != 0)
@@ -247,7 +247,7 @@ public extension SeekableProtocol {
 ///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
-/// g_socket_connectable_enumerate() to get a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
 /// to try out each socket address in turn until one succeeds, as shown
 /// in the sample code below.
 /// 
@@ -318,7 +318,7 @@ public protocol SocketConnectableProtocol {
 ///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
-/// g_socket_connectable_enumerate() to get a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
 /// to try out each socket address in turn until one succeeds, as shown
 /// in the sample code below.
 /// 
@@ -429,7 +429,7 @@ public extension SocketConnectableRef {
 ///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
-/// g_socket_connectable_enumerate() to get a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
 /// to try out each socket address in turn until one succeeds, as shown
 /// in the sample code below.
 /// 
@@ -557,8 +557,8 @@ public extension SocketConnectableProtocol {
     /// to via a proxy.
     /// 
     /// If `connectable` does not implement
-    /// g_socket_connectable_proxy_enumerate(), this will fall back to
-    /// calling g_socket_connectable_enumerate().
+    /// `g_socket_connectable_proxy_enumerate()`, this will fall back to
+    /// calling `g_socket_connectable_enumerate()`.
     func proxyEnumerate() -> UnsafeMutablePointer<GSocketAddressEnumerator>! {
         let rv = g_socket_connectable_proxy_enumerate(cast(socket_connectable_ptr))
         return cast(rv)
@@ -591,7 +591,7 @@ public extension SocketConnectableProtocol {
     /// must have pollable input and output streams) which is assumed to
     /// communicate with the server identified by `server_identity`.
     /// 
-    /// See the documentation for `GTlsConnection`:base-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsClientConnectionNew(baseIoStream base_io_stream: IOStreamProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
@@ -794,12 +794,12 @@ public extension TLSBackendProtocol {
 
     /// Set the default `GTlsDatabase` used to verify TLS connections
     /// 
-    /// Any subsequent call to g_tls_backend_get_default_database() will return
+    /// Any subsequent call to `g_tls_backend_get_default_database()` will return
     /// the database set in this call.  Existing databases and connections are not
     /// modified.
     /// 
     /// Setting a `nil` default database will reset to using the system default
-    /// database as if g_tls_backend_set_default_database() had never been called.
+    /// database as if `g_tls_backend_set_default_database()` had never been called.
     func setDefault(database: TLSDatabaseProtocol) {
         g_tls_backend_set_default_database(cast(tls_backend_ptr), cast(database.ptr))
     
@@ -845,12 +845,12 @@ public extension TLSBackendProtocol {
         }
         /// Set the default `GTlsDatabase` used to verify TLS connections
         /// 
-        /// Any subsequent call to g_tls_backend_get_default_database() will return
+        /// Any subsequent call to `g_tls_backend_get_default_database()` will return
         /// the database set in this call.  Existing databases and connections are not
         /// modified.
         /// 
         /// Setting a `nil` default database will reset to using the system default
-        /// database as if g_tls_backend_set_default_database() had never been called.
+        /// database as if `g_tls_backend_set_default_database()` had never been called.
         nonmutating set {
             g_tls_backend_set_default_database(cast(tls_backend_ptr), cast(newValue))
         }

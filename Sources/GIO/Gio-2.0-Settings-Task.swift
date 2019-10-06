@@ -25,7 +25,7 @@ import GLibObject
 /// only ever modify `GSettings` keys in response to explicit user action.
 /// Particular care should be paid to ensure that modifications are not
 /// made during startup -- for example, when setting the initial value
-/// of preferences widgets.  The built-in g_settings_bind() functionality
+/// of preferences widgets.  The built-in `g_settings_bind()` functionality
 /// is careful not to write settings in response to notify signals as a
 /// result of modifications that it makes to widgets.
 /// 
@@ -76,12 +76,8 @@ import GLibObject
 /// 
 /// For example:
 /// ```
-///  <!-- Translators: A list of words which are not allowed to be typed, in
-///       GVariant serialization syntax.
-///       See: https://developer.gnome.org/glib/stable/gvariant-text.html -->
 ///  <default l10n='messages' context='Banned words'>['bad', 'words']</default>
 /// ```
-/// 
 /// 
 /// Translations of default values must remain syntactically valid serialized
 /// `GVariants` (e.g. retaining any surrounding quotation marks) or runtime
@@ -110,8 +106,8 @@ import GLibObject
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
 /// [example][schema-enumerated]. The underlying type of such a key
-/// is string, but you can use g_settings_get_enum(), g_settings_set_enum(),
-/// g_settings_get_flags(), g_settings_set_flags() access the numeric values
+/// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
+/// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
 /// 
 /// An example for default value:
@@ -139,7 +135,6 @@ import GLibObject
 ///   </schema>
 /// </schemalist>
 /// ```
-/// 
 /// 
 /// An example for ranges, choices and enumerated types:
 /// ```
@@ -187,8 +182,7 @@ import GLibObject
 /// </schemalist>
 /// ```
 /// 
-/// 
-/// ``` Vendor overrides
+/// ```` Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
@@ -205,14 +199,13 @@ import GLibObject
 ///     key2=1.5
 /// ```
 /// 
-/// 
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ``` Binding
+/// ```` Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
-/// directly to settings, using g_settings_bind(). Once a GObject property
+/// directly to settings, using `g_settings_bind()`. Once a GObject property
 /// has been bound to a setting, changes on either side are automatically
 /// propagated to the other side. GSettings handles details like mapping
 /// between GObject and GVariant types, and preventing infinite cycles.
@@ -224,12 +217,12 @@ import GLibObject
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ``` Relocatable schemas `` {`gsettings`-relocatable}
+/// ```` Relocatable schemas `` {`gsettings`-relocatable}
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using g_settings_new_with_path(), a `GSettings` object
+/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
-/// instance. Paths passed to g_settings_new_with_path() will typically be
+/// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
 /// identifier; but they must still be valid GSettings paths. Paths could also
 /// be constant and used with a globally installed schema originating from a
@@ -247,8 +240,7 @@ import GLibObject
 /// </schema>
 /// ```
 /// 
-/// 
-/// ``` Build system integration `` {`gsettings`-build-system}
+/// ```` Build system integration `` {`gsettings`-build-system}
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -257,16 +249,14 @@ import GLibObject
 /// GLIB_GSETTINGS
 /// ```
 /// 
-/// 
 /// In the appropriate `Makefile.am`, use the following snippet to compile and
 /// install the named schema:
 /// ```
 /// gsettings_SCHEMAS = org.foo.MyApp.gschema.xml
 /// EXTRA_DIST = $(gsettings_SCHEMAS)
 /// 
-/// `GSETTINGS_RULES``
+/// @GSETTINGS_RULES@
 /// ```
-/// 
 /// 
 /// No changes are needed to the build system to mark a schema XML file for
 /// translation. Assuming it sets the `gettext-domain` attribute, a schema may
@@ -276,12 +266,10 @@ import GLibObject
 /// data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// 
 /// Alternatively, if intltool 0.50.1 is in use:
 /// ```
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
-/// 
 /// 
 /// GSettings will use gettext to look up translations for the <summary> and
 /// <description> elements, and also any <default> elements which have a `l10n`
@@ -298,7 +286,6 @@ import GLibObject
 /// gsettings_ENUM_NAMESPACE = org.foo.MyApp
 /// gsettings_ENUM_FILES = my-app-enums.h my-app-misc.h
 /// ```
-/// 
 /// 
 /// `gsettings_ENUM_NAMESPACE` specifies the schema namespace for the enum files,
 /// which are specified in `gsettings_ENUM_FILES`. This will generate a
@@ -334,7 +321,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// only ever modify `GSettings` keys in response to explicit user action.
 /// Particular care should be paid to ensure that modifications are not
 /// made during startup -- for example, when setting the initial value
-/// of preferences widgets.  The built-in g_settings_bind() functionality
+/// of preferences widgets.  The built-in `g_settings_bind()` functionality
 /// is careful not to write settings in response to notify signals as a
 /// result of modifications that it makes to widgets.
 /// 
@@ -385,12 +372,8 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// 
 /// For example:
 /// ```
-///  <!-- Translators: A list of words which are not allowed to be typed, in
-///       GVariant serialization syntax.
-///       See: https://developer.gnome.org/glib/stable/gvariant-text.html -->
 ///  <default l10n='messages' context='Banned words'>['bad', 'words']</default>
 /// ```
-/// 
 /// 
 /// Translations of default values must remain syntactically valid serialized
 /// `GVariants` (e.g. retaining any surrounding quotation marks) or runtime
@@ -419,8 +402,8 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
 /// [example][schema-enumerated]. The underlying type of such a key
-/// is string, but you can use g_settings_get_enum(), g_settings_set_enum(),
-/// g_settings_get_flags(), g_settings_set_flags() access the numeric values
+/// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
+/// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
 /// 
 /// An example for default value:
@@ -448,7 +431,6 @@ public protocol SettingsProtocol: ObjectProtocol {
 ///   </schema>
 /// </schemalist>
 /// ```
-/// 
 /// 
 /// An example for ranges, choices and enumerated types:
 /// ```
@@ -496,8 +478,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// </schemalist>
 /// ```
 /// 
-/// 
-/// ``` Vendor overrides
+/// ```` Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
@@ -514,14 +495,13 @@ public protocol SettingsProtocol: ObjectProtocol {
 ///     key2=1.5
 /// ```
 /// 
-/// 
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ``` Binding
+/// ```` Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
-/// directly to settings, using g_settings_bind(). Once a GObject property
+/// directly to settings, using `g_settings_bind()`. Once a GObject property
 /// has been bound to a setting, changes on either side are automatically
 /// propagated to the other side. GSettings handles details like mapping
 /// between GObject and GVariant types, and preventing infinite cycles.
@@ -533,12 +513,12 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ``` Relocatable schemas `` {`gsettings`-relocatable}
+/// ```` Relocatable schemas `` {`gsettings`-relocatable}
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using g_settings_new_with_path(), a `GSettings` object
+/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
-/// instance. Paths passed to g_settings_new_with_path() will typically be
+/// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
 /// identifier; but they must still be valid GSettings paths. Paths could also
 /// be constant and used with a globally installed schema originating from a
@@ -556,8 +536,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// </schema>
 /// ```
 /// 
-/// 
-/// ``` Build system integration `` {`gsettings`-build-system}
+/// ```` Build system integration `` {`gsettings`-build-system}
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -566,16 +545,14 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// GLIB_GSETTINGS
 /// ```
 /// 
-/// 
 /// In the appropriate `Makefile.am`, use the following snippet to compile and
 /// install the named schema:
 /// ```
 /// gsettings_SCHEMAS = org.foo.MyApp.gschema.xml
 /// EXTRA_DIST = $(gsettings_SCHEMAS)
 /// 
-/// `GSETTINGS_RULES``
+/// @GSETTINGS_RULES@
 /// ```
-/// 
 /// 
 /// No changes are needed to the build system to mark a schema XML file for
 /// translation. Assuming it sets the `gettext-domain` attribute, a schema may
@@ -585,12 +562,10 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// 
 /// Alternatively, if intltool 0.50.1 is in use:
 /// ```
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
-/// 
 /// 
 /// GSettings will use gettext to look up translations for the <summary> and
 /// <description> elements, and also any <default> elements which have a `l10n`
@@ -607,7 +582,6 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// gsettings_ENUM_NAMESPACE = org.foo.MyApp
 /// gsettings_ENUM_FILES = my-app-enums.h my-app-misc.h
 /// ```
-/// 
 /// 
 /// `gsettings_ENUM_NAMESPACE` specifies the schema namespace for the enum files,
 /// which are specified in `gsettings_ENUM_FILES`. This will generate a
@@ -666,8 +640,8 @@ public extension SettingsRef {
     /// 
     /// Signals on the newly created `GSettings` object will be dispatched
     /// via the thread-default `GMainContext` in effect at the time of the
-    /// call to g_settings_new().  The new `GSettings` will hold a reference
-    /// on the context.  See g_main_context_push_thread_default().
+    /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
+    /// on the context.  See `g_main_context_push_thread_default()`.
     init( schema_id: UnsafePointer<gchar>) {
         let rv = g_settings_new(schema_id)
         self.init(cast(rv))
@@ -688,7 +662,7 @@ public extension SettingsRef {
     /// This constructor therefore gives you full control over constructing
     /// `GSettings` instances.  The first 3 parameters are given directly as
     /// `schema`, `backend` and `path`, and the main context is taken from the
-    /// thread-default (as per g_settings_new()).
+    /// thread-default (as per `g_settings_new()`).
     /// 
     /// If `backend` is `nil` then the default backend is used.
     /// 
@@ -717,8 +691,8 @@ public extension SettingsRef {
     /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id` and a given `GSettingsBackend` and path.
     /// 
-    /// This is a mix of g_settings_new_with_backend() and
-    /// g_settings_new_with_path().
+    /// This is a mix of `g_settings_new_with_backend()` and
+    /// `g_settings_new_with_path()`.
     init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
         self.init(cast(rv))
@@ -756,7 +730,7 @@ public extension SettingsRef {
     /// This constructor therefore gives you full control over constructing
     /// `GSettings` instances.  The first 3 parameters are given directly as
     /// `schema`, `backend` and `path`, and the main context is taken from the
-    /// thread-default (as per g_settings_new()).
+    /// thread-default (as per `g_settings_new()`).
     /// 
     /// If `backend` is `nil` then the default backend is used.
     /// 
@@ -785,8 +759,8 @@ public extension SettingsRef {
     /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id` and a given `GSettingsBackend` and path.
     /// 
-    /// This is a mix of g_settings_new_with_backend() and
-    /// g_settings_new_with_path().
+    /// This is a mix of `g_settings_new_with_backend()` and
+    /// `g_settings_new_with_path()`.
     static func newWith(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> SettingsRef! {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
         return rv.map { SettingsRef(cast($0)) }
@@ -831,7 +805,7 @@ public extension SettingsRef {
 /// only ever modify `GSettings` keys in response to explicit user action.
 /// Particular care should be paid to ensure that modifications are not
 /// made during startup -- for example, when setting the initial value
-/// of preferences widgets.  The built-in g_settings_bind() functionality
+/// of preferences widgets.  The built-in `g_settings_bind()` functionality
 /// is careful not to write settings in response to notify signals as a
 /// result of modifications that it makes to widgets.
 /// 
@@ -882,12 +856,8 @@ public extension SettingsRef {
 /// 
 /// For example:
 /// ```
-///  <!-- Translators: A list of words which are not allowed to be typed, in
-///       GVariant serialization syntax.
-///       See: https://developer.gnome.org/glib/stable/gvariant-text.html -->
 ///  <default l10n='messages' context='Banned words'>['bad', 'words']</default>
 /// ```
-/// 
 /// 
 /// Translations of default values must remain syntactically valid serialized
 /// `GVariants` (e.g. retaining any surrounding quotation marks) or runtime
@@ -916,8 +886,8 @@ public extension SettingsRef {
 /// enumerated types. These can be described by a <choice>,
 /// <enum> or <flags> element, as seen in the
 /// [example][schema-enumerated]. The underlying type of such a key
-/// is string, but you can use g_settings_get_enum(), g_settings_set_enum(),
-/// g_settings_get_flags(), g_settings_set_flags() access the numeric values
+/// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
+/// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
 /// corresponding to the string value of enum and flags keys.
 /// 
 /// An example for default value:
@@ -945,7 +915,6 @@ public extension SettingsRef {
 ///   </schema>
 /// </schemalist>
 /// ```
-/// 
 /// 
 /// An example for ranges, choices and enumerated types:
 /// ```
@@ -993,8 +962,7 @@ public extension SettingsRef {
 /// </schemalist>
 /// ```
 /// 
-/// 
-/// ``` Vendor overrides
+/// ```` Vendor overrides
 /// 
 /// Default values are defined in the schemas that get installed by
 /// an application. Sometimes, it is necessary for a vendor or distributor
@@ -1011,14 +979,13 @@ public extension SettingsRef {
 ///     key2=1.5
 /// ```
 /// 
-/// 
 /// glib-compile-schemas expects schema files to have the extension
 /// `.gschema.override`.
 /// 
-/// ``` Binding
+/// ```` Binding
 /// 
 /// A very convenient feature of GSettings lets you bind `GObject` properties
-/// directly to settings, using g_settings_bind(). Once a GObject property
+/// directly to settings, using `g_settings_bind()`. Once a GObject property
 /// has been bound to a setting, changes on either side are automatically
 /// propagated to the other side. GSettings handles details like mapping
 /// between GObject and GVariant types, and preventing infinite cycles.
@@ -1030,12 +997,12 @@ public extension SettingsRef {
 /// If this 'magic' gets in the way, it can be suppressed with the
 /// `G_SETTINGS_BIND_NO_SENSITIVITY` flag.
 /// 
-/// ``` Relocatable schemas `` {`gsettings`-relocatable}
+/// ```` Relocatable schemas `` {`gsettings`-relocatable}
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using g_settings_new_with_path(), a `GSettings` object
+/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
-/// instance. Paths passed to g_settings_new_with_path() will typically be
+/// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
 /// identifier; but they must still be valid GSettings paths. Paths could also
 /// be constant and used with a globally installed schema originating from a
@@ -1053,8 +1020,7 @@ public extension SettingsRef {
 /// </schema>
 /// ```
 /// 
-/// 
-/// ``` Build system integration `` {`gsettings`-build-system}
+/// ```` Build system integration `` {`gsettings`-build-system}
 /// 
 /// GSettings comes with autotools integration to simplify compiling and
 /// installing schemas. To add GSettings support to an application, add the
@@ -1063,16 +1029,14 @@ public extension SettingsRef {
 /// GLIB_GSETTINGS
 /// ```
 /// 
-/// 
 /// In the appropriate `Makefile.am`, use the following snippet to compile and
 /// install the named schema:
 /// ```
 /// gsettings_SCHEMAS = org.foo.MyApp.gschema.xml
 /// EXTRA_DIST = $(gsettings_SCHEMAS)
 /// 
-/// `GSETTINGS_RULES``
+/// @GSETTINGS_RULES@
 /// ```
-/// 
 /// 
 /// No changes are needed to the build system to mark a schema XML file for
 /// translation. Assuming it sets the `gettext-domain` attribute, a schema may
@@ -1082,12 +1046,10 @@ public extension SettingsRef {
 /// data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// 
 /// Alternatively, if intltool 0.50.1 is in use:
 /// ```
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
-/// 
 /// 
 /// GSettings will use gettext to look up translations for the <summary> and
 /// <description> elements, and also any <default> elements which have a `l10n`
@@ -1104,7 +1066,6 @@ public extension SettingsRef {
 /// gsettings_ENUM_NAMESPACE = org.foo.MyApp
 /// gsettings_ENUM_FILES = my-app-enums.h my-app-misc.h
 /// ```
-/// 
 /// 
 /// `gsettings_ENUM_NAMESPACE` specifies the schema namespace for the enum files,
 /// which are specified in `gsettings_ENUM_FILES`. This will generate a
@@ -1155,8 +1116,8 @@ open class Settings: Object, SettingsProtocol {
     /// 
     /// Signals on the newly created `GSettings` object will be dispatched
     /// via the thread-default `GMainContext` in effect at the time of the
-    /// call to g_settings_new().  The new `GSettings` will hold a reference
-    /// on the context.  See g_main_context_push_thread_default().
+    /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
+    /// on the context.  See `g_main_context_push_thread_default()`.
     public convenience init( schema_id: UnsafePointer<gchar>) {
         let rv = g_settings_new(schema_id)
         self.init(cast(rv))
@@ -1177,7 +1138,7 @@ open class Settings: Object, SettingsProtocol {
     /// This constructor therefore gives you full control over constructing
     /// `GSettings` instances.  The first 3 parameters are given directly as
     /// `schema`, `backend` and `path`, and the main context is taken from the
-    /// thread-default (as per g_settings_new()).
+    /// thread-default (as per `g_settings_new()`).
     /// 
     /// If `backend` is `nil` then the default backend is used.
     /// 
@@ -1206,8 +1167,8 @@ open class Settings: Object, SettingsProtocol {
     /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id` and a given `GSettingsBackend` and path.
     /// 
-    /// This is a mix of g_settings_new_with_backend() and
-    /// g_settings_new_with_path().
+    /// This is a mix of `g_settings_new_with_backend()` and
+    /// `g_settings_new_with_path()`.
     public convenience init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
         self.init(cast(rv))
@@ -1246,7 +1207,7 @@ open class Settings: Object, SettingsProtocol {
     /// This constructor therefore gives you full control over constructing
     /// `GSettings` instances.  The first 3 parameters are given directly as
     /// `schema`, `backend` and `path`, and the main context is taken from the
-    /// thread-default (as per g_settings_new()).
+    /// thread-default (as per `g_settings_new()`).
     /// 
     /// If `backend` is `nil` then the default backend is used.
     /// 
@@ -1275,8 +1236,8 @@ open class Settings: Object, SettingsProtocol {
     /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id` and a given `GSettingsBackend` and path.
     /// 
-    /// This is a mix of g_settings_new_with_backend() and
-    /// g_settings_new_with_path().
+    /// This is a mix of `g_settings_new_with_backend()` and
+    /// `g_settings_new_with_path()`.
     public static func newWith(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> Settings! {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
         return rv.map { Settings(cast($0)) }
@@ -1306,10 +1267,10 @@ public enum SettingsPropertyName: String, PropertyNameProtocol {
     /// The name of the context that the settings are stored in.
     case backend = "backend"
     /// Whether the `GSettings` object is in 'delay-apply' mode. See
-    /// g_settings_delay() for details.
+    /// `g_settings_delay()` for details.
     case delayApply = "delay-apply"
     /// If this property is `true`, the `GSettings` object has outstanding
-    /// changes that will be applied when g_settings_apply() is called.
+    /// changes that will be applied when `g_settings_apply()` is called.
     case hasUnapplied = "has-unapplied"
     /// The path within the backend where the settings are stored.
     case path = "path"
@@ -1394,38 +1355,37 @@ public enum SettingsSignalName: String, SignalNameProtocol {
     /// `true` then this default functionality will be suppressed.
     case changeEvent = "change-event"
     /// The "changed" signal is emitted when a key has potentially changed.
-    /// You should call one of the g_settings_get() calls to check the new
+    /// You should call one of the `g_settings_get()` calls to check the new
     /// value.
     /// 
     /// This signal supports detailed connections.  You can connect to the
-    /// detailed signal "changed::x" in order to only receive callbacks
+    /// detailed signal "changed`x`" in order to only receive callbacks
     /// when key "x" changes.
     /// 
     /// Note that `settings` only emits this signal if you have read `key` at
     /// least once while a signal handler was already connected for `key`.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1451,19 +1411,19 @@ public enum SettingsSignalName: String, SignalNameProtocol {
     case writableChangeEvent = "writable-change-event"
     /// The "writable-changed" signal is emitted when the writability of a
     /// key has potentially changed.  You should call
-    /// g_settings_is_writable() in order to determine the new status.
+    /// `g_settings_is_writable()` in order to determine the new status.
     /// 
     /// This signal supports detailed connections.  You can connect to the
-    /// detailed signal "writable-changed::x" in order to only receive
+    /// detailed signal "writable-changed`x`" in order to only receive
     /// callbacks when the writability of "x" changes.
     case writableChanged = "writable-changed"
     /// The name of the context that the settings are stored in.
     case notifyBackend = "notify::backend"
     /// Whether the `GSettings` object is in 'delay-apply' mode. See
-    /// g_settings_delay() for details.
+    /// `g_settings_delay()` for details.
     case notifyDelayApply = "notify::delay-apply"
     /// If this property is `true`, the `GSettings` object has outstanding
-    /// changes that will be applied when g_settings_apply() is called.
+    /// changes that will be applied when `g_settings_apply()` is called.
     case notifyHasUnapplied = "notify::has-unapplied"
     /// The path within the backend where the settings are stored.
     case notifyPath = "notify::path"
@@ -1528,7 +1488,7 @@ public extension SettingsProtocol {
 
     /// Applies any changes that have been made to the settings.  This
     /// function does nothing unless `settings` is in 'delay-apply' mode;
-    /// see g_settings_delay().  In the normal case settings are always
+    /// see `g_settings_delay()`.  In the normal case settings are always
     /// applied immediately.
     func apply() {
         g_settings_apply(cast(settings_ptr))
@@ -1541,14 +1501,14 @@ public extension SettingsProtocol {
     /// The binding uses the default GIO mapping functions to map
     /// between the settings and property values. These functions
     /// handle booleans, numeric types and string types in a
-    /// straightforward way. Use g_settings_bind_with_mapping() if
+    /// straightforward way. Use `g_settings_bind_with_mapping()` if
     /// you need a custom mapping, or map between types that are not
     /// supported by the default mapping functions.
     /// 
     /// Unless the `flags` include `G_SETTINGS_BIND_NO_SENSITIVITY`, this
     /// function also establishes a binding between the writability of
     /// `key` and the "sensitive" property of `object` (if `object` has
-    /// a boolean property by that name). See g_settings_bind_writable()
+    /// a boolean property by that name). See `g_settings_bind_writable()`
     /// for more details about writable bindings.
     /// 
     /// Note that the lifecycle of the binding is tied to `object`,
@@ -1618,7 +1578,7 @@ public extension SettingsProtocol {
 
     /// Changes the `GSettings` object into 'delay-apply' mode. In this
     /// mode, changes to `settings` are not immediately propagated to the
-    /// backend, but kept locally until g_settings_apply() is called.
+    /// backend, but kept locally until `g_settings_apply()` is called.
     func delay() {
         g_settings_delay(cast(settings_ptr))
     
@@ -1630,7 +1590,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for booleans.
+    /// A convenience variant of `g_settings_get()` for booleans.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a boolean type in the schema for `settings`.
@@ -1652,15 +1612,15 @@ public extension SettingsProtocol {
 
     /// Gets the "default value" of a key.
     /// 
-    /// This is the value that would be read if g_settings_reset() were to be
+    /// This is the value that would be read if `g_settings_reset()` were to be
     /// called on the key.
     /// 
     /// Note that this may be a different value than returned by
-    /// g_settings_schema_key_get_default_value() if the system administrator
+    /// `g_settings_schema_key_get_default_value()` if the system administrator
     /// has provided a default value.
     /// 
-    /// Comparing the return values of g_settings_get_default_value() and
-    /// g_settings_get_value() is not sufficient for determining if a value
+    /// Comparing the return values of `g_settings_get_default_value()` and
+    /// `g_settings_get_value()` is not sufficient for determining if a value
     /// has been set because the user may have explicitly set the value to
     /// something that happens to be equal to the default.  The difference
     /// here is that if the default changes in the future, the user's key
@@ -1678,7 +1638,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for doubles.
+    /// A convenience variant of `g_settings_get()` for doubles.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a 'double' type in the schema for `settings`.
@@ -1730,7 +1690,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for 32-bit integers.
+    /// A convenience variant of `g_settings_get()` for 32-bit integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a int32 type in the schema for `settings`.
@@ -1741,7 +1701,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for 64-bit integers.
+    /// A convenience variant of `g_settings_get()` for 64-bit integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a int64 type in the schema for `settings`.
@@ -1793,7 +1753,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for strings.
+    /// A convenience variant of `g_settings_get()` for strings.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a string type in the schema for `settings`.
@@ -1802,7 +1762,7 @@ public extension SettingsProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// A convenience variant of g_settings_get() for string arrays.
+    /// A convenience variant of `g_settings_get()` for string arrays.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having an array of strings type in the schema for `settings`.
@@ -1813,7 +1773,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for 32-bit unsigned
+    /// A convenience variant of `g_settings_get()` for 32-bit unsigned
     /// integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
@@ -1825,7 +1785,7 @@ public extension SettingsProtocol {
 
     /// Gets the value that is stored at `key` in `settings`.
     /// 
-    /// A convenience variant of g_settings_get() for 64-bit unsigned
+    /// A convenience variant of `g_settings_get()` for 64-bit unsigned
     /// integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
@@ -1839,11 +1799,11 @@ public extension SettingsProtocol {
     /// 
     /// The user value of a key is the last value that was set by the user.
     /// 
-    /// After calling g_settings_reset() this function should always return
+    /// After calling `g_settings_reset()` this function should always return
     /// `nil` (assuming something is not wrong with the system
     /// configuration).
     /// 
-    /// It is possible that g_settings_get_value() will return a different
+    /// It is possible that `g_settings_get_value()` will return a different
     /// value than this function.  This can happen in the case that the user
     /// set a value for a key that was subsequently locked down by the system
     /// administrator -- this function will return the user's old value.
@@ -1876,13 +1836,13 @@ public extension SettingsProtocol {
     /// Gets the list of children on `settings`.
     /// 
     /// The list is exactly the list of strings for which it is not an error
-    /// to call g_settings_get_child().
+    /// to call `g_settings_get_child()`.
     /// 
     /// There is little reason to call this function from "normal" code, since
     /// you should already know what children are in your schema. This function
     /// may still be useful there for introspection reasons, however.
     /// 
-    /// You should free the return value with g_strfreev() when you are done
+    /// You should free the return value with `g_strfreev()` when you are done
     /// with it.
     func listChildren() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_settings_list_children(cast(settings_ptr))
@@ -1895,7 +1855,7 @@ public extension SettingsProtocol {
     /// (since you should already know what keys are in your schema).  This
     /// function is intended for introspection reasons.
     /// 
-    /// You should free the return value with g_strfreev() when you are done
+    /// You should free the return value with `g_strfreev()` when you are done
     /// with it.
     ///
     /// **list_keys is deprecated:**
@@ -1927,7 +1887,7 @@ public extension SettingsProtocol {
 
     /// Reverts all non-applied changes to the settings.  This function
     /// does nothing unless `settings` is in 'delay-apply' mode; see
-    /// g_settings_delay().  In the normal case settings are always applied
+    /// `g_settings_delay()`.  In the normal case settings are always applied
     /// immediately.
     /// 
     /// Change notifications will be emitted for affected keys.
@@ -1942,7 +1902,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for booleans.
+    /// A convenience variant of `g_settings_set()` for booleans.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a boolean type in the schema for `settings`.
@@ -1953,7 +1913,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for doubles.
+    /// A convenience variant of `g_settings_set()` for doubles.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a 'double' type in the schema for `settings`.
@@ -1970,7 +1930,7 @@ public extension SettingsProtocol {
     /// `value` not to be a valid value for the named type.
     /// 
     /// After performing the write, accessing `key` directly with
-    /// g_settings_get_string() will return the 'nick' associated with
+    /// `g_settings_get_string()` will return the 'nick' associated with
     /// `value`.
     func setEnum(key: UnsafePointer<gchar>, value: CInt) -> Bool {
         let rv = g_settings_set_enum(cast(settings_ptr), key, gint(value))
@@ -1986,7 +1946,7 @@ public extension SettingsProtocol {
     /// to contain any bits that are not value for the named type.
     /// 
     /// After performing the write, accessing `key` directly with
-    /// g_settings_get_strv() will return an array of 'nicks'; one for each
+    /// `g_settings_get_strv()` will return an array of 'nicks'; one for each
     /// bit in `value`.
     func setFlags(key: UnsafePointer<gchar>, value: CUnsignedInt) -> Bool {
         let rv = g_settings_set_flags(cast(settings_ptr), key, guint(value))
@@ -1995,7 +1955,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for 32-bit integers.
+    /// A convenience variant of `g_settings_set()` for 32-bit integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a int32 type in the schema for `settings`.
@@ -2006,7 +1966,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for 64-bit integers.
+    /// A convenience variant of `g_settings_set()` for 64-bit integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a int64 type in the schema for `settings`.
@@ -2017,7 +1977,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for strings.
+    /// A convenience variant of `g_settings_set()` for strings.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a string type in the schema for `settings`.
@@ -2028,7 +1988,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for string arrays.  If
+    /// A convenience variant of `g_settings_set()` for string arrays.  If
     /// `value` is `nil`, then `key` is set to be the empty array.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
@@ -2040,7 +2000,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for 32-bit unsigned
+    /// A convenience variant of `g_settings_set()` for 32-bit unsigned
     /// integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
@@ -2052,7 +2012,7 @@ public extension SettingsProtocol {
 
     /// Sets `key` in `settings` to `value`.
     /// 
-    /// A convenience variant of g_settings_set() for 64-bit unsigned
+    /// A convenience variant of `g_settings_set()` for 64-bit unsigned
     /// integers.
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
@@ -2110,7 +2070,7 @@ public extension SettingsProtocol {
 /// 
 /// Some of the `GSettingsBackend` functions accept or return a `GTree`.
 /// These trees always have strings as keys and `GVariant` as values.
-/// g_settings_backend_create_tree() is a convenience function to create
+/// `g_settings_backend_create_tree()` is a convenience function to create
 /// suitable trees.
 /// 
 /// The `GSettingsBackend` API is exported to allow third-party
@@ -2146,7 +2106,7 @@ public protocol SettingsBackendProtocol: ObjectProtocol {
 /// 
 /// Some of the `GSettingsBackend` functions accept or return a `GTree`.
 /// These trees always have strings as keys and `GVariant` as values.
-/// g_settings_backend_create_tree() is a convenience function to create
+/// `g_settings_backend_create_tree()` is a convenience function to create
 /// suitable trees.
 /// 
 /// The `GSettingsBackend` API is exported to allow third-party
@@ -2231,7 +2191,7 @@ public extension SettingsBackendRef {
 /// 
 /// Some of the `GSettingsBackend` functions accept or return a `GTree`.
 /// These trees always have strings as keys and `GVariant` as values.
-/// g_settings_backend_create_tree() is a convenience function to create
+/// `g_settings_backend_create_tree()` is a convenience function to create
 /// suitable trees.
 /// 
 /// The `GSettingsBackend` API is exported to allow third-party
@@ -2294,27 +2254,26 @@ open class SettingsBackend: Object, SettingsBackendProtocol {
 
 public enum SettingsBackendSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -2362,7 +2321,7 @@ public extension SettingsBackendProtocol {
     /// '//', and not ending with a slash).
     /// 
     /// The implementation must call this function during any call to
-    /// g_settings_backend_write(), before the call returns (except in the
+    /// `g_settings_backend_write()`, before the call returns (except in the
     /// case that no keys are actually changed and it cares to detect this
     /// fact).  It may not rely on the existence of a mainloop for
     /// dispatching the signal later.
@@ -2371,10 +2330,10 @@ public extension SettingsBackendProtocol {
     /// in response to other events (such as changes occurring outside of the
     /// program).  These calls may originate from a mainloop or may originate
     /// in response to any other action (including from calls to
-    /// g_settings_backend_write()).
+    /// `g_settings_backend_write()`).
     /// 
     /// In the case that this call is in response to a call to
-    /// g_settings_backend_write() then `origin_tag` must be set to the same
+    /// `g_settings_backend_write()` then `origin_tag` must be set to the same
     /// value that was passed to that call.
     func changed(key: UnsafePointer<gchar>, originTag origin_tag: UnsafeMutableRawPointer) {
         g_settings_backend_changed(cast(settings_backend_ptr), key, cast(origin_tag))
@@ -2383,7 +2342,7 @@ public extension SettingsBackendProtocol {
 
     /// This call is a convenience wrapper.  It gets the list of changes from
     /// `tree`, computes the longest common prefix and calls
-    /// g_settings_backend_changed().
+    /// `g_settings_backend_changed()`.
     func changed(tree: TreeProtocol, originTag origin_tag: UnsafeMutableRawPointer) {
         g_settings_backend_changed_tree(cast(settings_backend_ptr), cast(tree.ptr), cast(origin_tag))
     
@@ -2403,9 +2362,9 @@ public extension SettingsBackendProtocol {
     /// changed.
     /// 
     /// The same rules for when notifications must occur apply as per
-    /// g_settings_backend_changed().  These two calls can be used
+    /// `g_settings_backend_changed()`.  These two calls can be used
     /// interchangeably if exactly one item has changed (although in that
-    /// case g_settings_backend_changed() is definitely preferred).
+    /// case `g_settings_backend_changed()` is definitely preferred).
     /// 
     /// For efficiency reasons, the implementation should strive for `path` to
     /// be as long as possible (ie: the longest common prefix of all of the
@@ -2426,7 +2385,7 @@ public extension SettingsBackendProtocol {
     /// starting with `path` may have changed.
     /// 
     /// The same rules for when notifications must occur apply as per
-    /// g_settings_backend_changed().  This call might be an appropriate
+    /// `g_settings_backend_changed()`.  This call might be an appropriate
     /// reasponse to a 'reset' call but implementations are also free to
     /// explicitly list the keys that were affected by that call if they can
     /// easily do so.
@@ -2540,7 +2499,7 @@ public extension SimpleActionRef {
 
         /// Creates a new action.
     /// 
-    /// The created action is stateless. See g_simple_action_new_stateful() to create
+    /// The created action is stateless. See `g_simple_action_new_stateful()` to create
     /// an action that has state.
     init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
         let rv = g_simple_action_new(name, cast(parameter_type.ptr))
@@ -2618,7 +2577,7 @@ open class SimpleAction: Object, SimpleActionProtocol {
 
     /// Creates a new action.
     /// 
-    /// The created action is stateless. See g_simple_action_new_stateful() to create
+    /// The created action is stateless. See `g_simple_action_new_stateful()` to create
     /// an action that has state.
     public convenience init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
         let rv = g_simple_action_new(name, cast(parameter_type.ptr))
@@ -2652,8 +2611,8 @@ open class SimpleAction: Object, SimpleActionProtocol {
 public enum SimpleActionPropertyName: String, PropertyNameProtocol {
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case enabled = "enabled"
     /// The name of the action. This is mostly meaningful for identifying
     /// the action once it has been added to a `GSimpleActionGroup`.
@@ -2713,25 +2672,25 @@ public enum SimpleActionSignalName: String, SignalNameProtocol {
     /// 
     /// Since GLib 2.40, if no handler is connected to this signal then the
     /// default behaviour for boolean-stated actions with a `nil` parameter
-    /// type is to toggle them via the `GSimpleAction`::change-state signal.
+    /// type is to toggle them via the `GSimpleAction::change`-state signal.
     /// For stateful actions where the state type is equal to the parameter
     /// type, the default is to forward them directly to
-    /// `GSimpleAction`::change-state.  This should allow almost all users
+    /// `GSimpleAction::change`-state.  This should allow almost all users
     /// of `GSimpleAction` to connect only one handler or the other.
     case activate = "activate"
     /// Indicates that the action just received a request to change its
     /// state.
     /// 
     /// `value` will always be of the correct state type, i.e. the type of the
-    /// initial state passed to g_simple_action_new_stateful(). If an incorrect
+    /// initial state passed to `g_simple_action_new_stateful()`. If an incorrect
     /// type is given when requesting to change the state, this signal is not
     /// emitted.
     /// 
     /// If no handler is connected to this signal then the default
-    /// behaviour is to call g_simple_action_set_state() to set the state
+    /// behaviour is to call `g_simple_action_set_state()` to set the state
     /// to the requested value. If you connect a signal handler then no
     /// default action is taken. If the state should change then you must
-    /// call g_simple_action_set_state() from the handler.
+    /// call `g_simple_action_set_state()` from the handler.
     /// 
     /// An example of a 'change-state' handler:
     /// (C Language Example):
@@ -2751,40 +2710,38 @@ public enum SimpleActionSignalName: String, SignalNameProtocol {
     /// }
     /// ```
     /// 
-    /// 
     /// The handler need not set the state to the requested value.
     /// It could set it to any value at all, or take some other action.
     case changeState = "change-state"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// If `action` is currently enabled.
     /// 
-    /// If the action is disabled then calls to g_action_activate() and
-    /// g_action_change_state() have no effect.
+    /// If the action is disabled then calls to `g_action_activate()` and
+    /// `g_action_change_state()` have no effect.
     case notifyEnabled = "notify::enabled"
     /// The name of the action. This is mostly meaningful for identifying
     /// the action once it has been added to a `GSimpleActionGroup`.
@@ -2849,7 +2806,7 @@ public extension SimpleActionProtocol {
     /// 
     /// This should only be called by the implementor of the action.  Users
     /// of the action should not attempt to directly modify the 'state'
-    /// property.  Instead, they should call g_action_change_state() to
+    /// property.  Instead, they should call `g_action_change_state()` to
     /// request the change.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
@@ -2860,7 +2817,7 @@ public extension SimpleActionProtocol {
 
     /// Sets the state hint for the action.
     /// 
-    /// See g_action_get_state_hint() for more information about
+    /// See `g_action_get_state_hint()` for more information about
     /// action state hints.
     func set(stateHint state_hint: VariantProtocol) {
         g_simple_action_set_state_hint(cast(simple_action_ptr), cast(state_hint.ptr))
@@ -3003,27 +2960,26 @@ open class SimpleActionGroup: Object, SimpleActionGroupProtocol {
 
 public enum SimpleActionGroupSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3144,45 +3100,45 @@ public extension SimpleActionGroupProtocol {
 /// that asynchronous functions and their finishing functions are used
 /// together correctly.
 /// 
-/// To create a new `GSimpleAsyncResult`, call g_simple_async_result_new().
+/// To create a new `GSimpleAsyncResult`, call `g_simple_async_result_new()`.
 /// If the result needs to be created for a `GError`, use
-/// g_simple_async_result_new_from_error() or
-/// g_simple_async_result_new_take_error(). If a `GError` is not available
+/// `g_simple_async_result_new_from_error()` or
+/// `g_simple_async_result_new_take_error()`. If a `GError` is not available
 /// (e.g. the asynchronous operation's doesn't take a `GError` argument),
 /// but the result still needs to be created for an error condition, use
-/// g_simple_async_result_new_error() (or g_simple_async_result_set_error_va()
+/// `g_simple_async_result_new_error()` (or `g_simple_async_result_set_error_va()`
 /// if your application or binding requires passing a variable argument list
 /// directly), and the error can then be propagated through the use of
-/// g_simple_async_result_propagate_error().
+/// `g_simple_async_result_propagate_error()`.
 /// 
 /// An asynchronous operation can be made to ignore a cancellation event by
-/// calling g_simple_async_result_set_handle_cancellation() with a
+/// calling `g_simple_async_result_set_handle_cancellation()` with a
 /// `GSimpleAsyncResult` for the operation and `false`. This is useful for
 /// operations that are dangerous to cancel, such as close (which would
 /// cause a leak if cancelled before being run).
 /// 
 /// GSimpleAsyncResult can integrate into GLib's event loop, `GMainLoop`,
 /// or it can use `GThreads`.
-/// g_simple_async_result_complete() will finish an I/O task directly
-/// from the point where it is called. g_simple_async_result_complete_in_idle()
+/// `g_simple_async_result_complete()` will finish an I/O task directly
+/// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GSimpleAsyncResult` was created.
-/// g_simple_async_result_run_in_thread() will run the job in a
+/// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
-/// g_simple_async_result_complete_in_idle() to deliver the result.
+/// `g_simple_async_result_complete_in_idle()` to deliver the result.
 /// 
 /// To set the results of an asynchronous function,
-/// g_simple_async_result_set_op_res_gpointer(),
-/// g_simple_async_result_set_op_res_gboolean(), and
-/// g_simple_async_result_set_op_res_gssize()
+/// `g_simple_async_result_set_op_res_gpointer()`,
+/// `g_simple_async_result_set_op_res_gboolean()`, and
+/// `g_simple_async_result_set_op_res_gssize()`
 /// are provided, setting the operation's result to a gpointer, gboolean, or
 /// gssize, respectively.
 /// 
 /// Likewise, to get the result of an asynchronous function,
-/// g_simple_async_result_get_op_res_gpointer(),
-/// g_simple_async_result_get_op_res_gboolean(), and
-/// g_simple_async_result_get_op_res_gssize() are
+/// `g_simple_async_result_get_op_res_gpointer()`,
+/// `g_simple_async_result_get_op_res_gboolean()`, and
+/// `g_simple_async_result_get_op_res_gssize()` are
 /// provided, getting the operation's result as a gpointer, gboolean, and
 /// gssize, respectively.
 /// 
@@ -3236,7 +3192,7 @@ public extension SimpleActionGroupProtocol {
 ///                                            user_data,
 ///                                            BAKER_ERRORS,
 ///                                            BAKER_ERROR_TOO_SMALL,
-///                                            "`ucm` radius cakes are silly",
+///                                            "%ucm radius cakes are silly",
 ///                                            radius);
 ///       return;
 ///     }
@@ -3323,45 +3279,45 @@ public protocol SimpleAsyncResultProtocol: ObjectProtocol, AsyncResultProtocol {
 /// that asynchronous functions and their finishing functions are used
 /// together correctly.
 /// 
-/// To create a new `GSimpleAsyncResult`, call g_simple_async_result_new().
+/// To create a new `GSimpleAsyncResult`, call `g_simple_async_result_new()`.
 /// If the result needs to be created for a `GError`, use
-/// g_simple_async_result_new_from_error() or
-/// g_simple_async_result_new_take_error(). If a `GError` is not available
+/// `g_simple_async_result_new_from_error()` or
+/// `g_simple_async_result_new_take_error()`. If a `GError` is not available
 /// (e.g. the asynchronous operation's doesn't take a `GError` argument),
 /// but the result still needs to be created for an error condition, use
-/// g_simple_async_result_new_error() (or g_simple_async_result_set_error_va()
+/// `g_simple_async_result_new_error()` (or `g_simple_async_result_set_error_va()`
 /// if your application or binding requires passing a variable argument list
 /// directly), and the error can then be propagated through the use of
-/// g_simple_async_result_propagate_error().
+/// `g_simple_async_result_propagate_error()`.
 /// 
 /// An asynchronous operation can be made to ignore a cancellation event by
-/// calling g_simple_async_result_set_handle_cancellation() with a
+/// calling `g_simple_async_result_set_handle_cancellation()` with a
 /// `GSimpleAsyncResult` for the operation and `false`. This is useful for
 /// operations that are dangerous to cancel, such as close (which would
 /// cause a leak if cancelled before being run).
 /// 
 /// GSimpleAsyncResult can integrate into GLib's event loop, `GMainLoop`,
 /// or it can use `GThreads`.
-/// g_simple_async_result_complete() will finish an I/O task directly
-/// from the point where it is called. g_simple_async_result_complete_in_idle()
+/// `g_simple_async_result_complete()` will finish an I/O task directly
+/// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GSimpleAsyncResult` was created.
-/// g_simple_async_result_run_in_thread() will run the job in a
+/// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
-/// g_simple_async_result_complete_in_idle() to deliver the result.
+/// `g_simple_async_result_complete_in_idle()` to deliver the result.
 /// 
 /// To set the results of an asynchronous function,
-/// g_simple_async_result_set_op_res_gpointer(),
-/// g_simple_async_result_set_op_res_gboolean(), and
-/// g_simple_async_result_set_op_res_gssize()
+/// `g_simple_async_result_set_op_res_gpointer()`,
+/// `g_simple_async_result_set_op_res_gboolean()`, and
+/// `g_simple_async_result_set_op_res_gssize()`
 /// are provided, setting the operation's result to a gpointer, gboolean, or
 /// gssize, respectively.
 /// 
 /// Likewise, to get the result of an asynchronous function,
-/// g_simple_async_result_get_op_res_gpointer(),
-/// g_simple_async_result_get_op_res_gboolean(), and
-/// g_simple_async_result_get_op_res_gssize() are
+/// `g_simple_async_result_get_op_res_gpointer()`,
+/// `g_simple_async_result_get_op_res_gboolean()`, and
+/// `g_simple_async_result_get_op_res_gssize()` are
 /// provided, getting the operation's result as a gpointer, gboolean, and
 /// gssize, respectively.
 /// 
@@ -3415,7 +3371,7 @@ public protocol SimpleAsyncResultProtocol: ObjectProtocol, AsyncResultProtocol {
 ///                                            user_data,
 ///                                            BAKER_ERRORS,
 ///                                            BAKER_ERROR_TOO_SMALL,
-///                                            "`ucm` radius cakes are silly",
+///                                            "%ucm radius cakes are silly",
 ///                                            radius);
 ///       return;
 ///     }
@@ -3519,7 +3475,7 @@ public extension SimpleAsyncResultRef {
     /// 
     /// If your operation supports cancellation with `GCancellable` (which it
     /// probably should) then you should provide the user's cancellable to
-    /// g_simple_async_result_set_check_cancellable() immediately after
+    /// `g_simple_async_result_set_check_cancellable()` immediately after
     /// this function returns.
     ///
     /// **new is deprecated:**
@@ -3604,45 +3560,45 @@ public extension SimpleAsyncResultRef {
 /// that asynchronous functions and their finishing functions are used
 /// together correctly.
 /// 
-/// To create a new `GSimpleAsyncResult`, call g_simple_async_result_new().
+/// To create a new `GSimpleAsyncResult`, call `g_simple_async_result_new()`.
 /// If the result needs to be created for a `GError`, use
-/// g_simple_async_result_new_from_error() or
-/// g_simple_async_result_new_take_error(). If a `GError` is not available
+/// `g_simple_async_result_new_from_error()` or
+/// `g_simple_async_result_new_take_error()`. If a `GError` is not available
 /// (e.g. the asynchronous operation's doesn't take a `GError` argument),
 /// but the result still needs to be created for an error condition, use
-/// g_simple_async_result_new_error() (or g_simple_async_result_set_error_va()
+/// `g_simple_async_result_new_error()` (or `g_simple_async_result_set_error_va()`
 /// if your application or binding requires passing a variable argument list
 /// directly), and the error can then be propagated through the use of
-/// g_simple_async_result_propagate_error().
+/// `g_simple_async_result_propagate_error()`.
 /// 
 /// An asynchronous operation can be made to ignore a cancellation event by
-/// calling g_simple_async_result_set_handle_cancellation() with a
+/// calling `g_simple_async_result_set_handle_cancellation()` with a
 /// `GSimpleAsyncResult` for the operation and `false`. This is useful for
 /// operations that are dangerous to cancel, such as close (which would
 /// cause a leak if cancelled before being run).
 /// 
 /// GSimpleAsyncResult can integrate into GLib's event loop, `GMainLoop`,
 /// or it can use `GThreads`.
-/// g_simple_async_result_complete() will finish an I/O task directly
-/// from the point where it is called. g_simple_async_result_complete_in_idle()
+/// `g_simple_async_result_complete()` will finish an I/O task directly
+/// from the point where it is called. `g_simple_async_result_complete_in_idle()`
 /// will finish it from an idle handler in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GSimpleAsyncResult` was created.
-/// g_simple_async_result_run_in_thread() will run the job in a
+/// `g_simple_async_result_run_in_thread()` will run the job in a
 /// separate thread and then use
-/// g_simple_async_result_complete_in_idle() to deliver the result.
+/// `g_simple_async_result_complete_in_idle()` to deliver the result.
 /// 
 /// To set the results of an asynchronous function,
-/// g_simple_async_result_set_op_res_gpointer(),
-/// g_simple_async_result_set_op_res_gboolean(), and
-/// g_simple_async_result_set_op_res_gssize()
+/// `g_simple_async_result_set_op_res_gpointer()`,
+/// `g_simple_async_result_set_op_res_gboolean()`, and
+/// `g_simple_async_result_set_op_res_gssize()`
 /// are provided, setting the operation's result to a gpointer, gboolean, or
 /// gssize, respectively.
 /// 
 /// Likewise, to get the result of an asynchronous function,
-/// g_simple_async_result_get_op_res_gpointer(),
-/// g_simple_async_result_get_op_res_gboolean(), and
-/// g_simple_async_result_get_op_res_gssize() are
+/// `g_simple_async_result_get_op_res_gpointer()`,
+/// `g_simple_async_result_get_op_res_gboolean()`, and
+/// `g_simple_async_result_get_op_res_gssize()` are
 /// provided, getting the operation's result as a gpointer, gboolean, and
 /// gssize, respectively.
 /// 
@@ -3696,7 +3652,7 @@ public extension SimpleAsyncResultRef {
 ///                                            user_data,
 ///                                            BAKER_ERRORS,
 ///                                            BAKER_ERROR_TOO_SMALL,
-///                                            "`ucm` radius cakes are silly",
+///                                            "%ucm radius cakes are silly",
 ///                                            radius);
 ///       return;
 ///     }
@@ -3792,7 +3748,7 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// 
     /// If your operation supports cancellation with `GCancellable` (which it
     /// probably should) then you should provide the user's cancellable to
-    /// g_simple_async_result_set_check_cancellable() immediately after
+    /// `g_simple_async_result_set_check_cancellable()` immediately after
     /// this function returns.
     ///
     /// **new is deprecated:**
@@ -3854,27 +3810,26 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
 
 public enum SimpleAsyncResultSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3917,7 +3872,7 @@ public extension SimpleAsyncResultProtocol {
     /// Completes an asynchronous I/O job immediately. Must be called in
     /// the thread where the asynchronous result was to be delivered, as it
     /// invokes the callback directly. If you are in a different thread use
-    /// g_simple_async_result_complete_in_idle().
+    /// `g_simple_async_result_complete_in_idle()`.
     /// 
     /// Calling this function takes a reference to `simple` for as long as
     /// is needed to complete the call.
@@ -3984,7 +3939,7 @@ public extension SimpleAsyncResultProtocol {
     /// a given destination.
     /// 
     /// If the `GCancellable` given to a prior call to
-    /// g_simple_async_result_set_check_cancellable() is cancelled then this
+    /// `g_simple_async_result_set_check_cancellable()` is cancelled then this
     /// function will return `true` with `dest` set appropriately.
     ///
     /// **propagate_error is deprecated:**
@@ -3999,7 +3954,7 @@ public extension SimpleAsyncResultProtocol {
     }
 
     /// Runs the asynchronous job in a separate thread and then calls
-    /// g_simple_async_result_complete_in_idle() on `simple` to return
+    /// `g_simple_async_result_complete_in_idle()` on `simple` to return
     /// the result to the appropriate main loop.
     /// 
     /// Calling this function takes a reference to `simple` for as long as
@@ -4015,7 +3970,7 @@ public extension SimpleAsyncResultProtocol {
     /// Sets a `GCancellable` to check before dispatching results.
     /// 
     /// This function has one very specific purpose: the provided cancellable
-    /// is checked at the time of g_simple_async_result_propagate_error() If
+    /// is checked at the time of `g_simple_async_result_propagate_error()` If
     /// it is cancelled, these functions will return an "Operation was
     /// cancelled" error (`G_IO_ERROR_CANCELLED`).
     /// 
@@ -4026,7 +3981,7 @@ public extension SimpleAsyncResultProtocol {
     /// already been sent as an idle to the main context to be dispatched).
     /// 
     /// The checking described above is done regardless of any call to the
-    /// unrelated g_simple_async_result_set_handle_cancellation() function.
+    /// unrelated `g_simple_async_result_set_handle_cancellation()` function.
     ///
     /// **set_check_cancellable is deprecated:**
     /// Use #GTask instead.
@@ -4040,7 +3995,7 @@ public extension SimpleAsyncResultProtocol {
 
 
     /// Sets an error within the asynchronous result without a `GError`.
-    /// Unless writing a binding, see g_simple_async_result_set_error().
+    /// Unless writing a binding, see `g_simple_async_result_set_error()`.
     ///
     /// **set_error_va is deprecated:**
     /// Use #GTask and g_task_return_error() instead.
@@ -4061,8 +4016,8 @@ public extension SimpleAsyncResultProtocol {
     /// Sets whether to handle cancellation within the asynchronous operation.
     /// 
     /// This function has nothing to do with
-    /// g_simple_async_result_set_check_cancellable().  It only refers to the
-    /// `GCancellable` passed to g_simple_async_result_run_in_thread().
+    /// `g_simple_async_result_set_check_cancellable()`.  It only refers to the
+    /// `GCancellable` passed to `g_simple_async_result_run_in_thread()`.
     ///
     /// **set_handle_cancellation is deprecated:**
     /// This method is deprecated.
@@ -4199,7 +4154,7 @@ public extension SimpleAsyncResultProtocol {
 /// 
 /// This is useful when you obtained a `GInputStream` and a `GOutputStream`
 /// by other means, for instance creating them with platform specific methods as
-/// g_unix_input_stream_new() or g_win32_input_stream_new(), and you want
+/// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 public protocol SimpleIOStreamProtocol: IOStreamProtocol {
     /// Untyped pointer to the underlying `GSimpleIOStream` instance.
@@ -4219,7 +4174,7 @@ public protocol SimpleIOStreamProtocol: IOStreamProtocol {
 /// 
 /// This is useful when you obtained a `GInputStream` and a `GOutputStream`
 /// by other means, for instance creating them with platform specific methods as
-/// g_unix_input_stream_new() or g_win32_input_stream_new(), and you want
+/// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 public struct SimpleIOStreamRef: SimpleIOStreamProtocol {
     /// Untyped pointer to the underlying `GSimpleIOStream` instance.
@@ -4285,7 +4240,7 @@ public extension SimpleIOStreamRef {
 /// 
 /// This is useful when you obtained a `GInputStream` and a `GOutputStream`
 /// by other means, for instance creating them with platform specific methods as
-/// g_unix_input_stream_new() or g_win32_input_stream_new(), and you want
+/// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -4379,27 +4334,26 @@ public extension SimpleIOStreamProtocol {
 
 public enum SimpleIOStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -4590,10 +4544,10 @@ public enum SimplePermissionPropertyName: String, PropertyNameProtocol {
     /// `permission` represents the permission to perform.
     case allowed = "allowed"
     /// `true` if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     case canAcquire = "can-acquire"
     /// `true` if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     case canRelease = "can-release"
 }
 
@@ -4635,27 +4589,26 @@ public extension SimplePermissionProtocol {
 
 public enum SimplePermissionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -4664,10 +4617,10 @@ public enum SimplePermissionSignalName: String, SignalNameProtocol {
     /// `permission` represents the permission to perform.
     case notifyAllowed = "notify::allowed"
     /// `true` if it is generally possible to acquire the permission by calling
-    /// g_permission_acquire().
+    /// `g_permission_acquire()`.
     case notifyCanAcquire = "notify::can-acquire"
     /// `true` if it is generally possible to release the permission by calling
-    /// g_permission_release().
+    /// `g_permission_release()`.
     case notifyCanRelease = "notify::can-release"
 }
 
@@ -4721,7 +4674,7 @@ public extension SimplePermissionProtocol {
 /// `GSimpleProxyResolver` is never the default proxy resolver, but it
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
-/// with g_socket_client_set_proxy_resolver().
+/// with `g_socket_client_set_proxy_resolver()`.
 public protocol SimpleProxyResolverProtocol: ObjectProtocol, ProxyResolverProtocol {
     /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -4741,7 +4694,7 @@ public protocol SimpleProxyResolverProtocol: ObjectProtocol, ProxyResolverProtoc
 /// `GSimpleProxyResolver` is never the default proxy resolver, but it
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
-/// with g_socket_client_set_proxy_resolver().
+/// with `g_socket_client_set_proxy_resolver()`.
 public struct SimpleProxyResolverRef: SimpleProxyResolverProtocol {
     /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `simple_proxy_resolver_ptr` property instead.
@@ -4801,7 +4754,7 @@ public extension SimpleProxyResolverRef {
 /// `GSimpleProxyResolver` is never the default proxy resolver, but it
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
-/// with g_socket_client_set_proxy_resolver().
+/// with `g_socket_client_set_proxy_resolver()`.
 open class SimpleProxyResolver: Object, SimpleProxyResolverProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `SimpleProxyResolver` instance.
@@ -4846,8 +4799,8 @@ open class SimpleProxyResolver: Object, SimpleProxyResolverProtocol {
 
 public enum SimpleProxyResolverPropertyName: String, PropertyNameProtocol {
     /// The default proxy URI that will be used for any URI that doesn't
-    /// match `GSimpleProxyResolver`:ignore-hosts, and doesn't match any
-    /// of the schemes set with g_simple_proxy_resolver_set_uri_proxy().
+    /// match `GSimpleProxyResolver:ignore`-hosts, and doesn't match any
+    /// of the schemes set with `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// Note that as a special case, if this URI starts with
     /// "socks://", `GSimpleProxyResolver` will treat it as referring
@@ -4869,10 +4822,10 @@ public enum SimpleProxyResolverPropertyName: String, PropertyNameProtocol {
     ///   "example.com:80", which matches whatever the hostname or IP
     ///   address would match, but only for URLs with the (explicitly)
     ///   indicated port. In the case of an IPv6 address, the address
-    ///   part must appear in brackets: "[::1]:443"
+    ///   part must appear in brackets: "[`1`]:443"
     /// 
     /// - An IP address range, given by a base address and prefix length,
-    ///   such as "fe80::/10", which matches any address in that range.
+    ///   such as "fe80``/10", which matches any address in that range.
     /// 
     /// Note that when dealing with Unicode hostnames, the matching is
     /// done against the ASCII form of the name.
@@ -4928,34 +4881,33 @@ public extension SimpleProxyResolverProtocol {
 
 public enum SimpleProxyResolverSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The default proxy URI that will be used for any URI that doesn't
-    /// match `GSimpleProxyResolver`:ignore-hosts, and doesn't match any
-    /// of the schemes set with g_simple_proxy_resolver_set_uri_proxy().
+    /// match `GSimpleProxyResolver:ignore`-hosts, and doesn't match any
+    /// of the schemes set with `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// Note that as a special case, if this URI starts with
     /// "socks://", `GSimpleProxyResolver` will treat it as referring
@@ -4977,10 +4929,10 @@ public enum SimpleProxyResolverSignalName: String, SignalNameProtocol {
     ///   "example.com:80", which matches whatever the hostname or IP
     ///   address would match, but only for URLs with the (explicitly)
     ///   indicated port. In the case of an IPv6 address, the address
-    ///   part must appear in brackets: "[::1]:443"
+    ///   part must appear in brackets: "[`1`]:443"
     /// 
     /// - An IP address range, given by a base address and prefix length,
-    ///   such as "fe80::/10", which matches any address in that range.
+    ///   such as "fe80``/10", which matches any address in that range.
     /// 
     /// Note that when dealing with Unicode hostnames, the matching is
     /// done against the ASCII form of the name.
@@ -5031,8 +4983,8 @@ public extension SimpleProxyResolverProtocol {
     var simple_proxy_resolver_ptr: UnsafeMutablePointer<GSimpleProxyResolver> { return ptr.assumingMemoryBound(to: GSimpleProxyResolver.self) }
 
     /// Sets the default proxy on `resolver`, to be used for any URIs that
-    /// don't match `GSimpleProxyResolver`:ignore-hosts or a proxy set
-    /// via g_simple_proxy_resolver_set_uri_proxy().
+    /// don't match `GSimpleProxyResolver:ignore`-hosts or a proxy set
+    /// via `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// If `default_proxy` starts with "socks://",
     /// `GSimpleProxyResolver` will treat it as referring to all three of
@@ -5044,7 +4996,7 @@ public extension SimpleProxyResolverProtocol {
 
     /// Sets the list of ignored hosts.
     /// 
-    /// See `GSimpleProxyResolver`:ignore-hosts for more details on how the
+    /// See `GSimpleProxyResolver:ignore`-hosts for more details on how the
     /// `ignore_hosts` argument is interpreted.
     func set(ignoreHosts ignore_hosts: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) {
         g_simple_proxy_resolver_set_ignore_hosts(cast(simple_proxy_resolver_ptr), cast(ignore_hosts))
@@ -5053,9 +5005,9 @@ public extension SimpleProxyResolverProtocol {
 
     /// Adds a URI-scheme-specific proxy to `resolver`; URIs whose scheme
     /// matches `uri_scheme` (and which don't match
-    /// `GSimpleProxyResolver`:ignore-hosts) will be proxied via `proxy`.
+    /// `GSimpleProxyResolver:ignore`-hosts) will be proxied via `proxy`.
     /// 
-    /// As with `GSimpleProxyResolver`:default-proxy, if `proxy` starts with
+    /// As with `GSimpleProxyResolver:default`-proxy, if `proxy` starts with
     /// "socks://", `GSimpleProxyResolver` will treat it
     /// as referring to all three of the socks5, socks4a, and socks4 proxy
     /// types.
@@ -5085,9 +5037,9 @@ public extension SimpleProxyResolverProtocol {
 /// direct use of `GSocket` is useful.
 /// 
 /// `GSocket` implements the `GInitable` interface, so if it is manually constructed
-/// by e.g. g_object_new() you must call g_initable_init() and check the
+/// by e.g. `g_object_new()` you must call `g_initable_init()` and check the
 /// results before using the object. This is done automatically in
-/// g_socket_new() and g_socket_new_from_fd(), so these functions can return
+/// `g_socket_new()` and `g_socket_new_from_fd()`, so these functions can return
 /// `nil`.
 /// 
 /// Sockets operate in two general modes, blocking or non-blocking. When
@@ -5095,8 +5047,8 @@ public extension SimpleProxyResolverProtocol {
 /// parameter) block until the requested operation
 /// is finished or there is an error. In non-blocking mode all calls that
 /// would block return immediately with a `G_IO_ERROR_WOULD_BLOCK` error.
-/// To know when a call would successfully run you can call g_socket_condition_check(),
-/// or g_socket_condition_wait(). You can also use g_socket_create_source() and
+/// To know when a call would successfully run you can call `g_socket_condition_check()`,
+/// or `g_socket_condition_wait()`. You can also use `g_socket_create_source()` and
 /// attach it to a `GMainContext` to get callbacks when I/O is possible.
 /// Note that all sockets are always set to non blocking mode in the system, and
 /// blocking mode is emulated in GSocket.
@@ -5148,9 +5100,9 @@ public protocol SocketProtocol: ObjectProtocol, DatagramBasedProtocol, InitableP
 /// direct use of `GSocket` is useful.
 /// 
 /// `GSocket` implements the `GInitable` interface, so if it is manually constructed
-/// by e.g. g_object_new() you must call g_initable_init() and check the
+/// by e.g. `g_object_new()` you must call `g_initable_init()` and check the
 /// results before using the object. This is done automatically in
-/// g_socket_new() and g_socket_new_from_fd(), so these functions can return
+/// `g_socket_new()` and `g_socket_new_from_fd()`, so these functions can return
 /// `nil`.
 /// 
 /// Sockets operate in two general modes, blocking or non-blocking. When
@@ -5158,8 +5110,8 @@ public protocol SocketProtocol: ObjectProtocol, DatagramBasedProtocol, InitableP
 /// parameter) block until the requested operation
 /// is finished or there is an error. In non-blocking mode all calls that
 /// would block return immediately with a `G_IO_ERROR_WOULD_BLOCK` error.
-/// To know when a call would successfully run you can call g_socket_condition_check(),
-/// or g_socket_condition_wait(). You can also use g_socket_create_source() and
+/// To know when a call would successfully run you can call `g_socket_condition_check()`,
+/// or `g_socket_condition_wait()`. You can also use `g_socket_create_source()` and
 /// attach it to a `GMainContext` to get callbacks when I/O is possible.
 /// Note that all sockets are always set to non blocking mode in the system, and
 /// blocking mode is emulated in GSocket.
@@ -5315,9 +5267,9 @@ public extension SocketRef {
 /// direct use of `GSocket` is useful.
 /// 
 /// `GSocket` implements the `GInitable` interface, so if it is manually constructed
-/// by e.g. g_object_new() you must call g_initable_init() and check the
+/// by e.g. `g_object_new()` you must call `g_initable_init()` and check the
 /// results before using the object. This is done automatically in
-/// g_socket_new() and g_socket_new_from_fd(), so these functions can return
+/// `g_socket_new()` and `g_socket_new_from_fd()`, so these functions can return
 /// `nil`.
 /// 
 /// Sockets operate in two general modes, blocking or non-blocking. When
@@ -5325,8 +5277,8 @@ public extension SocketRef {
 /// parameter) block until the requested operation
 /// is finished or there is an error. In non-blocking mode all calls that
 /// would block return immediately with a `G_IO_ERROR_WOULD_BLOCK` error.
-/// To know when a call would successfully run you can call g_socket_condition_check(),
-/// or g_socket_condition_wait(). You can also use g_socket_create_source() and
+/// To know when a call would successfully run you can call `g_socket_condition_check()`,
+/// or `g_socket_condition_wait()`. You can also use `g_socket_create_source()` and
 /// attach it to a `GMainContext` to get callbacks when I/O is possible.
 /// Note that all sockets are always set to non blocking mode in the system, and
 /// blocking mode is emulated in GSocket.
@@ -5521,27 +5473,26 @@ public extension SocketProtocol {
 
 public enum SocketSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -5603,8 +5554,8 @@ public extension SocketProtocol {
     /// the first outstanding connection request from the listening socket and
     /// creates a `GSocket` object for it.
     /// 
-    /// The `socket` must be bound to a local address with g_socket_bind() and
-    /// must be listening for incoming connections (g_socket_listen()).
+    /// The `socket` must be bound to a local address with `g_socket_bind()` and
+    /// must be listening for incoming connections (`g_socket_listen()`).
     /// 
     /// If there are no outstanding connections then the operation will block
     /// or return `G_IO_ERROR_WOULD_BLOCK` if non-blocking I/O is enabled.
@@ -5619,19 +5570,19 @@ public extension SocketProtocol {
     }
 
     /// When a socket is created it is attached to an address family, but it
-    /// doesn't have an address in this family. g_socket_bind() assigns the
+    /// doesn't have an address in this family. `g_socket_bind()` assigns the
     /// address (sometimes called name) of the socket.
     /// 
     /// It is generally required to bind to a local address before you can
-    /// receive connections. (See g_socket_listen() and g_socket_accept() ).
+    /// receive connections. (See `g_socket_listen()` and `g_socket_accept()` ).
     /// In certain situations, you may also want to bind a socket that will be
     /// used to initiate connections, though this is not normally required.
     /// 
     /// If `socket` is a TCP socket, then `allow_reuse` controls the setting
     /// of the `SO_REUSEADDR` socket option; normally it should be `true` for
     /// server sockets (sockets that you will eventually call
-    /// g_socket_accept() on), and `false` for client sockets. (Failing to
-    /// set this flag on a server socket may cause g_socket_bind() to return
+    /// `g_socket_accept()` on), and `false` for client sockets. (Failing to
+    /// set this flag on a server socket may cause `g_socket_bind()` to return
     /// `G_IO_ERROR_ADDRESS_IN_USE` if the server program is stopped and then
     /// immediately restarted.)
     /// 
@@ -5651,7 +5602,7 @@ public extension SocketProtocol {
     }
 
     /// Checks and resets the pending connect error for the socket.
-    /// This is used to check for errors when g_socket_connect() is
+    /// This is used to check for errors when `g_socket_connect()` is
     /// used in non-blocking mode.
     func checkConnectResult() throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -5684,11 +5635,11 @@ public extension SocketProtocol {
     /// way to avoid this problem; the easiest fix is to design the network
     /// protocol such that the client will never send data "out of turn".
     /// Another solution is for the server to half-close the connection by
-    /// calling g_socket_shutdown() with only the `shutdown_write` flag set,
+    /// calling `g_socket_shutdown()` with only the `shutdown_write` flag set,
     /// and then wait for the client to notice this and close its side of the
-    /// connection, after which the server can safely call g_socket_close().
+    /// connection, after which the server can safely call `g_socket_close()`.
     /// (This is what `GTcpConnection` does if you call
-    /// g_tcp_connection_set_graceful_disconnect(). But of course, this
+    /// `g_tcp_connection_set_graceful_disconnect()`. But of course, this
     /// only works if the client will close its connection after the server
     /// does.)
     func close() throws -> Bool {
@@ -5707,8 +5658,8 @@ public extension SocketProtocol {
     /// 
     /// Note that on Windows, it is possible for an operation to return
     /// `G_IO_ERROR_WOULD_BLOCK` even immediately after
-    /// g_socket_condition_check() has claimed that the socket is ready for
-    /// writing. Rather than calling g_socket_condition_check() and then
+    /// `g_socket_condition_check()` has claimed that the socket is ready for
+    /// writing. Rather than calling `g_socket_condition_check()` and then
     /// writing to the socket if it succeeds, it is generally better to
     /// simply try writing to the socket right away, and try again later if
     /// the initial attempt returns `G_IO_ERROR_WOULD_BLOCK`.
@@ -5726,12 +5677,12 @@ public extension SocketProtocol {
     /// on `socket`. If the condition is met, `true` is returned.
     /// 
     /// If `cancellable` is cancelled before the condition is met, or if
-    /// `timeout_us` (or the socket's `GSocket`:timeout) is reached before the
+    /// `timeout_us` (or the socket's `GSocket:timeout`) is reached before the
     /// condition is met, then `false` is returned and `error`, if non-`nil`,
     /// is set to the appropriate value (`G_IO_ERROR_CANCELLED` or
     /// `G_IO_ERROR_TIMED_OUT`).
     /// 
-    /// If you don't want a timeout, use g_socket_condition_wait().
+    /// If you don't want a timeout, use `g_socket_condition_wait()`.
     /// (Alternatively, you can pass -1 for `timeout_us`.)
     /// 
     /// Note that although `timeout_us` is in microseconds for consistency with
@@ -5756,7 +5707,7 @@ public extension SocketProtocol {
     /// the appropriate value (`G_IO_ERROR_CANCELLED` or
     /// `G_IO_ERROR_TIMED_OUT`).
     /// 
-    /// See also g_socket_condition_timed_wait().
+    /// See also `g_socket_condition_timed_wait()`.
     func conditionWait(condition: GLib.IOCondition, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_condition_wait(cast(socket_ptr), condition, cast(cancellable.ptr), &error)
@@ -5770,7 +5721,7 @@ public extension SocketProtocol {
     /// 
     /// For connection oriented socket this generally means we attempt to make
     /// a connection to the `address`. For a connection-less socket it sets
-    /// the default address for g_socket_send() and discards all incoming datagrams
+    /// the default address for `g_socket_send()` and discards all incoming datagrams
     /// from other sources.
     /// 
     /// Generally connection oriented sockets can only connect once, but
@@ -5781,7 +5732,7 @@ public extension SocketProtocol {
     /// non-blocking I/O is enabled. Then `G_IO_ERROR_PENDING` is returned
     /// and the user can be notified of the connection finishing by waiting
     /// for the G_IO_OUT condition. The result of the connection must then be
-    /// checked with g_socket_check_connect_result().
+    /// checked with `g_socket_check_connect_result()`.
     func connect(address: SocketAddressProtocol, cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_connect(cast(socket_ptr), cast(address.ptr), cast(cancellable.ptr), &error)
@@ -5811,7 +5762,7 @@ public extension SocketProtocol {
     /// cause the source to trigger, reporting the current condition (which
     /// is likely 0 unless cancellation happened at the same time as a
     /// condition change). You can check for this in the callback using
-    /// g_cancellable_is_cancelled().
+    /// `g_cancellable_is_cancelled()`.
     /// 
     /// If `socket` has a timeout set, and it is reached before `condition`
     /// occurs, the source will then trigger anyway, reporting `G_IO_IN` or
@@ -5832,8 +5783,8 @@ public extension SocketProtocol {
     /// Note that on Windows, this function is rather inefficient in the
     /// UDP case, and so if you know any plausible upper bound on the size
     /// of the incoming packet, it is better to just do a
-    /// g_socket_receive() with a buffer of that size, rather than calling
-    /// g_socket_get_available_bytes() first and then doing a receive of
+    /// `g_socket_receive()` with a buffer of that size, rather than calling
+    /// `g_socket_get_available_bytes()` first and then doing a receive of
     /// exactly the right size.
     func getAvailableBytes() -> gssize {
         let rv = g_socket_get_available_bytes(cast(socket_ptr))
@@ -5841,7 +5792,7 @@ public extension SocketProtocol {
     }
 
     /// Gets the blocking mode of the socket. For details on blocking I/O,
-    /// see g_socket_set_blocking().
+    /// see `g_socket_set_blocking()`.
     func getBlocking() -> Bool {
         let rv = g_socket_get_blocking(cast(socket_ptr))
         return Bool(rv != 0)
@@ -5872,8 +5823,8 @@ public extension SocketProtocol {
     /// 
     /// Other ways to obtain credentials from a foreign peer includes the
     /// `GUnixCredentialsMessage` type and
-    /// g_unix_connection_send_credentials() /
-    /// g_unix_connection_receive_credentials() functions.
+    /// `g_unix_connection_send_credentials()` /
+    /// `g_unix_connection_receive_credentials()` functions.
     func getCredentials() throws -> UnsafeMutablePointer<GCredentials>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_get_credentials(cast(socket_ptr), &error)
@@ -5900,14 +5851,14 @@ public extension SocketProtocol {
     }
 
     /// Gets the keepalive mode of the socket. For details on this,
-    /// see g_socket_set_keepalive().
+    /// see `g_socket_set_keepalive()`.
     func getKeepalive() -> Bool {
         let rv = g_socket_get_keepalive(cast(socket_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets the listen backlog setting of the socket. For details on this,
-    /// see g_socket_set_listen_backlog().
+    /// see `g_socket_set_listen_backlog()`.
     func getListenBacklog() -> CInt {
         let rv = g_socket_get_listen_backlog(cast(socket_ptr))
         return CInt(rv)
@@ -5934,15 +5885,15 @@ public extension SocketProtocol {
     }
 
     /// Gets the multicast time-to-live setting on `socket`; see
-    /// g_socket_set_multicast_ttl() for more details.
+    /// `g_socket_set_multicast_ttl()` for more details.
     func getMulticastTtl() -> CUnsignedInt {
         let rv = g_socket_get_multicast_ttl(cast(socket_ptr))
         return CUnsignedInt(rv)
     }
 
     /// Gets the value of an integer-valued option on `socket`, as with
-    /// getsockopt(). (If you need to fetch a  non-integer-valued option,
-    /// you will need to call getsockopt() directly.)
+    /// `getsockopt()`. (If you need to fetch a  non-integer-valued option,
+    /// you will need to call `getsockopt()` directly.)
     /// 
     /// The [<gio/gnetworking.h>][gio-gnetworking.h]
     /// header pulls in system headers that will define most of the
@@ -5952,7 +5903,7 @@ public extension SocketProtocol {
     /// 
     /// Note that even for socket options that are a single byte in size,
     /// `value` is still a pointer to a `gint` variable, not a `guchar`;
-    /// g_socket_get_option() will handle the conversion internally.
+    /// `g_socket_get_option()` will handle the conversion internally.
     func getOption(level: CInt, optname: CInt, value: UnsafeMutablePointer<CInt>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_get_option(cast(socket_ptr), gint(level), gint(optname), cast(value), &error)
@@ -5987,14 +5938,14 @@ public extension SocketProtocol {
     }
 
     /// Gets the timeout setting of the socket. For details on this, see
-    /// g_socket_set_timeout().
+    /// `g_socket_set_timeout()`.
     func getTimeout() -> CUnsignedInt {
         let rv = g_socket_get_timeout(cast(socket_ptr))
         return CUnsignedInt(rv)
     }
 
     /// Gets the unicast time-to-live setting on `socket`; see
-    /// g_socket_set_ttl() for more details.
+    /// `g_socket_set_ttl()` for more details.
     func getTtl() -> CUnsignedInt {
         let rv = g_socket_get_ttl(cast(socket_ptr))
         return CUnsignedInt(rv)
@@ -6003,7 +5954,7 @@ public extension SocketProtocol {
     /// Registers `socket` to receive multicast messages sent to `group`.
     /// `socket` must be a `G_SOCKET_TYPE_DATAGRAM` socket, and must have
     /// been bound to an appropriate interface and port with
-    /// g_socket_bind().
+    /// `g_socket_bind()`.
     /// 
     /// If `iface` is `nil`, the system will automatically pick an interface
     /// to bind to based on `group`.
@@ -6013,7 +5964,7 @@ public extension SocketProtocol {
     /// with a `G_IO_ERROR_NOT_SUPPORTED` error.
     /// 
     /// To bind to a given source-specific multicast address, use
-    /// g_socket_join_multicast_group_ssm() instead.
+    /// `g_socket_join_multicast_group_ssm()` instead.
     func joinMulticast(group: InetAddressProtocol, sourceSpecific source_specific: Bool, iface: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_join_multicast_group(cast(socket_ptr), cast(group.ptr), gboolean(source_specific ? 1 : 0), iface, &error)
@@ -6026,7 +5977,7 @@ public extension SocketProtocol {
     /// Registers `socket` to receive multicast messages sent to `group`.
     /// `socket` must be a `G_SOCKET_TYPE_DATAGRAM` socket, and must have
     /// been bound to an appropriate interface and port with
-    /// g_socket_bind().
+    /// `g_socket_bind()`.
     /// 
     /// If `iface` is `nil`, the system will automatically pick an interface
     /// to bind to based on `group`.
@@ -6055,7 +6006,7 @@ public extension SocketProtocol {
     /// unicast messages after calling this.
     /// 
     /// To unbind to a given source-specific multicast address, use
-    /// g_socket_leave_multicast_group_ssm() instead.
+    /// `g_socket_leave_multicast_group_ssm()` instead.
     func leaveMulticast(group: InetAddressProtocol, sourceSpecific source_specific: Bool, iface: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_leave_multicast_group(cast(socket_ptr), cast(group.ptr), gboolean(source_specific ? 1 : 0), iface, &error)
@@ -6081,13 +6032,13 @@ public extension SocketProtocol {
     }
 
     /// Marks the socket as a server socket, i.e. a socket that is used
-    /// to accept incoming requests using g_socket_accept().
+    /// to accept incoming requests using `g_socket_accept()`.
     /// 
     /// Before calling this the socket must be bound to a local address using
-    /// g_socket_bind().
+    /// `g_socket_bind()`.
     /// 
     /// To set the maximum amount of outstanding clients, use
-    /// g_socket_set_listen_backlog().
+    /// `g_socket_set_listen_backlog()`.
     func listen() throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_listen(cast(socket_ptr), &error)
@@ -6098,19 +6049,19 @@ public extension SocketProtocol {
     }
 
     /// Receive data (up to `size` bytes) from a socket. This is mainly used by
-    /// connection-oriented sockets; it is identical to g_socket_receive_from()
+    /// connection-oriented sockets; it is identical to `g_socket_receive_from()`
     /// with `address` set to `nil`.
     /// 
     /// For `G_SOCKET_TYPE_DATAGRAM` and `G_SOCKET_TYPE_SEQPACKET` sockets,
-    /// g_socket_receive() will always read either 0 or 1 complete messages from
+    /// `g_socket_receive()` will always read either 0 or 1 complete messages from
     /// the socket. If the received message is too large to fit in `buffer`, then
     /// the data beyond `size` bytes will be discarded, without any explicit
     /// indication that this has occurred.
     /// 
-    /// For `G_SOCKET_TYPE_STREAM` sockets, g_socket_receive() can return any
+    /// For `G_SOCKET_TYPE_STREAM` sockets, `g_socket_receive()` can return any
     /// number of bytes, up to `size`. If more than `size` bytes have been
     /// received, the additional data will be returned in future calls to
-    /// g_socket_receive().
+    /// `g_socket_receive()`.
     /// 
     /// If the socket is in blocking mode the call will block until there
     /// is some data to receive, the connection is closed, or there is an
@@ -6135,7 +6086,7 @@ public extension SocketProtocol {
     /// source address of the received packet.
     /// `address` is owned by the caller.
     /// 
-    /// See g_socket_receive() for additional information.
+    /// See `g_socket_receive()` for additional information.
     func receiveFrom(address: SocketAddressProtocol, buffer: UnsafeMutablePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_receive_from(cast(socket_ptr), cast(address.ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
@@ -6146,8 +6097,8 @@ public extension SocketProtocol {
     }
 
     /// Receive data from a socket.  For receiving multiple messages, see
-    /// g_socket_receive_messages(); for easier use, see
-    /// g_socket_receive() and g_socket_receive_from().
+    /// `g_socket_receive_messages()`; for easier use, see
+    /// `g_socket_receive()` and `g_socket_receive_from()`.
     /// 
     /// If `address` is non-`nil` then `address` will be set equal to the
     /// source address of the received packet.
@@ -6169,7 +6120,7 @@ public extension SocketProtocol {
     /// messages was received. These correspond to the control messages
     /// received from the kernel, one `GSocketControlMessage` per message
     /// from the kernel. This array is `nil`-terminated and must be freed
-    /// by the caller using g_free() after calling g_object_unref() on each
+    /// by the caller using `g_free()` after calling `g_object_unref()` on each
     /// element. If `messages` is `nil`, any control messages received will
     /// be discarded.
     /// 
@@ -6184,11 +6135,11 @@ public extension SocketProtocol {
     /// for this are available in the `GSocketMsgFlags` enum, but the
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too
-    /// (and g_socket_receive_message() may pass system-specific flags out).
+    /// (and `g_socket_receive_message()` may pass system-specific flags out).
     /// Flags passed in to the parameter affect the receive operation; flags returned
     /// out of it are relevant to the specific returned message.
     /// 
-    /// As with g_socket_receive(), data may be discarded if `socket` is
+    /// As with `g_socket_receive()`, data may be discarded if `socket` is
     /// `G_SOCKET_TYPE_DATAGRAM` or `G_SOCKET_TYPE_SEQPACKET` and you do not
     /// provide enough buffer space to read a complete message. You can pass
     /// `G_SOCKET_MSG_PEEK` in `flags` to peek at the current message without
@@ -6215,7 +6166,7 @@ public extension SocketProtocol {
 
     /// Receive multiple data messages from `socket` in one go.  This is the most
     /// complicated and fully-featured version of this call. For easier use, see
-    /// g_socket_receive(), g_socket_receive_from(), and g_socket_receive_message().
+    /// `g_socket_receive()`, `g_socket_receive_from()`, and `g_socket_receive_message()`.
     /// 
     /// `messages` must point to an array of `GInputMessage` structs and
     /// `num_messages` must be the length of this array. Each `GInputMessage`
@@ -6223,7 +6174,7 @@ public extension SocketProtocol {
     /// buffers that the data received in each message will be written to. Using
     /// multiple `GInputVectors` is more memory-efficient than manually copying data
     /// out of a single buffer to multiple sources, and more system-call-efficient
-    /// than making multiple calls to g_socket_receive(), such as in scenarios where
+    /// than making multiple calls to `g_socket_receive()`, such as in scenarios where
     /// a lot of data packets need to be received (e.g. high-bandwidth video
     /// streaming over RTP/UDP).
     /// 
@@ -6232,31 +6183,31 @@ public extension SocketProtocol {
     /// values there are the same as the system values, and the flags
     /// are passed in as-is, so you can pass in system-specific flags too. These
     /// flags affect the overall receive operation. Flags affecting individual
-    /// messages are returned in `GInputMessage`.flags.
+    /// messages are returned in `GInputMessage.flags`.
     /// 
     /// The other members of `GInputMessage` are treated as described in its
     /// documentation.
     /// 
-    /// If `GSocket`:blocking is `true` the call will block until `num_messages` have
+    /// If `GSocket:blocking` is `true` the call will block until `num_messages` have
     /// been received, or the end of the stream is reached.
     /// 
-    /// If `GSocket`:blocking is `false` the call will return up to `num_messages`
+    /// If `GSocket:blocking` is `false` the call will return up to `num_messages`
     /// without blocking, or `G_IO_ERROR_WOULD_BLOCK` if no messages are queued in the
     /// operating system to be received.
     /// 
-    /// In blocking mode, if `GSocket`:timeout is positive and is reached before any
+    /// In blocking mode, if `GSocket:timeout` is positive and is reached before any
     /// messages are received, `G_IO_ERROR_TIMED_OUT` is returned, otherwise up to
     /// `num_messages` are returned. (Note: This is effectively the
-    /// behaviour of `MSG_WAITFORONE` with recvmmsg().)
+    /// behaviour of `MSG_WAITFORONE` with `recvmmsg()`.)
     /// 
     /// To be notified when messages are available, wait for the
     /// `G_IO_IN` condition. Note though that you may still receive
-    /// `G_IO_ERROR_WOULD_BLOCK` from g_socket_receive_messages() even if you were
+    /// `G_IO_ERROR_WOULD_BLOCK` from `g_socket_receive_messages()` even if you were
     /// previously notified of a `G_IO_IN` condition.
     /// 
     /// If the remote peer closes the connection, any messages queued in the
     /// operating system will be returned, and subsequent calls to
-    /// g_socket_receive_messages() will return 0 (with no error set).
+    /// `g_socket_receive_messages()` will return 0 (with no error set).
     /// 
     /// On error -1 is returned and `error` is set accordingly. An error will only
     /// be returned if zero messages could be received; otherwise the number of
@@ -6270,7 +6221,7 @@ public extension SocketProtocol {
         return CInt(rv)
     }
 
-    /// This behaves exactly the same as g_socket_receive(), except that
+    /// This behaves exactly the same as `g_socket_receive()`, except that
     /// the choice of blocking or non-blocking behavior is determined by
     /// the `blocking` argument rather than by `socket`'s properties.
     func receiveWithBlocking(buffer: UnsafeMutablePointer<gchar>, size: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
@@ -6284,14 +6235,14 @@ public extension SocketProtocol {
 
     /// Tries to send `size` bytes from `buffer` on the socket. This is
     /// mainly used by connection-oriented sockets; it is identical to
-    /// g_socket_send_to() with `address` set to `nil`.
+    /// `g_socket_send_to()` with `address` set to `nil`.
     /// 
     /// If the socket is in blocking mode the call will block until there is
     /// space for the data in the socket queue. If there is no space available
     /// and the socket is in non-blocking mode a `G_IO_ERROR_WOULD_BLOCK` error
     /// will be returned. To be notified when space is available, wait for the
     /// `G_IO_OUT` condition. Note though that you may still receive
-    /// `G_IO_ERROR_WOULD_BLOCK` from g_socket_send() even if you were previously
+    /// `G_IO_ERROR_WOULD_BLOCK` from `g_socket_send()` even if you were previously
     /// notified of a `G_IO_OUT` condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     /// 
@@ -6306,11 +6257,11 @@ public extension SocketProtocol {
     }
 
     /// Send data to `address` on `socket`.  For sending multiple messages see
-    /// g_socket_send_messages(); for easier use, see
-    /// g_socket_send() and g_socket_send_to().
+    /// `g_socket_send_messages()`; for easier use, see
+    /// `g_socket_send()` and `g_socket_send_to()`.
     /// 
     /// If `address` is `nil` then the message is sent to the default receiver
-    /// (set by g_socket_connect()).
+    /// (set by `g_socket_connect()`).
     /// 
     /// `vectors` must point to an array of `GOutputVector` structs and
     /// `num_vectors` must be the length of this array. (If `num_vectors` is -1,
@@ -6319,7 +6270,7 @@ public extension SocketProtocol {
     /// that the sent data will be gathered from. Using multiple
     /// `GOutputVectors` is more memory-efficient than manually copying
     /// data from multiple sources into a single buffer, and more
-    /// network-efficient than making multiple calls to g_socket_send().
+    /// network-efficient than making multiple calls to `g_socket_send()`.
     /// 
     /// `messages`, if non-`nil`, is taken to point to an array of `num_messages`
     /// `GSocketControlMessage` instances. These correspond to the control
@@ -6337,7 +6288,7 @@ public extension SocketProtocol {
     /// and the socket is in non-blocking mode a `G_IO_ERROR_WOULD_BLOCK` error
     /// will be returned. To be notified when space is available, wait for the
     /// `G_IO_OUT` condition. Note though that you may still receive
-    /// `G_IO_ERROR_WOULD_BLOCK` from g_socket_send() even if you were previously
+    /// `G_IO_ERROR_WOULD_BLOCK` from `g_socket_send()` even if you were previously
     /// notified of a `G_IO_OUT` condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     /// 
@@ -6351,7 +6302,7 @@ public extension SocketProtocol {
         return rv
     }
 
-    /// This behaves exactly the same as g_socket_send_message(), except that
+    /// This behaves exactly the same as `g_socket_send_message()`, except that
     /// the choice of timeout behavior is determined by the `timeout_us` argument
     /// rather than by `socket`'s properties.
     /// 
@@ -6369,7 +6320,7 @@ public extension SocketProtocol {
 
     /// Send multiple data messages from `socket` in one go.  This is the most
     /// complicated and fully-featured version of this call. For easier use, see
-    /// g_socket_send(), g_socket_send_to(), and g_socket_send_message().
+    /// `g_socket_send()`, `g_socket_send_to()`, and `g_socket_send_message()`.
     /// 
     /// `messages` must point to an array of `GOutputMessage` structs and
     /// `num_messages` must be the length of this array. Each `GOutputMessage`
@@ -6378,7 +6329,7 @@ public extension SocketProtocol {
     /// for each message will be gathered from. Using multiple `GOutputVectors` is
     /// more memory-efficient than manually copying data from multiple sources
     /// into a single buffer, and more network-efficient than making multiple
-    /// calls to g_socket_send(). Sending multiple messages in one go avoids the
+    /// calls to `g_socket_send()`. Sending multiple messages in one go avoids the
     /// overhead of making a lot of syscalls in scenarios where a lot of data
     /// packets need to be sent (e.g. high-bandwidth video streaming over RTP/UDP),
     /// or where the same data needs to be sent to multiple recipients.
@@ -6394,7 +6345,7 @@ public extension SocketProtocol {
     /// will be returned if no data was written at all, otherwise the number of
     /// messages sent will be returned. To be notified when space is available,
     /// wait for the `G_IO_OUT` condition. Note though that you may still receive
-    /// `G_IO_ERROR_WOULD_BLOCK` from g_socket_send() even if you were previously
+    /// `G_IO_ERROR_WOULD_BLOCK` from `g_socket_send()` even if you were previously
     /// notified of a `G_IO_OUT` condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     /// 
@@ -6412,9 +6363,9 @@ public extension SocketProtocol {
 
     /// Tries to send `size` bytes from `buffer` to `address`. If `address` is
     /// `nil` then the message is sent to the default receiver (set by
-    /// g_socket_connect()).
+    /// `g_socket_connect()`).
     /// 
-    /// See g_socket_send() for additional information.
+    /// See `g_socket_send()` for additional information.
     func sendTo(address: SocketAddressProtocol, buffer: UnsafePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_send_to(cast(socket_ptr), cast(address.ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
@@ -6424,7 +6375,7 @@ public extension SocketProtocol {
         return rv
     }
 
-    /// This behaves exactly the same as g_socket_send(), except that
+    /// This behaves exactly the same as `g_socket_send()`, except that
     /// the choice of blocking or non-blocking behavior is determined by
     /// the `blocking` argument rather than by `socket`'s properties.
     func sendWithBlocking(buffer: UnsafePointer<gchar>, size: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
@@ -6482,7 +6433,7 @@ public extension SocketProtocol {
     /// connecting to the socket and the application is not handling them
     /// on time then the new connections will be refused.
     /// 
-    /// Note that this must be called before g_socket_listen() and has no
+    /// Note that this must be called before `g_socket_listen()` and has no
     /// effect if called after that.
     func setListen(backlog: CInt) {
         g_socket_set_listen_backlog(cast(socket_ptr), gint(backlog))
@@ -6506,8 +6457,8 @@ public extension SocketProtocol {
     }
 
     /// Sets the value of an integer-valued option on `socket`, as with
-    /// setsockopt(). (If you need to set a non-integer-valued option,
-    /// you will need to call setsockopt() directly.)
+    /// `setsockopt()`. (If you need to set a non-integer-valued option,
+    /// you will need to call `setsockopt()` directly.)
     /// 
     /// The [<gio/gnetworking.h>][gio-gnetworking.h]
     /// header pulls in system headers that will define most of the
@@ -6530,12 +6481,12 @@ public extension SocketProtocol {
     /// operation will time out after `timeout` seconds of inactivity,
     /// returning `G_IO_ERROR_TIMED_OUT`.
     /// 
-    /// On a non-blocking socket, calls to g_socket_condition_wait() will
+    /// On a non-blocking socket, calls to `g_socket_condition_wait()` will
     /// also fail with `G_IO_ERROR_TIMED_OUT` after the given time. Sources
-    /// created with g_socket_create_source() will trigger after
+    /// created with `g_socket_create_source()` will trigger after
     /// `timeout` seconds of inactivity, with the requested condition
-    /// set, at which point calling g_socket_receive(), g_socket_send(),
-    /// g_socket_check_connect_result(), etc, will fail with
+    /// set, at which point calling `g_socket_receive()`, `g_socket_send()`,
+    /// `g_socket_check_connect_result()`, etc, will fail with
     /// `G_IO_ERROR_TIMED_OUT`.
     /// 
     /// If `timeout` is 0 (the default), operations will never time out
@@ -6600,8 +6551,8 @@ public extension SocketProtocol {
     /// Note that on Windows, this function is rather inefficient in the
     /// UDP case, and so if you know any plausible upper bound on the size
     /// of the incoming packet, it is better to just do a
-    /// g_socket_receive() with a buffer of that size, rather than calling
-    /// g_socket_get_available_bytes() first and then doing a receive of
+    /// `g_socket_receive()` with a buffer of that size, rather than calling
+    /// `g_socket_get_available_bytes()` first and then doing a receive of
     /// exactly the right size.
     var availableBytes: gssize {
         /// Get the amount of data pending in the OS input buffer, without blocking.
@@ -6613,8 +6564,8 @@ public extension SocketProtocol {
         /// Note that on Windows, this function is rather inefficient in the
         /// UDP case, and so if you know any plausible upper bound on the size
         /// of the incoming packet, it is better to just do a
-        /// g_socket_receive() with a buffer of that size, rather than calling
-        /// g_socket_get_available_bytes() first and then doing a receive of
+        /// `g_socket_receive()` with a buffer of that size, rather than calling
+        /// `g_socket_get_available_bytes()` first and then doing a receive of
         /// exactly the right size.
         get {
             let rv = g_socket_get_available_bytes(cast(socket_ptr))
@@ -6624,7 +6575,7 @@ public extension SocketProtocol {
 
     var blocking: Bool {
         /// Gets the blocking mode of the socket. For details on blocking I/O,
-        /// see g_socket_set_blocking().
+        /// see `g_socket_set_blocking()`.
         get {
             let rv = g_socket_get_blocking(cast(socket_ptr))
             return Bool(rv != 0)
@@ -6691,18 +6642,18 @@ public extension SocketProtocol {
     /// Check whether the socket is connected. This is only useful for
     /// connection-oriented sockets.
     /// 
-    /// If using g_socket_shutdown(), this function will return `true` until the
+    /// If using `g_socket_shutdown()`, this function will return `true` until the
     /// socket has been shut down for reading and writing. If you do a non-blocking
     /// connect, this function will not return `true` until after you call
-    /// g_socket_check_connect_result().
+    /// `g_socket_check_connect_result()`.
     var isConnected: Bool {
         /// Check whether the socket is connected. This is only useful for
         /// connection-oriented sockets.
         /// 
-        /// If using g_socket_shutdown(), this function will return `true` until the
+        /// If using `g_socket_shutdown()`, this function will return `true` until the
         /// socket has been shut down for reading and writing. If you do a non-blocking
         /// connect, this function will not return `true` until after you call
-        /// g_socket_check_connect_result().
+        /// `g_socket_check_connect_result()`.
         get {
             let rv = g_socket_is_connected(cast(socket_ptr))
             return Bool(rv != 0)
@@ -6711,7 +6662,7 @@ public extension SocketProtocol {
 
     var keepalive: Bool {
         /// Gets the keepalive mode of the socket. For details on this,
-        /// see g_socket_set_keepalive().
+        /// see `g_socket_set_keepalive()`.
         get {
             let rv = g_socket_get_keepalive(cast(socket_ptr))
             return Bool(rv != 0)
@@ -6737,10 +6688,10 @@ public extension SocketProtocol {
     }
 
     /// Gets the listen backlog setting of the socket. For details on this,
-    /// see g_socket_set_listen_backlog().
+    /// see `g_socket_set_listen_backlog()`.
     var listenBacklog: CInt {
         /// Gets the listen backlog setting of the socket. For details on this,
-        /// see g_socket_set_listen_backlog().
+        /// see `g_socket_set_listen_backlog()`.
         get {
             let rv = g_socket_get_listen_backlog(cast(socket_ptr))
             return CInt(rv)
@@ -6750,7 +6701,7 @@ public extension SocketProtocol {
         /// connecting to the socket and the application is not handling them
         /// on time then the new connections will be refused.
         /// 
-        /// Note that this must be called before g_socket_listen() and has no
+        /// Note that this must be called before `g_socket_listen()` and has no
         /// effect if called after that.
         nonmutating set {
             g_socket_set_listen_backlog(cast(socket_ptr), gint(newValue))
@@ -6777,10 +6728,10 @@ public extension SocketProtocol {
     }
 
     /// Gets the multicast time-to-live setting on `socket`; see
-    /// g_socket_set_multicast_ttl() for more details.
+    /// `g_socket_set_multicast_ttl()` for more details.
     var multicastTtl: CUnsignedInt {
         /// Gets the multicast time-to-live setting on `socket`; see
-        /// g_socket_set_multicast_ttl() for more details.
+        /// `g_socket_set_multicast_ttl()` for more details.
         get {
             let rv = g_socket_get_multicast_ttl(cast(socket_ptr))
             return CUnsignedInt(rv)
@@ -6814,7 +6765,7 @@ public extension SocketProtocol {
     /// The timeout in seconds on socket I/O
     var timeout: CUnsignedInt {
         /// Gets the timeout setting of the socket. For details on this, see
-        /// g_socket_set_timeout().
+        /// `g_socket_set_timeout()`.
         get {
             let rv = g_socket_get_timeout(cast(socket_ptr))
             return CUnsignedInt(rv)
@@ -6826,12 +6777,12 @@ public extension SocketProtocol {
         /// operation will time out after `timeout` seconds of inactivity,
         /// returning `G_IO_ERROR_TIMED_OUT`.
         /// 
-        /// On a non-blocking socket, calls to g_socket_condition_wait() will
+        /// On a non-blocking socket, calls to `g_socket_condition_wait()` will
         /// also fail with `G_IO_ERROR_TIMED_OUT` after the given time. Sources
-        /// created with g_socket_create_source() will trigger after
+        /// created with `g_socket_create_source()` will trigger after
         /// `timeout` seconds of inactivity, with the requested condition
-        /// set, at which point calling g_socket_receive(), g_socket_send(),
-        /// g_socket_check_connect_result(), etc, will fail with
+        /// set, at which point calling `g_socket_receive()`, `g_socket_send()`,
+        /// `g_socket_check_connect_result()`, etc, will fail with
         /// `G_IO_ERROR_TIMED_OUT`.
         /// 
         /// If `timeout` is 0 (the default), operations will never time out
@@ -6847,7 +6798,7 @@ public extension SocketProtocol {
     /// Time-to-live for outgoing unicast packets
     var ttl: CUnsignedInt {
         /// Gets the unicast time-to-live setting on `socket`; see
-        /// g_socket_set_ttl() for more details.
+        /// `g_socket_set_ttl()` for more details.
         get {
             let rv = g_socket_get_ttl(cast(socket_ptr))
             return CUnsignedInt(rv)
@@ -7050,27 +7001,26 @@ public extension SocketAddressProtocol {
 
 public enum SocketAddressSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -7118,14 +7068,14 @@ public extension SocketAddressProtocol {
 
     /// Gets the size of `address`'s native struct sockaddr.
     /// You can use this to allocate memory to pass to
-    /// g_socket_address_to_native().
+    /// `g_socket_address_to_native()`.
     func getNativeSize() -> gssize {
         let rv = g_socket_address_get_native_size(cast(socket_address_ptr))
         return rv
     }
 
     /// Converts a `GSocketAddress` to a native struct sockaddr, which can
-    /// be passed to low-level functions like connect() or bind().
+    /// be passed to low-level functions like `connect()` or `bind()`.
     /// 
     /// If not enough space is available, a `G_IO_ERROR_NO_SPACE` error
     /// is returned. If the address type is not known on the system
@@ -7148,11 +7098,11 @@ public extension SocketAddressProtocol {
 
     /// Gets the size of `address`'s native struct sockaddr.
     /// You can use this to allocate memory to pass to
-    /// g_socket_address_to_native().
+    /// `g_socket_address_to_native()`.
     var nativeSize: gssize {
         /// Gets the size of `address`'s native struct sockaddr.
         /// You can use this to allocate memory to pass to
-        /// g_socket_address_to_native().
+        /// `g_socket_address_to_native()`.
         get {
             let rv = g_socket_address_get_native_size(cast(socket_address_ptr))
             return rv
@@ -7171,16 +7121,16 @@ public extension SocketAddressProtocol {
 ///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
-/// g_socket_connectable_enumerate(), which returns a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
 /// to list each `GSocketAddress` which could be used to connect to that
 /// `GSocketConnectable`.
 /// 
 /// Enumeration is typically a blocking operation, so the asynchronous methods
-/// g_socket_address_enumerator_next_async() and
-/// g_socket_address_enumerator_next_finish() should be used where possible.
+/// `g_socket_address_enumerator_next_async()` and
+/// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// g_socket_address_enumerator_next() has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public protocol SocketAddressEnumeratorProtocol: ObjectProtocol {
@@ -7197,16 +7147,16 @@ public protocol SocketAddressEnumeratorProtocol: ObjectProtocol {
 ///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
-/// g_socket_connectable_enumerate(), which returns a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
 /// to list each `GSocketAddress` which could be used to connect to that
 /// `GSocketConnectable`.
 /// 
 /// Enumeration is typically a blocking operation, so the asynchronous methods
-/// g_socket_address_enumerator_next_async() and
-/// g_socket_address_enumerator_next_finish() should be used where possible.
+/// `g_socket_address_enumerator_next_async()` and
+/// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// g_socket_address_enumerator_next() has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public struct SocketAddressEnumeratorRef: SocketAddressEnumeratorProtocol {
@@ -7263,16 +7213,16 @@ public extension SocketAddressEnumeratorRef {
 ///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
-/// g_socket_connectable_enumerate(), which returns a `GSocketAddressEnumerator`
+/// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
 /// to list each `GSocketAddress` which could be used to connect to that
 /// `GSocketConnectable`.
 /// 
 /// Enumeration is typically a blocking operation, so the asynchronous methods
-/// g_socket_address_enumerator_next_async() and
-/// g_socket_address_enumerator_next_finish() should be used where possible.
+/// `g_socket_address_enumerator_next_async()` and
+/// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// g_socket_address_enumerator_next() has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 open class SocketAddressEnumerator: Object, SocketAddressEnumeratorProtocol {
@@ -7321,27 +7271,26 @@ open class SocketAddressEnumerator: Object, SocketAddressEnumeratorProtocol {
 
 public enum SocketAddressEnumeratorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -7384,14 +7333,14 @@ public extension SocketAddressEnumeratorProtocol {
     /// Retrieves the next `GSocketAddress` from `enumerator`. Note that this
     /// may block for some amount of time. (Eg, a `GNetworkAddress` may need
     /// to do a DNS lookup before it can return an address.) Use
-    /// g_socket_address_enumerator_next_async() if you need to avoid
+    /// `g_socket_address_enumerator_next_async()` if you need to avoid
     /// blocking.
     /// 
     /// If `enumerator` is expected to yield addresses, but for some reason
     /// is unable to (eg, because of a DNS error), then the first call to
-    /// g_socket_address_enumerator_next() will return an appropriate error
+    /// `g_socket_address_enumerator_next()` will return an appropriate error
     /// in *`error`. However, if the first call to
-    /// g_socket_address_enumerator_next() succeeds, then any further
+    /// `g_socket_address_enumerator_next()` succeeds, then any further
     /// internal errors (other than `cancellable` being triggered) will be
     /// ignored.
     func next(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketAddress>! {
@@ -7405,7 +7354,7 @@ public extension SocketAddressEnumeratorProtocol {
 
     /// Asynchronously retrieves the next `GSocketAddress` from `enumerator`
     /// and then calls `callback`, which must call
-    /// g_socket_address_enumerator_next_finish() to get the result.
+    /// `g_socket_address_enumerator_next_finish()` to get the result.
     /// 
     /// It is an error to call this multiple times before the previous callback has finished.
     func nextAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
@@ -7414,8 +7363,8 @@ public extension SocketAddressEnumeratorProtocol {
     }
 
     /// Retrieves the result of a completed call to
-    /// g_socket_address_enumerator_next_async(). See
-    /// g_socket_address_enumerator_next() for more information about
+    /// `g_socket_address_enumerator_next_async()`. See
+    /// `g_socket_address_enumerator_next()` for more information about
     /// error handling.
     func nextFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketAddress>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -7646,37 +7595,37 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     /// information about a network connection in the UI. The meanings of
     /// the different `event` values are as follows:
     /// 
-    /// - `G_SOCKET_CLIENT_RESOLVING`: `client` is about to look up `connectable`
+    /// - `G_SOCKET_CLIENT_RESOLVING:` `client` is about to look up `connectable`
     ///   in DNS. `connection` will be `nil`.
     /// 
-    /// - `G_SOCKET_CLIENT_RESOLVED`:  `client` has successfully resolved
+    /// - `G_SOCKET_CLIENT_RESOLVED:`  `client` has successfully resolved
     ///   `connectable` in DNS. `connection` will be `nil`.
     /// 
-    /// - `G_SOCKET_CLIENT_CONNECTING`: `client` is about to make a connection
+    /// - `G_SOCKET_CLIENT_CONNECTING:` `client` is about to make a connection
     ///   to a remote host; either a proxy server or the destination server
     ///   itself. `connection` is the `GSocketConnection`, which is not yet
     ///   connected.  Since GLib 2.40, you can access the remote
-    ///   address via g_socket_connection_get_remote_address().
+    ///   address via `g_socket_connection_get_remote_address()`.
     /// 
-    /// - `G_SOCKET_CLIENT_CONNECTED`: `client` has successfully connected
+    /// - `G_SOCKET_CLIENT_CONNECTED:` `client` has successfully connected
     ///   to a remote host. `connection` is the connected `GSocketConnection`.
     /// 
-    /// - `G_SOCKET_CLIENT_PROXY_NEGOTIATING`: `client` is about to negotiate
+    /// - `G_SOCKET_CLIENT_PROXY_NEGOTIATING:` `client` is about to negotiate
     ///   with a proxy to get it to connect to `connectable`. `connection` is
     ///   the `GSocketConnection` to the proxy server.
     /// 
-    /// - `G_SOCKET_CLIENT_PROXY_NEGOTIATED`: `client` has negotiated a
+    /// - `G_SOCKET_CLIENT_PROXY_NEGOTIATED:` `client` has negotiated a
     ///   connection to `connectable` through a proxy server. `connection` is
-    ///   the stream returned from g_proxy_connect(), which may or may not
+    ///   the stream returned from `g_proxy_connect()`, which may or may not
     ///   be a `GSocketConnection`.
     /// 
-    /// - `G_SOCKET_CLIENT_TLS_HANDSHAKING`: `client` is about to begin a TLS
+    /// - `G_SOCKET_CLIENT_TLS_HANDSHAKING:` `client` is about to begin a TLS
     ///   handshake. `connection` is a `GTlsClientConnection`.
     /// 
-    /// - `G_SOCKET_CLIENT_TLS_HANDSHAKED`: `client` has successfully completed
+    /// - `G_SOCKET_CLIENT_TLS_HANDSHAKED:` `client` has successfully completed
     ///   the TLS handshake. `connection` is a `GTlsClientConnection`.
     /// 
-    /// - `G_SOCKET_CLIENT_COMPLETE`: `client` has either successfully connected
+    /// - `G_SOCKET_CLIENT_COMPLETE:` `client` has either successfully connected
     ///   to `connectable` (in which case `connection` is the `GSocketConnection`
     ///   that it will be returning to the caller) or has failed (in which
     ///   case `connection` is `nil` and the client is about to return an error).
@@ -7684,7 +7633,7 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     /// Each event except `G_SOCKET_CLIENT_COMPLETE` may be emitted
     /// multiple times (or not at all) for a given connectable (in
     /// particular, if `client` ends up attempting to connect to more than
-    /// one address). However, if `client` emits the `GSocketClient`::event
+    /// one address). However, if `client` emits the `GSocketClient::event`
     /// signal at all for a given connectable, that it will always emit
     /// it with `G_SOCKET_CLIENT_COMPLETE` when it is done.
     /// 
@@ -7692,27 +7641,26 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     /// the future; unrecognized `event` values should be ignored.
     case event = "event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -7766,7 +7714,7 @@ public extension SocketClientProtocol {
     /// `GSocketClient` will consider this protocol as supported but will
     /// not try to find a `GProxy` instance to handle handshaking. The
     /// application must check for this case by calling
-    /// g_socket_connection_get_remote_address() on the returned
+    /// `g_socket_connection_get_remote_address()` on the returned
     /// `GSocketConnection`, and seeing if it's a `GProxyAddress` of the
     /// appropriate type, to determine whether or not it needs to handle
     /// the proxy handshaking itself.
@@ -7796,12 +7744,12 @@ public extension SocketClientProtocol {
     /// it will be a `GTcpConnection`.
     /// 
     /// The socket created will be the same family as the address that the
-    /// `connectable` resolves to, unless family is set with g_socket_client_set_family()
-    /// or indirectly via g_socket_client_set_local_address(). The socket type
+    /// `connectable` resolves to, unless family is set with `g_socket_client_set_family()`
+    /// or indirectly via `g_socket_client_set_local_address()`. The socket type
     /// defaults to `G_SOCKET_TYPE_STREAM` but can be set with
-    /// g_socket_client_set_socket_type().
+    /// `g_socket_client_set_socket_type()`.
     /// 
-    /// If a local address is specified with g_socket_client_set_local_address() the
+    /// If a local address is specified with `g_socket_client_set_local_address()` the
     /// socket will be bound to this address before connecting.
     func connect(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -7812,17 +7760,17 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// This is the asynchronous version of g_socket_client_connect().
+    /// This is the asynchronous version of `g_socket_client_connect()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_socket_client_connect_finish() to get
+    /// called. You can then call `g_socket_client_connect_finish()` to get
     /// the result of the operation.
     func connectAsync(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_client_connect_async(cast(socket_client_ptr), cast(connectable.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async connect operation. See g_socket_client_connect_async()
+    /// Finishes an async connect operation. See `g_socket_client_connect_async()`
     func connectFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_client_connect_finish(cast(socket_client_ptr), cast(result.ptr), &error)
@@ -7832,7 +7780,7 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// This is a helper function for g_socket_client_connect().
+    /// This is a helper function for `g_socket_client_connect()`.
     /// 
     /// Attempts to create a TCP connection to the named host.
     /// 
@@ -7871,17 +7819,17 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// This is the asynchronous version of g_socket_client_connect_to_host().
+    /// This is the asynchronous version of `g_socket_client_connect_to_host()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_socket_client_connect_to_host_finish() to get
+    /// called. You can then call `g_socket_client_connect_to_host_finish()` to get
     /// the result of the operation.
     func connectToHostAsync(hostAndPort host_and_port: UnsafePointer<gchar>, defaultPort default_port: UInt16, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_client_connect_to_host_async(cast(socket_client_ptr), host_and_port, guint16(default_port), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async connect operation. See g_socket_client_connect_to_host_async()
+    /// Finishes an async connect operation. See `g_socket_client_connect_to_host_async()`
     func connectToHostFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_client_connect_to_host_finish(cast(socket_client_ptr), cast(result.ptr), &error)
@@ -7915,13 +7863,13 @@ public extension SocketClientProtocol {
     }
 
     /// This is the asynchronous version of
-    /// g_socket_client_connect_to_service().
+    /// `g_socket_client_connect_to_service()`.
     func connectToServiceAsync(domain: UnsafePointer<gchar>, service: UnsafePointer<gchar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_client_connect_to_service_async(cast(socket_client_ptr), domain, service, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async connect operation. See g_socket_client_connect_to_service_async()
+    /// Finishes an async connect operation. See `g_socket_client_connect_to_service_async()`
     func connectToServiceFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_client_connect_to_service_finish(cast(socket_client_ptr), cast(result.ptr), &error)
@@ -7931,18 +7879,18 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// This is a helper function for g_socket_client_connect().
+    /// This is a helper function for `g_socket_client_connect()`.
     /// 
     /// Attempts to create a TCP connection with a network URI.
     /// 
     /// `uri` may be any valid URI containing an "authority" (hostname/port)
     /// component. If a port is not specified in the URI, `default_port`
-    /// will be used. TLS will be negotiated if `GSocketClient`:tls is `true`.
+    /// will be used. TLS will be negotiated if `GSocketClient:tls` is `true`.
     /// (`GSocketClient` does not know to automatically assume TLS for
     /// certain URI schemes.)
     /// 
-    /// Using this rather than g_socket_client_connect() or
-    /// g_socket_client_connect_to_host() allows `GSocketClient` to
+    /// Using this rather than `g_socket_client_connect()` or
+    /// `g_socket_client_connect_to_host()` allows `GSocketClient` to
     /// determine when to use application-specific proxy protocols.
     /// 
     /// Upon a successful connection, a new `GSocketConnection` is constructed
@@ -7961,17 +7909,17 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// This is the asynchronous version of g_socket_client_connect_to_uri().
+    /// This is the asynchronous version of `g_socket_client_connect_to_uri()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_socket_client_connect_to_uri_finish() to get
+    /// called. You can then call `g_socket_client_connect_to_uri_finish()` to get
     /// the result of the operation.
     func connectToURIAsync(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_client_connect_to_uri_async(cast(socket_client_ptr), uri, guint16(default_port), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async connect operation. See g_socket_client_connect_to_uri_async()
+    /// Finishes an async connect operation. See `g_socket_client_connect_to_uri_async()`
     func connectToURIFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_client_connect_to_uri_finish(cast(socket_client_ptr), cast(result.ptr), &error)
@@ -7981,7 +7929,7 @@ public extension SocketClientProtocol {
         return cast(rv)
     }
 
-    /// Gets the proxy enable state; see g_socket_client_set_enable_proxy()
+    /// Gets the proxy enable state; see `g_socket_client_set_enable_proxy()`
     func getEnableProxy() -> Bool {
         let rv = g_socket_client_get_enable_proxy(cast(socket_client_ptr))
         return Bool(rv != 0)
@@ -7989,7 +7937,7 @@ public extension SocketClientProtocol {
 
     /// Gets the socket family of the socket client.
     /// 
-    /// See g_socket_client_set_family() for details.
+    /// See `g_socket_client_set_family()` for details.
     func getFamily() -> GSocketFamily {
         let rv = g_socket_client_get_family(cast(socket_client_ptr))
         return rv
@@ -7997,7 +7945,7 @@ public extension SocketClientProtocol {
 
     /// Gets the local address of the socket client.
     /// 
-    /// See g_socket_client_set_local_address() for details.
+    /// See `g_socket_client_set_local_address()` for details.
     func getLocalAddress() -> UnsafeMutablePointer<GSocketAddress>! {
         let rv = g_socket_client_get_local_address(cast(socket_client_ptr))
         return cast(rv)
@@ -8005,15 +7953,15 @@ public extension SocketClientProtocol {
 
     /// Gets the protocol name type of the socket client.
     /// 
-    /// See g_socket_client_set_protocol() for details.
+    /// See `g_socket_client_set_protocol()` for details.
     func getProtocol() -> GSocketProtocol {
         let rv = g_socket_client_get_protocol(cast(socket_client_ptr))
         return rv
     }
 
     /// Gets the `GProxyResolver` being used by `client`. Normally, this will
-    /// be the resolver returned by g_proxy_resolver_get_default(), but you
-    /// can override it with g_socket_client_set_proxy_resolver().
+    /// be the resolver returned by `g_proxy_resolver_get_default()`, but you
+    /// can override it with `g_socket_client_set_proxy_resolver()`.
     func getProxyResolver() -> UnsafeMutablePointer<GProxyResolver>! {
         let rv = g_socket_client_get_proxy_resolver(cast(socket_client_ptr))
         return cast(rv)
@@ -8021,7 +7969,7 @@ public extension SocketClientProtocol {
 
     /// Gets the socket type of the socket client.
     /// 
-    /// See g_socket_client_set_socket_type() for details.
+    /// See `g_socket_client_set_socket_type()` for details.
     func getSocketType() -> GSocketType {
         let rv = g_socket_client_get_socket_type(cast(socket_client_ptr))
         return rv
@@ -8029,14 +7977,14 @@ public extension SocketClientProtocol {
 
     /// Gets the I/O timeout time for sockets created by `client`.
     /// 
-    /// See g_socket_client_set_timeout() for details.
+    /// See `g_socket_client_set_timeout()` for details.
     func getTimeout() -> CUnsignedInt {
         let rv = g_socket_client_get_timeout(cast(socket_client_ptr))
         return CUnsignedInt(rv)
     }
 
     /// Gets whether `client` creates TLS connections. See
-    /// g_socket_client_set_tls() for details.
+    /// `g_socket_client_set_tls()` for details.
     func getTLS() -> Bool {
         let rv = g_socket_client_get_tls(cast(socket_client_ptr))
         return Bool(rv != 0)
@@ -8054,7 +8002,7 @@ public extension SocketClientProtocol {
     /// `GProxyResolver` to determine if a proxy protocol such as SOCKS is
     /// needed, and automatically do the necessary proxy negotiation.
     /// 
-    /// See also g_socket_client_set_proxy_resolver().
+    /// See also `g_socket_client_set_proxy_resolver()`.
     func setEnableProxy(enable: Bool) {
         g_socket_client_set_enable_proxy(cast(socket_client_ptr), gboolean(enable ? 1 : 0))
     
@@ -8101,7 +8049,7 @@ public extension SocketClientProtocol {
     /// default proxy settings.
     /// 
     /// Note that whether or not the proxy resolver is actually used
-    /// depends on the setting of `GSocketClient`:enable-proxy, which is not
+    /// depends on the setting of `GSocketClient:enable`-proxy, which is not
     /// changed by this function (but which is `true` by default)
     func set(proxyResolver proxy_resolver: ProxyResolverProtocol) {
         g_socket_client_set_proxy_resolver(cast(socket_client_ptr), cast(proxy_resolver.ptr))
@@ -8123,7 +8071,7 @@ public extension SocketClientProtocol {
     /// time in seconds, or 0 for no timeout (the default).
     /// 
     /// The timeout value affects the initial connection attempt as well,
-    /// so setting this may cause calls to g_socket_client_connect(), etc,
+    /// so setting this may cause calls to `g_socket_client_connect()`, etc,
     /// to fail with `G_IO_ERROR_TIMED_OUT`.
     func set(timeout: CUnsignedInt) {
         g_socket_client_set_timeout(cast(socket_client_ptr), guint(timeout))
@@ -8138,13 +8086,13 @@ public extension SocketClientProtocol {
     /// but `GTlsClientConnection` is not a `GSocketConnection`, this
     /// actually wraps the resulting `GTlsClientConnection` in a
     /// `GTcpWrapperConnection` when returning it. You can use
-    /// g_tcp_wrapper_connection_get_base_io_stream() on the return value
+    /// `g_tcp_wrapper_connection_get_base_io_stream()` on the return value
     /// to extract the `GTlsClientConnection`.
     /// 
     /// If you need to modify the behavior of the TLS handshake (eg, by
     /// setting a client-side certificate to use, or connecting to the
-    /// `GTlsConnection`::accept-certificate signal), you can connect to
-    /// `client`'s `GSocketClient`::event signal and wait for it to be
+    /// `GTlsConnection::accept`-certificate signal), you can connect to
+    /// `client`'s `GSocketClient::event` signal and wait for it to be
     /// emitted with `G_SOCKET_CLIENT_TLS_HANDSHAKING`, which will give you
     /// a chance to see the `GTlsClientConnection` before the handshake
     /// starts.
@@ -8159,9 +8107,9 @@ public extension SocketClientProtocol {
         g_socket_client_set_tls_validation_flags(cast(socket_client_ptr), flags)
     
     }
-    /// Gets the proxy enable state; see g_socket_client_set_enable_proxy()
+    /// Gets the proxy enable state; see `g_socket_client_set_enable_proxy()`
     var enableProxy: Bool {
-        /// Gets the proxy enable state; see g_socket_client_set_enable_proxy()
+        /// Gets the proxy enable state; see `g_socket_client_set_enable_proxy()`
         get {
             let rv = g_socket_client_get_enable_proxy(cast(socket_client_ptr))
             return Bool(rv != 0)
@@ -8171,7 +8119,7 @@ public extension SocketClientProtocol {
         /// `GProxyResolver` to determine if a proxy protocol such as SOCKS is
         /// needed, and automatically do the necessary proxy negotiation.
         /// 
-        /// See also g_socket_client_set_proxy_resolver().
+        /// See also `g_socket_client_set_proxy_resolver()`.
         nonmutating set {
             g_socket_client_set_enable_proxy(cast(socket_client_ptr), gboolean(newValue ? 1 : 0))
         }
@@ -8180,7 +8128,7 @@ public extension SocketClientProtocol {
     var family: GSocketFamily {
         /// Gets the socket family of the socket client.
         /// 
-        /// See g_socket_client_set_family() for details.
+        /// See `g_socket_client_set_family()` for details.
         get {
             let rv = g_socket_client_get_family(cast(socket_client_ptr))
             return rv
@@ -8200,11 +8148,11 @@ public extension SocketClientProtocol {
 
     /// Gets the local address of the socket client.
     /// 
-    /// See g_socket_client_set_local_address() for details.
+    /// See `g_socket_client_set_local_address()` for details.
     var localAddress: UnsafeMutablePointer<GSocketAddress>! {
         /// Gets the local address of the socket client.
         /// 
-        /// See g_socket_client_set_local_address() for details.
+        /// See `g_socket_client_set_local_address()` for details.
         get {
             let rv = g_socket_client_get_local_address(cast(socket_client_ptr))
             return cast(rv)
@@ -8224,7 +8172,7 @@ public extension SocketClientProtocol {
     var protocol_: GSocketProtocol {
         /// Gets the protocol name type of the socket client.
         /// 
-        /// See g_socket_client_set_protocol() for details.
+        /// See `g_socket_client_set_protocol()` for details.
         get {
             let rv = g_socket_client_get_protocol(cast(socket_client_ptr))
             return rv
@@ -8241,12 +8189,12 @@ public extension SocketClientProtocol {
     }
 
     /// Gets the `GProxyResolver` being used by `client`. Normally, this will
-    /// be the resolver returned by g_proxy_resolver_get_default(), but you
-    /// can override it with g_socket_client_set_proxy_resolver().
+    /// be the resolver returned by `g_proxy_resolver_get_default()`, but you
+    /// can override it with `g_socket_client_set_proxy_resolver()`.
     var proxyResolver: UnsafeMutablePointer<GProxyResolver>! {
         /// Gets the `GProxyResolver` being used by `client`. Normally, this will
-        /// be the resolver returned by g_proxy_resolver_get_default(), but you
-        /// can override it with g_socket_client_set_proxy_resolver().
+        /// be the resolver returned by `g_proxy_resolver_get_default()`, but you
+        /// can override it with `g_socket_client_set_proxy_resolver()`.
         get {
             let rv = g_socket_client_get_proxy_resolver(cast(socket_client_ptr))
             return cast(rv)
@@ -8256,7 +8204,7 @@ public extension SocketClientProtocol {
         /// default proxy settings.
         /// 
         /// Note that whether or not the proxy resolver is actually used
-        /// depends on the setting of `GSocketClient`:enable-proxy, which is not
+        /// depends on the setting of `GSocketClient:enable`-proxy, which is not
         /// changed by this function (but which is `true` by default)
         nonmutating set {
             g_socket_client_set_proxy_resolver(cast(socket_client_ptr), cast(newValue))
@@ -8265,11 +8213,11 @@ public extension SocketClientProtocol {
 
     /// Gets the socket type of the socket client.
     /// 
-    /// See g_socket_client_set_socket_type() for details.
+    /// See `g_socket_client_set_socket_type()` for details.
     var socketType: GSocketType {
         /// Gets the socket type of the socket client.
         /// 
-        /// See g_socket_client_set_socket_type() for details.
+        /// See `g_socket_client_set_socket_type()` for details.
         get {
             let rv = g_socket_client_get_socket_type(cast(socket_client_ptr))
             return rv
@@ -8288,7 +8236,7 @@ public extension SocketClientProtocol {
     var timeout: CUnsignedInt {
         /// Gets the I/O timeout time for sockets created by `client`.
         /// 
-        /// See g_socket_client_set_timeout() for details.
+        /// See `g_socket_client_set_timeout()` for details.
         get {
             let rv = g_socket_client_get_timeout(cast(socket_client_ptr))
             return CUnsignedInt(rv)
@@ -8297,7 +8245,7 @@ public extension SocketClientProtocol {
         /// time in seconds, or 0 for no timeout (the default).
         /// 
         /// The timeout value affects the initial connection attempt as well,
-        /// so setting this may cause calls to g_socket_client_connect(), etc,
+        /// so setting this may cause calls to `g_socket_client_connect()`, etc,
         /// to fail with `G_IO_ERROR_TIMED_OUT`.
         nonmutating set {
             g_socket_client_set_timeout(cast(socket_client_ptr), guint(newValue))
@@ -8306,7 +8254,7 @@ public extension SocketClientProtocol {
 
     var tls: Bool {
         /// Gets whether `client` creates TLS connections. See
-        /// g_socket_client_set_tls() for details.
+        /// `g_socket_client_set_tls()` for details.
         get {
             let rv = g_socket_client_get_tls(cast(socket_client_ptr))
             return Bool(rv != 0)
@@ -8319,13 +8267,13 @@ public extension SocketClientProtocol {
         /// but `GTlsClientConnection` is not a `GSocketConnection`, this
         /// actually wraps the resulting `GTlsClientConnection` in a
         /// `GTcpWrapperConnection` when returning it. You can use
-        /// g_tcp_wrapper_connection_get_base_io_stream() on the return value
+        /// `g_tcp_wrapper_connection_get_base_io_stream()` on the return value
         /// to extract the `GTlsClientConnection`.
         /// 
         /// If you need to modify the behavior of the TLS handshake (eg, by
         /// setting a client-side certificate to use, or connecting to the
-        /// `GTlsConnection`::accept-certificate signal), you can connect to
-        /// `client`'s `GSocketClient`::event signal and wait for it to be
+        /// `GTlsConnection::accept`-certificate signal), you can connect to
+        /// `client`'s `GSocketClient::event` signal and wait for it to be
         /// emitted with `G_SOCKET_CLIENT_TLS_HANDSHAKING`, which will give you
         /// a chance to see the `GTlsClientConnection` before the handshake
         /// starts.
@@ -8371,9 +8319,9 @@ public extension SocketClientProtocol {
 /// Choosing what type of object to construct is done with the socket
 /// connection factory, and it is possible for 3rd parties to register
 /// custom socket connection types for specific combination of socket
-/// family/type/protocol using g_socket_connection_factory_register_type().
+/// family/type/protocol using `g_socket_connection_factory_register_type()`.
 /// 
-/// To close a `GSocketConnection`, use g_io_stream_close(). Closing both
+/// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 public protocol SocketConnectionProtocol: IOStreamProtocol {
@@ -8399,9 +8347,9 @@ public protocol SocketConnectionProtocol: IOStreamProtocol {
 /// Choosing what type of object to construct is done with the socket
 /// connection factory, and it is possible for 3rd parties to register
 /// custom socket connection types for specific combination of socket
-/// family/type/protocol using g_socket_connection_factory_register_type().
+/// family/type/protocol using `g_socket_connection_factory_register_type()`.
 /// 
-/// To close a `GSocketConnection`, use g_io_stream_close(). Closing both
+/// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 public struct SocketConnectionRef: SocketConnectionProtocol {
@@ -8467,9 +8415,9 @@ public extension SocketConnectionRef {
 /// Choosing what type of object to construct is done with the socket
 /// connection factory, and it is possible for 3rd parties to register
 /// custom socket connection types for specific combination of socket
-/// family/type/protocol using g_socket_connection_factory_register_type().
+/// family/type/protocol using `g_socket_connection_factory_register_type()`.
 /// 
-/// To close a `GSocketConnection`, use g_io_stream_close(). Closing both
+/// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 open class SocketConnection: IOStream, SocketConnectionProtocol {
@@ -8559,27 +8507,26 @@ public extension SocketConnectionProtocol {
 
 public enum SocketConnectionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -8634,16 +8581,16 @@ public extension SocketConnectionProtocol {
 
     /// Asynchronously connect `connection` to the specified remote address.
     /// 
-    /// This clears the `GSocket`:blocking flag on `connection`'s underlying
+    /// This clears the `GSocket:blocking` flag on `connection`'s underlying
     /// socket if it is currently set.
     /// 
-    /// Use g_socket_connection_connect_finish() to retrieve the result.
+    /// Use `g_socket_connection_connect_finish()` to retrieve the result.
     func connectAsync(address: SocketAddressProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_connection_connect_async(cast(socket_connection_ptr), cast(address.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Gets the result of a g_socket_connection_connect_async() call.
+    /// Gets the result of a `g_socket_connection_connect_async()` call.
     func connectFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_connection_connect_finish(cast(socket_connection_ptr), cast(result.ptr), &error)
@@ -8665,8 +8612,8 @@ public extension SocketConnectionProtocol {
 
     /// Try to get the remote address of a socket connection.
     /// 
-    /// Since GLib 2.40, when used with g_socket_client_connect() or
-    /// g_socket_client_connect_async(), during emission of
+    /// Since GLib 2.40, when used with `g_socket_client_connect()` or
+    /// `g_socket_client_connect_async()`, during emission of
     /// `G_SOCKET_CLIENT_CONNECTING`, this function will return the remote
     /// address that will be used for the connection.  This allows
     /// applications to print e.g. "Connecting to example.com
@@ -8688,10 +8635,10 @@ public extension SocketConnectionProtocol {
         return cast(rv)
     }
     /// Checks if `connection` is connected. This is equivalent to calling
-    /// g_socket_is_connected() on `connection`'s underlying `GSocket`.
+    /// `g_socket_is_connected()` on `connection`'s underlying `GSocket`.
     var isConnected: Bool {
         /// Checks if `connection` is connected. This is equivalent to calling
-        /// g_socket_is_connected() on `connection`'s underlying `GSocket`.
+        /// `g_socket_is_connected()` on `connection`'s underlying `GSocket`.
         get {
             let rv = g_socket_connection_is_connected(cast(socket_connection_ptr))
             return Bool(rv != 0)
@@ -8727,8 +8674,8 @@ public extension SocketConnectionProtocol {
 /// transfer to the peer (for example, sending a file descriptor over
 /// a UNIX socket).
 /// 
-/// These messages are sent with g_socket_send_message() and received
-/// with g_socket_receive_message().
+/// These messages are sent with `g_socket_send_message()` and received
+/// with `g_socket_receive_message()`.
 /// 
 /// To extend the set of control message that can be sent, subclass this
 /// class and override the get_size, get_level, get_type and serialize
@@ -8737,7 +8684,7 @@ public extension SocketConnectionProtocol {
 /// To extend the set of control messages that can be received, subclass
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
-/// g_socket_receive_message() to read such a message.
+/// `g_socket_receive_message()` to read such a message.
 public protocol SocketControlMessageProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -8759,8 +8706,8 @@ public protocol SocketControlMessageProtocol: ObjectProtocol {
 /// transfer to the peer (for example, sending a file descriptor over
 /// a UNIX socket).
 /// 
-/// These messages are sent with g_socket_send_message() and received
-/// with g_socket_receive_message().
+/// These messages are sent with `g_socket_send_message()` and received
+/// with `g_socket_receive_message()`.
 /// 
 /// To extend the set of control message that can be sent, subclass this
 /// class and override the get_size, get_level, get_type and serialize
@@ -8769,7 +8716,7 @@ public protocol SocketControlMessageProtocol: ObjectProtocol {
 /// To extend the set of control messages that can be received, subclass
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
-/// g_socket_receive_message() to read such a message.
+/// `g_socket_receive_message()` to read such a message.
 public struct SocketControlMessageRef: SocketControlMessageProtocol {
     /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     /// For type-safe access, use the generated, typed pointer `socket_control_message_ptr` property instead.
@@ -8842,8 +8789,8 @@ public extension SocketControlMessageRef {
 /// transfer to the peer (for example, sending a file descriptor over
 /// a UNIX socket).
 /// 
-/// These messages are sent with g_socket_send_message() and received
-/// with g_socket_receive_message().
+/// These messages are sent with `g_socket_send_message()` and received
+/// with `g_socket_receive_message()`.
 /// 
 /// To extend the set of control message that can be sent, subclass this
 /// class and override the get_size, get_level, get_type and serialize
@@ -8852,7 +8799,7 @@ public extension SocketControlMessageRef {
 /// To extend the set of control messages that can be received, subclass
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
-/// g_socket_receive_message() to read such a message.
+/// `g_socket_receive_message()` to read such a message.
 open class SocketControlMessage: Object, SocketControlMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `SocketControlMessage` instance.
@@ -8910,27 +8857,26 @@ open class SocketControlMessage: Object, SocketControlMessageProtocol {
 
 public enum SocketControlMessageSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -8995,7 +8941,7 @@ public extension SocketControlMessageProtocol {
     /// message.
     /// 
     /// `data` is guaranteed to have enough space to fit the size
-    /// returned by g_socket_control_message_get_size() on this
+    /// returned by `g_socket_control_message_get_size()` on this
     /// object.
     func serialize(data: UnsafeMutableRawPointer) {
         g_socket_control_message_serialize(cast(socket_control_message_ptr), cast(data))
@@ -9048,10 +8994,10 @@ public extension SocketControlMessageProtocol {
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
 /// 
-/// Add addresses and ports to listen on using g_socket_listener_add_address()
-/// and g_socket_listener_add_inet_port(). These will be listened on until
-/// g_socket_listener_close() is called. Dropping your final reference to the
-/// `GSocketListener` will not cause g_socket_listener_close() to be called
+/// Add addresses and ports to listen on using `g_socket_listener_add_address()`
+/// and `g_socket_listener_add_inet_port()`. These will be listened on until
+/// `g_socket_listener_close()` is called. Dropping your final reference to the
+/// `GSocketListener` will not cause `g_socket_listener_close()` to be called
 /// implicitly, as some references to the `GSocketListener` may be held
 /// internally.
 /// 
@@ -9074,10 +9020,10 @@ public protocol SocketListenerProtocol: ObjectProtocol {
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
 /// 
-/// Add addresses and ports to listen on using g_socket_listener_add_address()
-/// and g_socket_listener_add_inet_port(). These will be listened on until
-/// g_socket_listener_close() is called. Dropping your final reference to the
-/// `GSocketListener` will not cause g_socket_listener_close() to be called
+/// Add addresses and ports to listen on using `g_socket_listener_add_address()`
+/// and `g_socket_listener_add_inet_port()`. These will be listened on until
+/// `g_socket_listener_close()` is called. Dropping your final reference to the
+/// `GSocketListener` will not cause `g_socket_listener_close()` to be called
 /// implicitly, as some references to the `GSocketListener` may be held
 /// internally.
 /// 
@@ -9131,8 +9077,8 @@ public extension SocketListenerRef {
     }
 
         /// Creates a new `GSocketListener` with no sockets to listen for.
-    /// New listeners can be added with e.g. g_socket_listener_add_address()
-    /// or g_socket_listener_add_inet_port().
+    /// New listeners can be added with e.g. `g_socket_listener_add_address()`
+    /// or `g_socket_listener_add_inet_port()`.
     init() {
         let rv = g_socket_listener_new()
         self.init(cast(rv))
@@ -9147,10 +9093,10 @@ public extension SocketListenerRef {
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
 /// 
-/// Add addresses and ports to listen on using g_socket_listener_add_address()
-/// and g_socket_listener_add_inet_port(). These will be listened on until
-/// g_socket_listener_close() is called. Dropping your final reference to the
-/// `GSocketListener` will not cause g_socket_listener_close() to be called
+/// Add addresses and ports to listen on using `g_socket_listener_add_address()`
+/// and `g_socket_listener_add_inet_port()`. These will be listened on until
+/// `g_socket_listener_close()` is called. Dropping your final reference to the
+/// `GSocketListener` will not cause `g_socket_listener_close()` to be called
 /// implicitly, as some references to the `GSocketListener` may be held
 /// internally.
 /// 
@@ -9196,8 +9142,8 @@ open class SocketListener: Object, SocketListenerProtocol {
     }
 
     /// Creates a new `GSocketListener` with no sockets to listen for.
-    /// New listeners can be added with e.g. g_socket_listener_add_address()
-    /// or g_socket_listener_add_inet_port().
+    /// New listeners can be added with e.g. `g_socket_listener_add_address()`
+    /// or `g_socket_listener_add_inet_port()`.
     public convenience init() {
         let rv = g_socket_listener_new()
         self.init(cast(rv))
@@ -9253,27 +9199,26 @@ public enum SocketListenerSignalName: String, SignalNameProtocol {
     /// the order they happen in is undefined.
     case event = "event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -9333,17 +9278,17 @@ public extension SocketListenerProtocol {
         return cast(rv)
     }
 
-    /// This is the asynchronous version of g_socket_listener_accept().
+    /// This is the asynchronous version of `g_socket_listener_accept()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_socket_listener_accept_socket()
+    /// called. You can then call `g_socket_listener_accept_socket()`
     /// to get the result of the operation.
     func acceptAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_listener_accept_async(cast(socket_listener_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async accept operation. See g_socket_listener_accept_async()
+    /// Finishes an async accept operation. See `g_socket_listener_accept_async()`
     func acceptFinish(result: AsyncResultProtocol, sourceObject source_object: ObjectProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_listener_accept_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error)
@@ -9357,7 +9302,7 @@ public extension SocketListenerProtocol {
     /// to the listener. Returns the `GSocket` that was accepted.
     /// 
     /// If you want to accept the high-level `GSocketConnection`, not a `GSocket`,
-    /// which is often the case, then you should use g_socket_listener_accept()
+    /// which is often the case, then you should use `g_socket_listener_accept()`
     /// instead.
     /// 
     /// If `source_object` is not `nil` it will be filled out with the source
@@ -9376,17 +9321,17 @@ public extension SocketListenerProtocol {
         return cast(rv)
     }
 
-    /// This is the asynchronous version of g_socket_listener_accept_socket().
+    /// This is the asynchronous version of `g_socket_listener_accept_socket()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call g_socket_listener_accept_socket_finish()
+    /// called. You can then call `g_socket_listener_accept_socket_finish()`
     /// to get the result of the operation.
     func acceptSocketAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_socket_listener_accept_socket_async(cast(socket_listener_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes an async accept operation. See g_socket_listener_accept_socket_async()
+    /// Finishes an async accept operation. See `g_socket_listener_accept_socket_async()`
     func acceptSocketFinish(result: AsyncResultProtocol, sourceObject source_object: ObjectProtocol) throws -> UnsafeMutablePointer<GSocket>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_listener_accept_socket_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error)
@@ -9403,7 +9348,7 @@ public extension SocketListenerProtocol {
     /// Note that adding an IPv6 address, depending on the platform,
     /// may or may not result in a listener that also accepts IPv4
     /// connections.  For more deterministic behavior, see
-    /// g_socket_listener_add_inet_port().
+    /// `g_socket_listener_add_inet_port()`.
     /// 
     /// `source_object` will be passed out in the various calls
     /// to accept to identify this particular source, which is
@@ -9416,7 +9361,7 @@ public extension SocketListenerProtocol {
     /// requesting a binding to port 0 (ie: "any port").  This address, if
     /// requested, belongs to the caller and must be freed.
     /// 
-    /// Call g_socket_listener_close() to stop listening on `address`; this will not
+    /// Call `g_socket_listener_close()` to stop listening on `address`; this will not
     /// be done automatically when you drop your final reference to `listener`, as
     /// references may be held internally.
     func add(address: SocketAddressProtocol, type: SocketType, protocol_: Socket_Protocol, sourceObject source_object: ObjectProtocol, effectiveAddress effective_address: SocketAddressProtocol) throws -> Bool {
@@ -9447,7 +9392,7 @@ public extension SocketListenerProtocol {
         return UInt16(rv)
     }
 
-    /// Helper function for g_socket_listener_add_address() that
+    /// Helper function for `g_socket_listener_add_address()` that
     /// creates a TCP/IP socket listening on IPv4 and IPv6 (if
     /// supported) on the specified port on all interfaces.
     /// 
@@ -9456,7 +9401,7 @@ public extension SocketListenerProtocol {
     /// useful if you're listening on multiple addresses and do
     /// different things depending on what address is connected to.
     /// 
-    /// Call g_socket_listener_close() to stop listening on `port`; this will not
+    /// Call `g_socket_listener_close()` to stop listening on `port`; this will not
     /// be done automatically when you drop your final reference to `listener`, as
     /// references may be held internally.
     func addInet(port: UInt16, sourceObject source_object: ObjectProtocol) throws -> Bool {
@@ -9498,9 +9443,9 @@ public extension SocketListenerProtocol {
 
     /// Sets the listen backlog on the sockets in the listener. This must be called
     /// before adding any sockets, addresses or ports to the `GSocketListener` (for
-    /// example, by calling g_socket_listener_add_inet_port()) to be effective.
+    /// example, by calling `g_socket_listener_add_inet_port()`) to be effective.
     /// 
-    /// See g_socket_set_listen_backlog() for details
+    /// See `g_socket_set_listen_backlog()` for details
     func setBacklog(listenBacklog listen_backlog: CInt) {
         g_socket_listener_set_backlog(cast(socket_listener_ptr), listen_backlog)
     
@@ -9518,7 +9463,7 @@ public extension SocketListenerProtocol {
 ///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
-/// connection is made to the service the `GSocketService`::incoming
+/// connection is made to the service the `GSocketService::incoming`
 /// signal is emitted.
 /// 
 /// A `GSocketService` is a subclass of `GSocketListener` and you need
@@ -9527,7 +9472,7 @@ public extension SocketListenerProtocol {
 /// 
 /// There are two options for implementing a network service based on
 /// `GSocketService`. The first is to create the service using
-/// g_socket_service_new() and to connect to the `GSocketService`::incoming
+/// `g_socket_service_new()` and to connect to the `GSocketService::incoming`
 /// signal. The second is to subclass `GSocketService` and override the
 /// default signal handler implementation.
 /// 
@@ -9556,7 +9501,7 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
 ///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
-/// connection is made to the service the `GSocketService`::incoming
+/// connection is made to the service the `GSocketService::incoming`
 /// signal is emitted.
 /// 
 /// A `GSocketService` is a subclass of `GSocketListener` and you need
@@ -9565,7 +9510,7 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
 /// 
 /// There are two options for implementing a network service based on
 /// `GSocketService`. The first is to create the service using
-/// g_socket_service_new() and to connect to the `GSocketService`::incoming
+/// `g_socket_service_new()` and to connect to the `GSocketService::incoming`
 /// signal. The second is to subclass `GSocketService` and override the
 /// default signal handler implementation.
 /// 
@@ -9627,11 +9572,11 @@ public extension SocketServiceRef {
     }
 
         /// Creates a new `GSocketService` with no sockets to listen for.
-    /// New listeners can be added with e.g. g_socket_listener_add_address()
-    /// or g_socket_listener_add_inet_port().
+    /// New listeners can be added with e.g. `g_socket_listener_add_address()`
+    /// or `g_socket_listener_add_inet_port()`.
     /// 
     /// New services are created active, there is no need to call
-    /// g_socket_service_start(), unless g_socket_service_stop() has been
+    /// `g_socket_service_start()`, unless `g_socket_service_stop()` has been
     /// called before.
     init() {
         let rv = g_socket_service_new()
@@ -9645,7 +9590,7 @@ public extension SocketServiceRef {
 ///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
-/// connection is made to the service the `GSocketService`::incoming
+/// connection is made to the service the `GSocketService::incoming`
 /// signal is emitted.
 /// 
 /// A `GSocketService` is a subclass of `GSocketListener` and you need
@@ -9654,7 +9599,7 @@ public extension SocketServiceRef {
 /// 
 /// There are two options for implementing a network service based on
 /// `GSocketService`. The first is to create the service using
-/// g_socket_service_new() and to connect to the `GSocketService`::incoming
+/// `g_socket_service_new()` and to connect to the `GSocketService::incoming`
 /// signal. The second is to subclass `GSocketService` and override the
 /// default signal handler implementation.
 /// 
@@ -9708,11 +9653,11 @@ open class SocketService: SocketListener, SocketServiceProtocol {
     }
 
     /// Creates a new `GSocketService` with no sockets to listen for.
-    /// New listeners can be added with e.g. g_socket_listener_add_address()
-    /// or g_socket_listener_add_inet_port().
+    /// New listeners can be added with e.g. `g_socket_listener_add_address()`
+    /// or `g_socket_listener_add_inet_port()`.
     /// 
     /// New services are created active, there is no need to call
-    /// g_socket_service_start(), unless g_socket_service_stop() has been
+    /// `g_socket_service_start()`, unless `g_socket_service_stop()` has been
     /// called before.
     public convenience init() {
         let rv = g_socket_service_new()
@@ -9770,7 +9715,7 @@ public enum SocketServiceSignalName: String, SignalNameProtocol {
     /// IPv6, a separate set of signals will be emitted for each, and
     /// the order they happen in is undefined.
     case event = "event"
-    /// The ::incoming signal is emitted when a new incoming connection
+    /// The `incoming` signal is emitted when a new incoming connection
     /// to `service` needs to be handled. The handler must initiate the
     /// handling of `connection`, but may not block; in essence,
     /// asynchronous operations must be used.
@@ -9779,27 +9724,26 @@ public enum SocketServiceSignalName: String, SignalNameProtocol {
     /// so you need to ref it yourself if you are planning to use it.
     case incoming = "incoming"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -9844,7 +9788,7 @@ public extension SocketServiceProtocol {
     /// Restarts the service, i.e. start accepting connections
     /// from the added sockets when the mainloop runs. This only needs
     /// to be called after the service has been stopped from
-    /// g_socket_service_stop().
+    /// `g_socket_service_stop()`.
     /// 
     /// This call is thread-safe, so it may be called from a thread
     /// handling an incoming client request.
@@ -9861,11 +9805,11 @@ public extension SocketServiceProtocol {
     /// 
     /// Note that this only stops accepting new connections; it does not
     /// close the listening sockets, and you can call
-    /// g_socket_service_start() again later to begin listening again. To
-    /// close the listening sockets, call g_socket_listener_close(). (This
+    /// `g_socket_service_start()` again later to begin listening again. To
+    /// close the listening sockets, call `g_socket_listener_close()`. (This
     /// will happen automatically when the `GSocketService` is finalized.)
     /// 
-    /// This must be called before calling g_socket_listener_close() as
+    /// This must be called before calling `g_socket_listener_close()` as
     /// the socket service will start accepting connections immediately
     /// when a new socket is added.
     func stop() {
@@ -9910,7 +9854,7 @@ public extension SocketServiceProtocol {
 /// 
 /// One major advantage that GIO brings over the core GLib library is
 /// comprehensive API for asynchronous I/O, such
-/// g_output_stream_splice_async().  This makes GSubprocess
+/// `g_output_stream_splice_async()`.  This makes GSubprocess
 /// significantly more powerful and flexible than equivalent APIs in
 /// some other languages such as the `subprocess.py`
 /// included with Python.  For example, using `GSubprocess` one could
@@ -9918,20 +9862,20 @@ public extension SocketServiceProtocol {
 /// processing it, and writing to the input stream of the second, all
 /// without blocking the main loop.
 /// 
-/// A powerful g_subprocess_communicate() API is provided similar to the
-/// `communicate()` method of `subprocess.py`. This enables very easy
+/// A powerful `g_subprocess_communicate()` API is provided similar to the
+/// ``communicate()`` method of `subprocess.py`. This enables very easy
 /// interaction with a subprocess that has been opened with pipes.
 /// 
 /// `GSubprocess` defaults to tight control over the file descriptors open
 /// in the child process, avoiding dangling-fd issues that are caused by
-/// a simple fork()/exec().  The only open file descriptors in the
+/// a simple `fork()``/exec()`.  The only open file descriptors in the
 /// spawned process are ones that were explicitly specified by the
 /// `GSubprocess` API (unless `G_SUBPROCESS_FLAGS_INHERIT_FDS` was
 /// specified).
 /// 
 /// `GSubprocess` will quickly reap all child processes as they exit,
 /// avoiding "zombie processes" remaining around for long periods of
-/// time.  g_subprocess_wait() can be used to wait for this to happen,
+/// time.  `g_subprocess_wait()` can be used to wait for this to happen,
 /// but it will happen even without the call being explicitly made.
 /// 
 /// As a matter of principle, `GSubprocess` has no API that accepts
@@ -9941,15 +9885,15 @@ public extension SocketServiceProtocol {
 /// 
 /// `GSubprocess` attempts to have a very simple API for most uses (ie:
 /// spawning a subprocess with arguments and support for most typical
-/// kinds of input and output redirection).  See g_subprocess_new(). The
+/// kinds of input and output redirection).  See `g_subprocess_new()`. The
 /// `GSubprocessLauncher` API is provided for more complicated cases
 /// (advanced types of redirection, environment variable manipulation,
 /// change of working directory, child setup functions, etc).
 /// 
 /// A typical use of `GSubprocess` will involve calling
-/// g_subprocess_new(), followed by g_subprocess_wait_async() or
-/// g_subprocess_wait().  After the process exits, the status can be
-/// checked using functions such as g_subprocess_get_if_exited() (which
+/// `g_subprocess_new()`, followed by `g_subprocess_wait_async()` or
+/// `g_subprocess_wait()`.  After the process exits, the status can be
+/// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
     /// Untyped pointer to the underlying `GSubprocess` instance.
@@ -9976,7 +9920,7 @@ public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
 /// 
 /// One major advantage that GIO brings over the core GLib library is
 /// comprehensive API for asynchronous I/O, such
-/// g_output_stream_splice_async().  This makes GSubprocess
+/// `g_output_stream_splice_async()`.  This makes GSubprocess
 /// significantly more powerful and flexible than equivalent APIs in
 /// some other languages such as the `subprocess.py`
 /// included with Python.  For example, using `GSubprocess` one could
@@ -9984,20 +9928,20 @@ public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
 /// processing it, and writing to the input stream of the second, all
 /// without blocking the main loop.
 /// 
-/// A powerful g_subprocess_communicate() API is provided similar to the
-/// `communicate()` method of `subprocess.py`. This enables very easy
+/// A powerful `g_subprocess_communicate()` API is provided similar to the
+/// ``communicate()`` method of `subprocess.py`. This enables very easy
 /// interaction with a subprocess that has been opened with pipes.
 /// 
 /// `GSubprocess` defaults to tight control over the file descriptors open
 /// in the child process, avoiding dangling-fd issues that are caused by
-/// a simple fork()/exec().  The only open file descriptors in the
+/// a simple `fork()``/exec()`.  The only open file descriptors in the
 /// spawned process are ones that were explicitly specified by the
 /// `GSubprocess` API (unless `G_SUBPROCESS_FLAGS_INHERIT_FDS` was
 /// specified).
 /// 
 /// `GSubprocess` will quickly reap all child processes as they exit,
 /// avoiding "zombie processes" remaining around for long periods of
-/// time.  g_subprocess_wait() can be used to wait for this to happen,
+/// time.  `g_subprocess_wait()` can be used to wait for this to happen,
 /// but it will happen even without the call being explicitly made.
 /// 
 /// As a matter of principle, `GSubprocess` has no API that accepts
@@ -10007,15 +9951,15 @@ public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
 /// 
 /// `GSubprocess` attempts to have a very simple API for most uses (ie:
 /// spawning a subprocess with arguments and support for most typical
-/// kinds of input and output redirection).  See g_subprocess_new(). The
+/// kinds of input and output redirection).  See `g_subprocess_new()`. The
 /// `GSubprocessLauncher` API is provided for more complicated cases
 /// (advanced types of redirection, environment variable manipulation,
 /// change of working directory, child setup functions, etc).
 /// 
 /// A typical use of `GSubprocess` will involve calling
-/// g_subprocess_new(), followed by g_subprocess_wait_async() or
-/// g_subprocess_wait().  After the process exits, the status can be
-/// checked using functions such as g_subprocess_get_if_exited() (which
+/// `g_subprocess_new()`, followed by `g_subprocess_wait_async()` or
+/// `g_subprocess_wait()`.  After the process exits, the status can be
+/// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 public struct SubprocessRef: SubprocessProtocol {
     /// Untyped pointer to the underlying `GSubprocess` instance.
@@ -10108,7 +10052,7 @@ public extension SubprocessRef {
 /// 
 /// One major advantage that GIO brings over the core GLib library is
 /// comprehensive API for asynchronous I/O, such
-/// g_output_stream_splice_async().  This makes GSubprocess
+/// `g_output_stream_splice_async()`.  This makes GSubprocess
 /// significantly more powerful and flexible than equivalent APIs in
 /// some other languages such as the `subprocess.py`
 /// included with Python.  For example, using `GSubprocess` one could
@@ -10116,20 +10060,20 @@ public extension SubprocessRef {
 /// processing it, and writing to the input stream of the second, all
 /// without blocking the main loop.
 /// 
-/// A powerful g_subprocess_communicate() API is provided similar to the
-/// `communicate()` method of `subprocess.py`. This enables very easy
+/// A powerful `g_subprocess_communicate()` API is provided similar to the
+/// ``communicate()`` method of `subprocess.py`. This enables very easy
 /// interaction with a subprocess that has been opened with pipes.
 /// 
 /// `GSubprocess` defaults to tight control over the file descriptors open
 /// in the child process, avoiding dangling-fd issues that are caused by
-/// a simple fork()/exec().  The only open file descriptors in the
+/// a simple `fork()``/exec()`.  The only open file descriptors in the
 /// spawned process are ones that were explicitly specified by the
 /// `GSubprocess` API (unless `G_SUBPROCESS_FLAGS_INHERIT_FDS` was
 /// specified).
 /// 
 /// `GSubprocess` will quickly reap all child processes as they exit,
 /// avoiding "zombie processes" remaining around for long periods of
-/// time.  g_subprocess_wait() can be used to wait for this to happen,
+/// time.  `g_subprocess_wait()` can be used to wait for this to happen,
 /// but it will happen even without the call being explicitly made.
 /// 
 /// As a matter of principle, `GSubprocess` has no API that accepts
@@ -10139,15 +10083,15 @@ public extension SubprocessRef {
 /// 
 /// `GSubprocess` attempts to have a very simple API for most uses (ie:
 /// spawning a subprocess with arguments and support for most typical
-/// kinds of input and output redirection).  See g_subprocess_new(). The
+/// kinds of input and output redirection).  See `g_subprocess_new()`. The
 /// `GSubprocessLauncher` API is provided for more complicated cases
 /// (advanced types of redirection, environment variable manipulation,
 /// change of working directory, child setup functions, etc).
 /// 
 /// A typical use of `GSubprocess` will involve calling
-/// g_subprocess_new(), followed by g_subprocess_wait_async() or
-/// g_subprocess_wait().  After the process exits, the status can be
-/// checked using functions such as g_subprocess_get_if_exited() (which
+/// `g_subprocess_new()`, followed by `g_subprocess_wait_async()` or
+/// `g_subprocess_wait()`.  After the process exits, the status can be
+/// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 open class Subprocess: Object, SubprocessProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -10260,27 +10204,26 @@ public extension SubprocessProtocol {
 
 public enum SubprocessSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -10354,8 +10297,8 @@ public extension SubprocessProtocol {
     /// been set to anything in particular and should not be inspected.
     /// 
     /// In the case that `true` is returned, the subprocess has exited and the
-    /// exit status inspection APIs (eg: g_subprocess_get_if_exited(),
-    /// g_subprocess_get_exit_status()) may be used.
+    /// exit status inspection APIs (eg: `g_subprocess_get_if_exited()`,
+    /// `g_subprocess_get_exit_status()`) may be used.
     /// 
     /// You should not attempt to use any of the subprocess pipes after
     /// starting this function, since they may be left in strange states,
@@ -10371,14 +10314,14 @@ public extension SubprocessProtocol {
         return Bool(rv != 0)
     }
 
-    /// Asynchronous version of g_subprocess_communicate().  Complete
-    /// invocation with g_subprocess_communicate_finish().
+    /// Asynchronous version of `g_subprocess_communicate()`.  Complete
+    /// invocation with `g_subprocess_communicate_finish()`.
     func communicateAsync(stdinBuf stdin_buf: BytesProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_subprocess_communicate_async(cast(subprocess_ptr), cast(stdin_buf.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Complete an invocation of g_subprocess_communicate_async().
+    /// Complete an invocation of `g_subprocess_communicate_async()`.
     func communicateFinish(result: AsyncResultProtocol, stdoutBuf stdout_buf: BytesProtocol, stderrBuf stderr_buf: BytesProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_communicate_finish(cast(subprocess_ptr), cast(result.ptr), cast(stdout_buf.ptr), cast(stderr_buf.ptr), &error)
@@ -10388,7 +10331,7 @@ public extension SubprocessProtocol {
         return Bool(rv != 0)
     }
 
-    /// Like g_subprocess_communicate(), but validates the output of the
+    /// Like `g_subprocess_communicate()`, but validates the output of the
     /// process as UTF-8, and returns it as a regular NUL terminated string.
     /// 
     /// On error, `stdout_buf` and `stderr_buf` will be set to undefined values and
@@ -10402,14 +10345,14 @@ public extension SubprocessProtocol {
         return Bool(rv != 0)
     }
 
-    /// Asynchronous version of g_subprocess_communicate_utf8().  Complete
-    /// invocation with g_subprocess_communicate_utf8_finish().
+    /// Asynchronous version of `g_subprocess_communicate_utf8()`.  Complete
+    /// invocation with `g_subprocess_communicate_utf8_finish()`.
     func communicateUTF8Async(stdinBuf stdin_buf: UnsafePointer<CChar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_subprocess_communicate_utf8_async(cast(subprocess_ptr), stdin_buf, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Complete an invocation of g_subprocess_communicate_utf8_async().
+    /// Complete an invocation of `g_subprocess_communicate_utf8_async()`.
     func communicateUTF8Finish(result: AsyncResultProtocol, stdoutBuf stdout_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, stderrBuf stderr_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_communicate_utf8_finish(cast(subprocess_ptr), cast(result.ptr), cast(stdout_buf), cast(stderr_buf), &error)
@@ -10422,7 +10365,7 @@ public extension SubprocessProtocol {
     /// Use an operating-system specific method to attempt an immediate,
     /// forceful termination of the process.  There is no mechanism to
     /// determine whether or not the request itself was successful;
-    /// however, you can use g_subprocess_wait() to monitor the status of
+    /// however, you can use `g_subprocess_wait()` to monitor the status of
     /// the process after calling this function.
     /// 
     /// On Unix, this function sends `SIGKILL`.
@@ -10432,32 +10375,32 @@ public extension SubprocessProtocol {
     }
 
     /// Check the exit status of the subprocess, given that it exited
-    /// normally.  This is the value passed to the exit() system call or the
+    /// normally.  This is the value passed to the `exit()` system call or the
     /// return value from main.
     /// 
     /// This is equivalent to the system WEXITSTATUS macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() and
-    /// unless g_subprocess_get_if_exited() returned `true`.
+    /// It is an error to call this function before `g_subprocess_wait()` and
+    /// unless `g_subprocess_get_if_exited()` returned `true`.
     func getExitStatus() -> CInt {
         let rv = g_subprocess_get_exit_status(cast(subprocess_ptr))
         return CInt(rv)
     }
 
     /// On UNIX, returns the process ID as a decimal string.
-    /// On Windows, returns the result of GetProcessID() also as a string.
+    /// On Windows, returns the result of `GetProcessID()` also as a string.
     /// If the subprocess has terminated, this will return `nil`.
     func getIdentifier() -> String! {
         let rv = g_subprocess_get_identifier(cast(subprocess_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Check if the given subprocess exited normally (ie: by way of exit()
-    /// or return from main()).
+    /// Check if the given subprocess exited normally (ie: by way of `exit()`
+    /// or return from `main()`).
     /// 
     /// This is equivalent to the system WIFEXITED macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     func getIfExited() -> Bool {
         let rv = g_subprocess_get_if_exited(cast(subprocess_ptr))
@@ -10468,23 +10411,23 @@ public extension SubprocessProtocol {
     /// 
     /// This is equivalent to the system WIFSIGNALED macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     func getIfSignaled() -> Bool {
         let rv = g_subprocess_get_if_signaled(cast(subprocess_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the raw status code of the process, as from waitpid().
+    /// Gets the raw status code of the process, as from `waitpid()`.
     /// 
     /// This value has no particular meaning, but it can be used with the
     /// macros defined by the system headers such as WIFEXITED.  It can also
-    /// be used with g_spawn_check_exit_status().
+    /// be used with `g_spawn_check_exit_status()`.
     /// 
-    /// It is more likely that you want to use g_subprocess_get_if_exited()
-    /// followed by g_subprocess_get_exit_status().
+    /// It is more likely that you want to use `g_subprocess_get_if_exited()`
+    /// followed by `g_subprocess_get_exit_status()`.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     func getStatus() -> CInt {
         let rv = g_subprocess_get_status(cast(subprocess_ptr))
@@ -10523,9 +10466,9 @@ public extension SubprocessProtocol {
 
     /// Checks if the process was "successful".  A process is considered
     /// successful if it exited cleanly with an exit status of 0, either by
-    /// way of the exit() system call or return from main().
+    /// way of the `exit()` system call or return from `main()`.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     func getSuccessful() -> Bool {
         let rv = g_subprocess_get_successful(cast(subprocess_ptr))
@@ -10537,8 +10480,8 @@ public extension SubprocessProtocol {
     /// 
     /// This is equivalent to the system WTERMSIG macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() and
-    /// unless g_subprocess_get_if_signaled() returned `true`.
+    /// It is an error to call this function before `g_subprocess_wait()` and
+    /// unless `g_subprocess_get_if_signaled()` returned `true`.
     func getTermSig() -> CInt {
         let rv = g_subprocess_get_term_sig(cast(subprocess_ptr))
         return CInt(rv)
@@ -10559,14 +10502,14 @@ public extension SubprocessProtocol {
     /// Synchronously wait for the subprocess to terminate.
     /// 
     /// After the process terminates you can query its exit status with
-    /// functions such as g_subprocess_get_if_exited() and
-    /// g_subprocess_get_exit_status().
+    /// functions such as `g_subprocess_get_if_exited()` and
+    /// `g_subprocess_get_exit_status()`.
     /// 
     /// This function does not fail in the case of the subprocess having
-    /// abnormal termination.  See g_subprocess_wait_check() for that.
+    /// abnormal termination.  See `g_subprocess_wait_check()` for that.
     /// 
     /// Cancelling `cancellable` doesn't kill the subprocess.  Call
-    /// g_subprocess_force_exit() if it is desirable.
+    /// `g_subprocess_force_exit()` if it is desirable.
     func wait(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_wait(cast(subprocess_ptr), cast(cancellable.ptr), &error)
@@ -10578,13 +10521,13 @@ public extension SubprocessProtocol {
 
     /// Wait for the subprocess to terminate.
     /// 
-    /// This is the asynchronous version of g_subprocess_wait().
+    /// This is the asynchronous version of `g_subprocess_wait()`.
     func waitAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_subprocess_wait_async(cast(subprocess_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Combines g_subprocess_wait() with g_spawn_check_exit_status().
+    /// Combines `g_subprocess_wait()` with `g_spawn_check_exit_status()`.
     func waitCheck(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_wait_check(cast(subprocess_ptr), cast(cancellable.ptr), &error)
@@ -10594,16 +10537,16 @@ public extension SubprocessProtocol {
         return Bool(rv != 0)
     }
 
-    /// Combines g_subprocess_wait_async() with g_spawn_check_exit_status().
+    /// Combines `g_subprocess_wait_async()` with `g_spawn_check_exit_status()`.
     /// 
-    /// This is the asynchronous version of g_subprocess_wait_check().
+    /// This is the asynchronous version of `g_subprocess_wait_check()`.
     func waitCheckAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_subprocess_wait_check_async(cast(subprocess_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Collects the result of a previous call to
-    /// g_subprocess_wait_check_async().
+    /// `g_subprocess_wait_check_async()`.
     func waitCheckFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_wait_check_finish(cast(subprocess_ptr), cast(result.ptr), &error)
@@ -10614,7 +10557,7 @@ public extension SubprocessProtocol {
     }
 
     /// Collects the result of a previous call to
-    /// g_subprocess_wait_async().
+    /// `g_subprocess_wait_async()`.
     func waitFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_wait_finish(cast(subprocess_ptr), cast(result.ptr), &error)
@@ -10624,22 +10567,22 @@ public extension SubprocessProtocol {
         return Bool(rv != 0)
     }
     /// Check the exit status of the subprocess, given that it exited
-    /// normally.  This is the value passed to the exit() system call or the
+    /// normally.  This is the value passed to the `exit()` system call or the
     /// return value from main.
     /// 
     /// This is equivalent to the system WEXITSTATUS macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() and
-    /// unless g_subprocess_get_if_exited() returned `true`.
+    /// It is an error to call this function before `g_subprocess_wait()` and
+    /// unless `g_subprocess_get_if_exited()` returned `true`.
     var exitStatus: CInt {
         /// Check the exit status of the subprocess, given that it exited
-        /// normally.  This is the value passed to the exit() system call or the
+        /// normally.  This is the value passed to the `exit()` system call or the
         /// return value from main.
         /// 
         /// This is equivalent to the system WEXITSTATUS macro.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() and
-        /// unless g_subprocess_get_if_exited() returned `true`.
+        /// It is an error to call this function before `g_subprocess_wait()` and
+        /// unless `g_subprocess_get_if_exited()` returned `true`.
         get {
             let rv = g_subprocess_get_exit_status(cast(subprocess_ptr))
             return CInt(rv)
@@ -10647,11 +10590,11 @@ public extension SubprocessProtocol {
     }
 
     /// On UNIX, returns the process ID as a decimal string.
-    /// On Windows, returns the result of GetProcessID() also as a string.
+    /// On Windows, returns the result of `GetProcessID()` also as a string.
     /// If the subprocess has terminated, this will return `nil`.
     var identifier: String! {
         /// On UNIX, returns the process ID as a decimal string.
-        /// On Windows, returns the result of GetProcessID() also as a string.
+        /// On Windows, returns the result of `GetProcessID()` also as a string.
         /// If the subprocess has terminated, this will return `nil`.
         get {
             let rv = g_subprocess_get_identifier(cast(subprocess_ptr))
@@ -10659,20 +10602,20 @@ public extension SubprocessProtocol {
         }
     }
 
-    /// Check if the given subprocess exited normally (ie: by way of exit()
-    /// or return from main()).
+    /// Check if the given subprocess exited normally (ie: by way of `exit()`
+    /// or return from `main()`).
     /// 
     /// This is equivalent to the system WIFEXITED macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     var ifExited: Bool {
-        /// Check if the given subprocess exited normally (ie: by way of exit()
-        /// or return from main()).
+        /// Check if the given subprocess exited normally (ie: by way of `exit()`
+        /// or return from `main()`).
         /// 
         /// This is equivalent to the system WIFEXITED macro.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() has
+        /// It is an error to call this function before `g_subprocess_wait()` has
         /// returned.
         get {
             let rv = g_subprocess_get_if_exited(cast(subprocess_ptr))
@@ -10684,14 +10627,14 @@ public extension SubprocessProtocol {
     /// 
     /// This is equivalent to the system WIFSIGNALED macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     var ifSignaled: Bool {
         /// Check if the given subprocess terminated in response to a signal.
         /// 
         /// This is equivalent to the system WIFSIGNALED macro.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() has
+        /// It is an error to call this function before `g_subprocess_wait()` has
         /// returned.
         get {
             let rv = g_subprocess_get_if_signaled(cast(subprocess_ptr))
@@ -10699,28 +10642,28 @@ public extension SubprocessProtocol {
         }
     }
 
-    /// Gets the raw status code of the process, as from waitpid().
+    /// Gets the raw status code of the process, as from `waitpid()`.
     /// 
     /// This value has no particular meaning, but it can be used with the
     /// macros defined by the system headers such as WIFEXITED.  It can also
-    /// be used with g_spawn_check_exit_status().
+    /// be used with `g_spawn_check_exit_status()`.
     /// 
-    /// It is more likely that you want to use g_subprocess_get_if_exited()
-    /// followed by g_subprocess_get_exit_status().
+    /// It is more likely that you want to use `g_subprocess_get_if_exited()`
+    /// followed by `g_subprocess_get_exit_status()`.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     var status: CInt {
-        /// Gets the raw status code of the process, as from waitpid().
+        /// Gets the raw status code of the process, as from `waitpid()`.
         /// 
         /// This value has no particular meaning, but it can be used with the
         /// macros defined by the system headers such as WIFEXITED.  It can also
-        /// be used with g_spawn_check_exit_status().
+        /// be used with `g_spawn_check_exit_status()`.
         /// 
-        /// It is more likely that you want to use g_subprocess_get_if_exited()
-        /// followed by g_subprocess_get_exit_status().
+        /// It is more likely that you want to use `g_subprocess_get_if_exited()`
+        /// followed by `g_subprocess_get_exit_status()`.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() has
+        /// It is an error to call this function before `g_subprocess_wait()` has
         /// returned.
         get {
             let rv = g_subprocess_get_status(cast(subprocess_ptr))
@@ -10781,16 +10724,16 @@ public extension SubprocessProtocol {
 
     /// Checks if the process was "successful".  A process is considered
     /// successful if it exited cleanly with an exit status of 0, either by
-    /// way of the exit() system call or return from main().
+    /// way of the `exit()` system call or return from `main()`.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() has
+    /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
     var successful: Bool {
         /// Checks if the process was "successful".  A process is considered
         /// successful if it exited cleanly with an exit status of 0, either by
-        /// way of the exit() system call or return from main().
+        /// way of the `exit()` system call or return from `main()`.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() has
+        /// It is an error to call this function before `g_subprocess_wait()` has
         /// returned.
         get {
             let rv = g_subprocess_get_successful(cast(subprocess_ptr))
@@ -10803,16 +10746,16 @@ public extension SubprocessProtocol {
     /// 
     /// This is equivalent to the system WTERMSIG macro.
     /// 
-    /// It is an error to call this function before g_subprocess_wait() and
-    /// unless g_subprocess_get_if_signaled() returned `true`.
+    /// It is an error to call this function before `g_subprocess_wait()` and
+    /// unless `g_subprocess_get_if_signaled()` returned `true`.
     var termSig: CInt {
         /// Get the signal number that caused the subprocess to terminate, given
         /// that it terminated due to a signal.
         /// 
         /// This is equivalent to the system WTERMSIG macro.
         /// 
-        /// It is an error to call this function before g_subprocess_wait() and
-        /// unless g_subprocess_get_if_signaled() returned `true`.
+        /// It is an error to call this function before `g_subprocess_wait()` and
+        /// unless `g_subprocess_get_if_signaled()` returned `true`.
         get {
             let rv = g_subprocess_get_term_sig(cast(subprocess_ptr))
             return CInt(rv)
@@ -11019,27 +10962,26 @@ public extension SubprocessLauncherProtocol {
 
 public enum SubprocessLauncherSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -11091,11 +11033,11 @@ public extension SubprocessLauncherProtocol {
 
     /// Sets up a child setup function.
     /// 
-    /// The child setup function will be called after fork() but before
-    /// exec() on the child's side.
+    /// The child setup function will be called after `fork()` but before
+    /// `exec()` on the child's side.
     /// 
     /// `destroy_notify` will not be automatically called on the child's side
-    /// of the fork().  It will only be called when the last reference on the
+    /// of the `fork()`.  It will only be called when the last reference on the
     /// `GSubprocessLauncher` is dropped or when a new child setup function is
     /// given.
     /// 
@@ -11120,18 +11062,18 @@ public extension SubprocessLauncherProtocol {
     /// Replace the entire environment of processes launched from this
     /// launcher with the given 'environ' variable.
     /// 
-    /// Typically you will build this variable by using g_listenv() to copy
-    /// the process 'environ' and using the functions g_environ_setenv(),
-    /// g_environ_unsetenv(), etc.
+    /// Typically you will build this variable by using `g_listenv()` to copy
+    /// the process 'environ' and using the functions `g_environ_setenv()`,
+    /// `g_environ_unsetenv()`, etc.
     /// 
-    /// As an alternative, you can use g_subprocess_launcher_setenv(),
-    /// g_subprocess_launcher_unsetenv(), etc.
+    /// As an alternative, you can use `g_subprocess_launcher_setenv()`,
+    /// `g_subprocess_launcher_unsetenv()`, etc.
     /// 
     /// Pass an empty array to set an empty environment. Pass `nil` to inherit the
     /// parent process’ environment. As of GLib 2.54, the parent process’ environment
-    /// will be copied when g_subprocess_launcher_set_environ() is called.
+    /// will be copied when `g_subprocess_launcher_set_environ()` is called.
     /// Previously, it was copied when the subprocess was executed. This means the
-    /// copied environment may now be modified (using g_subprocess_launcher_setenv(),
+    /// copied environment may now be modified (using `g_subprocess_launcher_setenv()`,
     /// etc.) before launching the subprocess.
     /// 
     /// On UNIX, all strings in this array can be arbitrary byte strings.
@@ -11151,8 +11093,8 @@ public extension SubprocessLauncherProtocol {
     /// `G_SUBPROCESS_FLAGS_STDIN_INHERIT`).
     /// 
     /// You may also not set a flag that conflicts with a previous call to a
-    /// function like g_subprocess_launcher_set_stdin_file_path() or
-    /// g_subprocess_launcher_take_stdout_fd().
+    /// function like `g_subprocess_launcher_set_stdin_file_path()` or
+    /// `g_subprocess_launcher_take_stdout_fd()`.
     func set(flags: SubprocessFlags) {
         g_subprocess_launcher_set_flags(cast(subprocess_launcher_ptr), flags)
     
@@ -11238,8 +11180,8 @@ public extension SubprocessLauncherProtocol {
     /// in the parent when `self` is freed.
     /// 
     /// By default, all file descriptors from the parent will be closed.
-    /// This function allows you to create (for example) a custom pipe() or
-    /// socketpair() before launching the process, and choose the target
+    /// This function allows you to create (for example) a custom `pipe()` or
+    /// `socketpair()` before launching the process, and choose the target
     /// descriptor in the child.
     /// 
     /// An example use case is GNUPG, which has a command line argument
@@ -11338,23 +11280,23 @@ public extension SubprocessLauncherProtocol {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ``` Asynchronous operations
+/// ```` Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
-/// g_task_new() in the "start" method, followed by
-/// g_task_set_task_data() and the like if you need to keep some
+/// `g_task_new()` in the "start" method, followed by
+/// `g_task_set_task_data()` and the like if you need to keep some
 /// additional data associated with the task, and then pass the
 /// task object around through your asynchronous operation.
 /// Eventually, you will call a method such as
-/// g_task_return_pointer() or g_task_return_error(), which will
+/// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
-/// use g_task_propagate_pointer() or the like to extract the
+/// use `g_task_propagate_pointer()` or the like to extract the
 /// return value.
 /// 
 /// Here is an example for using GTask as a GAsyncResult:
@@ -11419,7 +11361,7 @@ public extension SubprocessLauncherProtocol {
 ///       if (radius < 3)
 ///         {
 ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,
-///                                    "`ucm` radius cakes are silly",
+///                                    "%ucm radius cakes are silly",
 ///                                    radius);
 ///           g_object_unref (task);
 ///           return;
@@ -11453,21 +11395,21 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Chained asynchronous operations
+/// ```` Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
-/// operations. g_task_get_cancellable(), g_task_get_context(),
-/// and g_task_get_priority() allow you to get back the task's
+/// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
+/// and `g_task_get_priority()` allow you to get back the task's
 /// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
 /// when starting a new subtask, so you don't have to keep track
-/// of them yourself. g_task_attach_source() simplifies the case
+/// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
 /// `GMainContext` and priority).
 /// 
 /// Here is an example for chained asynchronous operations:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       Cake *cake;
@@ -11551,7 +11493,7 @@ public extension SubprocessLauncherProtocol {
 ///           GSource *source;
 /// 
 ///           source = cake_decorator_wait_source_new (cake);
-///           // Attach `source` to `task`'s GMainContext and have it call
+///           // Attach @source to @task's GMainContext and have it call
 ///           // decorator_ready() when it is ready.
 ///           g_task_attach_source (task, source, decorator_ready);
 ///           g_source_unref (source);
@@ -11594,17 +11536,17 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
+/// ```` Asynchronous operations from synchronous ones
 /// 
-/// ``` Asynchronous operations from synchronous ones
-/// 
-/// You can use g_task_run_in_thread() to turn a synchronous
+/// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       guint radius;
@@ -11675,12 +11617,11 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
+/// ```` Adding cancellability to uncancellable tasks
 /// 
-/// ``` Adding cancellability to uncancellable tasks
-/// 
-/// Finally, g_task_run_in_thread() and g_task_run_in_thread_sync()
+/// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
-/// cancellable one. If you call g_task_set_return_on_cancel(),
+/// cancellable one. If you call `g_task_set_return_on_cancel()`,
 /// passing `true`, then if the task's `GCancellable` is cancelled,
 /// it will return control back to the caller immediately, while
 /// allowing the task thread to continue running in the background
@@ -11691,7 +11632,8 @@ public extension SubprocessLauncherProtocol {
 /// synchronous variants of blocking APIs.
 /// 
 /// Cancelling a task:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     static void
 ///     bake_cake_thread (GTask         *task,
@@ -11716,8 +11658,8 @@ public extension SubprocessLauncherProtocol {
 ///       // If the task has already been cancelled, then we don't want to add
 ///       // the cake to the cake cache. Likewise, we don't  want to have the
 ///       // task get cancelled in the middle of updating the cache.
-///       // g_task_set_return_on_cancel() will return `true` here if it managed
-///       // to disable return-on-cancel, or `false` if the task was cancelled
+///       // g_task_set_return_on_cancel() will return %TRUE here if it managed
+///       // to disable return-on-cancel, or %FALSE if the task was cancelled
 ///       // before it could.
 ///       if (g_task_set_return_on_cancel (task, FALSE))
 ///         {
@@ -11783,34 +11725,33 @@ public extension SubprocessLauncherProtocol {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Porting from GSimpleAsyncResult
+/// ```` Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
-/// - You can save task-specific data with g_task_set_task_data(), and
-///   retrieve it later with g_task_get_task_data(). This replaces the
-///   abuse of g_simple_async_result_set_op_res_gpointer() for the same
+/// - You can save task-specific data with `g_task_set_task_data()`, and
+///   retrieve it later with `g_task_get_task_data()`. This replaces the
+///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
 ///   [priority][io-priority], `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
-/// - g_task_return_error_if_cancelled() provides simplified
+/// - `g_task_return_error_if_cancelled()` provides simplified
 ///   handling for cancellation. In addition, cancellation
 ///   overrides any other `GTask` return value by default, like
 ///   `GSimpleAsyncResult` does when
-///   g_simple_async_result_set_check_cancellable() is called.
-///   (You can use g_task_set_check_cancellable() to turn off that
-///   behavior.) On the other hand, g_task_run_in_thread()
+///   `g_simple_async_result_set_check_cancellable()` is called.
+///   (You can use `g_task_set_check_cancellable()` to turn off that
+///   behavior.) On the other hand, `g_task_run_in_thread()`
 ///   guarantees that it will always run your
 ///   `task_func`, even if the task's `GCancellable`
 ///   is already cancelled before the task gets a chance to run;
 ///   you can start your `task_func` with a
-///   g_task_return_error_if_cancelled() check if you need the
+///   `g_task_return_error_if_cancelled()` check if you need the
 ///   old behavior.
-/// - The "return" methods (eg, g_task_return_pointer())
+/// - The "return" methods (eg, `g_task_return_pointer()`)
 ///   automatically cause the task to be "completed" as well, and
 ///   there is no need to worry about the "complete" vs "complete
 ///   in idle" distinction. (`GTask` automatically figures out
@@ -11819,13 +11760,13 @@ public extension SubprocessLauncherProtocol {
 ///   until the next iteration of the current `GMainContext`.)
 /// - The "finish" functions for `GTask` based operations are generally
 ///   much simpler than `GSimpleAsyncResult` ones, normally consisting
-///   of only a single call to g_task_propagate_pointer() or the like.
-///   Since g_task_propagate_pointer() "steals" the return value from
+///   of only a single call to `g_task_propagate_pointer()` or the like.
+///   Since `g_task_propagate_pointer()` "steals" the return value from
 ///   the `GTask`, it is not necessary to juggle pointers around to
 ///   prevent it from being freed twice.
 /// - With `GSimpleAsyncResult`, it was common to call
-///   g_simple_async_result_propagate_error() from the
-///   `_finish()` wrapper function, and have
+///   `g_simple_async_result_propagate_error()` from the
+///   ``_finish()`` wrapper function, and have
 ///   virtual method implementations only deal with successful
 ///   returns. This behavior is deprecated, because it makes it
 ///   difficult for a subclass to chain to a parent class's async
@@ -11833,12 +11774,12 @@ public extension SubprocessLauncherProtocol {
 ///   simple wrapper, and the virtual method should call an
 ///   appropriate `g_task_propagate_` function.
 ///   Note that wrapper methods can now use
-///   g_async_result_legacy_propagate_error() to do old-style
+///   `g_async_result_legacy_propagate_error()` to do old-style
 ///   `GSimpleAsyncResult` error-returning behavior, and
-///   g_async_result_is_tagged() to check if a result is tagged as
-///   having come from the `_async()` wrapper
+///   `g_async_result_is_tagged()` to check if a result is tagged as
+///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
-///   0 to g_input_stream_read_async()).
+///   0 to `g_input_stream_read_async()`).
 public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
     /// Untyped pointer to the underlying `GTask` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -11853,23 +11794,23 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ``` Asynchronous operations
+/// ```` Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
-/// g_task_new() in the "start" method, followed by
-/// g_task_set_task_data() and the like if you need to keep some
+/// `g_task_new()` in the "start" method, followed by
+/// `g_task_set_task_data()` and the like if you need to keep some
 /// additional data associated with the task, and then pass the
 /// task object around through your asynchronous operation.
 /// Eventually, you will call a method such as
-/// g_task_return_pointer() or g_task_return_error(), which will
+/// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
-/// use g_task_propagate_pointer() or the like to extract the
+/// use `g_task_propagate_pointer()` or the like to extract the
 /// return value.
 /// 
 /// Here is an example for using GTask as a GAsyncResult:
@@ -11934,7 +11875,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///       if (radius < 3)
 ///         {
 ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,
-///                                    "`ucm` radius cakes are silly",
+///                                    "%ucm radius cakes are silly",
 ///                                    radius);
 ///           g_object_unref (task);
 ///           return;
@@ -11968,21 +11909,21 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Chained asynchronous operations
+/// ```` Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
-/// operations. g_task_get_cancellable(), g_task_get_context(),
-/// and g_task_get_priority() allow you to get back the task's
+/// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
+/// and `g_task_get_priority()` allow you to get back the task's
 /// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
 /// when starting a new subtask, so you don't have to keep track
-/// of them yourself. g_task_attach_source() simplifies the case
+/// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
 /// `GMainContext` and priority).
 /// 
 /// Here is an example for chained asynchronous operations:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       Cake *cake;
@@ -12066,7 +12007,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///           GSource *source;
 /// 
 ///           source = cake_decorator_wait_source_new (cake);
-///           // Attach `source` to `task`'s GMainContext and have it call
+///           // Attach @source to @task's GMainContext and have it call
 ///           // decorator_ready() when it is ready.
 ///           g_task_attach_source (task, source, decorator_ready);
 ///           g_source_unref (source);
@@ -12109,17 +12050,17 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
+/// ```` Asynchronous operations from synchronous ones
 /// 
-/// ``` Asynchronous operations from synchronous ones
-/// 
-/// You can use g_task_run_in_thread() to turn a synchronous
+/// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       guint radius;
@@ -12190,12 +12131,11 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
+/// ```` Adding cancellability to uncancellable tasks
 /// 
-/// ``` Adding cancellability to uncancellable tasks
-/// 
-/// Finally, g_task_run_in_thread() and g_task_run_in_thread_sync()
+/// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
-/// cancellable one. If you call g_task_set_return_on_cancel(),
+/// cancellable one. If you call `g_task_set_return_on_cancel()`,
 /// passing `true`, then if the task's `GCancellable` is cancelled,
 /// it will return control back to the caller immediately, while
 /// allowing the task thread to continue running in the background
@@ -12206,7 +12146,8 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 /// synchronous variants of blocking APIs.
 /// 
 /// Cancelling a task:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     static void
 ///     bake_cake_thread (GTask         *task,
@@ -12231,8 +12172,8 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///       // If the task has already been cancelled, then we don't want to add
 ///       // the cake to the cake cache. Likewise, we don't  want to have the
 ///       // task get cancelled in the middle of updating the cache.
-///       // g_task_set_return_on_cancel() will return `true` here if it managed
-///       // to disable return-on-cancel, or `false` if the task was cancelled
+///       // g_task_set_return_on_cancel() will return %TRUE here if it managed
+///       // to disable return-on-cancel, or %FALSE if the task was cancelled
 ///       // before it could.
 ///       if (g_task_set_return_on_cancel (task, FALSE))
 ///         {
@@ -12298,34 +12239,33 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Porting from GSimpleAsyncResult
+/// ```` Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
-/// - You can save task-specific data with g_task_set_task_data(), and
-///   retrieve it later with g_task_get_task_data(). This replaces the
-///   abuse of g_simple_async_result_set_op_res_gpointer() for the same
+/// - You can save task-specific data with `g_task_set_task_data()`, and
+///   retrieve it later with `g_task_get_task_data()`. This replaces the
+///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
 ///   [priority][io-priority], `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
-/// - g_task_return_error_if_cancelled() provides simplified
+/// - `g_task_return_error_if_cancelled()` provides simplified
 ///   handling for cancellation. In addition, cancellation
 ///   overrides any other `GTask` return value by default, like
 ///   `GSimpleAsyncResult` does when
-///   g_simple_async_result_set_check_cancellable() is called.
-///   (You can use g_task_set_check_cancellable() to turn off that
-///   behavior.) On the other hand, g_task_run_in_thread()
+///   `g_simple_async_result_set_check_cancellable()` is called.
+///   (You can use `g_task_set_check_cancellable()` to turn off that
+///   behavior.) On the other hand, `g_task_run_in_thread()`
 ///   guarantees that it will always run your
 ///   `task_func`, even if the task's `GCancellable`
 ///   is already cancelled before the task gets a chance to run;
 ///   you can start your `task_func` with a
-///   g_task_return_error_if_cancelled() check if you need the
+///   `g_task_return_error_if_cancelled()` check if you need the
 ///   old behavior.
-/// - The "return" methods (eg, g_task_return_pointer())
+/// - The "return" methods (eg, `g_task_return_pointer()`)
 ///   automatically cause the task to be "completed" as well, and
 ///   there is no need to worry about the "complete" vs "complete
 ///   in idle" distinction. (`GTask` automatically figures out
@@ -12334,13 +12274,13 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///   until the next iteration of the current `GMainContext`.)
 /// - The "finish" functions for `GTask` based operations are generally
 ///   much simpler than `GSimpleAsyncResult` ones, normally consisting
-///   of only a single call to g_task_propagate_pointer() or the like.
-///   Since g_task_propagate_pointer() "steals" the return value from
+///   of only a single call to `g_task_propagate_pointer()` or the like.
+///   Since `g_task_propagate_pointer()` "steals" the return value from
 ///   the `GTask`, it is not necessary to juggle pointers around to
 ///   prevent it from being freed twice.
 /// - With `GSimpleAsyncResult`, it was common to call
-///   g_simple_async_result_propagate_error() from the
-///   `_finish()` wrapper function, and have
+///   `g_simple_async_result_propagate_error()` from the
+///   ``_finish()`` wrapper function, and have
 ///   virtual method implementations only deal with successful
 ///   returns. This behavior is deprecated, because it makes it
 ///   difficult for a subclass to chain to a parent class's async
@@ -12348,12 +12288,12 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///   simple wrapper, and the virtual method should call an
 ///   appropriate `g_task_propagate_` function.
 ///   Note that wrapper methods can now use
-///   g_async_result_legacy_propagate_error() to do old-style
+///   `g_async_result_legacy_propagate_error()` to do old-style
 ///   `GSimpleAsyncResult` error-returning behavior, and
-///   g_async_result_is_tagged() to check if a result is tagged as
-///   having come from the `_async()` wrapper
+///   `g_async_result_is_tagged()` to check if a result is tagged as
+///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
-///   0 to g_input_stream_read_async()).
+///   0 to `g_input_stream_read_async()`).
 public struct TaskRef: TaskProtocol {
     /// Untyped pointer to the underlying `GTask` instance.
     /// For type-safe access, use the generated, typed pointer `task_ptr` property instead.
@@ -12406,8 +12346,8 @@ public extension TaskRef {
     /// 
     /// Call this in the "start" method of your asynchronous method, and
     /// pass the `GTask` around throughout the asynchronous operation. You
-    /// can use g_task_set_task_data() to attach task-specific data to the
-    /// object, which you can retrieve later via g_task_get_task_data().
+    /// can use `g_task_set_task_data()` to attach task-specific data to the
+    /// object, which you can retrieve later via `g_task_get_task_data()`.
     /// 
     /// By default, if `cancellable` is cancelled, then the return value of
     /// the task will always be `G_IO_ERROR_CANCELLED`, even if the task had
@@ -12415,7 +12355,7 @@ public extension TaskRef {
     /// simplified handling in cases where cancellation may imply that
     /// other objects that the task depends on have been destroyed. If you
     /// do not want this behavior, you can use
-    /// g_task_set_check_cancellable() to change it.
+    /// `g_task_set_check_cancellable()` to change it.
     init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
         let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
         self.init(cast(rv))
@@ -12428,23 +12368,23 @@ public extension TaskRef {
 ///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
-/// ``` Asynchronous operations
+/// ```` Asynchronous operations
 /// 
 /// The most common usage of `GTask` is as a `GAsyncResult`, to
 /// manage data during an asynchronous operation. You call
-/// g_task_new() in the "start" method, followed by
-/// g_task_set_task_data() and the like if you need to keep some
+/// `g_task_new()` in the "start" method, followed by
+/// `g_task_set_task_data()` and the like if you need to keep some
 /// additional data associated with the task, and then pass the
 /// task object around through your asynchronous operation.
 /// Eventually, you will call a method such as
-/// g_task_return_pointer() or g_task_return_error(), which will
+/// `g_task_return_pointer()` or `g_task_return_error()`, which will
 /// save the value you give it and then invoke the task's callback
 /// function in the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where it was created (waiting until the next iteration of the main
 /// loop first, if necessary). The caller will pass the `GTask` back to
 /// the operation's finish function (as a `GAsyncResult`), and you can
-/// use g_task_propagate_pointer() or the like to extract the
+/// use `g_task_propagate_pointer()` or the like to extract the
 /// return value.
 /// 
 /// Here is an example for using GTask as a GAsyncResult:
@@ -12509,7 +12449,7 @@ public extension TaskRef {
 ///       if (radius < 3)
 ///         {
 ///           g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,
-///                                    "`ucm` radius cakes are silly",
+///                                    "%ucm radius cakes are silly",
 ///                                    radius);
 ///           g_object_unref (task);
 ///           return;
@@ -12543,21 +12483,21 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Chained asynchronous operations
+/// ```` Chained asynchronous operations
 /// 
 /// `GTask` also tries to simplify asynchronous operations that
 /// internally chain together several smaller asynchronous
-/// operations. g_task_get_cancellable(), g_task_get_context(),
-/// and g_task_get_priority() allow you to get back the task's
+/// operations. `g_task_get_cancellable()`, `g_task_get_context()`,
+/// and `g_task_get_priority()` allow you to get back the task's
 /// `GCancellable`, `GMainContext`, and [I/O priority][io-priority]
 /// when starting a new subtask, so you don't have to keep track
-/// of them yourself. g_task_attach_source() simplifies the case
+/// of them yourself. `g_task_attach_source()` simplifies the case
 /// of waiting for a source to fire (automatically using the correct
 /// `GMainContext` and priority).
 /// 
 /// Here is an example for chained asynchronous operations:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       Cake *cake;
@@ -12641,7 +12581,7 @@ public extension TaskRef {
 ///           GSource *source;
 /// 
 ///           source = cake_decorator_wait_source_new (cake);
-///           // Attach `source` to `task`'s GMainContext and have it call
+///           // Attach @source to @task's GMainContext and have it call
 ///           // decorator_ready() when it is ready.
 ///           g_task_attach_source (task, source, decorator_ready);
 ///           g_source_unref (source);
@@ -12684,17 +12624,17 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
+/// ```` Asynchronous operations from synchronous ones
 /// 
-/// ``` Asynchronous operations from synchronous ones
-/// 
-/// You can use g_task_run_in_thread() to turn a synchronous
+/// You can use `g_task_run_in_thread()` to turn a synchronous
 /// operation into an asynchronous one, by running it in a thread.
 /// When it completes, the result will be dispatched to the
 /// [thread-default main context][g-main-context-push-thread-default]
 /// where the `GTask` was created.
 /// 
 /// Running a task in a thread:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     typedef struct {
 ///       guint radius;
@@ -12765,12 +12705,11 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
+/// ```` Adding cancellability to uncancellable tasks
 /// 
-/// ``` Adding cancellability to uncancellable tasks
-/// 
-/// Finally, g_task_run_in_thread() and g_task_run_in_thread_sync()
+/// Finally, `g_task_run_in_thread()` and `g_task_run_in_thread_sync()`
 /// can be used to turn an uncancellable operation into a
-/// cancellable one. If you call g_task_set_return_on_cancel(),
+/// cancellable one. If you call `g_task_set_return_on_cancel()`,
 /// passing `true`, then if the task's `GCancellable` is cancelled,
 /// it will return control back to the caller immediately, while
 /// allowing the task thread to continue running in the background
@@ -12781,7 +12720,8 @@ public extension TaskRef {
 /// synchronous variants of blocking APIs.
 /// 
 /// Cancelling a task:
-///   (C Language Example):
+///   
+/// (C Language Example):
 /// ```C
 ///     static void
 ///     bake_cake_thread (GTask         *task,
@@ -12806,8 +12746,8 @@ public extension TaskRef {
 ///       // If the task has already been cancelled, then we don't want to add
 ///       // the cake to the cake cache. Likewise, we don't  want to have the
 ///       // task get cancelled in the middle of updating the cache.
-///       // g_task_set_return_on_cancel() will return `true` here if it managed
-///       // to disable return-on-cancel, or `false` if the task was cancelled
+///       // g_task_set_return_on_cancel() will return %TRUE here if it managed
+///       // to disable return-on-cancel, or %FALSE if the task was cancelled
 ///       // before it could.
 ///       if (g_task_set_return_on_cancel (task, FALSE))
 ///         {
@@ -12873,34 +12813,33 @@ public extension TaskRef {
 ///     }
 /// ```
 /// 
-/// 
-/// ``` Porting from GSimpleAsyncResult
+/// ```` Porting from GSimpleAsyncResult
 /// 
 /// `GTask`'s API attempts to be simpler than `GSimpleAsyncResult`'s
 /// in several ways:
-/// - You can save task-specific data with g_task_set_task_data(), and
-///   retrieve it later with g_task_get_task_data(). This replaces the
-///   abuse of g_simple_async_result_set_op_res_gpointer() for the same
+/// - You can save task-specific data with `g_task_set_task_data()`, and
+///   retrieve it later with `g_task_get_task_data()`. This replaces the
+///   abuse of `g_simple_async_result_set_op_res_gpointer()` for the same
 ///   purpose with `GSimpleAsyncResult`.
 /// - In addition to the task data, `GTask` also keeps track of the
 ///   [priority][io-priority], `GCancellable`, and
 ///   `GMainContext` associated with the task, so tasks that consist of
 ///   a chain of simpler asynchronous operations will have easy access
 ///   to those values when starting each sub-task.
-/// - g_task_return_error_if_cancelled() provides simplified
+/// - `g_task_return_error_if_cancelled()` provides simplified
 ///   handling for cancellation. In addition, cancellation
 ///   overrides any other `GTask` return value by default, like
 ///   `GSimpleAsyncResult` does when
-///   g_simple_async_result_set_check_cancellable() is called.
-///   (You can use g_task_set_check_cancellable() to turn off that
-///   behavior.) On the other hand, g_task_run_in_thread()
+///   `g_simple_async_result_set_check_cancellable()` is called.
+///   (You can use `g_task_set_check_cancellable()` to turn off that
+///   behavior.) On the other hand, `g_task_run_in_thread()`
 ///   guarantees that it will always run your
 ///   `task_func`, even if the task's `GCancellable`
 ///   is already cancelled before the task gets a chance to run;
 ///   you can start your `task_func` with a
-///   g_task_return_error_if_cancelled() check if you need the
+///   `g_task_return_error_if_cancelled()` check if you need the
 ///   old behavior.
-/// - The "return" methods (eg, g_task_return_pointer())
+/// - The "return" methods (eg, `g_task_return_pointer()`)
 ///   automatically cause the task to be "completed" as well, and
 ///   there is no need to worry about the "complete" vs "complete
 ///   in idle" distinction. (`GTask` automatically figures out
@@ -12909,13 +12848,13 @@ public extension TaskRef {
 ///   until the next iteration of the current `GMainContext`.)
 /// - The "finish" functions for `GTask` based operations are generally
 ///   much simpler than `GSimpleAsyncResult` ones, normally consisting
-///   of only a single call to g_task_propagate_pointer() or the like.
-///   Since g_task_propagate_pointer() "steals" the return value from
+///   of only a single call to `g_task_propagate_pointer()` or the like.
+///   Since `g_task_propagate_pointer()` "steals" the return value from
 ///   the `GTask`, it is not necessary to juggle pointers around to
 ///   prevent it from being freed twice.
 /// - With `GSimpleAsyncResult`, it was common to call
-///   g_simple_async_result_propagate_error() from the
-///   `_finish()` wrapper function, and have
+///   `g_simple_async_result_propagate_error()` from the
+///   ``_finish()`` wrapper function, and have
 ///   virtual method implementations only deal with successful
 ///   returns. This behavior is deprecated, because it makes it
 ///   difficult for a subclass to chain to a parent class's async
@@ -12923,12 +12862,12 @@ public extension TaskRef {
 ///   simple wrapper, and the virtual method should call an
 ///   appropriate `g_task_propagate_` function.
 ///   Note that wrapper methods can now use
-///   g_async_result_legacy_propagate_error() to do old-style
+///   `g_async_result_legacy_propagate_error()` to do old-style
 ///   `GSimpleAsyncResult` error-returning behavior, and
-///   g_async_result_is_tagged() to check if a result is tagged as
-///   having come from the `_async()` wrapper
+///   `g_async_result_is_tagged()` to check if a result is tagged as
+///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
-///   0 to g_input_stream_read_async()).
+///   0 to `g_input_stream_read_async()`).
 open class Task: Object, TaskProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Task` instance.
@@ -12973,8 +12912,8 @@ open class Task: Object, TaskProtocol {
     /// 
     /// Call this in the "start" method of your asynchronous method, and
     /// pass the `GTask` around throughout the asynchronous operation. You
-    /// can use g_task_set_task_data() to attach task-specific data to the
-    /// object, which you can retrieve later via g_task_get_task_data().
+    /// can use `g_task_set_task_data()` to attach task-specific data to the
+    /// object, which you can retrieve later via `g_task_get_task_data()`.
     /// 
     /// By default, if `cancellable` is cancelled, then the return value of
     /// the task will always be `G_IO_ERROR_CANCELLED`, even if the task had
@@ -12982,7 +12921,7 @@ open class Task: Object, TaskProtocol {
     /// simplified handling in cases where cancellation may imply that
     /// other objects that the task depends on have been destroyed. If you
     /// do not want this behavior, you can use
-    /// g_task_set_check_cancellable() to change it.
+    /// `g_task_set_check_cancellable()` to change it.
     public convenience init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
         let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
         self.init(cast(rv))
@@ -12993,13 +12932,13 @@ open class Task: Object, TaskProtocol {
 
 public enum TaskPropertyName: String, PropertyNameProtocol {
     /// Whether the task has completed, meaning its callback (if set) has been
-    /// invoked. This can only happen after g_task_return_pointer(),
-    /// g_task_return_error() or one of the other return functions have been called
+    /// invoked. This can only happen after `g_task_return_pointer()`,
+    /// `g_task_return_error()` or one of the other return functions have been called
     /// on the task.
     /// 
     /// This property is guaranteed to change from `false` to `true` exactly once.
     /// 
-    /// The `GObject`::notify signal for this change is emitted in the same main
+    /// The `GObject::notify` signal for this change is emitted in the same main
     /// context as the task’s callback, immediately after that callback is invoked.
     case completed = "completed"
 }
@@ -13042,39 +12981,38 @@ public extension TaskProtocol {
 
 public enum TaskSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// Whether the task has completed, meaning its callback (if set) has been
-    /// invoked. This can only happen after g_task_return_pointer(),
-    /// g_task_return_error() or one of the other return functions have been called
+    /// invoked. This can only happen after `g_task_return_pointer()`,
+    /// `g_task_return_error()` or one of the other return functions have been called
     /// on the task.
     /// 
     /// This property is guaranteed to change from `false` to `true` exactly once.
     /// 
-    /// The `GObject`::notify signal for this change is emitted in the same main
+    /// The `GObject::notify` signal for this change is emitted in the same main
     /// context as the task’s callback, immediately after that callback is invoked.
     case notifyCompleted = "notify::completed"
 }
@@ -13117,7 +13055,7 @@ public extension TaskProtocol {
     /// callback to `callback`, with `task` as the callback's `user_data`.
     /// 
     /// It will set the `source`’s name to the task’s name (as set with
-    /// g_task_set_name()), if one has been set.
+    /// `g_task_set_name()`), if one has been set.
     /// 
     /// This takes a reference on `task` until `source` is destroyed.
     func attach(source: SourceProtocol, callback: @escaping GLib.SourceFunc) {
@@ -13132,13 +13070,13 @@ public extension TaskProtocol {
     }
 
     /// Gets `task`'s check-cancellable flag. See
-    /// g_task_set_check_cancellable() for more details.
+    /// `g_task_set_check_cancellable()` for more details.
     func getCheckCancellable() -> Bool {
         let rv = g_task_get_check_cancellable(cast(task_ptr))
         return Bool(rv != 0)
     }
 
-    /// Gets the value of `GTask`:completed. This changes from `false` to `true` after
+    /// Gets the value of `GTask:completed`. This changes from `false` to `true` after
     /// the task’s callback is invoked, and will return `false` if called from inside
     /// the callback.
     func getCompleted() -> Bool {
@@ -13158,7 +13096,7 @@ public extension TaskProtocol {
         return cast(rv)
     }
 
-    /// Gets `task`’s name. See g_task_set_name().
+    /// Gets `task`’s name. See `g_task_set_name()`.
     func getName() -> String! {
         let rv = g_task_get_name(cast(task_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -13171,20 +13109,20 @@ public extension TaskProtocol {
     }
 
     /// Gets `task`'s return-on-cancel flag. See
-    /// g_task_set_return_on_cancel() for more details.
+    /// `g_task_set_return_on_cancel()` for more details.
     func getReturnOnCancel() -> Bool {
         let rv = g_task_get_return_on_cancel(cast(task_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets the source object from `task`. Like
-    /// g_async_result_get_source_object(), but does not ref the object.
+    /// `g_async_result_get_source_object()`, but does not ref the object.
     func getSourceObject() -> UnsafeMutableRawPointer! {
         let rv = g_task_get_source_object(cast(task_ptr))
         return cast(rv)
     }
 
-    /// Gets `task`'s source tag. See g_task_set_source_tag().
+    /// Gets `task`'s source tag. See `g_task_set_source_tag()`.
     func getSourceTag() -> UnsafeMutableRawPointer! {
         let rv = g_task_get_source_tag(cast(task_ptr))
         return cast(rv)
@@ -13252,7 +13190,7 @@ public extension TaskProtocol {
     }
 
     /// Sets `task`'s result to `result` and completes the task (see
-    /// g_task_return_pointer() for more discussion of exactly what this
+    /// `g_task_return_pointer()` for more discussion of exactly what this
     /// means).
     func returnBoolean(result: Bool) {
         g_task_return_boolean(cast(task_ptr), gboolean(result ? 1 : 0))
@@ -13260,16 +13198,16 @@ public extension TaskProtocol {
     }
 
     /// Sets `task`'s result to `error` (which `task` assumes ownership of)
-    /// and completes the task (see g_task_return_pointer() for more
+    /// and completes the task (see `g_task_return_pointer()` for more
     /// discussion of exactly what this means).
     /// 
     /// Note that since the task takes ownership of `error`, and since the
-    /// task may be completed before returning from g_task_return_error(),
+    /// task may be completed before returning from `g_task_return_error()`,
     /// you cannot assume that `error` is still valid after calling this.
-    /// Call g_error_copy() on the error if you need to keep a local copy
+    /// Call `g_error_copy()` on the error if you need to keep a local copy
     /// as well.
     /// 
-    /// See also g_task_return_new_error().
+    /// See also `g_task_return_new_error()`.
     func return_(error: ErrorTypeProtocol) {
         g_task_return_error(cast(task_ptr), cast(error.ptr))
     
@@ -13277,7 +13215,7 @@ public extension TaskProtocol {
 
     /// Checks if `task`'s `GCancellable` has been cancelled, and if so, sets
     /// `task`'s error accordingly and completes the task (see
-    /// g_task_return_pointer() for more discussion of exactly what this
+    /// `g_task_return_pointer()` for more discussion of exactly what this
     /// means).
     func returnErrorIfCancelled() -> Bool {
         let rv = g_task_return_error_if_cancelled(cast(task_ptr))
@@ -13285,7 +13223,7 @@ public extension TaskProtocol {
     }
 
     /// Sets `task`'s result to `result` and completes the task (see
-    /// g_task_return_pointer() for more discussion of exactly what this
+    /// `g_task_return_pointer()` for more discussion of exactly what this
     /// means).
     func returnInt(result: gssize) {
         g_task_return_int(cast(task_ptr), result)
@@ -13299,19 +13237,19 @@ public extension TaskProtocol {
     /// Sets `task`'s result to `result` and completes the task. If `result`
     /// is not `nil`, then `result_destroy` will be used to free `result` if
     /// the caller does not take ownership of it with
-    /// g_task_propagate_pointer().
+    /// `g_task_propagate_pointer()`.
     /// 
     /// "Completes the task" means that for an ordinary asynchronous task
     /// it will either invoke the task's callback, or else queue that
     /// callback to be invoked in the proper `GMainContext`, or in the next
     /// iteration of the current `GMainContext`. For a task run via
-    /// g_task_run_in_thread() or g_task_run_in_thread_sync(), calling this
+    /// `g_task_run_in_thread()` or `g_task_run_in_thread_sync()`, calling this
     /// method will save `result` to be returned to the caller later, but
     /// the task will not actually be completed until the `GTaskThreadFunc`
     /// exits.
     /// 
     /// Note that since the task may be completed before returning from
-    /// g_task_return_pointer(), you cannot assume that `result` is still
+    /// `g_task_return_pointer()`, you cannot assume that `result` is still
     /// valid after calling this, unless you are still holding another
     /// reference on it.
     func returnPointer(result: UnsafeMutableRawPointer, resultDestroy result_destroy: @escaping GLib.DestroyNotify) {
@@ -13327,7 +13265,7 @@ public extension TaskProtocol {
     /// See `GTaskThreadFunc` for more details about how `task_func` is handled.
     /// 
     /// Although GLib currently rate-limits the tasks queued via
-    /// g_task_run_in_thread(), you should not assume that it will always
+    /// `g_task_run_in_thread()`, you should not assume that it will always
     /// do this. If you have a very large number of tasks to run, but don't
     /// want them to all run at once, you should only queue a limited
     /// number of them at a time.
@@ -13337,7 +13275,7 @@ public extension TaskProtocol {
     }
 
     /// Runs `task_func` in another thread, and waits for it to return or be
-    /// cancelled. You can use g_task_propagate_pointer(), etc, afterward
+    /// cancelled. You can use `g_task_propagate_pointer()`, etc, afterward
     /// to get the result of `task_func`.
     /// 
     /// See `GTaskThreadFunc` for more details about how `task_func` is handled.
@@ -13345,10 +13283,10 @@ public extension TaskProtocol {
     /// Normally this is used with tasks created with a `nil`
     /// `callback`, but note that even if the task does
     /// have a callback, it will not be invoked when `task_func` returns.
-    /// `GTask`:completed will be set to `true` just before this function returns.
+    /// `GTask:completed` will be set to `true` just before this function returns.
     /// 
     /// Although GLib currently rate-limits the tasks queued via
-    /// g_task_run_in_thread_sync(), you should not assume that it will
+    /// `g_task_run_in_thread_sync()`, you should not assume that it will
     /// always do this. If you have a very large number of tasks to run,
     /// but don't want them to all run at once, you should only queue a
     /// limited number of them at a time.
@@ -13358,8 +13296,8 @@ public extension TaskProtocol {
     }
 
     /// Sets or clears `task`'s check-cancellable flag. If this is `true`
-    /// (the default), then g_task_propagate_pointer(), etc, and
-    /// g_task_had_error() will check the task's `GCancellable` first, and
+    /// (the default), then `g_task_propagate_pointer()`, etc, and
+    /// `g_task_had_error()` will check the task's `GCancellable` first, and
     /// if it has been cancelled, then they will consider the task to have
     /// returned an "Operation was cancelled" error
     /// (`G_IO_ERROR_CANCELLED`), regardless of any other error or return
@@ -13367,9 +13305,9 @@ public extension TaskProtocol {
     /// 
     /// If `check_cancellable` is `false`, then the `GTask` will not check the
     /// cancellable itself, and it is up to `task`'s owner to do this (eg,
-    /// via g_task_return_error_if_cancelled()).
+    /// via `g_task_return_error_if_cancelled()`).
     /// 
-    /// If you are using g_task_set_return_on_cancel() as well, then
+    /// If you are using `g_task_set_return_on_cancel()` as well, then
     /// you must leave check-cancellable set `true`.
     func set(checkCancellable check_cancellable: Bool) {
         g_task_set_check_cancellable(cast(task_ptr), gboolean(check_cancellable ? 1 : 0))
@@ -13394,40 +13332,40 @@ public extension TaskProtocol {
     /// `G_PRIORITY_DEFAULT`.
     /// 
     /// This will affect the priority of `GSources` created with
-    /// g_task_attach_source() and the scheduling of tasks run in threads,
+    /// `g_task_attach_source()` and the scheduling of tasks run in threads,
     /// and can also be explicitly retrieved later via
-    /// g_task_get_priority().
+    /// `g_task_get_priority()`.
     func set(priority: CInt) {
         g_task_set_priority(cast(task_ptr), gint(priority))
     
     }
 
     /// Sets or clears `task`'s return-on-cancel flag. This is only
-    /// meaningful for tasks run via g_task_run_in_thread() or
-    /// g_task_run_in_thread_sync().
+    /// meaningful for tasks run via `g_task_run_in_thread()` or
+    /// `g_task_run_in_thread_sync()`.
     /// 
     /// If `return_on_cancel` is `true`, then cancelling `task`'s
     /// `GCancellable` will immediately cause it to return, as though the
     /// task's `GTaskThreadFunc` had called
-    /// g_task_return_error_if_cancelled() and then returned.
+    /// `g_task_return_error_if_cancelled()` and then returned.
     /// 
     /// This allows you to create a cancellable wrapper around an
     /// uninterruptable function. The `GTaskThreadFunc` just needs to be
     /// careful that it does not modify any externally-visible state after
     /// it has been cancelled. To do that, the thread should call
-    /// g_task_set_return_on_cancel() again to (atomically) set
+    /// `g_task_set_return_on_cancel()` again to (atomically) set
     /// return-on-cancel `false` before making externally-visible changes;
     /// if the task gets cancelled before the return-on-cancel flag could
-    /// be changed, g_task_set_return_on_cancel() will indicate this by
+    /// be changed, `g_task_set_return_on_cancel()` will indicate this by
     /// returning `false`.
     /// 
     /// You can disable and re-enable this flag multiple times if you wish.
     /// If the task's `GCancellable` is cancelled while return-on-cancel is
-    /// `false`, then calling g_task_set_return_on_cancel() to set it `true`
+    /// `false`, then calling `g_task_set_return_on_cancel()` to set it `true`
     /// again will cause the task to be cancelled at that point.
     /// 
     /// If the task's `GCancellable` is already cancelled before you call
-    /// g_task_run_in_thread()/g_task_run_in_thread_sync(), then the
+    /// `g_task_run_in_thread()``/g_task_run_in_thread_sync()`, then the
     /// `GTaskThreadFunc` will still be run (for consistency), but the task
     /// will also be completed right away.
     func set(returnOnCancel return_on_cancel: Bool) -> Bool {
@@ -13438,7 +13376,7 @@ public extension TaskProtocol {
     /// Sets `task`'s source tag. You can use this to tag a task return
     /// value with a particular pointer (usually a pointer to the function
     /// doing the tagging) and then later check it using
-    /// g_task_get_source_tag() (or g_async_result_is_tagged()) in the
+    /// `g_task_get_source_tag()` (or `g_async_result_is_tagged()`) in the
     /// task's "finish" function, to figure out if the response came from a
     /// particular place.
     func set(sourceTag source_tag: UnsafeMutableRawPointer) {
@@ -13461,17 +13399,17 @@ public extension TaskProtocol {
     }
 
     /// Gets `task`'s check-cancellable flag. See
-    /// g_task_set_check_cancellable() for more details.
+    /// `g_task_set_check_cancellable()` for more details.
     var checkCancellable: Bool {
         /// Gets `task`'s check-cancellable flag. See
-        /// g_task_set_check_cancellable() for more details.
+        /// `g_task_set_check_cancellable()` for more details.
         get {
             let rv = g_task_get_check_cancellable(cast(task_ptr))
             return Bool(rv != 0)
         }
         /// Sets or clears `task`'s check-cancellable flag. If this is `true`
-        /// (the default), then g_task_propagate_pointer(), etc, and
-        /// g_task_had_error() will check the task's `GCancellable` first, and
+        /// (the default), then `g_task_propagate_pointer()`, etc, and
+        /// `g_task_had_error()` will check the task's `GCancellable` first, and
         /// if it has been cancelled, then they will consider the task to have
         /// returned an "Operation was cancelled" error
         /// (`G_IO_ERROR_CANCELLED`), regardless of any other error or return
@@ -13479,9 +13417,9 @@ public extension TaskProtocol {
         /// 
         /// If `check_cancellable` is `false`, then the `GTask` will not check the
         /// cancellable itself, and it is up to `task`'s owner to do this (eg,
-        /// via g_task_return_error_if_cancelled()).
+        /// via `g_task_return_error_if_cancelled()`).
         /// 
-        /// If you are using g_task_set_return_on_cancel() as well, then
+        /// If you are using `g_task_set_return_on_cancel()` as well, then
         /// you must leave check-cancellable set `true`.
         nonmutating set {
             g_task_set_check_cancellable(cast(task_ptr), gboolean(newValue ? 1 : 0))
@@ -13489,16 +13427,16 @@ public extension TaskProtocol {
     }
 
     /// Whether the task has completed, meaning its callback (if set) has been
-    /// invoked. This can only happen after g_task_return_pointer(),
-    /// g_task_return_error() or one of the other return functions have been called
+    /// invoked. This can only happen after `g_task_return_pointer()`,
+    /// `g_task_return_error()` or one of the other return functions have been called
     /// on the task.
     /// 
     /// This property is guaranteed to change from `false` to `true` exactly once.
     /// 
-    /// The `GObject`::notify signal for this change is emitted in the same main
+    /// The `GObject::notify` signal for this change is emitted in the same main
     /// context as the task’s callback, immediately after that callback is invoked.
     var completed: Bool {
-        /// Gets the value of `GTask`:completed. This changes from `false` to `true` after
+        /// Gets the value of `GTask:completed`. This changes from `false` to `true` after
         /// the task’s callback is invoked, and will return `false` if called from inside
         /// the callback.
         get {
@@ -13528,9 +13466,9 @@ public extension TaskProtocol {
         }
     }
 
-    /// Gets `task`’s name. See g_task_set_name().
+    /// Gets `task`’s name. See `g_task_set_name()`.
     var name: String! {
-        /// Gets `task`’s name. See g_task_set_name().
+        /// Gets `task`’s name. See `g_task_set_name()`.
         get {
             let rv = g_task_get_name(cast(task_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -13560,49 +13498,49 @@ public extension TaskProtocol {
         /// `G_PRIORITY_DEFAULT`.
         /// 
         /// This will affect the priority of `GSources` created with
-        /// g_task_attach_source() and the scheduling of tasks run in threads,
+        /// `g_task_attach_source()` and the scheduling of tasks run in threads,
         /// and can also be explicitly retrieved later via
-        /// g_task_get_priority().
+        /// `g_task_get_priority()`.
         nonmutating set {
             g_task_set_priority(cast(task_ptr), gint(newValue))
         }
     }
 
     /// Gets `task`'s return-on-cancel flag. See
-    /// g_task_set_return_on_cancel() for more details.
+    /// `g_task_set_return_on_cancel()` for more details.
     var returnOnCancel: Bool {
         /// Gets `task`'s return-on-cancel flag. See
-        /// g_task_set_return_on_cancel() for more details.
+        /// `g_task_set_return_on_cancel()` for more details.
         get {
             let rv = g_task_get_return_on_cancel(cast(task_ptr))
             return Bool(rv != 0)
         }
         /// Sets or clears `task`'s return-on-cancel flag. This is only
-        /// meaningful for tasks run via g_task_run_in_thread() or
-        /// g_task_run_in_thread_sync().
+        /// meaningful for tasks run via `g_task_run_in_thread()` or
+        /// `g_task_run_in_thread_sync()`.
         /// 
         /// If `return_on_cancel` is `true`, then cancelling `task`'s
         /// `GCancellable` will immediately cause it to return, as though the
         /// task's `GTaskThreadFunc` had called
-        /// g_task_return_error_if_cancelled() and then returned.
+        /// `g_task_return_error_if_cancelled()` and then returned.
         /// 
         /// This allows you to create a cancellable wrapper around an
         /// uninterruptable function. The `GTaskThreadFunc` just needs to be
         /// careful that it does not modify any externally-visible state after
         /// it has been cancelled. To do that, the thread should call
-        /// g_task_set_return_on_cancel() again to (atomically) set
+        /// `g_task_set_return_on_cancel()` again to (atomically) set
         /// return-on-cancel `false` before making externally-visible changes;
         /// if the task gets cancelled before the return-on-cancel flag could
-        /// be changed, g_task_set_return_on_cancel() will indicate this by
+        /// be changed, `g_task_set_return_on_cancel()` will indicate this by
         /// returning `false`.
         /// 
         /// You can disable and re-enable this flag multiple times if you wish.
         /// If the task's `GCancellable` is cancelled while return-on-cancel is
-        /// `false`, then calling g_task_set_return_on_cancel() to set it `true`
+        /// `false`, then calling `g_task_set_return_on_cancel()` to set it `true`
         /// again will cause the task to be cancelled at that point.
         /// 
         /// If the task's `GCancellable` is already cancelled before you call
-        /// g_task_run_in_thread()/g_task_run_in_thread_sync(), then the
+        /// `g_task_run_in_thread()``/g_task_run_in_thread_sync()`, then the
         /// `GTaskThreadFunc` will still be run (for consistency), but the task
         /// will also be completed right away.
         nonmutating set {
@@ -13611,19 +13549,19 @@ public extension TaskProtocol {
     }
 
     /// Gets the source object from `task`. Like
-    /// g_async_result_get_source_object(), but does not ref the object.
+    /// `g_async_result_get_source_object()`, but does not ref the object.
     var sourceObject: UnsafeMutableRawPointer! {
         /// Gets the source object from `task`. Like
-        /// g_async_result_get_source_object(), but does not ref the object.
+        /// `g_async_result_get_source_object()`, but does not ref the object.
         get {
             let rv = g_task_get_source_object(cast(task_ptr))
             return cast(rv)
         }
     }
 
-    /// Gets `task`'s source tag. See g_task_set_source_tag().
+    /// Gets `task`'s source tag. See `g_task_set_source_tag()`.
     var sourceTag: UnsafeMutableRawPointer! {
-        /// Gets `task`'s source tag. See g_task_set_source_tag().
+        /// Gets `task`'s source tag. See `g_task_set_source_tag()`.
         get {
             let rv = g_task_get_source_tag(cast(task_ptr))
             return cast(rv)
@@ -13631,7 +13569,7 @@ public extension TaskProtocol {
         /// Sets `task`'s source tag. You can use this to tag a task return
         /// value with a particular pointer (usually a pointer to the function
         /// doing the tagging) and then later check it using
-        /// g_task_get_source_tag() (or g_async_result_is_tagged()) in the
+        /// `g_task_get_source_tag()` (or `g_async_result_is_tagged()`) in the
         /// task's "finish" function, to figure out if the response came from a
         /// particular place.
         nonmutating set {

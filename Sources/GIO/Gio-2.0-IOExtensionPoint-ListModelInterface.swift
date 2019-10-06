@@ -362,8 +362,8 @@ public extension IOModuleClassProtocol {
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
-/// The scope can be used with g_io_modules_load_all_in_directory_with_scope()
-/// or g_io_modules_scan_all_in_directory_with_scope().
+/// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
+/// or `g_io_modules_scan_all_in_directory_with_scope()`.
 public protocol IOModuleScopeProtocol {
     /// Untyped pointer to the underlying `GIOModuleScope` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -379,8 +379,8 @@ public protocol IOModuleScopeProtocol {
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
-/// The scope can be used with g_io_modules_load_all_in_directory_with_scope()
-/// or g_io_modules_scan_all_in_directory_with_scope().
+/// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
+/// or `g_io_modules_scan_all_in_directory_with_scope()`.
 public struct IOModuleScopeRef: IOModuleScopeProtocol {
     /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -436,8 +436,8 @@ public extension IOModuleScopeRef {
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
-/// The scope can be used with g_io_modules_load_all_in_directory_with_scope()
-/// or g_io_modules_scan_all_in_directory_with_scope().
+/// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
+/// or `g_io_modules_scan_all_in_directory_with_scope()`.
 open class IOModuleScope: IOModuleScopeProtocol {
     /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -499,8 +499,8 @@ public extension IOModuleScopeProtocol {
     var _ptr: UnsafeMutablePointer<GIOModuleScope> { return ptr.assumingMemoryBound(to: GIOModuleScope.self) }
 
     /// Block modules with the given `basename` from being loaded when
-    /// this scope is used with g_io_modules_scan_all_in_directory_with_scope()
-    /// or g_io_modules_load_all_in_directory_with_scope().
+    /// this scope is used with `g_io_modules_scan_all_in_directory_with_scope()`
+    /// or `g_io_modules_load_all_in_directory_with_scope()`.
     func block(basename: UnsafePointer<gchar>) {
         g_io_module_scope_block(cast(_ptr), basename)
     
@@ -515,7 +515,7 @@ public extension IOModuleScopeProtocol {
     /// Loads all the modules in the specified directory.
     /// 
     /// If don't require all modules to be initialized (and thus registering
-    /// all gtypes) then you can use g_io_modules_scan_all_in_directory()
+    /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
     /// which allows delayed/lazy loading of modules.
     func ioModulesLoadAllInDirectoryWithScope(dirname: UnsafePointer<gchar>) -> UnsafeMutablePointer<GList>! {
         let rv = g_io_modules_load_all_in_directory_with_scope(dirname, cast(_ptr))
@@ -528,11 +528,11 @@ public extension IOModuleScopeProtocol {
     /// This may not actually load and initialize all the types in each
     /// module, some modules may be lazily loaded and initialized when
     /// an extension point it implementes is used with e.g.
-    /// g_io_extension_point_get_extensions() or
-    /// g_io_extension_point_get_extension_by_name().
+    /// `g_io_extension_point_get_extensions()` or
+    /// `g_io_extension_point_get_extension_by_name()`.
     /// 
     /// If you need to guarantee that all types are loaded in all the modules,
-    /// use g_io_modules_load_all_in_directory().
+    /// use `g_io_modules_load_all_in_directory()`.
     func ioModulesScanAllInDirectoryWithScope(dirname: UnsafePointer<gchar>) {
         g_io_modules_scan_all_in_directory_with_scope(dirname, cast(_ptr))
     
@@ -691,10 +691,10 @@ public extension IOSchedulerJobProtocol {
     /// when the main loop is available, but at that time the I/O job might
     /// have finished. The return value from the callback is ignored.
     /// 
-    /// Note that if you are passing the `user_data` from g_io_scheduler_push_job()
+    /// Note that if you are passing the `user_data` from `g_io_scheduler_push_job()`
     /// on to this function you have to ensure that it is not freed before
     /// `func` is called, either by passing `nil` as `notify` to
-    /// g_io_scheduler_push_job() or by using refcounting for `user_data`.
+    /// `g_io_scheduler_push_job()` or by using refcounting for `user_data`.
     ///
     /// **send_to_mainloop_async is deprecated:**
     /// Use g_main_context_invoke().

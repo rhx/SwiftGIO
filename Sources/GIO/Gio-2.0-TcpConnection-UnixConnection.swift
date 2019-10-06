@@ -167,27 +167,26 @@ public extension TcpConnectionProtocol {
 
 public enum TcpConnectionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -232,7 +231,7 @@ public extension TcpConnectionProtocol {
     var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection> { return ptr.assumingMemoryBound(to: GTcpConnection.self) }
 
     /// Checks if graceful disconnects are used. See
-    /// g_tcp_connection_set_graceful_disconnect().
+    /// `g_tcp_connection_set_graceful_disconnect()`.
     func getGracefulDisconnect() -> Bool {
         let rv = g_tcp_connection_get_graceful_disconnect(cast(tcp_connection_ptr))
         return Bool(rv != 0)
@@ -252,10 +251,10 @@ public extension TcpConnectionProtocol {
     
     }
     /// Checks if graceful disconnects are used. See
-    /// g_tcp_connection_set_graceful_disconnect().
+    /// `g_tcp_connection_set_graceful_disconnect()`.
     var gracefulDisconnect: Bool {
         /// Checks if graceful disconnects are used. See
-        /// g_tcp_connection_set_graceful_disconnect().
+        /// `g_tcp_connection_set_graceful_disconnect()`.
         get {
             let rv = g_tcp_connection_get_graceful_disconnect(cast(tcp_connection_ptr))
             return Bool(rv != 0)
@@ -462,27 +461,26 @@ public extension TcpWrapperConnectionProtocol {
 
 public enum TcpWrapperConnectionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -554,13 +552,13 @@ public extension TcpWrapperConnectionProtocol {
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
-/// Note that `GTestDBus` modifies the user’s environment, calling setenv().
+/// Note that `GTestDBus` modifies the user’s environment, calling `setenv()`.
 /// This is not thread-safe, so all `GTestDBus` calls should be completed before
 /// threads are spawned, or should have appropriate locking to ensure no access
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ``` Creating unit tests using GTestDBus
+/// ```` Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -581,9 +579,8 @@ public extension TcpWrapperConnectionProtocol {
 /// ```
 ///     [D-BUS Service]
 ///     Name=org.gtk.GDBus.Examples.ObjectManager
-///     Exec=`abs_top_builddir``/gio/tests/gdbus-example-objectmanager-server
+///     Exec=@abs_top_builddir@/gio/tests/gdbus-example-objectmanager-server
 /// ```
-/// 
 /// You will also need to indicate this service directory in your test
 /// fixtures, so you will need to pass the path while compiling your
 /// test cases. Typically this is done with autotools with an added
@@ -591,7 +588,6 @@ public extension TcpWrapperConnectionProtocol {
 /// ```
 ///     -DTEST_SERVICES=\""$(abs_top_builddir)/tests/services"\"
 /// ```
-/// 
 ///     Once you have a service definition file which is local to your source tree,
 /// you can proceed to set up a GTest fixture using the `GTestDBus` scaffolding.
 /// 
@@ -614,7 +610,7 @@ public extension TcpWrapperConnectionProtocol {
 /// a practical place to help sandbox your runtime environment. For the
 /// rather typical GSettings case we can work around this by setting
 /// `GSETTINGS_SCHEMA_DIR` to the in tree directory holding your schemas
-/// in the above fixture_setup() routine.
+/// in the above `fixture_setup()` routine.
 /// 
 /// The GSettings schemas need to be locally pre-compiled for this to work. This can be achieved
 /// by compiling the schemas locally as a step before running test cases, an autotools setup might
@@ -641,13 +637,13 @@ public protocol TestDBusProtocol: ObjectProtocol {
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
-/// Note that `GTestDBus` modifies the user’s environment, calling setenv().
+/// Note that `GTestDBus` modifies the user’s environment, calling `setenv()`.
 /// This is not thread-safe, so all `GTestDBus` calls should be completed before
 /// threads are spawned, or should have appropriate locking to ensure no access
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ``` Creating unit tests using GTestDBus
+/// ```` Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -668,9 +664,8 @@ public protocol TestDBusProtocol: ObjectProtocol {
 /// ```
 ///     [D-BUS Service]
 ///     Name=org.gtk.GDBus.Examples.ObjectManager
-///     Exec=`abs_top_builddir``/gio/tests/gdbus-example-objectmanager-server
+///     Exec=@abs_top_builddir@/gio/tests/gdbus-example-objectmanager-server
 /// ```
-/// 
 /// You will also need to indicate this service directory in your test
 /// fixtures, so you will need to pass the path while compiling your
 /// test cases. Typically this is done with autotools with an added
@@ -678,7 +673,6 @@ public protocol TestDBusProtocol: ObjectProtocol {
 /// ```
 ///     -DTEST_SERVICES=\""$(abs_top_builddir)/tests/services"\"
 /// ```
-/// 
 ///     Once you have a service definition file which is local to your source tree,
 /// you can proceed to set up a GTest fixture using the `GTestDBus` scaffolding.
 /// 
@@ -701,7 +695,7 @@ public protocol TestDBusProtocol: ObjectProtocol {
 /// a practical place to help sandbox your runtime environment. For the
 /// rather typical GSettings case we can work around this by setting
 /// `GSETTINGS_SCHEMA_DIR` to the in tree directory holding your schemas
-/// in the above fixture_setup() routine.
+/// in the above `fixture_setup()` routine.
 /// 
 /// The GSettings schemas need to be locally pre-compiled for this to work. This can be achieved
 /// by compiling the schemas locally as a step before running test cases, an autotools setup might
@@ -773,13 +767,13 @@ public extension TestDBusRef {
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
-/// Note that `GTestDBus` modifies the user’s environment, calling setenv().
+/// Note that `GTestDBus` modifies the user’s environment, calling `setenv()`.
 /// This is not thread-safe, so all `GTestDBus` calls should be completed before
 /// threads are spawned, or should have appropriate locking to ensure no access
 /// conflicts to environment variables shared between `GTestDBus` and other
 /// threads.
 /// 
-/// ``` Creating unit tests using GTestDBus
+/// ```` Creating unit tests using GTestDBus
 /// 
 /// Testing of D-Bus services can be tricky because normally we only ever run
 /// D-Bus services over an existing instance of the D-Bus daemon thus we
@@ -800,9 +794,8 @@ public extension TestDBusRef {
 /// ```
 ///     [D-BUS Service]
 ///     Name=org.gtk.GDBus.Examples.ObjectManager
-///     Exec=`abs_top_builddir``/gio/tests/gdbus-example-objectmanager-server
+///     Exec=@abs_top_builddir@/gio/tests/gdbus-example-objectmanager-server
 /// ```
-/// 
 /// You will also need to indicate this service directory in your test
 /// fixtures, so you will need to pass the path while compiling your
 /// test cases. Typically this is done with autotools with an added
@@ -810,7 +803,6 @@ public extension TestDBusRef {
 /// ```
 ///     -DTEST_SERVICES=\""$(abs_top_builddir)/tests/services"\"
 /// ```
-/// 
 ///     Once you have a service definition file which is local to your source tree,
 /// you can proceed to set up a GTest fixture using the `GTestDBus` scaffolding.
 /// 
@@ -833,7 +825,7 @@ public extension TestDBusRef {
 /// a practical place to help sandbox your runtime environment. For the
 /// rather typical GSettings case we can work around this by setting
 /// `GSETTINGS_SCHEMA_DIR` to the in tree directory holding your schemas
-/// in the above fixture_setup() routine.
+/// in the above `fixture_setup()` routine.
 /// 
 /// The GSettings schemas need to be locally pre-compiled for this to work. This can be achieved
 /// by compiling the schemas locally as a step before running test cases, an autotools setup might
@@ -935,27 +927,26 @@ public extension TestDBusProtocol {
 
 public enum TestDBusSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -997,15 +988,15 @@ public extension TestDBusProtocol {
     var test_dbus_ptr: UnsafeMutablePointer<GTestDBus> { return ptr.assumingMemoryBound(to: GTestDBus.self) }
 
     /// Add a path where dbus-daemon will look up .service files. This can't be
-    /// called after g_test_dbus_up().
+    /// called after `g_test_dbus_up()`.
     func addServiceDir(path: UnsafePointer<gchar>) {
         g_test_dbus_add_service_dir(cast(test_dbus_ptr), path)
     
     }
 
-    /// Stop the session bus started by g_test_dbus_up().
+    /// Stop the session bus started by `g_test_dbus_up()`.
     /// 
-    /// This will wait for the singleton returned by g_bus_get() or g_bus_get_sync()
+    /// This will wait for the singleton returned by `g_bus_get()` or `g_bus_get_sync()`
     /// to be destroyed. This is done to ensure that the next unit test won't get a
     /// leaked singleton from this test.
     func down() {
@@ -1013,9 +1004,9 @@ public extension TestDBusProtocol {
     
     }
 
-    /// Get the address on which dbus-daemon is running. If g_test_dbus_up() has not
+    /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
     /// been called yet, `nil` is returned. This can be used with
-    /// g_dbus_connection_new_for_address().
+    /// `g_dbus_connection_new_for_address()`.
     func getBusAddress() -> String! {
         let rv = g_test_dbus_get_bus_address(cast(test_dbus_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1027,12 +1018,12 @@ public extension TestDBusProtocol {
         return rv
     }
 
-    /// Stop the session bus started by g_test_dbus_up().
+    /// Stop the session bus started by `g_test_dbus_up()`.
     /// 
-    /// Unlike g_test_dbus_down(), this won't verify the `GDBusConnection`
-    /// singleton returned by g_bus_get() or g_bus_get_sync() is destroyed. Unit
+    /// Unlike `g_test_dbus_down()`, this won't verify the `GDBusConnection`
+    /// singleton returned by `g_bus_get()` or `g_bus_get_sync()` is destroyed. Unit
     /// tests wanting to verify behaviour after the session bus has been stopped
-    /// can use this function but should still call g_test_dbus_down() when done.
+    /// can use this function but should still call `g_test_dbus_down()` when done.
     func stop() {
         g_test_dbus_stop(cast(test_dbus_ptr))
     
@@ -1041,22 +1032,22 @@ public extension TestDBusProtocol {
     /// Start a dbus-daemon instance and set DBUS_SESSION_BUS_ADDRESS. After this
     /// call, it is safe for unit tests to start sending messages on the session bus.
     /// 
-    /// If this function is called from setup callback of g_test_add(),
-    /// g_test_dbus_down() must be called in its teardown callback.
+    /// If this function is called from setup callback of `g_test_add()`,
+    /// `g_test_dbus_down()` must be called in its teardown callback.
     /// 
-    /// If this function is called from unit test's main(), then g_test_dbus_down()
-    /// must be called after g_test_run().
+    /// If this function is called from unit test's `main()`, then `g_test_dbus_down()`
+    /// must be called after `g_test_run()`.
     func up() {
         g_test_dbus_up(cast(test_dbus_ptr))
     
     }
-    /// Get the address on which dbus-daemon is running. If g_test_dbus_up() has not
+    /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
     /// been called yet, `nil` is returned. This can be used with
-    /// g_dbus_connection_new_for_address().
+    /// `g_dbus_connection_new_for_address()`.
     var busAddress: String! {
-        /// Get the address on which dbus-daemon is running. If g_test_dbus_up() has not
+        /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
         /// been called yet, `nil` is returned. This can be used with
-        /// g_dbus_connection_new_for_address().
+        /// `g_dbus_connection_new_for_address()`.
         get {
             let rv = g_test_dbus_get_bus_address(cast(test_dbus_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1086,7 +1077,7 @@ public extension TestDBusProtocol {
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
 /// not provide actual pixmaps for icons, just the icon names.
-/// IDeally something like gtk_icon_theme_choose_icon() should be used to
+/// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
 public protocol ThemedIconProtocol: ObjectProtocol, IconProtocol {
@@ -1105,7 +1096,7 @@ public protocol ThemedIconProtocol: ObjectProtocol, IconProtocol {
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
 /// not provide actual pixmaps for icons, just the icon names.
-/// IDeally something like gtk_icon_theme_choose_icon() should be used to
+/// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
 public struct ThemedIconRef: ThemedIconProtocol {
@@ -1224,7 +1215,7 @@ public extension ThemedIconRef {
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
 /// not provide actual pixmaps for icons, just the icon names.
-/// IDeally something like gtk_icon_theme_choose_icon() should be used to
+/// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
 open class ThemedIcon: Object, ThemedIconProtocol {
@@ -1392,27 +1383,26 @@ public extension ThemedIconProtocol {
 
 public enum ThemedIconSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -1476,7 +1466,7 @@ public extension ThemedIconProtocol {
     /// Append a name to the list of icons from within `icon`.
     /// 
     /// Note that doing so invalidates the hash computed by prior calls
-    /// to g_icon_hash().
+    /// to `g_icon_hash()`.
     func appendName(iconname: UnsafePointer<CChar>) {
         g_themed_icon_append_name(cast(themed_icon_ptr), iconname)
     
@@ -1491,7 +1481,7 @@ public extension ThemedIconProtocol {
     /// Prepend a name to the list of icons from within `icon`.
     /// 
     /// Note that doing so invalidates the hash computed by prior calls
-    /// to g_icon_hash().
+    /// to `g_icon_hash()`.
     func prependName(iconname: UnsafePointer<CChar>) {
         g_themed_icon_prepend_name(cast(themed_icon_ptr), iconname)
     
@@ -1518,7 +1508,7 @@ public extension ThemedIconProtocol {
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
-/// `GThreadedSocketService`::run signal in the new thread.
+/// `GThreadedSocketService::run` signal in the new thread.
 /// 
 /// The signal handler may perform blocking IO and need not return
 /// until the connection is closed.
@@ -1528,7 +1518,7 @@ public extension ThemedIconProtocol {
 /// The service automatically stops the `GSocketService` from accepting
 /// new connections when all threads are busy.
 /// 
-/// As with `GSocketService`, you may connect to `GThreadedSocketService`::run,
+/// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
 public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
     /// Untyped pointer to the underlying `GThreadedSocketService` instance.
@@ -1545,7 +1535,7 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
-/// `GThreadedSocketService`::run signal in the new thread.
+/// `GThreadedSocketService::run` signal in the new thread.
 /// 
 /// The signal handler may perform blocking IO and need not return
 /// until the connection is closed.
@@ -1555,7 +1545,7 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
 /// The service automatically stops the `GSocketService` from accepting
 /// new connections when all threads are busy.
 /// 
-/// As with `GSocketService`, you may connect to `GThreadedSocketService`::run,
+/// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
 public struct ThreadedSocketServiceRef: ThreadedSocketServiceProtocol {
     /// Untyped pointer to the underlying `GThreadedSocketService` instance.
@@ -1618,7 +1608,7 @@ public extension ThreadedSocketServiceRef {
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
-/// `GThreadedSocketService`::run signal in the new thread.
+/// `GThreadedSocketService::run` signal in the new thread.
 /// 
 /// The signal handler may perform blocking IO and need not return
 /// until the connection is closed.
@@ -1628,7 +1618,7 @@ public extension ThreadedSocketServiceRef {
 /// The service automatically stops the `GSocketService` from accepting
 /// new connections when all threads are busy.
 /// 
-/// As with `GSocketService`, you may connect to `GThreadedSocketService`::run,
+/// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
 open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -1727,7 +1717,7 @@ public enum ThreadedSocketServiceSignalName: String, SignalNameProtocol {
     /// IPv6, a separate set of signals will be emitted for each, and
     /// the order they happen in is undefined.
     case event = "event"
-    /// The ::incoming signal is emitted when a new incoming connection
+    /// The `incoming` signal is emitted when a new incoming connection
     /// to `service` needs to be handled. The handler must initiate the
     /// handling of `connection`, but may not block; in essence,
     /// asynchronous operations must be used.
@@ -1736,32 +1726,31 @@ public enum ThreadedSocketServiceSignalName: String, SignalNameProtocol {
     /// so you need to ref it yourself if you are planning to use it.
     case incoming = "incoming"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::run signal is emitted in a worker thread in response to an
+    /// The `run` signal is emitted in a worker thread in response to an
     /// incoming connection. This thread is dedicated to handling
     /// `connection` and may perform blocking IO. The signal handler need
     /// not return until the connection is closed.
@@ -1888,14 +1877,14 @@ public extension TLSCertificateRef {
     /// of GLib 2.44, if `file` contains more certificates it will try to load
     /// a certificate chain. All certificates will be verified in the order
     /// found (top-level certificate should be the last one in the file) and
-    /// the `GTlsCertificate`:issuer property of each certificate will be set
+    /// the `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     init(file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_file(file, &error)
@@ -1911,14 +1900,14 @@ public extension TLSCertificateRef {
     /// certificates it will try to load a certificate chain. All
     /// certificates will be verified in the order found (top-level
     /// certificate should be the last one in the file) and the
-    /// `GTlsCertificate`:issuer property of each certificate will be set
+    /// `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
@@ -1931,14 +1920,14 @@ public extension TLSCertificateRef {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate`:private-key-pem property for information about
+    /// the `GTlsCertificate:private`-key-pem property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
     /// `data`. As of GLib 2.44, if `data` contains more certificates it will
     /// try to load a certificate chain. All certificates will be verified in
     /// the order found (top-level certificate should be the last one in the
-    /// file) and the `GTlsCertificate`:issuer property of each certificate
+    /// file) and the `GTlsCertificate:issuer` property of each certificate
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
@@ -1955,14 +1944,14 @@ public extension TLSCertificateRef {
     /// of GLib 2.44, if `file` contains more certificates it will try to load
     /// a certificate chain. All certificates will be verified in the order
     /// found (top-level certificate should be the last one in the file) and
-    /// the `GTlsCertificate`:issuer property of each certificate will be set
+    /// the `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     static func newFrom(file: UnsafePointer<gchar>) throws -> TLSCertificateRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_file(file, &error)
@@ -1978,14 +1967,14 @@ public extension TLSCertificateRef {
     /// certificates it will try to load a certificate chain. All
     /// certificates will be verified in the order found (top-level
     /// certificate should be the last one in the file) and the
-    /// `GTlsCertificate`:issuer property of each certificate will be set
+    /// `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     static func newFrom(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws -> TLSCertificateRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
@@ -1998,14 +1987,14 @@ public extension TLSCertificateRef {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate`:private-key-pem property for information about
+    /// the `GTlsCertificate:private`-key-pem property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
     /// `data`. As of GLib 2.44, if `data` contains more certificates it will
     /// try to load a certificate chain. All certificates will be verified in
     /// the order found (top-level certificate should be the last one in the
-    /// file) and the `GTlsCertificate`:issuer property of each certificate
+    /// file) and the `GTlsCertificate:issuer` property of each certificate
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
@@ -2071,14 +2060,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// of GLib 2.44, if `file` contains more certificates it will try to load
     /// a certificate chain. All certificates will be verified in the order
     /// found (top-level certificate should be the last one in the file) and
-    /// the `GTlsCertificate`:issuer property of each certificate will be set
+    /// the `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     public convenience init(file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_file(file, &error)
@@ -2094,14 +2083,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// certificates it will try to load a certificate chain. All
     /// certificates will be verified in the order found (top-level
     /// certificate should be the last one in the file) and the
-    /// `GTlsCertificate`:issuer property of each certificate will be set
+    /// `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     public convenience init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
@@ -2114,14 +2103,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate`:private-key-pem property for information about
+    /// the `GTlsCertificate:private`-key-pem property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
     /// `data`. As of GLib 2.44, if `data` contains more certificates it will
     /// try to load a certificate chain. All certificates will be verified in
     /// the order found (top-level certificate should be the last one in the
-    /// file) and the `GTlsCertificate`:issuer property of each certificate
+    /// file) and the `GTlsCertificate:issuer` property of each certificate
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
@@ -2139,14 +2128,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// of GLib 2.44, if `file` contains more certificates it will try to load
     /// a certificate chain. All certificates will be verified in the order
     /// found (top-level certificate should be the last one in the file) and
-    /// the `GTlsCertificate`:issuer property of each certificate will be set
+    /// the `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     public static func newFrom(file: UnsafePointer<gchar>) throws -> TLSCertificate! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_file(file, &error)
@@ -2162,14 +2151,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// certificates it will try to load a certificate chain. All
     /// certificates will be verified in the order found (top-level
     /// certificate should be the last one in the file) and the
-    /// `GTlsCertificate`:issuer property of each certificate will be set
+    /// `GTlsCertificate:issuer` property of each certificate will be set
     /// accordingly if the verification succeeds. If any certificate in the
     /// chain cannot be verified, the first certificate in the file will
     /// still be returned.
     /// 
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
-    /// g_tls_certificate_new_from_pem().
+    /// `g_tls_certificate_new_from_pem()`.
     public static func newFrom(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws -> TLSCertificate! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
@@ -2182,14 +2171,14 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate`:private-key-pem property for information about
+    /// the `GTlsCertificate:private`-key-pem property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
     /// `data`. As of GLib 2.44, if `data` contains more certificates it will
     /// try to load a certificate chain. All certificates will be verified in
     /// the order found (top-level certificate should be the last one in the
-    /// file) and the `GTlsCertificate`:issuer property of each certificate
+    /// file) and the `GTlsCertificate:issuer` property of each certificate
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
@@ -2206,11 +2195,11 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
 
 public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     /// The DER (binary) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate`:certificate-pem property
+    /// This property and the `GTlsCertificate:certificate`-pem property
     /// represent the same data, just in different forms.
     case certificate = "certificate"
     /// The PEM (ASCII) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate`:certificate
+    /// This property and the `GTlsCertificate:certificate`
     /// property represent the same data, just in different forms.
     case certificatePem = "certificate-pem"
     /// A `GTlsCertificate` representing the entity that issued this
@@ -2220,7 +2209,7 @@ public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     case issuer = "issuer"
     /// The DER (binary) encoded representation of the certificate's
     /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate`:private-key-pem
+    /// format. This property (or the `GTlsCertificate:private`-key-pem
     /// property) can be set when constructing a key (eg, from a file),
     /// but cannot be read.
     /// 
@@ -2232,7 +2221,7 @@ public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
     /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
     /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate`:private-key property) can be set when
+    /// `GTlsCertificate:private`-key property) can be set when
     /// constructing a key (eg, from a file), but cannot be read.
     /// 
     /// PKCS`8` format is supported since 2.32; earlier releases only
@@ -2279,37 +2268,36 @@ public extension TLSCertificateProtocol {
 
 public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The DER (binary) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate`:certificate-pem property
+    /// This property and the `GTlsCertificate:certificate`-pem property
     /// represent the same data, just in different forms.
     case notifyCertificate = "notify::certificate"
     /// The PEM (ASCII) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate`:certificate
+    /// This property and the `GTlsCertificate:certificate`
     /// property represent the same data, just in different forms.
     case notifyCertificatePem = "notify::certificate-pem"
     /// A `GTlsCertificate` representing the entity that issued this
@@ -2319,7 +2307,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     case notifyIssuer = "notify::issuer"
     /// The DER (binary) encoded representation of the certificate's
     /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate`:private-key-pem
+    /// format. This property (or the `GTlsCertificate:private`-key-pem
     /// property) can be set when constructing a key (eg, from a file),
     /// but cannot be read.
     /// 
@@ -2331,7 +2319,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
     /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
     /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate`:private-key property) can be set when
+    /// `GTlsCertificate:private`-key property) can be set when
     /// constructing a key (eg, from a file), but cannot be read.
     /// 
     /// PKCS`8` format is supported since 2.32; earlier releases only
@@ -2381,8 +2369,8 @@ public extension TLSCertificateProtocol {
     /// Check if two `GTlsCertificate` objects represent the same certificate.
     /// The raw DER byte data of the two certificates are checked for equality.
     /// This has the effect that two certificates may compare equal even if
-    /// their `GTlsCertificate`:issuer, `GTlsCertificate`:private-key, or
-    /// `GTlsCertificate`:private-key-pem properties differ.
+    /// their `GTlsCertificate:issuer`, `GTlsCertificate:private`-key, or
+    /// `GTlsCertificate:private`-key-pem properties differ.
     func isSame(certTwo cert_two: TLSCertificateProtocol) -> Bool {
         let rv = g_tls_certificate_is_same(cast(tls_certificate_ptr), cast(cert_two.ptr))
         return Bool(rv != 0)
@@ -2394,7 +2382,7 @@ public extension TLSCertificateProtocol {
     /// check a certificate against a CA that is not part of the system
     /// CA database.
     /// 
-    /// If `identity` is not `nil`, `cert`'s name(s) will be compared against
+    /// If `identity` is not `nil`, `cert`'s `name(s)` will be compared against
     /// it, and `G_TLS_CERTIFICATE_BAD_IDENTITY` will be set in the return
     /// value if it does not match. If `identity` is `nil`, that bit will
     /// never be set in the return value.
@@ -2425,7 +2413,7 @@ public extension TLSCertificateProtocol {
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
     /// must have pollable input and output streams).
     /// 
-    /// See the documentation for `GTlsConnection`:base-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsServerConnectionNew(baseIoStream base_io_stream: IOStreamProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
@@ -2585,7 +2573,7 @@ open class TLSConnection: IOStream, TLSConnectionProtocol {
 public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case advertisedProtocols = "advertised-protocols"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
     /// to this stream, and may run operations on the stream from other threads
@@ -2594,12 +2582,12 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case baseIoStream = "base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case database = "database"
     case inputStream = "input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -2607,33 +2595,33 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     /// user for passwords where necessary.
     case interaction = "interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case requireCloseNotify = "require-close-notify"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -2679,19 +2667,19 @@ public extension TLSConnectionProtocol {
 public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// Emitted during the TLS handshake after the peer certificate has
     /// been received. You can examine `peer_cert`'s certification path by
-    /// calling g_tls_certificate_get_issuer() on it.
+    /// calling `g_tls_certificate_get_issuer()` on it.
     /// 
     /// For a client-side connection, `peer_cert` is the server's
     /// certificate, and the signal will only be emitted if the
     /// certificate was not acceptable according to `conn`'s
-    /// `GTlsClientConnection`:validation_flags. If you would like the
+    /// `GTlsClientConnection:validation_flags`. If you would like the
     /// certificate to be accepted despite `errors`, return `true` from the
     /// signal handler. Otherwise, if no handler accepts the certificate,
     /// the handshake will fail with `G_TLS_ERROR_BAD_CERTIFICATE`.
     /// 
     /// For a server-side connection, `peer_cert` is the certificate
     /// presented by the client, if this was requested via the server's
-    /// `GTlsServerConnection`:authentication_mode. On the server side,
+    /// `GTlsServerConnection:authentication_mode`. On the server side,
     /// the signal is always emitted when the client presents a
     /// certificate, and the certificate will only be accepted if a
     /// handler returns `true`.
@@ -2712,34 +2700,33 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// handler until the UI thread returns an answer.
     case acceptCertificate = "accept-certificate"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The list of application-layer protocols that the connection
     /// advertises that it is willing to speak. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     case notifyAdvertisedProtocols = "notify::advertised-protocols"
     /// The `GIOStream` that the connection wraps. The connection holds a reference
     /// to this stream, and may run operations on the stream from other threads
@@ -2748,12 +2735,12 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// stream when no `GIOStream` operations are running.
     case notifyBaseIoStream = "notify::base-io-stream"
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     case notifyDatabase = "notify::database"
     case notifyInputStream = "notify::input-stream"
     /// A `GTlsInteraction` object to be used when the connection or certificate
@@ -2761,33 +2748,33 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// user for passwords where necessary.
     case notifyInteraction = "notify::interaction"
     /// The application-layer protocol negotiated during the TLS
-    /// handshake. See g_tls_connection_get_negotiated_protocol().
+    /// handshake. See `g_tls_connection_get_negotiated_protocol()`.
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed and the certificate has been accepted. Note in
     /// particular that this is not yet set during the emission of
-    /// `GTlsConnection`::accept-certificate.
+    /// `GTlsConnection::accept`-certificate.
     /// 
-    /// (You can watch for a `GObject`::notify signal on this property to
+    /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed-and-ignored while verifying
-    /// `GTlsConnection`:peer-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection`:validation-flags is not
+    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection`::accept-certificate overrode the default
+    /// `GTlsConnection::accept`-certificate overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode().
+    /// `g_tls_connection_set_rehandshake_mode()`.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
-    /// See g_tls_connection_set_require_close_notify().
+    /// See `g_tls_connection_set_require_close_notify()`.
     case notifyRequireCloseNotify = "notify::require-close-notify"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
-    /// g_tls_connection_set_use_system_certdb().
+    /// `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **use-system-certdb is deprecated:**
     /// Use GTlsConnection:database instead
@@ -2827,21 +2814,21 @@ public extension TLSConnectionProtocol {
     var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection> { return ptr.assumingMemoryBound(to: GTlsConnection.self) }
 
     /// Used by `GTlsConnection` implementations to emit the
-    /// `GTlsConnection`::accept-certificate signal.
+    /// `GTlsConnection::accept`-certificate signal.
     func emitAcceptCertificate(peerCert peer_cert: TLSCertificateProtocol, errors: TLSCertificateFlags) -> Bool {
         let rv = g_tls_connection_emit_accept_certificate(cast(tls_connection_ptr), cast(peer_cert.ptr), errors)
         return Bool(rv != 0)
     }
 
     /// Gets `conn`'s certificate, as set by
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     func getCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
         let rv = g_tls_connection_get_certificate(cast(tls_connection_ptr))
         return cast(rv)
     }
 
     /// Gets the certificate database that `conn` uses to verify
-    /// peer certificates. See g_tls_connection_set_database().
+    /// peer certificates. See `g_tls_connection_set_database()`.
     func getDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
         let rv = g_tls_connection_get_database(cast(tls_connection_ptr))
         return cast(rv)
@@ -2861,7 +2848,7 @@ public extension TLSConnectionProtocol {
     /// If the peer did not use the ALPN extension, or did not advertise a
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     func getNegotiatedProtocol() -> String! {
         let rv = g_tls_connection_get_negotiated_protocol(cast(tls_connection_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2869,7 +2856,7 @@ public extension TLSConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
-    /// `GTlsConnection`::accept-certificate.)
+    /// `GTlsConnection::accept`-certificate.)
     func getPeerCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
         let rv = g_tls_connection_get_peer_certificate(cast(tls_connection_ptr))
         return cast(rv)
@@ -2877,14 +2864,14 @@ public extension TLSConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GTlsConnection`::accept-certificate.)
+    /// during the emission of `GTlsConnection::accept`-certificate.)
     func getPeerCertificateErrors() -> GTlsCertificateFlags {
         let rv = g_tls_connection_get_peer_certificate_errors(cast(tls_connection_ptr))
         return rv
     }
 
     /// Gets `conn` rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode() for details.
+    /// `g_tls_connection_set_rehandshake_mode()` for details.
     ///
     /// **get_rehandshake_mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -2897,14 +2884,14 @@ public extension TLSConnectionProtocol {
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
-    /// g_tls_connection_set_require_close_notify() for details.
+    /// `g_tls_connection_set_require_close_notify()` for details.
     func getRequireCloseNotify() -> Bool {
         let rv = g_tls_connection_get_require_close_notify(cast(tls_connection_ptr))
         return Bool(rv != 0)
     }
 
     /// Gets whether `conn` uses the system certificate database to verify
-    /// peer certificates. See g_tls_connection_set_use_system_certdb().
+    /// peer certificates. See `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **get_use_system_certdb is deprecated:**
     /// Use g_tls_connection_get_database() instead
@@ -2921,7 +2908,7 @@ public extension TLSConnectionProtocol {
     /// need to rehandshake later if the server requests it,
     /// `GTlsConnection` will handle this for you automatically when you try
     /// to send or receive data on the connection. However, you can call
-    /// g_tls_connection_handshake() manually if you want to know for sure
+    /// `g_tls_connection_handshake()` manually if you want to know for sure
     /// whether the initial handshake succeeded or failed (as opposed to
     /// just immediately trying to write to `conn`'s output stream, in which
     /// case if it fails, it may not be possible to tell if it failed
@@ -2932,7 +2919,7 @@ public extension TLSConnectionProtocol {
     /// function explicitly unless you want clearer error reporting.
     /// 
     /// If TLS 1.2 or older is in use, you may call
-    /// g_tls_connection_handshake() after the initial handshake to
+    /// `g_tls_connection_handshake()` after the initial handshake to
     /// rehandshake; however, this usage is deprecated because rehandshaking
     /// is no longer part of the TLS protocol in TLS 1.3. Accordingly, the
     /// behavior of calling this function after the initial handshake is now
@@ -2940,7 +2927,7 @@ public extension TLSConnectionProtocol {
     /// nondestructive so as to preserve compatibility with code written for
     /// older versions of GLib.
     /// 
-    /// `GTlsConnection`::accept_certificate may be emitted during the
+    /// `GTlsConnection::accept_certificate` may be emitted during the
     /// handshake.
     func handshake(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -2952,14 +2939,14 @@ public extension TLSConnectionProtocol {
     }
 
     /// Asynchronously performs a TLS handshake on `conn`. See
-    /// g_tls_connection_handshake() for more information.
+    /// `g_tls_connection_handshake()` for more information.
     func handshakeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_tls_connection_handshake_async(cast(tls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous TLS handshake operation. See
-    /// g_tls_connection_handshake() for more information.
+    /// `g_tls_connection_handshake()` for more information.
     func handshakeFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_connection_handshake_finish(cast(tls_connection_ptr), cast(result.ptr), &error)
@@ -2973,7 +2960,7 @@ public extension TLSConnectionProtocol {
     /// caller is willing to speak on this connection. The
     /// Application-Layer Protocol Negotiation (ALPN) extension will be
     /// used to negotiate a compatible protocol with the peer; use
-    /// g_tls_connection_get_negotiated_protocol() to find the negotiated
+    /// `g_tls_connection_get_negotiated_protocol()` to find the negotiated
     /// protocol after the handshake.  Specifying `nil` for the the value
     /// of `protocols` will disable ALPN negotiation.
     /// 
@@ -2993,14 +2980,14 @@ public extension TLSConnectionProtocol {
     /// with `G_TLS_ERROR_CERTIFICATE_REQUIRED`, that means that the server
     /// requires a certificate, and if you try connecting again, you should
     /// call this method first. You can call
-    /// g_tls_client_connection_get_accepted_cas() on the failed connection
+    /// `g_tls_client_connection_get_accepted_cas()` on the failed connection
     /// to get a list of Certificate Authorities that the server will
     /// accept certificates from.
     /// 
     /// (It is also possible that a server will allow the connection with
     /// or without a certificate; in that case, if you don't provide a
     /// certificate, you can tell that the server requested one by the fact
-    /// that g_tls_client_connection_get_accepted_cas() will return
+    /// that `g_tls_client_connection_get_accepted_cas()` will return
     /// non-`nil`.)
     func set(certificate: TLSCertificateProtocol) {
         g_tls_connection_set_certificate(cast(tls_connection_ptr), cast(certificate.ptr))
@@ -3009,12 +2996,12 @@ public extension TLSConnectionProtocol {
 
     /// Sets the certificate database that is used to verify peer certificates.
     /// This is set to the default database by default. See
-    /// g_tls_backend_get_default_database(). If set to `nil`, then
+    /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GTlsConnection`::accept-certificate will always be emitted on
+    /// `GTlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GTlsClientConnection`:validation-flags).
+    /// `GTlsClientConnection:validation`-flags).
     func set(database: TLSDatabaseProtocol) {
         g_tls_connection_set_database(cast(tls_connection_ptr), cast(database.ptr))
     
@@ -3076,17 +3063,17 @@ public extension TLSConnectionProtocol {
     /// somehow self-delimiting); in this case, the close notify is
     /// redundant and sometimes omitted. (TLS 1.1 explicitly allows this;
     /// in TLS 1.0 it is technically an error, but often done anyway.) You
-    /// can use g_tls_connection_set_require_close_notify() to tell `conn`
+    /// can use `g_tls_connection_set_require_close_notify()` to tell `conn`
     /// to allow an "unannounced" connection close, in which case the close
     /// will show up as a 0-length read, as in a non-TLS
     /// `GSocketConnection`, and it is up to the application to check that
     /// the data has been fully received.
     /// 
     /// Note that this only affects the behavior when the peer closes the
-    /// connection; when the application calls g_io_stream_close() itself
+    /// connection; when the application calls `g_io_stream_close()` itself
     /// on `conn`, this will send a close notification regardless of the
     /// setting of this property. If you explicitly want to do an unclean
-    /// close, you can close `conn`'s `GTlsConnection`:base-io-stream rather
+    /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
     /// than closing `conn` itself, but note that this may only be done when no other
     /// operations are pending on `conn` or the base I/O stream.
     func set(requireCloseNotify require_close_notify: Bool) {
@@ -3098,9 +3085,9 @@ public extension TLSConnectionProtocol {
     /// peer certificates. This is `true` by default. If set to `false`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GTlsConnection`::accept-certificate will always be emitted on
+    /// `GTlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GTlsClientConnection`:validation-flags).
+    /// `GTlsClientConnection:validation`-flags).
     ///
     /// **set_use_system_certdb is deprecated:**
     /// Use g_tls_connection_set_database() instead
@@ -3109,10 +3096,10 @@ public extension TLSConnectionProtocol {
     
     }
     /// The connection's certificate; see
-    /// g_tls_connection_set_certificate().
+    /// `g_tls_connection_set_certificate()`.
     var certificate: UnsafeMutablePointer<GTlsCertificate>! {
         /// Gets `conn`'s certificate, as set by
-        /// g_tls_connection_set_certificate().
+        /// `g_tls_connection_set_certificate()`.
         get {
             let rv = g_tls_connection_get_certificate(cast(tls_connection_ptr))
             return cast(rv)
@@ -3126,14 +3113,14 @@ public extension TLSConnectionProtocol {
         /// with `G_TLS_ERROR_CERTIFICATE_REQUIRED`, that means that the server
         /// requires a certificate, and if you try connecting again, you should
         /// call this method first. You can call
-        /// g_tls_client_connection_get_accepted_cas() on the failed connection
+        /// `g_tls_client_connection_get_accepted_cas()` on the failed connection
         /// to get a list of Certificate Authorities that the server will
         /// accept certificates from.
         /// 
         /// (It is also possible that a server will allow the connection with
         /// or without a certificate; in that case, if you don't provide a
         /// certificate, you can tell that the server requested one by the fact
-        /// that g_tls_client_connection_get_accepted_cas() will return
+        /// that `g_tls_client_connection_get_accepted_cas()` will return
         /// non-`nil`.)
         nonmutating set {
             g_tls_connection_set_certificate(cast(tls_connection_ptr), cast(newValue))
@@ -3142,22 +3129,22 @@ public extension TLSConnectionProtocol {
 
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
-    /// used. See g_tls_backend_get_default_database().
+    /// used. See `g_tls_backend_get_default_database()`.
     var database: UnsafeMutablePointer<GTlsDatabase>! {
         /// Gets the certificate database that `conn` uses to verify
-        /// peer certificates. See g_tls_connection_set_database().
+        /// peer certificates. See `g_tls_connection_set_database()`.
         get {
             let rv = g_tls_connection_get_database(cast(tls_connection_ptr))
             return cast(rv)
         }
         /// Sets the certificate database that is used to verify peer certificates.
         /// This is set to the default database by default. See
-        /// g_tls_backend_get_default_database(). If set to `nil`, then
+        /// `g_tls_backend_get_default_database()`. If set to `nil`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GTlsConnection`::accept-certificate will always be emitted on
+        /// `GTlsConnection::accept`-certificate will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GTlsClientConnection`:validation-flags).
+        /// `GTlsClientConnection:validation`-flags).
         nonmutating set {
             g_tls_connection_set_database(cast(tls_connection_ptr), cast(newValue))
         }
@@ -3191,7 +3178,7 @@ public extension TLSConnectionProtocol {
     /// If the peer did not use the ALPN extension, or did not advertise a
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
-    /// g_tls_connection_set_advertised_protocols().
+    /// `g_tls_connection_set_advertised_protocols()`.
     var negotiatedProtocol: String! {
         /// Gets the name of the application-layer protocol negotiated during
         /// the handshake.
@@ -3199,7 +3186,7 @@ public extension TLSConnectionProtocol {
         /// If the peer did not use the ALPN extension, or did not advertise a
         /// protocol that matched one of `conn`'s protocols, or the TLS backend
         /// does not support ALPN, then this will be `nil`. See
-        /// g_tls_connection_set_advertised_protocols().
+        /// `g_tls_connection_set_advertised_protocols()`.
         get {
             let rv = g_tls_connection_get_negotiated_protocol(cast(tls_connection_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -3208,11 +3195,11 @@ public extension TLSConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
-    /// `GTlsConnection`::accept-certificate.)
+    /// `GTlsConnection::accept`-certificate.)
     var peerCertificate: UnsafeMutablePointer<GTlsCertificate>! {
         /// Gets `conn`'s peer's certificate after the handshake has completed.
         /// (It is not set during the emission of
-        /// `GTlsConnection`::accept-certificate.)
+        /// `GTlsConnection::accept`-certificate.)
         get {
             let rv = g_tls_connection_get_peer_certificate(cast(tls_connection_ptr))
             return cast(rv)
@@ -3221,11 +3208,11 @@ public extension TLSConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GTlsConnection`::accept-certificate.)
+    /// during the emission of `GTlsConnection::accept`-certificate.)
     var peerCertificateErrors: GTlsCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed. (It is not set
-        /// during the emission of `GTlsConnection`::accept-certificate.)
+        /// during the emission of `GTlsConnection::accept`-certificate.)
         get {
             let rv = g_tls_connection_get_peer_certificate_errors(cast(tls_connection_ptr))
             return rv
@@ -3233,7 +3220,7 @@ public extension TLSConnectionProtocol {
     }
 
     /// Gets `conn` rehandshaking mode. See
-    /// g_tls_connection_set_rehandshake_mode() for details.
+    /// `g_tls_connection_set_rehandshake_mode()` for details.
     ///
     /// **get_rehandshake_mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -3241,7 +3228,7 @@ public extension TLSConnectionProtocol {
     ///   from the TLS protocol in TLS 1.3.
     var rehandshakeMode: GTlsRehandshakeMode {
         /// Gets `conn` rehandshaking mode. See
-        /// g_tls_connection_set_rehandshake_mode() for details.
+        /// `g_tls_connection_set_rehandshake_mode()` for details.
         ///
         /// **get_rehandshake_mode is deprecated:**
         /// Changing the rehandshake mode is no longer
@@ -3284,11 +3271,11 @@ public extension TLSConnectionProtocol {
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
-    /// g_tls_connection_set_require_close_notify() for details.
+    /// `g_tls_connection_set_require_close_notify()` for details.
     var requireCloseNotify: Bool {
         /// Tests whether or not `conn` expects a proper TLS close notification
         /// when the connection is closed. See
-        /// g_tls_connection_set_require_close_notify() for details.
+        /// `g_tls_connection_set_require_close_notify()` for details.
         get {
             let rv = g_tls_connection_get_require_close_notify(cast(tls_connection_ptr))
             return Bool(rv != 0)
@@ -3307,17 +3294,17 @@ public extension TLSConnectionProtocol {
         /// somehow self-delimiting); in this case, the close notify is
         /// redundant and sometimes omitted. (TLS 1.1 explicitly allows this;
         /// in TLS 1.0 it is technically an error, but often done anyway.) You
-        /// can use g_tls_connection_set_require_close_notify() to tell `conn`
+        /// can use `g_tls_connection_set_require_close_notify()` to tell `conn`
         /// to allow an "unannounced" connection close, in which case the close
         /// will show up as a 0-length read, as in a non-TLS
         /// `GSocketConnection`, and it is up to the application to check that
         /// the data has been fully received.
         /// 
         /// Note that this only affects the behavior when the peer closes the
-        /// connection; when the application calls g_io_stream_close() itself
+        /// connection; when the application calls `g_io_stream_close()` itself
         /// on `conn`, this will send a close notification regardless of the
         /// setting of this property. If you explicitly want to do an unclean
-        /// close, you can close `conn`'s `GTlsConnection`:base-io-stream rather
+        /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
         /// than closing `conn` itself, but note that this may only be done when no other
         /// operations are pending on `conn` or the base I/O stream.
         nonmutating set {
@@ -3326,13 +3313,13 @@ public extension TLSConnectionProtocol {
     }
 
     /// Gets whether `conn` uses the system certificate database to verify
-    /// peer certificates. See g_tls_connection_set_use_system_certdb().
+    /// peer certificates. See `g_tls_connection_set_use_system_certdb()`.
     ///
     /// **get_use_system_certdb is deprecated:**
     /// Use g_tls_connection_get_database() instead
     var useSystemCertdb: Bool {
         /// Gets whether `conn` uses the system certificate database to verify
-        /// peer certificates. See g_tls_connection_set_use_system_certdb().
+        /// peer certificates. See `g_tls_connection_set_use_system_certdb()`.
         ///
         /// **get_use_system_certdb is deprecated:**
         /// Use g_tls_connection_get_database() instead
@@ -3344,9 +3331,9 @@ public extension TLSConnectionProtocol {
         /// peer certificates. This is `true` by default. If set to `false`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GTlsConnection`::accept-certificate will always be emitted on
+        /// `GTlsConnection::accept`-certificate will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GTlsClientConnection`:validation-flags).
+        /// `GTlsClientConnection:validation`-flags).
         ///
         /// **set_use_system_certdb is deprecated:**
         /// Use g_tls_connection_set_database() instead
@@ -3502,27 +3489,26 @@ open class TLSDatabase: Object, TLSDatabaseProtocol {
 
 public enum TLSDatabaseSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3578,14 +3564,14 @@ public extension TLSDatabaseProtocol {
     /// Look up a certificate by its handle.
     /// 
     /// The handle should have been created by calling
-    /// g_tls_database_create_certificate_handle() on a `GTlsDatabase` object of
+    /// `g_tls_database_create_certificate_handle()` on a `GTlsDatabase` object of
     /// the same TLS backend. The handle is designed to remain valid across
     /// instantiations of the database.
     /// 
     /// If the handle is no longer valid, or does not point to a certificate in
     /// this database, then `nil` will be returned.
     /// 
-    /// This function can block, use g_tls_database_lookup_certificate_for_handle_async() to perform
+    /// This function can block, use `g_tls_database_lookup_certificate_for_handle_async()` to perform
     /// the lookup operation asynchronously.
     func lookupCertificateFor(handle: UnsafePointer<gchar>, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3597,14 +3583,14 @@ public extension TLSDatabaseProtocol {
     }
 
     /// Asynchronously look up a certificate by its handle in the database. See
-    /// g_tls_database_lookup_certificate_for_handle() for more information.
+    /// `g_tls_database_lookup_certificate_for_handle()` for more information.
     func lookupCertificateForHandleAsync(handle: UnsafePointer<gchar>, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_tls_database_lookup_certificate_for_handle_async(cast(tls_database_ptr), handle, cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous lookup of a certificate by its handle. See
-    /// g_tls_database_lookup_certificate_for_handle() for more information.
+    /// `g_tls_database_lookup_certificate_for_handle()` for more information.
     /// 
     /// If the handle is no longer valid, or does not point to a certificate in
     /// this database, then `nil` will be returned.
@@ -3619,11 +3605,11 @@ public extension TLSDatabaseProtocol {
 
     /// Look up the issuer of `certificate` in the database.
     /// 
-    /// The `GTlsCertificate`:issuer property
+    /// The `GTlsCertificate:issuer` property
     /// of `certificate` is not modified, and the two certificates are not hooked
     /// into a chain.
     /// 
-    /// This function can block, use g_tls_database_lookup_certificate_issuer_async() to perform
+    /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
     /// the lookup operation asynchronously.
     func lookupCertificateIssuer(certificate: TLSCertificateProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3635,14 +3621,14 @@ public extension TLSDatabaseProtocol {
     }
 
     /// Asynchronously look up the issuer of `certificate` in the database. See
-    /// g_tls_database_lookup_certificate_issuer() for more information.
+    /// `g_tls_database_lookup_certificate_issuer()` for more information.
     func lookupCertificateIssuerAsync(certificate: TLSCertificateProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_tls_database_lookup_certificate_issuer_async(cast(tls_database_ptr), cast(certificate.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous lookup issuer operation. See
-    /// g_tls_database_lookup_certificate_issuer() for more information.
+    /// `g_tls_database_lookup_certificate_issuer()` for more information.
     func lookupCertificateIssuerFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_database_lookup_certificate_issuer_finish(cast(tls_database_ptr), cast(result.ptr), &error)
@@ -3654,7 +3640,7 @@ public extension TLSDatabaseProtocol {
 
     /// Look up certificates issued by this issuer in the database.
     /// 
-    /// This function can block, use g_tls_database_lookup_certificates_issued_by_async() to perform
+    /// This function can block, use `g_tls_database_lookup_certificates_issued_by_async()` to perform
     /// the lookup operation asynchronously.
     func lookupCertificatesIssuedBy(issuerRawDn issuer_raw_dn: ByteArrayProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3666,7 +3652,7 @@ public extension TLSDatabaseProtocol {
     }
 
     /// Asynchronously look up certificates issued by this issuer in the database. See
-    /// g_tls_database_lookup_certificates_issued_by() for more information.
+    /// `g_tls_database_lookup_certificates_issued_by()` for more information.
     /// 
     /// The database may choose to hold a reference to the issuer byte array for the duration
     /// of of this asynchronous operation. The byte array should not be modified during
@@ -3677,7 +3663,7 @@ public extension TLSDatabaseProtocol {
     }
 
     /// Finish an asynchronous lookup of certificates. See
-    /// g_tls_database_lookup_certificates_issued_by() for more information.
+    /// `g_tls_database_lookup_certificates_issued_by()` for more information.
     func lookupCertificatesIssuedByFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_database_lookup_certificates_issued_by_finish(cast(tls_database_ptr), cast(result.ptr), &error)
@@ -3691,7 +3677,7 @@ public extension TLSDatabaseProtocol {
     /// adding any missing certificates to the chain.
     /// 
     /// `chain` is a chain of `GTlsCertificate` objects each pointing to the next
-    /// certificate in the chain by its `GTlsCertificate`:issuer property. The chain may initially
+    /// certificate in the chain by its `GTlsCertificate:issuer` property. The chain may initially
     /// consist of one or more certificates. After the verification process is
     /// complete, `chain` may be modified by adding missing certificates, or removing
     /// extra certificates. If a certificate anchor was found, then it is added to
@@ -3718,7 +3704,7 @@ public extension TLSDatabaseProtocol {
     /// accordingly. `error` is not set when `chain` is successfully analyzed
     /// but found to be invalid.
     /// 
-    /// This function can block, use g_tls_database_verify_chain_async() to perform
+    /// This function can block, use `g_tls_database_verify_chain_async()` to perform
     /// the verification operation asynchronously.
     func verify(chain: TLSCertificateProtocol, purpose: UnsafePointer<gchar>, identity: SocketConnectableProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseVerifyFlags, cancellable: CancellableProtocol) throws -> GTlsCertificateFlags {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3731,14 +3717,14 @@ public extension TLSDatabaseProtocol {
 
     /// Asynchronously determines the validity of a certificate chain after
     /// looking up and adding any missing certificates to the chain. See
-    /// g_tls_database_verify_chain() for more information.
+    /// `g_tls_database_verify_chain()` for more information.
     func verifyChainAsync(chain: TLSCertificateProtocol, purpose: UnsafePointer<gchar>, identity: SocketConnectableProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseVerifyFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_tls_database_verify_chain_async(cast(tls_database_ptr), cast(chain.ptr), purpose, cast(identity.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finish an asynchronous verify chain operation. See
-    /// g_tls_database_verify_chain() for more information.
+    /// `g_tls_database_verify_chain()` for more information.
     /// 
     /// If `chain` is found to be valid, then the return value will be 0. If
     /// `chain` is found to be invalid, then the return value will indicate
@@ -3771,13 +3757,13 @@ public extension TLSDatabaseProtocol {
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
 /// To use a `GTlsInteraction` with a TLS connection use
-/// g_tls_connection_set_interaction().
+/// `g_tls_connection_set_interaction()`.
 /// 
 /// Callers should instantiate a derived class that implements the various
 /// interaction methods to show the required dialogs.
 /// 
 /// Callers should use the 'invoke' functions like
-/// g_tls_interaction_invoke_ask_password() to run interaction methods. These
+/// `g_tls_interaction_invoke_ask_password()` to run interaction methods. These
 /// functions make sure that the interaction is invoked in the main loop
 /// and not in the current thread, if the current thread is not running the
 /// main loop.
@@ -3803,13 +3789,13 @@ public protocol TLSInteractionProtocol: ObjectProtocol {
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
 /// To use a `GTlsInteraction` with a TLS connection use
-/// g_tls_connection_set_interaction().
+/// `g_tls_connection_set_interaction()`.
 /// 
 /// Callers should instantiate a derived class that implements the various
 /// interaction methods to show the required dialogs.
 /// 
 /// Callers should use the 'invoke' functions like
-/// g_tls_interaction_invoke_ask_password() to run interaction methods. These
+/// `g_tls_interaction_invoke_ask_password()` to run interaction methods. These
 /// functions make sure that the interaction is invoked in the main loop
 /// and not in the current thread, if the current thread is not running the
 /// main loop.
@@ -3875,13 +3861,13 @@ public extension TLSInteractionRef {
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
 /// To use a `GTlsInteraction` with a TLS connection use
-/// g_tls_connection_set_interaction().
+/// `g_tls_connection_set_interaction()`.
 /// 
 /// Callers should instantiate a derived class that implements the various
 /// interaction methods to show the required dialogs.
 /// 
 /// Callers should use the 'invoke' functions like
-/// g_tls_interaction_invoke_ask_password() to run interaction methods. These
+/// `g_tls_interaction_invoke_ask_password()` to run interaction methods. These
 /// functions make sure that the interaction is invoked in the main loop
 /// and not in the current thread, if the current thread is not running the
 /// main loop.
@@ -3937,27 +3923,26 @@ open class TLSInteraction: Object, TLSInteractionProtocol {
 
 public enum TLSInteractionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -3998,7 +3983,7 @@ public extension TLSInteractionProtocol {
     var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction> { return ptr.assumingMemoryBound(to: GTlsInteraction.self) }
 
     /// Run synchronous interaction to ask the user for a password. In general,
-    /// g_tls_interaction_invoke_ask_password() should be used instead of this
+    /// `g_tls_interaction_invoke_ask_password()` should be used instead of this
     /// function.
     /// 
     /// Derived subclasses usually implement a password prompt, although they may
@@ -4020,7 +4005,7 @@ public extension TLSInteractionProtocol {
     }
 
     /// Run asynchronous interaction to ask the user for a password. In general,
-    /// g_tls_interaction_invoke_ask_password() should be used instead of this
+    /// `g_tls_interaction_invoke_ask_password()` should be used instead of this
     /// function.
     /// 
     /// Derived subclasses usually implement a password prompt, although they may
@@ -4040,10 +4025,10 @@ public extension TLSInteractionProtocol {
     }
 
     /// Complete an ask password user interaction request. This should be once
-    /// the g_tls_interaction_ask_password_async() completion callback is called.
+    /// the `g_tls_interaction_ask_password_async()` completion callback is called.
     /// 
     /// If `G_TLS_INTERACTION_HANDLED` is returned, then the `GTlsPassword` passed
-    /// to g_tls_interaction_ask_password() will have its password filled in.
+    /// to `g_tls_interaction_ask_password()` will have its password filled in.
     /// 
     /// If the interaction is cancelled by the cancellation object, or by the
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
@@ -4059,7 +4044,7 @@ public extension TLSInteractionProtocol {
 
     /// Invoke the interaction to ask the user for a password. It invokes this
     /// interaction in the main loop, specifically the `GMainContext` returned by
-    /// g_main_context_get_thread_default() when the interaction is created. This
+    /// `g_main_context_get_thread_default()` when the interaction is created. This
     /// is called by called by `GTlsConnection` or `GTlsDatabase` to ask the user
     /// for a password.
     /// 
@@ -4088,7 +4073,7 @@ public extension TLSInteractionProtocol {
     /// Invoke the interaction to ask the user to choose a certificate to
     /// use with the connection. It invokes this interaction in the main
     /// loop, specifically the `GMainContext` returned by
-    /// g_main_context_get_thread_default() when the interaction is
+    /// `g_main_context_get_thread_default()` when the interaction is
     /// created. This is called by called by `GTlsConnection` when the peer
     /// requests a certificate during the handshake.
     /// 
@@ -4115,7 +4100,7 @@ public extension TLSInteractionProtocol {
     }
 
     /// Run synchronous interaction to ask the user to choose a certificate to use
-    /// with the connection. In general, g_tls_interaction_invoke_request_certificate()
+    /// with the connection. In general, `g_tls_interaction_invoke_request_certificate()`
     /// should be used instead of this function.
     /// 
     /// Derived subclasses usually implement a certificate selector, although they may
@@ -4123,8 +4108,8 @@ public extension TLSInteractionProtocol {
     /// abort this certificate request, which will usually abort the TLS connection.
     /// 
     /// If `G_TLS_INTERACTION_HANDLED` is returned, then the `GTlsConnection`
-    /// passed to g_tls_interaction_request_certificate() will have had its
-    /// `GTlsConnection`:certificate filled in.
+    /// passed to `g_tls_interaction_request_certificate()` will have had its
+    /// `GTlsConnection:certificate` filled in.
     /// 
     /// If the interaction is cancelled by the cancellation object, or by the
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
@@ -4140,7 +4125,7 @@ public extension TLSInteractionProtocol {
     }
 
     /// Run asynchronous interaction to ask the user for a certificate to use with
-    /// the connection. In general, g_tls_interaction_invoke_request_certificate() should
+    /// the connection. In general, `g_tls_interaction_invoke_request_certificate()` should
     /// be used instead of this function.
     /// 
     /// Derived subclasses usually implement a certificate selector, although they may
@@ -4153,11 +4138,11 @@ public extension TLSInteractionProtocol {
     }
 
     /// Complete an request certificate user interaction request. This should be once
-    /// the g_tls_interaction_request_certificate_async() completion callback is called.
+    /// the `g_tls_interaction_request_certificate_async()` completion callback is called.
     /// 
     /// If `G_TLS_INTERACTION_HANDLED` is returned, then the `GTlsConnection`
-    /// passed to g_tls_interaction_request_certificate_async() will have had its
-    /// `GTlsConnection`:certificate filled in.
+    /// passed to `g_tls_interaction_request_certificate_async()` will have had its
+    /// `GTlsConnection:certificate` filled in.
     /// 
     /// If the interaction is cancelled by the cancellation object, or by the
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
@@ -4344,27 +4329,26 @@ public extension TLSPasswordProtocol {
 
 public enum TLSPasswordSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -4430,7 +4414,7 @@ public extension TLSPasswordProtocol {
 
     /// Get a user readable translated warning. Usually this warning is a
     /// representation of the password flags returned from
-    /// g_tls_password_get_flags().
+    /// `g_tls_password_get_flags()`.
     func getWarning() -> String! {
         let rv = g_tls_password_get_warning(cast(tls_password_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4476,7 +4460,7 @@ public extension TLSPasswordProtocol {
 
     /// Set a user readable translated warning. Usually this warning is a
     /// representation of the password flags returned from
-    /// g_tls_password_get_flags().
+    /// `g_tls_password_get_flags()`.
     func set(warning: UnsafePointer<gchar>) {
         g_tls_password_set_warning(cast(tls_password_ptr), warning)
     
@@ -4508,14 +4492,14 @@ public extension TLSPasswordProtocol {
     var warning: String! {
         /// Get a user readable translated warning. Usually this warning is a
         /// representation of the password flags returned from
-        /// g_tls_password_get_flags().
+        /// `g_tls_password_get_flags()`.
         get {
             let rv = g_tls_password_get_warning(cast(tls_password_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
         }
         /// Set a user readable translated warning. Usually this warning is a
         /// representation of the password flags returned from
-        /// g_tls_password_get_flags().
+        /// `g_tls_password_get_flags()`.
         nonmutating set {
             g_tls_password_set_warning(cast(tls_password_ptr), newValue)
         }
@@ -4709,27 +4693,26 @@ public extension UnixConnectionProtocol {
 
 public enum UnixConnectionSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -4773,7 +4756,7 @@ public extension UnixConnectionProtocol {
     var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection> { return ptr.assumingMemoryBound(to: GUnixConnection.self) }
 
     /// Receives credentials from the sending end of the connection.  The
-    /// sending end has to call g_unix_connection_send_credentials() (or
+    /// sending end has to call `g_unix_connection_send_credentials()` (or
     /// similar) for this to work.
     /// 
     /// As well as reading the credentials this also reads (and discards) a
@@ -4789,7 +4772,7 @@ public extension UnixConnectionProtocol {
     /// - GNU/Hurd since GLib 2.40
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
-    /// `GUnixCredentialsMessage` type and g_socket_get_credentials() function.
+    /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
     func receiveCredentials(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GCredentials>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_unix_connection_receive_credentials(cast(unix_connection_ptr), cast(cancellable.ptr), &error)
@@ -4801,18 +4784,18 @@ public extension UnixConnectionProtocol {
 
     /// Asynchronously receive credentials.
     /// 
-    /// For more details, see g_unix_connection_receive_credentials() which is
+    /// For more details, see `g_unix_connection_receive_credentials()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
-    /// g_unix_connection_receive_credentials_finish() to get the result of the operation.
+    /// `g_unix_connection_receive_credentials_finish()` to get the result of the operation.
     func receiveCredentialsAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_unix_connection_receive_credentials_async(cast(unix_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an asynchronous receive credentials operation started with
-    /// g_unix_connection_receive_credentials_async().
+    /// `g_unix_connection_receive_credentials_async()`.
     func receiveCredentialsFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GCredentials>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_unix_connection_receive_credentials_finish(cast(unix_connection_ptr), cast(result.ptr), &error)
@@ -4823,7 +4806,7 @@ public extension UnixConnectionProtocol {
     }
 
     /// Receives a file descriptor from the sending end of the connection.
-    /// The sending end has to call g_unix_connection_send_fd() for this
+    /// The sending end has to call `g_unix_connection_send_fd()` for this
     /// to work.
     /// 
     /// As well as reading the fd this also reads a single byte from the
@@ -4840,7 +4823,7 @@ public extension UnixConnectionProtocol {
 
     /// Passes the credentials of the current user the receiving side
     /// of the connection. The receiving end has to call
-    /// g_unix_connection_receive_credentials() (or similar) to accept the
+    /// `g_unix_connection_receive_credentials()` (or similar) to accept the
     /// credentials.
     /// 
     /// As well as sending the credentials this also writes a single NUL
@@ -4856,7 +4839,7 @@ public extension UnixConnectionProtocol {
     /// - GNU/Hurd since GLib 2.40
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
-    /// `GUnixCredentialsMessage` type and g_socket_get_credentials() function.
+    /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
     func sendCredentials(cancellable: CancellableProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_unix_connection_send_credentials(cast(unix_connection_ptr), cast(cancellable.ptr), &error)
@@ -4868,18 +4851,18 @@ public extension UnixConnectionProtocol {
 
     /// Asynchronously send credentials.
     /// 
-    /// For more details, see g_unix_connection_send_credentials() which is
+    /// For more details, see `g_unix_connection_send_credentials()` which is
     /// the synchronous version of this call.
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
-    /// g_unix_connection_send_credentials_finish() to get the result of the operation.
+    /// `g_unix_connection_send_credentials_finish()` to get the result of the operation.
     func sendCredentialsAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_unix_connection_send_credentials_async(cast(unix_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an asynchronous send credentials operation started with
-    /// g_unix_connection_send_credentials_async().
+    /// `g_unix_connection_send_credentials_async()`.
     func sendCredentialsFinish(result: AsyncResultProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_unix_connection_send_credentials_finish(cast(unix_connection_ptr), cast(result.ptr), &error)
@@ -4890,7 +4873,7 @@ public extension UnixConnectionProtocol {
     }
 
     /// Passes a file descriptor to the receiving side of the
-    /// connection. The receiving end has to call g_unix_connection_receive_fd()
+    /// connection. The receiving end has to call `g_unix_connection_receive_fd()`
     /// to accept the file descriptor.
     /// 
     /// As well as sending the fd this also writes a single byte to the

@@ -161,7 +161,7 @@ public extension DBusArgInfoProtocol {
 /// For a concrete class that implements these methods and properties, see `DBusErrorEntry`.
 /// Alternatively, use `DBusErrorEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Struct used in g_dbus_error_register_error_domain().
+/// Struct used in `g_dbus_error_register_error_domain()`.
 public protocol DBusErrorEntryProtocol {
     /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -174,7 +174,7 @@ public protocol DBusErrorEntryProtocol {
 /// It exposes methods that can operate on this data type through `DBusErrorEntryProtocol` conformance.
 /// Use `DBusErrorEntryRef` only as an `unowned` reference to an existing `GDBusErrorEntry` instance.
 ///
-/// Struct used in g_dbus_error_register_error_domain().
+/// Struct used in `g_dbus_error_register_error_domain()`.
 public struct DBusErrorEntryRef: DBusErrorEntryProtocol {
     /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -227,7 +227,7 @@ public extension DBusErrorEntryRef {
 /// It provides the methods that can operate on this data type through `DBusErrorEntryProtocol` conformance.
 /// Use `DBusErrorEntry` as a strong reference or owner of a `GDBusErrorEntry` instance.
 ///
-/// Struct used in g_dbus_error_register_error_domain().
+/// Struct used in `g_dbus_error_register_error_domain()`.
 open class DBusErrorEntry: DBusErrorEntryProtocol {
     /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -565,22 +565,22 @@ public extension DBusInterfaceInfoProtocol {
     var dbus_interface_info_ptr: UnsafeMutablePointer<GDBusInterfaceInfo> { return ptr.assumingMemoryBound(to: GDBusInterfaceInfo.self) }
 
     /// Builds a lookup-cache to speed up
-    /// g_dbus_interface_info_lookup_method(),
-    /// g_dbus_interface_info_lookup_signal() and
-    /// g_dbus_interface_info_lookup_property().
+    /// `g_dbus_interface_info_lookup_method()`,
+    /// `g_dbus_interface_info_lookup_signal()` and
+    /// `g_dbus_interface_info_lookup_property()`.
     /// 
     /// If this has already been called with `info`, the existing cache is
     /// used and its use count is increased.
     /// 
     /// Note that `info` cannot be modified until
-    /// g_dbus_interface_info_cache_release() is called.
+    /// `g_dbus_interface_info_cache_release()` is called.
     func cacheBuild() {
         g_dbus_interface_info_cache_build(cast(dbus_interface_info_ptr))
     
     }
 
     /// Decrements the usage count for the cache for `info` built by
-    /// g_dbus_interface_info_cache_build() (if any) and frees the
+    /// `g_dbus_interface_info_cache_build()` (if any) and frees the
     /// resources used by the cache if the usage count drops to zero.
     func cacheRelease() {
         g_dbus_interface_info_cache_release(cast(dbus_interface_info_ptr))
@@ -600,8 +600,8 @@ public extension DBusInterfaceInfoProtocol {
 
     /// Looks up information about a method.
     /// 
-    /// The cost of this function is O(n) in number of methods unless
-    /// g_dbus_interface_info_cache_build() has been used on `info`.
+    /// The cost of this function is `O(n)` in number of methods unless
+    /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupMethod(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusMethodInfo>! {
         let rv = g_dbus_interface_info_lookup_method(cast(dbus_interface_info_ptr), name)
         return cast(rv)
@@ -609,8 +609,8 @@ public extension DBusInterfaceInfoProtocol {
 
     /// Looks up information about a property.
     /// 
-    /// The cost of this function is O(n) in number of properties unless
-    /// g_dbus_interface_info_cache_build() has been used on `info`.
+    /// The cost of this function is `O(n)` in number of properties unless
+    /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupProperty(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusPropertyInfo>! {
         let rv = g_dbus_interface_info_lookup_property(cast(dbus_interface_info_ptr), name)
         return cast(rv)
@@ -618,8 +618,8 @@ public extension DBusInterfaceInfoProtocol {
 
     /// Looks up information about a signal.
     /// 
-    /// The cost of this function is O(n) in number of signals unless
-    /// g_dbus_interface_info_cache_build() has been used on `info`.
+    /// The cost of this function is `O(n)` in number of signals unless
+    /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupSignal(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusSignalInfo>! {
         let rv = g_dbus_interface_info_lookup_signal(cast(dbus_interface_info_ptr), name)
         return cast(rv)
@@ -930,18 +930,18 @@ public extension DBusInterfaceSkeletonPrivateProtocol {
 /// interface.
 /// 
 /// Since 2.38, if you want to handle getting/setting D-Bus properties
-/// asynchronously, give `nil` as your get_property() or set_property()
+/// asynchronously, give `nil` as your `get_property()` or `set_property()`
 /// function. The D-Bus call will be directed to your `method_call` function,
 /// with the provided `interface_name` set to "org.freedesktop.DBus.Properties".
 /// 
 /// Ownership of the `GDBusMethodInvocation` object passed to the
-/// method_call() function is transferred to your handler; you must
+/// `method_call()` function is transferred to your handler; you must
 /// call one of the methods of `GDBusMethodInvocation` to return a reply
 /// (possibly empty), or an error. These functions also take ownership
 /// of the passed-in invocation object, so unless the invocation
 /// object has otherwise been referenced, it will be then be freed.
 /// Calling one of these functions may be done within your
-/// method_call() implementation but it also can be done at a later
+/// `method_call()` implementation but it also can be done at a later
 /// point to handle the method asynchronously.
 /// 
 /// The usual checks on the validity of the calls is performed. For
@@ -952,11 +952,11 @@ public extension DBusInterfaceSkeletonPrivateProtocol {
 /// 
 /// For both `Get` and `Set` calls, the `GDBusMethodInvocation`
 /// passed to the `method_call` handler can be queried with
-/// g_dbus_method_invocation_get_property_info() to get a pointer
+/// `g_dbus_method_invocation_get_property_info()` to get a pointer
 /// to the `GDBusPropertyInfo` of the property.
 /// 
 /// If you have readable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `get_property`()
+/// you must ensure that you either provide a non-`nil` `get_property``()`
 /// function or provide implementations of both the `Get` and `GetAll`
 /// methods on org.freedesktop.DBus.Properties interface in your `method_call`
 /// function. Note that the required return type of the `Get` call is
@@ -964,7 +964,7 @@ public extension DBusInterfaceSkeletonPrivateProtocol {
 /// of type `a{sv}`.
 /// 
 /// If you have writable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `set_property`()
+/// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 public protocol DBusInterfaceVTableProtocol {
@@ -983,18 +983,18 @@ public protocol DBusInterfaceVTableProtocol {
 /// interface.
 /// 
 /// Since 2.38, if you want to handle getting/setting D-Bus properties
-/// asynchronously, give `nil` as your get_property() or set_property()
+/// asynchronously, give `nil` as your `get_property()` or `set_property()`
 /// function. The D-Bus call will be directed to your `method_call` function,
 /// with the provided `interface_name` set to "org.freedesktop.DBus.Properties".
 /// 
 /// Ownership of the `GDBusMethodInvocation` object passed to the
-/// method_call() function is transferred to your handler; you must
+/// `method_call()` function is transferred to your handler; you must
 /// call one of the methods of `GDBusMethodInvocation` to return a reply
 /// (possibly empty), or an error. These functions also take ownership
 /// of the passed-in invocation object, so unless the invocation
 /// object has otherwise been referenced, it will be then be freed.
 /// Calling one of these functions may be done within your
-/// method_call() implementation but it also can be done at a later
+/// `method_call()` implementation but it also can be done at a later
 /// point to handle the method asynchronously.
 /// 
 /// The usual checks on the validity of the calls is performed. For
@@ -1005,11 +1005,11 @@ public protocol DBusInterfaceVTableProtocol {
 /// 
 /// For both `Get` and `Set` calls, the `GDBusMethodInvocation`
 /// passed to the `method_call` handler can be queried with
-/// g_dbus_method_invocation_get_property_info() to get a pointer
+/// `g_dbus_method_invocation_get_property_info()` to get a pointer
 /// to the `GDBusPropertyInfo` of the property.
 /// 
 /// If you have readable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `get_property`()
+/// you must ensure that you either provide a non-`nil` `get_property``()`
 /// function or provide implementations of both the `Get` and `GetAll`
 /// methods on org.freedesktop.DBus.Properties interface in your `method_call`
 /// function. Note that the required return type of the `Get` call is
@@ -1017,7 +1017,7 @@ public protocol DBusInterfaceVTableProtocol {
 /// of type `a{sv}`.
 /// 
 /// If you have writable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `set_property`()
+/// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 public struct DBusInterfaceVTableRef: DBusInterfaceVTableProtocol {
@@ -1076,18 +1076,18 @@ public extension DBusInterfaceVTableRef {
 /// interface.
 /// 
 /// Since 2.38, if you want to handle getting/setting D-Bus properties
-/// asynchronously, give `nil` as your get_property() or set_property()
+/// asynchronously, give `nil` as your `get_property()` or `set_property()`
 /// function. The D-Bus call will be directed to your `method_call` function,
 /// with the provided `interface_name` set to "org.freedesktop.DBus.Properties".
 /// 
 /// Ownership of the `GDBusMethodInvocation` object passed to the
-/// method_call() function is transferred to your handler; you must
+/// `method_call()` function is transferred to your handler; you must
 /// call one of the methods of `GDBusMethodInvocation` to return a reply
 /// (possibly empty), or an error. These functions also take ownership
 /// of the passed-in invocation object, so unless the invocation
 /// object has otherwise been referenced, it will be then be freed.
 /// Calling one of these functions may be done within your
-/// method_call() implementation but it also can be done at a later
+/// `method_call()` implementation but it also can be done at a later
 /// point to handle the method asynchronously.
 /// 
 /// The usual checks on the validity of the calls is performed. For
@@ -1098,11 +1098,11 @@ public extension DBusInterfaceVTableRef {
 /// 
 /// For both `Get` and `Set` calls, the `GDBusMethodInvocation`
 /// passed to the `method_call` handler can be queried with
-/// g_dbus_method_invocation_get_property_info() to get a pointer
+/// `g_dbus_method_invocation_get_property_info()` to get a pointer
 /// to the `GDBusPropertyInfo` of the property.
 /// 
 /// If you have readable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `get_property`()
+/// you must ensure that you either provide a non-`nil` `get_property``()`
 /// function or provide implementations of both the `Get` and `GetAll`
 /// methods on org.freedesktop.DBus.Properties interface in your `method_call`
 /// function. Note that the required return type of the `Get` call is
@@ -1110,7 +1110,7 @@ public extension DBusInterfaceVTableRef {
 /// of type `a{sv}`.
 /// 
 /// If you have writable properties specified in your interface info,
-/// you must ensure that you either provide a non-`nil` `set_property`()
+/// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
@@ -1538,7 +1538,7 @@ public extension DBusNodeInfoProtocol {
 
     /// Looks up information about an interface.
     /// 
-    /// The cost of this function is O(n) in number of interfaces.
+    /// The cost of this function is `O(n)` in number of interfaces.
     func lookupInterface(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
         let rv = g_dbus_node_info_lookup_interface(cast(dbus_node_info_ptr), name)
         return cast(rv)
@@ -3529,7 +3529,7 @@ public extension DBusSignalInfoProtocol {
 /// For a concrete class that implements these methods and properties, see `DBusSubtreeVTable`.
 /// Alternatively, use `DBusSubtreeVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual table for handling subtrees registered with g_dbus_connection_register_subtree().
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public protocol DBusSubtreeVTableProtocol {
     /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -3542,7 +3542,7 @@ public protocol DBusSubtreeVTableProtocol {
 /// It exposes methods that can operate on this data type through `DBusSubtreeVTableProtocol` conformance.
 /// Use `DBusSubtreeVTableRef` only as an `unowned` reference to an existing `GDBusSubtreeVTable` instance.
 ///
-/// Virtual table for handling subtrees registered with g_dbus_connection_register_subtree().
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public struct DBusSubtreeVTableRef: DBusSubtreeVTableProtocol {
     /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3595,7 +3595,7 @@ public extension DBusSubtreeVTableRef {
 /// It provides the methods that can operate on this data type through `DBusSubtreeVTableProtocol` conformance.
 /// Use `DBusSubtreeVTable` as a strong reference or owner of a `GDBusSubtreeVTable` instance.
 ///
-/// Virtual table for handling subtrees registered with g_dbus_connection_register_subtree().
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
     /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

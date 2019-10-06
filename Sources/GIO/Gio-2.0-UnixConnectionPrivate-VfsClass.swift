@@ -1420,7 +1420,7 @@ public extension UnixMountEntryProtocol {
     /// Gets a comma-separated list of mount options for the unix mount. For example,
     /// `rw,relatime,seclabel,data=ordered`.
     /// 
-    /// This is similar to g_unix_mount_point_get_options(), but it takes
+    /// This is similar to `g_unix_mount_point_get_options()`, but it takes
     /// a `GUnixMountEntry` as an argument.
     func unixMountGetOptions() -> String! {
         let rv = g_unix_mount_get_options(cast(unix_mount_entry_ptr))
@@ -1476,8 +1476,8 @@ public extension UnixMountEntryProtocol {
     }
 
     /// Checks if a Unix mount is a system mount. This is the Boolean OR of
-    /// g_unix_is_system_fs_type(), g_unix_is_system_device_path() and
-    /// g_unix_is_mount_path_system_internal() on `mount_entry`’s properties.
+    /// `g_unix_is_system_fs_type()`, `g_unix_is_system_device_path()` and
+    /// `g_unix_is_mount_path_system_internal()` on `mount_entry`’s properties.
     /// 
     /// The definition of what a ‘system’ mount entry is may change over time as new
     /// file system types and device paths are ignored.

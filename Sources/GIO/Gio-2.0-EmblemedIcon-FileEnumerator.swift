@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
-/// icon is ensured via g_emblemed_icon_add_emblem().
+/// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
@@ -29,7 +29,7 @@ public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
 ///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
-/// icon is ensured via g_emblemed_icon_add_emblem().
+/// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
@@ -92,7 +92,7 @@ public extension EmblemedIconRef {
 ///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
-/// icon is ensured via g_emblemed_icon_add_emblem().
+/// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
@@ -185,27 +185,26 @@ public extension EmblemedIconProtocol {
 
 public enum EmblemedIconSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -298,17 +297,17 @@ public extension EmblemedIconProtocol {
 ///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
-/// g_file_enumerate_children() will return a `GFileEnumerator` for each
+/// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
 /// of the children within a directory).
 /// 
 /// To get the next file's information from a `GFileEnumerator`, use
-/// g_file_enumerator_next_file() or its asynchronous version,
-/// g_file_enumerator_next_files_async(). Note that the asynchronous
+/// `g_file_enumerator_next_file()` or its asynchronous version,
+/// `g_file_enumerator_next_files_async()`. Note that the asynchronous
 /// version will return a list of `GFileInfos`, whereas the
 /// synchronous will only return the next file in the enumerator.
 /// 
 /// The ordering of returned files is unspecified for non-Unix
-/// platforms; for more information, see g_dir_read_name().  On Unix,
+/// platforms; for more information, see `g_dir_read_name()`.  On Unix,
 /// when operating on local files, returned files will be sorted by
 /// inode number.  Effectively you can assume that the ordering of
 /// returned files will be stable between successive calls (and
@@ -318,10 +317,10 @@ public extension EmblemedIconProtocol {
 /// modification time, you will have to implement that in your
 /// application code.
 /// 
-/// To close a `GFileEnumerator`, use g_file_enumerator_close(), or
-/// its asynchronous version, g_file_enumerator_close_async(). Once
+/// To close a `GFileEnumerator`, use `g_file_enumerator_close()`, or
+/// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
-/// on it, and it should be freed with g_object_unref().
+/// on it, and it should be freed with `g_object_unref()`.
 public protocol FileEnumeratorProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GFileEnumerator` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -336,17 +335,17 @@ public protocol FileEnumeratorProtocol: ObjectProtocol {
 ///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
-/// g_file_enumerate_children() will return a `GFileEnumerator` for each
+/// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
 /// of the children within a directory).
 /// 
 /// To get the next file's information from a `GFileEnumerator`, use
-/// g_file_enumerator_next_file() or its asynchronous version,
-/// g_file_enumerator_next_files_async(). Note that the asynchronous
+/// `g_file_enumerator_next_file()` or its asynchronous version,
+/// `g_file_enumerator_next_files_async()`. Note that the asynchronous
 /// version will return a list of `GFileInfos`, whereas the
 /// synchronous will only return the next file in the enumerator.
 /// 
 /// The ordering of returned files is unspecified for non-Unix
-/// platforms; for more information, see g_dir_read_name().  On Unix,
+/// platforms; for more information, see `g_dir_read_name()`.  On Unix,
 /// when operating on local files, returned files will be sorted by
 /// inode number.  Effectively you can assume that the ordering of
 /// returned files will be stable between successive calls (and
@@ -356,10 +355,10 @@ public protocol FileEnumeratorProtocol: ObjectProtocol {
 /// modification time, you will have to implement that in your
 /// application code.
 /// 
-/// To close a `GFileEnumerator`, use g_file_enumerator_close(), or
-/// its asynchronous version, g_file_enumerator_close_async(). Once
+/// To close a `GFileEnumerator`, use `g_file_enumerator_close()`, or
+/// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
-/// on it, and it should be freed with g_object_unref().
+/// on it, and it should be freed with `g_object_unref()`.
 public struct FileEnumeratorRef: FileEnumeratorProtocol {
     /// Untyped pointer to the underlying `GFileEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `file_enumerator_ptr` property instead.
@@ -414,17 +413,17 @@ public extension FileEnumeratorRef {
 ///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
-/// g_file_enumerate_children() will return a `GFileEnumerator` for each
+/// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
 /// of the children within a directory).
 /// 
 /// To get the next file's information from a `GFileEnumerator`, use
-/// g_file_enumerator_next_file() or its asynchronous version,
-/// g_file_enumerator_next_files_async(). Note that the asynchronous
+/// `g_file_enumerator_next_file()` or its asynchronous version,
+/// `g_file_enumerator_next_files_async()`. Note that the asynchronous
 /// version will return a list of `GFileInfos`, whereas the
 /// synchronous will only return the next file in the enumerator.
 /// 
 /// The ordering of returned files is unspecified for non-Unix
-/// platforms; for more information, see g_dir_read_name().  On Unix,
+/// platforms; for more information, see `g_dir_read_name()`.  On Unix,
 /// when operating on local files, returned files will be sorted by
 /// inode number.  Effectively you can assume that the ordering of
 /// returned files will be stable between successive calls (and
@@ -434,10 +433,10 @@ public extension FileEnumeratorRef {
 /// modification time, you will have to implement that in your
 /// application code.
 /// 
-/// To close a `GFileEnumerator`, use g_file_enumerator_close(), or
-/// its asynchronous version, g_file_enumerator_close_async(). Once
+/// To close a `GFileEnumerator`, use `g_file_enumerator_close()`, or
+/// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
-/// on it, and it should be freed with g_object_unref().
+/// on it, and it should be freed with `g_object_unref()`.
 open class FileEnumerator: Object, FileEnumeratorProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `FileEnumerator` instance.
@@ -522,27 +521,26 @@ public extension FileEnumeratorProtocol {
 
 public enum FileEnumeratorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
     /// [canonical parameter names][canonical-parameter-names] as
     /// detail strings for the notify signal.
@@ -602,15 +600,15 @@ public extension FileEnumeratorProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned in
-    /// g_file_enumerator_close_finish().
+    /// `g_file_enumerator_close_finish()`.
     func closeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
         g_file_enumerator_close_async(cast(file_enumerator_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
-    /// Finishes closing a file enumerator, started from g_file_enumerator_close_async().
+    /// Finishes closing a file enumerator, started from `g_file_enumerator_close_async()`.
     /// 
-    /// If the file enumerator was already closed when g_file_enumerator_close_async()
+    /// If the file enumerator was already closed when `g_file_enumerator_close_async()`
     /// was called, then this function will report `G_IO_ERROR_CLOSED` in `error`, and
     /// return `false`. If the file enumerator had pending operation when the close
     /// operation was started, then this function will report `G_IO_ERROR_PENDING`, and
@@ -629,7 +627,7 @@ public extension FileEnumeratorProtocol {
 
     /// Return a new `GFile` which refers to the file named by `info` in the source
     /// directory of `enumerator`.  This function is primarily intended to be used
-    /// inside loops with g_file_enumerator_next_file().
+    /// inside loops with `g_file_enumerator_next_file()`.
     /// 
     /// This is a convenience method that's equivalent to:
     /// (C Language Example):
@@ -656,13 +654,13 @@ public extension FileEnumeratorProtocol {
         return Bool(rv != 0)
     }
 
-    /// This is a version of g_file_enumerator_next_file() that's easier to
-    /// use correctly from C programs.  With g_file_enumerator_next_file(),
+    /// This is a version of `g_file_enumerator_next_file()` that's easier to
+    /// use correctly from C programs.  With `g_file_enumerator_next_file()`,
     /// the gboolean return value signifies "end of iteration or error", which
     /// requires allocation of a temporary `GError`.
     /// 
     /// In contrast, with this function, a `false` return from
-    /// g_file_enumerator_iterate() *always* means
+    /// `g_file_enumerator_iterate()` *always* means
     /// "error".  End of iteration is signaled by `out_info` or `out_child` being `nil`.
     /// 
     /// Another crucial difference is that the references for `out_info` and
@@ -676,7 +674,7 @@ public extension FileEnumeratorProtocol {
     /// 
     /// You must specify at least one of `out_info` or `out_child`.
     /// 
-    /// The code pattern for correctly using g_file_enumerator_iterate() from C
+    /// The code pattern for correctly using `g_file_enumerator_iterate()` from C
     /// is:
     /// 
     /// ```
@@ -692,7 +690,7 @@ public extension FileEnumeratorProtocol {
     ///   }
     /// 
     /// out:
-    ///   g_object_unref (direnum); // Note: frees the last `info`
+    ///   g_object_unref (direnum); // Note: frees the last @info
     /// ```
     /// 
     func iterate(outInfo out_info: FileInfoProtocol, outChild out_child: FileProtocol, cancellable: CancellableProtocol) throws -> Bool {
@@ -748,7 +746,7 @@ public extension FileEnumeratorProtocol {
     
     }
 
-    /// Finishes the asynchronous operation started with g_file_enumerator_next_files_async().
+    /// Finishes the asynchronous operation started with `g_file_enumerator_next_files_async()`.
     func nextFilesFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_file_enumerator_next_files_finish(cast(file_enumerator_ptr), cast(result.ptr), &error)
