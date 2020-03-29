@@ -81,40 +81,81 @@ public extension TLSClientConnectionRef {
 /// `GTlsConnection`, representing a client-side TLS connection.
 open class TLSClientConnection: TLSConnection, TLSClientConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSClientConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsClientConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSClientConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsClientConnection`.
-    public convenience init<T: TLSClientConnectionProtocol>(_ other: T) {
-        self.init(cast(other.tls_client_connection_ptr))
-        g_object_ref(cast(tls_client_connection_ptr))
+    /// i.e., ownership is transferred to the `TLSClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsClientConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSClientConnectionProtocol`
+    /// Will retain `GTlsClientConnection`.
+    /// - Parameter other: an instance of a related type that implements `TLSClientConnectionProtocol`
+    public init<T: TLSClientConnectionProtocol>(tlsClientConnection other: T) {
+        super.init(retaining: cast(other.tls_client_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsClientConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsClientConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsClientConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsClientConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -174,6 +215,9 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -193,13 +237,11 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// certificate we expect, which is useful for servers that serve
     /// virtual hosts.
     case serverIdentity = "server-identity"
-    /// If `true`, forces the connection to use a fallback version of TLS
-    /// or SSL, rather than trying to negotiate the best version of TLS
-    /// to use. See `g_tls_client_connection_set_use_ssl3()`.
+    /// SSL 3.0 is no longer supported. See
+    /// `g_tls_client_connection_set_use_ssl3()` for details.
     ///
     /// **use-ssl3 is deprecated:**
-    /// SSL 3.0 is insecure, and this property does not
-    /// generally enable or disable it, despite its name.
+    /// SSL 3.0 is insecure.
     case useSSL3 = "use-ssl3"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
@@ -363,6 +405,9 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -382,13 +427,11 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// certificate we expect, which is useful for servers that serve
     /// virtual hosts.
     case notifyServerIdentity = "notify::server-identity"
-    /// If `true`, forces the connection to use a fallback version of TLS
-    /// or SSL, rather than trying to negotiate the best version of TLS
-    /// to use. See `g_tls_client_connection_set_use_ssl3()`.
+    /// SSL 3.0 is no longer supported. See
+    /// `g_tls_client_connection_set_use_ssl3()` for details.
     ///
     /// **use-ssl3 is deprecated:**
-    /// SSL 3.0 is insecure, and this property does not
-    /// generally enable or disable it, despite its name.
+    /// SSL 3.0 is insecure.
     case notifyUseSSL3 = "notify::use-ssl3"
     /// Whether or not the system certificate database will be used to
     /// verify peer certificates. See
@@ -436,12 +479,34 @@ public extension TLSClientConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsClientConnection` instance.
     var tls_client_connection_ptr: UnsafeMutablePointer<GTlsClientConnection> { return ptr.assumingMemoryBound(to: GTlsClientConnection.self) }
 
-    /// Copies session state from one connection to another. This is
-    /// not normally needed, but may be used when the same session
-    /// needs to be used between different endpoints as is required
-    /// by some protocols such as FTP over TLS. `source` should have
-    /// already completed a handshake, and `conn` should not have
-    /// completed a handshake.
+    /// Possibly copies session state from one connection to another, for use
+    /// in TLS session resumption. This is not normally needed, but may be
+    /// used when the same session needs to be used between different
+    /// endpoints, as is required by some protocols, such as FTP over TLS.
+    /// `source` should have already completed a handshake and, since TLS 1.3,
+    /// it should have been used to read data at least once. `conn` should not
+    /// have completed a handshake.
+    /// 
+    /// It is not possible to know whether a call to this function will
+    /// actually do anything. Because session resumption is normally used
+    /// only for performance benefit, the TLS backend might not implement
+    /// this function. Even if implemented, it may not actually succeed in
+    /// allowing `conn` to resume `source`'s TLS session, because the server
+    /// may not have sent a session resumption token to `source`, or it may
+    /// refuse to accept the token from `conn`. There is no way to know
+    /// whether a call to this function is actually successful.
+    /// 
+    /// Using this function is not required to benefit from session
+    /// resumption. If the TLS backend supports session resumption, the
+    /// session will be resumed automatically if it is possible to do so
+    /// without weakening the privacy guarantees normally provided by TLS,
+    /// without need to call this function. For example, with TLS 1.3,
+    /// a session ticket will be automatically copied from any
+    /// `GTlsClientConnection` that has previously received session tickets
+    /// from the server, provided a ticket is available that has not
+    /// previously been used for session resumption, since session ticket
+    /// reuse would be a privacy weakness. Using this function causes the
+    /// ticket to be copied without regard for privacy considerations.
     func copySessionState(source: TLSClientConnectionProtocol) {
         g_tls_client_connection_copy_session_state(cast(tls_client_connection_ptr), cast(source.ptr))
     
@@ -465,13 +530,11 @@ public extension TLSClientConnectionProtocol {
         return cast(rv)
     }
 
-    /// Gets whether `conn` will force the lowest-supported TLS protocol
-    /// version rather than attempt to negotiate the highest mutually-
-    /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
+    /// SSL 3.0 is no longer supported. See
+    /// `g_tls_client_connection_set_use_ssl3()` for details.
     ///
     /// **get_use_ssl3 is deprecated:**
-    /// SSL 3.0 is insecure, and this function does not
-    /// actually indicate whether it is enabled.
+    /// SSL 3.0 is insecure.
     @available(*, deprecated) func getUseSSL3() -> Bool {
         let rv = g_tls_client_connection_get_use_ssl3(cast(tls_client_connection_ptr))
         return Bool(rv != 0)
@@ -492,23 +555,19 @@ public extension TLSClientConnectionProtocol {
     
     }
 
-    /// Since 2.42.1, if `use_ssl3` is `true`, this forces `conn` to use the
-    /// lowest-supported TLS protocol version rather than trying to properly
-    /// negotiate the highest mutually-supported protocol version with the
-    /// peer. Be aware that SSL 3.0 is generally disabled by the
-    /// `GTlsBackend`, so the lowest-supported protocol version is probably
-    /// not SSL 3.0.
+    /// Since GLib 2.42.1, SSL 3.0 is no longer supported.
     /// 
-    /// Since 2.58, this may additionally cause an RFC 7507 fallback SCSV to
-    /// be sent to the server, causing modern TLS servers to immediately
-    /// terminate the connection. You should generally only use this function
-    /// if you need to connect to broken servers that exhibit TLS protocol
-    /// version intolerance, and when an initial attempt to connect to a
-    /// server normally has already failed.
+    /// From GLib 2.42.1 through GLib 2.62, this function could be used to
+    /// force use of TLS 1.0, the lowest-supported TLS protocol version at
+    /// the time. In the past, this was needed to connect to broken TLS
+    /// servers that exhibited protocol version intolerance. Such servers
+    /// are no longer common, and using TLS 1.0 is no longer considered
+    /// acceptable.
+    /// 
+    /// Since GLib 2.64, this function does nothing.
     ///
     /// **set_use_ssl3 is deprecated:**
-    /// SSL 3.0 is insecure, and this function does not
-    /// generally enable or disable it, despite its name.
+    /// SSL 3.0 is insecure.
     @available(*, deprecated) func set(useSSL3 use_ssl3: Bool) {
         g_tls_client_connection_set_use_ssl3(cast(tls_client_connection_ptr), gboolean(use_ssl3 ? 1 : 0))
     
@@ -558,42 +617,34 @@ public extension TLSClientConnectionProtocol {
         }
     }
 
-    /// Gets whether `conn` will force the lowest-supported TLS protocol
-    /// version rather than attempt to negotiate the highest mutually-
-    /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
+    /// SSL 3.0 is no longer supported. See
+    /// `g_tls_client_connection_set_use_ssl3()` for details.
     ///
     /// **get_use_ssl3 is deprecated:**
-    /// SSL 3.0 is insecure, and this function does not
-    /// actually indicate whether it is enabled.
+    /// SSL 3.0 is insecure.
     var useSSL3: Bool {
-        /// Gets whether `conn` will force the lowest-supported TLS protocol
-        /// version rather than attempt to negotiate the highest mutually-
-        /// supported version of TLS; see `g_tls_client_connection_set_use_ssl3()`.
+        /// SSL 3.0 is no longer supported. See
+        /// `g_tls_client_connection_set_use_ssl3()` for details.
         ///
         /// **get_use_ssl3 is deprecated:**
-        /// SSL 3.0 is insecure, and this function does not
-        /// actually indicate whether it is enabled.
+        /// SSL 3.0 is insecure.
         @available(*, deprecated) get {
             let rv = g_tls_client_connection_get_use_ssl3(cast(tls_client_connection_ptr))
             return Bool(rv != 0)
         }
-        /// Since 2.42.1, if `use_ssl3` is `true`, this forces `conn` to use the
-        /// lowest-supported TLS protocol version rather than trying to properly
-        /// negotiate the highest mutually-supported protocol version with the
-        /// peer. Be aware that SSL 3.0 is generally disabled by the
-        /// `GTlsBackend`, so the lowest-supported protocol version is probably
-        /// not SSL 3.0.
+        /// Since GLib 2.42.1, SSL 3.0 is no longer supported.
         /// 
-        /// Since 2.58, this may additionally cause an RFC 7507 fallback SCSV to
-        /// be sent to the server, causing modern TLS servers to immediately
-        /// terminate the connection. You should generally only use this function
-        /// if you need to connect to broken servers that exhibit TLS protocol
-        /// version intolerance, and when an initial attempt to connect to a
-        /// server normally has already failed.
+        /// From GLib 2.42.1 through GLib 2.62, this function could be used to
+        /// force use of TLS 1.0, the lowest-supported TLS protocol version at
+        /// the time. In the past, this was needed to connect to broken TLS
+        /// servers that exhibited protocol version intolerance. Such servers
+        /// are no longer common, and using TLS 1.0 is no longer considered
+        /// acceptable.
+        /// 
+        /// Since GLib 2.64, this function does nothing.
         ///
         /// **set_use_ssl3 is deprecated:**
-        /// SSL 3.0 is insecure, and this function does not
-        /// generally enable or disable it, despite its name.
+        /// SSL 3.0 is insecure.
         @available(*, deprecated) nonmutating set {
             g_tls_client_connection_set_use_ssl3(cast(tls_client_connection_ptr), gboolean(newValue ? 1 : 0))
         }
@@ -699,40 +750,81 @@ public extension TLSFileDatabaseRef {
 /// TLS library specific subtypes implement.
 open class TLSFileDatabase: TLSDatabase, TLSFileDatabaseProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSFileDatabase` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSFileDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsFileDatabase>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSFileDatabaseProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsFileDatabase`.
-    public convenience init<T: TLSFileDatabaseProtocol>(_ other: T) {
-        self.init(cast(other.tls_file_database_ptr))
-        g_object_ref(cast(tls_file_database_ptr))
+    /// i.e., ownership is transferred to the `TLSFileDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsFileDatabase>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSFileDatabaseProtocol`
+    /// Will retain `GTlsFileDatabase`.
+    /// - Parameter other: an instance of a related type that implements `TLSFileDatabaseProtocol`
+    public init<T: TLSFileDatabaseProtocol>(tlsFileDatabase other: T) {
+        super.init(retaining: cast(other.tls_file_database_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsFileDatabase.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsFileDatabase.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsFileDatabase.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsFileDatabase>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -931,40 +1023,81 @@ public extension TLSServerConnectionRef {
 /// representing a server-side TLS connection.
 open class TLSServerConnection: TLSConnection, TLSServerConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSServerConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsServerConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSServerConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsServerConnection`.
-    public convenience init<T: TLSServerConnectionProtocol>(_ other: T) {
-        self.init(cast(other.tls_server_connection_ptr))
-        g_object_ref(cast(tls_server_connection_ptr))
+    /// i.e., ownership is transferred to the `TLSServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsServerConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSServerConnectionProtocol`
+    /// Will retain `GTlsServerConnection`.
+    /// - Parameter other: an instance of a related type that implements `TLSServerConnectionProtocol`
+    public init<T: TLSServerConnectionProtocol>(tlsServerConnection other: T) {
+        super.init(retaining: cast(other.tls_server_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsServerConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsServerConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsServerConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsServerConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -1020,6 +1153,9 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -1177,6 +1313,9 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -1426,15 +1565,27 @@ open class Volume: VolumeProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Volume` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Volume` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVolume>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VolumeProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GVolume` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Volume` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVolume>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GVolume, cannot ref(cast(volume_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VolumeProtocol`
     /// `GVolume` does not allow reference counting.
-    public convenience init<T: VolumeProtocol>(_ other: T) {
-        self.init(cast(other.volume_ptr))
+    /// - Parameter other: an instance of a related type that implements `VolumeProtocol`
+    public init<T: VolumeProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.volume_ptr)
         // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
@@ -1445,26 +1596,61 @@ open class Volume: VolumeProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVolume.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVolume.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVolume.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVolume>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
 

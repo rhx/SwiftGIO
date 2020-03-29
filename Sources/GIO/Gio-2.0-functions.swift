@@ -399,6 +399,13 @@ public func busOwnNameWithClosures(busType bus_type: BusType, name: UnsafePointe
 
 
 /// Stops owning a name.
+/// 
+/// Note that there may still be D-Bus traffic to process (relating to owning
+/// and unowning the name) in the current thread-default `GMainContext` after
+/// this function has returned. You should continue to iterate the `GMainContext`
+/// until the `GDestroyNotify` function passed to `g_bus_own_name()` is called, in
+/// order to avoid memory leaks through callbacks queued on the `GMainContext`
+/// after it’s stopped being iterated.
 public func busUnownName(ownerID owner_id: CUnsignedInt) {
     g_bus_unown_name(guint(owner_id))
 
@@ -408,6 +415,13 @@ public func busUnownName(ownerID owner_id: CUnsignedInt) {
 
 
 /// Stops watching a name.
+/// 
+/// Note that there may still be D-Bus traffic to process (relating to watching
+/// and unwatching the name) in the current thread-default `GMainContext` after
+/// this function has returned. You should continue to iterate the `GMainContext`
+/// until the `GDestroyNotify` function passed to `g_bus_watch_name()` is called, in
+/// order to avoid memory leaks through callbacks queued on the `GMainContext`
+/// after it’s stopped being iterated.
 public func busUnwatchName(watcherID watcher_id: CUnsignedInt) {
     g_bus_unwatch_name(guint(watcher_id))
 
@@ -418,7 +432,7 @@ public func busUnwatchName(watcherID watcher_id: CUnsignedInt) {
 
 /// Starts watching `name` on the bus specified by `bus_type` and calls
 /// `name_appeared_handler` and `name_vanished_handler` when the name is
-/// known to have a owner respectively known to lose its
+/// known to have an owner respectively known to lose its
 /// owner. Callbacks will be invoked in the
 /// [thread-default main context](#g-main-context-push-thread-default)
 /// of the thread you are calling this function from.
@@ -1405,6 +1419,15 @@ public func ioModulesScanAllInDirectoryWithScope(dirname: UnsafePointer<gchar>, 
 /// the same location.
 public func keyfileSettingsBackendNew(String_: UnsafePointer<gchar>, rootPath root_path: UnsafePointer<gchar>, rootGroup root_group: UnsafePointer<gchar>) -> UnsafeMutablePointer<GSettingsBackend>! {
     let rv = g_keyfile_settings_backend_new(String_, root_path, root_group)
+    return cast(rv)
+}
+
+
+
+
+/// Gets a reference to the default `GMemoryMonitor` for the system.
+public func memoryMonitorDupDefault() -> UnsafeMutablePointer<GMemoryMonitor>! {
+    let rv = g_memory_monitor_dup_default()
     return cast(rv)
 }
 

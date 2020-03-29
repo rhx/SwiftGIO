@@ -213,40 +213,81 @@ public extension IOStreamRef {
 /// stream in (though they are guaranteed not to crash).
 open class IOStream: Object, IOStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `IOStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GIOStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `IOStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GIOStream`.
-    public convenience init<T: IOStreamProtocol>(_ other: T) {
-        self.init(cast(other.io_stream_ptr))
-        g_object_ref(cast(io_stream_ptr))
+    /// i.e., ownership is transferred to the `IOStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GIOStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `IOStreamProtocol`
+    /// Will retain `GIOStream`.
+    /// - Parameter other: an instance of a related type that implements `IOStreamProtocol`
+    public init<T: IOStreamProtocol>(iOStream other: T) {
+        super.init(retaining: cast(other.io_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GIOStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GIOStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GIOStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GIOStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -628,7 +669,7 @@ public extension InetAddressRef {
     /// care") for `family`.
     init(any family: SocketFamily) {
         let rv = g_inet_address_new_any(family)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GInetAddress` from the given `family` and `bytes`.
@@ -636,19 +677,19 @@ public extension InetAddressRef {
     /// `G_SOCKET_FAMILY_IPV6`.
     init(bytes: UnsafePointer<UInt8>, family: SocketFamily) {
         let rv = g_inet_address_new_from_bytes(cast(bytes), family)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
     init(string: UnsafePointer<gchar>) {
         let rv = g_inet_address_new_from_string(string)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
     init(loopback family: SocketFamily) {
         let rv = g_inet_address_new_loopback(family)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
@@ -694,67 +735,108 @@ public extension InetAddressRef {
 /// port number).
 open class InetAddress: Object, InetAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `InetAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InetAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GInetAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `InetAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GInetAddress`.
-    public convenience init<T: InetAddressProtocol>(_ other: T) {
-        self.init(cast(other.inet_address_ptr))
-        g_object_ref(cast(inet_address_ptr))
+    /// i.e., ownership is transferred to the `InetAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GInetAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `InetAddressProtocol`
+    /// Will retain `GInetAddress`.
+    /// - Parameter other: an instance of a related type that implements `InetAddressProtocol`
+    public init<T: InetAddressProtocol>(inetAddress other: T) {
+        super.init(retaining: cast(other.inet_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GInetAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GInetAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GInetAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GInetAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
-    public convenience init(any family: SocketFamily) {
+    public init(any family: SocketFamily) {
         let rv = g_inet_address_new_any(family)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GInetAddress` from the given `family` and `bytes`.
     /// `bytes` should be 4 bytes for `G_SOCKET_FAMILY_IPV4` and 16 bytes for
     /// `G_SOCKET_FAMILY_IPV6`.
-    public convenience init(bytes: UnsafePointer<UInt8>, family: SocketFamily) {
+    public init(bytes: UnsafePointer<UInt8>, family: SocketFamily) {
         let rv = g_inet_address_new_from_bytes(cast(bytes), family)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
-    public convenience init(string: UnsafePointer<gchar>) {
+    public init(string: UnsafePointer<gchar>) {
         let rv = g_inet_address_new_from_string(string)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
-    public convenience init(loopback family: SocketFamily) {
+    public init(loopback family: SocketFamily) {
         let rv = g_inet_address_new_loopback(family)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
@@ -1247,7 +1329,7 @@ public extension InetAddressMaskRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Parses `mask_string` as an IP address and (optional) length, and
@@ -1260,7 +1342,7 @@ public extension InetAddressMaskRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Parses `mask_string` as an IP address and (optional) length, and
     /// creates a new `GInetAddressMask`. The length, if present, is
@@ -1286,64 +1368,105 @@ public extension InetAddressMaskRef {
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `InetAddressMask` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InetAddressMask` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GInetAddressMask>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `InetAddressMaskProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GInetAddressMask`.
-    public convenience init<T: InetAddressMaskProtocol>(_ other: T) {
-        self.init(cast(other.inet_address_mask_ptr))
-        g_object_ref(cast(inet_address_mask_ptr))
+    /// i.e., ownership is transferred to the `InetAddressMask` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GInetAddressMask>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `InetAddressMaskProtocol`
+    /// Will retain `GInetAddressMask`.
+    /// - Parameter other: an instance of a related type that implements `InetAddressMaskProtocol`
+    public init<T: InetAddressMaskProtocol>(inetAddressMask other: T) {
+        super.init(retaining: cast(other.inet_address_mask_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GInetAddressMask.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GInetAddressMask.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GInetAddressMask.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GInetAddressMask>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GInetAddressMask` representing all addresses whose
     /// first `length` bits match `addr`.
-    public convenience init( addr: InetAddressProtocol, length: CUnsignedInt) throws {
+    public init( addr: InetAddressProtocol, length: CUnsignedInt) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_inet_address_mask_new(cast(addr.ptr), guint(length), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Parses `mask_string` as an IP address and (optional) length, and
     /// creates a new `GInetAddressMask`. The length, if present, is
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
-    public convenience init(string mask_string: UnsafePointer<gchar>) throws {
+    public init(string mask_string: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_inet_address_mask_new_from_string(mask_string, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Parses `mask_string` as an IP address and (optional) length, and
@@ -1600,7 +1723,7 @@ public extension InetSocketAddressRef {
         /// Creates a new `GInetSocketAddress` for `address` and `port`.
     init( address: InetAddressProtocol, port: UInt16) {
         let rv = g_inet_socket_address_new(cast(address.ptr), guint16(port))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
@@ -1609,7 +1732,7 @@ public extension InetSocketAddressRef {
     /// (separated from the address by a ````).
     init(string address: UnsafePointer<CChar>, port: CUnsignedInt) {
         let rv = g_inet_socket_address_new_from_string(address, guint(port))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
     /// 
@@ -1629,55 +1752,96 @@ public extension InetSocketAddressRef {
 /// `GInetAddress` and a port number.
 open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `InetSocketAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InetSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GInetSocketAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `InetSocketAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GInetSocketAddress`.
-    public convenience init<T: InetSocketAddressProtocol>(_ other: T) {
-        self.init(cast(other.inet_socket_address_ptr))
-        g_object_ref(cast(inet_socket_address_ptr))
+    /// i.e., ownership is transferred to the `InetSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GInetSocketAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `InetSocketAddressProtocol`
+    /// Will retain `GInetSocketAddress`.
+    /// - Parameter other: an instance of a related type that implements `InetSocketAddressProtocol`
+    public init<T: InetSocketAddressProtocol>(inetSocketAddress other: T) {
+        super.init(retaining: cast(other.inet_socket_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GInetSocketAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GInetSocketAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GInetSocketAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GInetSocketAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
-    public convenience init( address: InetAddressProtocol, port: UInt16) {
+    public init( address: InetAddressProtocol, port: UInt16) {
         let rv = g_inet_socket_address_new(cast(address.ptr), guint16(port))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
     /// 
     /// If `address` is an IPv6 address, it can also contain a scope ID
     /// (separated from the address by a ````).
-    public convenience init(string address: UnsafePointer<CChar>, port: CUnsignedInt) {
+    public init(string address: UnsafePointer<CChar>, port: CUnsignedInt) {
         let rv = g_inet_socket_address_new_from_string(address, guint(port))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
@@ -1973,40 +2137,81 @@ public extension InputStreamRef {
 /// All of these functions have async variants too.
 open class InputStream: Object, InputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `InputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `InputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GInputStream`.
-    public convenience init<T: InputStreamProtocol>(_ other: T) {
-        self.init(cast(other.input_stream_ptr))
-        g_object_ref(cast(input_stream_ptr))
+    /// i.e., ownership is transferred to the `InputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `InputStreamProtocol`
+    /// Will retain `GInputStream`.
+    /// - Parameter other: an instance of a related type that implements `InputStreamProtocol`
+    public init<T: InputStreamProtocol>(inputStream other: T) {
+        super.init(retaining: cast(other.input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2522,7 +2727,7 @@ public extension ListStoreRef {
     /// must be a subclass of `GObject`.
     init( item_type: GType) {
         let rv = g_list_store_new(item_type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -2537,47 +2742,88 @@ public extension ListStoreRef {
 /// with a fast path for the common case of iterating the list linearly.
 open class ListStore: Object, ListStoreProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ListStore` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListStore` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GListStore>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ListStoreProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GListStore`.
-    public convenience init<T: ListStoreProtocol>(_ other: T) {
-        self.init(cast(other.list_store_ptr))
-        g_object_ref(cast(list_store_ptr))
+    /// i.e., ownership is transferred to the `ListStore` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GListStore>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ListStoreProtocol`
+    /// Will retain `GListStore`.
+    /// - Parameter other: an instance of a related type that implements `ListStoreProtocol`
+    public init<T: ListStoreProtocol>(listStore other: T) {
+        super.init(retaining: cast(other.list_store_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GListStore.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GListStore.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GListStore.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GListStore>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GListStore` with items of type `item_type`. `item_type`
     /// must be a subclass of `GObject`.
-    public convenience init( item_type: GType) {
+    public init( item_type: GType) {
         let rv = g_list_store_new(item_type)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -2697,6 +2943,26 @@ public extension ListStoreProtocol {
     func append(item: ObjectProtocol) {
         g_list_store_append(cast(list_store_ptr), cast(item.ptr))
     
+    }
+
+    /// Looks up the given `item` in the list store by looping over the items until
+    /// the first occurrence of `item`. If `item` was not found, then `position` will
+    /// not be set, and this method will return `false`.
+    /// 
+    /// If you need to compare the two items with a custom comparison function, use
+    /// `g_list_store_find_with_equal_func()` with a custom `GEqualFunc` instead.
+    func find(item: ObjectProtocol, position: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
+        let rv = g_list_store_find(cast(list_store_ptr), cast(item.ptr), cast(position))
+        return Bool(rv != 0)
+    }
+
+    /// Looks up the given `item` in the list store by looping over the items and
+    /// comparing them with `compare_func` until the first occurrence of `item` which
+    /// matches. If `item` was not found, then `position` will not be set, and this
+    /// method will return `false`.
+    func findWithEqualFunc(item: ObjectProtocol, equalFunc equal_func: @escaping GLib.EqualFunc, position: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
+        let rv = g_list_store_find_with_equal_func(cast(list_store_ptr), cast(item.ptr), equal_func, cast(position))
+        return Bool(rv != 0)
     }
 
     /// Inserts `item` into `store` at `position`. `item` must be of type

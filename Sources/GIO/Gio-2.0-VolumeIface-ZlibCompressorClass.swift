@@ -82,15 +82,27 @@ open class VolumeIface: VolumeIfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VolumeIface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeIface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVolumeIface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VolumeIfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GVolumeIface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `VolumeIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVolumeIface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VolumeIfaceProtocol`
     /// `GVolumeIface` does not allow reference counting.
-    public convenience init<T: VolumeIfaceProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `VolumeIfaceProtocol`
+    public init<T: VolumeIfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
@@ -101,26 +113,61 @@ open class VolumeIface: VolumeIfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVolumeIface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVolumeIface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVolumeIface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVolumeIface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeIfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
 
@@ -220,15 +267,27 @@ open class VolumeMonitorClass: VolumeMonitorClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VolumeMonitorClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVolumeMonitorClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VolumeMonitorClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GVolumeMonitorClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `VolumeMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVolumeMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VolumeMonitorClassProtocol`
     /// `GVolumeMonitorClass` does not allow reference counting.
-    public convenience init<T: VolumeMonitorClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `VolumeMonitorClassProtocol`
+    public init<T: VolumeMonitorClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
@@ -239,26 +298,61 @@ open class VolumeMonitorClass: VolumeMonitorClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVolumeMonitorClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVolumeMonitorClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVolumeMonitorClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVolumeMonitorClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
 
@@ -358,15 +452,27 @@ open class ZlibCompressorClass: ZlibCompressorClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ZlibCompressorClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressorClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GZlibCompressorClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ZlibCompressorClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GZlibCompressorClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ZlibCompressorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GZlibCompressorClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ZlibCompressorClassProtocol`
     /// `GZlibCompressorClass` does not allow reference counting.
-    public convenience init<T: ZlibCompressorClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `ZlibCompressorClassProtocol`
+    public init<T: ZlibCompressorClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
@@ -377,26 +483,61 @@ open class ZlibCompressorClass: ZlibCompressorClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GZlibCompressorClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GZlibCompressorClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GZlibCompressorClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GZlibCompressorClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
 

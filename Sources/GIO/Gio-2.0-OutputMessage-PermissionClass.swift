@@ -100,15 +100,27 @@ open class OutputMessage: OutputMessageProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `OutputMessage` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OutputMessage` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GOutputMessage>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `OutputMessageProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GOutputMessage` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `OutputMessage` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GOutputMessage>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `OutputMessageProtocol`
     /// `GOutputMessage` does not allow reference counting.
-    public convenience init<T: OutputMessageProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `OutputMessageProtocol`
+    public init<T: OutputMessageProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
@@ -119,26 +131,61 @@ open class OutputMessage: OutputMessageProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GOutputMessage.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GOutputMessage.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GOutputMessage.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GOutputMessage>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
 
@@ -238,15 +285,27 @@ open class OutputStreamClass: OutputStreamClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `OutputStreamClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GOutputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `OutputStreamClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GOutputStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `OutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `OutputStreamClassProtocol`
     /// `GOutputStreamClass` does not allow reference counting.
-    public convenience init<T: OutputStreamClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `OutputStreamClassProtocol`
+    public init<T: OutputStreamClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
@@ -257,26 +316,61 @@ open class OutputStreamClass: OutputStreamClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GOutputStreamClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GOutputStreamClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GOutputStreamClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GOutputStreamClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
 
@@ -376,15 +470,27 @@ open class OutputStreamPrivate: OutputStreamPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `OutputStreamPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GOutputStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `OutputStreamPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GOutputStreamPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `OutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GOutputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `OutputStreamPrivateProtocol`
     /// `GOutputStreamPrivate` does not allow reference counting.
-    public convenience init<T: OutputStreamPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `OutputStreamPrivateProtocol`
+    public init<T: OutputStreamPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
@@ -395,26 +501,61 @@ open class OutputStreamPrivate: OutputStreamPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GOutputStreamPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GOutputStreamPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GOutputStreamPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GOutputStreamPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -523,15 +664,27 @@ open class OutputVector: OutputVectorProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `OutputVector` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OutputVector` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GOutputVector>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `OutputVectorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GOutputVector` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `OutputVector` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GOutputVector>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GOutputVector, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `OutputVectorProtocol`
     /// `GOutputVector` does not allow reference counting.
-    public convenience init<T: OutputVectorProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `OutputVectorProtocol`
+    public init<T: OutputVectorProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
@@ -542,26 +695,61 @@ open class OutputVector: OutputVectorProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GOutputVector.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GOutputVector.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GOutputVector.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GOutputVector>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
 
@@ -661,15 +849,27 @@ open class PermissionClass: PermissionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `PermissionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PermissionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GPermissionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `PermissionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GPermissionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `PermissionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GPermissionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `PermissionClassProtocol`
     /// `GPermissionClass` does not allow reference counting.
-    public convenience init<T: PermissionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `PermissionClassProtocol`
+    public init<T: PermissionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
@@ -680,26 +880,61 @@ open class PermissionClass: PermissionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GPermissionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GPermissionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GPermissionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GPermissionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
 

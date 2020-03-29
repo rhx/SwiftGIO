@@ -139,40 +139,81 @@ public extension AppInfoMonitorRef {
 /// rescanning the list on every change is pointless and expensive.
 open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AppInfoMonitor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAppInfoMonitor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AppInfoMonitorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GAppInfoMonitor`.
-    public convenience init<T: AppInfoMonitorProtocol>(_ other: T) {
-        self.init(cast(other.app_info_monitor_ptr))
-        g_object_ref(cast(app_info_monitor_ptr))
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAppInfoMonitor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AppInfoMonitorProtocol`
+    /// Will retain `GAppInfoMonitor`.
+    /// - Parameter other: an instance of a related type that implements `AppInfoMonitorProtocol`
+    public init<T: AppInfoMonitorProtocol>(appInfoMonitor other: T) {
+        super.init(retaining: cast(other.app_info_monitor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAppInfoMonitor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAppInfoMonitor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAppInfoMonitor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAppInfoMonitor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -337,7 +378,7 @@ public extension AppLaunchContextRef {
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
     init() {
         let rv = g_app_launch_context_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -350,47 +391,88 @@ public extension AppLaunchContextRef {
 /// on the same screen as the launching window.
 open class AppLaunchContext: Object, AppLaunchContextProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AppLaunchContext` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAppLaunchContext>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AppLaunchContextProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GAppLaunchContext`.
-    public convenience init<T: AppLaunchContextProtocol>(_ other: T) {
-        self.init(cast(other.app_launch_context_ptr))
-        g_object_ref(cast(app_launch_context_ptr))
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAppLaunchContext>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
+    /// Will retain `GAppLaunchContext`.
+    /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
+    public init<T: AppLaunchContextProtocol>(appLaunchContext other: T) {
+        super.init(retaining: cast(other.app_launch_context_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAppLaunchContext.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAppLaunchContext.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAppLaunchContext.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAppLaunchContext>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new application launch context. This is not normally used,
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
-    public convenience init() {
+    public init() {
         let rv = g_app_launch_context_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -490,7 +572,7 @@ public extension AppLaunchContextProtocol {
     /// `DESKTOP_STARTUP_ID` for the launched operation, if supported.
     /// 
     /// Startup notification IDs are defined in the
-    /// [FreeDesktop.Org Startup Notifications standard](http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt").
+    /// [FreeDesktop.Org Startup Notifications standard](http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt).
     func getStartupNotifyID(info: AppInfoProtocol, files: ListProtocol) -> String! {
         let rv = g_app_launch_context_get_startup_notify_id(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -654,7 +736,7 @@ public extension AppLaunchContextProtocol {
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
-/// application, GApplication passes some "platform data from the
+/// application, GApplication passes some ‘platform data’ from the
 /// launching instance to the primary instance, in the form of a
 /// `GVariant` dictionary mapping strings to variants. To use platform
 /// data, override the `before_emit` or `after_emit` virtual functions
@@ -780,7 +862,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
-/// application, GApplication passes some "platform data from the
+/// application, GApplication passes some ‘platform data’ from the
 /// launching instance to the primary instance, in the form of a
 /// `GVariant` dictionary mapping strings to variants. To use platform
 /// data, override the `before_emit` or `after_emit` virtual functions
@@ -868,7 +950,7 @@ public extension ApplicationRef {
     /// (most notably application uniqueness) will be disabled.
     init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
         let rv = g_application_new(application_id, flags)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Returns the default `GApplication` instance for this process.
     /// 
@@ -968,7 +1050,7 @@ public extension ApplicationRef {
 /// initialization for all of these in a single place.
 /// 
 /// Regardless of which of these entry points is used to start the
-/// application, GApplication passes some "platform data from the
+/// application, GApplication passes some ‘platform data’ from the
 /// launching instance to the primary instance, in the form of a
 /// `GVariant` dictionary mapping strings to variants. To use platform
 /// data, override the `before_emit` or `after_emit` virtual functions
@@ -1003,40 +1085,81 @@ public extension ApplicationRef {
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
 open class Application: Object, ApplicationProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Application` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GApplication>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ApplicationProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GApplication`.
-    public convenience init<T: ApplicationProtocol>(_ other: T) {
-        self.init(cast(other.application_ptr))
-        g_object_ref(cast(application_ptr))
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GApplication>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ApplicationProtocol`
+    /// Will retain `GApplication`.
+    /// - Parameter other: an instance of a related type that implements `ApplicationProtocol`
+    public init<T: ApplicationProtocol>(application other: T) {
+        super.init(retaining: cast(other.application_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GApplication.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GApplication.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GApplication.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GApplication>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GApplication` instance.
@@ -1046,9 +1169,9 @@ open class Application: Object, ApplicationProtocol {
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
-    public convenience init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
+    public init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
         let rv = g_application_new(application_id, flags)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Returns the default `GApplication` instance for this process.
@@ -1323,14 +1446,14 @@ public extension ApplicationProtocol {
     /// 
     /// It is important to use the proper GVariant format when retrieving
     /// the options with `g_variant_dict_lookup()`:
-    /// - for `G_OPTION_ARG_NONE`, use b
-    /// - for `G_OPTION_ARG_STRING`, use &s
-    /// - for `G_OPTION_ARG_INT`, use i
-    /// - for `G_OPTION_ARG_INT64`, use x
-    /// - for `G_OPTION_ARG_DOUBLE`, use d
-    /// - for `G_OPTION_ARG_FILENAME`, use ^ay
-    /// - for `G_OPTION_ARG_STRING_ARRAY`, use &as
-    /// - for `G_OPTION_ARG_FILENAME_ARRAY`, use ^aay
+    /// - for `G_OPTION_ARG_NONE`, use `b`
+    /// - for `G_OPTION_ARG_STRING`, use `&s`
+    /// - for `G_OPTION_ARG_INT`, use `i`
+    /// - for `G_OPTION_ARG_INT64`, use `x`
+    /// - for `G_OPTION_ARG_DOUBLE`, use `d`
+    /// - for `G_OPTION_ARG_FILENAME`, use `^&ay`
+    /// - for `G_OPTION_ARG_STRING_ARRAY`, use `^a&s`
+    /// - for `G_OPTION_ARG_FILENAME_ARRAY`, use `^a&ay`
     func addMainOption(entries: UnsafePointer<GOptionEntry>) {
         g_application_add_main_option_entries(cast(application_ptr), cast(entries))
     
@@ -2645,40 +2768,81 @@ public extension ApplicationCommandLineRef {
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
 open class ApplicationCommandLine: Object, ApplicationCommandLineProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ApplicationCommandLine` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GApplicationCommandLine>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ApplicationCommandLineProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GApplicationCommandLine`.
-    public convenience init<T: ApplicationCommandLineProtocol>(_ other: T) {
-        self.init(cast(other.application_command_line_ptr))
-        g_object_ref(cast(application_command_line_ptr))
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GApplicationCommandLine>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ApplicationCommandLineProtocol`
+    /// Will retain `GApplicationCommandLine`.
+    /// - Parameter other: an instance of a related type that implements `ApplicationCommandLineProtocol`
+    public init<T: ApplicationCommandLineProtocol>(applicationCommandLine other: T) {
+        super.init(retaining: cast(other.application_command_line_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GApplicationCommandLine.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GApplicationCommandLine.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GApplicationCommandLine.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GApplicationCommandLine>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -3235,14 +3399,14 @@ public extension BufferedInputStreamRef {
     /// a buffer set to the default size (4 kilobytes).
     init( base_stream: InputStreamProtocol) {
         let rv = g_buffered_input_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
     init(sized base_stream: InputStreamProtocol, size: Int) {
         let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
@@ -3272,54 +3436,95 @@ public extension BufferedInputStreamRef {
 /// cannot be reduced below the size of the data within the buffer.
 open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `BufferedInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GBufferedInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `BufferedInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GBufferedInputStream`.
-    public convenience init<T: BufferedInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.buffered_input_stream_ptr))
-        g_object_ref(cast(buffered_input_stream_ptr))
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GBufferedInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `BufferedInputStreamProtocol`
+    /// Will retain `GBufferedInputStream`.
+    /// - Parameter other: an instance of a related type that implements `BufferedInputStreamProtocol`
+    public init<T: BufferedInputStreamProtocol>(bufferedInputStream other: T) {
+        super.init(retaining: cast(other.buffered_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GBufferedInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GBufferedInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GBufferedInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GBufferedInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
-    public convenience init( base_stream: InputStreamProtocol) {
+    public init( base_stream: InputStreamProtocol) {
         let rv = g_buffered_input_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    public convenience init(sized base_stream: InputStreamProtocol, size: Int) {
+    public init(sized base_stream: InputStreamProtocol, size: Int) {
         let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,

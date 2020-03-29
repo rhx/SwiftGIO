@@ -166,15 +166,27 @@ open class Action: ActionProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Action` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAction>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GAction` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAction>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GAction, cannot ref(cast(action_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ActionProtocol`
     /// `GAction` does not allow reference counting.
-    public convenience init<T: ActionProtocol>(_ other: T) {
-        self.init(cast(other.action_ptr))
+    /// - Parameter other: an instance of a related type that implements `ActionProtocol`
+    public init<T: ActionProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.action_ptr)
         // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
@@ -185,26 +197,61 @@ open class Action: ActionProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAction.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAction.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAction.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAction>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
 
@@ -780,15 +827,27 @@ open class ActionGroup: ActionGroupProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ActionGroup` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GActionGroup>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActionGroupProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GActionGroup` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GActionGroup>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ActionGroupProtocol`
     /// `GActionGroup` does not allow reference counting.
-    public convenience init<T: ActionGroupProtocol>(_ other: T) {
-        self.init(cast(other.action_group_ptr))
+    /// - Parameter other: an instance of a related type that implements `ActionGroupProtocol`
+    public init<T: ActionGroupProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.action_group_ptr)
         // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
@@ -799,26 +858,61 @@ open class ActionGroup: ActionGroupProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GActionGroup.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GActionGroup.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GActionGroup.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GActionGroup>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
 
@@ -1172,15 +1266,27 @@ open class ActionMap: ActionMapProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ActionMap` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GActionMap>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActionMapProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GActionMap` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GActionMap>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ActionMapProtocol`
     /// `GActionMap` does not allow reference counting.
-    public convenience init<T: ActionMapProtocol>(_ other: T) {
-        self.init(cast(other.action_map_ptr))
+    /// - Parameter other: an instance of a related type that implements `ActionMapProtocol`
+    public init<T: ActionMapProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.action_map_ptr)
         // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
@@ -1191,26 +1297,61 @@ open class ActionMap: ActionMapProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GActionMap.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GActionMap.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GActionMap.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GActionMap>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
 
@@ -1313,7 +1454,7 @@ public extension ActionMapProtocol {
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
 /// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
-/// for an desktop-file based application with Exec key `totem
+/// for a desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
 /// `/home/user/.gvfs/sftp on foo/file.avi` will be passed. This will
 /// only work if a set of suitable GIO extensions (such as gvfs 2.26
@@ -1373,7 +1514,7 @@ public protocol AppInfoProtocol {
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
 /// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
-/// for an desktop-file based application with Exec key `totem
+/// for a desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
 /// `/home/user/.gvfs/sftp on foo/file.avi` will be passed. This will
 /// only work if a set of suitable GIO extensions (such as gvfs 2.26
@@ -1503,7 +1644,7 @@ public extension AppInfoRef {
 /// As of GLib 2.20, URIs will always be converted to POSIX paths
 /// (using `g_file_get_path()`) when using `g_app_info_launch()` even if
 /// the application requested an URI and not a POSIX path. For example
-/// for an desktop-file based application with Exec key `totem
+/// for a desktop-file based application with Exec key `totem
 /// `U`` and a single URI, `sftp://foo/file.avi`, then
 /// `/home/user/.gvfs/sftp on foo/file.avi` will be passed. This will
 /// only work if a set of suitable GIO extensions (such as gvfs 2.26
@@ -1551,15 +1692,27 @@ open class AppInfo: AppInfoProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AppInfo` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAppInfo>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `AppInfoProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GAppInfo` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAppInfo>) {
+        ptr = UnsafeMutableRawPointer(op)
+	g_object_ref(cast(ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `AppInfoProtocol`
     /// `GAppInfo` does not allow reference counting.
-    public convenience init<T: AppInfoProtocol>(_ other: T) {
-        self.init(cast(other.app_info_ptr))
+    /// - Parameter other: an instance of a related type that implements `AppInfoProtocol`
+    public init<T: AppInfoProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.app_info_ptr)
 	g_object_ref(cast(ptr))
     }
 
@@ -1570,26 +1723,61 @@ open class AppInfo: AppInfoProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAppInfo.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAppInfo.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAppInfo.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAppInfo>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+	g_object_ref(cast(ptr))
     }
 
 
@@ -2361,15 +2549,27 @@ open class AsyncInitable: AsyncInitableProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AsyncInitable` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAsyncInitable>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `AsyncInitableProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GAsyncInitable` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAsyncInitable>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `AsyncInitableProtocol`
     /// `GAsyncInitable` does not allow reference counting.
-    public convenience init<T: AsyncInitableProtocol>(_ other: T) {
-        self.init(cast(other.async_initable_ptr))
+    /// - Parameter other: an instance of a related type that implements `AsyncInitableProtocol`
+    public init<T: AsyncInitableProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.async_initable_ptr)
         // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
@@ -2380,26 +2580,61 @@ open class AsyncInitable: AsyncInitableProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAsyncInitable.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAsyncInitable.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAsyncInitable.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAsyncInitable>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
 
@@ -2813,15 +3048,27 @@ open class AsyncResult: AsyncResultProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AsyncResult` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GAsyncResult>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `AsyncResultProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GAsyncResult` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GAsyncResult>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `AsyncResultProtocol`
     /// `GAsyncResult` does not allow reference counting.
-    public convenience init<T: AsyncResultProtocol>(_ other: T) {
-        self.init(cast(other.async_result_ptr))
+    /// - Parameter other: an instance of a related type that implements `AsyncResultProtocol`
+    public init<T: AsyncResultProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.async_result_ptr)
         // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
@@ -2832,26 +3079,61 @@ open class AsyncResult: AsyncResultProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GAsyncResult.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GAsyncResult.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GAsyncResult.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GAsyncResult>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
 
@@ -3062,15 +3344,27 @@ open class Converter: ConverterProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Converter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GConverter>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ConverterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GConverter` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GConverter>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ConverterProtocol`
     /// `GConverter` does not allow reference counting.
-    public convenience init<T: ConverterProtocol>(_ other: T) {
-        self.init(cast(other.converter_ptr))
+    /// - Parameter other: an instance of a related type that implements `ConverterProtocol`
+    public init<T: ConverterProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.converter_ptr)
         // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
@@ -3081,26 +3375,61 @@ open class Converter: ConverterProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GConverter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GConverter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GConverter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GConverter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
 

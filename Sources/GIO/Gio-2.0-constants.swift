@@ -452,8 +452,10 @@ public let FILE_ATTRIBUTE_UNIX_INODE = G_FILE_ATTRIBUTE_UNIX_INODE /* utf8 78 */
 public let FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT = G_FILE_ATTRIBUTE_UNIX_IS_MOUNTPOINT /* utf8 79 */
 
 /// A key in the "unix" namespace for getting the mode of the file
-/// (e.g. whether the file is a regular file, symlink, etc). See `lstat()`
-/// documentation. This attribute is only available for UNIX file systems.
+/// (e.g. whether the file is a regular file, symlink, etc). See the
+/// documentation for ``lstat()``: this attribute is equivalent to the `st_mode`
+/// member of `struct stat`, and includes both the file type and permissions.
+/// This attribute is only available for UNIX file systems.
 /// Corresponding `GFileAttributeType` is `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_MODE = G_FILE_ATTRIBUTE_UNIX_MODE /* utf8 80 */
 
@@ -474,17 +476,21 @@ public let FILE_ATTRIBUTE_UNIX_RDEV = G_FILE_ATTRIBUTE_UNIX_RDEV /* utf8 82 */
 /// Corresponding `GFileAttributeType` is `G_FILE_ATTRIBUTE_TYPE_UINT32`.
 public let FILE_ATTRIBUTE_UNIX_UID = G_FILE_ATTRIBUTE_UNIX_UID /* utf8 83 */
 
+/// Extension point for memory usage monitoring functionality.
+/// See [Extending GIO](#extending-gio).
+public let MEMORY_MONITOR_EXTENSION_POINT_NAME = G_MEMORY_MONITOR_EXTENSION_POINT_NAME /* utf8 84 */
+
 /// The menu item attribute which holds the action name of the item.  Action
 /// names are namespaced with an identifier for the action group in which the
 /// action resides. For example, "win." for window-specific actions and "app."
 /// for application-wide actions.
 /// 
 /// See also `g_menu_model_get_item_attribute()` and `g_menu_item_set_attribute()`.
-public let MENU_ATTRIBUTE_ACTION = G_MENU_ATTRIBUTE_ACTION /* utf8 84 */
+public let MENU_ATTRIBUTE_ACTION = G_MENU_ATTRIBUTE_ACTION /* utf8 85 */
 
 /// The menu item attribute that holds the namespace for all action names in
 /// menus that are linked from this item.
-public let MENU_ATTRIBUTE_ACTION_NAMESPACE = G_MENU_ATTRIBUTE_ACTION_NAMESPACE /* utf8 85 */
+public let MENU_ATTRIBUTE_ACTION_NAMESPACE = G_MENU_ATTRIBUTE_ACTION_NAMESPACE /* utf8 86 */
 
 /// The menu item attribute which holds the icon of the item.
 /// 
@@ -493,61 +499,61 @@ public let MENU_ATTRIBUTE_ACTION_NAMESPACE = G_MENU_ATTRIBUTE_ACTION_NAMESPACE /
 /// This attribute is intended only to represent 'noun' icons such as
 /// favicons for a webpage, or application icons.  It should not be used
 /// for 'verbs' (ie: stock icons).
-public let MENU_ATTRIBUTE_ICON = G_MENU_ATTRIBUTE_ICON /* utf8 86 */
+public let MENU_ATTRIBUTE_ICON = G_MENU_ATTRIBUTE_ICON /* utf8 87 */
 
 /// The menu item attribute which holds the label of the item.
-public let MENU_ATTRIBUTE_LABEL = G_MENU_ATTRIBUTE_LABEL /* utf8 87 */
+public let MENU_ATTRIBUTE_LABEL = G_MENU_ATTRIBUTE_LABEL /* utf8 88 */
 
 /// The menu item attribute which holds the target with which the item's action
 /// will be activated.
 /// 
 /// See also `g_menu_item_set_action_and_target()`
-public let MENU_ATTRIBUTE_TARGET = G_MENU_ATTRIBUTE_TARGET /* utf8 88 */
+public let MENU_ATTRIBUTE_TARGET = G_MENU_ATTRIBUTE_TARGET /* utf8 89 */
 
 /// The name of the link that associates a menu item with a section.  The linked
 /// menu will usually be shown in place of the menu item, using the item's label
 /// as a header.
 /// 
 /// See also `g_menu_item_set_link()`.
-public let MENU_LINK_SECTION = G_MENU_LINK_SECTION /* utf8 89 */
+public let MENU_LINK_SECTION = G_MENU_LINK_SECTION /* utf8 90 */
 
 /// The name of the link that associates a menu item with a submenu.
 /// 
 /// See also `g_menu_item_set_link()`.
-public let MENU_LINK_SUBMENU = G_MENU_LINK_SUBMENU /* utf8 90 */
+public let MENU_LINK_SUBMENU = G_MENU_LINK_SUBMENU /* utf8 91 */
 
-public let NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME = G_NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 91 */
+public let NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME = G_NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 92 */
 
 /// Extension point for network status monitoring functionality.
 /// See [Extending GIO](#extending-gio).
-public let NETWORK_MONITOR_EXTENSION_POINT_NAME = G_NETWORK_MONITOR_EXTENSION_POINT_NAME /* utf8 92 */
+public let NETWORK_MONITOR_EXTENSION_POINT_NAME = G_NETWORK_MONITOR_EXTENSION_POINT_NAME /* utf8 93 */
 
 /// Extension point for proxy functionality.
 /// See [Extending GIO](#extending-gio).
-public let PROXY_EXTENSION_POINT_NAME = G_PROXY_EXTENSION_POINT_NAME /* utf8 93 */
+public let PROXY_EXTENSION_POINT_NAME = G_PROXY_EXTENSION_POINT_NAME /* utf8 94 */
 
 /// Extension point for proxy resolving functionality.
 /// See [Extending GIO](#extending-gio).
-public let PROXY_RESOLVER_EXTENSION_POINT_NAME = G_PROXY_RESOLVER_EXTENSION_POINT_NAME /* utf8 94 */
+public let PROXY_RESOLVER_EXTENSION_POINT_NAME = G_PROXY_RESOLVER_EXTENSION_POINT_NAME /* utf8 95 */
 
 /// Extension point for `GSettingsBackend` functionality.
-public let SETTINGS_BACKEND_EXTENSION_POINT_NAME = G_SETTINGS_BACKEND_EXTENSION_POINT_NAME /* utf8 95 */
+public let SETTINGS_BACKEND_EXTENSION_POINT_NAME = G_SETTINGS_BACKEND_EXTENSION_POINT_NAME /* utf8 96 */
 
 /// Extension point for TLS functionality via `GTlsBackend`.
 /// See [Extending GIO](#extending-gio).
-public let TLS_BACKEND_EXTENSION_POINT_NAME = G_TLS_BACKEND_EXTENSION_POINT_NAME /* utf8 96 */
+public let TLS_BACKEND_EXTENSION_POINT_NAME = G_TLS_BACKEND_EXTENSION_POINT_NAME /* utf8 97 */
 
 /// The purpose used to verify the client certificate in a TLS connection.
 /// Used by TLS servers.
-public let TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT = G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT /* utf8 97 */
+public let TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT = G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT /* utf8 98 */
 
 /// The purpose used to verify the server certificate in a TLS connection. This
 /// is the most common purpose in use. Used by TLS clients.
-public let TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER = G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER /* utf8 98 */
+public let TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER = G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER /* utf8 99 */
 
 /// Extension point for `GVfs` functionality.
 /// See [Extending GIO](#extending-gio).
-public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 99 */
+public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 100 */
 
 /// The string used to obtain the volume class with `g_volume_get_identifier()`.
 /// 
@@ -558,26 +564,26 @@ public let VFS_EXTENSION_POINT_NAME = G_VFS_EXTENSION_POINT_NAME /* utf8 99 */
 /// instances into different sections - for example a file manager or
 /// file chooser can use this information to show `network` volumes under
 /// a "Network" heading and `device` volumes under a "Devices" heading.
-public let VOLUME_IDENTIFIER_KIND_CLASS = G_VOLUME_IDENTIFIER_KIND_CLASS /* utf8 100 */
+public let VOLUME_IDENTIFIER_KIND_CLASS = G_VOLUME_IDENTIFIER_KIND_CLASS /* utf8 101 */
 
 /// The string used to obtain a Hal UDI with `g_volume_get_identifier()`.
 ///
 /// **VOLUME_IDENTIFIER_KIND_HAL_UDI is deprecated:**
 /// Do not use, HAL is deprecated.
-// deprecated G_VOLUME_IDENTIFIER_KIND_HAL_UDI = G_VOLUME_IDENTIFIER_KIND_HAL_UDI /* utf8 101 */
+// deprecated G_VOLUME_IDENTIFIER_KIND_HAL_UDI = G_VOLUME_IDENTIFIER_KIND_HAL_UDI /* utf8 102 */
 
 /// The string used to obtain a filesystem label with `g_volume_get_identifier()`.
-public let VOLUME_IDENTIFIER_KIND_LABEL = G_VOLUME_IDENTIFIER_KIND_LABEL /* utf8 102 */
+public let VOLUME_IDENTIFIER_KIND_LABEL = G_VOLUME_IDENTIFIER_KIND_LABEL /* utf8 103 */
 
 /// The string used to obtain a NFS mount with `g_volume_get_identifier()`.
-public let VOLUME_IDENTIFIER_KIND_NFS_MOUNT = G_VOLUME_IDENTIFIER_KIND_NFS_MOUNT /* utf8 103 */
+public let VOLUME_IDENTIFIER_KIND_NFS_MOUNT = G_VOLUME_IDENTIFIER_KIND_NFS_MOUNT /* utf8 104 */
 
 /// The string used to obtain a Unix device path with `g_volume_get_identifier()`.
-public let VOLUME_IDENTIFIER_KIND_UNIX_DEVICE = G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE /* utf8 104 */
+public let VOLUME_IDENTIFIER_KIND_UNIX_DEVICE = G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE /* utf8 105 */
 
 /// The string used to obtain a UUID with `g_volume_get_identifier()`.
-public let VOLUME_IDENTIFIER_KIND_UUID = G_VOLUME_IDENTIFIER_KIND_UUID /* utf8 105 */
+public let VOLUME_IDENTIFIER_KIND_UUID = G_VOLUME_IDENTIFIER_KIND_UUID /* utf8 106 */
 
 /// Extension point for volume monitor functionality.
 /// See [Extending GIO](#extending-gio).
-public let VOLUME_MONITOR_EXTENSION_POINT_NAME = G_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 106 */
+public let VOLUME_MONITOR_EXTENSION_POINT_NAME = G_VOLUME_MONITOR_EXTENSION_POINT_NAME /* utf8 107 */

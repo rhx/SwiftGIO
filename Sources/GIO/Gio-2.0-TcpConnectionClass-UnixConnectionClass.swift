@@ -82,15 +82,27 @@ open class TcpConnectionClass: TcpConnectionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpConnectionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpConnectionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpConnectionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTcpConnectionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TcpConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpConnectionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpConnectionClassProtocol`
     /// `GTcpConnectionClass` does not allow reference counting.
-    public convenience init<T: TcpConnectionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TcpConnectionClassProtocol`
+    public init<T: TcpConnectionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
@@ -101,26 +113,61 @@ open class TcpConnectionClass: TcpConnectionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpConnectionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpConnectionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpConnectionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpConnectionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
 
@@ -220,15 +267,27 @@ open class TcpConnectionPrivate: TcpConnectionPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpConnectionPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpConnectionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpConnectionPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTcpConnectionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TcpConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpConnectionPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpConnectionPrivateProtocol`
     /// `GTcpConnectionPrivate` does not allow reference counting.
-    public convenience init<T: TcpConnectionPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TcpConnectionPrivateProtocol`
+    public init<T: TcpConnectionPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
@@ -239,26 +298,61 @@ open class TcpConnectionPrivate: TcpConnectionPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpConnectionPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpConnectionPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpConnectionPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpConnectionPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -358,15 +452,27 @@ open class TcpWrapperConnectionClass: TcpWrapperConnectionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpWrapperConnectionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpWrapperConnectionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpWrapperConnectionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTcpWrapperConnectionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TcpWrapperConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpWrapperConnectionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpWrapperConnectionClassProtocol`
     /// `GTcpWrapperConnectionClass` does not allow reference counting.
-    public convenience init<T: TcpWrapperConnectionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TcpWrapperConnectionClassProtocol`
+    public init<T: TcpWrapperConnectionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
@@ -377,26 +483,61 @@ open class TcpWrapperConnectionClass: TcpWrapperConnectionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpWrapperConnectionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpWrapperConnectionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpWrapperConnectionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpWrapperConnectionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
 
@@ -496,15 +637,27 @@ open class TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpWrapperConnectionPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpWrapperConnectionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpWrapperConnectionPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTcpWrapperConnectionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TcpWrapperConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpWrapperConnectionPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpWrapperConnectionPrivateProtocol`
     /// `GTcpWrapperConnectionPrivate` does not allow reference counting.
-    public convenience init<T: TcpWrapperConnectionPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TcpWrapperConnectionPrivateProtocol`
+    public init<T: TcpWrapperConnectionPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
@@ -515,26 +668,61 @@ open class TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpWrapperConnectionPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpWrapperConnectionPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpWrapperConnectionPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpWrapperConnectionPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -634,15 +822,27 @@ open class ThemedIconClass: ThemedIconClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ThemedIconClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThemedIconClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThemedIconClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GThemedIconClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ThemedIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThemedIconClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ThemedIconClassProtocol`
     /// `GThemedIconClass` does not allow reference counting.
-    public convenience init<T: ThemedIconClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `ThemedIconClassProtocol`
+    public init<T: ThemedIconClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
@@ -653,26 +853,61 @@ open class ThemedIconClass: ThemedIconClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThemedIconClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThemedIconClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThemedIconClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThemedIconClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
 
@@ -772,15 +1007,27 @@ open class ThreadedSocketServiceClass: ThreadedSocketServiceClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ThreadedSocketServiceClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketServiceClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThreadedSocketServiceClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThreadedSocketServiceClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GThreadedSocketServiceClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ThreadedSocketServiceClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThreadedSocketServiceClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ThreadedSocketServiceClassProtocol`
     /// `GThreadedSocketServiceClass` does not allow reference counting.
-    public convenience init<T: ThreadedSocketServiceClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `ThreadedSocketServiceClassProtocol`
+    public init<T: ThreadedSocketServiceClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
@@ -791,26 +1038,61 @@ open class ThreadedSocketServiceClass: ThreadedSocketServiceClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThreadedSocketServiceClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThreadedSocketServiceClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThreadedSocketServiceClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThreadedSocketServiceClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
 
@@ -910,15 +1192,27 @@ open class ThreadedSocketServicePrivate: ThreadedSocketServicePrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ThreadedSocketServicePrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketServicePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThreadedSocketServicePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThreadedSocketServicePrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GThreadedSocketServicePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ThreadedSocketServicePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThreadedSocketServicePrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ThreadedSocketServicePrivateProtocol`
     /// `GThreadedSocketServicePrivate` does not allow reference counting.
-    public convenience init<T: ThreadedSocketServicePrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `ThreadedSocketServicePrivateProtocol`
+    public init<T: ThreadedSocketServicePrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
@@ -929,26 +1223,61 @@ open class ThreadedSocketServicePrivate: ThreadedSocketServicePrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThreadedSocketServicePrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThreadedSocketServicePrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThreadedSocketServicePrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThreadedSocketServicePrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServicePrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -1048,15 +1377,27 @@ open class TLSBackendInterface: TLSBackendInterfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSBackendInterface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackendInterface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsBackendInterface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSBackendInterfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsBackendInterface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSBackendInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsBackendInterface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSBackendInterfaceProtocol`
     /// `GTlsBackendInterface` does not allow reference counting.
-    public convenience init<T: TLSBackendInterfaceProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSBackendInterfaceProtocol`
+    public init<T: TLSBackendInterfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
@@ -1067,26 +1408,61 @@ open class TLSBackendInterface: TLSBackendInterfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsBackendInterface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsBackendInterface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsBackendInterface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsBackendInterface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendInterfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
 
@@ -1186,15 +1562,27 @@ open class TLSCertificateClass: TLSCertificateClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSCertificateClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificateClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsCertificateClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSCertificateClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsCertificateClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSCertificateClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsCertificateClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSCertificateClassProtocol`
     /// `GTlsCertificateClass` does not allow reference counting.
-    public convenience init<T: TLSCertificateClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSCertificateClassProtocol`
+    public init<T: TLSCertificateClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
@@ -1205,26 +1593,61 @@ open class TLSCertificateClass: TLSCertificateClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsCertificateClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsCertificateClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsCertificateClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsCertificateClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
 
@@ -1324,15 +1747,27 @@ open class TLSCertificatePrivate: TLSCertificatePrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSCertificatePrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsCertificatePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSCertificatePrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsCertificatePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSCertificatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsCertificatePrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSCertificatePrivateProtocol`
     /// `GTlsCertificatePrivate` does not allow reference counting.
-    public convenience init<T: TLSCertificatePrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSCertificatePrivateProtocol`
+    public init<T: TLSCertificatePrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
@@ -1343,26 +1778,61 @@ open class TLSCertificatePrivate: TLSCertificatePrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsCertificatePrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsCertificatePrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsCertificatePrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsCertificatePrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificatePrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -1462,15 +1932,27 @@ open class TLSClientConnectionInterface: TLSClientConnectionInterfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSClientConnectionInterface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSClientConnectionInterface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsClientConnectionInterface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSClientConnectionInterfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsClientConnectionInterface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSClientConnectionInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsClientConnectionInterface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSClientConnectionInterfaceProtocol`
     /// `GTlsClientConnectionInterface` does not allow reference counting.
-    public convenience init<T: TLSClientConnectionInterfaceProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSClientConnectionInterfaceProtocol`
+    public init<T: TLSClientConnectionInterfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
@@ -1481,26 +1963,61 @@ open class TLSClientConnectionInterface: TLSClientConnectionInterfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsClientConnectionInterface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsClientConnectionInterface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsClientConnectionInterface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsClientConnectionInterface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionInterfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
 
@@ -1600,15 +2117,27 @@ open class TLSConnectionClass: TLSConnectionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSConnectionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsConnectionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSConnectionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsConnectionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsConnectionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSConnectionClassProtocol`
     /// `GTlsConnectionClass` does not allow reference counting.
-    public convenience init<T: TLSConnectionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSConnectionClassProtocol`
+    public init<T: TLSConnectionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
@@ -1619,26 +2148,61 @@ open class TLSConnectionClass: TLSConnectionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsConnectionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsConnectionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsConnectionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsConnectionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
 
@@ -1738,15 +2302,27 @@ open class TLSConnectionPrivate: TLSConnectionPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSConnectionPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsConnectionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSConnectionPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsConnectionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSConnectionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsConnectionPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSConnectionPrivateProtocol`
     /// `GTlsConnectionPrivate` does not allow reference counting.
-    public convenience init<T: TLSConnectionPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSConnectionPrivateProtocol`
+    public init<T: TLSConnectionPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
@@ -1757,26 +2333,61 @@ open class TLSConnectionPrivate: TLSConnectionPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsConnectionPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsConnectionPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsConnectionPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsConnectionPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -1882,15 +2493,27 @@ open class TLSDatabaseClass: TLSDatabaseClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSDatabaseClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabaseClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsDatabaseClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSDatabaseClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsDatabaseClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSDatabaseClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsDatabaseClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSDatabaseClassProtocol`
     /// `GTlsDatabaseClass` does not allow reference counting.
-    public convenience init<T: TLSDatabaseClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSDatabaseClassProtocol`
+    public init<T: TLSDatabaseClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
@@ -1901,26 +2524,61 @@ open class TLSDatabaseClass: TLSDatabaseClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsDatabaseClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsDatabaseClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsDatabaseClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsDatabaseClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
 
@@ -2020,15 +2678,27 @@ open class TLSDatabasePrivate: TLSDatabasePrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSDatabasePrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabasePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsDatabasePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSDatabasePrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsDatabasePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSDatabasePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsDatabasePrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSDatabasePrivateProtocol`
     /// `GTlsDatabasePrivate` does not allow reference counting.
-    public convenience init<T: TLSDatabasePrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSDatabasePrivateProtocol`
+    public init<T: TLSDatabasePrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
@@ -2039,26 +2709,61 @@ open class TLSDatabasePrivate: TLSDatabasePrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsDatabasePrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsDatabasePrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsDatabasePrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsDatabasePrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabasePrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -2158,15 +2863,27 @@ open class TLSFileDatabaseInterface: TLSFileDatabaseInterfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSFileDatabaseInterface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSFileDatabaseInterface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsFileDatabaseInterface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSFileDatabaseInterfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsFileDatabaseInterface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSFileDatabaseInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsFileDatabaseInterface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSFileDatabaseInterfaceProtocol`
     /// `GTlsFileDatabaseInterface` does not allow reference counting.
-    public convenience init<T: TLSFileDatabaseInterfaceProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSFileDatabaseInterfaceProtocol`
+    public init<T: TLSFileDatabaseInterfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
@@ -2177,26 +2894,61 @@ open class TLSFileDatabaseInterface: TLSFileDatabaseInterfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsFileDatabaseInterface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsFileDatabaseInterface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsFileDatabaseInterface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsFileDatabaseInterface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseInterfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
 
@@ -2335,15 +3087,27 @@ open class TLSInteractionClass: TLSInteractionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSInteractionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteractionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsInteractionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSInteractionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsInteractionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSInteractionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsInteractionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSInteractionClassProtocol`
     /// `GTlsInteractionClass` does not allow reference counting.
-    public convenience init<T: TLSInteractionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSInteractionClassProtocol`
+    public init<T: TLSInteractionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
@@ -2354,26 +3118,61 @@ open class TLSInteractionClass: TLSInteractionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsInteractionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsInteractionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsInteractionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsInteractionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
 
@@ -2473,15 +3272,27 @@ open class TLSInteractionPrivate: TLSInteractionPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSInteractionPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteractionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsInteractionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSInteractionPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsInteractionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSInteractionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsInteractionPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSInteractionPrivateProtocol`
     /// `GTlsInteractionPrivate` does not allow reference counting.
-    public convenience init<T: TLSInteractionPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSInteractionPrivateProtocol`
+    public init<T: TLSInteractionPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
@@ -2492,26 +3303,61 @@ open class TLSInteractionPrivate: TLSInteractionPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsInteractionPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsInteractionPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsInteractionPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsInteractionPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -2611,15 +3457,27 @@ open class TLSPasswordClass: TLSPasswordClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSPasswordClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPasswordClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsPasswordClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSPasswordClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsPasswordClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSPasswordClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsPasswordClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSPasswordClassProtocol`
     /// `GTlsPasswordClass` does not allow reference counting.
-    public convenience init<T: TLSPasswordClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSPasswordClassProtocol`
+    public init<T: TLSPasswordClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
@@ -2630,26 +3488,61 @@ open class TLSPasswordClass: TLSPasswordClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsPasswordClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsPasswordClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsPasswordClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsPasswordClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
 
@@ -2749,15 +3642,27 @@ open class TLSPasswordPrivate: TLSPasswordPrivateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSPasswordPrivate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPasswordPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsPasswordPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSPasswordPrivateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsPasswordPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSPasswordPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsPasswordPrivate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSPasswordPrivateProtocol`
     /// `GTlsPasswordPrivate` does not allow reference counting.
-    public convenience init<T: TLSPasswordPrivateProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSPasswordPrivateProtocol`
+    public init<T: TLSPasswordPrivateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
@@ -2768,26 +3673,61 @@ open class TLSPasswordPrivate: TLSPasswordPrivateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsPasswordPrivate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsPasswordPrivate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsPasswordPrivate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsPasswordPrivate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordPrivateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
 
@@ -2887,15 +3827,27 @@ open class TLSServerConnectionInterface: TLSServerConnectionInterfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSServerConnectionInterface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSServerConnectionInterface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsServerConnectionInterface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSServerConnectionInterfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTlsServerConnectionInterface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TLSServerConnectionInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsServerConnectionInterface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSServerConnectionInterfaceProtocol`
     /// `GTlsServerConnectionInterface` does not allow reference counting.
-    public convenience init<T: TLSServerConnectionInterfaceProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `TLSServerConnectionInterfaceProtocol`
+    public init<T: TLSServerConnectionInterfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
@@ -2906,26 +3858,61 @@ open class TLSServerConnectionInterface: TLSServerConnectionInterfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsServerConnectionInterface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsServerConnectionInterface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsServerConnectionInterface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsServerConnectionInterface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionInterfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
 
@@ -3025,15 +4012,27 @@ open class UnixConnectionClass: UnixConnectionClassProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixConnectionClass` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixConnectionClass>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixConnectionClassProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GUnixConnectionClass` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `UnixConnectionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixConnectionClass>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixConnectionClassProtocol`
     /// `GUnixConnectionClass` does not allow reference counting.
-    public convenience init<T: UnixConnectionClassProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `UnixConnectionClassProtocol`
+    public init<T: UnixConnectionClassProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
@@ -3044,26 +4043,61 @@ open class UnixConnectionClass: UnixConnectionClassProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixConnectionClass.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixConnectionClass.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixConnectionClass.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixConnectionClass>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionClassProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
 

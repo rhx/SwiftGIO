@@ -179,7 +179,7 @@ public extension PropertyActionRef {
     /// until the action is destroyed.
     init( name: UnsafePointer<gchar>, object: ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) {
         let rv = g_property_action_new(name, cast(object.ptr), property_name)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -240,40 +240,81 @@ public extension PropertyActionRef {
 /// combine its use with `g_settings_bind()`.
 open class PropertyAction: Object, PropertyActionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `PropertyAction` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PropertyAction` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GPropertyAction>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `PropertyActionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GPropertyAction`.
-    public convenience init<T: PropertyActionProtocol>(_ other: T) {
-        self.init(cast(other.property_action_ptr))
-        g_object_ref(cast(property_action_ptr))
+    /// i.e., ownership is transferred to the `PropertyAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GPropertyAction>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `PropertyActionProtocol`
+    /// Will retain `GPropertyAction`.
+    /// - Parameter other: an instance of a related type that implements `PropertyActionProtocol`
+    public init<T: PropertyActionProtocol>(propertyAction other: T) {
+        super.init(retaining: cast(other.property_action_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GPropertyAction.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GPropertyAction.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GPropertyAction.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GPropertyAction>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GAction` corresponding to the value of property
@@ -284,9 +325,9 @@ open class PropertyAction: Object, PropertyActionProtocol {
     /// 
     /// This function takes a reference on `object` and doesn't release it
     /// until the action is destroyed.
-    public convenience init( name: UnsafePointer<gchar>, object: ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) {
+    public init( name: UnsafePointer<gchar>, object: ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) {
         let rv = g_property_action_new(name, cast(object.ptr), property_name)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -526,7 +567,7 @@ public extension ProxyAddressRef {
     /// directly if you want to set those.)
     init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
         let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -537,40 +578,81 @@ public extension ProxyAddressRef {
 /// Support for proxied `GInetSocketAddress`.
 open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ProxyAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GProxyAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ProxyAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GProxyAddress`.
-    public convenience init<T: ProxyAddressProtocol>(_ other: T) {
-        self.init(cast(other.proxy_address_ptr))
-        g_object_ref(cast(proxy_address_ptr))
+    /// i.e., ownership is transferred to the `ProxyAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GProxyAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ProxyAddressProtocol`
+    /// Will retain `GProxyAddress`.
+    /// - Parameter other: an instance of a related type that implements `ProxyAddressProtocol`
+    public init<T: ProxyAddressProtocol>(proxyAddress other: T) {
+        super.init(retaining: cast(other.proxy_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GProxyAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GProxyAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GProxyAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GProxyAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GProxyAddress` for `inetaddr` with `protocol` that should
@@ -579,9 +661,9 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// (Note that this method doesn't set the `GProxyAddress:uri` or
     /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
-    public convenience init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
+    public init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
         let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -940,40 +1022,81 @@ public extension ProxyAddressEnumeratorRef {
 /// with one.
 open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumeratorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ProxyAddressEnumerator` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyAddressEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GProxyAddressEnumerator>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ProxyAddressEnumeratorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GProxyAddressEnumerator`.
-    public convenience init<T: ProxyAddressEnumeratorProtocol>(_ other: T) {
-        self.init(cast(other.proxy_address_enumerator_ptr))
-        g_object_ref(cast(proxy_address_enumerator_ptr))
+    /// i.e., ownership is transferred to the `ProxyAddressEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GProxyAddressEnumerator>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ProxyAddressEnumeratorProtocol`
+    /// Will retain `GProxyAddressEnumerator`.
+    /// - Parameter other: an instance of a related type that implements `ProxyAddressEnumeratorProtocol`
+    public init<T: ProxyAddressEnumeratorProtocol>(proxyAddressEnumerator other: T) {
+        super.init(retaining: cast(other.proxy_address_enumerator_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GProxyAddressEnumerator.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GProxyAddressEnumerator.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GProxyAddressEnumerator.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GProxyAddressEnumerator>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -1201,40 +1324,81 @@ public extension ResolverRef {
 /// making it easy to connect to a remote host/service.
 open class Resolver: Object, ResolverProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Resolver` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resolver` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GResolver>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ResolverProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GResolver`.
-    public convenience init<T: ResolverProtocol>(_ other: T) {
-        self.init(cast(other.resolver_ptr))
-        g_object_ref(cast(resolver_ptr))
+    /// i.e., ownership is transferred to the `Resolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GResolver>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ResolverProtocol`
+    /// Will retain `GResolver`.
+    /// - Parameter other: an instance of a related type that implements `ResolverProtocol`
+    public init<T: ResolverProtocol>(resolver other: T) {
+        super.init(retaining: cast(other.resolver_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GResolver.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GResolver.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GResolver.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GResolver>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 

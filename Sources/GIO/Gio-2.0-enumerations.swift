@@ -535,6 +535,33 @@ public extension IOModuleScopeFlags {
     static let block_duplicates = G_IO_MODULE_SCOPE_BLOCK_DUPLICATES /* 1 */
 }
 
+/// Memory availability warning levels.
+/// 
+/// Note that because new values might be added, it is recommended that applications check
+/// `GMemoryMonitorWarningLevel` as ranges, for example:
+/// (C Language Example):
+/// ```C
+/// if (warning_level > G_MEMORY_MONITOR_WARNING_LEVEL_LOW)
+///   drop_caches ();
+/// ```
+/// 
+public typealias MemoryMonitorWarningLevel = GMemoryMonitorWarningLevel
+
+public extension MemoryMonitorWarningLevel {
+    /// Memory on the device is low, processes
+    ///   should free up unneeded resources (for example, in-memory caches) so they can
+    ///   be used elsewhere.
+    static let low = G_MEMORY_MONITOR_WARNING_LEVEL_LOW /* 50 */
+    /// Same as `G_MEMORY_MONITOR_WARNING_LEVEL_LOW`
+    ///   but the device has even less free memory, so processes should try harder to free
+    ///   up unneeded resources. If your process does not need to stay running, it is a
+    ///   good time for it to quit.
+    static let medium = G_MEMORY_MONITOR_WARNING_LEVEL_MEDIUM /* 100 */
+    /// The system will soon start terminating
+    ///   processes to reclaim memory, including background processes.
+    static let critical = G_MEMORY_MONITOR_WARNING_LEVEL_CRITICAL /* 255 */
+}
+
 /// `GMountOperationResult` is returned as a result when a request for
 /// information is send by the mounting operation.
 public typealias MountOperationResult = GMountOperationResult

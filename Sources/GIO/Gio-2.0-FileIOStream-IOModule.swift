@@ -135,40 +135,81 @@ public extension FileIOStreamRef {
 /// on the output stream.
 open class FileIOStream: IOStream, FileIOStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileIOStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileIOStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileIOStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileIOStream`.
-    public convenience init<T: FileIOStreamProtocol>(_ other: T) {
-        self.init(cast(other.file_io_stream_ptr))
-        g_object_ref(cast(file_io_stream_ptr))
+    /// i.e., ownership is transferred to the `FileIOStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileIOStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileIOStreamProtocol`
+    /// Will retain `GFileIOStream`.
+    /// - Parameter other: an instance of a related type that implements `FileIOStreamProtocol`
+    public init<T: FileIOStreamProtocol>(fileIOStream other: T) {
+        super.init(retaining: cast(other.file_io_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileIOStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileIOStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileIOStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileIOStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -442,7 +483,7 @@ public extension FileIconRef {
         /// Creates a new icon for a file.
     init( file: FileProtocol) {
         let rv = g_file_icon_new(cast(file.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -454,46 +495,87 @@ public extension FileIconRef {
 /// to be used as icon.
 open class FileIcon: Object, FileIconProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileIcon` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIcon` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileIcon>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileIconProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileIcon`.
-    public convenience init<T: FileIconProtocol>(_ other: T) {
-        self.init(cast(other.file_icon_ptr))
-        g_object_ref(cast(file_icon_ptr))
+    /// i.e., ownership is transferred to the `FileIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileIcon>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileIconProtocol`
+    /// Will retain `GFileIcon`.
+    /// - Parameter other: an instance of a related type that implements `FileIconProtocol`
+    public init<T: FileIconProtocol>(fileIcon other: T) {
+        super.init(retaining: cast(other.file_icon_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileIcon.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileIcon.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileIcon.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileIcon>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new icon for a file.
-    public convenience init( file: FileProtocol) {
+    public init( file: FileProtocol) {
         let rv = g_file_icon_new(cast(file.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -735,7 +817,7 @@ public extension FileInfoRef {
         /// Creates a new file info structure.
     init() {
         let rv = g_file_info_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -769,46 +851,87 @@ public extension FileInfoRef {
 /// attributes.
 open class FileInfo: Object, FileInfoProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileInfo` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfo` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileInfo>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileInfoProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileInfo`.
-    public convenience init<T: FileInfoProtocol>(_ other: T) {
-        self.init(cast(other.file_info_ptr))
-        g_object_ref(cast(file_info_ptr))
+    /// i.e., ownership is transferred to the `FileInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileInfo>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileInfoProtocol`
+    /// Will retain `GFileInfo`.
+    /// - Parameter other: an instance of a related type that implements `FileInfoProtocol`
+    public init<T: FileInfoProtocol>(fileInfo other: T) {
+        super.init(retaining: cast(other.file_info_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileInfo.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileInfo.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileInfo.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileInfo>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new file info structure.
-    public convenience init() {
+    public init() {
         let rv = g_file_info_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -933,7 +1056,7 @@ public extension FileInfoProtocol {
     }
 
     /// Gets a signed 64-bit integer contained within the attribute. If the
-    /// attribute does not contain an signed 64-bit integer, or is invalid,
+    /// attribute does not contain a signed 64-bit integer, or is invalid,
     /// 0 will be returned.
     func getAttributeInt64(attribute: UnsafePointer<CChar>) -> Int64 {
         let rv = g_file_info_get_attribute_int64(cast(file_info_ptr), attribute)
@@ -1055,6 +1178,10 @@ public extension FileInfoProtocol {
 
     /// Gets the modification time of the current `info` and returns it as a
     /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
     func getModificationDateTime() -> UnsafeMutablePointer<GDateTime>! {
         let rv = g_file_info_get_modification_date_time(cast(file_info_ptr))
         return cast(rv)
@@ -1265,15 +1392,17 @@ public extension FileInfoProtocol {
     
     }
 
-    /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute in the file
-    /// info to the given date/time value.
+    /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
+    /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` attributes in the file info to the
+    /// given date/time value.
     func setModificationDateTime(mtime: DateTimeProtocol) {
         g_file_info_set_modification_date_time(cast(file_info_ptr), cast(mtime.ptr))
     
     }
 
-    /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute in the file
-    /// info to the given time value.
+    /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
+    /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` attributes in the file info to the
+    /// given time value.
     ///
     /// **set_modification_time is deprecated:**
     /// Use g_file_info_set_modification_date_time() instead, as
@@ -1459,15 +1588,24 @@ public extension FileInfoProtocol {
 
     /// Gets the modification time of the current `info` and returns it as a
     /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
     var modificationDateTime: UnsafeMutablePointer<GDateTime>! {
         /// Gets the modification time of the current `info` and returns it as a
         /// `GDateTime`.
+        /// 
+        /// This requires the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute. If
+        /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
+        /// will have microsecond precision.
         get {
             let rv = g_file_info_get_modification_date_time(cast(file_info_ptr))
             return cast(rv)
         }
-        /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute in the file
-        /// info to the given date/time value.
+        /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
+        /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` attributes in the file info to the
+        /// given date/time value.
         nonmutating set {
             g_file_info_set_modification_date_time(cast(file_info_ptr), cast(newValue))
         }
@@ -1648,40 +1786,81 @@ public extension FileInputStreamRef {
 /// To position a file input stream, use `g_seekable_seek()`.
 open class FileInputStream: InputStream, FileInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileInputStream`.
-    public convenience init<T: FileInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.file_input_stream_ptr))
-        g_object_ref(cast(file_input_stream_ptr))
+    /// i.e., ownership is transferred to the `FileInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileInputStreamProtocol`
+    /// Will retain `GFileInputStream`.
+    /// - Parameter other: an instance of a related type that implements `FileInputStreamProtocol`
+    public init<T: FileInputStreamProtocol>(fileInputStream other: T) {
+        super.init(retaining: cast(other.file_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -1909,40 +2088,81 @@ public extension FileMonitorRef {
 /// context is still running).
 open class FileMonitor: Object, FileMonitorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileMonitor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileMonitor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileMonitorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileMonitor`.
-    public convenience init<T: FileMonitorProtocol>(_ other: T) {
-        self.init(cast(other.file_monitor_ptr))
-        g_object_ref(cast(file_monitor_ptr))
+    /// i.e., ownership is transferred to the `FileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileMonitor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileMonitorProtocol`
+    /// Will retain `GFileMonitor`.
+    /// - Parameter other: an instance of a related type that implements `FileMonitorProtocol`
+    public init<T: FileMonitorProtocol>(fileMonitor other: T) {
+        super.init(retaining: cast(other.file_monitor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileMonitor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileMonitor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileMonitor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileMonitor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2232,40 +2452,81 @@ public extension FileOutputStreamRef {
 /// stream, use `g_seekable_truncate()`.
 open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileOutputStream`.
-    public convenience init<T: FileOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.file_output_stream_ptr))
-        g_object_ref(cast(file_output_stream_ptr))
+    /// i.e., ownership is transferred to the `FileOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileOutputStreamProtocol`
+    /// Will retain `GFileOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `FileOutputStreamProtocol`
+    public init<T: FileOutputStreamProtocol>(fileOutputStream other: T) {
+        super.init(retaining: cast(other.file_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2480,7 +2741,7 @@ public extension FilenameCompleterRef {
         /// Creates a new filename completer.
     init() {
         let rv = g_filename_completer_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -2493,46 +2754,87 @@ public extension FilenameCompleterRef {
 /// completion strings for widget implementations.
 open class FilenameCompleter: Object, FilenameCompleterProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FilenameCompleter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFilenameCompleter>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FilenameCompleterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFilenameCompleter`.
-    public convenience init<T: FilenameCompleterProtocol>(_ other: T) {
-        self.init(cast(other.filename_completer_ptr))
-        g_object_ref(cast(filename_completer_ptr))
+    /// i.e., ownership is transferred to the `FilenameCompleter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFilenameCompleter>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FilenameCompleterProtocol`
+    /// Will retain `GFilenameCompleter`.
+    /// - Parameter other: an instance of a related type that implements `FilenameCompleterProtocol`
+    public init<T: FilenameCompleterProtocol>(filenameCompleter other: T) {
+        super.init(retaining: cast(other.filename_completer_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFilenameCompleter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFilenameCompleter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFilenameCompleter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFilenameCompleter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new filename completer.
-    public convenience init() {
+    public init() {
         let rv = g_filename_completer_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -2710,40 +3012,81 @@ public extension FilterInputStreamRef {
 /// and byte order flipping.
 open class FilterInputStream: InputStream, FilterInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FilterInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFilterInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FilterInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFilterInputStream`.
-    public convenience init<T: FilterInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.filter_input_stream_ptr))
-        g_object_ref(cast(filter_input_stream_ptr))
+    /// i.e., ownership is transferred to the `FilterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFilterInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FilterInputStreamProtocol`
+    /// Will retain `GFilterInputStream`.
+    /// - Parameter other: an instance of a related type that implements `FilterInputStreamProtocol`
+    public init<T: FilterInputStreamProtocol>(filterInputStream other: T) {
+        super.init(retaining: cast(other.filter_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFilterInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFilterInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFilterInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFilterInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2983,40 +3326,81 @@ public extension FilterOutputStreamRef {
 /// and byte order flipping.
 open class FilterOutputStream: OutputStream, FilterOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FilterOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFilterOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FilterOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFilterOutputStream`.
-    public convenience init<T: FilterOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.filter_output_stream_ptr))
-        g_object_ref(cast(filter_output_stream_ptr))
+    /// i.e., ownership is transferred to the `FilterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFilterOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FilterOutputStreamProtocol`
+    /// Will retain `GFilterOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `FilterOutputStreamProtocol`
+    public init<T: FilterOutputStreamProtocol>(filterOutputStream other: T) {
+        super.init(retaining: cast(other.filter_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFilterOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFilterOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFilterOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFilterOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -3246,7 +3630,7 @@ public extension IOModuleRef {
     /// shared library when in use.
     init( String_: UnsafePointer<gchar>) {
         let rv = g_io_module_new(String_)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -3259,47 +3643,88 @@ public extension IOModuleRef {
 /// be used by others to implement module loading.
 open class IOModule: TypeModule, IOModuleProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `IOModule` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOModule` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GIOModule>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `IOModuleProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GIOModule`.
-    public convenience init<T: IOModuleProtocol>(_ other: T) {
-        self.init(cast(other.io_module_ptr))
-        g_object_ref(cast(io_module_ptr))
+    /// i.e., ownership is transferred to the `IOModule` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GIOModule>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `IOModuleProtocol`
+    /// Will retain `GIOModule`.
+    /// - Parameter other: an instance of a related type that implements `IOModuleProtocol`
+    public init<T: IOModuleProtocol>(iOModule other: T) {
+        super.init(retaining: cast(other.io_module_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GIOModule.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GIOModule.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GIOModule.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GIOModule>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new GIOModule that will load the specific
     /// shared library when in use.
-    public convenience init( String_: UnsafePointer<gchar>) {
+    public init( String_: UnsafePointer<gchar>) {
         let rv = g_io_module_new(String_)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 

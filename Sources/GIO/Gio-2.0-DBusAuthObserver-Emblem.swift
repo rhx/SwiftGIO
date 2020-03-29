@@ -196,7 +196,7 @@ public extension DBusAuthObserverRef {
         /// Creates a new `GDBusAuthObserver` object.
     init() {
         let rv = g_dbus_auth_observer_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -269,46 +269,87 @@ public extension DBusAuthObserverRef {
 /// 
 open class DBusAuthObserver: Object, DBusAuthObserverProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusAuthObserver` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusAuthObserver` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusAuthObserver>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusAuthObserverProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusAuthObserver`.
-    public convenience init<T: DBusAuthObserverProtocol>(_ other: T) {
-        self.init(cast(other.dbus_auth_observer_ptr))
-        g_object_ref(cast(dbus_auth_observer_ptr))
+    /// i.e., ownership is transferred to the `DBusAuthObserver` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusAuthObserver>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusAuthObserverProtocol`
+    /// Will retain `GDBusAuthObserver`.
+    /// - Parameter other: an instance of a related type that implements `DBusAuthObserverProtocol`
+    public init<T: DBusAuthObserverProtocol>(dBusAuthObserver other: T) {
+        super.init(retaining: cast(other.dbus_auth_observer_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusAuthObserver.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusAuthObserver.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusAuthObserver.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusAuthObserver>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GDBusAuthObserver` object.
-    public convenience init() {
+    public init() {
         let rv = g_dbus_auth_observer_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -567,7 +608,7 @@ public extension DBusConnectionRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
@@ -577,7 +618,7 @@ public extension DBusConnectionRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Synchronously connects and sets up a D-Bus client connection for
@@ -602,7 +643,7 @@ public extension DBusConnectionRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Synchronously sets up a D-Bus connection for exchanging D-Bus messages
@@ -626,7 +667,7 @@ public extension DBusConnectionRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes an operation started with `g_dbus_connection_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusConnectionRef! {
@@ -753,60 +794,101 @@ public extension DBusConnectionRef {
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 open class DBusConnection: Object, DBusConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusConnection`.
-    public convenience init<T: DBusConnectionProtocol>(_ other: T) {
-        self.init(cast(other.dbus_connection_ptr))
-        g_object_ref(cast(dbus_connection_ptr))
+    /// i.e., ownership is transferred to the `DBusConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusConnectionProtocol`
+    /// Will retain `GDBusConnection`.
+    /// - Parameter other: an instance of a related type that implements `DBusConnectionProtocol`
+    public init<T: DBusConnectionProtocol>(dBusConnection other: T) {
+        super.init(retaining: cast(other.dbus_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Finishes an operation started with `g_dbus_connection_new()`.
-    public convenience init(finish res: AsyncResultProtocol) throws {
+    public init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
-    public convenience init(addressFinish res: AsyncResultProtocol) throws {
+    public init(addressFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Synchronously connects and sets up a D-Bus client connection for
@@ -825,13 +907,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
-    public convenience init(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
+    public init(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_for_address_sync(address, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Synchronously sets up a D-Bus connection for exchanging D-Bus messages
@@ -849,13 +931,13 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
-    public convenience init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
+    public init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new()`.
@@ -1806,6 +1888,24 @@ public extension DBusConnectionProtocol {
     /// signal is unsubscribed from, and may be called after `connection`
     /// has been destroyed.)
     /// 
+    /// As `callback` is potentially invoked in a different thread from where it’s
+    /// emitted, it’s possible for this to happen after
+    /// `g_dbus_connection_signal_unsubscribe()` has been called in another thread.
+    /// Due to this, `user_data` should have a strong reference which is freed with
+    /// `user_data_free_func`, rather than pointing to data whose lifecycle is tied
+    /// to the signal subscription. For example, if a `GObject` is used to store the
+    /// subscription ID from `g_dbus_connection_signal_subscribe()`, a strong reference
+    /// to that `GObject` must be passed to `user_data`, and `g_object_unref()` passed to
+    /// `user_data_free_func`. You are responsible for breaking the resulting
+    /// reference count cycle by explicitly unsubscribing from the signal when
+    /// dropping the last external reference to the `GObject`. Alternatively, a weak
+    /// reference may be used.
+    /// 
+    /// It is guaranteed that if you unsubscribe from a signal using
+    /// `g_dbus_connection_signal_unsubscribe()` from the same thread which made the
+    /// corresponding `g_dbus_connection_signal_subscribe()` call, `callback` will not
+    /// be invoked after `g_dbus_connection_signal_unsubscribe()` returns.
+    /// 
     /// The returned subscription identifier is an opaque value which is guaranteed
     /// to never be zero.
     /// 
@@ -1816,6 +1916,14 @@ public extension DBusConnectionProtocol {
     }
 
     /// Unsubscribes from signals.
+    /// 
+    /// Note that there may still be D-Bus traffic to process (relating to this
+    /// signal subscription) in the current thread-default `GMainContext` after this
+    /// function has returned. You should continue to iterate the `GMainContext`
+    /// until the `GDestroyNotify` function passed to
+    /// `g_dbus_connection_signal_subscribe()` is called, in order to avoid memory
+    /// leaks through callbacks queued on the `GMainContext` after it’s stopped being
+    /// iterated.
     func signalUnsubscribe(subscriptionID subscription_id: CUnsignedInt) {
         g_dbus_connection_signal_unsubscribe(cast(dbus_connection_ptr), guint(subscription_id))
     
@@ -2121,40 +2229,81 @@ public extension DBusInterfaceSkeletonRef {
 /// Abstract base class for D-Bus interfaces on the service side.
 open class DBusInterfaceSkeleton: Object, DBusInterfaceSkeletonProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusInterfaceSkeleton` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterfaceSkeleton` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusInterfaceSkeleton>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusInterfaceSkeletonProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusInterfaceSkeleton`.
-    public convenience init<T: DBusInterfaceSkeletonProtocol>(_ other: T) {
-        self.init(cast(other.dbus_interface_skeleton_ptr))
-        g_object_ref(cast(dbus_interface_skeleton_ptr))
+    /// i.e., ownership is transferred to the `DBusInterfaceSkeleton` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusInterfaceSkeleton>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusInterfaceSkeletonProtocol`
+    /// Will retain `GDBusInterfaceSkeleton`.
+    /// - Parameter other: an instance of a related type that implements `DBusInterfaceSkeletonProtocol`
+    public init<T: DBusInterfaceSkeletonProtocol>(dBusInterfaceSkeleton other: T) {
+        super.init(retaining: cast(other.dbus_interface_skeleton_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusInterfaceSkeleton.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusInterfaceSkeleton.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusInterfaceSkeleton.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusInterfaceSkeleton>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2574,40 +2723,81 @@ public extension DBusMenuModelRef {
 /// `g_dbus_connection_export_menu_model()`.
 open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusMenuModel` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusMenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusMenuModel>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusMenuModelProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusMenuModel`.
-    public convenience init<T: DBusMenuModelProtocol>(_ other: T) {
-        self.init(cast(other.dbus_menu_model_ptr))
-        g_object_ref(cast(dbus_menu_model_ptr))
+    /// i.e., ownership is transferred to the `DBusMenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusMenuModel>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusMenuModelProtocol`
+    /// Will retain `GDBusMenuModel`.
+    /// - Parameter other: an instance of a related type that implements `DBusMenuModelProtocol`
+    public init<T: DBusMenuModelProtocol>(dBusMenuModel other: T) {
+        super.init(retaining: cast(other.dbus_menu_model_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusMenuModel.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusMenuModel.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusMenuModel.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusMenuModel>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2786,7 +2976,7 @@ public extension DBusMessageRef {
         /// Creates a new empty `GDBusMessage`.
     init() {
         let rv = g_dbus_message_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
@@ -2801,19 +2991,19 @@ public extension DBusMessageRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a method call.
     init(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) {
         let rv = g_dbus_message_new_method_call(name, path, interface_, method)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
     init(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) {
         let rv = g_dbus_message_new_signal(path, interface_, signal)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
     /// order that the message was in can be retrieved using
@@ -2851,46 +3041,87 @@ public extension DBusMessageRef {
 /// on a `GDBusConnection`.
 open class DBusMessage: Object, DBusMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusMessage` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusMessage` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusMessage>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusMessageProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusMessage`.
-    public convenience init<T: DBusMessageProtocol>(_ other: T) {
-        self.init(cast(other.dbus_message_ptr))
-        g_object_ref(cast(dbus_message_ptr))
+    /// i.e., ownership is transferred to the `DBusMessage` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusMessage>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusMessageProtocol`
+    /// Will retain `GDBusMessage`.
+    /// - Parameter other: an instance of a related type that implements `DBusMessageProtocol`
+    public init<T: DBusMessageProtocol>(dBusMessage other: T) {
+        super.init(retaining: cast(other.dbus_message_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusMessage.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusMessage.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusMessage.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusMessage>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new empty `GDBusMessage`.
-    public convenience init() {
+    public init() {
         let rv = g_dbus_message_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
@@ -2899,25 +3130,25 @@ open class DBusMessage: Object, DBusMessageProtocol {
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
-    public convenience init(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
+    public init(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a method call.
-    public convenience init(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) {
+    public init(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) {
         let rv = g_dbus_message_new_method_call(name, path, interface_, method)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
-    public convenience init(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) {
+    public init(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) {
         let rv = g_dbus_message_new_signal(path, interface_, signal)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
@@ -3718,40 +3949,81 @@ public extension DBusMethodInvocationRef {
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusMethodInvocation` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusMethodInvocation` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusMethodInvocation>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusMethodInvocationProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusMethodInvocation`.
-    public convenience init<T: DBusMethodInvocationProtocol>(_ other: T) {
-        self.init(cast(other.dbus_method_invocation_ptr))
-        g_object_ref(cast(dbus_method_invocation_ptr))
+    /// i.e., ownership is transferred to the `DBusMethodInvocation` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusMethodInvocation>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusMethodInvocationProtocol`
+    /// Will retain `GDBusMethodInvocation`.
+    /// - Parameter other: an instance of a related type that implements `DBusMethodInvocationProtocol`
+    public init<T: DBusMethodInvocationProtocol>(dBusMethodInvocation other: T) {
+        super.init(retaining: cast(other.dbus_method_invocation_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusMethodInvocation.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusMethodInvocation.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusMethodInvocation.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusMethodInvocation>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -4386,7 +4658,7 @@ public extension DBusObjectManagerClientRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
@@ -4396,7 +4668,7 @@ public extension DBusObjectManagerClientRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
@@ -4411,7 +4683,7 @@ public extension DBusObjectManagerClientRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusObjectManagerClient` object.
@@ -4425,7 +4697,7 @@ public extension DBusObjectManagerClientRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusObjectManagerClientRef! {
@@ -4558,60 +4830,101 @@ public extension DBusObjectManagerClientRef {
 /// same main loop.
 open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObjectManagerClient` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManagerClient` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObjectManagerClient>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectManagerClientProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusObjectManagerClient`.
-    public convenience init<T: DBusObjectManagerClientProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_manager_client_ptr))
-        g_object_ref(cast(dbus_object_manager_client_ptr))
+    /// i.e., ownership is transferred to the `DBusObjectManagerClient` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObjectManagerClient>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectManagerClientProtocol`
+    /// Will retain `GDBusObjectManagerClient`.
+    /// - Parameter other: an instance of a related type that implements `DBusObjectManagerClientProtocol`
+    public init<T: DBusObjectManagerClientProtocol>(dBusObjectManagerClient other: T) {
+        super.init(retaining: cast(other.dbus_object_manager_client_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObjectManagerClient.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObjectManagerClient.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObjectManagerClient.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObjectManagerClient>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
-    public convenience init(finish res: AsyncResultProtocol) throws {
+    public init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
-    public convenience init(busFinish res: AsyncResultProtocol) throws {
+    public init(busFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Like `g_dbus_object_manager_client_new_sync()` but takes a `GBusType` instead
@@ -4620,13 +4933,13 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// This is a synchronous failable constructor - the calling thread is
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
-    public convenience init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
+    public init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GDBusObjectManagerClient` object.
@@ -4634,13 +4947,13 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// This is a synchronous failable constructor - the calling thread is
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
-    public convenience init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
+    public init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
@@ -5053,7 +5366,7 @@ public extension DBusObjectManagerServerRef {
     /// signals being emitted.
     init( object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_manager_server_new(object_path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -5085,40 +5398,81 @@ public extension DBusObjectManagerServerRef {
 /// interface.
 open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObjectManagerServer` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManagerServer` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObjectManagerServer>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectManagerServerProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusObjectManagerServer`.
-    public convenience init<T: DBusObjectManagerServerProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_manager_server_ptr))
-        g_object_ref(cast(dbus_object_manager_server_ptr))
+    /// i.e., ownership is transferred to the `DBusObjectManagerServer` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObjectManagerServer>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectManagerServerProtocol`
+    /// Will retain `GDBusObjectManagerServer`.
+    /// - Parameter other: an instance of a related type that implements `DBusObjectManagerServerProtocol`
+    public init<T: DBusObjectManagerServerProtocol>(dBusObjectManagerServer other: T) {
+        super.init(retaining: cast(other.dbus_object_manager_server_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObjectManagerServer.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObjectManagerServer.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObjectManagerServer.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObjectManagerServer>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GDBusObjectManagerServer` object.
@@ -5128,9 +5482,9 @@ open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
     /// want to export all of your objects before doing so to avoid
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
-    public convenience init( object_path: UnsafePointer<gchar>) {
+    public init( object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_manager_server_new(object_path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -5389,7 +5743,7 @@ public extension DBusObjectProxyRef {
     /// object path.
     init( connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_proxy_new(cast(connection.ptr), object_path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -5403,47 +5757,88 @@ public extension DBusObjectProxyRef {
 /// is used to obtain it.
 open class DBusObjectProxy: Object, DBusObjectProxyProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObjectProxy` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectProxy` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObjectProxy>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectProxyProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusObjectProxy`.
-    public convenience init<T: DBusObjectProxyProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_proxy_ptr))
-        g_object_ref(cast(dbus_object_proxy_ptr))
+    /// i.e., ownership is transferred to the `DBusObjectProxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObjectProxy>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectProxyProtocol`
+    /// Will retain `GDBusObjectProxy`.
+    /// - Parameter other: an instance of a related type that implements `DBusObjectProxyProtocol`
+    public init<T: DBusObjectProxyProtocol>(dBusObjectProxy other: T) {
+        super.init(retaining: cast(other.dbus_object_proxy_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObjectProxy.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObjectProxy.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObjectProxy.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObjectProxy>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GDBusObjectProxy` for the given connection and
     /// object path.
-    public convenience init( connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) {
+    public init( connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_proxy_new(cast(connection.ptr), object_path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -5651,7 +6046,7 @@ public extension DBusObjectSkeletonRef {
         /// Creates a new `GDBusObjectSkeleton`.
     init( object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_skeleton_new(object_path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -5666,46 +6061,87 @@ public extension DBusObjectSkeletonRef {
 /// This type is intended to be used with `GDBusObjectManager`.
 open class DBusObjectSkeleton: Object, DBusObjectSkeletonProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObjectSkeleton` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectSkeleton` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObjectSkeleton>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectSkeletonProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusObjectSkeleton`.
-    public convenience init<T: DBusObjectSkeletonProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_skeleton_ptr))
-        g_object_ref(cast(dbus_object_skeleton_ptr))
+    /// i.e., ownership is transferred to the `DBusObjectSkeleton` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObjectSkeleton>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectSkeletonProtocol`
+    /// Will retain `GDBusObjectSkeleton`.
+    /// - Parameter other: an instance of a related type that implements `DBusObjectSkeletonProtocol`
+    public init<T: DBusObjectSkeletonProtocol>(dBusObjectSkeleton other: T) {
+        super.init(retaining: cast(other.dbus_object_skeleton_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObjectSkeleton.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObjectSkeleton.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObjectSkeleton.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObjectSkeleton>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GDBusObjectSkeleton`.
-    public convenience init( object_path: UnsafePointer<gchar>) {
+    public init( object_path: UnsafePointer<gchar>) {
         let rv = g_dbus_object_skeleton_new(object_path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -6013,7 +6449,7 @@ public extension DBusProxyRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
@@ -6023,7 +6459,7 @@ public extension DBusProxyRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
@@ -6035,7 +6471,7 @@ public extension DBusProxyRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a proxy for accessing `interface_name` on the remote object
@@ -6066,7 +6502,7 @@ public extension DBusProxyRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes creating a `GDBusProxy`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusProxyRef! {
@@ -6175,72 +6611,113 @@ public extension DBusProxyRef {
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
 open class DBusProxy: Object, DBusProxyProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusProxy` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusProxy` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusProxy>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusProxyProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusProxy`.
-    public convenience init<T: DBusProxyProtocol>(_ other: T) {
-        self.init(cast(other.dbus_proxy_ptr))
-        g_object_ref(cast(dbus_proxy_ptr))
+    /// i.e., ownership is transferred to the `DBusProxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusProxy>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusProxyProtocol`
+    /// Will retain `GDBusProxy`.
+    /// - Parameter other: an instance of a related type that implements `DBusProxyProtocol`
+    public init<T: DBusProxyProtocol>(dBusProxy other: T) {
+        super.init(retaining: cast(other.dbus_proxy_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusProxy.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusProxy.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusProxy.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusProxy>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Finishes creating a `GDBusProxy`.
-    public convenience init(finish res: AsyncResultProtocol) throws {
+    public init(finish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
-    public convenience init(busFinish res: AsyncResultProtocol) throws {
+    public init(busFinish res: AsyncResultProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    public convenience init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
+    public init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a proxy for accessing `interface_name` on the remote object
@@ -6265,13 +6742,13 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    public convenience init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
+    public init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
@@ -7060,7 +7537,7 @@ public extension DBusServerRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new D-Bus server that listens on the first address in
     /// `address` that works.
@@ -7114,40 +7591,81 @@ public extension DBusServerRef {
 /// as the same user that is running the `GDBusServer`.
 open class DBusServer: Object, DBusServerProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusServer` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusServer` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusServer>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusServerProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusServer`.
-    public convenience init<T: DBusServerProtocol>(_ other: T) {
-        self.init(cast(other.dbus_server_ptr))
-        g_object_ref(cast(dbus_server_ptr))
+    /// i.e., ownership is transferred to the `DBusServer` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusServer>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusServerProtocol`
+    /// Will retain `GDBusServer`.
+    /// - Parameter other: an instance of a related type that implements `DBusServerProtocol`
+    public init<T: DBusServerProtocol>(dBusServer other: T) {
+        super.init(retaining: cast(other.dbus_server_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusServer.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusServer.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusServer.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusServer>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new D-Bus server that listens on the first address in
@@ -7170,13 +7688,13 @@ open class DBusServer: Object, DBusServerProtocol {
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
-    public convenience init(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
+    public init(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_dbus_server_new_sync(address, flags, guid, cast(observer.ptr), cast(cancellable.ptr), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new D-Bus server that listens on the first address in
@@ -7501,7 +8019,7 @@ public extension DataInputStreamRef {
         /// Creates a new data input stream for the `base_stream`.
     init( base_stream: InputStreamProtocol) {
         let rv = g_data_input_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -7513,46 +8031,87 @@ public extension DataInputStreamRef {
 /// reading structured data directly from a binary input stream.
 open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DataInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DataInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDataInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DataInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDataInputStream`.
-    public convenience init<T: DataInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.data_input_stream_ptr))
-        g_object_ref(cast(data_input_stream_ptr))
+    /// i.e., ownership is transferred to the `DataInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDataInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DataInputStreamProtocol`
+    /// Will retain `GDataInputStream`.
+    /// - Parameter other: an instance of a related type that implements `DataInputStreamProtocol`
+    public init<T: DataInputStreamProtocol>(dataInputStream other: T) {
+        super.init(retaining: cast(other.data_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDataInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDataInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDataInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDataInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new data input stream for the `base_stream`.
-    public convenience init( base_stream: InputStreamProtocol) {
+    public override init( base_stream: InputStreamProtocol) {
         let rv = g_data_input_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -8090,7 +8649,7 @@ public extension DataOutputStreamRef {
         /// Creates a new data output stream for `base_stream`.
     init( base_stream: OutputStreamProtocol) {
         let rv = g_data_output_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -8102,46 +8661,87 @@ public extension DataOutputStreamRef {
 /// writing data directly to an output stream.
 open class DataOutputStream: FilterOutputStream, DataOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DataOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DataOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDataOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DataOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDataOutputStream`.
-    public convenience init<T: DataOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.data_output_stream_ptr))
-        g_object_ref(cast(data_output_stream_ptr))
+    /// i.e., ownership is transferred to the `DataOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDataOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DataOutputStreamProtocol`
+    /// Will retain `GDataOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `DataOutputStreamProtocol`
+    public init<T: DataOutputStreamProtocol>(dataOutputStream other: T) {
+        super.init(retaining: cast(other.data_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDataOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDataOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDataOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDataOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new data output stream for `base_stream`.
-    public convenience init( base_stream: OutputStreamProtocol) {
+    public init( base_stream: OutputStreamProtocol) {
         let rv = g_data_output_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -8443,13 +9043,13 @@ public extension EmblemRef {
         /// Creates a new emblem for `icon`.
     init( icon: IconProtocol) {
         let rv = g_emblem_new(cast(icon.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.
     init(origin icon: IconProtocol, origin: EmblemOrigin) {
         let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new emblem for `icon`.
     static func newWith(origin icon: IconProtocol, origin: EmblemOrigin) -> EmblemRef! {
@@ -8470,52 +9070,93 @@ public extension EmblemRef {
 /// supported. More may be added in the future.
 open class Emblem: Object, EmblemProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Emblem` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Emblem` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GEmblem>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `EmblemProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GEmblem`.
-    public convenience init<T: EmblemProtocol>(_ other: T) {
-        self.init(cast(other.emblem_ptr))
-        g_object_ref(cast(emblem_ptr))
+    /// i.e., ownership is transferred to the `Emblem` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GEmblem>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `EmblemProtocol`
+    /// Will retain `GEmblem`.
+    /// - Parameter other: an instance of a related type that implements `EmblemProtocol`
+    public init<T: EmblemProtocol>(emblem other: T) {
+        super.init(retaining: cast(other.emblem_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GEmblem.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GEmblem.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GEmblem.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GEmblem>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new emblem for `icon`.
-    public convenience init( icon: IconProtocol) {
+    public init( icon: IconProtocol) {
         let rv = g_emblem_new(cast(icon.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.
-    public convenience init(origin icon: IconProtocol, origin: EmblemOrigin) {
+    public init(origin icon: IconProtocol, origin: EmblemOrigin) {
         let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.

@@ -82,7 +82,7 @@ public extension EmblemedIconRef {
         /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
     init( icon: IconProtocol, emblem: EmblemProtocol) {
         let rv = g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -98,46 +98,87 @@ public extension EmblemedIconRef {
 /// of the emblems. See also `GEmblem` for more information.
 open class EmblemedIcon: Object, EmblemedIconProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `EmblemedIcon` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GEmblemedIcon>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `EmblemedIconProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GEmblemedIcon`.
-    public convenience init<T: EmblemedIconProtocol>(_ other: T) {
-        self.init(cast(other.emblemed_icon_ptr))
-        g_object_ref(cast(emblemed_icon_ptr))
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GEmblemedIcon>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `EmblemedIconProtocol`
+    /// Will retain `GEmblemedIcon`.
+    /// - Parameter other: an instance of a related type that implements `EmblemedIconProtocol`
+    public init<T: EmblemedIconProtocol>(emblemedIcon other: T) {
+        super.init(retaining: cast(other.emblemed_icon_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GEmblemedIcon.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GEmblemedIcon.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GEmblemedIcon.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GEmblemedIcon>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
-    public convenience init( icon: IconProtocol, emblem: EmblemProtocol) {
+    public init( icon: IconProtocol, emblem: EmblemProtocol) {
         let rv = g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -439,40 +480,81 @@ public extension FileEnumeratorRef {
 /// on it, and it should be freed with `g_object_unref()`.
 open class FileEnumerator: Object, FileEnumeratorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `FileEnumerator` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFileEnumerator>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileEnumeratorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileEnumerator`.
-    public convenience init<T: FileEnumeratorProtocol>(_ other: T) {
-        self.init(cast(other.file_enumerator_ptr))
-        g_object_ref(cast(file_enumerator_ptr))
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFileEnumerator>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `FileEnumeratorProtocol`
+    /// Will retain `GFileEnumerator`.
+    /// - Parameter other: an instance of a related type that implements `FileEnumeratorProtocol`
+    public init<T: FileEnumeratorProtocol>(fileEnumerator other: T) {
+        super.init(retaining: cast(other.file_enumerator_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFileEnumerator.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFileEnumerator.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFileEnumerator.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFileEnumerator>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 

@@ -644,7 +644,7 @@ public extension SettingsRef {
     /// on the context.  See `g_main_context_push_thread_default()`.
     init( schema_id: UnsafePointer<gchar>) {
         let rv = g_settings_new(schema_id)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GSettings` object with a given schema, backend and
@@ -672,7 +672,7 @@ public extension SettingsRef {
     /// have.
     init(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the schema specified by
@@ -685,7 +685,7 @@ public extension SettingsRef {
     /// settings instead of the settings for this user.
     init(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) {
         let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the schema specified by
@@ -695,7 +695,7 @@ public extension SettingsRef {
     /// `g_settings_new_with_path()`.
     init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the relocatable schema specified
@@ -713,7 +713,7 @@ public extension SettingsRef {
     /// characters.
     init(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_path(schema_id, path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GSettings` object with a given schema, backend and
     /// path.
@@ -1075,40 +1075,81 @@ public extension SettingsRef {
 /// `EXTRA_DIST`.
 open class Settings: Object, SettingsProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Settings` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Settings` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSettings>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SettingsProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSettings`.
-    public convenience init<T: SettingsProtocol>(_ other: T) {
-        self.init(cast(other.settings_ptr))
-        g_object_ref(cast(settings_ptr))
+    /// i.e., ownership is transferred to the `Settings` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSettings>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SettingsProtocol`
+    /// Will retain `GSettings`.
+    /// - Parameter other: an instance of a related type that implements `SettingsProtocol`
+    public init<T: SettingsProtocol>(settings other: T) {
+        super.init(retaining: cast(other.settings_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSettings.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSettings.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSettings.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSettings>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSettings` object with the schema specified by
@@ -1118,9 +1159,9 @@ open class Settings: Object, SettingsProtocol {
     /// via the thread-default `GMainContext` in effect at the time of the
     /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
     /// on the context.  See `g_main_context_push_thread_default()`.
-    public convenience init( schema_id: UnsafePointer<gchar>) {
+    public init( schema_id: UnsafePointer<gchar>) {
         let rv = g_settings_new(schema_id)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSettings` object with a given schema, backend and
@@ -1146,9 +1187,9 @@ open class Settings: Object, SettingsProtocol {
     /// error if `path` is `nil` and the schema has no path of its own or if
     /// `path` is non-`nil` and not equal to the path that the schema does
     /// have.
-    public convenience init(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
+    public init(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the schema specified by
@@ -1159,9 +1200,9 @@ open class Settings: Object, SettingsProtocol {
     /// sense to pass a backend corresponding to the "defaults" settings database on
     /// the system to get a settings object that modifies the system default
     /// settings instead of the settings for this user.
-    public convenience init(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) {
+    public init(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) {
         let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the schema specified by
@@ -1169,9 +1210,9 @@ open class Settings: Object, SettingsProtocol {
     /// 
     /// This is a mix of `g_settings_new_with_backend()` and
     /// `g_settings_new_with_path()`.
-    public convenience init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
+    public init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSettings` object with the relocatable schema specified
@@ -1187,9 +1228,9 @@ open class Settings: Object, SettingsProtocol {
     /// It is a programmer error if `path` is not a valid path.  A valid path
     /// begins and ends with '/' and does not contain two consecutive '/'
     /// characters.
-    public convenience init(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) {
+    public init(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) {
         let rv = g_settings_new_with_path(schema_id, path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSettings` object with a given schema, backend and
@@ -1668,7 +1709,7 @@ public extension SettingsProtocol {
     /// to the flags value that it represents.
     /// 
     /// In order to use this function the type of the value must be an array
-    /// of strings and it must be marked in the schema file as an flags type.
+    /// of strings and it must be marked in the schema file as a flags type.
     /// 
     /// It is a programmer error to give a `key` that isn't contained in the
     /// schema for `settings` or is not marked as a flags type.
@@ -1859,7 +1900,7 @@ public extension SettingsProtocol {
     /// with it.
     ///
     /// **list_keys is deprecated:**
-    /// Use g_settings_schema_list_keys instead().
+    /// Use g_settings_schema_list_keys() instead.
     @available(*, deprecated) func listKeys() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         let rv = g_settings_list_keys(cast(settings_ptr))
         return cast(rv)
@@ -2201,40 +2242,81 @@ public extension SettingsBackendRef {
 /// `gio/gsettingsbackend.h`.
 open class SettingsBackend: Object, SettingsBackendProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SettingsBackend` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsBackend` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSettingsBackend>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SettingsBackendProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSettingsBackend`.
-    public convenience init<T: SettingsBackendProtocol>(_ other: T) {
-        self.init(cast(other.settings_backend_ptr))
-        g_object_ref(cast(settings_backend_ptr))
+    /// i.e., ownership is transferred to the `SettingsBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSettingsBackend>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SettingsBackendProtocol`
+    /// Will retain `GSettingsBackend`.
+    /// - Parameter other: an instance of a related type that implements `SettingsBackendProtocol`
+    public init<T: SettingsBackendProtocol>(settingsBackend other: T) {
+        super.init(retaining: cast(other.settings_backend_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSettingsBackend.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSettingsBackend.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSettingsBackend.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSettingsBackend>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2503,7 +2585,7 @@ public extension SimpleActionRef {
     /// an action that has state.
     init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
         let rv = g_simple_action_new(name, cast(parameter_type.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new stateful action.
@@ -2514,7 +2596,7 @@ public extension SimpleActionRef {
     /// If the `state` `GVariant` is floating, it is consumed.
     init(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) {
         let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new stateful action.
     /// 
@@ -2539,49 +2621,90 @@ public extension SimpleActionRef {
 /// See also `GtkAction`.
 open class SimpleAction: Object, SimpleActionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimpleAction` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimpleAction` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimpleAction>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimpleActionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimpleAction`.
-    public convenience init<T: SimpleActionProtocol>(_ other: T) {
-        self.init(cast(other.simple_action_ptr))
-        g_object_ref(cast(simple_action_ptr))
+    /// i.e., ownership is transferred to the `SimpleAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimpleAction>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimpleActionProtocol`
+    /// Will retain `GSimpleAction`.
+    /// - Parameter other: an instance of a related type that implements `SimpleActionProtocol`
+    public init<T: SimpleActionProtocol>(simpleAction other: T) {
+        super.init(retaining: cast(other.simple_action_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimpleAction.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimpleAction.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimpleAction.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimpleAction>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new action.
     /// 
     /// The created action is stateless. See `g_simple_action_new_stateful()` to create
     /// an action that has state.
-    public convenience init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
+    public init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
         let rv = g_simple_action_new(name, cast(parameter_type.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new stateful action.
@@ -2590,9 +2713,9 @@ open class SimpleAction: Object, SimpleActionProtocol {
     /// `state`.
     /// 
     /// If the `state` `GVariant` is floating, it is consumed.
-    public convenience init(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) {
+    public init(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) {
         let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new stateful action.
@@ -2899,7 +3022,7 @@ public extension SimpleActionGroupRef {
         /// Creates a new, empty, `GSimpleActionGroup`.
     init() {
         let rv = g_simple_action_group_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -2911,46 +3034,87 @@ public extension SimpleActionGroupRef {
 /// implementing the `GActionGroup` and `GActionMap` interfaces.
 open class SimpleActionGroup: Object, SimpleActionGroupProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimpleActionGroup` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimpleActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimpleActionGroup>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimpleActionGroupProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimpleActionGroup`.
-    public convenience init<T: SimpleActionGroupProtocol>(_ other: T) {
-        self.init(cast(other.simple_action_group_ptr))
-        g_object_ref(cast(simple_action_group_ptr))
+    /// i.e., ownership is transferred to the `SimpleActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimpleActionGroup>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimpleActionGroupProtocol`
+    /// Will retain `GSimpleActionGroup`.
+    /// - Parameter other: an instance of a related type that implements `SimpleActionGroupProtocol`
+    public init<T: SimpleActionGroupProtocol>(simpleActionGroup other: T) {
+        super.init(retaining: cast(other.simple_action_group_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimpleActionGroup.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimpleActionGroup.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimpleActionGroup.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimpleActionGroup>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new, empty, `GSimpleActionGroup`.
-    public convenience init() {
+    public init() {
         let rv = g_simple_action_group_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -3482,7 +3646,7 @@ public extension SimpleAsyncResultRef {
     /// Use g_task_new() instead.
     @available(*, deprecated) init( source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, sourceTag source_tag: UnsafeMutableRawPointer) {
         let rv = g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -3495,7 +3659,7 @@ public extension SimpleAsyncResultRef {
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) init(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
         let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GSimpleAsyncResult` from an error condition, and takes over the
@@ -3505,7 +3669,7 @@ public extension SimpleAsyncResultRef {
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) init(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
         let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     // *** newError() is not available because it has a varargs (...) parameter!
@@ -3704,40 +3868,81 @@ public extension SimpleAsyncResultRef {
 /// 
 open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimpleAsyncResult` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimpleAsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimpleAsyncResult>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimpleAsyncResultProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimpleAsyncResult`.
-    public convenience init<T: SimpleAsyncResultProtocol>(_ other: T) {
-        self.init(cast(other.simple_async_result_ptr))
-        g_object_ref(cast(simple_async_result_ptr))
+    /// i.e., ownership is transferred to the `SimpleAsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimpleAsyncResult>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimpleAsyncResultProtocol`
+    /// Will retain `GSimpleAsyncResult`.
+    /// - Parameter other: an instance of a related type that implements `SimpleAsyncResultProtocol`
+    public init<T: SimpleAsyncResultProtocol>(simpleAsyncResult other: T) {
+        super.init(retaining: cast(other.simple_async_result_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimpleAsyncResult.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimpleAsyncResult.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimpleAsyncResult.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimpleAsyncResult>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GSimpleAsyncResult`.
@@ -3753,9 +3958,9 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     ///
     /// **new is deprecated:**
     /// Use g_task_new() instead.
-    @available(*, deprecated) public convenience init( source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, sourceTag source_tag: UnsafeMutableRawPointer) {
+    @available(*, deprecated) public init( source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, sourceTag source_tag: UnsafeMutableRawPointer) {
         let rv = g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -3766,9 +3971,9 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     ///
     /// **new_from_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
-    @available(*, deprecated) public convenience init(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
+    @available(*, deprecated) public init(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
         let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GSimpleAsyncResult` from an error condition, and takes over the
@@ -3776,9 +3981,9 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     ///
     /// **new_take_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
-    @available(*, deprecated) public convenience init(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
+    @available(*, deprecated) public init(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
         let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -4226,7 +4431,7 @@ public extension SimpleIOStreamRef {
     /// See also `GIOStream`.
     init( input_stream: InputStreamProtocol, outputStream output_stream: OutputStreamProtocol) {
         let rv = g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -4244,47 +4449,88 @@ public extension SimpleIOStreamRef {
 /// to take advantage of the methods provided by `GIOStream`.
 open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimpleIOStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimpleIOStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimpleIOStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimpleIOStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimpleIOStream`.
-    public convenience init<T: SimpleIOStreamProtocol>(_ other: T) {
-        self.init(cast(other.simple_io_stream_ptr))
-        g_object_ref(cast(simple_io_stream_ptr))
+    /// i.e., ownership is transferred to the `SimpleIOStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimpleIOStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimpleIOStreamProtocol`
+    /// Will retain `GSimpleIOStream`.
+    /// - Parameter other: an instance of a related type that implements `SimpleIOStreamProtocol`
+    public init<T: SimpleIOStreamProtocol>(simpleIOStream other: T) {
+        super.init(retaining: cast(other.simple_io_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimpleIOStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimpleIOStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimpleIOStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimpleIOStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSimpleIOStream` wrapping `input_stream` and `output_stream`.
     /// See also `GIOStream`.
-    public convenience init( input_stream: InputStreamProtocol, outputStream output_stream: OutputStreamProtocol) {
+    public init( input_stream: InputStreamProtocol, outputStream output_stream: OutputStreamProtocol) {
         let rv = g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -4478,7 +4724,7 @@ public extension SimplePermissionRef {
     /// either always or never allowed.
     init( allowed: Bool) {
         let rv = g_simple_permission_new(gboolean(allowed ? 1 : 0))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -4493,47 +4739,88 @@ public extension SimplePermissionRef {
 /// Calling request or release will result in errors.
 open class SimplePermission: Permission, SimplePermissionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimplePermission` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimplePermission` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimplePermission>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimplePermissionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimplePermission`.
-    public convenience init<T: SimplePermissionProtocol>(_ other: T) {
-        self.init(cast(other.simple_permission_ptr))
-        g_object_ref(cast(simple_permission_ptr))
+    /// i.e., ownership is transferred to the `SimplePermission` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimplePermission>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimplePermissionProtocol`
+    /// Will retain `GSimplePermission`.
+    /// - Parameter other: an instance of a related type that implements `SimplePermissionProtocol`
+    public init<T: SimplePermissionProtocol>(simplePermission other: T) {
+        super.init(retaining: cast(other.simple_permission_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimplePermission.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimplePermission.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimplePermission.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimplePermission>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GPermission` instance that represents an action that is
     /// either always or never allowed.
-    public convenience init( allowed: Bool) {
+    public init( allowed: Bool) {
         let rv = g_simple_permission_new(gboolean(allowed ? 1 : 0))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -4757,40 +5044,81 @@ public extension SimpleProxyResolverRef {
 /// with `g_socket_client_set_proxy_resolver()`.
 open class SimpleProxyResolver: Object, SimpleProxyResolverProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SimpleProxyResolver` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SimpleProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSimpleProxyResolver>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SimpleProxyResolverProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSimpleProxyResolver`.
-    public convenience init<T: SimpleProxyResolverProtocol>(_ other: T) {
-        self.init(cast(other.simple_proxy_resolver_ptr))
-        g_object_ref(cast(simple_proxy_resolver_ptr))
+    /// i.e., ownership is transferred to the `SimpleProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSimpleProxyResolver>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SimpleProxyResolverProtocol`
+    /// Will retain `GSimpleProxyResolver`.
+    /// - Parameter other: an instance of a related type that implements `SimpleProxyResolverProtocol`
+    public init<T: SimpleProxyResolverProtocol>(simpleProxyResolver other: T) {
+        super.init(retaining: cast(other.simple_proxy_resolver_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSimpleProxyResolver.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSimpleProxyResolver.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSimpleProxyResolver.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSimpleProxyResolver>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -5205,7 +5533,7 @@ public extension SocketRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GSocket` from a native file descriptor
@@ -5227,7 +5555,7 @@ public extension SocketRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GSocket` from a native file descriptor
     /// or winsock SOCKET handle.
@@ -5309,40 +5637,81 @@ public extension SocketRef {
 /// locking.
 open class Socket: Object, SocketProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Socket` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Socket` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocket>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocket`.
-    public convenience init<T: SocketProtocol>(_ other: T) {
-        self.init(cast(other.socket_ptr))
-        g_object_ref(cast(socket_ptr))
+    /// i.e., ownership is transferred to the `Socket` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocket>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketProtocol`
+    /// Will retain `GSocket`.
+    /// - Parameter other: an instance of a related type that implements `SocketProtocol`
+    public init<T: SocketProtocol>(socket other: T) {
+        super.init(retaining: cast(other.socket_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocket.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocket.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocket.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocket>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSocket` with the defined family, type and protocol.
@@ -5358,13 +5727,13 @@ open class Socket: Object, SocketProtocol {
     /// The protocol id is passed directly to the operating
     /// system, so you can use protocols not listed in `GSocketProtocol` if you
     /// know the protocol number used for it.
-    public convenience init( family: SocketFamily, type: SocketType, protocol_: Socket_Protocol) throws {
+    public init( family: SocketFamily, type: SocketType, protocol_: Socket_Protocol) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_new(family, type, protocol_, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSocket` from a native file descriptor
@@ -5380,13 +5749,13 @@ open class Socket: Object, SocketProtocol {
     /// 
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
     /// descriptor.  Instead, a GError will be set with code `G_IO_ERROR_FAILED`
-    public convenience init(fd: CInt) throws {
+    public init(fd: CInt) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_socket_new_from_fd(gint(fd), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GSocket` from a native file descriptor
@@ -6888,7 +7257,7 @@ public extension SocketAddressRef {
     /// struct sockaddr `native`.
     init(native: UnsafeMutableRawPointer, len: Int) {
         let rv = g_socket_address_new_from_native(cast(native), gsize(len))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
@@ -6907,47 +7276,88 @@ public extension SocketAddressRef {
 /// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 open class SocketAddress: Object, SocketAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketAddress`.
-    public convenience init<T: SocketAddressProtocol>(_ other: T) {
-        self.init(cast(other.socket_address_ptr))
-        g_object_ref(cast(socket_address_ptr))
+    /// i.e., ownership is transferred to the `SocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketAddressProtocol`
+    /// Will retain `GSocketAddress`.
+    /// - Parameter other: an instance of a related type that implements `SocketAddressProtocol`
+    public init<T: SocketAddressProtocol>(socketAddress other: T) {
+        super.init(retaining: cast(other.socket_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
-    public convenience init(native: UnsafeMutableRawPointer, len: Int) {
+    public init(native: UnsafeMutableRawPointer, len: Int) {
         let rv = g_socket_address_new_from_native(cast(native), gsize(len))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GSocketAddress` subclass corresponding to the native
@@ -7227,40 +7637,81 @@ public extension SocketAddressEnumeratorRef {
 /// be unreffed.
 open class SocketAddressEnumerator: Object, SocketAddressEnumeratorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketAddressEnumerator` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketAddressEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketAddressEnumerator>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketAddressEnumeratorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketAddressEnumerator`.
-    public convenience init<T: SocketAddressEnumeratorProtocol>(_ other: T) {
-        self.init(cast(other.socket_address_enumerator_ptr))
-        g_object_ref(cast(socket_address_enumerator_ptr))
+    /// i.e., ownership is transferred to the `SocketAddressEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketAddressEnumerator>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketAddressEnumeratorProtocol`
+    /// Will retain `GSocketAddressEnumerator`.
+    /// - Parameter other: an instance of a related type that implements `SocketAddressEnumeratorProtocol`
+    public init<T: SocketAddressEnumeratorProtocol>(socketAddressEnumerator other: T) {
+        super.init(retaining: cast(other.socket_address_enumerator_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketAddressEnumerator.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketAddressEnumerator.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketAddressEnumerator.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketAddressEnumerator>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -7472,7 +7923,7 @@ public extension SocketClientRef {
         /// Creates a new `GSocketClient` with the default options.
     init() {
         let rv = g_socket_client_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -7495,46 +7946,87 @@ public extension SocketClientRef {
 /// can just create a new one any time you need one.
 open class SocketClient: Object, SocketClientProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketClient` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketClient` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketClient>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketClientProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketClient`.
-    public convenience init<T: SocketClientProtocol>(_ other: T) {
-        self.init(cast(other.socket_client_ptr))
-        g_object_ref(cast(socket_client_ptr))
+    /// i.e., ownership is transferred to the `SocketClient` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketClient>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketClientProtocol`
+    /// Will retain `GSocketClient`.
+    /// - Parameter other: an instance of a related type that implements `SocketClientProtocol`
+    public init<T: SocketClientProtocol>(socketClient other: T) {
+        super.init(retaining: cast(other.socket_client_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketClient.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketClient.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketClient.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketClient>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSocketClient` with the default options.
-    public convenience init() {
+    public init() {
         let rv = g_socket_client_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -8422,40 +8914,81 @@ public extension SocketConnectionRef {
 /// `GSocket`.
 open class SocketConnection: IOStream, SocketConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketConnection`.
-    public convenience init<T: SocketConnectionProtocol>(_ other: T) {
-        self.init(cast(other.socket_connection_ptr))
-        g_object_ref(cast(socket_connection_ptr))
+    /// i.e., ownership is transferred to the `SocketConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketConnectionProtocol`
+    /// Will retain `GSocketConnection`.
+    /// - Parameter other: an instance of a related type that implements `SocketConnectionProtocol`
+    public init<T: SocketConnectionProtocol>(socketConnection other: T) {
+        super.init(retaining: cast(other.socket_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -8802,40 +9335,81 @@ public extension SocketControlMessageRef {
 /// `g_socket_receive_message()` to read such a message.
 open class SocketControlMessage: Object, SocketControlMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketControlMessage` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketControlMessage` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketControlMessage>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketControlMessageProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketControlMessage`.
-    public convenience init<T: SocketControlMessageProtocol>(_ other: T) {
-        self.init(cast(other.socket_control_message_ptr))
-        g_object_ref(cast(socket_control_message_ptr))
+    /// i.e., ownership is transferred to the `SocketControlMessage` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketControlMessage>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketControlMessageProtocol`
+    /// Will retain `GSocketControlMessage`.
+    /// - Parameter other: an instance of a related type that implements `SocketControlMessageProtocol`
+    public init<T: SocketControlMessageProtocol>(socketControlMessage other: T) {
+        super.init(retaining: cast(other.socket_control_message_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketControlMessage.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketControlMessage.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketControlMessage.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketControlMessage>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -9081,7 +9655,7 @@ public extension SocketListenerRef {
     /// or `g_socket_listener_add_inet_port()`.
     init() {
         let rv = g_socket_listener_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -9105,48 +9679,89 @@ public extension SocketListenerRef {
 /// that make this even easier.
 open class SocketListener: Object, SocketListenerProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketListener` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketListener` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketListener>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketListenerProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketListener`.
-    public convenience init<T: SocketListenerProtocol>(_ other: T) {
-        self.init(cast(other.socket_listener_ptr))
-        g_object_ref(cast(socket_listener_ptr))
+    /// i.e., ownership is transferred to the `SocketListener` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketListener>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketListenerProtocol`
+    /// Will retain `GSocketListener`.
+    /// - Parameter other: an instance of a related type that implements `SocketListenerProtocol`
+    public init<T: SocketListenerProtocol>(socketListener other: T) {
+        super.init(retaining: cast(other.socket_listener_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketListener.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketListener.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketListener.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketListener>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSocketListener` with no sockets to listen for.
     /// New listeners can be added with e.g. `g_socket_listener_add_address()`
     /// or `g_socket_listener_add_inet_port()`.
-    public convenience init() {
+    public init() {
         let rv = g_socket_listener_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -9580,7 +10195,7 @@ public extension SocketServiceRef {
     /// called before.
     init() {
         let rv = g_socket_service_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -9616,40 +10231,81 @@ public extension SocketServiceRef {
 /// handle incoming clients.
 open class SocketService: SocketListener, SocketServiceProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SocketService` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketService` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSocketService>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SocketServiceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSocketService`.
-    public convenience init<T: SocketServiceProtocol>(_ other: T) {
-        self.init(cast(other.socket_service_ptr))
-        g_object_ref(cast(socket_service_ptr))
+    /// i.e., ownership is transferred to the `SocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSocketService>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SocketServiceProtocol`
+    /// Will retain `GSocketService`.
+    /// - Parameter other: an instance of a related type that implements `SocketServiceProtocol`
+    public init<T: SocketServiceProtocol>(socketService other: T) {
+        super.init(retaining: cast(other.socket_service_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSocketService.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSocketService.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSocketService.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSocketService>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSocketService` with no sockets to listen for.
@@ -9659,9 +10315,9 @@ open class SocketService: SocketListener, SocketServiceProtocol {
     /// New services are created active, there is no need to call
     /// `g_socket_service_start()`, unless `g_socket_service_stop()` has been
     /// called before.
-    public convenience init() {
+    public override init() {
         let rv = g_socket_service_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -10020,7 +10676,7 @@ public extension SubprocessRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Create a new process with the given flags and argument list.
     /// 
@@ -10095,40 +10751,81 @@ public extension SubprocessRef {
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 open class Subprocess: Object, SubprocessProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Subprocess` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Subprocess` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSubprocess>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SubprocessProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSubprocess`.
-    public convenience init<T: SubprocessProtocol>(_ other: T) {
-        self.init(cast(other.subprocess_ptr))
-        g_object_ref(cast(subprocess_ptr))
+    /// i.e., ownership is transferred to the `Subprocess` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSubprocess>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SubprocessProtocol`
+    /// Will retain `GSubprocess`.
+    /// - Parameter other: an instance of a related type that implements `SubprocessProtocol`
+    public init<T: SubprocessProtocol>(subprocess other: T) {
+        super.init(retaining: cast(other.subprocess_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSubprocess.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSubprocess.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSubprocess.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSubprocess>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -10138,13 +10835,13 @@ open class Subprocess: Object, SubprocessProtocol {
     /// Create a new process with the given flags and argument list.
     /// 
     /// The argument list is expected to be `nil`-terminated.
-    public convenience init(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws {
+    public init(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_subprocess_newv(cast(argv), flags, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Create a new process with the given flags and argument list.
@@ -10853,7 +11550,7 @@ public extension SubprocessLauncherRef {
     /// and will be used as the environment that the process is launched in.
     init( flags: SubprocessFlags) {
         let rv = g_subprocess_launcher_new(flags)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -10871,40 +11568,81 @@ public extension SubprocessLauncherRef {
 /// a similar configuration.
 open class SubprocessLauncher: Object, SubprocessLauncherProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SubprocessLauncher` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SubprocessLauncher` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSubprocessLauncher>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `SubprocessLauncherProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSubprocessLauncher`.
-    public convenience init<T: SubprocessLauncherProtocol>(_ other: T) {
-        self.init(cast(other.subprocess_launcher_ptr))
-        g_object_ref(cast(subprocess_launcher_ptr))
+    /// i.e., ownership is transferred to the `SubprocessLauncher` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSubprocessLauncher>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `SubprocessLauncherProtocol`
+    /// Will retain `GSubprocessLauncher`.
+    /// - Parameter other: an instance of a related type that implements `SubprocessLauncherProtocol`
+    public init<T: SubprocessLauncherProtocol>(subprocessLauncher other: T) {
+        super.init(retaining: cast(other.subprocess_launcher_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSubprocessLauncher.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSubprocessLauncher.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSubprocessLauncher.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSubprocessLauncher>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GSubprocessLauncher`.
@@ -10912,9 +11650,9 @@ open class SubprocessLauncher: Object, SubprocessLauncherProtocol {
     /// The launcher is created with the default options.  A copy of the
     /// environment of the calling process is made at the time of this call
     /// and will be used as the environment that the process is launched in.
-    public convenience init( flags: SubprocessFlags) {
+    public init( flags: SubprocessFlags) {
         let rv = g_subprocess_launcher_new(flags)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -12358,7 +13096,7 @@ public extension TaskRef {
     /// `g_task_set_check_cancellable()` to change it.
     init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
         let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -12870,40 +13608,81 @@ public extension TaskRef {
 ///   0 to `g_input_stream_read_async()`).
 open class Task: Object, TaskProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Task` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Task` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTask>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TaskProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTask`.
-    public convenience init<T: TaskProtocol>(_ other: T) {
-        self.init(cast(other.task_ptr))
-        g_object_ref(cast(task_ptr))
+    /// i.e., ownership is transferred to the `Task` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTask>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TaskProtocol`
+    /// Will retain `GTask`.
+    /// - Parameter other: an instance of a related type that implements `TaskProtocol`
+    public init<T: TaskProtocol>(task other: T) {
+        super.init(retaining: cast(other.task_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTask.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTask.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTask.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTask>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GTask` acting on `source_object`, which will eventually be
@@ -12922,9 +13701,9 @@ open class Task: Object, TaskProtocol {
     /// other objects that the task depends on have been destroyed. If you
     /// do not want this behavior, you can use
     /// `g_task_set_check_cancellable()` to change it.
-    public convenience init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
+    public init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
         let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -13189,6 +13968,25 @@ public extension TaskProtocol {
         return cast(rv)
     }
 
+    /// Gets the result of `task` as a `GValue`, and transfers ownership of
+    /// that value to the caller. As with `g_task_return_value()`, this is
+    /// a generic low-level method; `g_task_propagate_pointer()` and the like
+    /// will usually be more useful for C code.
+    /// 
+    /// If the task resulted in an error, or was cancelled, then this will
+    /// instead set `error` and return `false`.
+    /// 
+    /// Since this method transfers ownership of the return value (or
+    /// error) to the caller, you may only call it once.
+    func propagate(value: ValueProtocol) throws -> Bool {
+        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        let rv = g_task_propagate_value(cast(task_ptr), cast(value.ptr), &error)
+        if let error = error {
+                throw ErrorType(error)
+        }
+        return Bool(rv != 0)
+    }
+
     /// Sets `task`'s result to `result` and completes the task (see
     /// `g_task_return_pointer()` for more discussion of exactly what this
     /// means).
@@ -13254,6 +14052,19 @@ public extension TaskProtocol {
     /// reference on it.
     func returnPointer(result: UnsafeMutableRawPointer, resultDestroy result_destroy: @escaping GLib.DestroyNotify) {
         g_task_return_pointer(cast(task_ptr), cast(result), result_destroy)
+    
+    }
+
+    /// Sets `task`'s result to `result` (by copying it) and completes the task.
+    /// 
+    /// If `result` is `nil` then a `GValue` of type `G_TYPE_POINTER`
+    /// with a value of `nil` will be used for the result.
+    /// 
+    /// This is a very generic low-level method intended primarily for use
+    /// by language bindings; for C code, `g_task_return_pointer()` and the
+    /// like will normally be much easier to use.
+    func returnValue(result: ValueProtocol) {
+        g_task_return_value(cast(task_ptr), cast(result.ptr))
     
     }
 

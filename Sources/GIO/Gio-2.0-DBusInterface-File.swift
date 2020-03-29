@@ -88,15 +88,27 @@ open class DBusInterface: DBusInterfaceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusInterface` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusInterface>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusInterfaceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDBusInterface` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusInterface>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusInterfaceProtocol`
     /// `GDBusInterface` does not allow reference counting.
-    public convenience init<T: DBusInterfaceProtocol>(_ other: T) {
-        self.init(cast(other.dbus_interface_ptr))
+    /// - Parameter other: an instance of a related type that implements `DBusInterfaceProtocol`
+    public init<T: DBusInterfaceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.dbus_interface_ptr)
         // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
     }
 
@@ -107,26 +119,61 @@ open class DBusInterface: DBusInterfaceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusInterface.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusInterface.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusInterface.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusInterface>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
     }
 
 
@@ -298,15 +345,27 @@ open class DBusObject: DBusObjectProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObject` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObject>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDBusObject` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObject>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectProtocol`
     /// `GDBusObject` does not allow reference counting.
-    public convenience init<T: DBusObjectProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_ptr))
+    /// - Parameter other: an instance of a related type that implements `DBusObjectProtocol`
+    public init<T: DBusObjectProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.dbus_object_ptr)
         // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
     }
 
@@ -317,26 +376,61 @@ open class DBusObject: DBusObjectProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObject.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObject.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObject.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObject>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
     }
 
 
@@ -522,15 +616,27 @@ open class DBusObjectManager: DBusObjectManagerProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusObjectManager` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusObjectManager>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusObjectManagerProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDBusObjectManager` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusObjectManager>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusObjectManagerProtocol`
     /// `GDBusObjectManager` does not allow reference counting.
-    public convenience init<T: DBusObjectManagerProtocol>(_ other: T) {
-        self.init(cast(other.dbus_object_manager_ptr))
+    /// - Parameter other: an instance of a related type that implements `DBusObjectManagerProtocol`
+    public init<T: DBusObjectManagerProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.dbus_object_manager_ptr)
         // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
     }
 
@@ -541,26 +647,61 @@ open class DBusObjectManager: DBusObjectManagerProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusObjectManager.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusObjectManager.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusObjectManager.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusObjectManager>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
     }
 
 
@@ -882,15 +1023,27 @@ open class DatagramBased: DatagramBasedProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DatagramBased` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDatagramBased>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DatagramBasedProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDatagramBased` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDatagramBased>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DatagramBasedProtocol`
     /// `GDatagramBased` does not allow reference counting.
-    public convenience init<T: DatagramBasedProtocol>(_ other: T) {
-        self.init(cast(other.datagram_based_ptr))
+    /// - Parameter other: an instance of a related type that implements `DatagramBasedProtocol`
+    public init<T: DatagramBasedProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.datagram_based_ptr)
         // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
     }
 
@@ -901,26 +1054,61 @@ open class DatagramBased: DatagramBasedProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDatagramBased.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDatagramBased.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDatagramBased.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDatagramBased>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
     }
 
 
@@ -1299,15 +1487,27 @@ open class Drive: DriveProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Drive` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDrive>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DriveProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDrive` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDrive>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DriveProtocol`
     /// `GDrive` does not allow reference counting.
-    public convenience init<T: DriveProtocol>(_ other: T) {
-        self.init(cast(other.drive_ptr))
+    /// - Parameter other: an instance of a related type that implements `DriveProtocol`
+    public init<T: DriveProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.drive_ptr)
         // no reference counting for GDrive, cannot ref(cast(drive_ptr))
     }
 
@@ -1318,26 +1518,61 @@ open class Drive: DriveProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDrive.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDrive.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDrive.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDrive>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
     }
 
 
@@ -1769,40 +2004,81 @@ public extension DtlsClientConnectionRef {
 /// `GDtlsConnection`, representing a client-side DTLS connection.
 open class DtlsClientConnection: DatagramBased, DtlsClientConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DtlsClientConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDtlsClientConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DtlsClientConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDtlsClientConnection` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDtlsClientConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DtlsClientConnectionProtocol`
     /// `GDtlsClientConnection` does not allow reference counting.
-    public convenience init<T: DtlsClientConnectionProtocol>(_ other: T) {
-        self.init(cast(other.dtls_client_connection_ptr))
-        // no reference counting for GDtlsClientConnection, cannot ref(cast(dtls_client_connection_ptr))
+    /// - Parameter other: an instance of a related type that implements `DtlsClientConnectionProtocol`
+    public init<T: DtlsClientConnectionProtocol>(dtlsClientConnection other: T) {
+        super.init(retaining: cast(other.dtls_client_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDtlsClientConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDtlsClientConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDtlsClientConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDtlsClientConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2165,40 +2441,81 @@ public extension DtlsConnectionRef {
 /// error on further I/O.
 open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DtlsConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDtlsConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DtlsConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDtlsConnection` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDtlsConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DtlsConnectionProtocol`
     /// `GDtlsConnection` does not allow reference counting.
-    public convenience init<T: DtlsConnectionProtocol>(_ other: T) {
-        self.init(cast(other.dtls_connection_ptr))
-        // no reference counting for GDtlsConnection, cannot ref(cast(dtls_connection_ptr))
+    /// - Parameter other: an instance of a related type that implements `DtlsConnectionProtocol`
+    public init<T: DtlsConnectionProtocol>(dtlsConnection other: T) {
+        super.init(retaining: cast(other.dtls_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDtlsConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDtlsConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDtlsConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDtlsConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2246,9 +2563,7 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
     /// **rehandshake-mode is deprecated:**
-    /// Changing the rehandshake mode is no longer
-    ///   required for compatibility. Also, rehandshaking has been removed
-    ///   from the TLS protocol in TLS 1.3.
+    /// The rehandshake mode is ignored.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_dtls_connection_set_require_close_notify()`.
@@ -2366,9 +2681,7 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
     /// **rehandshake-mode is deprecated:**
-    /// Changing the rehandshake mode is no longer
-    ///   required for compatibility. Also, rehandshaking has been removed
-    ///   from the TLS protocol in TLS 1.3.
+    /// The rehandshake mode is ignored.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_dtls_connection_set_require_close_notify()`.
@@ -2512,7 +2825,12 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn` rehandshaking mode. See
     /// `g_dtls_connection_set_rehandshake_mode()` for details.
-    func getRehandshakeMode() -> GTlsRehandshakeMode {
+    ///
+    /// **get_rehandshake_mode is deprecated:**
+    /// Changing the rehandshake mode is no longer
+    ///   required for compatibility. Also, rehandshaking has been removed
+    ///   from the TLS protocol in TLS 1.3.
+    @available(*, deprecated) func getRehandshakeMode() -> GTlsRehandshakeMode {
         let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
         return rv
     }
@@ -2529,28 +2847,25 @@ public extension DtlsConnectionProtocol {
     /// 
     /// On the client side, it is never necessary to call this method;
     /// although the connection needs to perform a handshake after
-    /// connecting (or after sending a "STARTTLS"-type command) and may
-    /// need to rehandshake later if the server requests it,
-    /// `GDtlsConnection` will handle this for you automatically when you try
-    /// to send or receive data on the connection. However, you can call
-    /// `g_dtls_connection_handshake()` manually if you want to know for sure
-    /// whether the initial handshake succeeded or failed (as opposed to
-    /// just immediately trying to write to `conn`, in which
-    /// case if it fails, it may not be possible to tell if it failed
-    /// before or after completing the handshake).
+    /// connecting, `GDtlsConnection` will handle this for you automatically
+    /// when you try to send or receive data on the connection. You can call
+    /// `g_dtls_connection_handshake()` manually if you want to know whether
+    /// the initial handshake succeeded or failed (as opposed to just
+    /// immediately trying to use `conn` to read or write, in which case,
+    /// if it fails, it may not be possible to tell if it failed before
+    /// or after completing the handshake), but beware that servers may reject
+    /// client authentication after the handshake has completed, so a
+    /// successful handshake does not indicate the connection will be usable.
     /// 
     /// Likewise, on the server side, although a handshake is necessary at
     /// the beginning of the communication, you do not need to call this
     /// function explicitly unless you want clearer error reporting.
     /// 
-    /// If TLS 1.2 or older is in use, you may call
-    /// `g_dtls_connection_handshake()` after the initial handshake to
-    /// rehandshake; however, this usage is deprecated because rehandshaking
-    /// is no longer part of the TLS protocol in TLS 1.3. Accordingly, the
-    /// behavior of calling this function after the initial handshake is now
-    /// undefined, except it is guaranteed to be reasonable and
-    /// nondestructive so as to preserve compatibility with code written for
-    /// older versions of GLib.
+    /// Previously, calling `g_dtls_connection_handshake()` after the initial
+    /// handshake would trigger a rehandshake; however, this usage was
+    /// deprecated in GLib 2.60 because rehandshaking was removed from the
+    /// TLS protocol in TLS 1.3. Since GLib 2.64, calling this function after
+    /// the initial handshake will no longer do anything.
     /// 
     /// `GDtlsConnection::accept_certificate` may be emitted during the
     /// handshake.
@@ -2643,26 +2958,10 @@ public extension DtlsConnectionProtocol {
     
     }
 
-    /// Sets how `conn` behaves with respect to rehandshaking requests.
-    /// 
-    /// `G_TLS_REHANDSHAKE_NEVER` means that it will never agree to
-    /// rehandshake after the initial handshake is complete. (For a client,
-    /// this means it will refuse rehandshake requests from the server, and
-    /// for a server, this means it will close the connection with an error
-    /// if the client attempts to rehandshake.)
-    /// 
-    /// `G_TLS_REHANDSHAKE_SAFELY` means that the connection will allow a
-    /// rehandshake only if the other end of the connection supports the
-    /// TLS `renegotiation_info` extension. This is the default behavior,
-    /// but means that rehandshaking will not work against older
-    /// implementations that do not support that extension.
-    /// 
-    /// `G_TLS_REHANDSHAKE_UNSAFELY` means that the connection will allow
-    /// rehandshaking even without the `renegotiation_info` extension. On
-    /// the server side in particular, this is not recommended, since it
-    /// leaves the server open to certain attacks. However, this mode is
-    /// necessary if you need to allow renegotiation with older client
-    /// software.
+    /// Since GLib 2.64, changing the rehandshake mode is no longer supported
+    /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
+    /// the TLS protocol, replaced by separate post-handshake authentication and
+    /// rekey operations.
     ///
     /// **set_rehandshake_mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -2871,33 +3170,27 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn` rehandshaking mode. See
     /// `g_dtls_connection_set_rehandshake_mode()` for details.
+    ///
+    /// **get_rehandshake_mode is deprecated:**
+    /// Changing the rehandshake mode is no longer
+    ///   required for compatibility. Also, rehandshaking has been removed
+    ///   from the TLS protocol in TLS 1.3.
     var rehandshakeMode: GTlsRehandshakeMode {
         /// Gets `conn` rehandshaking mode. See
         /// `g_dtls_connection_set_rehandshake_mode()` for details.
-        get {
+        ///
+        /// **get_rehandshake_mode is deprecated:**
+        /// Changing the rehandshake mode is no longer
+        ///   required for compatibility. Also, rehandshaking has been removed
+        ///   from the TLS protocol in TLS 1.3.
+        @available(*, deprecated) get {
             let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
             return rv
         }
-        /// Sets how `conn` behaves with respect to rehandshaking requests.
-        /// 
-        /// `G_TLS_REHANDSHAKE_NEVER` means that it will never agree to
-        /// rehandshake after the initial handshake is complete. (For a client,
-        /// this means it will refuse rehandshake requests from the server, and
-        /// for a server, this means it will close the connection with an error
-        /// if the client attempts to rehandshake.)
-        /// 
-        /// `G_TLS_REHANDSHAKE_SAFELY` means that the connection will allow a
-        /// rehandshake only if the other end of the connection supports the
-        /// TLS `renegotiation_info` extension. This is the default behavior,
-        /// but means that rehandshaking will not work against older
-        /// implementations that do not support that extension.
-        /// 
-        /// `G_TLS_REHANDSHAKE_UNSAFELY` means that the connection will allow
-        /// rehandshaking even without the `renegotiation_info` extension. On
-        /// the server side in particular, this is not recommended, since it
-        /// leaves the server open to certain attacks. However, this mode is
-        /// necessary if you need to allow renegotiation with older client
-        /// software.
+        /// Since GLib 2.64, changing the rehandshake mode is no longer supported
+        /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
+        /// the TLS protocol, replaced by separate post-handshake authentication and
+        /// rekey operations.
         ///
         /// **set_rehandshake_mode is deprecated:**
         /// Changing the rehandshake mode is no longer
@@ -3031,40 +3324,81 @@ public extension DtlsServerConnectionRef {
 /// representing a server-side DTLS connection.
 open class DtlsServerConnection: DatagramBased, DtlsServerConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DtlsServerConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDtlsServerConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DtlsServerConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDtlsServerConnection` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDtlsServerConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DtlsServerConnectionProtocol`
     /// `GDtlsServerConnection` does not allow reference counting.
-    public convenience init<T: DtlsServerConnectionProtocol>(_ other: T) {
-        self.init(cast(other.dtls_server_connection_ptr))
-        // no reference counting for GDtlsServerConnection, cannot ref(cast(dtls_server_connection_ptr))
+    /// - Parameter other: an instance of a related type that implements `DtlsServerConnectionProtocol`
+    public init<T: DtlsServerConnectionProtocol>(dtlsServerConnection other: T) {
+        super.init(retaining: cast(other.dtls_server_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDtlsServerConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDtlsServerConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDtlsServerConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDtlsServerConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -3561,15 +3895,27 @@ open class File: FileProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `File` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GFile>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `FileProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GFile` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GFile>) {
+        ptr = UnsafeMutableRawPointer(op)
+	g_object_ref(cast(ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `FileProtocol`
     /// `GFile` does not allow reference counting.
-    public convenience init<T: FileProtocol>(_ other: T) {
-        self.init(cast(other.file_ptr))
+    /// - Parameter other: an instance of a related type that implements `FileProtocol`
+    public init<T: FileProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.file_ptr)
 	g_object_ref(cast(ptr))
     }
 
@@ -3580,26 +3926,61 @@ open class File: FileProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GFile.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GFile.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GFile.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+	g_object_ref(cast(ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GFile>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+	g_object_ref(cast(ptr))
     }
 
 
@@ -4378,7 +4759,7 @@ public extension FileProtocol {
 
     /// Loads the content of the file into memory. The data is always
     /// zero-terminated, but this is not included in the resultant `length`.
-    /// The returned `content` should be freed with `g_free()` when no longer
+    /// The returned `contents` should be freed with `g_free()` when no longer
     /// needed.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
@@ -4413,7 +4794,7 @@ public extension FileProtocol {
 
     /// Finishes an asynchronous load of the `file`'s contents.
     /// The contents are placed in `contents`, and `length` is set to the
-    /// size of the `contents` string. The `content` should be freed with
+    /// size of the `contents` string. The `contents` should be freed with
     /// `g_free()` when no longer needed. If `etag_out` is present, it will be
     /// set to the new entity tag for the `file`.
     func loadContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
@@ -4444,7 +4825,7 @@ public extension FileProtocol {
     /// Finishes an asynchronous partial load operation that was started
     /// with `g_file_load_partial_contents_async()`. The data is always
     /// zero-terminated, but this is not included in the resultant `length`.
-    /// The returned `content` should be freed with `g_free()` when no longer
+    /// The returned `contents` should be freed with `g_free()` when no longer
     /// needed.
     func loadPartialContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -4701,10 +5082,6 @@ public extension FileProtocol {
     /// 
     /// If the flag `G_FILE_COPY_OVERWRITE` is specified an already
     /// existing `destination` file is overwritten.
-    /// 
-    /// If the flag `G_FILE_COPY_NOFOLLOW_SYMLINKS` is specified then symlinks
-    /// will be copied as symlinks, otherwise the target of the
-    /// `source` symlink will be copied.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -5203,7 +5580,7 @@ public extension FileProtocol {
     /// If `make_backup` is `true`, this function will attempt to
     /// make a backup of `file`.
     /// 
-    /// Note that no copy of `content` will be made, so it must stay valid
+    /// Note that no copy of `contents` will be made, so it must stay valid
     /// until `callback` is called. See `g_file_replace_contents_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to the
     /// contents (without copying) for the duration of the call.
@@ -5301,7 +5678,7 @@ public extension FileProtocol {
         return cast(rv)
     }
 
-    /// Sets an attribute in the file with attribute name `attribute` to `value`.
+    /// Sets an attribute in the file with attribute name `attribute` to `value_p`.
     /// 
     /// Some attributes can be unset by setting `type` to
     /// `G_FILE_ATTRIBUTE_TYPE_INVALID` and `value_p` to `nil`.
@@ -5544,7 +5921,7 @@ public extension FileProtocol {
     
     }
 
-    /// Finishes an stop operation, see `g_file_stop_mountable()` for details.
+    /// Finishes a stop operation, see `g_file_stop_mountable()` for details.
     /// 
     /// Finish an asynchronous stop operation that was started
     /// with `g_file_stop_mountable()`.

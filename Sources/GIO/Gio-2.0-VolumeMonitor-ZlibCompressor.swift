@@ -113,40 +113,81 @@ public extension VolumeMonitorRef {
 /// a main loop must be running.
 open class VolumeMonitor: Object, VolumeMonitorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VolumeMonitor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVolumeMonitor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `VolumeMonitorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVolumeMonitor`.
-    public convenience init<T: VolumeMonitorProtocol>(_ other: T) {
-        self.init(cast(other.volume_monitor_ptr))
-        g_object_ref(cast(volume_monitor_ptr))
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVolumeMonitor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `VolumeMonitorProtocol`
+    /// Will retain `GVolumeMonitor`.
+    /// - Parameter other: an instance of a related type that implements `VolumeMonitorProtocol`
+    public init<T: VolumeMonitorProtocol>(volumeMonitor other: T) {
+        super.init(retaining: cast(other.volume_monitor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVolumeMonitor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVolumeMonitor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVolumeMonitor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVolumeMonitor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -404,7 +445,7 @@ public extension ZlibCompressorRef {
         /// Creates a new `GZlibCompressor`.
     init( format: ZlibCompressorFormat, level: CInt) {
         let rv = g_zlib_compressor_new(format, level)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -415,46 +456,87 @@ public extension ZlibCompressorRef {
 /// Zlib decompression
 open class ZlibCompressor: Object, ZlibCompressorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ZlibCompressor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GZlibCompressor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ZlibCompressorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GZlibCompressor`.
-    public convenience init<T: ZlibCompressorProtocol>(_ other: T) {
-        self.init(cast(other.zlib_compressor_ptr))
-        g_object_ref(cast(zlib_compressor_ptr))
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GZlibCompressor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ZlibCompressorProtocol`
+    /// Will retain `GZlibCompressor`.
+    /// - Parameter other: an instance of a related type that implements `ZlibCompressorProtocol`
+    public init<T: ZlibCompressorProtocol>(zlibCompressor other: T) {
+        super.init(retaining: cast(other.zlib_compressor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GZlibCompressor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GZlibCompressor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GZlibCompressor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GZlibCompressor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GZlibCompressor`.
-    public convenience init( format: ZlibCompressorFormat, level: CInt) {
+    public init( format: ZlibCompressorFormat, level: CInt) {
         let rv = g_zlib_compressor_new(format, level)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 

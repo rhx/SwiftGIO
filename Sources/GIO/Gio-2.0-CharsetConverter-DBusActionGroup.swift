@@ -78,7 +78,7 @@ public extension CharsetConverterRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -90,50 +90,91 @@ public extension CharsetConverterRef {
 /// GIConv.
 open class CharsetConverter: Object, CharsetConverterProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `CharsetConverter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GCharsetConverter>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `CharsetConverterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GCharsetConverter`.
-    public convenience init<T: CharsetConverterProtocol>(_ other: T) {
-        self.init(cast(other.charset_converter_ptr))
-        g_object_ref(cast(charset_converter_ptr))
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GCharsetConverter>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `CharsetConverterProtocol`
+    /// Will retain `GCharsetConverter`.
+    /// - Parameter other: an instance of a related type that implements `CharsetConverterProtocol`
+    public init<T: CharsetConverterProtocol>(charsetConverter other: T) {
+        super.init(retaining: cast(other.charset_converter_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GCharsetConverter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GCharsetConverter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GCharsetConverter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GCharsetConverter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GCharsetConverter`.
-    public convenience init( to_charset: UnsafePointer<gchar>, fromCharset from_charset: UnsafePointer<gchar>) throws {
+    public init( to_charset: UnsafePointer<gchar>, fromCharset from_charset: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_charset_converter_new(to_charset, from_charset, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -364,7 +405,7 @@ public extension ConverterInputStreamRef {
         /// Creates a new converter input stream for the `base_stream`.
     init( base_stream: InputStreamProtocol, converter: ConverterProtocol) {
         let rv = g_converter_input_stream_new(cast(base_stream.ptr), cast(converter.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -379,46 +420,87 @@ public extension ConverterInputStreamRef {
 /// `GPollableInputStream`.
 open class ConverterInputStream: FilterInputStream, ConverterInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ConverterInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GConverterInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ConverterInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GConverterInputStream`.
-    public convenience init<T: ConverterInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.converter_input_stream_ptr))
-        g_object_ref(cast(converter_input_stream_ptr))
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GConverterInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ConverterInputStreamProtocol`
+    /// Will retain `GConverterInputStream`.
+    /// - Parameter other: an instance of a related type that implements `ConverterInputStreamProtocol`
+    public init<T: ConverterInputStreamProtocol>(converterInputStream other: T) {
+        super.init(retaining: cast(other.converter_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GConverterInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GConverterInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GConverterInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GConverterInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new converter input stream for the `base_stream`.
-    public convenience init( base_stream: InputStreamProtocol, converter: ConverterProtocol) {
+    public init( base_stream: InputStreamProtocol, converter: ConverterProtocol) {
         let rv = g_converter_input_stream_new(cast(base_stream.ptr), cast(converter.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -623,7 +705,7 @@ public extension ConverterOutputStreamRef {
         /// Creates a new converter output stream for the `base_stream`.
     init( base_stream: OutputStreamProtocol, converter: ConverterProtocol) {
         let rv = g_converter_output_stream_new(cast(base_stream.ptr), cast(converter.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -638,46 +720,87 @@ public extension ConverterOutputStreamRef {
 /// `GPollableOutputStream`.
 open class ConverterOutputStream: FilterOutputStream, ConverterOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ConverterOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GConverterOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ConverterOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GConverterOutputStream`.
-    public convenience init<T: ConverterOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.converter_output_stream_ptr))
-        g_object_ref(cast(converter_output_stream_ptr))
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GConverterOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ConverterOutputStreamProtocol`
+    /// Will retain `GConverterOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `ConverterOutputStreamProtocol`
+    public init<T: ConverterOutputStreamProtocol>(converterOutputStream other: T) {
+        super.init(retaining: cast(other.converter_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GConverterOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GConverterOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GConverterOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GConverterOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new converter output stream for the `base_stream`.
-    public convenience init( base_stream: OutputStreamProtocol, converter: ConverterProtocol) {
+    public init( base_stream: OutputStreamProtocol, converter: ConverterProtocol) {
         let rv = g_converter_output_stream_new(cast(base_stream.ptr), cast(converter.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -933,7 +1056,7 @@ public extension CredentialsRef {
     /// the current process.
     init() {
         let rv = g_credentials_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -973,47 +1096,88 @@ public extension CredentialsRef {
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
 open class Credentials: Object, CredentialsProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Credentials` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GCredentials>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `CredentialsProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GCredentials`.
-    public convenience init<T: CredentialsProtocol>(_ other: T) {
-        self.init(cast(other.credentials_ptr))
-        g_object_ref(cast(credentials_ptr))
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GCredentials>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `CredentialsProtocol`
+    /// Will retain `GCredentials`.
+    /// - Parameter other: an instance of a related type that implements `CredentialsProtocol`
+    public init<T: CredentialsProtocol>(credentials other: T) {
+        super.init(retaining: cast(other.credentials_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GCredentials.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GCredentials.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GCredentials.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GCredentials>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GCredentials` object with credentials matching the
     /// the current process.
-    public convenience init() {
+    public init() {
         let rv = g_credentials_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1085,7 +1249,7 @@ public extension CredentialsProtocol {
     /// Gets a pointer to native credentials of type `native_type` from
     /// `credentials`.
     /// 
-    /// It is a programming error (which will cause an warning to be
+    /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
     func getNative(nativeType native_type: CredentialsType) -> UnsafeMutableRawPointer! {
@@ -1139,7 +1303,7 @@ public extension CredentialsProtocol {
     /// Copies the native credentials of type `native_type` from `native`
     /// into `credentials`.
     /// 
-    /// It is a programming error (which will cause an warning to be
+    /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
     func setNative(nativeType native_type: CredentialsType, native: UnsafeMutableRawPointer) {
@@ -1273,40 +1437,81 @@ public extension DBusActionGroupRef {
 /// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DBusActionGroup` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDBusActionGroup>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `DBusActionGroupProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusActionGroup`.
-    public convenience init<T: DBusActionGroupProtocol>(_ other: T) {
-        self.init(cast(other.dbus_action_group_ptr))
-        g_object_ref(cast(dbus_action_group_ptr))
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDBusActionGroup>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `DBusActionGroupProtocol`
+    /// Will retain `GDBusActionGroup`.
+    /// - Parameter other: an instance of a related type that implements `DBusActionGroupProtocol`
+    public init<T: DBusActionGroupProtocol>(dBusActionGroup other: T) {
+        super.init(retaining: cast(other.dbus_action_group_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDBusActionGroup.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDBusActionGroup.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDBusActionGroup.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDBusActionGroup>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 

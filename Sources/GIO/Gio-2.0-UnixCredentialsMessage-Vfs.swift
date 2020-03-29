@@ -92,13 +92,13 @@ public extension UnixCredentialsMessageRef {
         /// Creates a new `GUnixCredentialsMessage` with credentials matching the current processes.
     init() {
         let rv = g_unix_credentials_message_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GUnixCredentialsMessage` holding `credentials`.
     init(credentials: CredentialsProtocol) {
         let rv = g_unix_credentials_message_new_with_credentials(cast(credentials.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GUnixCredentialsMessage` holding `credentials`.
     static func newWith(credentials: CredentialsProtocol) -> UnixCredentialsMessageRef! {
@@ -124,52 +124,93 @@ public extension UnixCredentialsMessageRef {
 /// `g_socket_get_credentials()`.
 open class UnixCredentialsMessage: SocketControlMessage, UnixCredentialsMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixCredentialsMessage` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixCredentialsMessage` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixCredentialsMessage>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixCredentialsMessageProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixCredentialsMessage`.
-    public convenience init<T: UnixCredentialsMessageProtocol>(_ other: T) {
-        self.init(cast(other.unix_credentials_message_ptr))
-        g_object_ref(cast(unix_credentials_message_ptr))
+    /// i.e., ownership is transferred to the `UnixCredentialsMessage` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixCredentialsMessage>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixCredentialsMessageProtocol`
+    /// Will retain `GUnixCredentialsMessage`.
+    /// - Parameter other: an instance of a related type that implements `UnixCredentialsMessageProtocol`
+    public init<T: UnixCredentialsMessageProtocol>(unixCredentialsMessage other: T) {
+        super.init(retaining: cast(other.unix_credentials_message_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixCredentialsMessage.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixCredentialsMessage.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixCredentialsMessage.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixCredentialsMessage>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixCredentialsMessage` with credentials matching the current processes.
-    public convenience init() {
+    public init() {
         let rv = g_unix_credentials_message_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixCredentialsMessage` holding `credentials`.
-    public convenience init(credentials: CredentialsProtocol) {
+    public init(credentials: CredentialsProtocol) {
         let rv = g_unix_credentials_message_new_with_credentials(cast(credentials.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixCredentialsMessage` holding `credentials`.
@@ -388,7 +429,7 @@ public extension UnixFDListRef {
         /// Creates a new `GUnixFDList` containing no file descriptors.
     init() {
         let rv = g_unix_fd_list_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GUnixFDList` containing the file descriptors given in
@@ -401,7 +442,7 @@ public extension UnixFDListRef {
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
     init(array fds: UnsafePointer<CInt>, nFds n_fds: CInt) {
         let rv = g_unix_fd_list_new_from_array(cast(fds), gint(n_fds))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GUnixFDList` containing the file descriptors given in
     /// `fds`.  The file descriptors become the property of the new list and
@@ -433,46 +474,87 @@ public extension UnixFDListRef {
 /// file when using it.
 open class UnixFDList: Object, UnixFDListProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixFDList` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixFDList` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixFDList>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixFDListProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixFDList`.
-    public convenience init<T: UnixFDListProtocol>(_ other: T) {
-        self.init(cast(other.unix_fd_list_ptr))
-        g_object_ref(cast(unix_fd_list_ptr))
+    /// i.e., ownership is transferred to the `UnixFDList` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixFDList>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixFDListProtocol`
+    /// Will retain `GUnixFDList`.
+    /// - Parameter other: an instance of a related type that implements `UnixFDListProtocol`
+    public init<T: UnixFDListProtocol>(unixFDList other: T) {
+        super.init(retaining: cast(other.unix_fd_list_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixFDList.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixFDList.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixFDList.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixFDList>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixFDList` containing no file descriptors.
-    public convenience init() {
+    public init() {
         let rv = g_unix_fd_list_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixFDList` containing the file descriptors given in
@@ -483,9 +565,9 @@ open class UnixFDList: Object, UnixFDListProtocol {
     /// Each file descriptor in the array should be set to close-on-exec.
     /// 
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
-    public convenience init(array fds: UnsafePointer<CInt>, nFds n_fds: CInt) {
+    public init(array fds: UnsafePointer<CInt>, nFds n_fds: CInt) {
         let rv = g_unix_fd_list_new_from_array(cast(fds), gint(n_fds))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixFDList` containing the file descriptors given in
@@ -764,13 +846,13 @@ public extension UnixFDMessageRef {
     /// list.
     init() {
         let rv = g_unix_fd_message_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
     init(fdList fd_list: UnixFDListProtocol) {
         let rv = g_unix_fd_message_new_with_fd_list(cast(fd_list.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GUnixFDMessage` containing `list`.
     static func newWith(fdList fd_list: UnixFDListProtocol) -> UnixFDMessageRef! {
@@ -798,53 +880,94 @@ public extension UnixFDMessageRef {
 /// file when using it.
 open class UnixFDMessage: SocketControlMessage, UnixFDMessageProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixFDMessage` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixFDMessage` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixFDMessage>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixFDMessageProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixFDMessage`.
-    public convenience init<T: UnixFDMessageProtocol>(_ other: T) {
-        self.init(cast(other.unix_fd_message_ptr))
-        g_object_ref(cast(unix_fd_message_ptr))
+    /// i.e., ownership is transferred to the `UnixFDMessage` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixFDMessage>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixFDMessageProtocol`
+    /// Will retain `GUnixFDMessage`.
+    /// - Parameter other: an instance of a related type that implements `UnixFDMessageProtocol`
+    public init<T: UnixFDMessageProtocol>(unixFDMessage other: T) {
+        super.init(retaining: cast(other.unix_fd_message_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixFDMessage.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixFDMessage.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixFDMessage.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixFDMessage>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixFDMessage` containing an empty file descriptor
     /// list.
-    public convenience init() {
+    public init() {
         let rv = g_unix_fd_message_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
-    public convenience init(fdList fd_list: UnixFDListProtocol) {
+    public init(fdList fd_list: UnixFDListProtocol) {
         let rv = g_unix_fd_message_new_with_fd_list(cast(fd_list.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
@@ -1107,7 +1230,7 @@ public extension UnixInputStreamRef {
     /// when the stream is closed.
     init( fd: CInt, closeFd close_fd: Bool) {
         let rv = g_unix_input_stream_new(gint(fd), gboolean(close_fd ? 1 : 0))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -1126,49 +1249,90 @@ public extension UnixInputStreamRef {
 /// file when using it.
 open class UnixInputStream: InputStream, UnixInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixInputStream`.
-    public convenience init<T: UnixInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.unix_input_stream_ptr))
-        g_object_ref(cast(unix_input_stream_ptr))
+    /// i.e., ownership is transferred to the `UnixInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixInputStreamProtocol`
+    /// Will retain `GUnixInputStream`.
+    /// - Parameter other: an instance of a related type that implements `UnixInputStreamProtocol`
+    public init<T: UnixInputStreamProtocol>(unixInputStream other: T) {
+        super.init(retaining: cast(other.unix_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixInputStream` for the given `fd`.
     /// 
     /// If `close_fd` is `true`, the file descriptor will be closed
     /// when the stream is closed.
-    public convenience init( fd: CInt, closeFd close_fd: Bool) {
+    public init( fd: CInt, closeFd close_fd: Bool) {
         let rv = g_unix_input_stream_new(gint(fd), gboolean(close_fd ? 1 : 0))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1404,7 +1568,7 @@ public extension UnixMountMonitorRef {
     /// Use g_unix_mount_monitor_get() instead.
     @available(*, deprecated) init() {
         let rv = g_unix_mount_monitor_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Gets the `GUnixMountMonitor` for the current thread-default main
     /// context.
@@ -1428,40 +1592,81 @@ public extension UnixMountMonitorRef {
 /// Watches `GUnixMounts` for changes.
 open class UnixMountMonitor: Object, UnixMountMonitorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixMountMonitor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixMountMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixMountMonitor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixMountMonitorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixMountMonitor`.
-    public convenience init<T: UnixMountMonitorProtocol>(_ other: T) {
-        self.init(cast(other.unix_mount_monitor_ptr))
-        g_object_ref(cast(unix_mount_monitor_ptr))
+    /// i.e., ownership is transferred to the `UnixMountMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixMountMonitor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixMountMonitorProtocol`
+    /// Will retain `GUnixMountMonitor`.
+    /// - Parameter other: an instance of a related type that implements `UnixMountMonitorProtocol`
+    public init<T: UnixMountMonitorProtocol>(unixMountMonitor other: T) {
+        super.init(retaining: cast(other.unix_mount_monitor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixMountMonitor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixMountMonitor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixMountMonitor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixMountMonitor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Deprecated alias for `g_unix_mount_monitor_get()`.
@@ -1471,9 +1676,9 @@ open class UnixMountMonitor: Object, UnixMountMonitorProtocol {
     ///
     /// **new is deprecated:**
     /// Use g_unix_mount_monitor_get() instead.
-    @available(*, deprecated) public convenience init() {
+    @available(*, deprecated) public init() {
         let rv = g_unix_mount_monitor_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Gets the `GUnixMountMonitor` for the current thread-default main
@@ -1666,7 +1871,7 @@ public extension UnixOutputStreamRef {
     /// the output stream is destroyed.
     init( fd: CInt, closeFd close_fd: Bool) {
         let rv = g_unix_output_stream_new(gint(fd), gboolean(close_fd ? 1 : 0))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -1685,49 +1890,90 @@ public extension UnixOutputStreamRef {
 /// when using it.
 open class UnixOutputStream: OutputStream, UnixOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixOutputStream`.
-    public convenience init<T: UnixOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.unix_output_stream_ptr))
-        g_object_ref(cast(unix_output_stream_ptr))
+    /// i.e., ownership is transferred to the `UnixOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixOutputStreamProtocol`
+    /// Will retain `GUnixOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `UnixOutputStreamProtocol`
+    public init<T: UnixOutputStreamProtocol>(unixOutputStream other: T) {
+        super.init(retaining: cast(other.unix_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixOutputStream` for the given `fd`.
     /// 
     /// If `close_fd`, is `true`, the file descriptor will be closed when
     /// the output stream is destroyed.
-    public convenience init( fd: CInt, closeFd close_fd: Bool) {
+    public init( fd: CInt, closeFd close_fd: Bool) {
         let rv = g_unix_output_stream_new(gint(fd), gboolean(close_fd ? 1 : 0))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1986,7 +2232,7 @@ public extension UnixSocketAddressRef {
     /// use `g_unix_socket_address_new_abstract()`.
     init( path: UnsafePointer<gchar>) {
         let rv = g_unix_socket_address_new(path)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`
@@ -1996,7 +2242,7 @@ public extension UnixSocketAddressRef {
     /// Use g_unix_socket_address_new_with_type().
     @available(*, deprecated) init(abstract path: UnsafePointer<gchar>, pathLen path_len: CInt) {
         let rv = g_unix_socket_address_new_abstract(cast(path), gint(path_len))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
@@ -2032,7 +2278,7 @@ public extension UnixSocketAddressRef {
     /// its listening socket.
     init(type path: UnsafePointer<gchar>, pathLen path_len: CInt, type: UnixSocketAddressType) {
         let rv = g_unix_socket_address_new_with_type(cast(path), gint(path_len), type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`
     /// `GUnixSocketAddress` for `path`.
@@ -2101,49 +2347,90 @@ public extension UnixSocketAddressRef {
 /// when using it.
 open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixSocketAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixSocketAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixSocketAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixSocketAddress`.
-    public convenience init<T: UnixSocketAddressProtocol>(_ other: T) {
-        self.init(cast(other.unix_socket_address_ptr))
-        g_object_ref(cast(unix_socket_address_ptr))
+    /// i.e., ownership is transferred to the `UnixSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixSocketAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixSocketAddressProtocol`
+    /// Will retain `GUnixSocketAddress`.
+    /// - Parameter other: an instance of a related type that implements `UnixSocketAddressProtocol`
+    public init<T: UnixSocketAddressProtocol>(unixSocketAddress other: T) {
+        super.init(retaining: cast(other.unix_socket_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixSocketAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixSocketAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixSocketAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixSocketAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GUnixSocketAddress` for `path`.
     /// 
     /// To create abstract socket addresses, on systems that support that,
     /// use `g_unix_socket_address_new_abstract()`.
-    public convenience init( path: UnsafePointer<gchar>) {
+    public init( path: UnsafePointer<gchar>) {
         let rv = g_unix_socket_address_new(path)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`
@@ -2151,9 +2438,9 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     ///
     /// **new_abstract is deprecated:**
     /// Use g_unix_socket_address_new_with_type().
-    @available(*, deprecated) public convenience init(abstract path: UnsafePointer<gchar>, pathLen path_len: CInt) {
+    @available(*, deprecated) public init(abstract path: UnsafePointer<gchar>, pathLen path_len: CInt) {
         let rv = g_unix_socket_address_new_abstract(cast(path), gint(path_len))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GUnixSocketAddress` of type `type` with name `path`.
@@ -2187,9 +2474,9 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// when connecting to a server created by another process, you must
     /// use the appropriate type corresponding to how that process created
     /// its listening socket.
-    public convenience init(type path: UnsafePointer<gchar>, pathLen path_len: CInt, type: UnixSocketAddressType) {
+    public init(type path: UnsafePointer<gchar>, pathLen path_len: CInt, type: UnixSocketAddressType) {
         let rv = g_unix_socket_address_new_with_type(cast(path), gint(path_len), type)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`
@@ -2534,40 +2821,81 @@ public extension VfsRef {
 /// Entry point for using GIO functionality.
 open class Vfs: Object, VfsProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Vfs` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vfs` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVfs>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `VfsProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVfs`.
-    public convenience init<T: VfsProtocol>(_ other: T) {
-        self.init(cast(other.vfs_ptr))
-        g_object_ref(cast(vfs_ptr))
+    /// i.e., ownership is transferred to the `Vfs` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVfs>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `VfsProtocol`
+    /// Will retain `GVfs`.
+    /// - Parameter other: an instance of a related type that implements `VfsProtocol`
+    public init<T: VfsProtocol>(vfs other: T) {
+        super.init(retaining: cast(other.vfs_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVfs.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVfs.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVfs.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVfs>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 

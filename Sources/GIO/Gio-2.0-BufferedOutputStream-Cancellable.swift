@@ -98,13 +98,13 @@ public extension BufferedOutputStreamRef {
         /// Creates a new buffered output stream for a base stream.
     init( base_stream: OutputStreamProtocol) {
         let rv = g_buffered_output_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
     init(sized base_stream: OutputStreamProtocol, size: Int) {
         let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new buffered output stream with a given buffer size.
     static func new(sized base_stream: OutputStreamProtocol, size: Int) -> BufferedOutputStreamRef! {
@@ -133,52 +133,93 @@ public extension BufferedOutputStreamRef {
 /// size cannot be reduced below the size of the data within the buffer.
 open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `BufferedOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GBufferedOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `BufferedOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GBufferedOutputStream`.
-    public convenience init<T: BufferedOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.buffered_output_stream_ptr))
-        g_object_ref(cast(buffered_output_stream_ptr))
+    /// i.e., ownership is transferred to the `BufferedOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GBufferedOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `BufferedOutputStreamProtocol`
+    /// Will retain `GBufferedOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `BufferedOutputStreamProtocol`
+    public init<T: BufferedOutputStreamProtocol>(bufferedOutputStream other: T) {
+        super.init(retaining: cast(other.buffered_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GBufferedOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GBufferedOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GBufferedOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GBufferedOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new buffered output stream for a base stream.
-    public convenience init( base_stream: OutputStreamProtocol) {
+    public init( base_stream: OutputStreamProtocol) {
         let rv = g_buffered_output_stream_new(cast(base_stream.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
-    public convenience init(sized base_stream: OutputStreamProtocol, size: Int) {
+    public init(sized base_stream: OutputStreamProtocol, size: Int) {
         let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
@@ -426,7 +467,7 @@ public extension BytesIconRef {
         /// Creates a new icon for a bytes.
     init( bytes: BytesProtocol) {
         let rv = g_bytes_icon_new(cast(bytes.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -438,46 +479,87 @@ public extension BytesIconRef {
 /// png) to be used as icon.
 open class BytesIcon: Object, BytesIconProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `BytesIcon` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BytesIcon` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GBytesIcon>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `BytesIconProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GBytesIcon`.
-    public convenience init<T: BytesIconProtocol>(_ other: T) {
-        self.init(cast(other.bytes_icon_ptr))
-        g_object_ref(cast(bytes_icon_ptr))
+    /// i.e., ownership is transferred to the `BytesIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GBytesIcon>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `BytesIconProtocol`
+    /// Will retain `GBytesIcon`.
+    /// - Parameter other: an instance of a related type that implements `BytesIconProtocol`
+    public init<T: BytesIconProtocol>(bytesIcon other: T) {
+        super.init(retaining: cast(other.bytes_icon_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GBytesIcon.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GBytesIcon.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GBytesIcon.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GBytesIcon>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new icon for a bytes.
-    public convenience init( bytes: BytesProtocol) {
+    public init( bytes: BytesProtocol) {
         let rv = g_bytes_icon_new(cast(bytes.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -684,7 +766,7 @@ public extension CancellableRef {
     /// operations or in multiple concurrent operations.
     init() {
         let rv = g_cancellable_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Gets the top cancellable from the stack.
     static func getCurrent() -> CancellableRef! {
@@ -702,40 +784,81 @@ public extension CancellableRef {
 /// asynchronous operations.
 open class Cancellable: Object, CancellableProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Cancellable` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Cancellable` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GCancellable>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `CancellableProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GCancellable`.
-    public convenience init<T: CancellableProtocol>(_ other: T) {
-        self.init(cast(other.cancellable_ptr))
-        g_object_ref(cast(cancellable_ptr))
+    /// i.e., ownership is transferred to the `Cancellable` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GCancellable>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `CancellableProtocol`
+    /// Will retain `GCancellable`.
+    /// - Parameter other: an instance of a related type that implements `CancellableProtocol`
+    public init<T: CancellableProtocol>(cancellable other: T) {
+        super.init(retaining: cast(other.cancellable_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GCancellable.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GCancellable.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GCancellable.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GCancellable>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GCancellable` object.
@@ -746,9 +869,9 @@ open class Cancellable: Object, CancellableProtocol {
     /// 
     /// One `GCancellable` can be used in multiple consecutive
     /// operations or in multiple concurrent operations.
-    public convenience init() {
+    public init() {
         let rv = g_cancellable_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Gets the top cancellable from the stack.

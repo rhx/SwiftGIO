@@ -80,19 +80,19 @@ public extension MemoryInputStreamRef {
         /// Creates a new empty `GMemoryInputStream`.
     init() {
         let rv = g_memory_input_stream_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     init(bytes: BytesProtocol) {
         let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
     init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
         let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     static func newFrom(bytes: BytesProtocol) -> MemoryInputStreamRef! {
@@ -118,58 +118,99 @@ public extension MemoryInputStreamRef {
 /// `GPollableInputStream`.
 open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MemoryInputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMemoryInputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MemoryInputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMemoryInputStream`.
-    public convenience init<T: MemoryInputStreamProtocol>(_ other: T) {
-        self.init(cast(other.memory_input_stream_ptr))
-        g_object_ref(cast(memory_input_stream_ptr))
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMemoryInputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MemoryInputStreamProtocol`
+    /// Will retain `GMemoryInputStream`.
+    /// - Parameter other: an instance of a related type that implements `MemoryInputStreamProtocol`
+    public init<T: MemoryInputStreamProtocol>(memoryInputStream other: T) {
+        super.init(retaining: cast(other.memory_input_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMemoryInputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMemoryInputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMemoryInputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMemoryInputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new empty `GMemoryInputStream`.
-    public convenience init() {
+    public init() {
         let rv = g_memory_input_stream_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    public convenience init(bytes: BytesProtocol) {
+    public init(bytes: BytesProtocol) {
         let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
-    public convenience init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
+    public init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
         let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
@@ -384,7 +425,7 @@ public extension MemoryOutputStreamRef {
     /// 
     init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
         let rv = g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
@@ -405,40 +446,81 @@ public extension MemoryOutputStreamRef {
 /// `GPollableOutputStream:` it always polls as ready.
 open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MemoryOutputStream` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMemoryOutputStream>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MemoryOutputStreamProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMemoryOutputStream`.
-    public convenience init<T: MemoryOutputStreamProtocol>(_ other: T) {
-        self.init(cast(other.memory_output_stream_ptr))
-        g_object_ref(cast(memory_output_stream_ptr))
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMemoryOutputStream>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MemoryOutputStreamProtocol`
+    /// Will retain `GMemoryOutputStream`.
+    /// - Parameter other: an instance of a related type that implements `MemoryOutputStreamProtocol`
+    public init<T: MemoryOutputStreamProtocol>(memoryOutputStream other: T) {
+        super.init(retaining: cast(other.memory_output_stream_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMemoryOutputStream.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMemoryOutputStream.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMemoryOutputStream.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMemoryOutputStream>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GMemoryOutputStream`.
@@ -484,9 +566,9 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// stream3 = g_memory_output_stream_new (data, 200, NULL, free);
     /// ```
     /// 
-    public convenience init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
+    public init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
         let rv = g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
@@ -805,7 +887,7 @@ public extension MenuRef {
     /// The new menu has no items.
     init() {
         let rv = g_menu_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -823,48 +905,89 @@ public extension MenuRef {
 /// `g_menu_insert_submenu()`.
 open class Menu: MenuModel, MenuProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Menu` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMenu>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MenuProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenu`.
-    public convenience init<T: MenuProtocol>(_ other: T) {
-        self.init(cast(other.menu_ptr))
-        g_object_ref(cast(menu_ptr))
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMenu>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MenuProtocol`
+    /// Will retain `GMenu`.
+    /// - Parameter other: an instance of a related type that implements `MenuProtocol`
+    public init<T: MenuProtocol>(menu other: T) {
+        super.init(retaining: cast(other.menu_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMenu.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMenu.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMenu.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMenu>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GMenu`.
     /// 
     /// The new menu has no items.
-    public convenience init() {
+    public init() {
         let rv = g_menu_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1180,40 +1303,81 @@ public extension MenuAttributeIterRef {
 /// using the functions below.
 open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MenuAttributeIter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMenuAttributeIter>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MenuAttributeIterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuAttributeIter`.
-    public convenience init<T: MenuAttributeIterProtocol>(_ other: T) {
-        self.init(cast(other.menu_attribute_iter_ptr))
-        g_object_ref(cast(menu_attribute_iter_ptr))
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMenuAttributeIter>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MenuAttributeIterProtocol`
+    /// Will retain `GMenuAttributeIter`.
+    /// - Parameter other: an instance of a related type that implements `MenuAttributeIterProtocol`
+    public init<T: MenuAttributeIterProtocol>(menuAttributeIter other: T) {
+        super.init(retaining: cast(other.menu_attribute_iter_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMenuAttributeIter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMenuAttributeIter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMenuAttributeIter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMenuAttributeIter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -1443,7 +1607,7 @@ public extension MenuItemRef {
     /// `g_menu_item_set_detailed_action()` for more information.
     init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         let rv = g_menu_item_new(label, detailed_action)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -1453,7 +1617,7 @@ public extension MenuItemRef {
     /// `g_menu_model_get_n_items()` first).
     init(model: MenuModelProtocol, itemIndex item_index: CInt) {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -1519,7 +1683,7 @@ public extension MenuItemRef {
     /// 
     init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
         let rv = g_menu_item_new_section(label, cast(section.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
@@ -1528,7 +1692,7 @@ public extension MenuItemRef {
     /// `g_menu_item_set_submenu()`.
     init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
     /// `GMenuModel`.
@@ -1624,40 +1788,81 @@ public extension MenuItemRef {
 /// functions below.
 open class MenuItem: Object, MenuItemProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MenuItem` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMenuItem>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MenuItemProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuItem`.
-    public convenience init<T: MenuItemProtocol>(_ other: T) {
-        self.init(cast(other.menu_item_ptr))
-        g_object_ref(cast(menu_item_ptr))
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMenuItem>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MenuItemProtocol`
+    /// Will retain `GMenuItem`.
+    /// - Parameter other: an instance of a related type that implements `MenuItemProtocol`
+    public init<T: MenuItemProtocol>(menuItem other: T) {
+        super.init(retaining: cast(other.menu_item_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMenuItem.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMenuItem.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMenuItem.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMenuItem>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GMenuItem`.
@@ -1668,9 +1873,9 @@ open class MenuItem: Object, MenuItemProtocol {
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
-    public convenience init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
+    public init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
         let rv = g_menu_item_new(label, detailed_action)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -1678,9 +1883,9 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    public convenience init(model: MenuModelProtocol, itemIndex item_index: CInt) {
+    public init(model: MenuModelProtocol, itemIndex item_index: CInt) {
         let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -1744,18 +1949,18 @@ open class MenuItem: Object, MenuItemProtocol {
     /// </menu>
     /// ```
     /// 
-    public convenience init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
+    public init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
         let rv = g_menu_item_new_section(label, cast(section.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
-    public convenience init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
+    public init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
         let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -2164,40 +2369,81 @@ public extension MenuLinkIterRef {
 /// the functions below.
 open class MenuLinkIter: Object, MenuLinkIterProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MenuLinkIter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMenuLinkIter>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MenuLinkIterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuLinkIter`.
-    public convenience init<T: MenuLinkIterProtocol>(_ other: T) {
-        self.init(cast(other.menu_link_iter_ptr))
-        g_object_ref(cast(menu_link_iter_ptr))
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMenuLinkIter>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MenuLinkIterProtocol`
+    /// Will retain `GMenuLinkIter`.
+    /// - Parameter other: an instance of a related type that implements `MenuLinkIterProtocol`
+    public init<T: MenuLinkIterProtocol>(menuLinkIter other: T) {
+        super.init(retaining: cast(other.menu_link_iter_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMenuLinkIter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMenuLinkIter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMenuLinkIter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMenuLinkIter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2755,40 +3001,81 @@ public extension MenuModelRef {
 /// target value of the menu item.
 open class MenuModel: Object, MenuModelProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MenuModel` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMenuModel>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MenuModelProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuModel`.
-    public convenience init<T: MenuModelProtocol>(_ other: T) {
-        self.init(cast(other.menu_model_ptr))
-        g_object_ref(cast(menu_model_ptr))
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMenuModel>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MenuModelProtocol`
+    /// Will retain `GMenuModel`.
+    /// - Parameter other: an instance of a related type that implements `MenuModelProtocol`
+    public init<T: MenuModelProtocol>(menuModel other: T) {
+        super.init(retaining: cast(other.menu_model_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMenuModel.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMenuModel.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMenuModel.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMenuModel>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -3089,7 +3376,7 @@ public extension MountOperationRef {
         /// Creates a new mount operation.
     init() {
         let rv = g_mount_operation_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -3120,46 +3407,87 @@ public extension MountOperationRef {
 /// improvements and auditing fixes.
 open class MountOperation: Object, MountOperationProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MountOperation` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMountOperation>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `MountOperationProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMountOperation`.
-    public convenience init<T: MountOperationProtocol>(_ other: T) {
-        self.init(cast(other.mount_operation_ptr))
-        g_object_ref(cast(mount_operation_ptr))
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMountOperation>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `MountOperationProtocol`
+    /// Will retain `GMountOperation`.
+    /// - Parameter other: an instance of a related type that implements `MountOperationProtocol`
+    public init<T: MountOperationProtocol>(mountOperation other: T) {
+        super.init(retaining: cast(other.mount_operation_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMountOperation.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMountOperation.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMountOperation.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMountOperation>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new mount operation.
-    public convenience init() {
+    public init() {
         let rv = g_mount_operation_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -3621,7 +3949,7 @@ public extension MountOperationProtocol {
 /// For a concrete class that implements these methods and properties, see `NativeSocketAddress`.
 /// Alternatively, use `NativeSocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An socket address of some unknown native type.
+/// A socket address of some unknown native type.
 public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
     /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -3634,7 +3962,7 @@ public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
 /// It exposes methods that can operate on this data type through `NativeSocketAddressProtocol` conformance.
 /// Use `NativeSocketAddressRef` only as an `unowned` reference to an existing `GNativeSocketAddress` instance.
 ///
-/// An socket address of some unknown native type.
+/// A socket address of some unknown native type.
 public struct NativeSocketAddressRef: NativeSocketAddressProtocol {
     /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `native_socket_address_ptr` property instead.
@@ -3684,7 +4012,7 @@ public extension NativeSocketAddressRef {
         /// Creates a new `GNativeSocketAddress` for `native` and `len`.
     init( native: UnsafeMutableRawPointer, len: Int) {
         let rv = g_native_socket_address_new(cast(native), gsize(len))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -3692,49 +4020,90 @@ public extension NativeSocketAddressRef {
 /// It provides the methods that can operate on this data type through `NativeSocketAddressProtocol` conformance.
 /// Use `NativeSocketAddress` as a strong reference or owner of a `GNativeSocketAddress` instance.
 ///
-/// An socket address of some unknown native type.
+/// A socket address of some unknown native type.
 open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `NativeSocketAddress` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GNativeSocketAddress>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `NativeSocketAddressProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GNativeSocketAddress`.
-    public convenience init<T: NativeSocketAddressProtocol>(_ other: T) {
-        self.init(cast(other.native_socket_address_ptr))
-        g_object_ref(cast(native_socket_address_ptr))
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GNativeSocketAddress>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `NativeSocketAddressProtocol`
+    /// Will retain `GNativeSocketAddress`.
+    /// - Parameter other: an instance of a related type that implements `NativeSocketAddressProtocol`
+    public init<T: NativeSocketAddressProtocol>(nativeSocketAddress other: T) {
+        super.init(retaining: cast(other.native_socket_address_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GNativeSocketAddress.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GNativeSocketAddress.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GNativeSocketAddress.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GNativeSocketAddress>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GNativeSocketAddress` for `native` and `len`.
-    public convenience init( native: UnsafeMutableRawPointer, len: Int) {
+    public override init( native: UnsafeMutableRawPointer, len: Int) {
         let rv = g_native_socket_address_new(cast(native), gsize(len))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 

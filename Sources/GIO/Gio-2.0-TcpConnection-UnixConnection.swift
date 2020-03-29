@@ -81,40 +81,81 @@ public extension TcpConnectionRef {
 /// for TCP/IP sockets.
 open class TcpConnection: SocketConnection, TcpConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTcpConnection`.
-    public convenience init<T: TcpConnectionProtocol>(_ other: T) {
-        self.init(cast(other.tcp_connection_ptr))
-        g_object_ref(cast(tcp_connection_ptr))
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpConnectionProtocol`
+    /// Will retain `GTcpConnection`.
+    /// - Parameter other: an instance of a related type that implements `TcpConnectionProtocol`
+    public init<T: TcpConnectionProtocol>(tcpConnection other: T) {
+        super.init(retaining: cast(other.tcp_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -354,7 +395,7 @@ public extension TcpWrapperConnectionRef {
         /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
     init( base_io_stream: IOStreamProtocol, socket: SocketProtocol) {
         let rv = g_tcp_wrapper_connection_new(cast(base_io_stream.ptr), cast(socket.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -369,46 +410,87 @@ public extension TcpWrapperConnectionRef {
 /// actually created is not directly a `GSocketConnection`.
 open class TcpWrapperConnection: TcpConnection, TcpWrapperConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TcpWrapperConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTcpWrapperConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TcpWrapperConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTcpWrapperConnection`.
-    public convenience init<T: TcpWrapperConnectionProtocol>(_ other: T) {
-        self.init(cast(other.tcp_wrapper_connection_ptr))
-        g_object_ref(cast(tcp_wrapper_connection_ptr))
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTcpWrapperConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TcpWrapperConnectionProtocol`
+    /// Will retain `GTcpWrapperConnection`.
+    /// - Parameter other: an instance of a related type that implements `TcpWrapperConnectionProtocol`
+    public init<T: TcpWrapperConnectionProtocol>(tcpWrapperConnection other: T) {
+        super.init(retaining: cast(other.tcp_wrapper_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTcpWrapperConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTcpWrapperConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTcpWrapperConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTcpWrapperConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
-    public convenience init( base_io_stream: IOStreamProtocol, socket: SocketProtocol) {
+    public init( base_io_stream: IOStreamProtocol, socket: SocketProtocol) {
         let rv = g_tcp_wrapper_connection_new(cast(base_io_stream.ptr), cast(socket.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -756,7 +838,7 @@ public extension TestDBusRef {
         /// Create a new `GTestDBus` object.
     init( flags: TestDBusFlags) {
         let rv = g_test_dbus_new(flags)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -839,46 +921,87 @@ public extension TestDBusRef {
 /// 
 open class TestDBus: Object, TestDBusProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TestDBus` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTestDBus>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TestDBusProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTestDBus`.
-    public convenience init<T: TestDBusProtocol>(_ other: T) {
-        self.init(cast(other.test_dbus_ptr))
-        g_object_ref(cast(test_dbus_ptr))
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTestDBus>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TestDBusProtocol`
+    /// Will retain `GTestDBus`.
+    /// - Parameter other: an instance of a related type that implements `TestDBusProtocol`
+    public init<T: TestDBusProtocol>(testDBus other: T) {
+        super.init(retaining: cast(other.test_dbus_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTestDBus.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTestDBus.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTestDBus.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTestDBus>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Create a new `GTestDBus` object.
-    public convenience init( flags: TestDBusFlags) {
+    public init( flags: TestDBusFlags) {
         let rv = g_test_dbus_new(flags)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1148,13 +1271,13 @@ public extension ThemedIconRef {
         /// Creates a new themed icon for `iconname`.
     init( iconname: UnsafePointer<CChar>) {
         let rv = g_themed_icon_new(iconname)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new themed icon for `iconnames`.
     init(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) {
         let rv = g_themed_icon_new_from_names(cast(iconnames), len)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new themed icon for `iconname`, and all the names
@@ -1176,7 +1299,7 @@ public extension ThemedIconRef {
     /// 
     init(defaultFallbacks iconname: UnsafePointer<CChar>) {
         let rv = g_themed_icon_new_with_default_fallbacks(iconname)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new themed icon for `iconnames`.
     static func newFrom(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) -> ThemedIconRef! {
@@ -1220,52 +1343,93 @@ public extension ThemedIconRef {
 /// themes that inherit other themes.
 open class ThemedIcon: Object, ThemedIconProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ThemedIcon` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThemedIcon>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThemedIconProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThemedIcon`.
-    public convenience init<T: ThemedIconProtocol>(_ other: T) {
-        self.init(cast(other.themed_icon_ptr))
-        g_object_ref(cast(themed_icon_ptr))
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThemedIcon>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ThemedIconProtocol`
+    /// Will retain `GThemedIcon`.
+    /// - Parameter other: an instance of a related type that implements `ThemedIconProtocol`
+    public init<T: ThemedIconProtocol>(themedIcon other: T) {
+        super.init(retaining: cast(other.themed_icon_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThemedIcon.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThemedIcon.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThemedIcon.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThemedIcon>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new themed icon for `iconname`.
-    public convenience init( iconname: UnsafePointer<CChar>) {
+    public init( iconname: UnsafePointer<CChar>) {
         let rv = g_themed_icon_new(iconname)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new themed icon for `iconnames`.
-    public convenience init(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) {
+    public init(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) {
         let rv = g_themed_icon_new_from_names(cast(iconnames), len)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new themed icon for `iconname`, and all the names
@@ -1285,9 +1449,9 @@ open class ThemedIcon: Object, ThemedIconProtocol {
     /// icon2 = g_themed_icon_new_with_default_fallbacks ("gnome-dev-cdrom-audio");
     /// ```
     /// 
-    public convenience init(defaultFallbacks iconname: UnsafePointer<CChar>) {
+    public init(defaultFallbacks iconname: UnsafePointer<CChar>) {
         let rv = g_themed_icon_new_with_default_fallbacks(iconname)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new themed icon for `iconnames`.
@@ -1597,7 +1761,7 @@ public extension ThreadedSocketServiceRef {
     /// must be added with one of the `GSocketListener` "add" methods.
     init( max_threads: CInt) {
         let rv = g_threaded_socket_service_new(max_threads)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -1622,47 +1786,88 @@ public extension ThreadedSocketServiceRef {
 /// or subclass and override the default handler.
 open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ThreadedSocketService` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThreadedSocketService>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThreadedSocketServiceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThreadedSocketService`.
-    public convenience init<T: ThreadedSocketServiceProtocol>(_ other: T) {
-        self.init(cast(other.threaded_socket_service_ptr))
-        g_object_ref(cast(threaded_socket_service_ptr))
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThreadedSocketService>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ThreadedSocketServiceProtocol`
+    /// Will retain `GThreadedSocketService`.
+    /// - Parameter other: an instance of a related type that implements `ThreadedSocketServiceProtocol`
+    public init<T: ThreadedSocketServiceProtocol>(threadedSocketService other: T) {
+        super.init(retaining: cast(other.threaded_socket_service_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThreadedSocketService.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThreadedSocketService.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThreadedSocketService.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThreadedSocketService>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GThreadedSocketService` with no listeners. Listeners
     /// must be added with one of the `GSocketListener` "add" methods.
-    public convenience init( max_threads: CInt) {
+    public init( max_threads: CInt) {
         let rv = g_threaded_socket_service_new(max_threads)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -1891,7 +2096,7 @@ public extension TLSCertificateRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -1914,7 +2119,7 @@ public extension TLSCertificateRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -1937,7 +2142,7 @@ public extension TLSCertificateRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
     /// returned certificate will be the first certificate found in `file`. As
@@ -2019,40 +2224,81 @@ public extension TLSCertificateRef {
 /// `GTlsServerConnection`).
 open class TLSCertificate: Object, TLSCertificateProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSCertificate` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsCertificate>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSCertificateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsCertificate`.
-    public convenience init<T: TLSCertificateProtocol>(_ other: T) {
-        self.init(cast(other.tls_certificate_ptr))
-        g_object_ref(cast(tls_certificate_ptr))
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsCertificate>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSCertificateProtocol`
+    /// Will retain `GTlsCertificate`.
+    /// - Parameter other: an instance of a related type that implements `TLSCertificateProtocol`
+    public init<T: TLSCertificateProtocol>(tlsCertificate other: T) {
+        super.init(retaining: cast(other.tls_certificate_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsCertificate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsCertificate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsCertificate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsCertificate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
@@ -2068,13 +2314,13 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public convenience init(file: UnsafePointer<gchar>) throws {
+    public init(file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_file(file, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -2091,13 +2337,13 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public convenience init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
+    public init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -2114,13 +2360,13 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
-    public convenience init(pem data: UnsafePointer<gchar>, length: gssize) throws {
+    public init(pem data: UnsafePointer<gchar>, length: gssize) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_tls_certificate_new_from_pem(data, length, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
@@ -2530,40 +2776,81 @@ public extension TLSConnectionRef {
 /// For DTLS (Datagram TLS) support, see `GDtlsConnection`.
 open class TLSConnection: IOStream, TLSConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsConnection`.
-    public convenience init<T: TLSConnectionProtocol>(_ other: T) {
-        self.init(cast(other.tls_connection_ptr))
-        g_object_ref(cast(tls_connection_ptr))
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSConnectionProtocol`
+    /// Will retain `GTlsConnection`.
+    /// - Parameter other: an instance of a related type that implements `TLSConnectionProtocol`
+    public init<T: TLSConnectionProtocol>(tlsConnection other: T) {
+        super.init(retaining: cast(other.tls_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -2615,6 +2902,9 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case rehandshakeMode = "rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -2768,6 +3058,9 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
+    ///
+    /// **rehandshake-mode is deprecated:**
+    /// The rehandshake mode is ignored.
     case notifyRehandshakeMode = "notify::rehandshake-mode"
     /// Whether or not proper TLS close notification is required.
     /// See `g_tls_connection_set_require_close_notify()`.
@@ -2904,28 +3197,30 @@ public extension TLSConnectionProtocol {
     /// 
     /// On the client side, it is never necessary to call this method;
     /// although the connection needs to perform a handshake after
-    /// connecting (or after sending a "STARTTLS"-type command) and may
-    /// need to rehandshake later if the server requests it,
+    /// connecting (or after sending a "STARTTLS"-type command),
     /// `GTlsConnection` will handle this for you automatically when you try
-    /// to send or receive data on the connection. However, you can call
-    /// `g_tls_connection_handshake()` manually if you want to know for sure
-    /// whether the initial handshake succeeded or failed (as opposed to
-    /// just immediately trying to write to `conn`'s output stream, in which
-    /// case if it fails, it may not be possible to tell if it failed
-    /// before or after completing the handshake).
+    /// to send or receive data on the connection. You can call
+    /// `g_tls_connection_handshake()` manually if you want to know whether
+    /// the initial handshake succeeded or failed (as opposed to just
+    /// immediately trying to use `conn` to read or write, in which case,
+    /// if it fails, it may not be possible to tell if it failed before or
+    /// after completing the handshake), but beware that servers may reject
+    /// client authentication after the handshake has completed, so a
+    /// successful handshake does not indicate the connection will be usable.
     /// 
     /// Likewise, on the server side, although a handshake is necessary at
     /// the beginning of the communication, you do not need to call this
     /// function explicitly unless you want clearer error reporting.
     /// 
-    /// If TLS 1.2 or older is in use, you may call
-    /// `g_tls_connection_handshake()` after the initial handshake to
-    /// rehandshake; however, this usage is deprecated because rehandshaking
-    /// is no longer part of the TLS protocol in TLS 1.3. Accordingly, the
-    /// behavior of calling this function after the initial handshake is now
-    /// undefined, except it is guaranteed to be reasonable and
-    /// nondestructive so as to preserve compatibility with code written for
-    /// older versions of GLib.
+    /// Previously, calling `g_tls_connection_handshake()` after the initial
+    /// handshake would trigger a rehandshake; however, this usage was
+    /// deprecated in GLib 2.60 because rehandshaking was removed from the
+    /// TLS protocol in TLS 1.3. Since GLib 2.64, calling this function after
+    /// the initial handshake will no longer do anything.
+    /// 
+    /// When using a `GTlsConnection` created by `GSocketClient`, the
+    /// `GSocketClient` performs the initial handshake, so calling this
+    /// function manually is not recommended.
     /// 
     /// `GTlsConnection::accept_certificate` may be emitted during the
     /// handshake.
@@ -3018,27 +3313,10 @@ public extension TLSConnectionProtocol {
     
     }
 
-    /// Sets how `conn` behaves with respect to rehandshaking requests, when
-    /// TLS 1.2 or older is in use.
-    /// 
-    /// `G_TLS_REHANDSHAKE_NEVER` means that it will never agree to
-    /// rehandshake after the initial handshake is complete. (For a client,
-    /// this means it will refuse rehandshake requests from the server, and
-    /// for a server, this means it will close the connection with an error
-    /// if the client attempts to rehandshake.)
-    /// 
-    /// `G_TLS_REHANDSHAKE_SAFELY` means that the connection will allow a
-    /// rehandshake only if the other end of the connection supports the
-    /// TLS `renegotiation_info` extension. This is the default behavior,
-    /// but means that rehandshaking will not work against older
-    /// implementations that do not support that extension.
-    /// 
-    /// `G_TLS_REHANDSHAKE_UNSAFELY` means that the connection will allow
-    /// rehandshaking even without the `renegotiation_info` extension. On
-    /// the server side in particular, this is not recommended, since it
-    /// leaves the server open to certain attacks. However, this mode is
-    /// necessary if you need to allow renegotiation with older client
-    /// software.
+    /// Since GLib 2.64, changing the rehandshake mode is no longer supported
+    /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
+    /// the TLS protocol, replaced by separate post-handshake authentication and
+    /// rekey operations.
     ///
     /// **set_rehandshake_mode is deprecated:**
     /// Changing the rehandshake mode is no longer
@@ -3238,27 +3516,10 @@ public extension TLSConnectionProtocol {
             let rv = g_tls_connection_get_rehandshake_mode(cast(tls_connection_ptr))
             return rv
         }
-        /// Sets how `conn` behaves with respect to rehandshaking requests, when
-        /// TLS 1.2 or older is in use.
-        /// 
-        /// `G_TLS_REHANDSHAKE_NEVER` means that it will never agree to
-        /// rehandshake after the initial handshake is complete. (For a client,
-        /// this means it will refuse rehandshake requests from the server, and
-        /// for a server, this means it will close the connection with an error
-        /// if the client attempts to rehandshake.)
-        /// 
-        /// `G_TLS_REHANDSHAKE_SAFELY` means that the connection will allow a
-        /// rehandshake only if the other end of the connection supports the
-        /// TLS `renegotiation_info` extension. This is the default behavior,
-        /// but means that rehandshaking will not work against older
-        /// implementations that do not support that extension.
-        /// 
-        /// `G_TLS_REHANDSHAKE_UNSAFELY` means that the connection will allow
-        /// rehandshaking even without the `renegotiation_info` extension. On
-        /// the server side in particular, this is not recommended, since it
-        /// leaves the server open to certain attacks. However, this mode is
-        /// necessary if you need to allow renegotiation with older client
-        /// software.
+        /// Since GLib 2.64, changing the rehandshake mode is no longer supported
+        /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
+        /// the TLS protocol, replaced by separate post-handshake authentication and
+        /// rekey operations.
         ///
         /// **set_rehandshake_mode is deprecated:**
         /// Changing the rehandshake mode is no longer
@@ -3445,40 +3706,81 @@ public extension TLSDatabaseRef {
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
 open class TLSDatabase: Object, TLSDatabaseProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSDatabase` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsDatabase>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSDatabaseProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsDatabase`.
-    public convenience init<T: TLSDatabaseProtocol>(_ other: T) {
-        self.init(cast(other.tls_database_ptr))
-        g_object_ref(cast(tls_database_ptr))
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsDatabase>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSDatabaseProtocol`
+    /// Will retain `GTlsDatabase`.
+    /// - Parameter other: an instance of a related type that implements `TLSDatabaseProtocol`
+    public init<T: TLSDatabaseProtocol>(tlsDatabase other: T) {
+        super.init(retaining: cast(other.tls_database_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsDatabase.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsDatabase.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsDatabase.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsDatabase>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -3879,40 +4181,81 @@ public extension TLSInteractionRef {
 /// it must also implement the corresponding finish method.
 open class TLSInteraction: Object, TLSInteractionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSInteraction` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsInteraction>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSInteractionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsInteraction`.
-    public convenience init<T: TLSInteractionProtocol>(_ other: T) {
-        self.init(cast(other.tls_interaction_ptr))
-        g_object_ref(cast(tls_interaction_ptr))
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsInteraction>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSInteractionProtocol`
+    /// Will retain `GTlsInteraction`.
+    /// - Parameter other: an instance of a related type that implements `TLSInteractionProtocol`
+    public init<T: TLSInteractionProtocol>(tlsInteraction other: T) {
+        super.init(retaining: cast(other.tls_interaction_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsInteraction.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsInteraction.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsInteraction.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsInteraction>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -4137,7 +4480,7 @@ public extension TLSInteractionProtocol {
     
     }
 
-    /// Complete an request certificate user interaction request. This should be once
+    /// Complete a request certificate user interaction request. This should be once
     /// the `g_tls_interaction_request_certificate_async()` completion callback is called.
     /// 
     /// If `G_TLS_INTERACTION_HANDLED` is returned, then the `GTlsConnection`
@@ -4229,7 +4572,7 @@ public extension TLSPasswordRef {
         /// Create a new `GTlsPassword` object.
     init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>) {
         let rv = g_tls_password_new(flags, description)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -4240,46 +4583,87 @@ public extension TLSPasswordRef {
 /// Holds a password used in TLS.
 open class TLSPassword: Object, TLSPasswordProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TLSPassword` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTlsPassword>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `TLSPasswordProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsPassword`.
-    public convenience init<T: TLSPasswordProtocol>(_ other: T) {
-        self.init(cast(other.tls_password_ptr))
-        g_object_ref(cast(tls_password_ptr))
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTlsPassword>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `TLSPasswordProtocol`
+    /// Will retain `GTlsPassword`.
+    /// - Parameter other: an instance of a related type that implements `TLSPasswordProtocol`
+    public init<T: TLSPasswordProtocol>(tlsPassword other: T) {
+        super.init(retaining: cast(other.tls_password_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTlsPassword.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTlsPassword.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTlsPassword.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTlsPassword>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Create a new `GTlsPassword` object.
-    public convenience init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>) {
+    public init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>) {
         let rv = g_tls_password_new(flags, description)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -4608,40 +4992,81 @@ public extension UnixConnectionRef {
 /// pkg-config file when using it.
 open class UnixConnection: SocketConnection, UnixConnectionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `UnixConnection` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GUnixConnection>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `UnixConnectionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixConnection`.
-    public convenience init<T: UnixConnectionProtocol>(_ other: T) {
-        self.init(cast(other.unix_connection_ptr))
-        g_object_ref(cast(unix_connection_ptr))
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GUnixConnection>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `UnixConnectionProtocol`
+    /// Will retain `GUnixConnection`.
+    /// - Parameter other: an instance of a related type that implements `UnixConnectionProtocol`
+    public init<T: UnixConnectionProtocol>(unixConnection other: T) {
+        super.init(retaining: cast(other.unix_connection_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GUnixConnection.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GUnixConnection.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GUnixConnection.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GUnixConnection>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
