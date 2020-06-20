@@ -24,7 +24,7 @@ import GLibObject
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 public protocol SeekableProtocol {
-    /// Untyped pointer to the underlying `GSeekable` instance.
+        /// Untyped pointer to the underlying `GSeekable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSeekable` instance.
@@ -50,7 +50,7 @@ public protocol SeekableProtocol {
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 public struct SeekableRef: SeekableProtocol {
-    /// Untyped pointer to the underlying `GSeekable` instance.
+        /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -116,7 +116,7 @@ public extension SeekableRef {
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
 open class Seekable: SeekableProtocol {
-    /// Untyped pointer to the underlying `GSeekable` instance.
+        /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -145,7 +145,7 @@ open class Seekable: SeekableProtocol {
         // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
     }
 
-    /// Do-nothing destructor for`GSeekable`.
+    /// Do-nothing destructor for `GSeekable`.
     deinit {
         // no reference counting for GSeekable, cannot unref(cast(seekable_ptr))
     }
@@ -213,11 +213,12 @@ open class Seekable: SeekableProtocol {
 
 }
 
-// MARK: - no Seekable properties
+// MARK: no Seekable properties
 
-// MARK: - no signals
+// MARK: no Seekable signals
 
 
+// MARK: Seekable Interface: SeekableProtocol extension (methods and fields)
 public extension SeekableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSeekable` instance.
     var seekable_ptr: UnsafeMutablePointer<GSeekable> { return ptr.assumingMemoryBound(to: GSeekable.self) }
@@ -250,11 +251,9 @@ public extension SeekableProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func seek(offset: Int64, type: GLib.SeekType, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_seekable_seek(cast(seekable_ptr), goffset(offset), type, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -274,13 +273,13 @@ public extension SeekableProtocol {
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     func truncate(offset: Int64, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_seekable_truncate(cast(seekable_ptr), goffset(offset), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -352,7 +351,7 @@ public extension SeekableProtocol {
 /// ```
 /// 
 public protocol SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectable` instance.
+        /// Untyped pointer to the underlying `GSocketConnectable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketConnectable` instance.
@@ -423,7 +422,7 @@ public protocol SocketConnectableProtocol {
 /// ```
 /// 
 public struct SocketConnectableRef: SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectable` instance.
+        /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -534,7 +533,7 @@ public extension SocketConnectableRef {
 /// ```
 /// 
 open class SocketConnectable: SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectable` instance.
+        /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -563,7 +562,7 @@ open class SocketConnectable: SocketConnectableProtocol {
         // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketConnectable`.
+    /// Do-nothing destructor for `GSocketConnectable`.
     deinit {
         // no reference counting for GSocketConnectable, cannot unref(cast(socket_connectable_ptr))
     }
@@ -631,18 +630,19 @@ open class SocketConnectable: SocketConnectableProtocol {
 
 }
 
-// MARK: - no SocketConnectable properties
+// MARK: no SocketConnectable properties
 
-// MARK: - no signals
+// MARK: no SocketConnectable signals
 
 
+// MARK: SocketConnectable Interface: SocketConnectableProtocol extension (methods and fields)
 public extension SocketConnectableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnectable` instance.
     var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable> { return ptr.assumingMemoryBound(to: GSocketConnectable.self) }
 
     /// Creates a `GSocketAddressEnumerator` for `connectable`.
     func enumerate() -> UnsafeMutablePointer<GSocketAddressEnumerator>! {
-        let rv = g_socket_connectable_enumerate(cast(socket_connectable_ptr))
+        let rv: UnsafeMutablePointer<GSocketAddressEnumerator>! = cast(g_socket_connectable_enumerate(cast(socket_connectable_ptr)))
         return cast(rv)
     }
 
@@ -654,7 +654,7 @@ public extension SocketConnectableProtocol {
     /// `g_socket_connectable_proxy_enumerate()`, this will fall back to
     /// calling `g_socket_connectable_enumerate()`.
     func proxyEnumerate() -> UnsafeMutablePointer<GSocketAddressEnumerator>! {
-        let rv = g_socket_connectable_proxy_enumerate(cast(socket_connectable_ptr))
+        let rv: UnsafeMutablePointer<GSocketAddressEnumerator>! = cast(g_socket_connectable_proxy_enumerate(cast(socket_connectable_ptr)))
         return cast(rv)
     }
 
@@ -666,18 +666,16 @@ public extension SocketConnectableProtocol {
     /// If the `GSocketConnectable` implementation does not support string formatting,
     /// the implementation’s type name will be returned as a fallback.
     func toString() -> String! {
-        let rv = g_socket_connectable_to_string(cast(socket_connectable_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_socket_connectable_to_string(cast(socket_connectable_ptr)))
+        return cast(rv)
     }
 
     /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
     /// assumed to communicate with the server identified by `server_identity`.
     func dtlsClientConnectionNew(baseSocket base_socket: DatagramBasedProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dtls_client_connection_new(cast(base_socket.ptr), cast(socket_connectable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_client_connection_new(cast(base_socket.ptr), cast(socket_connectable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -689,13 +687,13 @@ public extension SocketConnectableProtocol {
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsClientConnectionNew(baseIoStream base_io_stream: IOStreamProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_tls_client_connection_new(cast(base_io_stream.ptr), cast(socket_connectable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_client_connection_new(cast(base_io_stream.ptr), cast(socket_connectable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
+
+
 }
 
 
@@ -709,7 +707,7 @@ public extension SocketConnectableProtocol {
 ///
 /// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 public protocol TLSBackendProtocol {
-    /// Untyped pointer to the underlying `GTlsBackend` instance.
+        /// Untyped pointer to the underlying `GTlsBackend` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsBackend` instance.
@@ -722,7 +720,7 @@ public protocol TLSBackendProtocol {
 ///
 /// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 public struct TLSBackendRef: TLSBackendProtocol {
-    /// Untyped pointer to the underlying `GTlsBackend` instance.
+        /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -769,7 +767,7 @@ public extension TLSBackendRef {
 
         /// Gets the default `GTlsBackend` for the system.
     static func getDefault() -> TLSBackendRef! {
-        let rv = g_tls_backend_get_default()
+        let rv: UnsafeMutablePointer<GTlsBackend>! = cast(g_tls_backend_get_default())
         return rv.map { TLSBackendRef(cast($0)) }
     }
 }
@@ -780,7 +778,7 @@ public extension TLSBackendRef {
 ///
 /// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 open class TLSBackend: TLSBackendProtocol {
-    /// Untyped pointer to the underlying `GTlsBackend` instance.
+        /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -809,7 +807,7 @@ open class TLSBackend: TLSBackendProtocol {
         // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsBackend`.
+    /// Do-nothing destructor for `GTlsBackend`.
     deinit {
         // no reference counting for GTlsBackend, cannot unref(cast(tls_backend_ptr))
     }
@@ -876,17 +874,18 @@ open class TLSBackend: TLSBackendProtocol {
 
     /// Gets the default `GTlsBackend` for the system.
     public static func getDefault() -> TLSBackend! {
-        let rv = g_tls_backend_get_default()
+        let rv: UnsafeMutablePointer<GTlsBackend>! = cast(g_tls_backend_get_default())
         return rv.map { TLSBackend(cast($0)) }
     }
 
 }
 
-// MARK: - no TLSBackend properties
+// MARK: no TLSBackend properties
 
-// MARK: - no signals
+// MARK: no TLSBackend signals
 
 
+// MARK: TLSBackend Interface: TLSBackendProtocol extension (methods and fields)
 public extension TLSBackendProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsBackend` instance.
     var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend> { return ptr.assumingMemoryBound(to: GTlsBackend.self) }
@@ -894,43 +893,43 @@ public extension TLSBackendProtocol {
     /// Gets the `GType` of `backend`'s `GTlsCertificate` implementation.
     func getCertificateType() -> GType {
         let rv = g_tls_backend_get_certificate_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the `GType` of `backend`'s `GTlsClientConnection` implementation.
     func getClientConnectionType() -> GType {
         let rv = g_tls_backend_get_client_connection_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the default `GTlsDatabase` used to verify TLS connections.
     func getDefaultDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
-        let rv = g_tls_backend_get_default_database(cast(tls_backend_ptr))
+        let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_backend_get_default_database(cast(tls_backend_ptr)))
         return cast(rv)
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsClientConnection` implementation.
     func getDtlsClientConnectionType() -> GType {
         let rv = g_tls_backend_get_dtls_client_connection_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsServerConnection` implementation.
     func getDtlsServerConnectionType() -> GType {
         let rv = g_tls_backend_get_dtls_server_connection_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the `GType` of `backend`'s `GTlsFileDatabase` implementation.
     func getFileDatabaseType() -> GType {
         let rv = g_tls_backend_get_file_database_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the `GType` of `backend`'s `GTlsServerConnection` implementation.
     func getServerConnectionType() -> GType {
         let rv = g_tls_backend_get_server_connection_type(cast(tls_backend_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Set the default `GTlsDatabase` used to verify TLS connections
@@ -964,7 +963,7 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`'s `GTlsCertificate` implementation.
         get {
             let rv = g_tls_backend_get_certificate_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -973,7 +972,7 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`'s `GTlsClientConnection` implementation.
         get {
             let rv = g_tls_backend_get_client_connection_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -981,7 +980,7 @@ public extension TLSBackendProtocol {
     var defaultDatabase: UnsafeMutablePointer<GTlsDatabase>! {
         /// Gets the default `GTlsDatabase` used to verify TLS connections.
         get {
-            let rv = g_tls_backend_get_default_database(cast(tls_backend_ptr))
+            let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_backend_get_default_database(cast(tls_backend_ptr)))
             return cast(rv)
         }
         /// Set the default `GTlsDatabase` used to verify TLS connections
@@ -1002,7 +1001,7 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`’s `GDtlsClientConnection` implementation.
         get {
             let rv = g_tls_backend_get_dtls_client_connection_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1011,7 +1010,7 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`’s `GDtlsServerConnection` implementation.
         get {
             let rv = g_tls_backend_get_dtls_server_connection_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1020,7 +1019,7 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`'s `GTlsFileDatabase` implementation.
         get {
             let rv = g_tls_backend_get_file_database_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1029,9 +1028,11 @@ public extension TLSBackendProtocol {
         /// Gets the `GType` of `backend`'s `GTlsServerConnection` implementation.
         get {
             let rv = g_tls_backend_get_server_connection_type(cast(tls_backend_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 

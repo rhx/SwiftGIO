@@ -294,7 +294,7 @@ import GLibObject
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
 public protocol SettingsProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSettings` instance.
+        /// Untyped pointer to the underlying `GSettings` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettings` instance.
@@ -590,7 +590,7 @@ public protocol SettingsProtocol: ObjectProtocol {
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
 public struct SettingsRef: SettingsProtocol {
-    /// Untyped pointer to the underlying `GSettings` instance.
+        /// Untyped pointer to the underlying `GSettings` instance.
     /// For type-safe access, use the generated, typed pointer `settings_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -643,7 +643,7 @@ public extension SettingsRef {
     /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
     /// on the context.  See `g_main_context_push_thread_default()`.
     init( schema_id: UnsafePointer<gchar>) {
-        let rv = g_settings_new(schema_id)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new(schema_id))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -671,7 +671,7 @@ public extension SettingsRef {
     /// `path` is non-`nil` and not equal to the path that the schema does
     /// have.
     init(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -684,7 +684,7 @@ public extension SettingsRef {
     /// the system to get a settings object that modifies the system default
     /// settings instead of the settings for this user.
     init(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) {
-        let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend(schema_id, cast(backend.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -694,7 +694,7 @@ public extension SettingsRef {
     /// This is a mix of `g_settings_new_with_backend()` and
     /// `g_settings_new_with_path()`.
     init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -712,7 +712,7 @@ public extension SettingsRef {
     /// begins and ends with '/' and does not contain two consecutive '/'
     /// characters.
     init(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_with_path(schema_id, path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_path(schema_id, path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GSettings` object with a given schema, backend and
@@ -739,7 +739,7 @@ public extension SettingsRef {
     /// `path` is non-`nil` and not equal to the path that the schema does
     /// have.
     static func new(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> SettingsRef! {
-        let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path))
         return rv.map { SettingsRef(cast($0)) }
     }
 
@@ -752,7 +752,7 @@ public extension SettingsRef {
     /// the system to get a settings object that modifies the system default
     /// settings instead of the settings for this user.
     static func newWith(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) -> SettingsRef! {
-        let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend(schema_id, cast(backend.ptr)))
         return rv.map { SettingsRef(cast($0)) }
     }
 
@@ -762,7 +762,7 @@ public extension SettingsRef {
     /// This is a mix of `g_settings_new_with_backend()` and
     /// `g_settings_new_with_path()`.
     static func newWith(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> SettingsRef! {
-        let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path))
         return rv.map { SettingsRef(cast($0)) }
     }
 
@@ -780,7 +780,7 @@ public extension SettingsRef {
     /// begins and ends with '/' and does not contain two consecutive '/'
     /// characters.
     static func newWith(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) -> SettingsRef! {
-        let rv = g_settings_new_with_path(schema_id, path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_path(schema_id, path))
         return rv.map { SettingsRef(cast($0)) }
     }
 }
@@ -1074,7 +1074,7 @@ public extension SettingsRef {
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
 open class Settings: Object, SettingsProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Settings` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1160,7 +1160,7 @@ open class Settings: Object, SettingsProtocol {
     /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
     /// on the context.  See `g_main_context_push_thread_default()`.
     public init( schema_id: UnsafePointer<gchar>) {
-        let rv = g_settings_new(schema_id)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new(schema_id))
         super.init(cast(rv))
     }
 
@@ -1188,7 +1188,7 @@ open class Settings: Object, SettingsProtocol {
     /// `path` is non-`nil` and not equal to the path that the schema does
     /// have.
     public init(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path))
         super.init(cast(rv))
     }
 
@@ -1201,7 +1201,7 @@ open class Settings: Object, SettingsProtocol {
     /// the system to get a settings object that modifies the system default
     /// settings instead of the settings for this user.
     public init(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) {
-        let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend(schema_id, cast(backend.ptr)))
         super.init(cast(rv))
     }
 
@@ -1211,7 +1211,7 @@ open class Settings: Object, SettingsProtocol {
     /// This is a mix of `g_settings_new_with_backend()` and
     /// `g_settings_new_with_path()`.
     public init(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path))
         super.init(cast(rv))
     }
 
@@ -1229,7 +1229,7 @@ open class Settings: Object, SettingsProtocol {
     /// begins and ends with '/' and does not contain two consecutive '/'
     /// characters.
     public init(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) {
-        let rv = g_settings_new_with_path(schema_id, path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_path(schema_id, path))
         super.init(cast(rv))
     }
 
@@ -1257,7 +1257,7 @@ open class Settings: Object, SettingsProtocol {
     /// `path` is non-`nil` and not equal to the path that the schema does
     /// have.
     public static func new(full schema: SettingsSchemaProtocol, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> Settings! {
-        let rv = g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_full(cast(schema.ptr), cast(backend.ptr), path))
         return rv.map { Settings(cast($0)) }
     }
 
@@ -1270,7 +1270,7 @@ open class Settings: Object, SettingsProtocol {
     /// the system to get a settings object that modifies the system default
     /// settings instead of the settings for this user.
     public static func newWith(backend schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol) -> Settings! {
-        let rv = g_settings_new_with_backend(schema_id, cast(backend.ptr))
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend(schema_id, cast(backend.ptr)))
         return rv.map { Settings(cast($0)) }
     }
 
@@ -1280,7 +1280,7 @@ open class Settings: Object, SettingsProtocol {
     /// This is a mix of `g_settings_new_with_backend()` and
     /// `g_settings_new_with_path()`.
     public static func newWith(backendAndPath schema_id: UnsafePointer<gchar>, backend: SettingsBackendProtocol, path: UnsafePointer<gchar>) -> Settings! {
-        let rv = g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_backend_and_path(schema_id, cast(backend.ptr), path))
         return rv.map { Settings(cast($0)) }
     }
 
@@ -1298,7 +1298,7 @@ open class Settings: Object, SettingsProtocol {
     /// begins and ends with '/' and does not contain two consecutive '/'
     /// characters.
     public static func newWith(path schema_id: UnsafePointer<gchar>, path: UnsafePointer<gchar>) -> Settings! {
-        let rv = g_settings_new_with_path(schema_id, path)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_new_with_path(schema_id, path))
         return rv.map { Settings(cast($0)) }
     }
 
@@ -1351,8 +1351,8 @@ public extension SettingsProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SettingsPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SettingsPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1375,6 +1375,23 @@ public extension SettingsProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Settings property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SettingsPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Settings property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SettingsPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1501,8 +1518,8 @@ public extension SettingsProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SettingsSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SettingsSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(settings_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1523,6 +1540,7 @@ public extension SettingsProtocol {
     }
 }
 
+// MARK: Settings Class: SettingsProtocol extension (methods and fields)
 public extension SettingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettings` instance.
     var settings_ptr: UnsafeMutablePointer<GSettings> { return ptr.assumingMemoryBound(to: GSettings.self) }
@@ -1557,7 +1575,7 @@ public extension SettingsProtocol {
     /// If you bind the same property twice on the same object, the second
     /// binding overrides the first one.
     func bind(key: UnsafePointer<gchar>, object: ObjectProtocol, property: UnsafePointer<gchar>, flags: SettingsBindFlags) {
-        g_settings_bind(cast(settings_ptr), key, cast(object.ptr), property, flags)
+        g_settings_bind(cast(settings_ptr), key, cast(object.ptr), property, flags.value)
     
     }
 
@@ -1572,7 +1590,7 @@ public extension SettingsProtocol {
     /// If you bind the same property twice on the same object, the second
     /// binding overrides the first one.
     func bindWithMapping(key: UnsafePointer<gchar>, object: ObjectProtocol, property: UnsafePointer<gchar>, flags: SettingsBindFlags, getMapping get_mapping: @escaping SettingsBindGetMapping, setMapping set_mapping: @escaping SettingsBindSetMapping, userData user_data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
-        g_settings_bind_with_mapping(cast(settings_ptr), key, cast(object.ptr), property, flags, get_mapping, set_mapping, cast(user_data), destroy)
+        g_settings_bind_with_mapping(cast(settings_ptr), key, cast(object.ptr), property, flags.value, get_mapping, set_mapping, cast(user_data), destroy)
     
     }
 
@@ -1613,7 +1631,7 @@ public extension SettingsProtocol {
     /// activations take the new value for the key (which must have the
     /// correct type).
     func createAction(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<GAction>! {
-        let rv = g_settings_create_action(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<GAction>! = cast(g_settings_create_action(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1647,7 +1665,7 @@ public extension SettingsProtocol {
     /// The schema for the child settings object must have been declared
     /// in the schema of `settings` using a <child> element.
     func getChild(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GSettings>! {
-        let rv = g_settings_get_child(cast(settings_ptr), name)
+        let rv: UnsafeMutablePointer<GSettings>! = cast(g_settings_get_child(cast(settings_ptr), name))
         return cast(rv)
     }
 
@@ -1673,7 +1691,7 @@ public extension SettingsProtocol {
     /// It is a programmer error to give a `key` that isn't contained in the
     /// schema for `settings`.
     func getDefaultValue(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_get_default_value(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_get_default_value(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1683,9 +1701,9 @@ public extension SettingsProtocol {
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a 'double' type in the schema for `settings`.
-    func getDouble(key: UnsafePointer<gchar>) -> gdouble {
-        let rv = g_settings_get_double(cast(settings_ptr), key)
-        return rv
+    func getDouble(key: UnsafePointer<gchar>) -> Double {
+        let rv: Double = cast(g_settings_get_double(cast(settings_ptr), key))
+        return cast(rv)
     }
 
     /// Gets the value that is stored in `settings` for `key` and converts it
@@ -1700,9 +1718,9 @@ public extension SettingsProtocol {
     /// If the value stored in the configuration database is not a valid
     /// value for the enumerated type then this function will return the
     /// default value.
-    func getEnum(key: UnsafePointer<gchar>) -> CInt {
-        let rv = g_settings_get_enum(cast(settings_ptr), key)
-        return CInt(rv)
+    func getEnum(key: UnsafePointer<gchar>) -> Int {
+        let rv: Int = cast(g_settings_get_enum(cast(settings_ptr), key))
+        return Int(rv)
     }
 
     /// Gets the value that is stored in `settings` for `key` and converts it
@@ -1717,9 +1735,9 @@ public extension SettingsProtocol {
     /// If the value stored in the configuration database is not a valid
     /// value for the flags type then this function will return the default
     /// value.
-    func getFlags(key: UnsafePointer<gchar>) -> CUnsignedInt {
-        let rv = g_settings_get_flags(cast(settings_ptr), key)
-        return CUnsignedInt(rv)
+    func getFlags(key: UnsafePointer<gchar>) -> Int {
+        let rv: Int = cast(g_settings_get_flags(cast(settings_ptr), key))
+        return Int(rv)
     }
 
     /// Returns whether the `GSettings` object has any unapplied
@@ -1735,9 +1753,9 @@ public extension SettingsProtocol {
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a int32 type in the schema for `settings`.
-    func getInt(key: UnsafePointer<gchar>) -> CInt {
-        let rv = g_settings_get_int(cast(settings_ptr), key)
-        return CInt(rv)
+    func getInt(key: UnsafePointer<gchar>) -> Int {
+        let rv: Int = cast(g_settings_get_int(cast(settings_ptr), key))
+        return Int(rv)
     }
 
     /// Gets the value that is stored at `key` in `settings`.
@@ -1779,7 +1797,7 @@ public extension SettingsProtocol {
     /// what is returned by this function.  `nil` is valid; it is returned
     /// just as any other value would be.
     func getMapped(key: UnsafePointer<gchar>, mapping: @escaping SettingsGetMapping, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_settings_get_mapped(cast(settings_ptr), key, mapping, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_settings_get_mapped(cast(settings_ptr), key, mapping, cast(user_data)))
         return cast(rv)
     }
 
@@ -1788,7 +1806,7 @@ public extension SettingsProtocol {
     /// **get_range is deprecated:**
     /// Use g_settings_schema_key_get_range() instead.
     @available(*, deprecated) func getRange(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_get_range(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_get_range(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1799,8 +1817,8 @@ public extension SettingsProtocol {
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a string type in the schema for `settings`.
     func getString(key: UnsafePointer<gchar>) -> String! {
-        let rv = g_settings_get_string(cast(settings_ptr), key)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_get_string(cast(settings_ptr), key))
+        return cast(rv)
     }
 
     /// A convenience variant of `g_settings_get()` for string arrays.
@@ -1808,7 +1826,7 @@ public extension SettingsProtocol {
     /// It is a programmer error to give a `key` that isn't specified as
     /// having an array of strings type in the schema for `settings`.
     func getStrv(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_settings_get_strv(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_settings_get_strv(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1819,9 +1837,9 @@ public extension SettingsProtocol {
     /// 
     /// It is a programmer error to give a `key` that isn't specified as
     /// having a uint32 type in the schema for `settings`.
-    func getUint(key: UnsafePointer<gchar>) -> CUnsignedInt {
-        let rv = g_settings_get_uint(cast(settings_ptr), key)
-        return CUnsignedInt(rv)
+    func getUint(key: UnsafePointer<gchar>) -> Int {
+        let rv: Int = cast(g_settings_get_uint(cast(settings_ptr), key))
+        return Int(rv)
     }
 
     /// Gets the value that is stored at `key` in `settings`.
@@ -1855,7 +1873,7 @@ public extension SettingsProtocol {
     /// It is a programmer error to give a `key` that isn't contained in the
     /// schema for `settings`.
     func getUserValue(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_get_user_value(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_get_user_value(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1864,7 +1882,7 @@ public extension SettingsProtocol {
     /// It is a programmer error to give a `key` that isn't contained in the
     /// schema for `settings`.
     func getValue(key: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_get_value(cast(settings_ptr), key)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_get_value(cast(settings_ptr), key))
         return cast(rv)
     }
 
@@ -1886,7 +1904,7 @@ public extension SettingsProtocol {
     /// You should free the return value with `g_strfreev()` when you are done
     /// with it.
     func listChildren() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_settings_list_children(cast(settings_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_settings_list_children(cast(settings_ptr)))
         return cast(rv)
     }
 
@@ -1902,7 +1920,7 @@ public extension SettingsProtocol {
     /// **list_keys is deprecated:**
     /// Use g_settings_schema_list_keys() instead.
     @available(*, deprecated) func listKeys() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_settings_list_keys(cast(settings_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_settings_list_keys(cast(settings_ptr)))
         return cast(rv)
     }
 
@@ -2084,6 +2102,21 @@ public extension SettingsProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(settings_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSettingsPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSettingsPrivate> = cast(settings_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -2120,7 +2153,7 @@ public extension SettingsProtocol {
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
 public protocol SettingsBackendProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackend` instance.
+        /// Untyped pointer to the underlying `GSettingsBackend` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsBackend` instance.
@@ -2156,7 +2189,7 @@ public protocol SettingsBackendProtocol: ObjectProtocol {
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
 public struct SettingsBackendRef: SettingsBackendProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackend` instance.
+        /// Untyped pointer to the underlying `GSettingsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `settings_backend_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2207,7 +2240,7 @@ public extension SettingsBackendRef {
     /// 
     /// The user gets a reference to the backend.
     static func getDefault() -> SettingsBackendRef! {
-        let rv = g_settings_backend_get_default()
+        let rv: UnsafeMutablePointer<GSettingsBackend>! = cast(g_settings_backend_get_default())
         return rv.map { SettingsBackendRef(cast($0)) }
     }
 }
@@ -2241,7 +2274,7 @@ public extension SettingsBackendRef {
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
 open class SettingsBackend: Object, SettingsBackendProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SettingsBackend` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2326,13 +2359,13 @@ open class SettingsBackend: Object, SettingsBackendProtocol {
     /// 
     /// The user gets a reference to the backend.
     public static func getDefault() -> SettingsBackend! {
-        let rv = g_settings_backend_get_default()
+        let rv: UnsafeMutablePointer<GSettingsBackend>! = cast(g_settings_backend_get_default())
         return rv.map { SettingsBackend(cast($0)) }
     }
 
 }
 
-// MARK: - no SettingsBackend properties
+// MARK: no SettingsBackend properties
 
 public enum SettingsBackendSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -2369,8 +2402,8 @@ public extension SettingsBackendProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SettingsBackendSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SettingsBackendSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(settings_backend_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2391,6 +2424,7 @@ public extension SettingsBackendProtocol {
     }
 }
 
+// MARK: SettingsBackend Class: SettingsBackendProtocol extension (methods and fields)
 public extension SettingsBackendProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsBackend` instance.
     var settings_backend_ptr: UnsafeMutablePointer<GSettingsBackend> { return ptr.assumingMemoryBound(to: GSettingsBackend.self) }
@@ -2500,6 +2534,16 @@ public extension SettingsBackendProtocol {
         g_settings_backend_writable_changed(cast(settings_backend_ptr), key)
     
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(settings_backend_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2517,7 +2561,7 @@ public extension SettingsBackendProtocol {
 /// 
 /// See also `GtkAction`.
 public protocol SimpleActionProtocol: ObjectProtocol, ActionProtocol {
-    /// Untyped pointer to the underlying `GSimpleAction` instance.
+        /// Untyped pointer to the underlying `GSimpleAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleAction` instance.
@@ -2534,7 +2578,7 @@ public protocol SimpleActionProtocol: ObjectProtocol, ActionProtocol {
 /// 
 /// See also `GtkAction`.
 public struct SimpleActionRef: SimpleActionProtocol {
-    /// Untyped pointer to the underlying `GSimpleAction` instance.
+        /// Untyped pointer to the underlying `GSimpleAction` instance.
     /// For type-safe access, use the generated, typed pointer `simple_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2584,7 +2628,7 @@ public extension SimpleActionRef {
     /// The created action is stateless. See `g_simple_action_new_stateful()` to create
     /// an action that has state.
     init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
-        let rv = g_simple_action_new(name, cast(parameter_type.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new(name, cast(parameter_type.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -2595,7 +2639,7 @@ public extension SimpleActionRef {
     /// 
     /// If the `state` `GVariant` is floating, it is consumed.
     init(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) {
-        let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new stateful action.
@@ -2605,7 +2649,7 @@ public extension SimpleActionRef {
     /// 
     /// If the `state` `GVariant` is floating, it is consumed.
     static func new(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) -> SimpleActionRef! {
-        let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr)))
         return rv.map { SimpleActionRef(cast($0)) }
     }
 }
@@ -2620,7 +2664,7 @@ public extension SimpleActionRef {
 /// 
 /// See also `GtkAction`.
 open class SimpleAction: Object, SimpleActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimpleAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2703,7 +2747,7 @@ open class SimpleAction: Object, SimpleActionProtocol {
     /// The created action is stateless. See `g_simple_action_new_stateful()` to create
     /// an action that has state.
     public init( name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol) {
-        let rv = g_simple_action_new(name, cast(parameter_type.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new(name, cast(parameter_type.ptr)))
         super.init(cast(rv))
     }
 
@@ -2714,7 +2758,7 @@ open class SimpleAction: Object, SimpleActionProtocol {
     /// 
     /// If the `state` `GVariant` is floating, it is consumed.
     public init(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) {
-        let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr)))
         super.init(cast(rv))
     }
 
@@ -2725,7 +2769,7 @@ open class SimpleAction: Object, SimpleActionProtocol {
     /// 
     /// If the `state` `GVariant` is floating, it is consumed.
     public static func new(stateful name: UnsafePointer<gchar>, parameterType parameter_type: VariantTypeProtocol, state: VariantProtocol) -> SimpleAction! {
-        let rv = g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAction>! = cast(g_simple_action_new_stateful(name, cast(parameter_type.ptr), cast(state.ptr)))
         return rv.map { SimpleAction(cast($0)) }
     }
 
@@ -2759,8 +2803,8 @@ public extension SimpleActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2783,6 +2827,23 @@ public extension SimpleActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SimpleAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SimpleActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SimpleAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SimpleActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2885,8 +2946,8 @@ public extension SimpleActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimpleActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimpleActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2907,6 +2968,7 @@ public extension SimpleActionProtocol {
     }
 }
 
+// MARK: SimpleAction Class: SimpleActionProtocol extension (methods and fields)
 public extension SimpleActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleAction` instance.
     var simple_action_ptr: UnsafeMutablePointer<GSimpleAction> { return ptr.assumingMemoryBound(to: GSimpleAction.self) }
@@ -2946,6 +3008,8 @@ public extension SimpleActionProtocol {
         g_simple_action_set_state_hint(cast(simple_action_ptr), cast(state_hint.ptr))
     
     }
+
+
 }
 
 
@@ -2960,7 +3024,7 @@ public extension SimpleActionProtocol {
 /// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
 /// implementing the `GActionGroup` and `GActionMap` interfaces.
 public protocol SimpleActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleActionGroup` instance.
@@ -2974,7 +3038,7 @@ public protocol SimpleActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, 
 /// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
 /// implementing the `GActionGroup` and `GActionMap` interfaces.
 public struct SimpleActionGroupRef: SimpleActionGroupProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `simple_action_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3021,7 +3085,7 @@ public extension SimpleActionGroupRef {
 
         /// Creates a new, empty, `GSimpleActionGroup`.
     init() {
-        let rv = g_simple_action_group_new()
+        let rv: UnsafeMutablePointer<GSimpleActionGroup>! = cast(g_simple_action_group_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -3033,7 +3097,7 @@ public extension SimpleActionGroupRef {
 /// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
 /// implementing the `GActionGroup` and `GActionMap` interfaces.
 open class SimpleActionGroup: Object, SimpleActionGroupProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimpleActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3113,14 +3177,14 @@ open class SimpleActionGroup: Object, SimpleActionGroupProtocol {
 
     /// Creates a new, empty, `GSimpleActionGroup`.
     public init() {
-        let rv = g_simple_action_group_new()
+        let rv: UnsafeMutablePointer<GSimpleActionGroup>! = cast(g_simple_action_group_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no SimpleActionGroup properties
+// MARK: no SimpleActionGroup properties
 
 public enum SimpleActionGroupSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -3157,8 +3221,8 @@ public extension SimpleActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimpleActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimpleActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3179,6 +3243,7 @@ public extension SimpleActionGroupProtocol {
     }
 }
 
+// MARK: SimpleActionGroup Class: SimpleActionGroupProtocol extension (methods and fields)
 public extension SimpleActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleActionGroup` instance.
     var simple_action_group_ptr: UnsafeMutablePointer<GSimpleActionGroup> { return ptr.assumingMemoryBound(to: GSimpleActionGroup.self) }
@@ -3214,7 +3279,7 @@ public extension SimpleActionGroupProtocol {
     /// **lookup is deprecated:**
     /// Use g_action_map_lookup_action()
     @available(*, deprecated) func lookup(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GAction>! {
-        let rv = g_simple_action_group_lookup(cast(simple_action_group_ptr), action_name)
+        let rv: UnsafeMutablePointer<GAction>! = cast(g_simple_action_group_lookup(cast(simple_action_group_ptr), action_name))
         return cast(rv)
     }
 
@@ -3228,6 +3293,11 @@ public extension SimpleActionGroupProtocol {
         g_simple_action_group_remove(cast(simple_action_group_ptr), action_name)
     
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -3407,7 +3477,7 @@ public extension SimpleActionGroupProtocol {
 /// ```
 /// 
 public protocol SimpleAsyncResultProtocol: ObjectProtocol, AsyncResultProtocol {
-    /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
+        /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleAsyncResult` instance.
@@ -3586,7 +3656,7 @@ public protocol SimpleAsyncResultProtocol: ObjectProtocol, AsyncResultProtocol {
 /// ```
 /// 
 public struct SimpleAsyncResultRef: SimpleAsyncResultProtocol {
-    /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
+        /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `simple_async_result_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3645,7 +3715,7 @@ public extension SimpleAsyncResultRef {
     /// **new is deprecated:**
     /// Use g_task_new() instead.
     @available(*, deprecated) init( source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, sourceTag source_tag: UnsafeMutableRawPointer) {
-        let rv = g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -3658,7 +3728,7 @@ public extension SimpleAsyncResultRef {
     /// **new_from_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) init(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
-        let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -3668,7 +3738,7 @@ public extension SimpleAsyncResultRef {
     /// **new_take_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) init(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
-        let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -3680,7 +3750,7 @@ public extension SimpleAsyncResultRef {
     /// **new_from_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) static func newFrom(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) -> SimpleAsyncResultRef! {
-        let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         return rv.map { SimpleAsyncResultRef(cast($0)) }
     }
 
@@ -3690,7 +3760,7 @@ public extension SimpleAsyncResultRef {
     /// **new_take_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) static func newTakeError(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) -> SimpleAsyncResultRef! {
-        let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         return rv.map { SimpleAsyncResultRef(cast($0)) }
     }
 }
@@ -3867,7 +3937,7 @@ public extension SimpleAsyncResultRef {
 /// ```
 /// 
 open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimpleAsyncResult` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3959,7 +4029,7 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// **new is deprecated:**
     /// Use g_task_new() instead.
     @available(*, deprecated) public init( source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, sourceTag source_tag: UnsafeMutableRawPointer) {
-        let rv = g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new(cast(source_object.ptr), callback, cast(user_data), cast(source_tag)))
         super.init(cast(rv))
     }
 
@@ -3972,7 +4042,7 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// **new_from_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) public init(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
-        let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         super.init(cast(rv))
     }
 
@@ -3982,7 +4052,7 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// **new_take_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) public init(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) {
-        let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         super.init(cast(rv))
     }
 
@@ -3995,7 +4065,7 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// **new_from_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) public static func newFrom(error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) -> SimpleAsyncResult! {
-        let rv = g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_from_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         return rv.map { SimpleAsyncResult(cast($0)) }
     }
 
@@ -4005,13 +4075,13 @@ open class SimpleAsyncResult: Object, SimpleAsyncResultProtocol {
     /// **new_take_error is deprecated:**
     /// Use g_task_new() and g_task_return_error() instead.
     @available(*, deprecated) public static func newTakeError(take_error source_object: ObjectProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer, error: ErrorTypeProtocol) -> SimpleAsyncResult! {
-        let rv = g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr))
+        let rv: UnsafeMutablePointer<GSimpleAsyncResult>! = cast(g_simple_async_result_new_take_error(cast(source_object.ptr), callback, cast(user_data), cast(error.ptr)))
         return rv.map { SimpleAsyncResult(cast($0)) }
     }
 
 }
 
-// MARK: - no SimpleAsyncResult properties
+// MARK: no SimpleAsyncResult properties
 
 public enum SimpleAsyncResultSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -4048,8 +4118,8 @@ public extension SimpleAsyncResultProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimpleAsyncResultSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimpleAsyncResultSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_async_result_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4070,6 +4140,7 @@ public extension SimpleAsyncResultProtocol {
     }
 }
 
+// MARK: SimpleAsyncResult Class: SimpleAsyncResultProtocol extension (methods and fields)
 public extension SimpleAsyncResultProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleAsyncResult` instance.
     var simple_async_result_ptr: UnsafeMutablePointer<GSimpleAsyncResult> { return ptr.assumingMemoryBound(to: GSimpleAsyncResult.self) }
@@ -4118,7 +4189,7 @@ public extension SimpleAsyncResultProtocol {
     /// **get_op_res_gpointer is deprecated:**
     /// Use #GTask and g_task_propagate_pointer() instead.
     @available(*, deprecated) func getOpResGpointer() -> UnsafeMutableRawPointer! {
-        let rv = g_simple_async_result_get_op_res_gpointer(cast(simple_async_result_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_simple_async_result_get_op_res_gpointer(cast(simple_async_result_ptr)))
         return cast(rv)
     }
 
@@ -4128,7 +4199,7 @@ public extension SimpleAsyncResultProtocol {
     /// Use #GTask and g_task_propagate_int() instead.
     @available(*, deprecated) func getOpResGssize() -> gssize {
         let rv = g_simple_async_result_get_op_res_gssize(cast(simple_async_result_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the source tag for the `GSimpleAsyncResult`.
@@ -4136,7 +4207,7 @@ public extension SimpleAsyncResultProtocol {
     /// **get_source_tag is deprecated:**
     /// Use #GTask and g_task_get_source_tag() instead.
     @available(*, deprecated) func getSourceTag() -> UnsafeMutableRawPointer! {
-        let rv = g_simple_async_result_get_source_tag(cast(simple_async_result_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_simple_async_result_get_source_tag(cast(simple_async_result_ptr)))
         return cast(rv)
     }
 
@@ -4150,11 +4221,9 @@ public extension SimpleAsyncResultProtocol {
     /// **propagate_error is deprecated:**
     /// Use #GTask instead.
     @available(*, deprecated) func propagateError() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_simple_async_result_propagate_error(cast(simple_async_result_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -4300,7 +4369,7 @@ public extension SimpleAsyncResultProtocol {
         /// **get_op_res_gpointer is deprecated:**
         /// Use #GTask and g_task_propagate_pointer() instead.
         @available(*, deprecated) get {
-            let rv = g_simple_async_result_get_op_res_gpointer(cast(simple_async_result_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_simple_async_result_get_op_res_gpointer(cast(simple_async_result_ptr)))
             return cast(rv)
         }
     }
@@ -4316,7 +4385,7 @@ public extension SimpleAsyncResultProtocol {
         /// Use #GTask and g_task_propagate_int() instead.
         @available(*, deprecated) get {
             let rv = g_simple_async_result_get_op_res_gssize(cast(simple_async_result_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the operation result within the asynchronous result to
         /// the given `op_res`.
@@ -4324,7 +4393,7 @@ public extension SimpleAsyncResultProtocol {
         /// **set_op_res_gssize is deprecated:**
         /// Use #GTask and g_task_return_int() instead.
         @available(*, deprecated) nonmutating set {
-            g_simple_async_result_set_op_res_gssize(cast(simple_async_result_ptr), newValue)
+            g_simple_async_result_set_op_res_gssize(cast(simple_async_result_ptr), cast(newValue))
         }
     }
 
@@ -4338,10 +4407,12 @@ public extension SimpleAsyncResultProtocol {
         /// **get_source_tag is deprecated:**
         /// Use #GTask and g_task_get_source_tag() instead.
         @available(*, deprecated) get {
-            let rv = g_simple_async_result_get_source_tag(cast(simple_async_result_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_simple_async_result_get_source_tag(cast(simple_async_result_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -4362,7 +4433,7 @@ public extension SimpleAsyncResultProtocol {
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 public protocol SimpleIOStreamProtocol: IOStreamProtocol {
-    /// Untyped pointer to the underlying `GSimpleIOStream` instance.
+        /// Untyped pointer to the underlying `GSimpleIOStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleIOStream` instance.
@@ -4382,7 +4453,7 @@ public protocol SimpleIOStreamProtocol: IOStreamProtocol {
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 public struct SimpleIOStreamRef: SimpleIOStreamProtocol {
-    /// Untyped pointer to the underlying `GSimpleIOStream` instance.
+        /// Untyped pointer to the underlying `GSimpleIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `simple_io_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4430,7 +4501,7 @@ public extension SimpleIOStreamRef {
         /// Creates a new `GSimpleIOStream` wrapping `input_stream` and `output_stream`.
     /// See also `GIOStream`.
     init( input_stream: InputStreamProtocol, outputStream output_stream: OutputStreamProtocol) {
-        let rv = g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr))
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -4448,7 +4519,7 @@ public extension SimpleIOStreamRef {
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
 open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimpleIOStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4529,7 +4600,7 @@ open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
     /// Creates a new `GSimpleIOStream` wrapping `input_stream` and `output_stream`.
     /// See also `GIOStream`.
     public init( input_stream: InputStreamProtocol, outputStream output_stream: OutputStreamProtocol) {
-        let rv = g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr))
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_simple_io_stream_new(cast(input_stream.ptr), cast(output_stream.ptr)))
         super.init(cast(rv))
     }
 
@@ -4551,8 +4622,8 @@ public extension SimpleIOStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -4575,6 +4646,23 @@ public extension SimpleIOStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SimpleIOStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SimpleIOStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SimpleIOStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SimpleIOStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -4615,8 +4703,8 @@ public extension SimpleIOStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimpleIOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimpleIOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_io_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4637,9 +4725,12 @@ public extension SimpleIOStreamProtocol {
     }
 }
 
+// MARK: SimpleIOStream Class: SimpleIOStreamProtocol extension (methods and fields)
 public extension SimpleIOStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleIOStream` instance.
     var simple_io_stream_ptr: UnsafeMutablePointer<GSimpleIOStream> { return ptr.assumingMemoryBound(to: GSimpleIOStream.self) }
+
+
 
 }
 
@@ -4658,7 +4749,7 @@ public extension SimpleIOStreamProtocol {
 /// 
 /// Calling request or release will result in errors.
 public protocol SimplePermissionProtocol: PermissionProtocol {
-    /// Untyped pointer to the underlying `GSimplePermission` instance.
+        /// Untyped pointer to the underlying `GSimplePermission` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimplePermission` instance.
@@ -4675,7 +4766,7 @@ public protocol SimplePermissionProtocol: PermissionProtocol {
 /// 
 /// Calling request or release will result in errors.
 public struct SimplePermissionRef: SimplePermissionProtocol {
-    /// Untyped pointer to the underlying `GSimplePermission` instance.
+        /// Untyped pointer to the underlying `GSimplePermission` instance.
     /// For type-safe access, use the generated, typed pointer `simple_permission_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4723,7 +4814,7 @@ public extension SimplePermissionRef {
         /// Creates a new `GPermission` instance that represents an action that is
     /// either always or never allowed.
     init( allowed: Bool) {
-        let rv = g_simple_permission_new(gboolean(allowed ? 1 : 0))
+        let rv: UnsafeMutablePointer<GPermission>! = cast(g_simple_permission_new(gboolean(allowed ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -4738,7 +4829,7 @@ public extension SimplePermissionRef {
 /// 
 /// Calling request or release will result in errors.
 open class SimplePermission: Permission, SimplePermissionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimplePermission` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4819,7 +4910,7 @@ open class SimplePermission: Permission, SimplePermissionProtocol {
     /// Creates a new `GPermission` instance that represents an action that is
     /// either always or never allowed.
     public init( allowed: Bool) {
-        let rv = g_simple_permission_new(gboolean(allowed ? 1 : 0))
+        let rv: UnsafeMutablePointer<GPermission>! = cast(g_simple_permission_new(gboolean(allowed ? 1 : 0)))
         super.init(cast(rv))
     }
 
@@ -4847,8 +4938,8 @@ public extension SimplePermissionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimplePermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimplePermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -4871,6 +4962,23 @@ public extension SimplePermissionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SimplePermission property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SimplePermissionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SimplePermission property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SimplePermissionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -4917,8 +5025,8 @@ public extension SimplePermissionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimplePermissionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimplePermissionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_permission_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4939,9 +5047,12 @@ public extension SimplePermissionProtocol {
     }
 }
 
+// MARK: SimplePermission Class: SimplePermissionProtocol extension (methods and fields)
 public extension SimplePermissionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimplePermission` instance.
     var simple_permission_ptr: UnsafeMutablePointer<GSimplePermission> { return ptr.assumingMemoryBound(to: GSimplePermission.self) }
+
+
 
 }
 
@@ -4963,7 +5074,7 @@ public extension SimplePermissionProtocol {
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
 public protocol SimpleProxyResolverProtocol: ObjectProtocol, ProxyResolverProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleProxyResolver` instance.
@@ -4983,7 +5094,7 @@ public protocol SimpleProxyResolverProtocol: ObjectProtocol, ProxyResolverProtoc
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
 public struct SimpleProxyResolverRef: SimpleProxyResolverProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `simple_proxy_resolver_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5043,7 +5154,7 @@ public extension SimpleProxyResolverRef {
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
 open class SimpleProxyResolver: Object, SimpleProxyResolverProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SimpleProxyResolver` instance.
     /// - Parameter op: pointer to the underlying object
@@ -5180,8 +5291,8 @@ public extension SimpleProxyResolverProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleProxyResolverPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SimpleProxyResolverPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -5204,6 +5315,23 @@ public extension SimpleProxyResolverProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SimpleProxyResolver property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SimpleProxyResolverPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SimpleProxyResolver property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SimpleProxyResolverPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -5284,8 +5412,8 @@ public extension SimpleProxyResolverProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SimpleProxyResolverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SimpleProxyResolverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(simple_proxy_resolver_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -5306,6 +5434,7 @@ public extension SimpleProxyResolverProtocol {
     }
 }
 
+// MARK: SimpleProxyResolver Class: SimpleProxyResolverProtocol extension (methods and fields)
 public extension SimpleProxyResolverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleProxyResolver` instance.
     var simple_proxy_resolver_ptr: UnsafeMutablePointer<GSimpleProxyResolver> { return ptr.assumingMemoryBound(to: GSimpleProxyResolver.self) }
@@ -5343,6 +5472,16 @@ public extension SimpleProxyResolverProtocol {
         g_simple_proxy_resolver_set_uri_proxy(cast(simple_proxy_resolver_ptr), uri_scheme, proxy)
     
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(simple_proxy_resolver_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -5406,7 +5545,7 @@ public extension SimpleProxyResolverProtocol {
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
 public protocol SocketProtocol: ObjectProtocol, DatagramBasedProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GSocket` instance.
+        /// Untyped pointer to the underlying `GSocket` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocket` instance.
@@ -5469,7 +5608,7 @@ public protocol SocketProtocol: ObjectProtocol, DatagramBasedProtocol, InitableP
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
 public struct SocketRef: SocketProtocol {
-    /// Untyped pointer to the underlying `GSocket` instance.
+        /// Untyped pointer to the underlying `GSocket` instance.
     /// For type-safe access, use the generated, typed pointer `socket_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5528,11 +5667,9 @@ public extension SocketRef {
     /// system, so you can use protocols not listed in `GSocketProtocol` if you
     /// know the protocol number used for it.
     init( family: SocketFamily, type: SocketType, protocol_: Socket_Protocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new(family, type, protocol_, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new(family, type, protocol_, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -5550,11 +5687,9 @@ public extension SocketRef {
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
     /// descriptor.  Instead, a GError will be set with code `G_IO_ERROR_FAILED`
     init(fd: CInt) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new_from_fd(gint(fd), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new_from_fd(gint(fd), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GSocket` from a native file descriptor
@@ -5571,11 +5706,9 @@ public extension SocketRef {
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
     /// descriptor.  Instead, a GError will be set with code `G_IO_ERROR_FAILED`
     static func newFrom(fd: CInt) throws -> SocketRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new_from_fd(gint(fd), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new_from_fd(gint(fd), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { SocketRef(cast($0)) }
     }
 }
@@ -5636,7 +5769,7 @@ public extension SocketRef {
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
 open class Socket: Object, SocketProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Socket` instance.
     /// - Parameter op: pointer to the underlying object
@@ -5728,11 +5861,9 @@ open class Socket: Object, SocketProtocol {
     /// system, so you can use protocols not listed in `GSocketProtocol` if you
     /// know the protocol number used for it.
     public init( family: SocketFamily, type: SocketType, protocol_: Socket_Protocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new(family, type, protocol_, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new(family, type, protocol_, &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -5750,11 +5881,9 @@ open class Socket: Object, SocketProtocol {
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
     /// descriptor.  Instead, a GError will be set with code `G_IO_ERROR_FAILED`
     public init(fd: CInt) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new_from_fd(gint(fd), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new_from_fd(gint(fd), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -5772,11 +5901,9 @@ open class Socket: Object, SocketProtocol {
     /// Since GLib 2.46, it is no longer a fatal error to call this on a non-socket
     /// descriptor.  Instead, a GError will be set with code `G_IO_ERROR_FAILED`
     public static func newFrom(fd: CInt) throws -> Socket! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_new_from_fd(gint(fd), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_new_from_fd(gint(fd), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Socket(cast($0)) }
     }
 
@@ -5813,8 +5940,8 @@ public extension SocketProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -5837,6 +5964,23 @@ public extension SocketProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Socket property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Socket property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -5893,8 +6037,8 @@ public extension SocketProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -5915,6 +6059,7 @@ public extension SocketProtocol {
     }
 }
 
+// MARK: Socket Class: SocketProtocol extension (methods and fields)
 public extension SocketProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocket` instance.
     var socket_ptr: UnsafeMutablePointer<GSocket> { return ptr.assumingMemoryBound(to: GSocket.self) }
@@ -5930,11 +6075,9 @@ public extension SocketProtocol {
     /// or return `G_IO_ERROR_WOULD_BLOCK` if non-blocking I/O is enabled.
     /// To be notified of an incoming connection, wait for the `G_IO_IN` condition.
     func accept(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocket>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_accept(cast(socket_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_accept(cast(socket_ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -5962,11 +6105,9 @@ public extension SocketProtocol {
     /// broadcast packets sent to that address. (The behavior of unicast
     /// UDP packets to an address with multiple listeners is not defined.)
     func bind(address: SocketAddressProtocol, allowReuse allow_reuse: Bool) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_bind(cast(socket_ptr), cast(address.ptr), gboolean(allow_reuse ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -5974,11 +6115,9 @@ public extension SocketProtocol {
     /// This is used to check for errors when `g_socket_connect()` is
     /// used in non-blocking mode.
     func checkConnectResult() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_check_connect_result(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6012,11 +6151,9 @@ public extension SocketProtocol {
     /// only works if the client will close its connection after the server
     /// does.)
     func close() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_close(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6038,8 +6175,8 @@ public extension SocketProtocol {
     /// 
     /// This call never blocks.
     func conditionCheck(condition: GLib.IOCondition) -> GIOCondition {
-        let rv = g_socket_condition_check(cast(socket_ptr), condition)
-        return rv
+        let rv = g_socket_condition_check(cast(socket_ptr), condition.value)
+        return cast(rv)
     }
 
     /// Waits for up to `timeout_us` microseconds for `condition` to become true
@@ -6059,11 +6196,9 @@ public extension SocketProtocol {
     /// resolution, and the behavior is undefined if `timeout_us` is not an
     /// exact number of milliseconds.
     func conditionTimedWait(condition: GLib.IOCondition, timeoutUs timeout_us: Int64, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_condition_timed_wait(cast(socket_ptr), condition, gint64(timeout_us), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_socket_condition_timed_wait(cast(socket_ptr), condition.value, gint64(timeout_us), cast(cancellable.ptr), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6078,11 +6213,9 @@ public extension SocketProtocol {
     /// 
     /// See also `g_socket_condition_timed_wait()`.
     func conditionWait(condition: GLib.IOCondition, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_condition_wait(cast(socket_ptr), condition, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_socket_condition_wait(cast(socket_ptr), condition.value, cast(cancellable.ptr), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6103,18 +6236,16 @@ public extension SocketProtocol {
     /// for the G_IO_OUT condition. The result of the connection must then be
     /// checked with `g_socket_check_connect_result()`.
     func connect(address: SocketAddressProtocol, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_connect(cast(socket_ptr), cast(address.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Creates a `GSocketConnection` subclass of the right type for
     /// `socket`.
     func connectionFactoryCreateConnection() -> UnsafeMutablePointer<GSocketConnection>! {
-        let rv = g_socket_connection_factory_create_connection(cast(socket_ptr))
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_connection_factory_create_connection(cast(socket_ptr)))
         return cast(rv)
     }
 
@@ -6139,7 +6270,7 @@ public extension SocketProtocol {
     /// marked as having had a timeout, and so the next `GSocket` I/O method
     /// you call will then fail with a `G_IO_ERROR_TIMED_OUT`.
     func createSource(condition: GLib.IOCondition, cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_socket_create_source(cast(socket_ptr), condition, cast(cancellable.ptr))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_socket_create_source(cast(socket_ptr), condition.value, cast(cancellable.ptr)))
         return cast(rv)
     }
 
@@ -6157,7 +6288,7 @@ public extension SocketProtocol {
     /// exactly the right size.
     func getAvailableBytes() -> gssize {
         let rv = g_socket_get_available_bytes(cast(socket_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the blocking mode of the socket. For details on blocking I/O,
@@ -6195,18 +6326,16 @@ public extension SocketProtocol {
     /// `g_unix_connection_send_credentials()` /
     /// `g_unix_connection_receive_credentials()` functions.
     func getCredentials() throws -> UnsafeMutablePointer<GCredentials>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_get_credentials(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_socket_get_credentials(cast(socket_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Gets the socket family of the socket.
     func getFamily() -> GSocketFamily {
         let rv = g_socket_get_family(cast(socket_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the underlying OS socket object. On unix this
@@ -6214,9 +6343,9 @@ public extension SocketProtocol {
     /// a Winsock2 SOCKET handle. This may be useful for
     /// doing platform specific or otherwise unusual operations
     /// on the socket.
-    func getFd() -> CInt {
-        let rv = g_socket_get_fd(cast(socket_ptr))
-        return rv
+    func getFd() -> Int {
+        let rv: Int = cast(g_socket_get_fd(cast(socket_ptr)))
+        return cast(rv)
     }
 
     /// Gets the keepalive mode of the socket. For details on this,
@@ -6228,20 +6357,18 @@ public extension SocketProtocol {
 
     /// Gets the listen backlog setting of the socket. For details on this,
     /// see `g_socket_set_listen_backlog()`.
-    func getListenBacklog() -> CInt {
-        let rv = g_socket_get_listen_backlog(cast(socket_ptr))
-        return CInt(rv)
+    func getListenBacklog() -> Int {
+        let rv: Int = cast(g_socket_get_listen_backlog(cast(socket_ptr)))
+        return Int(rv)
     }
 
     /// Try to get the local address of a bound socket. This is only
     /// useful if the socket has been bound to a local address,
     /// either explicitly or implicitly when connecting.
     func getLocalAddress() throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_get_local_address(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_get_local_address(cast(socket_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -6255,9 +6382,9 @@ public extension SocketProtocol {
 
     /// Gets the multicast time-to-live setting on `socket`; see
     /// `g_socket_set_multicast_ttl()` for more details.
-    func getMulticastTtl() -> CUnsignedInt {
-        let rv = g_socket_get_multicast_ttl(cast(socket_ptr))
-        return CUnsignedInt(rv)
+    func getMulticastTtl() -> Int {
+        let rv: Int = cast(g_socket_get_multicast_ttl(cast(socket_ptr)))
+        return Int(rv)
     }
 
     /// Gets the value of an integer-valued option on `socket`, as with
@@ -6274,11 +6401,9 @@ public extension SocketProtocol {
     /// `value` is still a pointer to a `gint` variable, not a `guchar`;
     /// `g_socket_get_option()` will handle the conversion internally.
     func getOption(level: CInt, optname: CInt, value: UnsafeMutablePointer<CInt>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_get_option(cast(socket_ptr), gint(level), gint(optname), cast(value), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6286,38 +6411,36 @@ public extension SocketProtocol {
     /// In case the protocol is unknown, -1 is returned.
     func getProtocol() -> GSocketProtocol {
         let rv = g_socket_get_protocol(cast(socket_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Try to get the remote address of a connected socket. This is only
     /// useful for connection oriented sockets that have been connected.
     func getRemoteAddress() throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_get_remote_address(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_get_remote_address(cast(socket_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Gets the socket type of the socket.
     func getSocketType() -> GSocketType {
         let rv = g_socket_get_socket_type(cast(socket_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the timeout setting of the socket. For details on this, see
     /// `g_socket_set_timeout()`.
-    func getTimeout() -> CUnsignedInt {
-        let rv = g_socket_get_timeout(cast(socket_ptr))
-        return CUnsignedInt(rv)
+    func getTimeout() -> Int {
+        let rv: Int = cast(g_socket_get_timeout(cast(socket_ptr)))
+        return Int(rv)
     }
 
     /// Gets the unicast time-to-live setting on `socket`; see
     /// `g_socket_set_ttl()` for more details.
-    func getTtl() -> CUnsignedInt {
-        let rv = g_socket_get_ttl(cast(socket_ptr))
-        return CUnsignedInt(rv)
+    func getTtl() -> Int {
+        let rv: Int = cast(g_socket_get_ttl(cast(socket_ptr)))
+        return Int(rv)
     }
 
     /// Registers `socket` to receive multicast messages sent to `group`.
@@ -6335,11 +6458,9 @@ public extension SocketProtocol {
     /// To bind to a given source-specific multicast address, use
     /// `g_socket_join_multicast_group_ssm()` instead.
     func joinMulticast(group: InetAddressProtocol, sourceSpecific source_specific: Bool, iface: UnsafePointer<gchar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_join_multicast_group(cast(socket_ptr), cast(group.ptr), gboolean(source_specific ? 1 : 0), iface, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6359,11 +6480,9 @@ public extension SocketProtocol {
     /// `group` with different `source_specific` in order to receive multicast
     /// packets from more than one source.
     func joinMulticastGroupSsm(group: InetAddressProtocol, sourceSpecific source_specific: InetAddressProtocol, iface: UnsafePointer<gchar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_join_multicast_group_ssm(cast(socket_ptr), cast(group.ptr), cast(source_specific.ptr), iface, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6377,11 +6496,9 @@ public extension SocketProtocol {
     /// To unbind to a given source-specific multicast address, use
     /// `g_socket_leave_multicast_group_ssm()` instead.
     func leaveMulticast(group: InetAddressProtocol, sourceSpecific source_specific: Bool, iface: UnsafePointer<gchar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_leave_multicast_group(cast(socket_ptr), cast(group.ptr), gboolean(source_specific ? 1 : 0), iface, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6392,11 +6509,9 @@ public extension SocketProtocol {
     /// `socket` remains bound to its address and port, and can still receive
     /// unicast messages after calling this.
     func leaveMulticastGroupSsm(group: InetAddressProtocol, sourceSpecific source_specific: InetAddressProtocol, iface: UnsafePointer<gchar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_leave_multicast_group_ssm(cast(socket_ptr), cast(group.ptr), cast(source_specific.ptr), iface, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6409,11 +6524,9 @@ public extension SocketProtocol {
     /// To set the maximum amount of outstanding clients, use
     /// `g_socket_set_listen_backlog()`.
     func listen() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_listen(cast(socket_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6441,12 +6554,10 @@ public extension SocketProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func receive(buffer: UnsafeMutablePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_receive(cast(socket_ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Receive data (up to `size` bytes) from a socket.
@@ -6457,12 +6568,10 @@ public extension SocketProtocol {
     /// 
     /// See `g_socket_receive()` for additional information.
     func receiveFrom(address: SocketAddressProtocol, buffer: UnsafeMutablePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_receive_from(cast(socket_ptr), cast(address.ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Receive data from a socket.  For receiving multiple messages, see
@@ -6525,12 +6634,10 @@ public extension SocketProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func receiveMessage(address: SocketAddressProtocol, vectors: UnsafeMutablePointer<GInputVector>, numVectors num_vectors: CInt, messages: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<GSocketControlMessage>>>, numMessages num_messages: UnsafeMutablePointer<CInt>, flags: UnsafeMutablePointer<CInt>, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_receive_message(cast(socket_ptr), cast(address.ptr), cast(vectors), gint(num_vectors), cast(messages), cast(num_messages), cast(flags), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Receive multiple data messages from `socket` in one go.  This is the most
@@ -6581,25 +6688,21 @@ public extension SocketProtocol {
     /// On error -1 is returned and `error` is set accordingly. An error will only
     /// be returned if zero messages could be received; otherwise the number of
     /// messages successfully received before the error will be returned.
-    func receive(messages: UnsafeMutablePointer<GInputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, cancellable: CancellableProtocol) throws -> CInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_receive_messages(cast(socket_ptr), cast(messages), guint(num_messages), gint(flags), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CInt(rv)
+    func receive(messages: UnsafeMutablePointer<GInputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, cancellable: CancellableProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_socket_receive_messages(cast(socket_ptr), cast(messages), guint(num_messages), gint(flags), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// This behaves exactly the same as `g_socket_receive()`, except that
     /// the choice of blocking or non-blocking behavior is determined by
     /// the `blocking` argument rather than by `socket`'s properties.
     func receiveWithBlocking(buffer: UnsafeMutablePointer<gchar>, size: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_receive_with_blocking(cast(socket_ptr), cast(buffer), gsize(size), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to send `size` bytes from `buffer` on the socket. This is
@@ -6617,12 +6720,10 @@ public extension SocketProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func send(buffer: UnsafePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_send(cast(socket_ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Send data to `address` on `socket`.  For sending multiple messages see
@@ -6663,12 +6764,10 @@ public extension SocketProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func sendMessage(address: SocketAddressProtocol, vectors: UnsafeMutablePointer<GOutputVector>, numVectors num_vectors: CInt, messages: UnsafeMutablePointer<UnsafeMutablePointer<GSocketControlMessage>>, numMessages num_messages: CInt, flags: CInt, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_send_message(cast(socket_ptr), cast(address.ptr), cast(vectors), gint(num_vectors), cast(messages), gint(num_messages), gint(flags), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This behaves exactly the same as `g_socket_send_message()`, except that
@@ -6679,12 +6778,10 @@ public extension SocketProtocol {
     /// if the socket is currently not writable `G_POLLABLE_RETURN_WOULD_BLOCK` is
     /// returned. `bytes_written` will contain 0 in both cases.
     func sendMessageWithTimeout(address: SocketAddressProtocol, vectors: UnsafePointer<GOutputVector>, numVectors num_vectors: CInt, messages: UnsafeMutablePointer<UnsafeMutablePointer<GSocketControlMessage>>, numMessages num_messages: CInt, flags: CInt, timeoutUs timeout_us: Int64, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> GPollableReturn {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_send_message_with_timeout(cast(socket_ptr), cast(address.ptr), cast(vectors), gint(num_vectors), cast(messages), gint(num_messages), gint(flags), gint64(timeout_us), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Send multiple data messages from `socket` in one go.  This is the most
@@ -6721,13 +6818,11 @@ public extension SocketProtocol {
     /// On error -1 is returned and `error` is set accordingly. An error will only
     /// be returned if zero messages could be sent; otherwise the number of messages
     /// successfully sent before the error will be returned.
-    func send(messages: UnsafeMutablePointer<GOutputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, cancellable: CancellableProtocol) throws -> CInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_send_messages(cast(socket_ptr), cast(messages), guint(num_messages), gint(flags), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CInt(rv)
+    func send(messages: UnsafeMutablePointer<GOutputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, cancellable: CancellableProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_socket_send_messages(cast(socket_ptr), cast(messages), guint(num_messages), gint(flags), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Tries to send `size` bytes from `buffer` to `address`. If `address` is
@@ -6736,24 +6831,20 @@ public extension SocketProtocol {
     /// 
     /// See `g_socket_send()` for additional information.
     func sendTo(address: SocketAddressProtocol, buffer: UnsafePointer<gchar>, size: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_send_to(cast(socket_ptr), cast(address.ptr), cast(buffer), gsize(size), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This behaves exactly the same as `g_socket_send()`, except that
     /// the choice of blocking or non-blocking behavior is determined by
     /// the `blocking` argument rather than by `socket`'s properties.
     func sendWithBlocking(buffer: UnsafePointer<gchar>, size: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_send_with_blocking(cast(socket_ptr), cast(buffer), gsize(size), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Sets the blocking mode of the socket. In blocking mode
@@ -6835,11 +6926,9 @@ public extension SocketProtocol {
     /// platform-dependent options, you may need to include additional
     /// headers.
     func setOption(level: CInt, optname: CInt, value: CInt) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_set_option(cast(socket_ptr), gint(level), gint(optname), gint(value), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6890,11 +6979,9 @@ public extension SocketProtocol {
     /// then wait for the other side to close the connection, thus ensuring that the
     /// other side saw all sent data.
     func shutdown(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_shutdown(cast(socket_ptr), gboolean(shutdown_read ? 1 : 0), gboolean(shutdown_write ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -6938,7 +7025,7 @@ public extension SocketProtocol {
         /// exactly the right size.
         get {
             let rv = g_socket_get_available_bytes(cast(socket_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -6979,23 +7066,70 @@ public extension SocketProtocol {
         }
     }
 
+    /// Returns the credentials of the foreign process connected to this
+    /// socket, if any (e.g. it is only supported for `G_SOCKET_FAMILY_UNIX`
+    /// sockets).
+    /// 
+    /// If this operation isn't supported on the OS, the method fails with
+    /// the `G_IO_ERROR_NOT_SUPPORTED` error. On Linux this is implemented
+    /// by reading the `SO_PEERCRED` option on the underlying socket.
+    /// 
+    /// This method can be expected to be available on the following platforms:
+    /// 
+    /// - Linux since GLib 2.26
+    /// - OpenBSD since GLib 2.30
+    /// - Solaris, Illumos and OpenSolaris since GLib 2.40
+    /// - NetBSD since GLib 2.42
+    /// 
+    /// Other ways to obtain credentials from a foreign peer includes the
+    /// `GUnixCredentialsMessage` type and
+    /// `g_unix_connection_send_credentials()` /
+    /// `g_unix_connection_receive_credentials()` functions.
+    var credentials: UnsafeMutablePointer<GCredentials>! {
+        /// Returns the credentials of the foreign process connected to this
+        /// socket, if any (e.g. it is only supported for `G_SOCKET_FAMILY_UNIX`
+        /// sockets).
+        /// 
+        /// If this operation isn't supported on the OS, the method fails with
+        /// the `G_IO_ERROR_NOT_SUPPORTED` error. On Linux this is implemented
+        /// by reading the `SO_PEERCRED` option on the underlying socket.
+        /// 
+        /// This method can be expected to be available on the following platforms:
+        /// 
+        /// - Linux since GLib 2.26
+        /// - OpenBSD since GLib 2.30
+        /// - Solaris, Illumos and OpenSolaris since GLib 2.40
+        /// - NetBSD since GLib 2.42
+        /// 
+        /// Other ways to obtain credentials from a foreign peer includes the
+        /// `GUnixCredentialsMessage` type and
+        /// `g_unix_connection_send_credentials()` /
+        /// `g_unix_connection_receive_credentials()` functions.
+        get {
+            var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_socket_get_credentials(cast(socket_ptr), &error))
+        g_log(messagePtr: error?.pointee.message, level: .error)
+            return cast(rv)
+        }
+    }
+
     var family: GSocketFamily {
         /// Gets the socket family of the socket.
         get {
             let rv = g_socket_get_family(cast(socket_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
-    var fd: CInt {
+    var fd: Int {
         /// Returns the underlying OS socket object. On unix this
         /// is a socket file descriptor, and on Windows this is
         /// a Winsock2 SOCKET handle. This may be useful for
         /// doing platform specific or otherwise unusual operations
         /// on the socket.
         get {
-            let rv = g_socket_get_fd(cast(socket_ptr))
-            return rv
+            let rv: Int = cast(g_socket_get_fd(cast(socket_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7058,12 +7192,12 @@ public extension SocketProtocol {
 
     /// Gets the listen backlog setting of the socket. For details on this,
     /// see `g_socket_set_listen_backlog()`.
-    var listenBacklog: CInt {
+    var listenBacklog: Int {
         /// Gets the listen backlog setting of the socket. For details on this,
         /// see `g_socket_set_listen_backlog()`.
         get {
-            let rv = g_socket_get_listen_backlog(cast(socket_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_socket_get_listen_backlog(cast(socket_ptr)))
+            return Int(rv)
         }
         /// Sets the maximum number of outstanding connections allowed
         /// when listening on this socket. If more clients than this are
@@ -7074,6 +7208,21 @@ public extension SocketProtocol {
         /// effect if called after that.
         nonmutating set {
             g_socket_set_listen_backlog(cast(socket_ptr), gint(newValue))
+        }
+    }
+
+    /// Try to get the local address of a bound socket. This is only
+    /// useful if the socket has been bound to a local address,
+    /// either explicitly or implicitly when connecting.
+    var localAddress: UnsafeMutablePointer<GSocketAddress>! {
+        /// Try to get the local address of a bound socket. This is only
+        /// useful if the socket has been bound to a local address,
+        /// either explicitly or implicitly when connecting.
+        get {
+            var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_get_local_address(cast(socket_ptr), &error))
+        g_log(messagePtr: error?.pointee.message, level: .error)
+            return cast(rv)
         }
     }
 
@@ -7098,12 +7247,12 @@ public extension SocketProtocol {
 
     /// Gets the multicast time-to-live setting on `socket`; see
     /// `g_socket_set_multicast_ttl()` for more details.
-    var multicastTtl: CUnsignedInt {
+    var multicastTtl: Int {
         /// Gets the multicast time-to-live setting on `socket`; see
         /// `g_socket_set_multicast_ttl()` for more details.
         get {
-            let rv = g_socket_get_multicast_ttl(cast(socket_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_socket_get_multicast_ttl(cast(socket_ptr)))
+            return Int(rv)
         }
         /// Sets the time-to-live for outgoing multicast datagrams on `socket`.
         /// By default, this is 1, meaning that multicast packets will not leave
@@ -7113,12 +7262,25 @@ public extension SocketProtocol {
         }
     }
 
-    var protocol_: GSocketProtocol {
+    var `protocol`: GSocketProtocol {
         /// Gets the socket protocol id the socket was created with.
         /// In case the protocol is unknown, -1 is returned.
         get {
             let rv = g_socket_get_protocol(cast(socket_ptr))
-            return rv
+            return cast(rv)
+        }
+    }
+
+    /// Try to get the remote address of a connected socket. This is only
+    /// useful for connection oriented sockets that have been connected.
+    var remoteAddress: UnsafeMutablePointer<GSocketAddress>! {
+        /// Try to get the remote address of a connected socket. This is only
+        /// useful for connection oriented sockets that have been connected.
+        get {
+            var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_get_remote_address(cast(socket_ptr), &error))
+        g_log(messagePtr: error?.pointee.message, level: .error)
+            return cast(rv)
         }
     }
 
@@ -7127,17 +7289,17 @@ public extension SocketProtocol {
         /// Gets the socket type of the socket.
         get {
             let rv = g_socket_get_socket_type(cast(socket_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// The timeout in seconds on socket I/O
-    var timeout: CUnsignedInt {
+    var timeout: Int {
         /// Gets the timeout setting of the socket. For details on this, see
         /// `g_socket_set_timeout()`.
         get {
-            let rv = g_socket_get_timeout(cast(socket_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_socket_get_timeout(cast(socket_ptr)))
+            return Int(rv)
         }
         /// Sets the time in seconds after which I/O operations on `socket` will
         /// time out if they have not yet completed.
@@ -7165,12 +7327,12 @@ public extension SocketProtocol {
     }
 
     /// Time-to-live for outgoing unicast packets
-    var ttl: CUnsignedInt {
+    var ttl: Int {
         /// Gets the unicast time-to-live setting on `socket`; see
         /// `g_socket_set_ttl()` for more details.
         get {
-            let rv = g_socket_get_ttl(cast(socket_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_socket_get_ttl(cast(socket_ptr)))
+            return Int(rv)
         }
         /// Sets the time-to-live for outgoing unicast packets on `socket`.
         /// By default the platform-specific default value is used.
@@ -7178,6 +7340,21 @@ public extension SocketProtocol {
             g_socket_set_ttl(cast(socket_ptr), guint(newValue))
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(socket_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketPrivate> = cast(socket_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -7193,7 +7370,7 @@ public extension SocketProtocol {
 /// sockets API. This is an abstract class; use `GInetSocketAddress`
 /// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 public protocol SocketAddressProtocol: ObjectProtocol, SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GSocketAddress` instance.
+        /// Untyped pointer to the underlying `GSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketAddress` instance.
@@ -7208,7 +7385,7 @@ public protocol SocketAddressProtocol: ObjectProtocol, SocketConnectableProtocol
 /// sockets API. This is an abstract class; use `GInetSocketAddress`
 /// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 public struct SocketAddressRef: SocketAddressProtocol {
-    /// Untyped pointer to the underlying `GSocketAddress` instance.
+        /// Untyped pointer to the underlying `GSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `socket_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7256,13 +7433,13 @@ public extension SocketAddressRef {
         /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
     init(native: UnsafeMutableRawPointer, len: Int) {
-        let rv = g_socket_address_new_from_native(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_new_from_native(cast(native), gsize(len)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
     static func newFrom(native: UnsafeMutableRawPointer, len: Int) -> SocketAddressRef! {
-        let rv = g_socket_address_new_from_native(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_new_from_native(cast(native), gsize(len)))
         return rv.map { SocketAddressRef(cast($0)) }
     }
 }
@@ -7275,7 +7452,7 @@ public extension SocketAddressRef {
 /// sockets API. This is an abstract class; use `GInetSocketAddress`
 /// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 open class SocketAddress: Object, SocketAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -7356,14 +7533,14 @@ open class SocketAddress: Object, SocketAddressProtocol {
     /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
     public init(native: UnsafeMutableRawPointer, len: Int) {
-        let rv = g_socket_address_new_from_native(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_new_from_native(cast(native), gsize(len)))
         super.init(cast(rv))
     }
 
     /// Creates a `GSocketAddress` subclass corresponding to the native
     /// struct sockaddr `native`.
     public static func newFrom(native: UnsafeMutableRawPointer, len: Int) -> SocketAddress! {
-        let rv = g_socket_address_new_from_native(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_new_from_native(cast(native), gsize(len)))
         return rv.map { SocketAddress(cast($0)) }
     }
 
@@ -7382,8 +7559,8 @@ public extension SocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -7406,6 +7583,23 @@ public extension SocketAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SocketAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SocketAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -7444,8 +7638,8 @@ public extension SocketAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -7466,6 +7660,7 @@ public extension SocketAddressProtocol {
     }
 }
 
+// MARK: SocketAddress Class: SocketAddressProtocol extension (methods and fields)
 public extension SocketAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketAddress` instance.
     var socket_address_ptr: UnsafeMutablePointer<GSocketAddress> { return ptr.assumingMemoryBound(to: GSocketAddress.self) }
@@ -7473,7 +7668,7 @@ public extension SocketAddressProtocol {
     /// Gets the socket family type of `address`.
     func getFamily() -> GSocketFamily {
         let rv = g_socket_address_get_family(cast(socket_address_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the size of `address`'s native struct sockaddr.
@@ -7481,7 +7676,7 @@ public extension SocketAddressProtocol {
     /// `g_socket_address_to_native()`.
     func getNativeSize() -> gssize {
         let rv = g_socket_address_get_native_size(cast(socket_address_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Converts a `GSocketAddress` to a native struct sockaddr, which can
@@ -7491,18 +7686,16 @@ public extension SocketAddressProtocol {
     /// is returned. If the address type is not known on the system
     /// then a `G_IO_ERROR_NOT_SUPPORTED` error is returned.
     func toNative(dest: UnsafeMutableRawPointer, destlen: Int) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_address_to_native(cast(socket_address_ptr), cast(dest), gsize(destlen), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     var family: GSocketFamily {
         /// Gets the socket family type of `address`.
         get {
             let rv = g_socket_address_get_family(cast(socket_address_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -7515,9 +7708,17 @@ public extension SocketAddressProtocol {
         /// `g_socket_address_to_native()`.
         get {
             let rv = g_socket_address_get_native_size(cast(socket_address_ptr))
+            return cast(rv)
+        }
+    }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(socket_address_ptr.pointee.parent_instance)
             return rv
         }
     }
+
 }
 
 
@@ -7544,7 +7745,7 @@ public extension SocketAddressProtocol {
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public protocol SocketAddressEnumeratorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
+        /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketAddressEnumerator` instance.
@@ -7570,7 +7771,7 @@ public protocol SocketAddressEnumeratorProtocol: ObjectProtocol {
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public struct SocketAddressEnumeratorRef: SocketAddressEnumeratorProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
+        /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `socket_address_enumerator_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7636,7 +7837,7 @@ public extension SocketAddressEnumeratorRef {
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 open class SocketAddressEnumerator: Object, SocketAddressEnumeratorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketAddressEnumerator` instance.
     /// - Parameter op: pointer to the underlying object
@@ -7718,7 +7919,7 @@ open class SocketAddressEnumerator: Object, SocketAddressEnumeratorProtocol {
 
 }
 
-// MARK: - no SocketAddressEnumerator properties
+// MARK: no SocketAddressEnumerator properties
 
 public enum SocketAddressEnumeratorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -7755,8 +7956,8 @@ public extension SocketAddressEnumeratorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketAddressEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketAddressEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_address_enumerator_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -7777,6 +7978,7 @@ public extension SocketAddressEnumeratorProtocol {
     }
 }
 
+// MARK: SocketAddressEnumerator Class: SocketAddressEnumeratorProtocol extension (methods and fields)
 public extension SocketAddressEnumeratorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketAddressEnumerator` instance.
     var socket_address_enumerator_ptr: UnsafeMutablePointer<GSocketAddressEnumerator> { return ptr.assumingMemoryBound(to: GSocketAddressEnumerator.self) }
@@ -7795,11 +7997,9 @@ public extension SocketAddressEnumeratorProtocol {
     /// internal errors (other than `cancellable` being triggered) will be
     /// ignored.
     func next(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_address_enumerator_next(cast(socket_address_enumerator_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_enumerator_next(cast(socket_address_enumerator_ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -7818,13 +8018,14 @@ public extension SocketAddressEnumeratorProtocol {
     /// `g_socket_address_enumerator_next()` for more information about
     /// error handling.
     func nextFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_address_enumerator_next_finish(cast(socket_address_enumerator_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_address_enumerator_next_finish(cast(socket_address_enumerator_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
 }
 
 
@@ -7850,7 +8051,7 @@ public extension SocketAddressEnumeratorProtocol {
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
 public protocol SocketClientProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSocketClient` instance.
+        /// Untyped pointer to the underlying `GSocketClient` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketClient` instance.
@@ -7875,7 +8076,7 @@ public protocol SocketClientProtocol: ObjectProtocol {
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
 public struct SocketClientRef: SocketClientProtocol {
-    /// Untyped pointer to the underlying `GSocketClient` instance.
+        /// Untyped pointer to the underlying `GSocketClient` instance.
     /// For type-safe access, use the generated, typed pointer `socket_client_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7922,7 +8123,7 @@ public extension SocketClientRef {
 
         /// Creates a new `GSocketClient` with the default options.
     init() {
-        let rv = g_socket_client_new()
+        let rv: UnsafeMutablePointer<GSocketClient>! = cast(g_socket_client_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -7945,7 +8146,7 @@ public extension SocketClientRef {
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
 open class SocketClient: Object, SocketClientProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketClient` instance.
     /// - Parameter op: pointer to the underlying object
@@ -8025,7 +8226,7 @@ open class SocketClient: Object, SocketClientProtocol {
 
     /// Creates a new `GSocketClient` with the default options.
     public init() {
-        let rv = g_socket_client_new()
+        let rv: UnsafeMutablePointer<GSocketClient>! = cast(g_socket_client_new())
         super.init(cast(rv))
     }
 
@@ -8054,8 +8255,8 @@ public extension SocketClientProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -8078,6 +8279,23 @@ public extension SocketClientProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SocketClient property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketClientPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SocketClient property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketClientPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -8175,8 +8393,8 @@ public extension SocketClientProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketClientSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketClientSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_client_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -8197,6 +8415,7 @@ public extension SocketClientProtocol {
     }
 }
 
+// MARK: SocketClient Class: SocketClientProtocol extension (methods and fields)
 public extension SocketClientProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketClient` instance.
     var socket_client_ptr: UnsafeMutablePointer<GSocketClient> { return ptr.assumingMemoryBound(to: GSocketClient.self) }
@@ -8244,11 +8463,9 @@ public extension SocketClientProtocol {
     /// If a local address is specified with `g_socket_client_set_local_address()` the
     /// socket will be bound to this address before connecting.
     func connect(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect(cast(socket_client_ptr), cast(connectable.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect(cast(socket_client_ptr), cast(connectable.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8264,11 +8481,9 @@ public extension SocketClientProtocol {
 
     /// Finishes an async connect operation. See `g_socket_client_connect_async()`
     func connectFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_finish(cast(socket_client_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_finish(cast(socket_client_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8303,11 +8518,9 @@ public extension SocketClientProtocol {
     /// connectable) `nil` is returned and `error` (if non-`nil`) is set
     /// accordingly.
     func connectToHost(hostAndPort host_and_port: UnsafePointer<gchar>, defaultPort default_port: UInt16, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_host(cast(socket_client_ptr), host_and_port, guint16(default_port), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_host(cast(socket_client_ptr), host_and_port, guint16(default_port), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8323,11 +8536,9 @@ public extension SocketClientProtocol {
 
     /// Finishes an async connect operation. See `g_socket_client_connect_to_host_async()`
     func connectToHostFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_host_finish(cast(socket_client_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_host_finish(cast(socket_client_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8346,11 +8557,9 @@ public extension SocketClientProtocol {
     /// connectable) `nil` is returned and `error` (if non-`nil`) is set
     /// accordingly.
     func connectToService(domain: UnsafePointer<gchar>, service: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_service(cast(socket_client_ptr), domain, service, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_service(cast(socket_client_ptr), domain, service, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8363,11 +8572,9 @@ public extension SocketClientProtocol {
 
     /// Finishes an async connect operation. See `g_socket_client_connect_to_service_async()`
     func connectToServiceFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_service_finish(cast(socket_client_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_service_finish(cast(socket_client_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8393,11 +8600,9 @@ public extension SocketClientProtocol {
     /// connectable) `nil` is returned and `error` (if non-`nil`) is set
     /// accordingly.
     func connectTo(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_uri(cast(socket_client_ptr), uri, guint16(default_port), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_uri(cast(socket_client_ptr), uri, guint16(default_port), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8413,11 +8618,9 @@ public extension SocketClientProtocol {
 
     /// Finishes an async connect operation. See `g_socket_client_connect_to_uri_async()`
     func connectToURIFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_client_connect_to_uri_finish(cast(socket_client_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_client_connect_to_uri_finish(cast(socket_client_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8432,14 +8635,14 @@ public extension SocketClientProtocol {
     /// See `g_socket_client_set_family()` for details.
     func getFamily() -> GSocketFamily {
         let rv = g_socket_client_get_family(cast(socket_client_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the local address of the socket client.
     /// 
     /// See `g_socket_client_set_local_address()` for details.
     func getLocalAddress() -> UnsafeMutablePointer<GSocketAddress>! {
-        let rv = g_socket_client_get_local_address(cast(socket_client_ptr))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_client_get_local_address(cast(socket_client_ptr)))
         return cast(rv)
     }
 
@@ -8448,14 +8651,14 @@ public extension SocketClientProtocol {
     /// See `g_socket_client_set_protocol()` for details.
     func getProtocol() -> GSocketProtocol {
         let rv = g_socket_client_get_protocol(cast(socket_client_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the `GProxyResolver` being used by `client`. Normally, this will
     /// be the resolver returned by `g_proxy_resolver_get_default()`, but you
     /// can override it with `g_socket_client_set_proxy_resolver()`.
     func getProxyResolver() -> UnsafeMutablePointer<GProxyResolver>! {
-        let rv = g_socket_client_get_proxy_resolver(cast(socket_client_ptr))
+        let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_socket_client_get_proxy_resolver(cast(socket_client_ptr)))
         return cast(rv)
     }
 
@@ -8464,15 +8667,15 @@ public extension SocketClientProtocol {
     /// See `g_socket_client_set_socket_type()` for details.
     func getSocketType() -> GSocketType {
         let rv = g_socket_client_get_socket_type(cast(socket_client_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the I/O timeout time for sockets created by `client`.
     /// 
     /// See `g_socket_client_set_timeout()` for details.
-    func getTimeout() -> CUnsignedInt {
-        let rv = g_socket_client_get_timeout(cast(socket_client_ptr))
-        return CUnsignedInt(rv)
+    func getTimeout() -> Int {
+        let rv: Int = cast(g_socket_client_get_timeout(cast(socket_client_ptr)))
+        return Int(rv)
     }
 
     /// Gets whether `client` creates TLS connections. See
@@ -8486,7 +8689,7 @@ public extension SocketClientProtocol {
     /// `client`.
     func getTLSValidationFlags() -> GTlsCertificateFlags {
         let rv = g_socket_client_get_tls_validation_flags(cast(socket_client_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Sets whether or not `client` attempts to make connections via a
@@ -8596,7 +8799,7 @@ public extension SocketClientProtocol {
     /// Sets the TLS validation flags used when creating TLS connections
     /// via `client`. The default value is `G_TLS_CERTIFICATE_VALIDATE_ALL`.
     func setTLSValidation(flags: TLSCertificateFlags) {
-        g_socket_client_set_tls_validation_flags(cast(socket_client_ptr), flags)
+        g_socket_client_set_tls_validation_flags(cast(socket_client_ptr), flags.value)
     
     }
     /// Gets the proxy enable state; see `g_socket_client_set_enable_proxy()`
@@ -8623,7 +8826,7 @@ public extension SocketClientProtocol {
         /// See `g_socket_client_set_family()` for details.
         get {
             let rv = g_socket_client_get_family(cast(socket_client_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the socket family of the socket client.
         /// If this is set to something other than `G_SOCKET_FAMILY_INVALID`
@@ -8634,7 +8837,7 @@ public extension SocketClientProtocol {
         /// connection to be an ipv4 socket, even though the address might
         /// be an ipv6 mapped to ipv4 address.
         nonmutating set {
-            g_socket_client_set_family(cast(socket_client_ptr), newValue)
+            g_socket_client_set_family(cast(socket_client_ptr), cast(newValue))
         }
     }
 
@@ -8646,7 +8849,7 @@ public extension SocketClientProtocol {
         /// 
         /// See `g_socket_client_set_local_address()` for details.
         get {
-            let rv = g_socket_client_get_local_address(cast(socket_client_ptr))
+            let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_client_get_local_address(cast(socket_client_ptr)))
             return cast(rv)
         }
         /// Sets the local address of the socket client.
@@ -8661,13 +8864,13 @@ public extension SocketClientProtocol {
         }
     }
 
-    var protocol_: GSocketProtocol {
+    var `protocol`: GSocketProtocol {
         /// Gets the protocol name type of the socket client.
         /// 
         /// See `g_socket_client_set_protocol()` for details.
         get {
             let rv = g_socket_client_get_protocol(cast(socket_client_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the protocol of the socket client.
         /// The sockets created by this object will use of the specified
@@ -8676,7 +8879,7 @@ public extension SocketClientProtocol {
         /// If `protocol` is `G_SOCKET_PROTOCOL_DEFAULT` that means to use the default
         /// protocol for the socket family and type.
         nonmutating set {
-            g_socket_client_set_protocol(cast(socket_client_ptr), newValue)
+            g_socket_client_set_protocol(cast(socket_client_ptr), cast(newValue))
         }
     }
 
@@ -8688,7 +8891,7 @@ public extension SocketClientProtocol {
         /// be the resolver returned by `g_proxy_resolver_get_default()`, but you
         /// can override it with `g_socket_client_set_proxy_resolver()`.
         get {
-            let rv = g_socket_client_get_proxy_resolver(cast(socket_client_ptr))
+            let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_socket_client_get_proxy_resolver(cast(socket_client_ptr)))
             return cast(rv)
         }
         /// Overrides the `GProxyResolver` used by `client`. You can call this if
@@ -8712,7 +8915,7 @@ public extension SocketClientProtocol {
         /// See `g_socket_client_set_socket_type()` for details.
         get {
             let rv = g_socket_client_get_socket_type(cast(socket_client_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the socket type of the socket client.
         /// The sockets created by this object will be of the specified
@@ -8721,17 +8924,17 @@ public extension SocketClientProtocol {
         /// It doesn't make sense to specify a type of `G_SOCKET_TYPE_DATAGRAM`,
         /// as GSocketClient is used for connection oriented services.
         nonmutating set {
-            g_socket_client_set_socket_type(cast(socket_client_ptr), newValue)
+            g_socket_client_set_socket_type(cast(socket_client_ptr), cast(newValue))
         }
     }
 
-    var timeout: CUnsignedInt {
+    var timeout: Int {
         /// Gets the I/O timeout time for sockets created by `client`.
         /// 
         /// See `g_socket_client_set_timeout()` for details.
         get {
-            let rv = g_socket_client_get_timeout(cast(socket_client_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_socket_client_get_timeout(cast(socket_client_ptr)))
+            return Int(rv)
         }
         /// Sets the I/O timeout for sockets created by `client`. `timeout` is a
         /// time in seconds, or 0 for no timeout (the default).
@@ -8781,14 +8984,29 @@ public extension SocketClientProtocol {
         /// `client`.
         get {
             let rv = g_socket_client_get_tls_validation_flags(cast(socket_client_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the TLS validation flags used when creating TLS connections
         /// via `client`. The default value is `G_TLS_CERTIFICATE_VALIDATE_ALL`.
         nonmutating set {
-            g_socket_client_set_tls_validation_flags(cast(socket_client_ptr), newValue)
+            g_socket_client_set_tls_validation_flags(cast(socket_client_ptr), cast(newValue))
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(socket_client_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketClientPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketClientPrivate> = cast(socket_client_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -8817,7 +9035,7 @@ public extension SocketClientProtocol {
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 public protocol SocketConnectionProtocol: IOStreamProtocol {
-    /// Untyped pointer to the underlying `GSocketConnection` instance.
+        /// Untyped pointer to the underlying `GSocketConnection` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketConnection` instance.
@@ -8845,7 +9063,7 @@ public protocol SocketConnectionProtocol: IOStreamProtocol {
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 public struct SocketConnectionRef: SocketConnectionProtocol {
-    /// Untyped pointer to the underlying `GSocketConnection` instance.
+        /// Untyped pointer to the underlying `GSocketConnection` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connection_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -8913,7 +9131,7 @@ public extension SocketConnectionRef {
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
 open class SocketConnection: IOStream, SocketConnectionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketConnection` instance.
     /// - Parameter op: pointer to the underlying object
@@ -9011,8 +9229,8 @@ public extension SocketConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -9035,6 +9253,23 @@ public extension SocketConnectionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SocketConnection property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketConnectionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SocketConnection property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketConnectionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -9076,8 +9311,8 @@ public extension SocketConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -9098,17 +9333,16 @@ public extension SocketConnectionProtocol {
     }
 }
 
+// MARK: SocketConnection Class: SocketConnectionProtocol extension (methods and fields)
 public extension SocketConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnection` instance.
     var socket_connection_ptr: UnsafeMutablePointer<GSocketConnection> { return ptr.assumingMemoryBound(to: GSocketConnection.self) }
 
     /// Connect `connection` to the specified remote address.
     func connect(address: SocketAddressProtocol, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_connection_connect(cast(socket_connection_ptr), cast(address.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -9125,21 +9359,17 @@ public extension SocketConnectionProtocol {
 
     /// Gets the result of a `g_socket_connection_connect_async()` call.
     func connectFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_connection_connect_finish(cast(socket_connection_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Try to get the local address of a socket connection.
     func getLocalAddress() throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_connection_get_local_address(cast(socket_connection_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_connection_get_local_address(cast(socket_connection_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9152,11 +9382,9 @@ public extension SocketConnectionProtocol {
     /// applications to print e.g. "Connecting to example.com
     /// (10.42.77.3)...".
     func getRemoteAddress() throws -> UnsafeMutablePointer<GSocketAddress>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_connection_get_remote_address(cast(socket_connection_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_connection_get_remote_address(cast(socket_connection_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9164,7 +9392,7 @@ public extension SocketConnectionProtocol {
     /// This can be useful if you want to do something unusual on it
     /// not supported by the `GSocketConnection` APIs.
     func getSocket() -> UnsafeMutablePointer<GSocket>! {
-        let rv = g_socket_connection_get_socket(cast(socket_connection_ptr))
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_connection_get_socket(cast(socket_connection_ptr)))
         return cast(rv)
     }
     /// Checks if `connection` is connected. This is equivalent to calling
@@ -9178,15 +9406,66 @@ public extension SocketConnectionProtocol {
         }
     }
 
+    /// Try to get the local address of a socket connection.
+    var localAddress: UnsafeMutablePointer<GSocketAddress>! {
+        /// Try to get the local address of a socket connection.
+        get {
+            var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_connection_get_local_address(cast(socket_connection_ptr), &error))
+        g_log(messagePtr: error?.pointee.message, level: .error)
+            return cast(rv)
+        }
+    }
+
+    /// Try to get the remote address of a socket connection.
+    /// 
+    /// Since GLib 2.40, when used with `g_socket_client_connect()` or
+    /// `g_socket_client_connect_async()`, during emission of
+    /// `G_SOCKET_CLIENT_CONNECTING`, this function will return the remote
+    /// address that will be used for the connection.  This allows
+    /// applications to print e.g. "Connecting to example.com
+    /// (10.42.77.3)...".
+    var remoteAddress: UnsafeMutablePointer<GSocketAddress>! {
+        /// Try to get the remote address of a socket connection.
+        /// 
+        /// Since GLib 2.40, when used with `g_socket_client_connect()` or
+        /// `g_socket_client_connect_async()`, during emission of
+        /// `G_SOCKET_CLIENT_CONNECTING`, this function will return the remote
+        /// address that will be used for the connection.  This allows
+        /// applications to print e.g. "Connecting to example.com
+        /// (10.42.77.3)...".
+        get {
+            var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_socket_connection_get_remote_address(cast(socket_connection_ptr), &error))
+        g_log(messagePtr: error?.pointee.message, level: .error)
+            return cast(rv)
+        }
+    }
+
     var socket: UnsafeMutablePointer<GSocket>! {
         /// Gets the underlying `GSocket` object of the connection.
         /// This can be useful if you want to do something unusual on it
         /// not supported by the `GSocketConnection` APIs.
         get {
-            let rv = g_socket_connection_get_socket(cast(socket_connection_ptr))
+            let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_connection_get_socket(cast(socket_connection_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GIOStream {
+        get {
+            let rv: GIOStream = cast(socket_connection_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketConnectionPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketConnectionPrivate> = cast(socket_connection_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -9219,7 +9498,7 @@ public extension SocketConnectionProtocol {
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
 public protocol SocketControlMessageProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessage` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketControlMessage` instance.
@@ -9251,7 +9530,7 @@ public protocol SocketControlMessageProtocol: ObjectProtocol {
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
 public struct SocketControlMessageRef: SocketControlMessageProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessage` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     /// For type-safe access, use the generated, typed pointer `socket_control_message_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -9304,7 +9583,7 @@ public extension SocketControlMessageRef {
     /// If there is no implementation for this kind of control message, `nil`
     /// will be returned.
     static func deserialize(level: CInt, type: CInt, size: Int, data: UnsafeMutableRawPointer) -> SocketControlMessageRef! {
-        let rv = g_socket_control_message_deserialize(level, type, gsize(size), cast(data))
+        let rv: UnsafeMutablePointer<GSocketControlMessage>! = cast(g_socket_control_message_deserialize(level, type, gsize(size), cast(data)))
         return rv.map { SocketControlMessageRef(cast($0)) }
     }
 }
@@ -9334,7 +9613,7 @@ public extension SocketControlMessageRef {
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
 open class SocketControlMessage: Object, SocketControlMessageProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketControlMessage` instance.
     /// - Parameter op: pointer to the underlying object
@@ -9421,13 +9700,13 @@ open class SocketControlMessage: Object, SocketControlMessageProtocol {
     /// If there is no implementation for this kind of control message, `nil`
     /// will be returned.
     public static func deserialize(level: CInt, type: CInt, size: Int, data: UnsafeMutableRawPointer) -> SocketControlMessage! {
-        let rv = g_socket_control_message_deserialize(level, type, gsize(size), cast(data))
+        let rv: UnsafeMutablePointer<GSocketControlMessage>! = cast(g_socket_control_message_deserialize(level, type, gsize(size), cast(data)))
         return rv.map { SocketControlMessage(cast($0)) }
     }
 
 }
 
-// MARK: - no SocketControlMessage properties
+// MARK: no SocketControlMessage properties
 
 public enum SocketControlMessageSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -9464,8 +9743,8 @@ public extension SocketControlMessageProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketControlMessageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketControlMessageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_control_message_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -9486,22 +9765,23 @@ public extension SocketControlMessageProtocol {
     }
 }
 
+// MARK: SocketControlMessage Class: SocketControlMessageProtocol extension (methods and fields)
 public extension SocketControlMessageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketControlMessage` instance.
     var socket_control_message_ptr: UnsafeMutablePointer<GSocketControlMessage> { return ptr.assumingMemoryBound(to: GSocketControlMessage.self) }
 
     /// Returns the "level" (i.e. the originating protocol) of the control message.
     /// This is often SOL_SOCKET.
-    func getLevel() -> CInt {
-        let rv = g_socket_control_message_get_level(cast(socket_control_message_ptr))
-        return rv
+    func getLevel() -> Int {
+        let rv: Int = cast(g_socket_control_message_get_level(cast(socket_control_message_ptr)))
+        return cast(rv)
     }
 
     /// Returns the protocol specific type of the control message.
     /// For instance, for UNIX fd passing this would be SCM_RIGHTS.
-    func getMsgType() -> CInt {
-        let rv = g_socket_control_message_get_msg_type(cast(socket_control_message_ptr))
-        return rv
+    func getMsgType() -> Int {
+        let rv: Int = cast(g_socket_control_message_get_msg_type(cast(socket_control_message_ptr)))
+        return cast(rv)
     }
 
     /// Returns the space required for the control message, not including
@@ -9523,23 +9803,23 @@ public extension SocketControlMessageProtocol {
     }
     /// Returns the "level" (i.e. the originating protocol) of the control message.
     /// This is often SOL_SOCKET.
-    var level: CInt {
+    var level: Int {
         /// Returns the "level" (i.e. the originating protocol) of the control message.
         /// This is often SOL_SOCKET.
         get {
-            let rv = g_socket_control_message_get_level(cast(socket_control_message_ptr))
-            return rv
+            let rv: Int = cast(g_socket_control_message_get_level(cast(socket_control_message_ptr)))
+            return cast(rv)
         }
     }
 
     /// Returns the protocol specific type of the control message.
     /// For instance, for UNIX fd passing this would be SCM_RIGHTS.
-    var msgType: CInt {
+    var msgType: Int {
         /// Returns the protocol specific type of the control message.
         /// For instance, for UNIX fd passing this would be SCM_RIGHTS.
         get {
-            let rv = g_socket_control_message_get_msg_type(cast(socket_control_message_ptr))
-            return rv
+            let rv: Int = cast(g_socket_control_message_get_msg_type(cast(socket_control_message_ptr)))
+            return cast(rv)
         }
     }
 
@@ -9553,6 +9833,21 @@ public extension SocketControlMessageProtocol {
             return Int(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(socket_control_message_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketControlMessagePrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketControlMessagePrivate> = cast(socket_control_message_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -9579,7 +9874,7 @@ public extension SocketControlMessageProtocol {
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
 public protocol SocketListenerProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSocketListener` instance.
+        /// Untyped pointer to the underlying `GSocketListener` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketListener` instance.
@@ -9605,7 +9900,7 @@ public protocol SocketListenerProtocol: ObjectProtocol {
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
 public struct SocketListenerRef: SocketListenerProtocol {
-    /// Untyped pointer to the underlying `GSocketListener` instance.
+        /// Untyped pointer to the underlying `GSocketListener` instance.
     /// For type-safe access, use the generated, typed pointer `socket_listener_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -9654,7 +9949,7 @@ public extension SocketListenerRef {
     /// New listeners can be added with e.g. `g_socket_listener_add_address()`
     /// or `g_socket_listener_add_inet_port()`.
     init() {
-        let rv = g_socket_listener_new()
+        let rv: UnsafeMutablePointer<GSocketListener>! = cast(g_socket_listener_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -9678,7 +9973,7 @@ public extension SocketListenerRef {
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
 open class SocketListener: Object, SocketListenerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketListener` instance.
     /// - Parameter op: pointer to the underlying object
@@ -9760,7 +10055,7 @@ open class SocketListener: Object, SocketListenerProtocol {
     /// New listeners can be added with e.g. `g_socket_listener_add_address()`
     /// or `g_socket_listener_add_inet_port()`.
     public init() {
-        let rv = g_socket_listener_new()
+        let rv: UnsafeMutablePointer<GSocketListener>! = cast(g_socket_listener_new())
         super.init(cast(rv))
     }
 
@@ -9780,8 +10075,8 @@ public extension SocketListenerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketListenerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketListenerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -9804,6 +10099,23 @@ public extension SocketListenerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SocketListener property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketListenerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SocketListener property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketListenerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -9847,8 +10159,8 @@ public extension SocketListenerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketListenerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketListenerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_listener_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -9869,6 +10181,7 @@ public extension SocketListenerProtocol {
     }
 }
 
+// MARK: SocketListener Class: SocketListenerProtocol extension (methods and fields)
 public extension SocketListenerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketListener` instance.
     var socket_listener_ptr: UnsafeMutablePointer<GSocketListener> { return ptr.assumingMemoryBound(to: GSocketListener.self) }
@@ -9885,11 +10198,9 @@ public extension SocketListenerProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func accept(sourceObject source_object: ObjectProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_listener_accept(cast(socket_listener_ptr), cast(source_object.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_listener_accept(cast(socket_listener_ptr), cast(source_object.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9905,11 +10216,9 @@ public extension SocketListenerProtocol {
 
     /// Finishes an async accept operation. See `g_socket_listener_accept_async()`
     func acceptFinish(result: AsyncResultProtocol, sourceObject source_object: ObjectProtocol) throws -> UnsafeMutablePointer<GSocketConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_listener_accept_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_socket_listener_accept_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9928,11 +10237,9 @@ public extension SocketListenerProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func acceptSocket(sourceObject source_object: ObjectProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GSocket>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_listener_accept_socket(cast(socket_listener_ptr), cast(source_object.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_listener_accept_socket(cast(socket_listener_ptr), cast(source_object.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9948,11 +10255,9 @@ public extension SocketListenerProtocol {
 
     /// Finishes an async accept operation. See `g_socket_listener_accept_socket_async()`
     func acceptSocketFinish(result: AsyncResultProtocol, sourceObject source_object: ObjectProtocol) throws -> UnsafeMutablePointer<GSocket>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_socket_listener_accept_socket_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocket>! = cast(g_socket_listener_accept_socket_finish(cast(socket_listener_ptr), cast(result.ptr), cast(source_object.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -9980,11 +10285,9 @@ public extension SocketListenerProtocol {
     /// be done automatically when you drop your final reference to `listener`, as
     /// references may be held internally.
     func add(address: SocketAddressProtocol, type: SocketType, protocol_: Socket_Protocol, sourceObject source_object: ObjectProtocol, effectiveAddress effective_address: SocketAddressProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_listener_add_address(cast(socket_listener_ptr), cast(address.ptr), type, protocol_, cast(source_object.ptr), cast(effective_address.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -9999,11 +10302,9 @@ public extension SocketListenerProtocol {
     /// useful if you're listening on multiple addresses and do
     /// different things depending on what address is connected to.
     func addAnyInetPort(sourceObject source_object: ObjectProtocol) throws -> UInt16 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_listener_add_any_inet_port(cast(socket_listener_ptr), cast(source_object.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return UInt16(rv)
     }
 
@@ -10020,11 +10321,9 @@ public extension SocketListenerProtocol {
     /// be done automatically when you drop your final reference to `listener`, as
     /// references may be held internally.
     func addInet(port: UInt16, sourceObject source_object: ObjectProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_listener_add_inet_port(cast(socket_listener_ptr), guint16(port), cast(source_object.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -10042,11 +10341,9 @@ public extension SocketListenerProtocol {
     /// the `socket` was automatically closed on finalization of the `listener`, even
     /// if references to it were held elsewhere.
     func add(socket: SocketProtocol, sourceObject source_object: ObjectProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_socket_listener_add_socket(cast(socket_listener_ptr), cast(socket.ptr), cast(source_object.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -10065,6 +10362,21 @@ public extension SocketListenerProtocol {
         g_socket_listener_set_backlog(cast(socket_listener_ptr), listen_backlog)
     
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(socket_listener_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketListenerPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketListenerPrivate> = cast(socket_listener_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -10103,7 +10415,7 @@ public extension SocketListenerProtocol {
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
 public protocol SocketServiceProtocol: SocketListenerProtocol {
-    /// Untyped pointer to the underlying `GSocketService` instance.
+        /// Untyped pointer to the underlying `GSocketService` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketService` instance.
@@ -10141,7 +10453,7 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
 public struct SocketServiceRef: SocketServiceProtocol {
-    /// Untyped pointer to the underlying `GSocketService` instance.
+        /// Untyped pointer to the underlying `GSocketService` instance.
     /// For type-safe access, use the generated, typed pointer `socket_service_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -10194,7 +10506,7 @@ public extension SocketServiceRef {
     /// `g_socket_service_start()`, unless `g_socket_service_stop()` has been
     /// called before.
     init() {
-        let rv = g_socket_service_new()
+        let rv: UnsafeMutablePointer<GSocketService>! = cast(g_socket_service_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -10230,7 +10542,7 @@ public extension SocketServiceRef {
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
 open class SocketService: SocketListener, SocketServiceProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketService` instance.
     /// - Parameter op: pointer to the underlying object
@@ -10316,7 +10628,7 @@ open class SocketService: SocketListener, SocketServiceProtocol {
     /// `g_socket_service_start()`, unless `g_socket_service_stop()` has been
     /// called before.
     public override init() {
-        let rv = g_socket_service_new()
+        let rv: UnsafeMutablePointer<GSocketService>! = cast(g_socket_service_new())
         super.init(cast(rv))
     }
 
@@ -10338,8 +10650,8 @@ public extension SocketServiceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -10362,6 +10674,23 @@ public extension SocketServiceProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SocketService property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SocketServicePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SocketService property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SocketServicePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -10415,8 +10744,8 @@ public extension SocketServiceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SocketServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SocketServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(socket_service_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -10437,6 +10766,7 @@ public extension SocketServiceProtocol {
     }
 }
 
+// MARK: SocketService Class: SocketServiceProtocol extension (methods and fields)
 public extension SocketServiceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketService` instance.
     var socket_service_ptr: UnsafeMutablePointer<GSocketService> { return ptr.assumingMemoryBound(to: GSocketService.self) }
@@ -10486,6 +10816,21 @@ public extension SocketServiceProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GSocketListener {
+        get {
+            let rv: GSocketListener = cast(socket_service_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GSocketServicePrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GSocketServicePrivate> = cast(socket_service_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -10552,7 +10897,7 @@ public extension SocketServiceProtocol {
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GSubprocess` instance.
+        /// Untyped pointer to the underlying `GSubprocess` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSubprocess` instance.
@@ -10618,7 +10963,7 @@ public protocol SubprocessProtocol: ObjectProtocol, InitableProtocol {
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 public struct SubprocessRef: SubprocessProtocol {
-    /// Untyped pointer to the underlying `GSubprocess` instance.
+        /// Untyped pointer to the underlying `GSubprocess` instance.
     /// For type-safe access, use the generated, typed pointer `subprocess_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -10671,22 +11016,18 @@ public extension SubprocessRef {
     /// 
     /// The argument list is expected to be `nil`-terminated.
     init(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_subprocess_newv(cast(argv), flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSubprocess>! = cast(g_subprocess_newv(cast(argv), flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Create a new process with the given flags and argument list.
     /// 
     /// The argument list is expected to be `nil`-terminated.
     static func subprocessNewv(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws -> SubprocessRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_subprocess_newv(cast(argv), flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSubprocess>! = cast(g_subprocess_newv(cast(argv), flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { SubprocessRef(cast($0)) }
     }
 }
@@ -10750,7 +11091,7 @@ public extension SubprocessRef {
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
 open class Subprocess: Object, SubprocessProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Subprocess` instance.
     /// - Parameter op: pointer to the underlying object
@@ -10836,11 +11177,9 @@ open class Subprocess: Object, SubprocessProtocol {
     /// 
     /// The argument list is expected to be `nil`-terminated.
     public init(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_subprocess_newv(cast(argv), flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSubprocess>! = cast(g_subprocess_newv(cast(argv), flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -10848,11 +11187,9 @@ open class Subprocess: Object, SubprocessProtocol {
     /// 
     /// The argument list is expected to be `nil`-terminated.
     public static func subprocessNewv(argv: UnsafePointer<UnsafePointer<gchar>>, flags: SubprocessFlags) throws -> Subprocess! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_subprocess_newv(cast(argv), flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSubprocess>! = cast(g_subprocess_newv(cast(argv), flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Subprocess(cast($0)) }
     }
 
@@ -10872,8 +11209,8 @@ public extension SubprocessProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SubprocessPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SubprocessPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -10896,6 +11233,23 @@ public extension SubprocessProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Subprocess property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SubprocessPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Subprocess property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SubprocessPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -10935,8 +11289,8 @@ public extension SubprocessProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SubprocessSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SubprocessSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(subprocess_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -10957,6 +11311,7 @@ public extension SubprocessProtocol {
     }
 }
 
+// MARK: Subprocess Class: SubprocessProtocol extension (methods and fields)
 public extension SubprocessProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSubprocess` instance.
     var subprocess_ptr: UnsafeMutablePointer<GSubprocess> { return ptr.assumingMemoryBound(to: GSubprocess.self) }
@@ -11003,11 +11358,9 @@ public extension SubprocessProtocol {
     /// attempt to interact with the pipes while the operation is in progress
     /// (either from another thread or if using the asynchronous version).
     func communicate(stdinBuf stdin_buf: BytesProtocol, cancellable: CancellableProtocol, stdoutBuf stdout_buf: BytesProtocol, stderrBuf stderr_buf: BytesProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_communicate(cast(subprocess_ptr), cast(stdin_buf.ptr), cast(cancellable.ptr), cast(stdout_buf.ptr), cast(stderr_buf.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11020,11 +11373,9 @@ public extension SubprocessProtocol {
 
     /// Complete an invocation of `g_subprocess_communicate_async()`.
     func communicateFinish(result: AsyncResultProtocol, stdoutBuf stdout_buf: BytesProtocol, stderrBuf stderr_buf: BytesProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_communicate_finish(cast(subprocess_ptr), cast(result.ptr), cast(stdout_buf.ptr), cast(stderr_buf.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11034,11 +11385,9 @@ public extension SubprocessProtocol {
     /// On error, `stdout_buf` and `stderr_buf` will be set to undefined values and
     /// should not be used.
     func communicateUTF8(stdinBuf stdin_buf: UnsafePointer<CChar>, cancellable: CancellableProtocol, stdoutBuf stdout_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, stderrBuf stderr_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_communicate_utf8(cast(subprocess_ptr), stdin_buf, cast(cancellable.ptr), cast(stdout_buf), cast(stderr_buf), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11051,11 +11400,9 @@ public extension SubprocessProtocol {
 
     /// Complete an invocation of `g_subprocess_communicate_utf8_async()`.
     func communicateUTF8Finish(result: AsyncResultProtocol, stdoutBuf stdout_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, stderrBuf stderr_buf: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_communicate_utf8_finish(cast(subprocess_ptr), cast(result.ptr), cast(stdout_buf), cast(stderr_buf), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11079,17 +11426,17 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` and
     /// unless `g_subprocess_get_if_exited()` returned `true`.
-    func getExitStatus() -> CInt {
-        let rv = g_subprocess_get_exit_status(cast(subprocess_ptr))
-        return CInt(rv)
+    func getExitStatus() -> Int {
+        let rv: Int = cast(g_subprocess_get_exit_status(cast(subprocess_ptr)))
+        return Int(rv)
     }
 
     /// On UNIX, returns the process ID as a decimal string.
     /// On Windows, returns the result of `GetProcessID()` also as a string.
     /// If the subprocess has terminated, this will return `nil`.
     func getIdentifier() -> String! {
-        let rv = g_subprocess_get_identifier(cast(subprocess_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_subprocess_get_identifier(cast(subprocess_ptr)))
+        return cast(rv)
     }
 
     /// Check if the given subprocess exited normally (ie: by way of `exit()`
@@ -11126,9 +11473,9 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
-    func getStatus() -> CInt {
-        let rv = g_subprocess_get_status(cast(subprocess_ptr))
-        return CInt(rv)
+    func getStatus() -> Int {
+        let rv: Int = cast(g_subprocess_get_status(cast(subprocess_ptr)))
+        return Int(rv)
     }
 
     /// Gets the `GInputStream` from which to read the stderr output of
@@ -11137,7 +11484,7 @@ public extension SubprocessProtocol {
     /// The process must have been created with
     /// `G_SUBPROCESS_FLAGS_STDERR_PIPE`.
     func getStderrPipe() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = g_subprocess_get_stderr_pipe(cast(subprocess_ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_subprocess_get_stderr_pipe(cast(subprocess_ptr)))
         return cast(rv)
     }
 
@@ -11147,7 +11494,7 @@ public extension SubprocessProtocol {
     /// The process must have been created with
     /// `G_SUBPROCESS_FLAGS_STDIN_PIPE`.
     func getStdinPipe() -> UnsafeMutablePointer<GOutputStream>! {
-        let rv = g_subprocess_get_stdin_pipe(cast(subprocess_ptr))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_subprocess_get_stdin_pipe(cast(subprocess_ptr)))
         return cast(rv)
     }
 
@@ -11157,7 +11504,7 @@ public extension SubprocessProtocol {
     /// The process must have been created with
     /// `G_SUBPROCESS_FLAGS_STDOUT_PIPE`.
     func getStdoutPipe() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = g_subprocess_get_stdout_pipe(cast(subprocess_ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_subprocess_get_stdout_pipe(cast(subprocess_ptr)))
         return cast(rv)
     }
 
@@ -11179,9 +11526,9 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` and
     /// unless `g_subprocess_get_if_signaled()` returned `true`.
-    func getTermSig() -> CInt {
-        let rv = g_subprocess_get_term_sig(cast(subprocess_ptr))
-        return CInt(rv)
+    func getTermSig() -> Int {
+        let rv: Int = cast(g_subprocess_get_term_sig(cast(subprocess_ptr)))
+        return Int(rv)
     }
 
     /// Sends the UNIX signal `signal_num` to the subprocess, if it is still
@@ -11208,11 +11555,9 @@ public extension SubprocessProtocol {
     /// Cancelling `cancellable` doesn't kill the subprocess.  Call
     /// `g_subprocess_force_exit()` if it is desirable.
     func wait(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_wait(cast(subprocess_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11226,11 +11571,9 @@ public extension SubprocessProtocol {
 
     /// Combines `g_subprocess_wait()` with `g_spawn_check_exit_status()`.
     func waitCheck(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_wait_check(cast(subprocess_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -11245,22 +11588,18 @@ public extension SubprocessProtocol {
     /// Collects the result of a previous call to
     /// `g_subprocess_wait_check_async()`.
     func waitCheckFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_wait_check_finish(cast(subprocess_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Collects the result of a previous call to
     /// `g_subprocess_wait_async()`.
     func waitFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_subprocess_wait_finish(cast(subprocess_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     /// Check the exit status of the subprocess, given that it exited
@@ -11271,7 +11610,7 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` and
     /// unless `g_subprocess_get_if_exited()` returned `true`.
-    var exitStatus: CInt {
+    var exitStatus: Int {
         /// Check the exit status of the subprocess, given that it exited
         /// normally.  This is the value passed to the `exit()` system call or the
         /// return value from main.
@@ -11281,8 +11620,8 @@ public extension SubprocessProtocol {
         /// It is an error to call this function before `g_subprocess_wait()` and
         /// unless `g_subprocess_get_if_exited()` returned `true`.
         get {
-            let rv = g_subprocess_get_exit_status(cast(subprocess_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_subprocess_get_exit_status(cast(subprocess_ptr)))
+            return Int(rv)
         }
     }
 
@@ -11294,8 +11633,8 @@ public extension SubprocessProtocol {
         /// On Windows, returns the result of `GetProcessID()` also as a string.
         /// If the subprocess has terminated, this will return `nil`.
         get {
-            let rv = g_subprocess_get_identifier(cast(subprocess_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_subprocess_get_identifier(cast(subprocess_ptr)))
+            return cast(rv)
         }
     }
 
@@ -11350,7 +11689,7 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` has
     /// returned.
-    var status: CInt {
+    var status: Int {
         /// Gets the raw status code of the process, as from `waitpid()`.
         /// 
         /// This value has no particular meaning, but it can be used with the
@@ -11363,8 +11702,8 @@ public extension SubprocessProtocol {
         /// It is an error to call this function before `g_subprocess_wait()` has
         /// returned.
         get {
-            let rv = g_subprocess_get_status(cast(subprocess_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_subprocess_get_status(cast(subprocess_ptr)))
+            return Int(rv)
         }
     }
 
@@ -11380,7 +11719,7 @@ public extension SubprocessProtocol {
         /// The process must have been created with
         /// `G_SUBPROCESS_FLAGS_STDERR_PIPE`.
         get {
-            let rv = g_subprocess_get_stderr_pipe(cast(subprocess_ptr))
+            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_subprocess_get_stderr_pipe(cast(subprocess_ptr)))
             return cast(rv)
         }
     }
@@ -11397,7 +11736,7 @@ public extension SubprocessProtocol {
         /// The process must have been created with
         /// `G_SUBPROCESS_FLAGS_STDIN_PIPE`.
         get {
-            let rv = g_subprocess_get_stdin_pipe(cast(subprocess_ptr))
+            let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_subprocess_get_stdin_pipe(cast(subprocess_ptr)))
             return cast(rv)
         }
     }
@@ -11414,7 +11753,7 @@ public extension SubprocessProtocol {
         /// The process must have been created with
         /// `G_SUBPROCESS_FLAGS_STDOUT_PIPE`.
         get {
-            let rv = g_subprocess_get_stdout_pipe(cast(subprocess_ptr))
+            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_subprocess_get_stdout_pipe(cast(subprocess_ptr)))
             return cast(rv)
         }
     }
@@ -11445,7 +11784,7 @@ public extension SubprocessProtocol {
     /// 
     /// It is an error to call this function before `g_subprocess_wait()` and
     /// unless `g_subprocess_get_if_signaled()` returned `true`.
-    var termSig: CInt {
+    var termSig: Int {
         /// Get the signal number that caused the subprocess to terminate, given
         /// that it terminated due to a signal.
         /// 
@@ -11454,10 +11793,12 @@ public extension SubprocessProtocol {
         /// It is an error to call this function before `g_subprocess_wait()` and
         /// unless `g_subprocess_get_if_signaled()` returned `true`.
         get {
-            let rv = g_subprocess_get_term_sig(cast(subprocess_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_subprocess_get_term_sig(cast(subprocess_ptr)))
+            return Int(rv)
         }
     }
+
+
 }
 
 
@@ -11478,7 +11819,7 @@ public extension SubprocessProtocol {
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
 public protocol SubprocessLauncherProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
+        /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSubprocessLauncher` instance.
@@ -11498,7 +11839,7 @@ public protocol SubprocessLauncherProtocol: ObjectProtocol {
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
 public struct SubprocessLauncherRef: SubprocessLauncherProtocol {
-    /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
+        /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
     /// For type-safe access, use the generated, typed pointer `subprocess_launcher_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -11549,7 +11890,7 @@ public extension SubprocessLauncherRef {
     /// environment of the calling process is made at the time of this call
     /// and will be used as the environment that the process is launched in.
     init( flags: SubprocessFlags) {
-        let rv = g_subprocess_launcher_new(flags)
+        let rv: UnsafeMutablePointer<GSubprocessLauncher>! = cast(g_subprocess_launcher_new(flags.value))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -11567,7 +11908,7 @@ public extension SubprocessLauncherRef {
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
 open class SubprocessLauncher: Object, SubprocessLauncherProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SubprocessLauncher` instance.
     /// - Parameter op: pointer to the underlying object
@@ -11651,7 +11992,7 @@ open class SubprocessLauncher: Object, SubprocessLauncherProtocol {
     /// environment of the calling process is made at the time of this call
     /// and will be used as the environment that the process is launched in.
     public init( flags: SubprocessFlags) {
-        let rv = g_subprocess_launcher_new(flags)
+        let rv: UnsafeMutablePointer<GSubprocessLauncher>! = cast(g_subprocess_launcher_new(flags.value))
         super.init(cast(rv))
     }
 
@@ -11671,8 +12012,8 @@ public extension SubprocessLauncherProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SubprocessLauncherPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SubprocessLauncherPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -11695,6 +12036,23 @@ public extension SubprocessLauncherProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a SubprocessLauncher property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SubprocessLauncherPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a SubprocessLauncher property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SubprocessLauncherPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -11733,8 +12091,8 @@ public extension SubprocessLauncherProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SubprocessLauncherSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SubprocessLauncherSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(subprocess_launcher_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -11755,6 +12113,7 @@ public extension SubprocessLauncherProtocol {
     }
 }
 
+// MARK: SubprocessLauncher Class: SubprocessLauncherProtocol extension (methods and fields)
 public extension SubprocessLauncherProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSubprocessLauncher` instance.
     var subprocess_launcher_ptr: UnsafeMutablePointer<GSubprocessLauncher> { return ptr.assumingMemoryBound(to: GSubprocessLauncher.self) }
@@ -11765,8 +12124,8 @@ public extension SubprocessLauncherProtocol {
     /// On UNIX, the returned string can be an arbitrary byte string.
     /// On Windows, it will be UTF-8.
     func getenv(variable: UnsafePointer<gchar>) -> String! {
-        let rv = g_subprocess_launcher_getenv(cast(subprocess_launcher_ptr), variable)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_subprocess_launcher_getenv(cast(subprocess_launcher_ptr), variable))
+        return cast(rv)
     }
 
     /// Sets up a child setup function.
@@ -11834,7 +12193,7 @@ public extension SubprocessLauncherProtocol {
     /// function like `g_subprocess_launcher_set_stdin_file_path()` or
     /// `g_subprocess_launcher_take_stdout_fd()`.
     func set(flags: SubprocessFlags) {
-        g_subprocess_launcher_set_flags(cast(subprocess_launcher_ptr), flags)
+        g_subprocess_launcher_set_flags(cast(subprocess_launcher_ptr), flags.value)
     
     }
 
@@ -11905,11 +12264,9 @@ public extension SubprocessLauncherProtocol {
 
     /// Creates a `GSubprocess` given a provided array of arguments.
     func spawnv(argv: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GSubprocess>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_subprocess_launcher_spawnv(cast(subprocess_launcher_ptr), cast(argv), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSubprocess>! = cast(g_subprocess_launcher_spawnv(cast(subprocess_launcher_ptr), cast(argv), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -12005,6 +12362,8 @@ public extension SubprocessLauncherProtocol {
         g_subprocess_launcher_unsetenv(cast(subprocess_launcher_ptr), variable)
     
     }
+
+
 }
 
 
@@ -12519,7 +12878,7 @@ public extension SubprocessLauncherProtocol {
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
 public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
-    /// Untyped pointer to the underlying `GTask` instance.
+        /// Untyped pointer to the underlying `GTask` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTask` instance.
@@ -13033,7 +13392,7 @@ public protocol TaskProtocol: ObjectProtocol, AsyncResultProtocol {
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
 public struct TaskRef: TaskProtocol {
-    /// Untyped pointer to the underlying `GTask` instance.
+        /// Untyped pointer to the underlying `GTask` instance.
     /// For type-safe access, use the generated, typed pointer `task_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -13095,7 +13454,7 @@ public extension TaskRef {
     /// do not want this behavior, you can use
     /// `g_task_set_check_cancellable()` to change it.
     init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
-        let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
+        let rv: UnsafeMutablePointer<GTask>! = cast(g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -13607,7 +13966,7 @@ public extension TaskRef {
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
 open class Task: Object, TaskProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Task` instance.
     /// - Parameter op: pointer to the underlying object
@@ -13702,7 +14061,7 @@ open class Task: Object, TaskProtocol {
     /// do not want this behavior, you can use
     /// `g_task_set_check_cancellable()` to change it.
     public init( source_object: ObjectProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, callbackData callback_data: UnsafeMutableRawPointer) {
-        let rv = g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data))
+        let rv: UnsafeMutablePointer<GTask>! = cast(g_task_new(cast(source_object.ptr), cast(cancellable.ptr), callback, cast(callback_data)))
         super.init(cast(rv))
     }
 
@@ -13731,8 +14090,8 @@ public extension TaskProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -13755,6 +14114,23 @@ public extension TaskProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Task property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: TaskPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Task property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: TaskPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -13802,8 +14178,8 @@ public extension TaskProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TaskSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: TaskSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(task_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -13824,6 +14200,7 @@ public extension TaskProtocol {
     }
 }
 
+// MARK: Task Class: TaskProtocol extension (methods and fields)
 public extension TaskProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTask` instance.
     var task_ptr: UnsafeMutablePointer<GTask> { return ptr.assumingMemoryBound(to: GTask.self) }
@@ -13844,7 +14221,7 @@ public extension TaskProtocol {
 
     /// Gets `task`'s `GCancellable`
     func getCancellable() -> UnsafeMutablePointer<GCancellable>! {
-        let rv = g_task_get_cancellable(cast(task_ptr))
+        let rv: UnsafeMutablePointer<GCancellable>! = cast(g_task_get_cancellable(cast(task_ptr)))
         return cast(rv)
     }
 
@@ -13871,20 +14248,20 @@ public extension TaskProtocol {
     /// This will always return a non-`nil` value, even if the task's
     /// context is the default `GMainContext`.
     func getContext() -> UnsafeMutablePointer<GMainContext>! {
-        let rv = g_task_get_context(cast(task_ptr))
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_task_get_context(cast(task_ptr)))
         return cast(rv)
     }
 
     /// Gets `task`’s name. See `g_task_set_name()`.
     func getName() -> String! {
-        let rv = g_task_get_name(cast(task_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_task_get_name(cast(task_ptr)))
+        return cast(rv)
     }
 
     /// Gets `task`'s priority
-    func getPriority() -> CInt {
-        let rv = g_task_get_priority(cast(task_ptr))
-        return CInt(rv)
+    func getPriority() -> Int {
+        let rv: Int = cast(g_task_get_priority(cast(task_ptr)))
+        return Int(rv)
     }
 
     /// Gets `task`'s return-on-cancel flag. See
@@ -13897,19 +14274,19 @@ public extension TaskProtocol {
     /// Gets the source object from `task`. Like
     /// `g_async_result_get_source_object()`, but does not ref the object.
     func getSourceObject() -> UnsafeMutableRawPointer! {
-        let rv = g_task_get_source_object(cast(task_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_task_get_source_object(cast(task_ptr)))
         return cast(rv)
     }
 
     /// Gets `task`'s source tag. See `g_task_set_source_tag()`.
     func getSourceTag() -> UnsafeMutableRawPointer! {
-        let rv = g_task_get_source_tag(cast(task_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_task_get_source_tag(cast(task_ptr)))
         return cast(rv)
     }
 
     /// Gets `task`'s `task_data`.
     func getTaskData() -> UnsafeMutableRawPointer! {
-        let rv = g_task_get_task_data(cast(task_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_task_get_task_data(cast(task_ptr)))
         return cast(rv)
     }
 
@@ -13927,11 +14304,9 @@ public extension TaskProtocol {
     /// Since this method transfers ownership of the return value (or
     /// error) to the caller, you may only call it once.
     func propagateBoolean() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_task_propagate_boolean(cast(task_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -13943,12 +14318,10 @@ public extension TaskProtocol {
     /// Since this method transfers ownership of the return value (or
     /// error) to the caller, you may only call it once.
     func propagateInt() throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_task_propagate_int(cast(task_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Gets the result of `task` as a pointer, and transfers ownership
@@ -13960,11 +14333,9 @@ public extension TaskProtocol {
     /// Since this method transfers ownership of the return value (or
     /// error) to the caller, you may only call it once.
     func propagatePointer() throws -> UnsafeMutableRawPointer! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_task_propagate_pointer(cast(task_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutableRawPointer! = cast(g_task_propagate_pointer(cast(task_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -13979,11 +14350,9 @@ public extension TaskProtocol {
     /// Since this method transfers ownership of the return value (or
     /// error) to the caller, you may only call it once.
     func propagate(value: ValueProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_task_propagate_value(cast(task_ptr), cast(value.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -14204,7 +14573,7 @@ public extension TaskProtocol {
     var cancellable: UnsafeMutablePointer<GCancellable>! {
         /// Gets `task`'s `GCancellable`
         get {
-            let rv = g_task_get_cancellable(cast(task_ptr))
+            let rv: UnsafeMutablePointer<GCancellable>! = cast(g_task_get_cancellable(cast(task_ptr)))
             return cast(rv)
         }
     }
@@ -14272,7 +14641,7 @@ public extension TaskProtocol {
         /// This will always return a non-`nil` value, even if the task's
         /// context is the default `GMainContext`.
         get {
-            let rv = g_task_get_context(cast(task_ptr))
+            let rv: UnsafeMutablePointer<GMainContext>! = cast(g_task_get_context(cast(task_ptr)))
             return cast(rv)
         }
     }
@@ -14281,8 +14650,8 @@ public extension TaskProtocol {
     var name: String! {
         /// Gets `task`’s name. See `g_task_set_name()`.
         get {
-            let rv = g_task_get_name(cast(task_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_task_get_name(cast(task_ptr)))
+            return cast(rv)
         }
         /// Sets `task`’s name, used in debugging and profiling. The name defaults to
         /// `nil`.
@@ -14294,16 +14663,16 @@ public extension TaskProtocol {
         /// This function may only be called before the `task` is first used in a thread
         /// other than the one it was constructed in.
         nonmutating set {
-            g_task_set_name(cast(task_ptr), newValue)
+            g_task_set_name(cast(task_ptr), cast(newValue))
         }
     }
 
     /// Gets `task`'s priority
-    var priority: CInt {
+    var priority: Int {
         /// Gets `task`'s priority
         get {
-            let rv = g_task_get_priority(cast(task_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_task_get_priority(cast(task_ptr)))
+            return Int(rv)
         }
         /// Sets `task`'s priority. If you do not call this, it will default to
         /// `G_PRIORITY_DEFAULT`.
@@ -14355,7 +14724,7 @@ public extension TaskProtocol {
         /// `GTaskThreadFunc` will still be run (for consistency), but the task
         /// will also be completed right away.
         nonmutating set {
-            let _ = g_task_set_return_on_cancel(cast(task_ptr), gboolean(newValue ? 1 : 0))
+            _ = g_task_set_return_on_cancel(cast(task_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
@@ -14365,7 +14734,7 @@ public extension TaskProtocol {
         /// Gets the source object from `task`. Like
         /// `g_async_result_get_source_object()`, but does not ref the object.
         get {
-            let rv = g_task_get_source_object(cast(task_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_task_get_source_object(cast(task_ptr)))
             return cast(rv)
         }
     }
@@ -14374,7 +14743,7 @@ public extension TaskProtocol {
     var sourceTag: UnsafeMutableRawPointer! {
         /// Gets `task`'s source tag. See `g_task_set_source_tag()`.
         get {
-            let rv = g_task_get_source_tag(cast(task_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_task_get_source_tag(cast(task_ptr)))
             return cast(rv)
         }
         /// Sets `task`'s source tag. You can use this to tag a task return
@@ -14392,10 +14761,12 @@ public extension TaskProtocol {
     var taskData: UnsafeMutableRawPointer! {
         /// Gets `task`'s `task_data`.
         get {
-            let rv = g_task_get_task_data(cast(task_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_task_get_task_data(cast(task_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

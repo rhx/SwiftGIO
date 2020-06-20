@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol NativeVolumeMonitorProtocol: VolumeMonitorProtocol {
-    /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
+        /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNativeVolumeMonitor` instance.
@@ -24,7 +24,7 @@ public protocol NativeVolumeMonitorProtocol: VolumeMonitorProtocol {
 ///
 
 public struct NativeVolumeMonitorRef: NativeVolumeMonitorProtocol {
-    /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
+        /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `native_volume_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension NativeVolumeMonitorRef {
 ///
 
 open class NativeVolumeMonitor: VolumeMonitor, NativeVolumeMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NativeVolumeMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -159,7 +159,7 @@ open class NativeVolumeMonitor: VolumeMonitor, NativeVolumeMonitorProtocol {
 
 }
 
-// MARK: - no NativeVolumeMonitor properties
+// MARK: no NativeVolumeMonitor properties
 
 public enum NativeVolumeMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when a drive changes.
@@ -223,8 +223,8 @@ public extension NativeVolumeMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NativeVolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NativeVolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(native_volume_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -245,9 +245,18 @@ public extension NativeVolumeMonitorProtocol {
     }
 }
 
+// MARK: NativeVolumeMonitor Class: NativeVolumeMonitorProtocol extension (methods and fields)
 public extension NativeVolumeMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeVolumeMonitor` instance.
     var native_volume_monitor_ptr: UnsafeMutablePointer<GNativeVolumeMonitor> { return ptr.assumingMemoryBound(to: GNativeVolumeMonitor.self) }
+
+
+    var parentInstance: GVolumeMonitor {
+        get {
+            let rv: GVolumeMonitor = cast(native_volume_monitor_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
 
 }
 
@@ -271,7 +280,7 @@ public extension NativeVolumeMonitorProtocol {
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
 public protocol NetworkAddressProtocol: ObjectProtocol, SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddress` instance.
+        /// Untyped pointer to the underlying `GNetworkAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkAddress` instance.
@@ -293,7 +302,7 @@ public protocol NetworkAddressProtocol: ObjectProtocol, SocketConnectableProtoco
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
 public struct NetworkAddressRef: NetworkAddressProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddress` instance.
+        /// Untyped pointer to the underlying `GNetworkAddress` instance.
     /// For type-safe access, use the generated, typed pointer `network_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -347,7 +356,7 @@ public extension NetworkAddressRef {
     /// `g_network_address_new_loopback()` to create a `GNetworkAddress` that
     /// is guaranteed to resolve to both addresses.
     init( hostname: UnsafePointer<gchar>, port: UInt16) {
-        let rv = g_network_address_new(hostname, guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new(hostname, guint16(port)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -364,7 +373,7 @@ public extension NetworkAddressRef {
     /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     init(loopback port: UInt16) {
-        let rv = g_network_address_new_loopback(guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new_loopback(guint16(port)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GSocketConnectable` for connecting to the local host
@@ -380,7 +389,7 @@ public extension NetworkAddressRef {
     /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     static func new(loopback port: UInt16) -> NetworkAddressRef! {
-        let rv = g_network_address_new_loopback(guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new_loopback(guint16(port)))
         return rv.map { NetworkAddressRef(cast($0)) }
     }
 
@@ -406,11 +415,9 @@ public extension NetworkAddressRef {
     /// is deprecated, because it depends on the contents of /etc/services,
     /// which is generally quite sparse on platforms other than Linux.)
     static func parse(hostAndPort host_and_port: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddressRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_network_address_parse(host_and_port, guint16(default_port), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_parse(host_and_port, guint16(default_port), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { NetworkAddressRef(cast($0)) }
     }
 
@@ -421,11 +428,9 @@ public extension NetworkAddressRef {
     /// `g_network_address_parse()` allows `GSocketClient` to determine
     /// when to use application-specific proxy protocols.
     static func parse(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddressRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_network_address_parse_uri(uri, guint16(default_port), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_parse_uri(uri, guint16(default_port), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { NetworkAddressRef(cast($0)) }
     }
 }
@@ -445,7 +450,7 @@ public extension NetworkAddressRef {
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
 open class NetworkAddress: Object, NetworkAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -532,7 +537,7 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// `g_network_address_new_loopback()` to create a `GNetworkAddress` that
     /// is guaranteed to resolve to both addresses.
     public init( hostname: UnsafePointer<gchar>, port: UInt16) {
-        let rv = g_network_address_new(hostname, guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new(hostname, guint16(port)))
         super.init(cast(rv))
     }
 
@@ -549,7 +554,7 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     public init(loopback port: UInt16) {
-        let rv = g_network_address_new_loopback(guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new_loopback(guint16(port)))
         super.init(cast(rv))
     }
 
@@ -566,7 +571,7 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// `g_network_address_get_hostname()` will always return `localhost` for
     /// a `GNetworkAddress` created with this constructor.
     public static func new(loopback port: UInt16) -> NetworkAddress! {
-        let rv = g_network_address_new_loopback(guint16(port))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_new_loopback(guint16(port)))
         return rv.map { NetworkAddress(cast($0)) }
     }
 
@@ -592,11 +597,9 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// is deprecated, because it depends on the contents of /etc/services,
     /// which is generally quite sparse on platforms other than Linux.)
     public static func parse(hostAndPort host_and_port: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddress! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_network_address_parse(host_and_port, guint16(default_port), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_parse(host_and_port, guint16(default_port), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { NetworkAddress(cast($0)) }
     }
 
@@ -607,11 +610,9 @@ open class NetworkAddress: Object, NetworkAddressProtocol {
     /// `g_network_address_parse()` allows `GSocketClient` to determine
     /// when to use application-specific proxy protocols.
     public static func parse(uri: UnsafePointer<gchar>, defaultPort default_port: UInt16) throws -> NetworkAddress! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_network_address_parse_uri(uri, guint16(default_port), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_address_parse_uri(uri, guint16(default_port), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { NetworkAddress(cast($0)) }
     }
 
@@ -632,8 +633,8 @@ public extension NetworkAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -656,6 +657,23 @@ public extension NetworkAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a NetworkAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: NetworkAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a NetworkAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: NetworkAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -696,8 +714,8 @@ public extension NetworkAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NetworkAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NetworkAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(network_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -718,6 +736,7 @@ public extension NetworkAddressProtocol {
     }
 }
 
+// MARK: NetworkAddress Class: NetworkAddressProtocol extension (methods and fields)
 public extension NetworkAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkAddress` instance.
     var network_address_ptr: UnsafeMutablePointer<GNetworkAddress> { return ptr.assumingMemoryBound(to: GNetworkAddress.self) }
@@ -725,8 +744,8 @@ public extension NetworkAddressProtocol {
     /// Gets `addr`'s hostname. This might be either UTF-8 or ASCII-encoded,
     /// depending on what `addr` was created with.
     func getHostname() -> String! {
-        let rv = g_network_address_get_hostname(cast(network_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_address_get_hostname(cast(network_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets `addr`'s port number
@@ -737,15 +756,15 @@ public extension NetworkAddressProtocol {
 
     /// Gets `addr`'s scheme
     func getScheme() -> String! {
-        let rv = g_network_address_get_scheme(cast(network_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_address_get_scheme(cast(network_address_ptr)))
+        return cast(rv)
     }
     var hostname: String! {
         /// Gets `addr`'s hostname. This might be either UTF-8 or ASCII-encoded,
         /// depending on what `addr` was created with.
         get {
-            let rv = g_network_address_get_hostname(cast(network_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_address_get_hostname(cast(network_address_ptr)))
+            return cast(rv)
         }
     }
 
@@ -760,10 +779,20 @@ public extension NetworkAddressProtocol {
     var scheme: String! {
         /// Gets `addr`'s scheme
         get {
-            let rv = g_network_address_get_scheme(cast(network_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_address_get_scheme(cast(network_address_ptr)))
+            return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(network_address_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -785,7 +814,7 @@ public extension NetworkAddressProtocol {
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
 public protocol NetworkServiceProtocol: ObjectProtocol, SocketConnectableProtocol {
-    /// Untyped pointer to the underlying `GNetworkService` instance.
+        /// Untyped pointer to the underlying `GNetworkService` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkService` instance.
@@ -806,7 +835,7 @@ public protocol NetworkServiceProtocol: ObjectProtocol, SocketConnectableProtoco
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
 public struct NetworkServiceRef: NetworkServiceProtocol {
-    /// Untyped pointer to the underlying `GNetworkService` instance.
+        /// Untyped pointer to the underlying `GNetworkService` instance.
     /// For type-safe access, use the generated, typed pointer `network_service_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -855,7 +884,7 @@ public extension NetworkServiceRef {
     /// `protocol`, and `domain`. This will initially be unresolved; use the
     /// `GSocketConnectable` interface to resolve it.
     init( service: UnsafePointer<gchar>, protocol_: UnsafePointer<gchar>, domain: UnsafePointer<gchar>) {
-        let rv = g_network_service_new(service, protocol_, domain)
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_service_new(service, protocol_, domain))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -874,7 +903,7 @@ public extension NetworkServiceRef {
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
 open class NetworkService: Object, NetworkServiceProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkService` instance.
     /// - Parameter op: pointer to the underlying object
@@ -956,7 +985,7 @@ open class NetworkService: Object, NetworkServiceProtocol {
     /// `protocol`, and `domain`. This will initially be unresolved; use the
     /// `GSocketConnectable` interface to resolve it.
     public init( service: UnsafePointer<gchar>, protocol_: UnsafePointer<gchar>, domain: UnsafePointer<gchar>) {
-        let rv = g_network_service_new(service, protocol_, domain)
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_network_service_new(service, protocol_, domain))
         super.init(cast(rv))
     }
 
@@ -979,8 +1008,8 @@ public extension NetworkServiceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1003,6 +1032,23 @@ public extension NetworkServiceProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a NetworkService property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: NetworkServicePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a NetworkService property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: NetworkServicePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1044,8 +1090,8 @@ public extension NetworkServiceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NetworkServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NetworkServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(network_service_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1066,6 +1112,7 @@ public extension NetworkServiceProtocol {
     }
 }
 
+// MARK: NetworkService Class: NetworkServiceProtocol extension (methods and fields)
 public extension NetworkServiceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkService` instance.
     var network_service_ptr: UnsafeMutablePointer<GNetworkService> { return ptr.assumingMemoryBound(to: GNetworkService.self) }
@@ -1073,27 +1120,27 @@ public extension NetworkServiceProtocol {
     /// Gets the domain that `srv` serves. This might be either UTF-8 or
     /// ASCII-encoded, depending on what `srv` was created with.
     func getDomain() -> String! {
-        let rv = g_network_service_get_domain(cast(network_service_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_service_get_domain(cast(network_service_ptr)))
+        return cast(rv)
     }
 
     /// Gets `srv`'s protocol name (eg, "tcp").
     func getProtocol() -> String! {
-        let rv = g_network_service_get_protocol(cast(network_service_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_service_get_protocol(cast(network_service_ptr)))
+        return cast(rv)
     }
 
     /// Get's the URI scheme used to resolve proxies. By default, the service name
     /// is used as scheme.
     func getScheme() -> String! {
-        let rv = g_network_service_get_scheme(cast(network_service_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_service_get_scheme(cast(network_service_ptr)))
+        return cast(rv)
     }
 
     /// Gets `srv`'s service name (eg, "ldap").
     func getService() -> String! {
-        let rv = g_network_service_get_service(cast(network_service_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_network_service_get_service(cast(network_service_ptr)))
+        return cast(rv)
     }
 
     /// Set's the URI scheme used to resolve proxies. By default, the service name
@@ -1106,16 +1153,16 @@ public extension NetworkServiceProtocol {
         /// Gets the domain that `srv` serves. This might be either UTF-8 or
         /// ASCII-encoded, depending on what `srv` was created with.
         get {
-            let rv = g_network_service_get_domain(cast(network_service_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_service_get_domain(cast(network_service_ptr)))
+            return cast(rv)
         }
     }
 
-    var protocol_: String! {
+    var `protocol`: String! {
         /// Gets `srv`'s protocol name (eg, "tcp").
         get {
-            let rv = g_network_service_get_protocol(cast(network_service_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_service_get_protocol(cast(network_service_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1123,23 +1170,33 @@ public extension NetworkServiceProtocol {
         /// Get's the URI scheme used to resolve proxies. By default, the service name
         /// is used as scheme.
         get {
-            let rv = g_network_service_get_scheme(cast(network_service_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_service_get_scheme(cast(network_service_ptr)))
+            return cast(rv)
         }
         /// Set's the URI scheme used to resolve proxies. By default, the service name
         /// is used as scheme.
         nonmutating set {
-            g_network_service_set_scheme(cast(network_service_ptr), newValue)
+            g_network_service_set_scheme(cast(network_service_ptr), cast(newValue))
         }
     }
 
     var service: String! {
         /// Gets `srv`'s service name (eg, "ldap").
         get {
-            let rv = g_network_service_get_service(cast(network_service_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_network_service_get_service(cast(network_service_ptr)))
+            return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(network_service_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1173,7 +1230,7 @@ public extension NetworkServiceProtocol {
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
 public protocol NotificationProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GNotification` instance.
+        /// Untyped pointer to the underlying `GNotification` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNotification` instance.
@@ -1206,7 +1263,7 @@ public protocol NotificationProtocol: ObjectProtocol {
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
 public struct NotificationRef: NotificationProtocol {
-    /// Untyped pointer to the underlying `GNotification` instance.
+        /// Untyped pointer to the underlying `GNotification` instance.
     /// For type-safe access, use the generated, typed pointer `notification_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1258,7 +1315,7 @@ public extension NotificationRef {
     /// any properties after this call will not have any effect until
     /// resending `notification`.
     init( title: UnsafePointer<gchar>) {
-        let rv = g_notification_new(title)
+        let rv: UnsafeMutablePointer<GNotification>! = cast(g_notification_new(title))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -1289,7 +1346,7 @@ public extension NotificationRef {
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
 open class Notification: Object, NotificationProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Notification` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1374,14 +1431,14 @@ open class Notification: Object, NotificationProtocol {
     /// any properties after this call will not have any effect until
     /// resending `notification`.
     public init( title: UnsafePointer<gchar>) {
-        let rv = g_notification_new(title)
+        let rv: UnsafeMutablePointer<GNotification>! = cast(g_notification_new(title))
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no Notification properties
+// MARK: no Notification properties
 
 public enum NotificationSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -1418,8 +1475,8 @@ public extension NotificationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NotificationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NotificationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(notification_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1440,6 +1497,7 @@ public extension NotificationProtocol {
     }
 }
 
+// MARK: Notification Class: NotificationProtocol extension (methods and fields)
 public extension NotificationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNotification` instance.
     var notification_ptr: UnsafeMutablePointer<GNotification> { return ptr.assumingMemoryBound(to: GNotification.self) }
@@ -1539,6 +1597,8 @@ public extension NotificationProtocol {
         g_notification_set_urgent(cast(notification_ptr), gboolean(urgent ? 1 : 0))
     
     }
+
+
 }
 
 
@@ -1552,7 +1612,7 @@ public extension NotificationProtocol {
 ///
 
 public protocol OsxAppInfoProtocol: ObjectProtocol, AppInfoProtocol {
-    /// Untyped pointer to the underlying `GOsxAppInfo` instance.
+        /// Untyped pointer to the underlying `GOsxAppInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOsxAppInfo` instance.
@@ -1565,7 +1625,7 @@ public protocol OsxAppInfoProtocol: ObjectProtocol, AppInfoProtocol {
 ///
 
 public struct OsxAppInfoRef: OsxAppInfoProtocol {
-    /// Untyped pointer to the underlying `GOsxAppInfo` instance.
+        /// Untyped pointer to the underlying `GOsxAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `osx_app_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1618,7 +1678,7 @@ public extension OsxAppInfoRef {
 ///
 
 open class OsxAppInfo: Object, OsxAppInfoProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OsxAppInfo` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1700,7 +1760,7 @@ open class OsxAppInfo: Object, OsxAppInfoProtocol {
 
 }
 
-// MARK: - no OsxAppInfo properties
+// MARK: no OsxAppInfo properties
 
 public enum OsxAppInfoSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -1737,8 +1797,8 @@ public extension OsxAppInfoProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: OsxAppInfoSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: OsxAppInfoSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(osx_app_info_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1759,20 +1819,23 @@ public extension OsxAppInfoProtocol {
     }
 }
 
+// MARK: OsxAppInfo Class: OsxAppInfoProtocol extension (methods and fields)
 public extension OsxAppInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOsxAppInfo` instance.
     var osx_app_info_ptr: UnsafeMutablePointer<GOsxAppInfo> { return ptr.assumingMemoryBound(to: GOsxAppInfo.self) }
 
     func getFilename() -> String! {
-        let rv = g_osx_app_info_get_filename(cast(osx_app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_osx_app_info_get_filename(cast(osx_app_info_ptr)))
+        return cast(rv)
     }
     var filename: String! {
         get {
-            let rv = g_osx_app_info_get_filename(cast(osx_app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_osx_app_info_get_filename(cast(osx_app_info_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

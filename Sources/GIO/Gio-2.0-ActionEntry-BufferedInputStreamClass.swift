@@ -20,7 +20,7 @@ import GLibObject
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
 public protocol ActionEntryProtocol {
-    /// Untyped pointer to the underlying `GActionEntry` instance.
+        /// Untyped pointer to the underlying `GActionEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionEntry` instance.
@@ -42,7 +42,7 @@ public protocol ActionEntryProtocol {
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
 public struct ActionEntryRef: ActionEntryProtocol {
-    /// Untyped pointer to the underlying `GActionEntry` instance.
+        /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -104,7 +104,7 @@ public extension ActionEntryRef {
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
 open class ActionEntry: ActionEntryProtocol {
-    /// Untyped pointer to the underlying `GActionEntry` instance.
+        /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -133,7 +133,7 @@ open class ActionEntry: ActionEntryProtocol {
         // no reference counting for GActionEntry, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GActionEntry`.
+    /// Do-nothing destructor for `GActionEntry`.
     deinit {
         // no reference counting for GActionEntry, cannot unref(cast(_ptr))
     }
@@ -201,14 +201,79 @@ open class ActionEntry: ActionEntryProtocol {
 
 }
 
-// MARK: - no ActionEntry properties
+// MARK: no ActionEntry properties
 
-// MARK: - no signals
+// MARK: no ActionEntry signals
 
 
+// MARK: ActionEntry Record: ActionEntryProtocol extension (methods and fields)
 public extension ActionEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionEntry` instance.
     var _ptr: UnsafeMutablePointer<GActionEntry> { return ptr.assumingMemoryBound(to: GActionEntry.self) }
+
+
+    /// the name of the action
+    var name: UnsafePointer<CChar> {
+        /// the name of the action
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.name)
+            return rv
+        }
+        /// the name of the action
+         set {
+            _ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    // var activate is unavailable because activate is void
+
+    /// the type of the parameter that must be passed to the
+    ///                  activate function for this action, given as a single
+    ///                  GVariant type string (or `nil` for no parameter)
+    var parameterType: UnsafePointer<CChar> {
+        /// the type of the parameter that must be passed to the
+        ///                  activate function for this action, given as a single
+        ///                  GVariant type string (or `nil` for no parameter)
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.parameter_type)
+            return rv
+        }
+        /// the type of the parameter that must be passed to the
+        ///                  activate function for this action, given as a single
+        ///                  GVariant type string (or `nil` for no parameter)
+         set {
+            _ptr.pointee.parameter_type = cast(newValue)
+        }
+    }
+
+    /// the initial state for this action, given in
+    ///         [GVariant text format](#gvariant-text).  The state is parsed
+    ///         with no extra type information, so type tags must be added to
+    ///         the string if they are necessary.  Stateless actions should
+    ///         give `nil` here.
+    var state: UnsafePointer<CChar> {
+        /// the initial state for this action, given in
+        ///         [GVariant text format](#gvariant-text).  The state is parsed
+        ///         with no extra type information, so type tags must be added to
+        ///         the string if they are necessary.  Stateless actions should
+        ///         give `nil` here.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.state)
+            return rv
+        }
+        /// the initial state for this action, given in
+        ///         [GVariant text format](#gvariant-text).  The state is parsed
+        ///         with no extra type information, so type tags must be added to
+        ///         the string if they are necessary.  Stateless actions should
+        ///         give `nil` here.
+         set {
+            _ptr.pointee.state = cast(newValue)
+        }
+    }
+
+    // var changeState is unavailable because change_state is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -223,7 +288,7 @@ public extension ActionEntryProtocol {
 ///
 /// The virtual function table for `GActionGroup`.
 public protocol ActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GActionGroupInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionGroupInterface` instance.
@@ -236,7 +301,7 @@ public protocol ActionGroupInterfaceProtocol {
 ///
 /// The virtual function table for `GActionGroup`.
 public struct ActionGroupInterfaceRef: ActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -289,7 +354,7 @@ public extension ActionGroupInterfaceRef {
 ///
 /// The virtual function table for `GActionGroup`.
 open class ActionGroupInterface: ActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -318,7 +383,7 @@ open class ActionGroupInterface: ActionGroupInterfaceProtocol {
         // no reference counting for GActionGroupInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GActionGroupInterface`.
+    /// Do-nothing destructor for `GActionGroupInterface`.
     deinit {
         // no reference counting for GActionGroupInterface, cannot unref(cast(_ptr))
     }
@@ -386,14 +451,51 @@ open class ActionGroupInterface: ActionGroupInterfaceProtocol {
 
 }
 
-// MARK: - no ActionGroupInterface properties
+// MARK: no ActionGroupInterface properties
 
-// MARK: - no signals
+// MARK: no ActionGroupInterface signals
 
 
+// MARK: ActionGroupInterface Record: ActionGroupInterfaceProtocol extension (methods and fields)
 public extension ActionGroupInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionGroupInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionGroupInterface> { return ptr.assumingMemoryBound(to: GActionGroupInterface.self) }
+
+
+    var gIface: GTypeInterface {
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var hasAction is unavailable because has_action is void
+
+    // var listActions is unavailable because list_actions is void
+
+    // var getActionEnabled is unavailable because get_action_enabled is void
+
+    // var getActionParameterType is unavailable because get_action_parameter_type is void
+
+    // var getActionStateType is unavailable because get_action_state_type is void
+
+    // var getActionStateHint is unavailable because get_action_state_hint is void
+
+    // var getActionState is unavailable because get_action_state is void
+
+    // var changeActionState is unavailable because change_action_state is void
+
+    // var activateAction is unavailable because activate_action is void
+
+    // var actionAdded is unavailable because action_added is void
+
+    // var actionRemoved is unavailable because action_removed is void
+
+    // var actionEnabledChanged is unavailable because action_enabled_changed is void
+
+    // var actionStateChanged is unavailable because action_state_changed is void
+
+    // var queryAction is unavailable because query_action is void
 
 }
 
@@ -408,7 +510,7 @@ public extension ActionGroupInterfaceProtocol {
 ///
 /// The virtual function table for `GAction`.
 public protocol ActionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionInterface` instance.
+        /// Untyped pointer to the underlying `GActionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionInterface` instance.
@@ -421,7 +523,7 @@ public protocol ActionInterfaceProtocol {
 ///
 /// The virtual function table for `GAction`.
 public struct ActionInterfaceRef: ActionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionInterface` instance.
+        /// Untyped pointer to the underlying `GActionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -474,7 +576,7 @@ public extension ActionInterfaceRef {
 ///
 /// The virtual function table for `GAction`.
 open class ActionInterface: ActionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionInterface` instance.
+        /// Untyped pointer to the underlying `GActionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -503,7 +605,7 @@ open class ActionInterface: ActionInterfaceProtocol {
         // no reference counting for GActionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GActionInterface`.
+    /// Do-nothing destructor for `GActionInterface`.
     deinit {
         // no reference counting for GActionInterface, cannot unref(cast(_ptr))
     }
@@ -571,14 +673,39 @@ open class ActionInterface: ActionInterfaceProtocol {
 
 }
 
-// MARK: - no ActionInterface properties
+// MARK: no ActionInterface properties
 
-// MARK: - no signals
+// MARK: no ActionInterface signals
 
 
+// MARK: ActionInterface Record: ActionInterfaceProtocol extension (methods and fields)
 public extension ActionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionInterface> { return ptr.assumingMemoryBound(to: GActionInterface.self) }
+
+
+    var gIface: GTypeInterface {
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var getName is unavailable because get_name is void
+
+    // var getParameterType is unavailable because get_parameter_type is void
+
+    // var getStateType is unavailable because get_state_type is void
+
+    // var getStateHint is unavailable because get_state_hint is void
+
+    // var getEnabled is unavailable because get_enabled is void
+
+    // var getState is unavailable because get_state is void
+
+    // var changeState is unavailable because change_state is void
+
+    // var activate is unavailable because activate is void
 
 }
 
@@ -593,7 +720,7 @@ public extension ActionInterfaceProtocol {
 ///
 /// The virtual function table for `GActionMap`.
 public protocol ActionMapInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionMapInterface` instance.
+        /// Untyped pointer to the underlying `GActionMapInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionMapInterface` instance.
@@ -606,7 +733,7 @@ public protocol ActionMapInterfaceProtocol {
 ///
 /// The virtual function table for `GActionMap`.
 public struct ActionMapInterfaceRef: ActionMapInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionMapInterface` instance.
+        /// Untyped pointer to the underlying `GActionMapInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -659,7 +786,7 @@ public extension ActionMapInterfaceRef {
 ///
 /// The virtual function table for `GActionMap`.
 open class ActionMapInterface: ActionMapInterfaceProtocol {
-    /// Untyped pointer to the underlying `GActionMapInterface` instance.
+        /// Untyped pointer to the underlying `GActionMapInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -688,7 +815,7 @@ open class ActionMapInterface: ActionMapInterfaceProtocol {
         // no reference counting for GActionMapInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GActionMapInterface`.
+    /// Do-nothing destructor for `GActionMapInterface`.
     deinit {
         // no reference counting for GActionMapInterface, cannot unref(cast(_ptr))
     }
@@ -756,14 +883,29 @@ open class ActionMapInterface: ActionMapInterfaceProtocol {
 
 }
 
-// MARK: - no ActionMapInterface properties
+// MARK: no ActionMapInterface properties
 
-// MARK: - no signals
+// MARK: no ActionMapInterface signals
 
 
+// MARK: ActionMapInterface Record: ActionMapInterfaceProtocol extension (methods and fields)
 public extension ActionMapInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionMapInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionMapInterface> { return ptr.assumingMemoryBound(to: GActionMapInterface.self) }
+
+
+    var gIface: GTypeInterface {
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var lookupAction is unavailable because lookup_action is void
+
+    // var addAction is unavailable because add_action is void
+
+    // var removeAction is unavailable because remove_action is void
 
 }
 
@@ -778,7 +920,7 @@ public extension ActionMapInterfaceProtocol {
 ///
 /// Application Information interface, for operating system portability.
 public protocol AppInfoIfaceProtocol {
-    /// Untyped pointer to the underlying `GAppInfoIface` instance.
+        /// Untyped pointer to the underlying `GAppInfoIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppInfoIface` instance.
@@ -791,7 +933,7 @@ public protocol AppInfoIfaceProtocol {
 ///
 /// Application Information interface, for operating system portability.
 public struct AppInfoIfaceRef: AppInfoIfaceProtocol {
-    /// Untyped pointer to the underlying `GAppInfoIface` instance.
+        /// Untyped pointer to the underlying `GAppInfoIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -844,7 +986,7 @@ public extension AppInfoIfaceRef {
 ///
 /// Application Information interface, for operating system portability.
 open class AppInfoIface: AppInfoIfaceProtocol {
-    /// Untyped pointer to the underlying `GAppInfoIface` instance.
+        /// Untyped pointer to the underlying `GAppInfoIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -873,7 +1015,7 @@ open class AppInfoIface: AppInfoIfaceProtocol {
         // no reference counting for GAppInfoIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GAppInfoIface`.
+    /// Do-nothing destructor for `GAppInfoIface`.
     deinit {
         // no reference counting for GAppInfoIface, cannot unref(cast(_ptr))
     }
@@ -941,14 +1083,75 @@ open class AppInfoIface: AppInfoIfaceProtocol {
 
 }
 
-// MARK: - no AppInfoIface properties
+// MARK: no AppInfoIface properties
 
-// MARK: - no signals
+// MARK: no AppInfoIface signals
 
 
+// MARK: AppInfoIface Record: AppInfoIfaceProtocol extension (methods and fields)
 public extension AppInfoIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppInfoIface` instance.
     var _ptr: UnsafeMutablePointer<GAppInfoIface> { return ptr.assumingMemoryBound(to: GAppInfoIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var dup is unavailable because dup is void
+
+    // var equal is unavailable because equal is void
+
+    // var getID is unavailable because get_id is void
+
+    // var getName is unavailable because get_name is void
+
+    // var getDescription is unavailable because get_description is void
+
+    // var getExecutable is unavailable because get_executable is void
+
+    // var getIcon is unavailable because get_icon is void
+
+    // var launch is unavailable because launch is void
+
+    // var supportsURIs is unavailable because supports_uris is void
+
+    // var supportsFiles is unavailable because supports_files is void
+
+    // var launchURIs is unavailable because launch_uris is void
+
+    // var shouldShow is unavailable because should_show is void
+
+    // var setAsDefaultForType is unavailable because set_as_default_for_type is void
+
+    // var setAsDefaultForExtension is unavailable because set_as_default_for_extension is void
+
+    // var addSupportsType is unavailable because add_supports_type is void
+
+    // var canRemoveSupportsType is unavailable because can_remove_supports_type is void
+
+    // var removeSupportsType is unavailable because remove_supports_type is void
+
+    // var canDelete is unavailable because can_delete is void
+
+    // var doDelete is unavailable because do_delete is void
+
+    // var getCommandline is unavailable because get_commandline is void
+
+    // var getDisplayName is unavailable because get_display_name is void
+
+    // var setAsLastUsedForType is unavailable because set_as_last_used_for_type is void
+
+    // var getSupportedTypes is unavailable because get_supported_types is void
+
+    // var launchURIsAsync is unavailable because launch_uris_async is void
+
+    // var launchURIsFinish is unavailable because launch_uris_finish is void
 
 }
 
@@ -963,7 +1166,7 @@ public extension AppInfoIfaceProtocol {
 ///
 
 public protocol AppLaunchContextClassProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppLaunchContextClass` instance.
@@ -976,7 +1179,7 @@ public protocol AppLaunchContextClassProtocol {
 ///
 
 public struct AppLaunchContextClassRef: AppLaunchContextClassProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1029,7 +1232,7 @@ public extension AppLaunchContextClassRef {
 ///
 
 open class AppLaunchContextClass: AppLaunchContextClassProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1058,7 +1261,7 @@ open class AppLaunchContextClass: AppLaunchContextClassProtocol {
         // no reference counting for GAppLaunchContextClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GAppLaunchContextClass`.
+    /// Do-nothing destructor for `GAppLaunchContextClass`.
     deinit {
         // no reference counting for GAppLaunchContextClass, cannot unref(cast(_ptr))
     }
@@ -1126,14 +1329,39 @@ open class AppLaunchContextClass: AppLaunchContextClassProtocol {
 
 }
 
-// MARK: - no AppLaunchContextClass properties
+// MARK: no AppLaunchContextClass properties
 
-// MARK: - no signals
+// MARK: no AppLaunchContextClass signals
 
 
+// MARK: AppLaunchContextClass Record: AppLaunchContextClassProtocol extension (methods and fields)
 public extension AppLaunchContextClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppLaunchContextClass` instance.
     var _ptr: UnsafeMutablePointer<GAppLaunchContextClass> { return ptr.assumingMemoryBound(to: GAppLaunchContextClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getDisplay is unavailable because get_display is void
+
+    // var getStartupNotifyID is unavailable because get_startup_notify_id is void
+
+    // var launchFailed is unavailable because launch_failed is void
+
+    // var launched is unavailable because launched is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
 
 }
 
@@ -1148,7 +1376,7 @@ public extension AppLaunchContextClassProtocol {
 ///
 
 public protocol AppLaunchContextPrivateProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppLaunchContextPrivate` instance.
@@ -1161,7 +1389,7 @@ public protocol AppLaunchContextPrivateProtocol {
 ///
 
 public struct AppLaunchContextPrivateRef: AppLaunchContextPrivateProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1214,7 +1442,7 @@ public extension AppLaunchContextPrivateRef {
 ///
 
 open class AppLaunchContextPrivate: AppLaunchContextPrivateProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContextPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1243,7 +1471,7 @@ open class AppLaunchContextPrivate: AppLaunchContextPrivateProtocol {
         // no reference counting for GAppLaunchContextPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GAppLaunchContextPrivate`.
+    /// Do-nothing destructor for `GAppLaunchContextPrivate`.
     deinit {
         // no reference counting for GAppLaunchContextPrivate, cannot unref(cast(_ptr))
     }
@@ -1311,14 +1539,17 @@ open class AppLaunchContextPrivate: AppLaunchContextPrivateProtocol {
 
 }
 
-// MARK: - no AppLaunchContextPrivate properties
+// MARK: no AppLaunchContextPrivate properties
 
-// MARK: - no signals
+// MARK: no AppLaunchContextPrivate signals
 
 
+// MARK: AppLaunchContextPrivate Record: AppLaunchContextPrivateProtocol extension (methods and fields)
 public extension AppLaunchContextPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppLaunchContextPrivate` instance.
     var _ptr: UnsafeMutablePointer<GAppLaunchContextPrivate> { return ptr.assumingMemoryBound(to: GAppLaunchContextPrivate.self) }
+
+
 
 }
 
@@ -1333,7 +1564,7 @@ public extension AppLaunchContextPrivateProtocol {
 ///
 /// Virtual function table for `GApplication`.
 public protocol ApplicationClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationClass` instance.
+        /// Untyped pointer to the underlying `GApplicationClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplicationClass` instance.
@@ -1346,7 +1577,7 @@ public protocol ApplicationClassProtocol {
 ///
 /// Virtual function table for `GApplication`.
 public struct ApplicationClassRef: ApplicationClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationClass` instance.
+        /// Untyped pointer to the underlying `GApplicationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1399,7 +1630,7 @@ public extension ApplicationClassRef {
 ///
 /// Virtual function table for `GApplication`.
 open class ApplicationClass: ApplicationClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationClass` instance.
+        /// Untyped pointer to the underlying `GApplicationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1428,7 +1659,7 @@ open class ApplicationClass: ApplicationClassProtocol {
         // no reference counting for GApplicationClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GApplicationClass`.
+    /// Do-nothing destructor for `GApplicationClass`.
     deinit {
         // no reference counting for GApplicationClass, cannot unref(cast(_ptr))
     }
@@ -1496,14 +1727,50 @@ open class ApplicationClass: ApplicationClassProtocol {
 
 }
 
-// MARK: - no ApplicationClass properties
+// MARK: no ApplicationClass properties
 
-// MARK: - no signals
+// MARK: no ApplicationClass signals
 
 
+// MARK: ApplicationClass Record: ApplicationClassProtocol extension (methods and fields)
 public extension ApplicationClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationClass` instance.
     var _ptr: UnsafeMutablePointer<GApplicationClass> { return ptr.assumingMemoryBound(to: GApplicationClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var startup is unavailable because startup is void
+
+    // var activate is unavailable because activate is void
+
+    // var open is unavailable because open is void
+
+    // var commandLine is unavailable because command_line is void
+
+    // var localCommandLine is unavailable because local_command_line is void
+
+    // var beforeEmit is unavailable because before_emit is void
+
+    // var afterEmit is unavailable because after_emit is void
+
+    // var addPlatformData is unavailable because add_platform_data is void
+
+    // var quitMainloop is unavailable because quit_mainloop is void
+
+    // var runMainloop is unavailable because run_mainloop is void
+
+    // var shutdown is unavailable because shutdown is void
+
+    // var dbusRegister is unavailable because dbus_register is void
+
+    // var dbusUnregister is unavailable because dbus_unregister is void
+
+    // var handleLocalOptions is unavailable because handle_local_options is void
+
+    // var nameLost is unavailable because name_lost is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -1519,7 +1786,7 @@ public extension ApplicationClassProtocol {
 /// The `GApplicationCommandLineClass`-struct
 /// contains private data only.
 public protocol ApplicationCommandLineClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplicationCommandLineClass` instance.
@@ -1533,7 +1800,7 @@ public protocol ApplicationCommandLineClassProtocol {
 /// The `GApplicationCommandLineClass`-struct
 /// contains private data only.
 public struct ApplicationCommandLineClassRef: ApplicationCommandLineClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1587,7 +1854,7 @@ public extension ApplicationCommandLineClassRef {
 /// The `GApplicationCommandLineClass`-struct
 /// contains private data only.
 open class ApplicationCommandLineClass: ApplicationCommandLineClassProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1616,7 +1883,7 @@ open class ApplicationCommandLineClass: ApplicationCommandLineClassProtocol {
         // no reference counting for GApplicationCommandLineClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GApplicationCommandLineClass`.
+    /// Do-nothing destructor for `GApplicationCommandLineClass`.
     deinit {
         // no reference counting for GApplicationCommandLineClass, cannot unref(cast(_ptr))
     }
@@ -1684,14 +1951,26 @@ open class ApplicationCommandLineClass: ApplicationCommandLineClassProtocol {
 
 }
 
-// MARK: - no ApplicationCommandLineClass properties
+// MARK: no ApplicationCommandLineClass properties
 
-// MARK: - no signals
+// MARK: no ApplicationCommandLineClass signals
 
 
+// MARK: ApplicationCommandLineClass Record: ApplicationCommandLineClassProtocol extension (methods and fields)
 public extension ApplicationCommandLineClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationCommandLineClass` instance.
     var _ptr: UnsafeMutablePointer<GApplicationCommandLineClass> { return ptr.assumingMemoryBound(to: GApplicationCommandLineClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var printLiteral is unavailable because print_literal is void
+
+    // var printerrLiteral is unavailable because printerr_literal is void
+
+    // var getStdin is unavailable because get_stdin is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -1706,7 +1985,7 @@ public extension ApplicationCommandLineClassProtocol {
 ///
 
 public protocol ApplicationCommandLinePrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplicationCommandLinePrivate` instance.
@@ -1719,7 +1998,7 @@ public protocol ApplicationCommandLinePrivateProtocol {
 ///
 
 public struct ApplicationCommandLinePrivateRef: ApplicationCommandLinePrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1772,7 +2051,7 @@ public extension ApplicationCommandLinePrivateRef {
 ///
 
 open class ApplicationCommandLinePrivate: ApplicationCommandLinePrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLinePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1801,7 +2080,7 @@ open class ApplicationCommandLinePrivate: ApplicationCommandLinePrivateProtocol 
         // no reference counting for GApplicationCommandLinePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GApplicationCommandLinePrivate`.
+    /// Do-nothing destructor for `GApplicationCommandLinePrivate`.
     deinit {
         // no reference counting for GApplicationCommandLinePrivate, cannot unref(cast(_ptr))
     }
@@ -1869,14 +2148,17 @@ open class ApplicationCommandLinePrivate: ApplicationCommandLinePrivateProtocol 
 
 }
 
-// MARK: - no ApplicationCommandLinePrivate properties
+// MARK: no ApplicationCommandLinePrivate properties
 
-// MARK: - no signals
+// MARK: no ApplicationCommandLinePrivate signals
 
 
+// MARK: ApplicationCommandLinePrivate Record: ApplicationCommandLinePrivateProtocol extension (methods and fields)
 public extension ApplicationCommandLinePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationCommandLinePrivate` instance.
     var _ptr: UnsafeMutablePointer<GApplicationCommandLinePrivate> { return ptr.assumingMemoryBound(to: GApplicationCommandLinePrivate.self) }
+
+
 
 }
 
@@ -1891,7 +2173,7 @@ public extension ApplicationCommandLinePrivateProtocol {
 ///
 
 public protocol ApplicationPrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationPrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplicationPrivate` instance.
@@ -1904,7 +2186,7 @@ public protocol ApplicationPrivateProtocol {
 ///
 
 public struct ApplicationPrivateRef: ApplicationPrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationPrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1957,7 +2239,7 @@ public extension ApplicationPrivateRef {
 ///
 
 open class ApplicationPrivate: ApplicationPrivateProtocol {
-    /// Untyped pointer to the underlying `GApplicationPrivate` instance.
+        /// Untyped pointer to the underlying `GApplicationPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1986,7 +2268,7 @@ open class ApplicationPrivate: ApplicationPrivateProtocol {
         // no reference counting for GApplicationPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GApplicationPrivate`.
+    /// Do-nothing destructor for `GApplicationPrivate`.
     deinit {
         // no reference counting for GApplicationPrivate, cannot unref(cast(_ptr))
     }
@@ -2054,14 +2336,17 @@ open class ApplicationPrivate: ApplicationPrivateProtocol {
 
 }
 
-// MARK: - no ApplicationPrivate properties
+// MARK: no ApplicationPrivate properties
 
-// MARK: - no signals
+// MARK: no ApplicationPrivate signals
 
 
+// MARK: ApplicationPrivate Record: ApplicationPrivateProtocol extension (methods and fields)
 public extension ApplicationPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationPrivate` instance.
     var _ptr: UnsafeMutablePointer<GApplicationPrivate> { return ptr.assumingMemoryBound(to: GApplicationPrivate.self) }
+
+
 
 }
 
@@ -2077,7 +2362,7 @@ public extension ApplicationPrivateProtocol {
 /// Provides an interface for asynchronous initializing object such that
 /// initialization may fail.
 public protocol AsyncInitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
+        /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAsyncInitableIface` instance.
@@ -2091,7 +2376,7 @@ public protocol AsyncInitableIfaceProtocol {
 /// Provides an interface for asynchronous initializing object such that
 /// initialization may fail.
 public struct AsyncInitableIfaceRef: AsyncInitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
+        /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2145,7 +2430,7 @@ public extension AsyncInitableIfaceRef {
 /// Provides an interface for asynchronous initializing object such that
 /// initialization may fail.
 open class AsyncInitableIface: AsyncInitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
+        /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2174,7 +2459,7 @@ open class AsyncInitableIface: AsyncInitableIfaceProtocol {
         // no reference counting for GAsyncInitableIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GAsyncInitableIface`.
+    /// Do-nothing destructor for `GAsyncInitableIface`.
     deinit {
         // no reference counting for GAsyncInitableIface, cannot unref(cast(_ptr))
     }
@@ -2242,14 +2527,29 @@ open class AsyncInitableIface: AsyncInitableIfaceProtocol {
 
 }
 
-// MARK: - no AsyncInitableIface properties
+// MARK: no AsyncInitableIface properties
 
-// MARK: - no signals
+// MARK: no AsyncInitableIface signals
 
 
+// MARK: AsyncInitableIface Record: AsyncInitableIfaceProtocol extension (methods and fields)
 public extension AsyncInitableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncInitableIface` instance.
     var _ptr: UnsafeMutablePointer<GAsyncInitableIface> { return ptr.assumingMemoryBound(to: GAsyncInitableIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var initAsync is unavailable because init_async is void
+
+    // var initFinish is unavailable because init_finish is void
 
 }
 
@@ -2264,7 +2564,7 @@ public extension AsyncInitableIfaceProtocol {
 ///
 /// Interface definition for `GAsyncResult`.
 public protocol AsyncResultIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncResultIface` instance.
+        /// Untyped pointer to the underlying `GAsyncResultIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAsyncResultIface` instance.
@@ -2277,7 +2577,7 @@ public protocol AsyncResultIfaceProtocol {
 ///
 /// Interface definition for `GAsyncResult`.
 public struct AsyncResultIfaceRef: AsyncResultIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncResultIface` instance.
+        /// Untyped pointer to the underlying `GAsyncResultIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2330,7 +2630,7 @@ public extension AsyncResultIfaceRef {
 ///
 /// Interface definition for `GAsyncResult`.
 open class AsyncResultIface: AsyncResultIfaceProtocol {
-    /// Untyped pointer to the underlying `GAsyncResultIface` instance.
+        /// Untyped pointer to the underlying `GAsyncResultIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2359,7 +2659,7 @@ open class AsyncResultIface: AsyncResultIfaceProtocol {
         // no reference counting for GAsyncResultIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GAsyncResultIface`.
+    /// Do-nothing destructor for `GAsyncResultIface`.
     deinit {
         // no reference counting for GAsyncResultIface, cannot unref(cast(_ptr))
     }
@@ -2427,14 +2727,31 @@ open class AsyncResultIface: AsyncResultIfaceProtocol {
 
 }
 
-// MARK: - no AsyncResultIface properties
+// MARK: no AsyncResultIface properties
 
-// MARK: - no signals
+// MARK: no AsyncResultIface signals
 
 
+// MARK: AsyncResultIface Record: AsyncResultIfaceProtocol extension (methods and fields)
 public extension AsyncResultIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncResultIface` instance.
     var _ptr: UnsafeMutablePointer<GAsyncResultIface> { return ptr.assumingMemoryBound(to: GAsyncResultIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var getUserData is unavailable because get_user_data is void
+
+    // var getSourceObject is unavailable because get_source_object is void
+
+    // var isTagged is unavailable because is_tagged is void
 
 }
 
@@ -2449,7 +2766,7 @@ public extension AsyncResultIfaceProtocol {
 ///
 
 public protocol BufferedInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedInputStreamClass` instance.
@@ -2462,7 +2779,7 @@ public protocol BufferedInputStreamClassProtocol {
 ///
 
 public struct BufferedInputStreamClassRef: BufferedInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2515,7 +2832,7 @@ public extension BufferedInputStreamClassRef {
 ///
 
 open class BufferedInputStreamClass: BufferedInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2544,7 +2861,7 @@ open class BufferedInputStreamClass: BufferedInputStreamClassProtocol {
         // no reference counting for GBufferedInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GBufferedInputStreamClass`.
+    /// Do-nothing destructor for `GBufferedInputStreamClass`.
     deinit {
         // no reference counting for GBufferedInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -2612,14 +2929,39 @@ open class BufferedInputStreamClass: BufferedInputStreamClassProtocol {
 
 }
 
-// MARK: - no BufferedInputStreamClass properties
+// MARK: no BufferedInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no BufferedInputStreamClass signals
 
 
+// MARK: BufferedInputStreamClass Record: BufferedInputStreamClassProtocol extension (methods and fields)
 public extension BufferedInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GBufferedInputStreamClass> { return ptr.assumingMemoryBound(to: GBufferedInputStreamClass.self) }
+
+
+    var parentClass: GFilterInputStreamClass {
+        get {
+            let rv: GFilterInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var fill is unavailable because fill is void
+
+    // var fillAsync is unavailable because fill_async is void
+
+    // var fillFinish is unavailable because fill_finish is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 

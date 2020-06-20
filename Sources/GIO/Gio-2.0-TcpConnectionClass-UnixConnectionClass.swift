@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol TcpConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTcpConnectionClass` instance.
@@ -24,7 +24,7 @@ public protocol TcpConnectionClassProtocol {
 ///
 
 public struct TcpConnectionClassRef: TcpConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension TcpConnectionClassRef {
 ///
 
 open class TcpConnectionClass: TcpConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class TcpConnectionClass: TcpConnectionClassProtocol {
         // no reference counting for GTcpConnectionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTcpConnectionClass`.
+    /// Do-nothing destructor for `GTcpConnectionClass`.
     deinit {
         // no reference counting for GTcpConnectionClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,23 @@ open class TcpConnectionClass: TcpConnectionClassProtocol {
 
 }
 
-// MARK: - no TcpConnectionClass properties
+// MARK: no TcpConnectionClass properties
 
-// MARK: - no signals
+// MARK: no TcpConnectionClass signals
 
 
+// MARK: TcpConnectionClass Record: TcpConnectionClassProtocol extension (methods and fields)
 public extension TcpConnectionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTcpConnectionClass> { return ptr.assumingMemoryBound(to: GTcpConnectionClass.self) }
+
+
+    var parentClass: GSocketConnectionClass {
+        get {
+            let rv: GSocketConnectionClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -196,7 +205,7 @@ public extension TcpConnectionClassProtocol {
 ///
 
 public protocol TcpConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTcpConnectionPrivate` instance.
@@ -209,7 +218,7 @@ public protocol TcpConnectionPrivateProtocol {
 ///
 
 public struct TcpConnectionPrivateRef: TcpConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +271,7 @@ public extension TcpConnectionPrivateRef {
 ///
 
 open class TcpConnectionPrivate: TcpConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +300,7 @@ open class TcpConnectionPrivate: TcpConnectionPrivateProtocol {
         // no reference counting for GTcpConnectionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTcpConnectionPrivate`.
+    /// Do-nothing destructor for `GTcpConnectionPrivate`.
     deinit {
         // no reference counting for GTcpConnectionPrivate, cannot unref(cast(_ptr))
     }
@@ -359,14 +368,17 @@ open class TcpConnectionPrivate: TcpConnectionPrivateProtocol {
 
 }
 
-// MARK: - no TcpConnectionPrivate properties
+// MARK: no TcpConnectionPrivate properties
 
-// MARK: - no signals
+// MARK: no TcpConnectionPrivate signals
 
 
+// MARK: TcpConnectionPrivate Record: TcpConnectionPrivateProtocol extension (methods and fields)
 public extension TcpConnectionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpConnectionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GTcpConnectionPrivate> { return ptr.assumingMemoryBound(to: GTcpConnectionPrivate.self) }
+
+
 
 }
 
@@ -381,7 +393,7 @@ public extension TcpConnectionPrivateProtocol {
 ///
 
 public protocol TcpWrapperConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTcpWrapperConnectionClass` instance.
@@ -394,7 +406,7 @@ public protocol TcpWrapperConnectionClassProtocol {
 ///
 
 public struct TcpWrapperConnectionClassRef: TcpWrapperConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +459,7 @@ public extension TcpWrapperConnectionClassRef {
 ///
 
 open class TcpWrapperConnectionClass: TcpWrapperConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +488,7 @@ open class TcpWrapperConnectionClass: TcpWrapperConnectionClassProtocol {
         // no reference counting for GTcpWrapperConnectionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTcpWrapperConnectionClass`.
+    /// Do-nothing destructor for `GTcpWrapperConnectionClass`.
     deinit {
         // no reference counting for GTcpWrapperConnectionClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +556,23 @@ open class TcpWrapperConnectionClass: TcpWrapperConnectionClassProtocol {
 
 }
 
-// MARK: - no TcpWrapperConnectionClass properties
+// MARK: no TcpWrapperConnectionClass properties
 
-// MARK: - no signals
+// MARK: no TcpWrapperConnectionClass signals
 
 
+// MARK: TcpWrapperConnectionClass Record: TcpWrapperConnectionClassProtocol extension (methods and fields)
 public extension TcpWrapperConnectionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpWrapperConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTcpWrapperConnectionClass> { return ptr.assumingMemoryBound(to: GTcpWrapperConnectionClass.self) }
+
+
+    var parentClass: GTcpConnectionClass {
+        get {
+            let rv: GTcpConnectionClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -566,7 +587,7 @@ public extension TcpWrapperConnectionClassProtocol {
 ///
 
 public protocol TcpWrapperConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
@@ -579,7 +600,7 @@ public protocol TcpWrapperConnectionPrivateProtocol {
 ///
 
 public struct TcpWrapperConnectionPrivateRef: TcpWrapperConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +653,7 @@ public extension TcpWrapperConnectionPrivateRef {
 ///
 
 open class TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTcpWrapperConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +682,7 @@ open class TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivateProtocol {
         // no reference counting for GTcpWrapperConnectionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTcpWrapperConnectionPrivate`.
+    /// Do-nothing destructor for `GTcpWrapperConnectionPrivate`.
     deinit {
         // no reference counting for GTcpWrapperConnectionPrivate, cannot unref(cast(_ptr))
     }
@@ -729,14 +750,17 @@ open class TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivateProtocol {
 
 }
 
-// MARK: - no TcpWrapperConnectionPrivate properties
+// MARK: no TcpWrapperConnectionPrivate properties
 
-// MARK: - no signals
+// MARK: no TcpWrapperConnectionPrivate signals
 
 
+// MARK: TcpWrapperConnectionPrivate Record: TcpWrapperConnectionPrivateProtocol extension (methods and fields)
 public extension TcpWrapperConnectionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpWrapperConnectionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GTcpWrapperConnectionPrivate> { return ptr.assumingMemoryBound(to: GTcpWrapperConnectionPrivate.self) }
+
+
 
 }
 
@@ -751,7 +775,7 @@ public extension TcpWrapperConnectionPrivateProtocol {
 ///
 
 public protocol ThemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GThemedIconClass` instance.
+        /// Untyped pointer to the underlying `GThemedIconClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GThemedIconClass` instance.
@@ -764,7 +788,7 @@ public protocol ThemedIconClassProtocol {
 ///
 
 public struct ThemedIconClassRef: ThemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GThemedIconClass` instance.
+        /// Untyped pointer to the underlying `GThemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -817,7 +841,7 @@ public extension ThemedIconClassRef {
 ///
 
 open class ThemedIconClass: ThemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GThemedIconClass` instance.
+        /// Untyped pointer to the underlying `GThemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -846,7 +870,7 @@ open class ThemedIconClass: ThemedIconClassProtocol {
         // no reference counting for GThemedIconClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GThemedIconClass`.
+    /// Do-nothing destructor for `GThemedIconClass`.
     deinit {
         // no reference counting for GThemedIconClass, cannot unref(cast(_ptr))
     }
@@ -914,14 +938,17 @@ open class ThemedIconClass: ThemedIconClassProtocol {
 
 }
 
-// MARK: - no ThemedIconClass properties
+// MARK: no ThemedIconClass properties
 
-// MARK: - no signals
+// MARK: no ThemedIconClass signals
 
 
+// MARK: ThemedIconClass Record: ThemedIconClassProtocol extension (methods and fields)
 public extension ThemedIconClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThemedIconClass` instance.
     var _ptr: UnsafeMutablePointer<GThemedIconClass> { return ptr.assumingMemoryBound(to: GThemedIconClass.self) }
+
+
 
 }
 
@@ -936,7 +963,7 @@ public extension ThemedIconClassProtocol {
 ///
 
 public protocol ThreadedSocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GThreadedSocketServiceClass` instance.
@@ -949,7 +976,7 @@ public protocol ThreadedSocketServiceClassProtocol {
 ///
 
 public struct ThreadedSocketServiceClassRef: ThreadedSocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1002,7 +1029,7 @@ public extension ThreadedSocketServiceClassRef {
 ///
 
 open class ThreadedSocketServiceClass: ThreadedSocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1031,7 +1058,7 @@ open class ThreadedSocketServiceClass: ThreadedSocketServiceClassProtocol {
         // no reference counting for GThreadedSocketServiceClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GThreadedSocketServiceClass`.
+    /// Do-nothing destructor for `GThreadedSocketServiceClass`.
     deinit {
         // no reference counting for GThreadedSocketServiceClass, cannot unref(cast(_ptr))
     }
@@ -1099,14 +1126,35 @@ open class ThreadedSocketServiceClass: ThreadedSocketServiceClassProtocol {
 
 }
 
-// MARK: - no ThreadedSocketServiceClass properties
+// MARK: no ThreadedSocketServiceClass properties
 
-// MARK: - no signals
+// MARK: no ThreadedSocketServiceClass signals
 
 
+// MARK: ThreadedSocketServiceClass Record: ThreadedSocketServiceClassProtocol extension (methods and fields)
 public extension ThreadedSocketServiceClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThreadedSocketServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GThreadedSocketServiceClass> { return ptr.assumingMemoryBound(to: GThreadedSocketServiceClass.self) }
+
+
+    var parentClass: GSocketServiceClass {
+        get {
+            let rv: GSocketServiceClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var run is unavailable because run is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -1121,7 +1169,7 @@ public extension ThreadedSocketServiceClassProtocol {
 ///
 
 public protocol ThreadedSocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GThreadedSocketServicePrivate` instance.
@@ -1134,7 +1182,7 @@ public protocol ThreadedSocketServicePrivateProtocol {
 ///
 
 public struct ThreadedSocketServicePrivateRef: ThreadedSocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1187,7 +1235,7 @@ public extension ThreadedSocketServicePrivateRef {
 ///
 
 open class ThreadedSocketServicePrivate: ThreadedSocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GThreadedSocketServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1216,7 +1264,7 @@ open class ThreadedSocketServicePrivate: ThreadedSocketServicePrivateProtocol {
         // no reference counting for GThreadedSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GThreadedSocketServicePrivate`.
+    /// Do-nothing destructor for `GThreadedSocketServicePrivate`.
     deinit {
         // no reference counting for GThreadedSocketServicePrivate, cannot unref(cast(_ptr))
     }
@@ -1284,14 +1332,17 @@ open class ThreadedSocketServicePrivate: ThreadedSocketServicePrivateProtocol {
 
 }
 
-// MARK: - no ThreadedSocketServicePrivate properties
+// MARK: no ThreadedSocketServicePrivate properties
 
-// MARK: - no signals
+// MARK: no ThreadedSocketServicePrivate signals
 
 
+// MARK: ThreadedSocketServicePrivate Record: ThreadedSocketServicePrivateProtocol extension (methods and fields)
 public extension ThreadedSocketServicePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThreadedSocketServicePrivate` instance.
     var _ptr: UnsafeMutablePointer<GThreadedSocketServicePrivate> { return ptr.assumingMemoryBound(to: GThreadedSocketServicePrivate.self) }
+
+
 
 }
 
@@ -1306,7 +1357,7 @@ public extension ThreadedSocketServicePrivateProtocol {
 ///
 /// Provides an interface for describing TLS-related types.
 public protocol TLSBackendInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
+        /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsBackendInterface` instance.
@@ -1319,7 +1370,7 @@ public protocol TLSBackendInterfaceProtocol {
 ///
 /// Provides an interface for describing TLS-related types.
 public struct TLSBackendInterfaceRef: TLSBackendInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
+        /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1372,7 +1423,7 @@ public extension TLSBackendInterfaceRef {
 ///
 /// Provides an interface for describing TLS-related types.
 open class TLSBackendInterface: TLSBackendInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
+        /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1401,7 +1452,7 @@ open class TLSBackendInterface: TLSBackendInterfaceProtocol {
         // no reference counting for GTlsBackendInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsBackendInterface`.
+    /// Do-nothing destructor for `GTlsBackendInterface`.
     deinit {
         // no reference counting for GTlsBackendInterface, cannot unref(cast(_ptr))
     }
@@ -1469,14 +1520,43 @@ open class TLSBackendInterface: TLSBackendInterfaceProtocol {
 
 }
 
-// MARK: - no TLSBackendInterface properties
+// MARK: no TLSBackendInterface properties
 
-// MARK: - no signals
+// MARK: no TLSBackendInterface signals
 
 
+// MARK: TLSBackendInterface Record: TLSBackendInterfaceProtocol extension (methods and fields)
 public extension TLSBackendInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsBackendInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsBackendInterface> { return ptr.assumingMemoryBound(to: GTlsBackendInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var supportsTLS is unavailable because supports_tls is void
+
+    // var getCertificateType is unavailable because get_certificate_type is void
+
+    // var getClientConnectionType is unavailable because get_client_connection_type is void
+
+    // var getServerConnectionType is unavailable because get_server_connection_type is void
+
+    // var getFileDatabaseType is unavailable because get_file_database_type is void
+
+    // var getDefaultDatabase is unavailable because get_default_database is void
+
+    // var supportsDtls is unavailable because supports_dtls is void
+
+    // var getDtlsClientConnectionType is unavailable because get_dtls_client_connection_type is void
+
+    // var getDtlsServerConnectionType is unavailable because get_dtls_server_connection_type is void
 
 }
 
@@ -1491,7 +1571,7 @@ public extension TLSBackendInterfaceProtocol {
 ///
 
 public protocol TLSCertificateClassProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
+        /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsCertificateClass` instance.
@@ -1504,7 +1584,7 @@ public protocol TLSCertificateClassProtocol {
 ///
 
 public struct TLSCertificateClassRef: TLSCertificateClassProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
+        /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1557,7 +1637,7 @@ public extension TLSCertificateClassRef {
 ///
 
 open class TLSCertificateClass: TLSCertificateClassProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
+        /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1586,7 +1666,7 @@ open class TLSCertificateClass: TLSCertificateClassProtocol {
         // no reference counting for GTlsCertificateClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsCertificateClass`.
+    /// Do-nothing destructor for `GTlsCertificateClass`.
     deinit {
         // no reference counting for GTlsCertificateClass, cannot unref(cast(_ptr))
     }
@@ -1654,14 +1734,27 @@ open class TLSCertificateClass: TLSCertificateClassProtocol {
 
 }
 
-// MARK: - no TLSCertificateClass properties
+// MARK: no TLSCertificateClass properties
 
-// MARK: - no signals
+// MARK: no TLSCertificateClass signals
 
 
+// MARK: TLSCertificateClass Record: TLSCertificateClassProtocol extension (methods and fields)
 public extension TLSCertificateClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsCertificateClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsCertificateClass> { return ptr.assumingMemoryBound(to: GTlsCertificateClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var verify is unavailable because verify is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -1676,7 +1769,7 @@ public extension TLSCertificateClassProtocol {
 ///
 
 public protocol TLSCertificatePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsCertificatePrivate` instance.
@@ -1689,7 +1782,7 @@ public protocol TLSCertificatePrivateProtocol {
 ///
 
 public struct TLSCertificatePrivateRef: TLSCertificatePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1742,7 +1835,7 @@ public extension TLSCertificatePrivateRef {
 ///
 
 open class TLSCertificatePrivate: TLSCertificatePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsCertificatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1771,7 +1864,7 @@ open class TLSCertificatePrivate: TLSCertificatePrivateProtocol {
         // no reference counting for GTlsCertificatePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsCertificatePrivate`.
+    /// Do-nothing destructor for `GTlsCertificatePrivate`.
     deinit {
         // no reference counting for GTlsCertificatePrivate, cannot unref(cast(_ptr))
     }
@@ -1839,14 +1932,17 @@ open class TLSCertificatePrivate: TLSCertificatePrivateProtocol {
 
 }
 
-// MARK: - no TLSCertificatePrivate properties
+// MARK: no TLSCertificatePrivate properties
 
-// MARK: - no signals
+// MARK: no TLSCertificatePrivate signals
 
 
+// MARK: TLSCertificatePrivate Record: TLSCertificatePrivateProtocol extension (methods and fields)
 public extension TLSCertificatePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsCertificatePrivate` instance.
     var _ptr: UnsafeMutablePointer<GTlsCertificatePrivate> { return ptr.assumingMemoryBound(to: GTlsCertificatePrivate.self) }
+
+
 
 }
 
@@ -1861,7 +1957,7 @@ public extension TLSCertificatePrivateProtocol {
 ///
 /// vtable for a `GTlsClientConnection` implementation.
 public protocol TLSClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsClientConnectionInterface` instance.
@@ -1874,7 +1970,7 @@ public protocol TLSClientConnectionInterfaceProtocol {
 ///
 /// vtable for a `GTlsClientConnection` implementation.
 public struct TLSClientConnectionInterfaceRef: TLSClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1927,7 +2023,7 @@ public extension TLSClientConnectionInterfaceRef {
 ///
 /// vtable for a `GTlsClientConnection` implementation.
 open class TLSClientConnectionInterface: TLSClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1956,7 +2052,7 @@ open class TLSClientConnectionInterface: TLSClientConnectionInterfaceProtocol {
         // no reference counting for GTlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsClientConnectionInterface`.
+    /// Do-nothing destructor for `GTlsClientConnectionInterface`.
     deinit {
         // no reference counting for GTlsClientConnectionInterface, cannot unref(cast(_ptr))
     }
@@ -2024,14 +2120,27 @@ open class TLSClientConnectionInterface: TLSClientConnectionInterfaceProtocol {
 
 }
 
-// MARK: - no TLSClientConnectionInterface properties
+// MARK: no TLSClientConnectionInterface properties
 
-// MARK: - no signals
+// MARK: no TLSClientConnectionInterface signals
 
 
+// MARK: TLSClientConnectionInterface Record: TLSClientConnectionInterfaceProtocol extension (methods and fields)
 public extension TLSClientConnectionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsClientConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsClientConnectionInterface> { return ptr.assumingMemoryBound(to: GTlsClientConnectionInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var copySessionState is unavailable because copy_session_state is void
 
 }
 
@@ -2046,7 +2155,7 @@ public extension TLSClientConnectionInterfaceProtocol {
 ///
 
 public protocol TLSConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsConnectionClass` instance.
@@ -2059,7 +2168,7 @@ public protocol TLSConnectionClassProtocol {
 ///
 
 public struct TLSConnectionClassRef: TLSConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2112,7 +2221,7 @@ public extension TLSConnectionClassRef {
 ///
 
 open class TLSConnectionClass: TLSConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2141,7 +2250,7 @@ open class TLSConnectionClass: TLSConnectionClassProtocol {
         // no reference counting for GTlsConnectionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsConnectionClass`.
+    /// Do-nothing destructor for `GTlsConnectionClass`.
     deinit {
         // no reference counting for GTlsConnectionClass, cannot unref(cast(_ptr))
     }
@@ -2209,14 +2318,33 @@ open class TLSConnectionClass: TLSConnectionClassProtocol {
 
 }
 
-// MARK: - no TLSConnectionClass properties
+// MARK: no TLSConnectionClass properties
 
-// MARK: - no signals
+// MARK: no TLSConnectionClass signals
 
 
+// MARK: TLSConnectionClass Record: TLSConnectionClassProtocol extension (methods and fields)
 public extension TLSConnectionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsConnectionClass> { return ptr.assumingMemoryBound(to: GTlsConnectionClass.self) }
+
+
+    var parentClass: GIOStreamClass {
+        get {
+            let rv: GIOStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var acceptCertificate is unavailable because accept_certificate is void
+
+    // var handshake is unavailable because handshake is void
+
+    // var handshakeAsync is unavailable because handshake_async is void
+
+    // var handshakeFinish is unavailable because handshake_finish is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2231,7 +2359,7 @@ public extension TLSConnectionClassProtocol {
 ///
 
 public protocol TLSConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsConnectionPrivate` instance.
@@ -2244,7 +2372,7 @@ public protocol TLSConnectionPrivateProtocol {
 ///
 
 public struct TLSConnectionPrivateRef: TLSConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2297,7 +2425,7 @@ public extension TLSConnectionPrivateRef {
 ///
 
 open class TLSConnectionPrivate: TLSConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2326,7 +2454,7 @@ open class TLSConnectionPrivate: TLSConnectionPrivateProtocol {
         // no reference counting for GTlsConnectionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsConnectionPrivate`.
+    /// Do-nothing destructor for `GTlsConnectionPrivate`.
     deinit {
         // no reference counting for GTlsConnectionPrivate, cannot unref(cast(_ptr))
     }
@@ -2394,14 +2522,17 @@ open class TLSConnectionPrivate: TLSConnectionPrivateProtocol {
 
 }
 
-// MARK: - no TLSConnectionPrivate properties
+// MARK: no TLSConnectionPrivate properties
 
-// MARK: - no signals
+// MARK: no TLSConnectionPrivate signals
 
 
+// MARK: TLSConnectionPrivate Record: TLSConnectionPrivateProtocol extension (methods and fields)
 public extension TLSConnectionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsConnectionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GTlsConnectionPrivate> { return ptr.assumingMemoryBound(to: GTlsConnectionPrivate.self) }
+
+
 
 }
 
@@ -2418,7 +2549,7 @@ public extension TLSConnectionPrivateProtocol {
 /// virtual methods. _async and _finish methods have a default
 /// implementation that runs the corresponding sync method in a thread.
 public protocol TLSDatabaseClassProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
+        /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsDatabaseClass` instance.
@@ -2433,7 +2564,7 @@ public protocol TLSDatabaseClassProtocol {
 /// virtual methods. _async and _finish methods have a default
 /// implementation that runs the corresponding sync method in a thread.
 public struct TLSDatabaseClassRef: TLSDatabaseClassProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
+        /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2488,7 +2619,7 @@ public extension TLSDatabaseClassRef {
 /// virtual methods. _async and _finish methods have a default
 /// implementation that runs the corresponding sync method in a thread.
 open class TLSDatabaseClass: TLSDatabaseClassProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
+        /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2517,7 +2648,7 @@ open class TLSDatabaseClass: TLSDatabaseClassProtocol {
         // no reference counting for GTlsDatabaseClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsDatabaseClass`.
+    /// Do-nothing destructor for `GTlsDatabaseClass`.
     deinit {
         // no reference counting for GTlsDatabaseClass, cannot unref(cast(_ptr))
     }
@@ -2585,14 +2716,51 @@ open class TLSDatabaseClass: TLSDatabaseClassProtocol {
 
 }
 
-// MARK: - no TLSDatabaseClass properties
+// MARK: no TLSDatabaseClass properties
 
-// MARK: - no signals
+// MARK: no TLSDatabaseClass signals
 
 
+// MARK: TLSDatabaseClass Record: TLSDatabaseClassProtocol extension (methods and fields)
 public extension TLSDatabaseClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsDatabaseClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsDatabaseClass> { return ptr.assumingMemoryBound(to: GTlsDatabaseClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var verifyChain is unavailable because verify_chain is void
+
+    // var verifyChainAsync is unavailable because verify_chain_async is void
+
+    // var verifyChainFinish is unavailable because verify_chain_finish is void
+
+    // var createCertificateHandle is unavailable because create_certificate_handle is void
+
+    // var lookupCertificateForHandle is unavailable because lookup_certificate_for_handle is void
+
+    // var lookupCertificateForHandleAsync is unavailable because lookup_certificate_for_handle_async is void
+
+    // var lookupCertificateForHandleFinish is unavailable because lookup_certificate_for_handle_finish is void
+
+    // var lookupCertificateIssuer is unavailable because lookup_certificate_issuer is void
+
+    // var lookupCertificateIssuerAsync is unavailable because lookup_certificate_issuer_async is void
+
+    // var lookupCertificateIssuerFinish is unavailable because lookup_certificate_issuer_finish is void
+
+    // var lookupCertificatesIssuedBy is unavailable because lookup_certificates_issued_by is void
+
+    // var lookupCertificatesIssuedByAsync is unavailable because lookup_certificates_issued_by_async is void
+
+    // var lookupCertificatesIssuedByFinish is unavailable because lookup_certificates_issued_by_finish is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2607,7 +2775,7 @@ public extension TLSDatabaseClassProtocol {
 ///
 
 public protocol TLSDatabasePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsDatabasePrivate` instance.
@@ -2620,7 +2788,7 @@ public protocol TLSDatabasePrivateProtocol {
 ///
 
 public struct TLSDatabasePrivateRef: TLSDatabasePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2673,7 +2841,7 @@ public extension TLSDatabasePrivateRef {
 ///
 
 open class TLSDatabasePrivate: TLSDatabasePrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
+        /// Untyped pointer to the underlying `GTlsDatabasePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2702,7 +2870,7 @@ open class TLSDatabasePrivate: TLSDatabasePrivateProtocol {
         // no reference counting for GTlsDatabasePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsDatabasePrivate`.
+    /// Do-nothing destructor for `GTlsDatabasePrivate`.
     deinit {
         // no reference counting for GTlsDatabasePrivate, cannot unref(cast(_ptr))
     }
@@ -2770,14 +2938,17 @@ open class TLSDatabasePrivate: TLSDatabasePrivateProtocol {
 
 }
 
-// MARK: - no TLSDatabasePrivate properties
+// MARK: no TLSDatabasePrivate properties
 
-// MARK: - no signals
+// MARK: no TLSDatabasePrivate signals
 
 
+// MARK: TLSDatabasePrivate Record: TLSDatabasePrivateProtocol extension (methods and fields)
 public extension TLSDatabasePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsDatabasePrivate` instance.
     var _ptr: UnsafeMutablePointer<GTlsDatabasePrivate> { return ptr.assumingMemoryBound(to: GTlsDatabasePrivate.self) }
+
+
 
 }
 
@@ -2792,7 +2963,7 @@ public extension TLSDatabasePrivateProtocol {
 ///
 /// Provides an interface for `GTlsFileDatabase` implementations.
 public protocol TLSFileDatabaseInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
+        /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsFileDatabaseInterface` instance.
@@ -2805,7 +2976,7 @@ public protocol TLSFileDatabaseInterfaceProtocol {
 ///
 /// Provides an interface for `GTlsFileDatabase` implementations.
 public struct TLSFileDatabaseInterfaceRef: TLSFileDatabaseInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
+        /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2858,7 +3029,7 @@ public extension TLSFileDatabaseInterfaceRef {
 ///
 /// Provides an interface for `GTlsFileDatabase` implementations.
 open class TLSFileDatabaseInterface: TLSFileDatabaseInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
+        /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2887,7 +3058,7 @@ open class TLSFileDatabaseInterface: TLSFileDatabaseInterfaceProtocol {
         // no reference counting for GTlsFileDatabaseInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsFileDatabaseInterface`.
+    /// Do-nothing destructor for `GTlsFileDatabaseInterface`.
     deinit {
         // no reference counting for GTlsFileDatabaseInterface, cannot unref(cast(_ptr))
     }
@@ -2955,14 +3126,27 @@ open class TLSFileDatabaseInterface: TLSFileDatabaseInterfaceProtocol {
 
 }
 
-// MARK: - no TLSFileDatabaseInterface properties
+// MARK: no TLSFileDatabaseInterface properties
 
-// MARK: - no signals
+// MARK: no TLSFileDatabaseInterface signals
 
 
+// MARK: TLSFileDatabaseInterface Record: TLSFileDatabaseInterfaceProtocol extension (methods and fields)
 public extension TLSFileDatabaseInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsFileDatabaseInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsFileDatabaseInterface> { return ptr.assumingMemoryBound(to: GTlsFileDatabaseInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2990,7 +3174,7 @@ public extension TLSFileDatabaseInterfaceProtocol {
 /// `G_TLS_INTERACTION_FAILED` and the error should be set with a domain of
 /// `G_IO_ERROR` and code of `G_IO_ERROR_CANCELLED`.
 public protocol TLSInteractionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsInteractionClass` instance.
@@ -3016,7 +3200,7 @@ public protocol TLSInteractionClassProtocol {
 /// `G_TLS_INTERACTION_FAILED` and the error should be set with a domain of
 /// `G_IO_ERROR` and code of `G_IO_ERROR_CANCELLED`.
 public struct TLSInteractionClassRef: TLSInteractionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3082,7 +3266,7 @@ public extension TLSInteractionClassRef {
 /// `G_TLS_INTERACTION_FAILED` and the error should be set with a domain of
 /// `G_IO_ERROR` and code of `G_IO_ERROR_CANCELLED`.
 open class TLSInteractionClass: TLSInteractionClassProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3111,7 +3295,7 @@ open class TLSInteractionClass: TLSInteractionClassProtocol {
         // no reference counting for GTlsInteractionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsInteractionClass`.
+    /// Do-nothing destructor for `GTlsInteractionClass`.
     deinit {
         // no reference counting for GTlsInteractionClass, cannot unref(cast(_ptr))
     }
@@ -3179,14 +3363,32 @@ open class TLSInteractionClass: TLSInteractionClassProtocol {
 
 }
 
-// MARK: - no TLSInteractionClass properties
+// MARK: no TLSInteractionClass properties
 
-// MARK: - no signals
+// MARK: no TLSInteractionClass signals
 
 
+// MARK: TLSInteractionClass Record: TLSInteractionClassProtocol extension (methods and fields)
 public extension TLSInteractionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsInteractionClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsInteractionClass> { return ptr.assumingMemoryBound(to: GTlsInteractionClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var askPassword is unavailable because ask_password is void
+
+    // var askPasswordAsync is unavailable because ask_password_async is void
+
+    // var askPasswordFinish is unavailable because ask_password_finish is void
+
+    // var requestCertificate is unavailable because request_certificate is void
+
+    // var requestCertificateAsync is unavailable because request_certificate_async is void
+
+    // var requestCertificateFinish is unavailable because request_certificate_finish is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -3201,7 +3403,7 @@ public extension TLSInteractionClassProtocol {
 ///
 
 public protocol TLSInteractionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsInteractionPrivate` instance.
@@ -3214,7 +3416,7 @@ public protocol TLSInteractionPrivateProtocol {
 ///
 
 public struct TLSInteractionPrivateRef: TLSInteractionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3267,7 +3469,7 @@ public extension TLSInteractionPrivateRef {
 ///
 
 open class TLSInteractionPrivate: TLSInteractionPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsInteractionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3296,7 +3498,7 @@ open class TLSInteractionPrivate: TLSInteractionPrivateProtocol {
         // no reference counting for GTlsInteractionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsInteractionPrivate`.
+    /// Do-nothing destructor for `GTlsInteractionPrivate`.
     deinit {
         // no reference counting for GTlsInteractionPrivate, cannot unref(cast(_ptr))
     }
@@ -3364,14 +3566,17 @@ open class TLSInteractionPrivate: TLSInteractionPrivateProtocol {
 
 }
 
-// MARK: - no TLSInteractionPrivate properties
+// MARK: no TLSInteractionPrivate properties
 
-// MARK: - no signals
+// MARK: no TLSInteractionPrivate signals
 
 
+// MARK: TLSInteractionPrivate Record: TLSInteractionPrivateProtocol extension (methods and fields)
 public extension TLSInteractionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsInteractionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GTlsInteractionPrivate> { return ptr.assumingMemoryBound(to: GTlsInteractionPrivate.self) }
+
+
 
 }
 
@@ -3386,7 +3591,7 @@ public extension TLSInteractionPrivateProtocol {
 ///
 /// Class structure for `GTlsPassword`.
 public protocol TLSPasswordClassProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsPasswordClass` instance.
@@ -3399,7 +3604,7 @@ public protocol TLSPasswordClassProtocol {
 ///
 /// Class structure for `GTlsPassword`.
 public struct TLSPasswordClassRef: TLSPasswordClassProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3452,7 +3657,7 @@ public extension TLSPasswordClassRef {
 ///
 /// Class structure for `GTlsPassword`.
 open class TLSPasswordClass: TLSPasswordClassProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3481,7 +3686,7 @@ open class TLSPasswordClass: TLSPasswordClassProtocol {
         // no reference counting for GTlsPasswordClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsPasswordClass`.
+    /// Do-nothing destructor for `GTlsPasswordClass`.
     deinit {
         // no reference counting for GTlsPasswordClass, cannot unref(cast(_ptr))
     }
@@ -3549,14 +3754,31 @@ open class TLSPasswordClass: TLSPasswordClassProtocol {
 
 }
 
-// MARK: - no TLSPasswordClass properties
+// MARK: no TLSPasswordClass properties
 
-// MARK: - no signals
+// MARK: no TLSPasswordClass signals
 
 
+// MARK: TLSPasswordClass Record: TLSPasswordClassProtocol extension (methods and fields)
 public extension TLSPasswordClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsPasswordClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsPasswordClass> { return ptr.assumingMemoryBound(to: GTlsPasswordClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getValue is unavailable because get_value is void
+
+    // var setValue is unavailable because set_value is void
+
+    // var getDefaultWarning is unavailable because get_default_warning is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -3571,7 +3793,7 @@ public extension TLSPasswordClassProtocol {
 ///
 
 public protocol TLSPasswordPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsPasswordPrivate` instance.
@@ -3584,7 +3806,7 @@ public protocol TLSPasswordPrivateProtocol {
 ///
 
 public struct TLSPasswordPrivateRef: TLSPasswordPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3637,7 +3859,7 @@ public extension TLSPasswordPrivateRef {
 ///
 
 open class TLSPasswordPrivate: TLSPasswordPrivateProtocol {
-    /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
+        /// Untyped pointer to the underlying `GTlsPasswordPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3666,7 +3888,7 @@ open class TLSPasswordPrivate: TLSPasswordPrivateProtocol {
         // no reference counting for GTlsPasswordPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsPasswordPrivate`.
+    /// Do-nothing destructor for `GTlsPasswordPrivate`.
     deinit {
         // no reference counting for GTlsPasswordPrivate, cannot unref(cast(_ptr))
     }
@@ -3734,14 +3956,17 @@ open class TLSPasswordPrivate: TLSPasswordPrivateProtocol {
 
 }
 
-// MARK: - no TLSPasswordPrivate properties
+// MARK: no TLSPasswordPrivate properties
 
-// MARK: - no signals
+// MARK: no TLSPasswordPrivate signals
 
 
+// MARK: TLSPasswordPrivate Record: TLSPasswordPrivateProtocol extension (methods and fields)
 public extension TLSPasswordPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsPasswordPrivate` instance.
     var _ptr: UnsafeMutablePointer<GTlsPasswordPrivate> { return ptr.assumingMemoryBound(to: GTlsPasswordPrivate.self) }
+
+
 
 }
 
@@ -3756,7 +3981,7 @@ public extension TLSPasswordPrivateProtocol {
 ///
 /// vtable for a `GTlsServerConnection` implementation.
 public protocol TLSServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsServerConnectionInterface` instance.
@@ -3769,7 +3994,7 @@ public protocol TLSServerConnectionInterfaceProtocol {
 ///
 /// vtable for a `GTlsServerConnection` implementation.
 public struct TLSServerConnectionInterfaceRef: TLSServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3822,7 +4047,7 @@ public extension TLSServerConnectionInterfaceRef {
 ///
 /// vtable for a `GTlsServerConnection` implementation.
 open class TLSServerConnectionInterface: TLSServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3851,7 +4076,7 @@ open class TLSServerConnectionInterface: TLSServerConnectionInterfaceProtocol {
         // no reference counting for GTlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTlsServerConnectionInterface`.
+    /// Do-nothing destructor for `GTlsServerConnectionInterface`.
     deinit {
         // no reference counting for GTlsServerConnectionInterface, cannot unref(cast(_ptr))
     }
@@ -3919,14 +4144,25 @@ open class TLSServerConnectionInterface: TLSServerConnectionInterfaceProtocol {
 
 }
 
-// MARK: - no TLSServerConnectionInterface properties
+// MARK: no TLSServerConnectionInterface properties
 
-// MARK: - no signals
+// MARK: no TLSServerConnectionInterface signals
 
 
+// MARK: TLSServerConnectionInterface Record: TLSServerConnectionInterfaceProtocol extension (methods and fields)
 public extension TLSServerConnectionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsServerConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsServerConnectionInterface> { return ptr.assumingMemoryBound(to: GTlsServerConnectionInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
 
 }
 
@@ -3941,7 +4177,7 @@ public extension TLSServerConnectionInterfaceProtocol {
 ///
 
 public protocol UnixConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixConnectionClass` instance.
@@ -3954,7 +4190,7 @@ public protocol UnixConnectionClassProtocol {
 ///
 
 public struct UnixConnectionClassRef: UnixConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4007,7 +4243,7 @@ public extension UnixConnectionClassRef {
 ///
 
 open class UnixConnectionClass: UnixConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4036,7 +4272,7 @@ open class UnixConnectionClass: UnixConnectionClassProtocol {
         // no reference counting for GUnixConnectionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixConnectionClass`.
+    /// Do-nothing destructor for `GUnixConnectionClass`.
     deinit {
         // no reference counting for GUnixConnectionClass, cannot unref(cast(_ptr))
     }
@@ -4104,14 +4340,23 @@ open class UnixConnectionClass: UnixConnectionClassProtocol {
 
 }
 
-// MARK: - no UnixConnectionClass properties
+// MARK: no UnixConnectionClass properties
 
-// MARK: - no signals
+// MARK: no UnixConnectionClass signals
 
 
+// MARK: UnixConnectionClass Record: UnixConnectionClassProtocol extension (methods and fields)
 public extension UnixConnectionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixConnectionClass> { return ptr.assumingMemoryBound(to: GUnixConnectionClass.self) }
+
+
+    var parentClass: GSocketConnectionClass {
+        get {
+            let rv: GSocketConnectionClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 

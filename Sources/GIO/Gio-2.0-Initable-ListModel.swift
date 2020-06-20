@@ -34,7 +34,7 @@ import GLibObject
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 public protocol InitableProtocol {
-    /// Untyped pointer to the underlying `GInitable` instance.
+        /// Untyped pointer to the underlying `GInitable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInitable` instance.
@@ -70,7 +70,7 @@ public protocol InitableProtocol {
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 public struct InitableRef: InitableProtocol {
-    /// Untyped pointer to the underlying `GInitable` instance.
+        /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -146,7 +146,7 @@ public extension InitableRef {
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 open class Initable: InitableProtocol {
-    /// Untyped pointer to the underlying `GInitable` instance.
+        /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -175,7 +175,7 @@ open class Initable: InitableProtocol {
         // no reference counting for GInitable, cannot ref(cast(initable_ptr))
     }
 
-    /// Do-nothing destructor for`GInitable`.
+    /// Do-nothing destructor for `GInitable`.
     deinit {
         // no reference counting for GInitable, cannot unref(cast(initable_ptr))
     }
@@ -243,11 +243,12 @@ open class Initable: InitableProtocol {
 
 }
 
-// MARK: - no Initable properties
+// MARK: no Initable properties
 
-// MARK: - no signals
+// MARK: no Initable signals
 
 
+// MARK: Initable Interface: InitableProtocol extension (methods and fields)
 public extension InitableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInitable` instance.
     var initable_ptr: UnsafeMutablePointer<GInitable> { return ptr.assumingMemoryBound(to: GInitable.self) }
@@ -291,13 +292,13 @@ public extension InitableProtocol {
     /// on the result of `g_object_new()`, regardless of whether it is in fact a new
     /// instance.
     func init_(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_initable_init(cast(initable_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -357,7 +358,7 @@ public extension InitableProtocol {
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 public protocol ListModelProtocol {
-    /// Untyped pointer to the underlying `GListModel` instance.
+        /// Untyped pointer to the underlying `GListModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GListModel` instance.
@@ -416,7 +417,7 @@ public protocol ListModelProtocol {
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 public struct ListModelRef: ListModelProtocol {
-    /// Untyped pointer to the underlying `GListModel` instance.
+        /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -515,7 +516,7 @@ public extension ListModelRef {
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
 open class ListModel: ListModelProtocol {
-    /// Untyped pointer to the underlying `GListModel` instance.
+        /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -544,7 +545,7 @@ open class ListModel: ListModelProtocol {
         // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
     }
 
-    /// Do-nothing destructor for`GListModel`.
+    /// Do-nothing destructor for `GListModel`.
     deinit {
         // no reference counting for GListModel, cannot unref(cast(list_model_ptr))
     }
@@ -612,7 +613,7 @@ open class ListModel: ListModelProtocol {
 
 }
 
-// MARK: - no ListModel properties
+// MARK: no ListModel properties
 
 public enum ListModelSignalName: String, SignalNameProtocol {
     /// This signal is emitted whenever items were added to or removed
@@ -631,8 +632,8 @@ public extension ListModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(list_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -653,6 +654,7 @@ public extension ListModelProtocol {
     }
 }
 
+// MARK: ListModel Interface: ListModelProtocol extension (methods and fields)
 public extension ListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListModel` instance.
     var list_model_ptr: UnsafeMutablePointer<GListModel> { return ptr.assumingMemoryBound(to: GListModel.self) }
@@ -663,7 +665,7 @@ public extension ListModelProtocol {
     /// `nil` is never returned for an index that is smaller than the length
     /// of the list.  See `g_list_model_get_n_items()`.
     func getItem(position: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_list_model_get_item(cast(list_model_ptr), guint(position))
+        let rv: UnsafeMutableRawPointer! = cast(g_list_model_get_item(cast(list_model_ptr), guint(position)))
         return cast(rv)
     }
 
@@ -675,7 +677,7 @@ public extension ListModelProtocol {
     /// model.
     func getItemType() -> GType {
         let rv = g_list_model_get_item_type(cast(list_model_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the number of items in `list`.
@@ -683,9 +685,9 @@ public extension ListModelProtocol {
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
     /// `position` until `g_list_model_get_item()` returns `nil`.
-    func getNItems() -> CUnsignedInt {
-        let rv = g_list_model_get_n_items(cast(list_model_ptr))
-        return CUnsignedInt(rv)
+    func getNItems() -> Int {
+        let rv: Int = cast(g_list_model_get_n_items(cast(list_model_ptr)))
+        return Int(rv)
     }
 
     /// Get the item at `position`. If `position` is greater than the number of
@@ -694,7 +696,7 @@ public extension ListModelProtocol {
     /// `nil` is never returned for an index that is smaller than the length
     /// of the list.  See `g_list_model_get_n_items()`.
     func getObject(position: CUnsignedInt) -> UnsafeMutablePointer<GObject>! {
-        let rv = g_list_model_get_object(cast(list_model_ptr), guint(position))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_list_model_get_object(cast(list_model_ptr), guint(position)))
         return cast(rv)
     }
 
@@ -737,7 +739,7 @@ public extension ListModelProtocol {
         /// model.
         get {
             let rv = g_list_model_get_item_type(cast(list_model_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -746,17 +748,19 @@ public extension ListModelProtocol {
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
     /// `position` until `g_list_model_get_item()` returns `nil`.
-    var nItems: CUnsignedInt {
+    var nItems: Int {
         /// Gets the number of items in `list`.
         /// 
         /// Depending on the model implementation, calling this function may be
         /// less efficient than iterating the list with increasing values for
         /// `position` until `g_list_model_get_item()` returns `nil`.
         get {
-            let rv = g_list_model_get_n_items(cast(list_model_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_list_model_get_n_items(cast(list_model_ptr)))
+            return Int(rv)
         }
     }
+
+
 }
 
 

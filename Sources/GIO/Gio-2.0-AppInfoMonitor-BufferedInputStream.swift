@@ -27,7 +27,7 @@ import GLibObject
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
 public protocol AppInfoMonitorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
+        /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppInfoMonitor` instance.
@@ -56,7 +56,7 @@ public protocol AppInfoMonitorProtocol: ObjectProtocol {
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
 public struct AppInfoMonitorRef: AppInfoMonitorProtocol {
-    /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
+        /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -111,7 +111,7 @@ public extension AppInfoMonitorRef {
     /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
     static func appInfoMonitorGet() -> AppInfoMonitorRef! {
-        let rv = g_app_info_monitor_get()
+        let rv: UnsafeMutablePointer<GAppInfoMonitor>! = cast(g_app_info_monitor_get())
         return rv.map { AppInfoMonitorRef(cast($0)) }
     }
 }
@@ -138,7 +138,7 @@ public extension AppInfoMonitorRef {
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
 open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -227,13 +227,13 @@ open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
     /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
     public static func appInfoMonitorGet() -> AppInfoMonitor! {
-        let rv = g_app_info_monitor_get()
+        let rv: UnsafeMutablePointer<GAppInfoMonitor>! = cast(g_app_info_monitor_get())
         return rv.map { AppInfoMonitor(cast($0)) }
     }
 
 }
 
-// MARK: - no AppInfoMonitor properties
+// MARK: no AppInfoMonitor properties
 
 public enum AppInfoMonitorSignalName: String, SignalNameProtocol {
     /// Signal emitted when the app info database for changes (ie: newly installed
@@ -273,8 +273,8 @@ public extension AppInfoMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AppInfoMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AppInfoMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(app_info_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -295,9 +295,12 @@ public extension AppInfoMonitorProtocol {
     }
 }
 
+// MARK: AppInfoMonitor Class: AppInfoMonitorProtocol extension (methods and fields)
 public extension AppInfoMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppInfoMonitor` instance.
     var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor> { return ptr.assumingMemoryBound(to: GAppInfoMonitor.self) }
+
+
 
 }
 
@@ -314,7 +317,7 @@ public extension AppInfoMonitorProtocol {
 /// handle for instance startup notification and launching the new application
 /// on the same screen as the launching window.
 public protocol AppLaunchContextProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContext` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppLaunchContext` instance.
@@ -329,7 +332,7 @@ public protocol AppLaunchContextProtocol: ObjectProtocol {
 /// handle for instance startup notification and launching the new application
 /// on the same screen as the launching window.
 public struct AppLaunchContextRef: AppLaunchContextProtocol {
-    /// Untyped pointer to the underlying `GAppLaunchContext` instance.
+        /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -377,7 +380,7 @@ public extension AppLaunchContextRef {
         /// Creates a new application launch context. This is not normally used,
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
     init() {
-        let rv = g_app_launch_context_new()
+        let rv: UnsafeMutablePointer<GAppLaunchContext>! = cast(g_app_launch_context_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -390,7 +393,7 @@ public extension AppLaunchContextRef {
 /// handle for instance startup notification and launching the new application
 /// on the same screen as the launching window.
 open class AppLaunchContext: Object, AppLaunchContextProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
@@ -471,14 +474,14 @@ open class AppLaunchContext: Object, AppLaunchContextProtocol {
     /// Creates a new application launch context. This is not normally used,
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
     public init() {
-        let rv = g_app_launch_context_new()
+        let rv: UnsafeMutablePointer<GAppLaunchContext>! = cast(g_app_launch_context_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no AppLaunchContext properties
+// MARK: no AppLaunchContext properties
 
 public enum AppLaunchContextSignalName: String, SignalNameProtocol {
     /// The `launch`-failed signal is emitted when a `GAppInfo` launch
@@ -525,8 +528,8 @@ public extension AppLaunchContextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(app_launch_context_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -547,6 +550,7 @@ public extension AppLaunchContextProtocol {
     }
 }
 
+// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
 public extension AppLaunchContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppLaunchContext` instance.
     var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext> { return ptr.assumingMemoryBound(to: GAppLaunchContext.self) }
@@ -555,8 +559,8 @@ public extension AppLaunchContextProtocol {
     /// applications are started on the same display as the launching
     /// application, by setting the `DISPLAY` environment variable.
     func getDisplay(info: AppInfoProtocol, files: ListProtocol) -> String! {
-        let rv = g_app_launch_context_get_display(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_launch_context_get_display(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr)))
+        return cast(rv)
     }
 
     /// Gets the complete environment variable list to be passed to
@@ -564,7 +568,7 @@ public extension AppLaunchContextProtocol {
     /// This is a `nil`-terminated array of strings, where each string has
     /// the form `KEY=VALUE`.
     func getEnvironment() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv = g_app_launch_context_get_environment(cast(app_launch_context_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_app_launch_context_get_environment(cast(app_launch_context_ptr)))
         return cast(rv)
     }
 
@@ -574,8 +578,8 @@ public extension AppLaunchContextProtocol {
     /// Startup notification IDs are defined in the
     /// [FreeDesktop.Org Startup Notifications standard](http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt).
     func getStartupNotifyID(info: AppInfoProtocol, files: ListProtocol) -> String! {
-        let rv = g_app_launch_context_get_startup_notify_id(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_launch_context_get_startup_notify_id(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr)))
+        return cast(rv)
     }
 
     /// Called when an application has failed to launch, so that it can cancel
@@ -608,11 +612,9 @@ public extension AppLaunchContextProtocol {
     /// terminates too soon after this function. To prevent this, use
     /// `g_app_info_launch_default_for_uri_async()` instead.
     func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_launch_default_for_uri(uri, cast(app_launch_context_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -640,10 +642,20 @@ public extension AppLaunchContextProtocol {
         /// This is a `nil`-terminated array of strings, where each string has
         /// the form `KEY=VALUE`.
         get {
-            let rv = g_app_launch_context_get_environment(cast(app_launch_context_ptr))
+            let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_app_launch_context_get_environment(cast(app_launch_context_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(app_launch_context_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -770,7 +782,7 @@ public extension AppLaunchContextProtocol {
 /// For an example of using extra D-Bus hooks with GApplication, see
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
 public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
-    /// Untyped pointer to the underlying `GApplication` instance.
+        /// Untyped pointer to the underlying `GApplication` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplication` instance.
@@ -896,7 +908,7 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 /// For an example of using extra D-Bus hooks with GApplication, see
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
 public struct ApplicationRef: ApplicationProtocol {
-    /// Untyped pointer to the underlying `GApplication` instance.
+        /// Untyped pointer to the underlying `GApplication` instance.
     /// For type-safe access, use the generated, typed pointer `application_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -949,7 +961,7 @@ public extension ApplicationRef {
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
     init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
-        let rv = g_application_new(application_id, flags)
+        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_new(application_id, flags.value))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Returns the default `GApplication` instance for this process.
@@ -960,7 +972,7 @@ public extension ApplicationRef {
     /// 
     /// If there is no default application then `nil` is returned.
     static func getDefault() -> ApplicationRef! {
-        let rv = g_application_get_default()
+        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_get_default())
         return rv.map { ApplicationRef(cast($0)) }
     }
 }
@@ -1084,7 +1096,7 @@ public extension ApplicationRef {
 /// For an example of using extra D-Bus hooks with GApplication, see
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
 open class Application: Object, ApplicationProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Application` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1170,7 +1182,7 @@ open class Application: Object, ApplicationProtocol {
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
     public init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
-        let rv = g_application_new(application_id, flags)
+        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_new(application_id, flags.value))
         super.init(cast(rv))
     }
 
@@ -1182,7 +1194,7 @@ open class Application: Object, ApplicationProtocol {
     /// 
     /// If there is no default application then `nil` is returned.
     public static func getDefault() -> Application! {
-        let rv = g_application_get_default()
+        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_get_default())
         return rv.map { Application(cast($0)) }
     }
 
@@ -1210,8 +1222,8 @@ public extension ApplicationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1234,6 +1246,23 @@ public extension ApplicationProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Application property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ApplicationPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Application property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ApplicationPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1345,8 +1374,8 @@ public extension ApplicationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(application_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1367,6 +1396,7 @@ public extension ApplicationProtocol {
     }
 }
 
+// MARK: Application Class: ApplicationProtocol extension (methods and fields)
 public extension ApplicationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplication` instance.
     var application_ptr: UnsafeMutablePointer<GApplication> { return ptr.assumingMemoryBound(to: GApplication.self) }
@@ -1396,7 +1426,7 @@ public extension ApplicationProtocol {
     /// 
     /// See `GOptionEntry` for more documentation of the arguments.
     func addMainOption(longName long_name: UnsafePointer<CChar>, shortName short_name: gchar, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: UnsafePointer<CChar>, argDescription arg_description: UnsafePointer<CChar>) {
-        g_application_add_main_option(cast(application_ptr), long_name, short_name, flags, arg, description, arg_description)
+        g_application_add_main_option(cast(application_ptr), long_name, short_name, flags.value, arg, description, arg_description)
     
     }
 
@@ -1502,8 +1532,8 @@ public extension ApplicationProtocol {
 
     /// Gets the unique identifier for `application`.
     func getApplicationID() -> String! {
-        let rv = g_application_get_application_id(cast(application_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_application_get_application_id(cast(application_ptr)))
+        return cast(rv)
     }
 
     /// Gets the `GDBusConnection` being used by the application, or `nil`.
@@ -1520,7 +1550,7 @@ public extension ApplicationProtocol {
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
     func getDbusConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_application_get_dbus_connection(cast(application_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_application_get_dbus_connection(cast(application_ptr)))
         return cast(rv)
     }
 
@@ -1539,8 +1569,8 @@ public extension ApplicationProtocol {
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
     func getDbusObjectPath() -> String! {
-        let rv = g_application_get_dbus_object_path(cast(application_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_application_get_dbus_object_path(cast(application_ptr)))
+        return cast(rv)
     }
 
     /// Gets the flags for `application`.
@@ -1548,16 +1578,16 @@ public extension ApplicationProtocol {
     /// See `GApplicationFlags`.
     func getFlags() -> GApplicationFlags {
         let rv = g_application_get_flags(cast(application_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the current inactivity timeout for the application.
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
     /// `g_application_release()` before the application stops running.
-    func getInactivityTimeout() -> CUnsignedInt {
-        let rv = g_application_get_inactivity_timeout(cast(application_ptr))
-        return CUnsignedInt(rv)
+    func getInactivityTimeout() -> Int {
+        let rv: Int = cast(g_application_get_inactivity_timeout(cast(application_ptr)))
+        return Int(rv)
     }
 
     /// Gets the application's current busy state, as set through
@@ -1595,8 +1625,8 @@ public extension ApplicationProtocol {
     /// 
     /// See `g_application_set_resource_base_path()` for more information.
     func getResourceBasePath() -> String! {
-        let rv = g_application_get_resource_base_path(cast(application_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_application_get_resource_base_path(cast(application_ptr)))
+        return cast(rv)
     }
 
     /// Increases the use count of `application`.
@@ -1694,11 +1724,9 @@ public extension ApplicationProtocol {
     /// instance is or is not the primary instance of the application.  See
     /// `g_application_get_is_remote()` for that.
     func register(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_application_register(cast(application_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1788,9 +1816,9 @@ public extension ApplicationProtocol {
     /// should not be used from applications like editors that need precise
     /// control over when processes invoked via the commandline will exit and
     /// what their exit status will be.
-    func run(argc: CInt, argv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) -> CInt {
-        let rv = g_application_run(cast(application_ptr), argc, cast(argv))
-        return rv
+    func run(argc: CInt, argv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) -> Int {
+        let rv: Int = cast(g_application_run(cast(application_ptr), argc, cast(argv)))
+        return cast(rv)
     }
 
     /// Sends a notification on behalf of `application` to the desktop shell.
@@ -1868,7 +1896,7 @@ public extension ApplicationProtocol {
     /// 
     /// See `GApplicationFlags`.
     func set(flags: ApplicationFlags) {
-        g_application_set_flags(cast(application_ptr), flags)
+        g_application_set_flags(cast(application_ptr), flags.value)
     
     }
 
@@ -1991,8 +2019,8 @@ public extension ApplicationProtocol {
     var applicationID: String! {
         /// Gets the unique identifier for `application`.
         get {
-            let rv = g_application_get_application_id(cast(application_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_application_get_application_id(cast(application_ptr)))
+            return cast(rv)
         }
         /// Sets the unique identifier for `application`.
         /// 
@@ -2002,7 +2030,7 @@ public extension ApplicationProtocol {
         /// If non-`nil`, the application id must be valid.  See
         /// `g_application_id_is_valid()`.
         nonmutating set {
-            g_application_set_application_id(cast(application_ptr), newValue)
+            g_application_set_application_id(cast(application_ptr), cast(newValue))
         }
     }
 
@@ -2034,7 +2062,7 @@ public extension ApplicationProtocol {
         /// This function must not be called before the application has been
         /// registered.  See `g_application_get_is_registered()`.
         get {
-            let rv = g_application_get_dbus_connection(cast(application_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_application_get_dbus_connection(cast(application_ptr)))
             return cast(rv)
         }
     }
@@ -2069,8 +2097,8 @@ public extension ApplicationProtocol {
         /// This function must not be called before the application has been
         /// registered.  See `g_application_get_is_registered()`.
         get {
-            let rv = g_application_get_dbus_object_path(cast(application_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_application_get_dbus_object_path(cast(application_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2080,7 +2108,7 @@ public extension ApplicationProtocol {
         /// See `GApplicationFlags`.
         get {
             let rv = g_application_get_flags(cast(application_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the flags for `application`.
         /// 
@@ -2089,7 +2117,7 @@ public extension ApplicationProtocol {
         /// 
         /// See `GApplicationFlags`.
         nonmutating set {
-            g_application_set_flags(cast(application_ptr), newValue)
+            g_application_set_flags(cast(application_ptr), cast(newValue))
         }
     }
 
@@ -2097,14 +2125,14 @@ public extension ApplicationProtocol {
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
     /// `g_application_release()` before the application stops running.
-    var inactivityTimeout: CUnsignedInt {
+    var inactivityTimeout: Int {
         /// Gets the current inactivity timeout for the application.
         /// 
         /// This is the amount of time (in milliseconds) after the last call to
         /// `g_application_release()` before the application stops running.
         get {
-            let rv = g_application_get_inactivity_timeout(cast(application_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_application_get_inactivity_timeout(cast(application_ptr)))
+            return Int(rv)
         }
         /// Sets the current inactivity timeout for the application.
         /// 
@@ -2180,8 +2208,8 @@ public extension ApplicationProtocol {
         /// 
         /// See `g_application_set_resource_base_path()` for more information.
         get {
-            let rv = g_application_get_resource_base_path(cast(application_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_application_get_resource_base_path(cast(application_ptr)))
+            return cast(rv)
         }
         /// Sets (or unsets) the base resource path of `application`.
         /// 
@@ -2217,9 +2245,14 @@ public extension ApplicationProtocol {
         /// can call this function in the `GApplicationClass.startup` virtual function,
         /// before chaining up to the parent implementation.
         nonmutating set {
-            g_application_set_resource_base_path(cast(application_ptr), newValue)
+            g_application_set_resource_base_path(cast(application_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2389,7 +2422,7 @@ public extension ApplicationProtocol {
 /// The complete example can be found here:
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
 public protocol ApplicationCommandLineProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GApplicationCommandLine` instance.
@@ -2558,7 +2591,7 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 /// The complete example can be found here:
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
 public struct ApplicationCommandLineRef: ApplicationCommandLineProtocol {
-    /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
+        /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     /// For type-safe access, use the generated, typed pointer `application_command_line_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2767,7 +2800,7 @@ public extension ApplicationCommandLineRef {
 /// The complete example can be found here:
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
 open class ApplicationCommandLine: Object, ApplicationCommandLineProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2865,8 +2898,8 @@ public extension ApplicationCommandLineProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2889,6 +2922,23 @@ public extension ApplicationCommandLineProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ApplicationCommandLine property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ApplicationCommandLinePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ApplicationCommandLine property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ApplicationCommandLinePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2930,8 +2980,8 @@ public extension ApplicationCommandLineProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ApplicationCommandLineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ApplicationCommandLineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(application_command_line_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2952,6 +3002,7 @@ public extension ApplicationCommandLineProtocol {
     }
 }
 
+// MARK: ApplicationCommandLine Class: ApplicationCommandLineProtocol extension (methods and fields)
 public extension ApplicationCommandLineProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationCommandLine` instance.
     var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine> { return ptr.assumingMemoryBound(to: GApplicationCommandLine.self) }
@@ -2963,7 +3014,7 @@ public extension ApplicationCommandLineProtocol {
     /// resolves relative pathnames using the current working directory of
     /// the invoking process rather than the local process.
     func createFileFor(arg: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFile>! {
-        let rv = g_application_command_line_create_file_for_arg(cast(application_command_line_ptr), arg)
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_application_command_line_create_file_for_arg(cast(application_command_line_ptr), arg))
         return cast(rv)
     }
 
@@ -2979,7 +3030,7 @@ public extension ApplicationCommandLineProtocol {
     /// The return value is `nil`-terminated and should be freed using
     /// `g_strfreev()`.
     func getArguments(argc: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_application_command_line_get_arguments(cast(application_command_line_ptr), cast(argc))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_application_command_line_get_arguments(cast(application_command_line_ptr), cast(argc)))
         return cast(rv)
     }
 
@@ -2992,8 +3043,8 @@ public extension ApplicationCommandLineProtocol {
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
     func getCwd() -> String! {
-        let rv = g_application_command_line_get_cwd(cast(application_command_line_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_application_command_line_get_cwd(cast(application_command_line_ptr)))
+        return cast(rv)
     }
 
     /// Gets the contents of the 'environ' variable of the command line
@@ -3012,15 +3063,15 @@ public extension ApplicationCommandLineProtocol {
     /// See `g_application_command_line_getenv()` if you are only interested
     /// in the value of a single environment variable.
     func getEnviron() -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv = g_application_command_line_get_environ(cast(application_command_line_ptr))
+        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_application_command_line_get_environ(cast(application_command_line_ptr)))
         return cast(rv)
     }
 
     /// Gets the exit status of `cmdline`.  See
     /// `g_application_command_line_set_exit_status()` for more information.
-    func getExitStatus() -> CInt {
-        let rv = g_application_command_line_get_exit_status(cast(application_command_line_ptr))
-        return rv
+    func getExitStatus() -> Int {
+        let rv: Int = cast(g_application_command_line_get_exit_status(cast(application_command_line_ptr)))
+        return cast(rv)
     }
 
     /// Determines if `cmdline` represents a remote invocation.
@@ -3039,7 +3090,7 @@ public extension ApplicationCommandLineProtocol {
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
     func getOptionsDict() -> UnsafeMutablePointer<GVariantDict>! {
-        let rv = g_application_command_line_get_options_dict(cast(application_command_line_ptr))
+        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_application_command_line_get_options_dict(cast(application_command_line_ptr)))
         return cast(rv)
     }
 
@@ -3052,7 +3103,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// For local invocation, it will be `nil`.
     func getPlatformData() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_application_command_line_get_platform_data(cast(application_command_line_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_application_command_line_get_platform_data(cast(application_command_line_ptr)))
         return cast(rv)
     }
 
@@ -3067,7 +3118,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// You must only call this function once per commandline invocation.
     func getStdin() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = g_application_command_line_get_stdin(cast(application_command_line_ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_application_command_line_get_stdin(cast(application_command_line_ptr)))
         return cast(rv)
     }
 
@@ -3083,8 +3134,8 @@ public extension ApplicationCommandLineProtocol {
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
     func getenv(name: UnsafePointer<gchar>) -> String! {
-        let rv = g_application_command_line_getenv(cast(application_command_line_ptr), name)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_application_command_line_getenv(cast(application_command_line_ptr), name))
+        return cast(rv)
     }
 
 
@@ -3138,8 +3189,8 @@ public extension ApplicationCommandLineProtocol {
         /// The return value should not be modified or freed and is valid for as
         /// long as `cmdline` exists.
         get {
-            let rv = g_application_command_line_get_cwd(cast(application_command_line_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_application_command_line_get_cwd(cast(application_command_line_ptr)))
+            return cast(rv)
         }
     }
 
@@ -3175,19 +3226,19 @@ public extension ApplicationCommandLineProtocol {
         /// See `g_application_command_line_getenv()` if you are only interested
         /// in the value of a single environment variable.
         get {
-            let rv = g_application_command_line_get_environ(cast(application_command_line_ptr))
+            let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_application_command_line_get_environ(cast(application_command_line_ptr)))
             return cast(rv)
         }
     }
 
     /// Gets the exit status of `cmdline`.  See
     /// `g_application_command_line_set_exit_status()` for more information.
-    var exitStatus: CInt {
+    var exitStatus: Int {
         /// Gets the exit status of `cmdline`.  See
         /// `g_application_command_line_set_exit_status()` for more information.
         get {
-            let rv = g_application_command_line_get_exit_status(cast(application_command_line_ptr))
-            return rv
+            let rv: Int = cast(g_application_command_line_get_exit_status(cast(application_command_line_ptr)))
+            return cast(rv)
         }
         /// Sets the exit status that will be used when the invoking process
         /// exits.
@@ -3211,7 +3262,7 @@ public extension ApplicationCommandLineProtocol {
         /// always zero.  If the application use count is zero, though, the exit
         /// status of the local `GApplicationCommandLine` is used.
         nonmutating set {
-            g_application_command_line_set_exit_status(cast(application_command_line_ptr), newValue)
+            g_application_command_line_set_exit_status(cast(application_command_line_ptr), cast(newValue))
         }
     }
 
@@ -3244,7 +3295,7 @@ public extension ApplicationCommandLineProtocol {
         /// If no options were sent then an empty dictionary is returned so that
         /// you don't need to check for `nil`.
         get {
-            let rv = g_application_command_line_get_options_dict(cast(application_command_line_ptr))
+            let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_application_command_line_get_options_dict(cast(application_command_line_ptr)))
             return cast(rv)
         }
     }
@@ -3267,7 +3318,7 @@ public extension ApplicationCommandLineProtocol {
         /// 
         /// For local invocation, it will be `nil`.
         get {
-            let rv = g_application_command_line_get_platform_data(cast(application_command_line_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_application_command_line_get_platform_data(cast(application_command_line_ptr)))
             return cast(rv)
         }
     }
@@ -3294,10 +3345,15 @@ public extension ApplicationCommandLineProtocol {
         /// 
         /// You must only call this function once per commandline invocation.
         get {
-            let rv = g_application_command_line_get_stdin(cast(application_command_line_ptr))
+            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_application_command_line_get_stdin(cast(application_command_line_ptr)))
             return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -3324,7 +3380,7 @@ public extension ApplicationCommandLineProtocol {
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStream` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedInputStream` instance.
@@ -3350,7 +3406,7 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 public struct BufferedInputStreamRef: BufferedInputStreamProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStream` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `buffered_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3398,20 +3454,20 @@ public extension BufferedInputStreamRef {
         /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
     init( base_stream: InputStreamProtocol) {
-        let rv = g_buffered_input_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new(cast(base_stream.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
     init(sized base_stream: InputStreamProtocol, size: Int) {
-        let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
     static func new(sized base_stream: InputStreamProtocol, size: Int) -> BufferedInputStreamRef! {
-        let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         return rv.map { BufferedInputStreamRef(cast($0)) }
     }
 }
@@ -3435,7 +3491,7 @@ public extension BufferedInputStreamRef {
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
 open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BufferedInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3516,21 +3572,21 @@ open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
     /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
     public init( base_stream: InputStreamProtocol) {
-        let rv = g_buffered_input_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new(cast(base_stream.ptr)))
         super.init(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
     public init(sized base_stream: InputStreamProtocol, size: Int) {
-        let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         super.init(cast(rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
     public static func new(sized base_stream: InputStreamProtocol, size: Int) -> BufferedInputStream! {
-        let rv = g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         return rv.map { BufferedInputStream(cast($0)) }
     }
 
@@ -3551,8 +3607,8 @@ public extension BufferedInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3575,6 +3631,23 @@ public extension BufferedInputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a BufferedInputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: BufferedInputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a BufferedInputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: BufferedInputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3615,8 +3688,8 @@ public extension BufferedInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BufferedInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: BufferedInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(buffered_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3637,6 +3710,7 @@ public extension BufferedInputStreamProtocol {
     }
 }
 
+// MARK: BufferedInputStream Class: BufferedInputStreamProtocol extension (methods and fields)
 public extension BufferedInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedInputStream` instance.
     var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream> { return ptr.assumingMemoryBound(to: GBufferedInputStream.self) }
@@ -3666,12 +3740,10 @@ public extension BufferedInputStreamProtocol {
     /// For the asynchronous, non-blocking, version of this function, see
     /// `g_buffered_input_stream_fill_async()`.
     func fill(count: gssize, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_buffered_input_stream_fill(cast(buffered_input_stream_ptr), count, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads data into `stream`'s buffer asynchronously, up to `count` size.
@@ -3687,12 +3759,10 @@ public extension BufferedInputStreamProtocol {
 
     /// Finishes an asynchronous read.
     func fillFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_buffered_input_stream_fill_finish(cast(buffered_input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Gets the size of the available data within the stream.
@@ -3718,7 +3788,7 @@ public extension BufferedInputStreamProtocol {
     /// buffer must not be modified and will become invalid when reading from
     /// the stream or filling the buffer.
     func peekBuffer(count: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
-        let rv = g_buffered_input_stream_peek_buffer(cast(buffered_input_stream_ptr), cast(count))
+        let rv: UnsafeMutableRawPointer! = cast(g_buffered_input_stream_peek_buffer(cast(buffered_input_stream_ptr), cast(count)))
         return cast(rv)
     }
 
@@ -3735,13 +3805,11 @@ public extension BufferedInputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
-    func readByte(cancellable: CancellableProtocol) throws -> CInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_buffered_input_stream_read_byte(cast(buffered_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+    func readByte(cancellable: CancellableProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_buffered_input_stream_read_byte(cast(buffered_input_stream_ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Sets the size of the internal buffer of `stream` to `size`, or to the
@@ -3774,6 +3842,16 @@ public extension BufferedInputStreamProtocol {
             g_buffered_input_stream_set_buffer_size(cast(buffered_input_stream_ptr), gsize(newValue))
         }
     }
+
+    var parentInstance: GFilterInputStream {
+        get {
+            let rv: GFilterInputStream = cast(buffered_input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 

@@ -17,7 +17,7 @@ import GLibObject
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
 public protocol OutputMessageProtocol {
-    /// Untyped pointer to the underlying `GOutputMessage` instance.
+        /// Untyped pointer to the underlying `GOutputMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOutputMessage` instance.
@@ -36,7 +36,7 @@ public protocol OutputMessageProtocol {
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
 public struct OutputMessageRef: OutputMessageProtocol {
-    /// Untyped pointer to the underlying `GOutputMessage` instance.
+        /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -95,7 +95,7 @@ public extension OutputMessageRef {
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
 open class OutputMessage: OutputMessageProtocol {
-    /// Untyped pointer to the underlying `GOutputMessage` instance.
+        /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -124,7 +124,7 @@ open class OutputMessage: OutputMessageProtocol {
         // no reference counting for GOutputMessage, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOutputMessage`.
+    /// Do-nothing destructor for `GOutputMessage`.
     deinit {
         // no reference counting for GOutputMessage, cannot unref(cast(_ptr))
     }
@@ -192,14 +192,86 @@ open class OutputMessage: OutputMessageProtocol {
 
 }
 
-// MARK: - no OutputMessage properties
+// MARK: no OutputMessage properties
 
-// MARK: - no signals
+// MARK: no OutputMessage signals
 
 
+// MARK: OutputMessage Record: OutputMessageProtocol extension (methods and fields)
 public extension OutputMessageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOutputMessage` instance.
     var _ptr: UnsafeMutablePointer<GOutputMessage> { return ptr.assumingMemoryBound(to: GOutputMessage.self) }
+
+
+    /// a `GSocketAddress`, or `nil`
+    var address: UnsafeMutablePointer<GSocketAddress> {
+        /// a `GSocketAddress`, or `nil`
+        get {
+            let rv: UnsafeMutablePointer<GSocketAddress> = cast(_ptr.pointee.address)
+            return rv
+        }
+        /// a `GSocketAddress`, or `nil`
+         set {
+            _ptr.pointee.address = cast(newValue)
+        }
+    }
+
+    /// pointer to an array of output vectors
+    var vectors: UnsafeMutablePointer<GOutputVector> {
+        /// pointer to an array of output vectors
+        get {
+            let rv: UnsafeMutablePointer<GOutputVector> = cast(_ptr.pointee.vectors)
+            return rv
+        }
+        /// pointer to an array of output vectors
+         set {
+            _ptr.pointee.vectors = cast(newValue)
+        }
+    }
+
+    /// the number of output vectors pointed to by `vectors`.
+    var numVectors: Int {
+        /// the number of output vectors pointed to by `vectors`.
+        get {
+            let rv: Int = cast(_ptr.pointee.num_vectors)
+            return rv
+        }
+        /// the number of output vectors pointed to by `vectors`.
+         set {
+            _ptr.pointee.num_vectors = guint(newValue)
+        }
+    }
+
+    /// initialize to 0. Will be set to the number of bytes
+    ///     that have been sent
+    var bytesSent: Int {
+        /// initialize to 0. Will be set to the number of bytes
+        ///     that have been sent
+        get {
+            let rv: Int = cast(_ptr.pointee.bytes_sent)
+            return rv
+        }
+        /// initialize to 0. Will be set to the number of bytes
+        ///     that have been sent
+         set {
+            _ptr.pointee.bytes_sent = guint(newValue)
+        }
+    }
+
+    // var controlMessages is unavailable because control_messages is void
+
+    /// number of elements in `control_messages`.
+    var numControlMessages: Int {
+        /// number of elements in `control_messages`.
+        get {
+            let rv: Int = cast(_ptr.pointee.num_control_messages)
+            return rv
+        }
+        /// number of elements in `control_messages`.
+         set {
+            _ptr.pointee.num_control_messages = guint(newValue)
+        }
+    }
 
 }
 
@@ -214,7 +286,7 @@ public extension OutputMessageProtocol {
 ///
 
 public protocol OutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOutputStreamClass` instance.
@@ -227,7 +299,7 @@ public protocol OutputStreamClassProtocol {
 ///
 
 public struct OutputStreamClassRef: OutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -280,7 +352,7 @@ public extension OutputStreamClassRef {
 ///
 
 open class OutputStreamClass: OutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -309,7 +381,7 @@ open class OutputStreamClass: OutputStreamClassProtocol {
         // no reference counting for GOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOutputStreamClass`.
+    /// Do-nothing destructor for `GOutputStreamClass`.
     deinit {
         // no reference counting for GOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -377,14 +449,63 @@ open class OutputStreamClass: OutputStreamClassProtocol {
 
 }
 
-// MARK: - no OutputStreamClass properties
+// MARK: no OutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no OutputStreamClass signals
 
 
+// MARK: OutputStreamClass Record: OutputStreamClassProtocol extension (methods and fields)
 public extension OutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GOutputStreamClass> { return ptr.assumingMemoryBound(to: GOutputStreamClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var writeFn is unavailable because write_fn is void
+
+    // var splice is unavailable because splice is void
+
+    // var flush is unavailable because flush is void
+
+    // var closeFn is unavailable because close_fn is void
+
+    // var writeAsync is unavailable because write_async is void
+
+    // var writeFinish is unavailable because write_finish is void
+
+    // var spliceAsync is unavailable because splice_async is void
+
+    // var spliceFinish is unavailable because splice_finish is void
+
+    // var flushAsync is unavailable because flush_async is void
+
+    // var flushFinish is unavailable because flush_finish is void
+
+    // var closeAsync is unavailable because close_async is void
+
+    // var closeFinish is unavailable because close_finish is void
+
+    // var writevFn is unavailable because writev_fn is void
+
+    // var writevAsync is unavailable because writev_async is void
+
+    // var writevFinish is unavailable because writev_finish is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
+
+    // var GReserved8 is unavailable because _g_reserved8 is void
 
 }
 
@@ -399,7 +520,7 @@ public extension OutputStreamClassProtocol {
 ///
 
 public protocol OutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOutputStreamPrivate` instance.
@@ -412,7 +533,7 @@ public protocol OutputStreamPrivateProtocol {
 ///
 
 public struct OutputStreamPrivateRef: OutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -465,7 +586,7 @@ public extension OutputStreamPrivateRef {
 ///
 
 open class OutputStreamPrivate: OutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -494,7 +615,7 @@ open class OutputStreamPrivate: OutputStreamPrivateProtocol {
         // no reference counting for GOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOutputStreamPrivate`.
+    /// Do-nothing destructor for `GOutputStreamPrivate`.
     deinit {
         // no reference counting for GOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -562,14 +683,17 @@ open class OutputStreamPrivate: OutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no OutputStreamPrivate properties
+// MARK: no OutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no OutputStreamPrivate signals
 
 
+// MARK: OutputStreamPrivate Record: OutputStreamPrivateProtocol extension (methods and fields)
 public extension OutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -587,7 +711,7 @@ public extension OutputStreamPrivateProtocol {
 /// and the operation will use all the buffers as if they were
 /// one buffer.
 public protocol OutputVectorProtocol {
-    /// Untyped pointer to the underlying `GOutputVector` instance.
+        /// Untyped pointer to the underlying `GOutputVector` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOutputVector` instance.
@@ -603,7 +727,7 @@ public protocol OutputVectorProtocol {
 /// and the operation will use all the buffers as if they were
 /// one buffer.
 public struct OutputVectorRef: OutputVectorProtocol {
-    /// Untyped pointer to the underlying `GOutputVector` instance.
+        /// Untyped pointer to the underlying `GOutputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -659,7 +783,7 @@ public extension OutputVectorRef {
 /// and the operation will use all the buffers as if they were
 /// one buffer.
 open class OutputVector: OutputVectorProtocol {
-    /// Untyped pointer to the underlying `GOutputVector` instance.
+        /// Untyped pointer to the underlying `GOutputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -688,7 +812,7 @@ open class OutputVector: OutputVectorProtocol {
         // no reference counting for GOutputVector, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOutputVector`.
+    /// Do-nothing destructor for `GOutputVector`.
     deinit {
         // no reference counting for GOutputVector, cannot unref(cast(_ptr))
     }
@@ -756,14 +880,42 @@ open class OutputVector: OutputVectorProtocol {
 
 }
 
-// MARK: - no OutputVector properties
+// MARK: no OutputVector properties
 
-// MARK: - no signals
+// MARK: no OutputVector signals
 
 
+// MARK: OutputVector Record: OutputVectorProtocol extension (methods and fields)
 public extension OutputVectorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOutputVector` instance.
     var _ptr: UnsafeMutablePointer<GOutputVector> { return ptr.assumingMemoryBound(to: GOutputVector.self) }
+
+
+    /// Pointer to a buffer of data to read.
+    var buffer: gconstpointer {
+        /// Pointer to a buffer of data to read.
+        get {
+            let rv: gconstpointer = cast(_ptr.pointee.buffer)
+            return rv
+        }
+        /// Pointer to a buffer of data to read.
+         set {
+            _ptr.pointee.buffer = cast(newValue)
+        }
+    }
+
+    /// the size of `buffer`.
+    var size: Int {
+        /// the size of `buffer`.
+        get {
+            let rv: Int = cast(_ptr.pointee.size)
+            return rv
+        }
+        /// the size of `buffer`.
+         set {
+            _ptr.pointee.size = gsize(newValue)
+        }
+    }
 
 }
 
@@ -778,7 +930,7 @@ public extension OutputVectorProtocol {
 ///
 
 public protocol PermissionClassProtocol {
-    /// Untyped pointer to the underlying `GPermissionClass` instance.
+        /// Untyped pointer to the underlying `GPermissionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPermissionClass` instance.
@@ -791,7 +943,7 @@ public protocol PermissionClassProtocol {
 ///
 
 public struct PermissionClassRef: PermissionClassProtocol {
-    /// Untyped pointer to the underlying `GPermissionClass` instance.
+        /// Untyped pointer to the underlying `GPermissionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -844,7 +996,7 @@ public extension PermissionClassRef {
 ///
 
 open class PermissionClass: PermissionClassProtocol {
-    /// Untyped pointer to the underlying `GPermissionClass` instance.
+        /// Untyped pointer to the underlying `GPermissionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -873,7 +1025,7 @@ open class PermissionClass: PermissionClassProtocol {
         // no reference counting for GPermissionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPermissionClass`.
+    /// Do-nothing destructor for `GPermissionClass`.
     deinit {
         // no reference counting for GPermissionClass, cannot unref(cast(_ptr))
     }
@@ -941,14 +1093,37 @@ open class PermissionClass: PermissionClassProtocol {
 
 }
 
-// MARK: - no PermissionClass properties
+// MARK: no PermissionClass properties
 
-// MARK: - no signals
+// MARK: no PermissionClass signals
 
 
+// MARK: PermissionClass Record: PermissionClassProtocol extension (methods and fields)
 public extension PermissionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPermissionClass` instance.
     var _ptr: UnsafeMutablePointer<GPermissionClass> { return ptr.assumingMemoryBound(to: GPermissionClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var acquire is unavailable because acquire is void
+
+    // var acquireAsync is unavailable because acquire_async is void
+
+    // var acquireFinish is unavailable because acquire_finish is void
+
+    // var release is unavailable because release is void
+
+    // var releaseAsync is unavailable because release_async is void
+
+    // var releaseFinish is unavailable because release_finish is void
+
+    // var reserved is unavailable because reserved is void
 
 }
 

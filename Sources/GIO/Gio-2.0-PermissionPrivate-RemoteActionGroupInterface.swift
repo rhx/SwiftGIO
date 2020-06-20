@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol PermissionPrivateProtocol {
-    /// Untyped pointer to the underlying `GPermissionPrivate` instance.
+        /// Untyped pointer to the underlying `GPermissionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPermissionPrivate` instance.
@@ -24,7 +24,7 @@ public protocol PermissionPrivateProtocol {
 ///
 
 public struct PermissionPrivateRef: PermissionPrivateProtocol {
-    /// Untyped pointer to the underlying `GPermissionPrivate` instance.
+        /// Untyped pointer to the underlying `GPermissionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension PermissionPrivateRef {
 ///
 
 open class PermissionPrivate: PermissionPrivateProtocol {
-    /// Untyped pointer to the underlying `GPermissionPrivate` instance.
+        /// Untyped pointer to the underlying `GPermissionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class PermissionPrivate: PermissionPrivateProtocol {
         // no reference counting for GPermissionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPermissionPrivate`.
+    /// Do-nothing destructor for `GPermissionPrivate`.
     deinit {
         // no reference counting for GPermissionPrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class PermissionPrivate: PermissionPrivateProtocol {
 
 }
 
-// MARK: - no PermissionPrivate properties
+// MARK: no PermissionPrivate properties
 
-// MARK: - no signals
+// MARK: no PermissionPrivate signals
 
 
+// MARK: PermissionPrivate Record: PermissionPrivateProtocol extension (methods and fields)
 public extension PermissionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPermissionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GPermissionPrivate> { return ptr.assumingMemoryBound(to: GPermissionPrivate.self) }
+
+
 
 }
 
@@ -205,7 +208,7 @@ public extension PermissionPrivateProtocol {
 /// implementation may return `true` when the stream is not actually
 /// readable.
 public protocol PollableInputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPollableInputStreamInterface` instance.
@@ -227,7 +230,7 @@ public protocol PollableInputStreamInterfaceProtocol {
 /// implementation may return `true` when the stream is not actually
 /// readable.
 public struct PollableInputStreamInterfaceRef: PollableInputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -289,7 +292,7 @@ public extension PollableInputStreamInterfaceRef {
 /// implementation may return `true` when the stream is not actually
 /// readable.
 open class PollableInputStreamInterface: PollableInputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -318,7 +321,7 @@ open class PollableInputStreamInterface: PollableInputStreamInterfaceProtocol {
         // no reference counting for GPollableInputStreamInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPollableInputStreamInterface`.
+    /// Do-nothing destructor for `GPollableInputStreamInterface`.
     deinit {
         // no reference counting for GPollableInputStreamInterface, cannot unref(cast(_ptr))
     }
@@ -386,14 +389,33 @@ open class PollableInputStreamInterface: PollableInputStreamInterfaceProtocol {
 
 }
 
-// MARK: - no PollableInputStreamInterface properties
+// MARK: no PollableInputStreamInterface properties
 
-// MARK: - no signals
+// MARK: no PollableInputStreamInterface signals
 
 
+// MARK: PollableInputStreamInterface Record: PollableInputStreamInterfaceProtocol extension (methods and fields)
 public extension PollableInputStreamInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableInputStreamInterface` instance.
     var _ptr: UnsafeMutablePointer<GPollableInputStreamInterface> { return ptr.assumingMemoryBound(to: GPollableInputStreamInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var canPoll is unavailable because can_poll is void
+
+    // var isReadable is unavailable because is_readable is void
+
+    // var createSource is unavailable because create_source is void
+
+    // var readNonblocking is unavailable because read_nonblocking is void
 
 }
 
@@ -423,7 +445,7 @@ public extension PollableInputStreamInterfaceProtocol {
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
 public protocol PollableOutputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPollableOutputStreamInterface` instance.
@@ -451,7 +473,7 @@ public protocol PollableOutputStreamInterfaceProtocol {
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
 public struct PollableOutputStreamInterfaceRef: PollableOutputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -519,7 +541,7 @@ public extension PollableOutputStreamInterfaceRef {
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
 open class PollableOutputStreamInterface: PollableOutputStreamInterfaceProtocol {
-    /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
+        /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -548,7 +570,7 @@ open class PollableOutputStreamInterface: PollableOutputStreamInterfaceProtocol 
         // no reference counting for GPollableOutputStreamInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPollableOutputStreamInterface`.
+    /// Do-nothing destructor for `GPollableOutputStreamInterface`.
     deinit {
         // no reference counting for GPollableOutputStreamInterface, cannot unref(cast(_ptr))
     }
@@ -616,14 +638,35 @@ open class PollableOutputStreamInterface: PollableOutputStreamInterfaceProtocol 
 
 }
 
-// MARK: - no PollableOutputStreamInterface properties
+// MARK: no PollableOutputStreamInterface properties
 
-// MARK: - no signals
+// MARK: no PollableOutputStreamInterface signals
 
 
+// MARK: PollableOutputStreamInterface Record: PollableOutputStreamInterfaceProtocol extension (methods and fields)
 public extension PollableOutputStreamInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableOutputStreamInterface` instance.
     var _ptr: UnsafeMutablePointer<GPollableOutputStreamInterface> { return ptr.assumingMemoryBound(to: GPollableOutputStreamInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var canPoll is unavailable because can_poll is void
+
+    // var isWritable is unavailable because is_writable is void
+
+    // var createSource is unavailable because create_source is void
+
+    // var writeNonblocking is unavailable because write_nonblocking is void
+
+    // var writevNonblocking is unavailable because writev_nonblocking is void
 
 }
 
@@ -638,7 +681,7 @@ public extension PollableOutputStreamInterfaceProtocol {
 ///
 /// Class structure for `GProxyAddress`.
 public protocol ProxyAddressClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddressClass` instance.
@@ -651,7 +694,7 @@ public protocol ProxyAddressClassProtocol {
 ///
 /// Class structure for `GProxyAddress`.
 public struct ProxyAddressClassRef: ProxyAddressClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -704,7 +747,7 @@ public extension ProxyAddressClassRef {
 ///
 /// Class structure for `GProxyAddress`.
 open class ProxyAddressClass: ProxyAddressClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -733,7 +776,7 @@ open class ProxyAddressClass: ProxyAddressClassProtocol {
         // no reference counting for GProxyAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyAddressClass`.
+    /// Do-nothing destructor for `GProxyAddressClass`.
     deinit {
         // no reference counting for GProxyAddressClass, cannot unref(cast(_ptr))
     }
@@ -801,14 +844,23 @@ open class ProxyAddressClass: ProxyAddressClassProtocol {
 
 }
 
-// MARK: - no ProxyAddressClass properties
+// MARK: no ProxyAddressClass properties
 
-// MARK: - no signals
+// MARK: no ProxyAddressClass signals
 
 
+// MARK: ProxyAddressClass Record: ProxyAddressClassProtocol extension (methods and fields)
 public extension ProxyAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressClass> { return ptr.assumingMemoryBound(to: GProxyAddressClass.self) }
+
+
+    var parentClass: GInetSocketAddressClass {
+        get {
+            let rv: GInetSocketAddressClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -823,7 +875,7 @@ public extension ProxyAddressClassProtocol {
 ///
 /// Class structure for `GProxyAddressEnumerator`.
 public protocol ProxyAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddressEnumeratorClass` instance.
@@ -836,7 +888,7 @@ public protocol ProxyAddressEnumeratorClassProtocol {
 ///
 /// Class structure for `GProxyAddressEnumerator`.
 public struct ProxyAddressEnumeratorClassRef: ProxyAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -889,7 +941,7 @@ public extension ProxyAddressEnumeratorClassRef {
 ///
 /// Class structure for `GProxyAddressEnumerator`.
 open class ProxyAddressEnumeratorClass: ProxyAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -918,7 +970,7 @@ open class ProxyAddressEnumeratorClass: ProxyAddressEnumeratorClassProtocol {
         // no reference counting for GProxyAddressEnumeratorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyAddressEnumeratorClass`.
+    /// Do-nothing destructor for `GProxyAddressEnumeratorClass`.
     deinit {
         // no reference counting for GProxyAddressEnumeratorClass, cannot unref(cast(_ptr))
     }
@@ -986,14 +1038,32 @@ open class ProxyAddressEnumeratorClass: ProxyAddressEnumeratorClassProtocol {
 
 }
 
-// MARK: - no ProxyAddressEnumeratorClass properties
+// MARK: no ProxyAddressEnumeratorClass properties
 
-// MARK: - no signals
+// MARK: no ProxyAddressEnumeratorClass signals
 
 
+// MARK: ProxyAddressEnumeratorClass Record: ProxyAddressEnumeratorClassProtocol extension (methods and fields)
 public extension ProxyAddressEnumeratorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddressEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressEnumeratorClass> { return ptr.assumingMemoryBound(to: GProxyAddressEnumeratorClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
 
 }
 
@@ -1008,7 +1078,7 @@ public extension ProxyAddressEnumeratorClassProtocol {
 ///
 
 public protocol ProxyAddressEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
@@ -1021,7 +1091,7 @@ public protocol ProxyAddressEnumeratorPrivateProtocol {
 ///
 
 public struct ProxyAddressEnumeratorPrivateRef: ProxyAddressEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1074,7 +1144,7 @@ public extension ProxyAddressEnumeratorPrivateRef {
 ///
 
 open class ProxyAddressEnumeratorPrivate: ProxyAddressEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1103,7 +1173,7 @@ open class ProxyAddressEnumeratorPrivate: ProxyAddressEnumeratorPrivateProtocol 
         // no reference counting for GProxyAddressEnumeratorPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyAddressEnumeratorPrivate`.
+    /// Do-nothing destructor for `GProxyAddressEnumeratorPrivate`.
     deinit {
         // no reference counting for GProxyAddressEnumeratorPrivate, cannot unref(cast(_ptr))
     }
@@ -1171,14 +1241,17 @@ open class ProxyAddressEnumeratorPrivate: ProxyAddressEnumeratorPrivateProtocol 
 
 }
 
-// MARK: - no ProxyAddressEnumeratorPrivate properties
+// MARK: no ProxyAddressEnumeratorPrivate properties
 
-// MARK: - no signals
+// MARK: no ProxyAddressEnumeratorPrivate signals
 
 
+// MARK: ProxyAddressEnumeratorPrivate Record: ProxyAddressEnumeratorPrivateProtocol extension (methods and fields)
 public extension ProxyAddressEnumeratorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddressEnumeratorPrivate` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressEnumeratorPrivate> { return ptr.assumingMemoryBound(to: GProxyAddressEnumeratorPrivate.self) }
+
+
 
 }
 
@@ -1193,7 +1266,7 @@ public extension ProxyAddressEnumeratorPrivateProtocol {
 ///
 
 public protocol ProxyAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddressPrivate` instance.
@@ -1206,7 +1279,7 @@ public protocol ProxyAddressPrivateProtocol {
 ///
 
 public struct ProxyAddressPrivateRef: ProxyAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1259,7 +1332,7 @@ public extension ProxyAddressPrivateRef {
 ///
 
 open class ProxyAddressPrivate: ProxyAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GProxyAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1288,7 +1361,7 @@ open class ProxyAddressPrivate: ProxyAddressPrivateProtocol {
         // no reference counting for GProxyAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyAddressPrivate`.
+    /// Do-nothing destructor for `GProxyAddressPrivate`.
     deinit {
         // no reference counting for GProxyAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -1356,14 +1429,17 @@ open class ProxyAddressPrivate: ProxyAddressPrivateProtocol {
 
 }
 
-// MARK: - no ProxyAddressPrivate properties
+// MARK: no ProxyAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no ProxyAddressPrivate signals
 
 
+// MARK: ProxyAddressPrivate Record: ProxyAddressPrivateProtocol extension (methods and fields)
 public extension ProxyAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressPrivate> { return ptr.assumingMemoryBound(to: GProxyAddressPrivate.self) }
+
+
 
 }
 
@@ -1378,7 +1454,7 @@ public extension ProxyAddressPrivateProtocol {
 ///
 /// Provides an interface for handling proxy connection and payload.
 public protocol ProxyInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyInterface` instance.
+        /// Untyped pointer to the underlying `GProxyInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyInterface` instance.
@@ -1391,7 +1467,7 @@ public protocol ProxyInterfaceProtocol {
 ///
 /// Provides an interface for handling proxy connection and payload.
 public struct ProxyInterfaceRef: ProxyInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyInterface` instance.
+        /// Untyped pointer to the underlying `GProxyInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1444,7 +1520,7 @@ public extension ProxyInterfaceRef {
 ///
 /// Provides an interface for handling proxy connection and payload.
 open class ProxyInterface: ProxyInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyInterface` instance.
+        /// Untyped pointer to the underlying `GProxyInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1473,7 +1549,7 @@ open class ProxyInterface: ProxyInterfaceProtocol {
         // no reference counting for GProxyInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyInterface`.
+    /// Do-nothing destructor for `GProxyInterface`.
     deinit {
         // no reference counting for GProxyInterface, cannot unref(cast(_ptr))
     }
@@ -1541,14 +1617,33 @@ open class ProxyInterface: ProxyInterfaceProtocol {
 
 }
 
-// MARK: - no ProxyInterface properties
+// MARK: no ProxyInterface properties
 
-// MARK: - no signals
+// MARK: no ProxyInterface signals
 
 
+// MARK: ProxyInterface Record: ProxyInterfaceProtocol extension (methods and fields)
 public extension ProxyInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyInterface` instance.
     var _ptr: UnsafeMutablePointer<GProxyInterface> { return ptr.assumingMemoryBound(to: GProxyInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var connect is unavailable because connect is void
+
+    // var connectAsync is unavailable because connect_async is void
+
+    // var connectFinish is unavailable because connect_finish is void
+
+    // var supportsHostname is unavailable because supports_hostname is void
 
 }
 
@@ -1563,7 +1658,7 @@ public extension ProxyInterfaceProtocol {
 ///
 /// The virtual function table for `GProxyResolver`.
 public protocol ProxyResolverInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
+        /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyResolverInterface` instance.
@@ -1576,7 +1671,7 @@ public protocol ProxyResolverInterfaceProtocol {
 ///
 /// The virtual function table for `GProxyResolver`.
 public struct ProxyResolverInterfaceRef: ProxyResolverInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
+        /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1629,7 +1724,7 @@ public extension ProxyResolverInterfaceRef {
 ///
 /// The virtual function table for `GProxyResolver`.
 open class ProxyResolverInterface: ProxyResolverInterfaceProtocol {
-    /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
+        /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1658,7 +1753,7 @@ open class ProxyResolverInterface: ProxyResolverInterfaceProtocol {
         // no reference counting for GProxyResolverInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyResolverInterface`.
+    /// Do-nothing destructor for `GProxyResolverInterface`.
     deinit {
         // no reference counting for GProxyResolverInterface, cannot unref(cast(_ptr))
     }
@@ -1726,14 +1821,33 @@ open class ProxyResolverInterface: ProxyResolverInterfaceProtocol {
 
 }
 
-// MARK: - no ProxyResolverInterface properties
+// MARK: no ProxyResolverInterface properties
 
-// MARK: - no signals
+// MARK: no ProxyResolverInterface signals
 
 
+// MARK: ProxyResolverInterface Record: ProxyResolverInterfaceProtocol extension (methods and fields)
 public extension ProxyResolverInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyResolverInterface` instance.
     var _ptr: UnsafeMutablePointer<GProxyResolverInterface> { return ptr.assumingMemoryBound(to: GProxyResolverInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var isSupported is unavailable because is_supported is void
+
+    // var lookup is unavailable because lookup is void
+
+    // var lookupAsync is unavailable because lookup_async is void
+
+    // var lookupFinish is unavailable because lookup_finish is void
 
 }
 
@@ -1748,7 +1862,7 @@ public extension ProxyResolverInterfaceProtocol {
 ///
 /// The virtual function table for `GRemoteActionGroup`.
 public protocol RemoteActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRemoteActionGroupInterface` instance.
@@ -1761,7 +1875,7 @@ public protocol RemoteActionGroupInterfaceProtocol {
 ///
 /// The virtual function table for `GRemoteActionGroup`.
 public struct RemoteActionGroupInterfaceRef: RemoteActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1814,7 +1928,7 @@ public extension RemoteActionGroupInterfaceRef {
 ///
 /// The virtual function table for `GRemoteActionGroup`.
 open class RemoteActionGroupInterface: RemoteActionGroupInterfaceProtocol {
-    /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
+        /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1843,7 +1957,7 @@ open class RemoteActionGroupInterface: RemoteActionGroupInterfaceProtocol {
         // no reference counting for GRemoteActionGroupInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GRemoteActionGroupInterface`.
+    /// Do-nothing destructor for `GRemoteActionGroupInterface`.
     deinit {
         // no reference counting for GRemoteActionGroupInterface, cannot unref(cast(_ptr))
     }
@@ -1911,14 +2025,27 @@ open class RemoteActionGroupInterface: RemoteActionGroupInterfaceProtocol {
 
 }
 
-// MARK: - no RemoteActionGroupInterface properties
+// MARK: no RemoteActionGroupInterface properties
 
-// MARK: - no signals
+// MARK: no RemoteActionGroupInterface signals
 
 
+// MARK: RemoteActionGroupInterface Record: RemoteActionGroupInterfaceProtocol extension (methods and fields)
 public extension RemoteActionGroupInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRemoteActionGroupInterface` instance.
     var _ptr: UnsafeMutablePointer<GRemoteActionGroupInterface> { return ptr.assumingMemoryBound(to: GRemoteActionGroupInterface.self) }
+
+
+    var gIface: GTypeInterface {
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var activateActionFull is unavailable because activate_action_full is void
+
+    // var changeActionStateFull is unavailable because change_action_state_full is void
 
 }
 

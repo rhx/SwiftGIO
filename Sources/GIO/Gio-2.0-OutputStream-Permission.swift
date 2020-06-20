@@ -21,7 +21,7 @@ import GLibObject
 /// 
 /// All of these functions have async variants too.
 public protocol OutputStreamProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GOutputStream` instance.
+        /// Untyped pointer to the underlying `GOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOutputStream` instance.
@@ -44,7 +44,7 @@ public protocol OutputStreamProtocol: ObjectProtocol {
 /// 
 /// All of these functions have async variants too.
 public struct OutputStreamRef: OutputStreamProtocol {
-    /// Untyped pointer to the underlying `GOutputStream` instance.
+        /// Untyped pointer to the underlying `GOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -107,7 +107,7 @@ public extension OutputStreamRef {
 /// 
 /// All of these functions have async variants too.
 open class OutputStream: Object, OutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -189,7 +189,7 @@ open class OutputStream: Object, OutputStreamProtocol {
 
 }
 
-// MARK: - no OutputStream properties
+// MARK: no OutputStream properties
 
 public enum OutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -226,8 +226,8 @@ public extension OutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: OutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: OutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -248,6 +248,7 @@ public extension OutputStreamProtocol {
     }
 }
 
+// MARK: OutputStream Class: OutputStreamProtocol extension (methods and fields)
 public extension OutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOutputStream` instance.
     var output_stream_ptr: UnsafeMutablePointer<GOutputStream> { return ptr.assumingMemoryBound(to: GOutputStream.self) }
@@ -288,11 +289,9 @@ public extension OutputStreamProtocol {
     /// cancellation (as with any error) there is no guarantee that all written
     /// data will reach the target.
     func close(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_close(cast(output_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -313,11 +312,9 @@ public extension OutputStreamProtocol {
 
     /// Closes an output stream.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_close_finish(cast(output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -331,11 +328,9 @@ public extension OutputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func flush(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_flush(cast(output_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -353,11 +348,9 @@ public extension OutputStreamProtocol {
 
     /// Finishes flushing an output stream.
     func flushFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_flush_finish(cast(output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -375,22 +368,18 @@ public extension OutputStreamProtocol {
     /// already set or `stream` is closed, it will return `false` and set
     /// `error`.
     func setPending() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_set_pending(cast(output_stream_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Splices an input stream into an output stream.
     func splice(source: InputStreamProtocol, flags: OutputStreamSpliceFlags, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_output_stream_splice(cast(output_stream_ptr), cast(source.ptr), flags, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_output_stream_splice(cast(output_stream_ptr), cast(source.ptr), flags.value, cast(cancellable.ptr), &error)
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Splices a stream asynchronously.
@@ -401,18 +390,16 @@ public extension OutputStreamProtocol {
     /// For the synchronous, blocking version of this function, see
     /// `g_output_stream_splice()`.
     func spliceAsync(source: InputStreamProtocol, flags: OutputStreamSpliceFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_output_stream_splice_async(cast(output_stream_ptr), cast(source.ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+        g_output_stream_splice_async(cast(output_stream_ptr), cast(source.ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an asynchronous stream splice operation.
     func spliceFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_splice_finish(cast(output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This is a utility function around `g_output_stream_write_all()`. It
@@ -453,12 +440,10 @@ public extension OutputStreamProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func write(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write(cast(output_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to write `count` bytes from `buffer` into the stream. Will block
@@ -481,11 +466,9 @@ public extension OutputStreamProtocol {
     /// language then you must write your own loop around
     /// `g_output_stream_write()`.
     func writeAll(buffer: UnsafeMutableRawPointer, count: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_all(cast(output_stream_ptr), cast(buffer), gsize(count), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -520,11 +503,9 @@ public extension OutputStreamProtocol {
     /// language then you must write your own loop around
     /// `g_output_stream_write_async()`.
     func writeAllFinish(result: AsyncResultProtocol, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_all_finish(cast(output_stream_ptr), cast(result.ptr), cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -580,12 +561,10 @@ public extension OutputStreamProtocol {
     /// `GBytes` instance multiple times potentially can result in duplicated
     /// data in the output stream.
     func write(bytes: BytesProtocol, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_bytes(cast(output_stream_ptr), cast(bytes.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This function is similar to `g_output_stream_write_async()`, but
@@ -608,22 +587,18 @@ public extension OutputStreamProtocol {
 
     /// Finishes a stream write-from-`GBytes` operation.
     func writeBytesFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_bytes_finish(cast(output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Finishes a stream write operation.
     func writeFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_finish(cast(output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to write the bytes contained in the `n_vectors` `vectors` into the
@@ -650,11 +625,9 @@ public extension OutputStreamProtocol {
     /// are exceeded. For example, when writing to a local file on UNIX platforms,
     /// the aggregate buffer size must not exceed `G_MAXSSIZE` bytes.
     func writev(vectors: UnsafePointer<GOutputVector>, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_writev(cast(output_stream_ptr), cast(vectors), gsize(n_vectors), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -681,11 +654,9 @@ public extension OutputStreamProtocol {
     /// The content of the individual elements of `vectors` might be changed by this
     /// function.
     func writevAll(vectors: UnsafeMutablePointer<GOutputVector>, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_writev_all(cast(output_stream_ptr), cast(vectors), gsize(n_vectors), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -721,11 +692,9 @@ public extension OutputStreamProtocol {
     /// language then you must write your own loop around
     /// `g_output_stream_writev_async()`.
     func writevAllFinish(result: AsyncResultProtocol, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_writev_all_finish(cast(output_stream_ptr), cast(result.ptr), cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -766,11 +735,9 @@ public extension OutputStreamProtocol {
 
     /// Finishes a stream writev operation.
     func writevFinish(result: AsyncResultProtocol, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_writev_finish(cast(output_stream_ptr), cast(result.ptr), cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -785,12 +752,10 @@ public extension OutputStreamProtocol {
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWrite(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_write(cast(output_stream_ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to write `count` bytes to `stream`, as with
@@ -812,11 +777,9 @@ public extension OutputStreamProtocol {
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWriteAll(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_write_all(cast(output_stream_ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     /// Checks if an output stream has already been closed.
@@ -842,6 +805,16 @@ public extension OutputStreamProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -869,7 +842,7 @@ public extension OutputStreamProtocol {
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
 public protocol PermissionProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GPermission` instance.
+        /// Untyped pointer to the underlying `GPermission` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPermission` instance.
@@ -896,7 +869,7 @@ public protocol PermissionProtocol: ObjectProtocol {
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
 public struct PermissionRef: PermissionProtocol {
-    /// Untyped pointer to the underlying `GPermission` instance.
+        /// Untyped pointer to the underlying `GPermission` instance.
     /// For type-safe access, use the generated, typed pointer `permission_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -963,7 +936,7 @@ public extension PermissionRef {
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
 open class Permission: Object, PermissionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Permission` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1066,8 +1039,8 @@ public extension PermissionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1090,6 +1063,23 @@ public extension PermissionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Permission property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: PermissionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Permission property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: PermissionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1136,8 +1126,8 @@ public extension PermissionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PermissionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: PermissionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(permission_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1158,6 +1148,7 @@ public extension PermissionProtocol {
     }
 }
 
+// MARK: Permission Class: PermissionProtocol extension (methods and fields)
 public extension PermissionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPermission` instance.
     var permission_ptr: UnsafeMutablePointer<GPermission> { return ptr.assumingMemoryBound(to: GPermission.self) }
@@ -1178,11 +1169,9 @@ public extension PermissionProtocol {
     /// user interaction is required).  See `g_permission_acquire_async()` for
     /// the non-blocking version.
     func acquire(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_permission_acquire(cast(permission_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1201,11 +1190,9 @@ public extension PermissionProtocol {
     /// This is the second half of the asynchronous version of
     /// `g_permission_acquire()`.
     func acquireFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_permission_acquire_finish(cast(permission_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1259,11 +1246,9 @@ public extension PermissionProtocol {
     /// user interaction is required).  See `g_permission_release_async()` for
     /// the non-blocking version.
     func release(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_permission_release(cast(permission_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1282,11 +1267,9 @@ public extension PermissionProtocol {
     /// This is the second half of the asynchronous version of
     /// `g_permission_release()`.
     func releaseFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_permission_release_finish(cast(permission_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     /// `true` if the caller currently has permission to perform the action that
@@ -1326,6 +1309,16 @@ public extension PermissionProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(permission_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 

@@ -12,7 +12,7 @@ import GLibObject
 /// `GIOExtensionPoint` is an opaque data structure and can only be accessed
 /// using the following functions.
 public protocol IOExtensionPointProtocol {
-    /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
+        /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOExtensionPoint` instance.
@@ -26,7 +26,7 @@ public protocol IOExtensionPointProtocol {
 /// `GIOExtensionPoint` is an opaque data structure and can only be accessed
 /// using the following functions.
 public struct IOExtensionPointRef: IOExtensionPointProtocol {
-    /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
+        /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -73,13 +73,13 @@ public extension IOExtensionPointRef {
 
         /// Looks up an existing extension point.
     static func lookup(name: UnsafePointer<CChar>) -> IOExtensionPointRef! {
-        let rv = g_io_extension_point_lookup(name)
+        let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_lookup(name))
         return rv.map { IOExtensionPointRef(cast($0)) }
     }
 
     /// Registers an extension point.
     static func register(name: UnsafePointer<CChar>) -> IOExtensionPointRef! {
-        let rv = g_io_extension_point_register(name)
+        let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_register(name))
         return rv.map { IOExtensionPointRef(cast($0)) }
     }
 }
@@ -91,7 +91,7 @@ public extension IOExtensionPointRef {
 /// `GIOExtensionPoint` is an opaque data structure and can only be accessed
 /// using the following functions.
 open class IOExtensionPoint: IOExtensionPointProtocol {
-    /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
+        /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -120,7 +120,7 @@ open class IOExtensionPoint: IOExtensionPointProtocol {
         // no reference counting for GIOExtensionPoint, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOExtensionPoint`.
+    /// Do-nothing destructor for `GIOExtensionPoint`.
     deinit {
         // no reference counting for GIOExtensionPoint, cannot unref(cast(_ptr))
     }
@@ -187,44 +187,45 @@ open class IOExtensionPoint: IOExtensionPointProtocol {
 
     /// Looks up an existing extension point.
     public static func lookup(name: UnsafePointer<CChar>) -> IOExtensionPoint! {
-        let rv = g_io_extension_point_lookup(name)
+        let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_lookup(name))
         return rv.map { IOExtensionPoint(cast($0)) }
     }
 
     /// Registers an extension point.
     public static func register(name: UnsafePointer<CChar>) -> IOExtensionPoint! {
-        let rv = g_io_extension_point_register(name)
+        let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_register(name))
         return rv.map { IOExtensionPoint(cast($0)) }
     }
 
 }
 
-// MARK: - no IOExtensionPoint properties
+// MARK: no IOExtensionPoint properties
 
-// MARK: - no signals
+// MARK: no IOExtensionPoint signals
 
 
+// MARK: IOExtensionPoint Record: IOExtensionPointProtocol extension (methods and fields)
 public extension IOExtensionPointProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOExtensionPoint` instance.
     var _ptr: UnsafeMutablePointer<GIOExtensionPoint> { return ptr.assumingMemoryBound(to: GIOExtensionPoint.self) }
 
     /// Finds a `GIOExtension` for an extension point by name.
     func getExtensionBy(name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GIOExtension>! {
-        let rv = g_io_extension_point_get_extension_by_name(cast(_ptr), name)
+        let rv: UnsafeMutablePointer<GIOExtension>! = cast(g_io_extension_point_get_extension_by_name(cast(_ptr), name))
         return cast(rv)
     }
 
     /// Gets a list of all extensions that implement this extension point.
     /// The list is sorted by priority, beginning with the highest priority.
     func getExtensions() -> UnsafeMutablePointer<GList>! {
-        let rv = g_io_extension_point_get_extensions(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_io_extension_point_get_extensions(cast(_ptr)))
         return cast(rv)
     }
 
     /// Gets the required type for `extension_point`.
     func getRequiredType() -> GType {
         let rv = g_io_extension_point_get_required_type(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Sets the required type for `extension_point` to `type`.
@@ -239,7 +240,7 @@ public extension IOExtensionPointProtocol {
         /// Gets a list of all extensions that implement this extension point.
         /// The list is sorted by priority, beginning with the highest priority.
         get {
-            let rv = g_io_extension_point_get_extensions(cast(_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_io_extension_point_get_extensions(cast(_ptr)))
             return cast(rv)
         }
     }
@@ -249,14 +250,16 @@ public extension IOExtensionPointProtocol {
         /// Gets the required type for `extension_point`.
         get {
             let rv = g_io_extension_point_get_required_type(cast(_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the required type for `extension_point` to `type`.
         /// All implementations must henceforth have this type.
         nonmutating set {
-            g_io_extension_point_set_required_type(cast(_ptr), newValue)
+            g_io_extension_point_set_required_type(cast(_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -270,7 +273,7 @@ public extension IOExtensionPointProtocol {
 ///
 
 public protocol IOModuleClassProtocol {
-    /// Untyped pointer to the underlying `GIOModuleClass` instance.
+        /// Untyped pointer to the underlying `GIOModuleClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOModuleClass` instance.
@@ -283,7 +286,7 @@ public protocol IOModuleClassProtocol {
 ///
 
 public struct IOModuleClassRef: IOModuleClassProtocol {
-    /// Untyped pointer to the underlying `GIOModuleClass` instance.
+        /// Untyped pointer to the underlying `GIOModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -336,7 +339,7 @@ public extension IOModuleClassRef {
 ///
 
 open class IOModuleClass: IOModuleClassProtocol {
-    /// Untyped pointer to the underlying `GIOModuleClass` instance.
+        /// Untyped pointer to the underlying `GIOModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -365,7 +368,7 @@ open class IOModuleClass: IOModuleClassProtocol {
         // no reference counting for GIOModuleClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOModuleClass`.
+    /// Do-nothing destructor for `GIOModuleClass`.
     deinit {
         // no reference counting for GIOModuleClass, cannot unref(cast(_ptr))
     }
@@ -433,14 +436,17 @@ open class IOModuleClass: IOModuleClassProtocol {
 
 }
 
-// MARK: - no IOModuleClass properties
+// MARK: no IOModuleClass properties
 
-// MARK: - no signals
+// MARK: no IOModuleClass signals
 
 
+// MARK: IOModuleClass Record: IOModuleClassProtocol extension (methods and fields)
 public extension IOModuleClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOModuleClass` instance.
     var _ptr: UnsafeMutablePointer<GIOModuleClass> { return ptr.assumingMemoryBound(to: GIOModuleClass.self) }
+
+
 
 }
 
@@ -459,7 +465,7 @@ public extension IOModuleClassProtocol {
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
 public protocol IOModuleScopeProtocol {
-    /// Untyped pointer to the underlying `GIOModuleScope` instance.
+        /// Untyped pointer to the underlying `GIOModuleScope` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOModuleScope` instance.
@@ -476,7 +482,7 @@ public protocol IOModuleScopeProtocol {
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
 public struct IOModuleScopeRef: IOModuleScopeProtocol {
-    /// Untyped pointer to the underlying `GIOModuleScope` instance.
+        /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -533,7 +539,7 @@ public extension IOModuleScopeRef {
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
 open class IOModuleScope: IOModuleScopeProtocol {
-    /// Untyped pointer to the underlying `GIOModuleScope` instance.
+        /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -562,7 +568,7 @@ open class IOModuleScope: IOModuleScopeProtocol {
         // no reference counting for GIOModuleScope, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOModuleScope`.
+    /// Do-nothing destructor for `GIOModuleScope`.
     deinit {
         // no reference counting for GIOModuleScope, cannot unref(cast(_ptr))
     }
@@ -630,11 +636,12 @@ open class IOModuleScope: IOModuleScopeProtocol {
 
 }
 
-// MARK: - no IOModuleScope properties
+// MARK: no IOModuleScope properties
 
-// MARK: - no signals
+// MARK: no IOModuleScope signals
 
 
+// MARK: IOModuleScope Record: IOModuleScopeProtocol extension (methods and fields)
 public extension IOModuleScopeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOModuleScope` instance.
     var _ptr: UnsafeMutablePointer<GIOModuleScope> { return ptr.assumingMemoryBound(to: GIOModuleScope.self) }
@@ -659,7 +666,7 @@ public extension IOModuleScopeProtocol {
     /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
     /// which allows delayed/lazy loading of modules.
     func ioModulesLoadAllInDirectoryWithScope(dirname: UnsafePointer<gchar>) -> UnsafeMutablePointer<GList>! {
-        let rv = g_io_modules_load_all_in_directory_with_scope(dirname, cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_io_modules_load_all_in_directory_with_scope(dirname, cast(_ptr)))
         return cast(rv)
     }
 
@@ -678,6 +685,8 @@ public extension IOModuleScopeProtocol {
         g_io_modules_scan_all_in_directory_with_scope(dirname, cast(_ptr))
     
     }
+
+
 }
 
 
@@ -691,7 +700,7 @@ public extension IOModuleScopeProtocol {
 ///
 /// Opaque class for defining and scheduling IO jobs.
 public protocol IOSchedulerJobProtocol {
-    /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
+        /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOSchedulerJob` instance.
@@ -704,7 +713,7 @@ public protocol IOSchedulerJobProtocol {
 ///
 /// Opaque class for defining and scheduling IO jobs.
 public struct IOSchedulerJobRef: IOSchedulerJobProtocol {
-    /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
+        /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -757,7 +766,7 @@ public extension IOSchedulerJobRef {
 ///
 /// Opaque class for defining and scheduling IO jobs.
 open class IOSchedulerJob: IOSchedulerJobProtocol {
-    /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
+        /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -786,7 +795,7 @@ open class IOSchedulerJob: IOSchedulerJobProtocol {
         // no reference counting for GIOSchedulerJob, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOSchedulerJob`.
+    /// Do-nothing destructor for `GIOSchedulerJob`.
     deinit {
         // no reference counting for GIOSchedulerJob, cannot unref(cast(_ptr))
     }
@@ -854,11 +863,12 @@ open class IOSchedulerJob: IOSchedulerJobProtocol {
 
 }
 
-// MARK: - no IOSchedulerJob properties
+// MARK: no IOSchedulerJob properties
 
-// MARK: - no signals
+// MARK: no IOSchedulerJob signals
 
 
+// MARK: IOSchedulerJob Record: IOSchedulerJobProtocol extension (methods and fields)
 public extension IOSchedulerJobProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOSchedulerJob` instance.
     var _ptr: UnsafeMutablePointer<GIOSchedulerJob> { return ptr.assumingMemoryBound(to: GIOSchedulerJob.self) }
@@ -890,6 +900,8 @@ public extension IOSchedulerJobProtocol {
         g_io_scheduler_job_send_to_mainloop_async(cast(_ptr), func_, cast(user_data), notify)
     
     }
+
+
 }
 
 
@@ -903,7 +915,7 @@ public extension IOSchedulerJobProtocol {
 ///
 
 public protocol IOStreamAdapterProtocol {
-    /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
+        /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOStreamAdapter` instance.
@@ -916,7 +928,7 @@ public protocol IOStreamAdapterProtocol {
 ///
 
 public struct IOStreamAdapterRef: IOStreamAdapterProtocol {
-    /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
+        /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -969,7 +981,7 @@ public extension IOStreamAdapterRef {
 ///
 
 open class IOStreamAdapter: IOStreamAdapterProtocol {
-    /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
+        /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -998,7 +1010,7 @@ open class IOStreamAdapter: IOStreamAdapterProtocol {
         // no reference counting for GIOStreamAdapter, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOStreamAdapter`.
+    /// Do-nothing destructor for `GIOStreamAdapter`.
     deinit {
         // no reference counting for GIOStreamAdapter, cannot unref(cast(_ptr))
     }
@@ -1066,14 +1078,17 @@ open class IOStreamAdapter: IOStreamAdapterProtocol {
 
 }
 
-// MARK: - no IOStreamAdapter properties
+// MARK: no IOStreamAdapter properties
 
-// MARK: - no signals
+// MARK: no IOStreamAdapter signals
 
 
+// MARK: IOStreamAdapter Record: IOStreamAdapterProtocol extension (methods and fields)
 public extension IOStreamAdapterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOStreamAdapter` instance.
     var _ptr: UnsafeMutablePointer<GIOStreamAdapter> { return ptr.assumingMemoryBound(to: GIOStreamAdapter.self) }
+
+
 
 }
 
@@ -1088,7 +1103,7 @@ public extension IOStreamAdapterProtocol {
 ///
 
 public protocol IOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GIOStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOStreamClass` instance.
@@ -1101,7 +1116,7 @@ public protocol IOStreamClassProtocol {
 ///
 
 public struct IOStreamClassRef: IOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1154,7 +1169,7 @@ public extension IOStreamClassRef {
 ///
 
 open class IOStreamClass: IOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1183,7 +1198,7 @@ open class IOStreamClass: IOStreamClassProtocol {
         // no reference counting for GIOStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOStreamClass`.
+    /// Do-nothing destructor for `GIOStreamClass`.
     deinit {
         // no reference counting for GIOStreamClass, cannot unref(cast(_ptr))
     }
@@ -1251,14 +1266,53 @@ open class IOStreamClass: IOStreamClassProtocol {
 
 }
 
-// MARK: - no IOStreamClass properties
+// MARK: no IOStreamClass properties
 
-// MARK: - no signals
+// MARK: no IOStreamClass signals
 
 
+// MARK: IOStreamClass Record: IOStreamClassProtocol extension (methods and fields)
 public extension IOStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GIOStreamClass> { return ptr.assumingMemoryBound(to: GIOStreamClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getInputStream is unavailable because get_input_stream is void
+
+    // var getOutputStream is unavailable because get_output_stream is void
+
+    // var closeFn is unavailable because close_fn is void
+
+    // var closeAsync is unavailable because close_async is void
+
+    // var closeFinish is unavailable because close_finish is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
+
+    // var GReserved8 is unavailable because _g_reserved8 is void
+
+    // var GReserved9 is unavailable because _g_reserved9 is void
+
+    // var GReserved10 is unavailable because _g_reserved10 is void
 
 }
 
@@ -1273,7 +1327,7 @@ public extension IOStreamClassProtocol {
 ///
 
 public protocol IOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOStreamPrivate` instance.
@@ -1286,7 +1340,7 @@ public protocol IOStreamPrivateProtocol {
 ///
 
 public struct IOStreamPrivateRef: IOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1339,7 +1393,7 @@ public extension IOStreamPrivateRef {
 ///
 
 open class IOStreamPrivate: IOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1368,7 +1422,7 @@ open class IOStreamPrivate: IOStreamPrivateProtocol {
         // no reference counting for GIOStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOStreamPrivate`.
+    /// Do-nothing destructor for `GIOStreamPrivate`.
     deinit {
         // no reference counting for GIOStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -1436,14 +1490,17 @@ open class IOStreamPrivate: IOStreamPrivateProtocol {
 
 }
 
-// MARK: - no IOStreamPrivate properties
+// MARK: no IOStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no IOStreamPrivate signals
 
 
+// MARK: IOStreamPrivate Record: IOStreamPrivateProtocol extension (methods and fields)
 public extension IOStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GIOStreamPrivate> { return ptr.assumingMemoryBound(to: GIOStreamPrivate.self) }
+
+
 
 }
 
@@ -1460,7 +1517,7 @@ public extension IOStreamPrivateProtocol {
 /// different systems. See `GThemedIcon` and `GLoadableIcon` for
 /// examples of how to implement this interface.
 public protocol IconIfaceProtocol {
-    /// Untyped pointer to the underlying `GIconIface` instance.
+        /// Untyped pointer to the underlying `GIconIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIconIface` instance.
@@ -1475,7 +1532,7 @@ public protocol IconIfaceProtocol {
 /// different systems. See `GThemedIcon` and `GLoadableIcon` for
 /// examples of how to implement this interface.
 public struct IconIfaceRef: IconIfaceProtocol {
-    /// Untyped pointer to the underlying `GIconIface` instance.
+        /// Untyped pointer to the underlying `GIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1530,7 +1587,7 @@ public extension IconIfaceRef {
 /// different systems. See `GThemedIcon` and `GLoadableIcon` for
 /// examples of how to implement this interface.
 open class IconIface: IconIfaceProtocol {
-    /// Untyped pointer to the underlying `GIconIface` instance.
+        /// Untyped pointer to the underlying `GIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1559,7 +1616,7 @@ open class IconIface: IconIfaceProtocol {
         // no reference counting for GIconIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIconIface`.
+    /// Do-nothing destructor for `GIconIface`.
     deinit {
         // no reference counting for GIconIface, cannot unref(cast(_ptr))
     }
@@ -1627,14 +1684,35 @@ open class IconIface: IconIfaceProtocol {
 
 }
 
-// MARK: - no IconIface properties
+// MARK: no IconIface properties
 
-// MARK: - no signals
+// MARK: no IconIface signals
 
 
+// MARK: IconIface Record: IconIfaceProtocol extension (methods and fields)
 public extension IconIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIconIface` instance.
     var _ptr: UnsafeMutablePointer<GIconIface> { return ptr.assumingMemoryBound(to: GIconIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var hash is unavailable because hash is void
+
+    // var equal is unavailable because equal is void
+
+    // var toTokens is unavailable because to_tokens is void
+
+    // var fromTokens is unavailable because from_tokens is void
+
+    // var serialize is unavailable because serialize is void
 
 }
 
@@ -1649,7 +1727,7 @@ public extension IconIfaceProtocol {
 ///
 
 public protocol InetAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddressClass` instance.
@@ -1662,7 +1740,7 @@ public protocol InetAddressClassProtocol {
 ///
 
 public struct InetAddressClassRef: InetAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1715,7 +1793,7 @@ public extension InetAddressClassRef {
 ///
 
 open class InetAddressClass: InetAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1744,7 +1822,7 @@ open class InetAddressClass: InetAddressClassProtocol {
         // no reference counting for GInetAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetAddressClass`.
+    /// Do-nothing destructor for `GInetAddressClass`.
     deinit {
         // no reference counting for GInetAddressClass, cannot unref(cast(_ptr))
     }
@@ -1812,14 +1890,27 @@ open class InetAddressClass: InetAddressClassProtocol {
 
 }
 
-// MARK: - no InetAddressClass properties
+// MARK: no InetAddressClass properties
 
-// MARK: - no signals
+// MARK: no InetAddressClass signals
 
 
+// MARK: InetAddressClass Record: InetAddressClassProtocol extension (methods and fields)
 public extension InetAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressClass> { return ptr.assumingMemoryBound(to: GInetAddressClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var toString is unavailable because to_string is void
+
+    // var toBytes is unavailable because to_bytes is void
 
 }
 
@@ -1834,7 +1925,7 @@ public extension InetAddressClassProtocol {
 ///
 
 public protocol InetAddressMaskClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddressMaskClass` instance.
@@ -1847,7 +1938,7 @@ public protocol InetAddressMaskClassProtocol {
 ///
 
 public struct InetAddressMaskClassRef: InetAddressMaskClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1900,7 +1991,7 @@ public extension InetAddressMaskClassRef {
 ///
 
 open class InetAddressMaskClass: InetAddressMaskClassProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1929,7 +2020,7 @@ open class InetAddressMaskClass: InetAddressMaskClassProtocol {
         // no reference counting for GInetAddressMaskClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetAddressMaskClass`.
+    /// Do-nothing destructor for `GInetAddressMaskClass`.
     deinit {
         // no reference counting for GInetAddressMaskClass, cannot unref(cast(_ptr))
     }
@@ -1997,14 +2088,23 @@ open class InetAddressMaskClass: InetAddressMaskClassProtocol {
 
 }
 
-// MARK: - no InetAddressMaskClass properties
+// MARK: no InetAddressMaskClass properties
 
-// MARK: - no signals
+// MARK: no InetAddressMaskClass signals
 
 
+// MARK: InetAddressMaskClass Record: InetAddressMaskClassProtocol extension (methods and fields)
 public extension InetAddressMaskClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddressMaskClass` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressMaskClass> { return ptr.assumingMemoryBound(to: GInetAddressMaskClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -2019,7 +2119,7 @@ public extension InetAddressMaskClassProtocol {
 ///
 
 public protocol InetAddressMaskPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddressMaskPrivate` instance.
@@ -2032,7 +2132,7 @@ public protocol InetAddressMaskPrivateProtocol {
 ///
 
 public struct InetAddressMaskPrivateRef: InetAddressMaskPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2085,7 +2185,7 @@ public extension InetAddressMaskPrivateRef {
 ///
 
 open class InetAddressMaskPrivate: InetAddressMaskPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressMaskPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2114,7 +2214,7 @@ open class InetAddressMaskPrivate: InetAddressMaskPrivateProtocol {
         // no reference counting for GInetAddressMaskPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetAddressMaskPrivate`.
+    /// Do-nothing destructor for `GInetAddressMaskPrivate`.
     deinit {
         // no reference counting for GInetAddressMaskPrivate, cannot unref(cast(_ptr))
     }
@@ -2182,14 +2282,17 @@ open class InetAddressMaskPrivate: InetAddressMaskPrivateProtocol {
 
 }
 
-// MARK: - no InetAddressMaskPrivate properties
+// MARK: no InetAddressMaskPrivate properties
 
-// MARK: - no signals
+// MARK: no InetAddressMaskPrivate signals
 
 
+// MARK: InetAddressMaskPrivate Record: InetAddressMaskPrivateProtocol extension (methods and fields)
 public extension InetAddressMaskPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddressMaskPrivate` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressMaskPrivate> { return ptr.assumingMemoryBound(to: GInetAddressMaskPrivate.self) }
+
+
 
 }
 
@@ -2204,7 +2307,7 @@ public extension InetAddressMaskPrivateProtocol {
 ///
 
 public protocol InetAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddressPrivate` instance.
@@ -2217,7 +2320,7 @@ public protocol InetAddressPrivateProtocol {
 ///
 
 public struct InetAddressPrivateRef: InetAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2270,7 +2373,7 @@ public extension InetAddressPrivateRef {
 ///
 
 open class InetAddressPrivate: InetAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2299,7 +2402,7 @@ open class InetAddressPrivate: InetAddressPrivateProtocol {
         // no reference counting for GInetAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetAddressPrivate`.
+    /// Do-nothing destructor for `GInetAddressPrivate`.
     deinit {
         // no reference counting for GInetAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -2367,14 +2470,17 @@ open class InetAddressPrivate: InetAddressPrivateProtocol {
 
 }
 
-// MARK: - no InetAddressPrivate properties
+// MARK: no InetAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no InetAddressPrivate signals
 
 
+// MARK: InetAddressPrivate Record: InetAddressPrivateProtocol extension (methods and fields)
 public extension InetAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressPrivate> { return ptr.assumingMemoryBound(to: GInetAddressPrivate.self) }
+
+
 
 }
 
@@ -2389,7 +2495,7 @@ public extension InetAddressPrivateProtocol {
 ///
 
 public protocol InetSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetSocketAddressClass` instance.
@@ -2402,7 +2508,7 @@ public protocol InetSocketAddressClassProtocol {
 ///
 
 public struct InetSocketAddressClassRef: InetSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2455,7 +2561,7 @@ public extension InetSocketAddressClassRef {
 ///
 
 open class InetSocketAddressClass: InetSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2484,7 +2590,7 @@ open class InetSocketAddressClass: InetSocketAddressClassProtocol {
         // no reference counting for GInetSocketAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetSocketAddressClass`.
+    /// Do-nothing destructor for `GInetSocketAddressClass`.
     deinit {
         // no reference counting for GInetSocketAddressClass, cannot unref(cast(_ptr))
     }
@@ -2552,14 +2658,23 @@ open class InetSocketAddressClass: InetSocketAddressClassProtocol {
 
 }
 
-// MARK: - no InetSocketAddressClass properties
+// MARK: no InetSocketAddressClass properties
 
-// MARK: - no signals
+// MARK: no InetSocketAddressClass signals
 
 
+// MARK: InetSocketAddressClass Record: InetSocketAddressClassProtocol extension (methods and fields)
 public extension InetSocketAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GInetSocketAddressClass> { return ptr.assumingMemoryBound(to: GInetSocketAddressClass.self) }
+
+
+    var parentClass: GSocketAddressClass {
+        get {
+            let rv: GSocketAddressClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -2574,7 +2689,7 @@ public extension InetSocketAddressClassProtocol {
 ///
 
 public protocol InetSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetSocketAddressPrivate` instance.
@@ -2587,7 +2702,7 @@ public protocol InetSocketAddressPrivateProtocol {
 ///
 
 public struct InetSocketAddressPrivateRef: InetSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2640,7 +2755,7 @@ public extension InetSocketAddressPrivateRef {
 ///
 
 open class InetSocketAddressPrivate: InetSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2669,7 +2784,7 @@ open class InetSocketAddressPrivate: InetSocketAddressPrivateProtocol {
         // no reference counting for GInetSocketAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInetSocketAddressPrivate`.
+    /// Do-nothing destructor for `GInetSocketAddressPrivate`.
     deinit {
         // no reference counting for GInetSocketAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -2737,14 +2852,17 @@ open class InetSocketAddressPrivate: InetSocketAddressPrivateProtocol {
 
 }
 
-// MARK: - no InetSocketAddressPrivate properties
+// MARK: no InetSocketAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no InetSocketAddressPrivate signals
 
 
+// MARK: InetSocketAddressPrivate Record: InetSocketAddressPrivateProtocol extension (methods and fields)
 public extension InetSocketAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetSocketAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GInetSocketAddressPrivate> { return ptr.assumingMemoryBound(to: GInetSocketAddressPrivate.self) }
+
+
 
 }
 
@@ -2760,7 +2878,7 @@ public extension InetSocketAddressPrivateProtocol {
 /// Provides an interface for initializing object such that initialization
 /// may fail.
 public protocol InitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GInitableIface` instance.
+        /// Untyped pointer to the underlying `GInitableIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInitableIface` instance.
@@ -2774,7 +2892,7 @@ public protocol InitableIfaceProtocol {
 /// Provides an interface for initializing object such that initialization
 /// may fail.
 public struct InitableIfaceRef: InitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GInitableIface` instance.
+        /// Untyped pointer to the underlying `GInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2828,7 +2946,7 @@ public extension InitableIfaceRef {
 /// Provides an interface for initializing object such that initialization
 /// may fail.
 open class InitableIface: InitableIfaceProtocol {
-    /// Untyped pointer to the underlying `GInitableIface` instance.
+        /// Untyped pointer to the underlying `GInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2857,7 +2975,7 @@ open class InitableIface: InitableIfaceProtocol {
         // no reference counting for GInitableIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInitableIface`.
+    /// Do-nothing destructor for `GInitableIface`.
     deinit {
         // no reference counting for GInitableIface, cannot unref(cast(_ptr))
     }
@@ -2925,14 +3043,27 @@ open class InitableIface: InitableIfaceProtocol {
 
 }
 
-// MARK: - no InitableIface properties
+// MARK: no InitableIface properties
 
-// MARK: - no signals
+// MARK: no InitableIface signals
 
 
+// MARK: InitableIface Record: InitableIfaceProtocol extension (methods and fields)
 public extension InitableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInitableIface` instance.
     var _ptr: UnsafeMutablePointer<GInitableIface> { return ptr.assumingMemoryBound(to: GInitableIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var `init` is unavailable because init is void
 
 }
 
@@ -2965,7 +3096,7 @@ public extension InitableIfaceProtocol {
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
 public protocol InputMessageProtocol {
-    /// Untyped pointer to the underlying `GInputMessage` instance.
+        /// Untyped pointer to the underlying `GInputMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInputMessage` instance.
@@ -2996,7 +3127,7 @@ public protocol InputMessageProtocol {
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
 public struct InputMessageRef: InputMessageProtocol {
-    /// Untyped pointer to the underlying `GInputMessage` instance.
+        /// Untyped pointer to the underlying `GInputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3067,7 +3198,7 @@ public extension InputMessageRef {
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
 open class InputMessage: InputMessageProtocol {
-    /// Untyped pointer to the underlying `GInputMessage` instance.
+        /// Untyped pointer to the underlying `GInputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3096,7 +3227,7 @@ open class InputMessage: InputMessageProtocol {
         // no reference counting for GInputMessage, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInputMessage`.
+    /// Do-nothing destructor for `GInputMessage`.
     deinit {
         // no reference counting for GInputMessage, cannot unref(cast(_ptr))
     }
@@ -3164,14 +3295,97 @@ open class InputMessage: InputMessageProtocol {
 
 }
 
-// MARK: - no InputMessage properties
+// MARK: no InputMessage properties
 
-// MARK: - no signals
+// MARK: no InputMessage signals
 
 
+// MARK: InputMessage Record: InputMessageProtocol extension (methods and fields)
 public extension InputMessageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInputMessage` instance.
     var _ptr: UnsafeMutablePointer<GInputMessage> { return ptr.assumingMemoryBound(to: GInputMessage.self) }
+
+
+    /// return location
+    ///   for a `GSocketAddress`, or `nil`
+    var address: UnsafeMutablePointer<UnsafeMutablePointer<GSocketAddress>> {
+        /// return location
+        ///   for a `GSocketAddress`, or `nil`
+        get {
+            let rv: UnsafeMutablePointer<UnsafeMutablePointer<GSocketAddress>> = cast(_ptr.pointee.address)
+            return rv
+        }
+        /// return location
+        ///   for a `GSocketAddress`, or `nil`
+         set {
+            _ptr.pointee.address = cast(newValue)
+        }
+    }
+
+    // var vectors is unavailable because vectors is void
+
+    /// the number of input vectors pointed to by `vectors`
+    var numVectors: Int {
+        /// the number of input vectors pointed to by `vectors`
+        get {
+            let rv: Int = cast(_ptr.pointee.num_vectors)
+            return rv
+        }
+        /// the number of input vectors pointed to by `vectors`
+         set {
+            _ptr.pointee.num_vectors = guint(newValue)
+        }
+    }
+
+    /// will be set to the number of bytes that have been
+    ///   received
+    var bytesReceived: Int {
+        /// will be set to the number of bytes that have been
+        ///   received
+        get {
+            let rv: Int = cast(_ptr.pointee.bytes_received)
+            return rv
+        }
+        /// will be set to the number of bytes that have been
+        ///   received
+         set {
+            _ptr.pointee.bytes_received = gsize(newValue)
+        }
+    }
+
+    /// collection of `GSocketMsgFlags` for the received message,
+    ///   outputted by the call
+    var flags: Int {
+        /// collection of `GSocketMsgFlags` for the received message,
+        ///   outputted by the call
+        get {
+            let rv: Int = cast(_ptr.pointee.flags)
+            return rv
+        }
+        /// collection of `GSocketMsgFlags` for the received message,
+        ///   outputted by the call
+         set {
+            _ptr.pointee.flags = gint(newValue)
+        }
+    }
+
+    // var controlMessages is unavailable because control_messages is void
+
+    /// return location for the number of
+    ///   elements in `control_messages`
+    var numControlMessages: UnsafeMutablePointer<CUnsignedInt> {
+        /// return location for the number of
+        ///   elements in `control_messages`
+        get {
+            let rv: UnsafeMutablePointer<CUnsignedInt> = cast(_ptr.pointee.num_control_messages)
+            return rv
+        }
+        /// return location for the number of
+        ///   elements in `control_messages`
+         set {
+            _ptr.pointee.num_control_messages = cast(newValue)
+        }
+    }
 
 }
 
@@ -3186,7 +3400,7 @@ public extension InputMessageProtocol {
 ///
 
 public protocol InputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInputStreamClass` instance.
@@ -3199,7 +3413,7 @@ public protocol InputStreamClassProtocol {
 ///
 
 public struct InputStreamClassRef: InputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3252,7 +3466,7 @@ public extension InputStreamClassRef {
 ///
 
 open class InputStreamClass: InputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3281,7 +3495,7 @@ open class InputStreamClass: InputStreamClassProtocol {
         // no reference counting for GInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInputStreamClass`.
+    /// Do-nothing destructor for `GInputStreamClass`.
     deinit {
         // no reference counting for GInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -3349,14 +3563,51 @@ open class InputStreamClass: InputStreamClassProtocol {
 
 }
 
-// MARK: - no InputStreamClass properties
+// MARK: no InputStreamClass properties
 
-// MARK: - no signals
+// MARK: no InputStreamClass signals
 
 
+// MARK: InputStreamClass Record: InputStreamClassProtocol extension (methods and fields)
 public extension InputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GInputStreamClass> { return ptr.assumingMemoryBound(to: GInputStreamClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var readFn is unavailable because read_fn is void
+
+    // var skip is unavailable because skip is void
+
+    // var closeFn is unavailable because close_fn is void
+
+    // var readAsync is unavailable because read_async is void
+
+    // var readFinish is unavailable because read_finish is void
+
+    // var skipAsync is unavailable because skip_async is void
+
+    // var skipFinish is unavailable because skip_finish is void
+
+    // var closeAsync is unavailable because close_async is void
+
+    // var closeFinish is unavailable because close_finish is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -3371,7 +3622,7 @@ public extension InputStreamClassProtocol {
 ///
 
 public protocol InputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInputStreamPrivate` instance.
@@ -3384,7 +3635,7 @@ public protocol InputStreamPrivateProtocol {
 ///
 
 public struct InputStreamPrivateRef: InputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3437,7 +3688,7 @@ public extension InputStreamPrivateRef {
 ///
 
 open class InputStreamPrivate: InputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3466,7 +3717,7 @@ open class InputStreamPrivate: InputStreamPrivateProtocol {
         // no reference counting for GInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInputStreamPrivate`.
+    /// Do-nothing destructor for `GInputStreamPrivate`.
     deinit {
         // no reference counting for GInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -3534,14 +3785,17 @@ open class InputStreamPrivate: InputStreamPrivateProtocol {
 
 }
 
-// MARK: - no InputStreamPrivate properties
+// MARK: no InputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no InputStreamPrivate signals
 
 
+// MARK: InputStreamPrivate Record: InputStreamPrivateProtocol extension (methods and fields)
 public extension InputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GInputStreamPrivate> { return ptr.assumingMemoryBound(to: GInputStreamPrivate.self) }
+
+
 
 }
 
@@ -3559,7 +3813,7 @@ public extension InputStreamPrivateProtocol {
 /// and the operation will store the read data starting in the
 /// first buffer, switching to the next as needed.
 public protocol InputVectorProtocol {
-    /// Untyped pointer to the underlying `GInputVector` instance.
+        /// Untyped pointer to the underlying `GInputVector` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInputVector` instance.
@@ -3575,7 +3829,7 @@ public protocol InputVectorProtocol {
 /// and the operation will store the read data starting in the
 /// first buffer, switching to the next as needed.
 public struct InputVectorRef: InputVectorProtocol {
-    /// Untyped pointer to the underlying `GInputVector` instance.
+        /// Untyped pointer to the underlying `GInputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3631,7 +3885,7 @@ public extension InputVectorRef {
 /// and the operation will store the read data starting in the
 /// first buffer, switching to the next as needed.
 open class InputVector: InputVectorProtocol {
-    /// Untyped pointer to the underlying `GInputVector` instance.
+        /// Untyped pointer to the underlying `GInputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3660,7 +3914,7 @@ open class InputVector: InputVectorProtocol {
         // no reference counting for GInputVector, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GInputVector`.
+    /// Do-nothing destructor for `GInputVector`.
     deinit {
         // no reference counting for GInputVector, cannot unref(cast(_ptr))
     }
@@ -3728,14 +3982,42 @@ open class InputVector: InputVectorProtocol {
 
 }
 
-// MARK: - no InputVector properties
+// MARK: no InputVector properties
 
-// MARK: - no signals
+// MARK: no InputVector signals
 
 
+// MARK: InputVector Record: InputVectorProtocol extension (methods and fields)
 public extension InputVectorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInputVector` instance.
     var _ptr: UnsafeMutablePointer<GInputVector> { return ptr.assumingMemoryBound(to: GInputVector.self) }
+
+
+    /// Pointer to a buffer where data will be written.
+    var buffer: UnsafeMutableRawPointer {
+        /// Pointer to a buffer where data will be written.
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.buffer)
+            return rv
+        }
+        /// Pointer to a buffer where data will be written.
+         set {
+            _ptr.pointee.buffer = cast(newValue)
+        }
+    }
+
+    /// the available size in `buffer`.
+    var size: Int {
+        /// the available size in `buffer`.
+        get {
+            let rv: Int = cast(_ptr.pointee.size)
+            return rv
+        }
+        /// the available size in `buffer`.
+         set {
+            _ptr.pointee.size = gsize(newValue)
+        }
+    }
 
 }
 
@@ -3750,7 +4032,7 @@ public extension InputVectorProtocol {
 ///
 /// The virtual function table for `GListModel`.
 public protocol ListModelInterfaceProtocol {
-    /// Untyped pointer to the underlying `GListModelInterface` instance.
+        /// Untyped pointer to the underlying `GListModelInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GListModelInterface` instance.
@@ -3763,7 +4045,7 @@ public protocol ListModelInterfaceProtocol {
 ///
 /// The virtual function table for `GListModel`.
 public struct ListModelInterfaceRef: ListModelInterfaceProtocol {
-    /// Untyped pointer to the underlying `GListModelInterface` instance.
+        /// Untyped pointer to the underlying `GListModelInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3816,7 +4098,7 @@ public extension ListModelInterfaceRef {
 ///
 /// The virtual function table for `GListModel`.
 open class ListModelInterface: ListModelInterfaceProtocol {
-    /// Untyped pointer to the underlying `GListModelInterface` instance.
+        /// Untyped pointer to the underlying `GListModelInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3845,7 +4127,7 @@ open class ListModelInterface: ListModelInterfaceProtocol {
         // no reference counting for GListModelInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GListModelInterface`.
+    /// Do-nothing destructor for `GListModelInterface`.
     deinit {
         // no reference counting for GListModelInterface, cannot unref(cast(_ptr))
     }
@@ -3913,14 +4195,31 @@ open class ListModelInterface: ListModelInterfaceProtocol {
 
 }
 
-// MARK: - no ListModelInterface properties
+// MARK: no ListModelInterface properties
 
-// MARK: - no signals
+// MARK: no ListModelInterface signals
 
 
+// MARK: ListModelInterface Record: ListModelInterfaceProtocol extension (methods and fields)
 public extension ListModelInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListModelInterface` instance.
     var _ptr: UnsafeMutablePointer<GListModelInterface> { return ptr.assumingMemoryBound(to: GListModelInterface.self) }
+
+
+    /// parent `GTypeInterface`
+    var gIface: GTypeInterface {
+        /// parent `GTypeInterface`
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var getItemType is unavailable because get_item_type is void
+
+    // var getNItems is unavailable because get_n_items is void
+
+    // var getItem is unavailable because get_item is void
 
 }
 

@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// Information about an argument for a method or a signal.
 public protocol DBusArgInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusArgInfo` instance.
+        /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusArgInfo` instance.
@@ -24,7 +24,7 @@ public protocol DBusArgInfoProtocol {
 ///
 /// Information about an argument for a method or a signal.
 public struct DBusArgInfoRef: DBusArgInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusArgInfo` instance.
+        /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_arg_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension DBusArgInfoRef {
 ///
 /// Information about an argument for a method or a signal.
 open class DBusArgInfo: DBusArgInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusArgInfo` instance.
+        /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_arg_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -174,11 +174,12 @@ open class DBusArgInfo: DBusArgInfoProtocol {
 
 }
 
-// MARK: - no DBusArgInfo properties
+// MARK: no DBusArgInfo properties
 
-// MARK: - no signals
+// MARK: no DBusArgInfo signals
 
 
+// MARK: DBusArgInfo Record: DBusArgInfoProtocol extension (methods and fields)
 public extension DBusArgInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusArgInfo` instance.
     var dbus_arg_info_ptr: UnsafeMutablePointer<GDBusArgInfo> { return ptr.assumingMemoryBound(to: GDBusArgInfo.self) }
@@ -186,7 +187,7 @@ public extension DBusArgInfoProtocol {
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusArgInfo>! {
-        let rv = g_dbus_arg_info_ref(cast(dbus_arg_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusArgInfo>! = cast(g_dbus_arg_info_ref(cast(dbus_arg_info_ptr)))
         return cast(rv)
     }
 
@@ -197,6 +198,48 @@ public extension DBusArgInfoProtocol {
         g_dbus_arg_info_unref(cast(dbus_arg_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_arg_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_arg_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// Name of the argument, e.g. `unix_user_id`.
+    var name: UnsafePointer<CChar> {
+        /// Name of the argument, e.g. `unix_user_id`.
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_arg_info_ptr.pointee.name)
+            return rv
+        }
+        /// Name of the argument, e.g. `unix_user_id`.
+         set {
+            dbus_arg_info_ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    /// D-Bus signature of the argument (a single complete type).
+    var signature: UnsafePointer<CChar> {
+        /// D-Bus signature of the argument (a single complete type).
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_arg_info_ptr.pointee.signature)
+            return rv
+        }
+        /// D-Bus signature of the argument (a single complete type).
+         set {
+            dbus_arg_info_ptr.pointee.signature = cast(newValue)
+        }
+    }
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -210,7 +253,7 @@ public extension DBusArgInfoProtocol {
 ///
 /// Struct used in `g_dbus_error_register_error_domain()`.
 public protocol DBusErrorEntryProtocol {
-    /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
+        /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusErrorEntry` instance.
@@ -223,7 +266,7 @@ public protocol DBusErrorEntryProtocol {
 ///
 /// Struct used in `g_dbus_error_register_error_domain()`.
 public struct DBusErrorEntryRef: DBusErrorEntryProtocol {
-    /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
+        /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -276,7 +319,7 @@ public extension DBusErrorEntryRef {
 ///
 /// Struct used in `g_dbus_error_register_error_domain()`.
 open class DBusErrorEntry: DBusErrorEntryProtocol {
-    /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
+        /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -305,7 +348,7 @@ open class DBusErrorEntry: DBusErrorEntryProtocol {
         // no reference counting for GDBusErrorEntry, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusErrorEntry`.
+    /// Do-nothing destructor for `GDBusErrorEntry`.
     deinit {
         // no reference counting for GDBusErrorEntry, cannot unref(cast(_ptr))
     }
@@ -373,14 +416,42 @@ open class DBusErrorEntry: DBusErrorEntryProtocol {
 
 }
 
-// MARK: - no DBusErrorEntry properties
+// MARK: no DBusErrorEntry properties
 
-// MARK: - no signals
+// MARK: no DBusErrorEntry signals
 
 
+// MARK: DBusErrorEntry Record: DBusErrorEntryProtocol extension (methods and fields)
 public extension DBusErrorEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusErrorEntry` instance.
     var _ptr: UnsafeMutablePointer<GDBusErrorEntry> { return ptr.assumingMemoryBound(to: GDBusErrorEntry.self) }
+
+
+    /// An error code.
+    var errorCode: Int {
+        /// An error code.
+        get {
+            let rv: Int = cast(_ptr.pointee.error_code)
+            return rv
+        }
+        /// An error code.
+         set {
+            _ptr.pointee.error_code = gint(newValue)
+        }
+    }
+
+    /// The D-Bus error name to associate with `error_code`.
+    var dbusErrorName: UnsafePointer<CChar> {
+        /// The D-Bus error name to associate with `error_code`.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.dbus_error_name)
+            return rv
+        }
+        /// The D-Bus error name to associate with `error_code`.
+         set {
+            _ptr.pointee.dbus_error_name = cast(newValue)
+        }
+    }
 
 }
 
@@ -395,7 +466,7 @@ public extension DBusErrorEntryProtocol {
 ///
 /// Base type for D-Bus interfaces.
 public protocol DBusInterfaceIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceIface` instance.
@@ -408,7 +479,7 @@ public protocol DBusInterfaceIfaceProtocol {
 ///
 /// Base type for D-Bus interfaces.
 public struct DBusInterfaceIfaceRef: DBusInterfaceIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -461,7 +532,7 @@ public extension DBusInterfaceIfaceRef {
 ///
 /// Base type for D-Bus interfaces.
 open class DBusInterfaceIface: DBusInterfaceIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -490,7 +561,7 @@ open class DBusInterfaceIface: DBusInterfaceIfaceProtocol {
         // no reference counting for GDBusInterfaceIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusInterfaceIface`.
+    /// Do-nothing destructor for `GDBusInterfaceIface`.
     deinit {
         // no reference counting for GDBusInterfaceIface, cannot unref(cast(_ptr))
     }
@@ -558,14 +629,33 @@ open class DBusInterfaceIface: DBusInterfaceIfaceProtocol {
 
 }
 
-// MARK: - no DBusInterfaceIface properties
+// MARK: no DBusInterfaceIface properties
 
-// MARK: - no signals
+// MARK: no DBusInterfaceIface signals
 
 
+// MARK: DBusInterfaceIface Record: DBusInterfaceIfaceProtocol extension (methods and fields)
 public extension DBusInterfaceIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceIface> { return ptr.assumingMemoryBound(to: GDBusInterfaceIface.self) }
+
+
+    /// The parent interface.
+    var parentIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.parent_iface)
+            return rv
+        }
+    }
+
+    // var getInfo is unavailable because get_info is void
+
+    // var getObject is unavailable because get_object is void
+
+    // var setObject is unavailable because set_object is void
+
+    // var dupObject is unavailable because dup_object is void
 
 }
 
@@ -580,7 +670,7 @@ public extension DBusInterfaceIfaceProtocol {
 ///
 /// Information about a D-Bus interface.
 public protocol DBusInterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceInfo` instance.
@@ -593,7 +683,7 @@ public protocol DBusInterfaceInfoProtocol {
 ///
 /// Information about a D-Bus interface.
 public struct DBusInterfaceInfoRef: DBusInterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -646,7 +736,7 @@ public extension DBusInterfaceInfoRef {
 ///
 /// Information about a D-Bus interface.
 open class DBusInterfaceInfo: DBusInterfaceInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -743,11 +833,12 @@ open class DBusInterfaceInfo: DBusInterfaceInfoProtocol {
 
 }
 
-// MARK: - no DBusInterfaceInfo properties
+// MARK: no DBusInterfaceInfo properties
 
-// MARK: - no signals
+// MARK: no DBusInterfaceInfo signals
 
 
+// MARK: DBusInterfaceInfo Record: DBusInterfaceInfoProtocol extension (methods and fields)
 public extension DBusInterfaceInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceInfo` instance.
     var dbus_interface_info_ptr: UnsafeMutablePointer<GDBusInterfaceInfo> { return ptr.assumingMemoryBound(to: GDBusInterfaceInfo.self) }
@@ -791,7 +882,7 @@ public extension DBusInterfaceInfoProtocol {
     /// The cost of this function is `O(n)` in number of methods unless
     /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupMethod(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusMethodInfo>! {
-        let rv = g_dbus_interface_info_lookup_method(cast(dbus_interface_info_ptr), name)
+        let rv: UnsafeMutablePointer<GDBusMethodInfo>! = cast(g_dbus_interface_info_lookup_method(cast(dbus_interface_info_ptr), name))
         return cast(rv)
     }
 
@@ -800,7 +891,7 @@ public extension DBusInterfaceInfoProtocol {
     /// The cost of this function is `O(n)` in number of properties unless
     /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupProperty(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusPropertyInfo>! {
-        let rv = g_dbus_interface_info_lookup_property(cast(dbus_interface_info_ptr), name)
+        let rv: UnsafeMutablePointer<GDBusPropertyInfo>! = cast(g_dbus_interface_info_lookup_property(cast(dbus_interface_info_ptr), name))
         return cast(rv)
     }
 
@@ -809,14 +900,14 @@ public extension DBusInterfaceInfoProtocol {
     /// The cost of this function is `O(n)` in number of signals unless
     /// `g_dbus_interface_info_cache_build()` has been used on `info`.
     func lookupSignal(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusSignalInfo>! {
-        let rv = g_dbus_interface_info_lookup_signal(cast(dbus_interface_info_ptr), name)
+        let rv: UnsafeMutablePointer<GDBusSignalInfo>! = cast(g_dbus_interface_info_lookup_signal(cast(dbus_interface_info_ptr), name))
         return cast(rv)
     }
 
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
-        let rv = g_dbus_interface_info_ref(cast(dbus_interface_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_interface_info_ref(cast(dbus_interface_info_ptr)))
         return cast(rv)
     }
 
@@ -827,6 +918,41 @@ public extension DBusInterfaceInfoProtocol {
         g_dbus_interface_info_unref(cast(dbus_interface_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_interface_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_interface_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The name of the D-Bus interface, e.g. "org.freedesktop.DBus.Properties".
+    var name: UnsafePointer<CChar> {
+        /// The name of the D-Bus interface, e.g. "org.freedesktop.DBus.Properties".
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_interface_info_ptr.pointee.name)
+            return rv
+        }
+        /// The name of the D-Bus interface, e.g. "org.freedesktop.DBus.Properties".
+         set {
+            dbus_interface_info_ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    // var methods is unavailable because methods is void
+
+    // var signals is unavailable because signals is void
+
+    // var properties is unavailable because properties is void
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -840,7 +966,7 @@ public extension DBusInterfaceInfoProtocol {
 ///
 /// Class structure for `GDBusInterfaceSkeleton`.
 public protocol DBusInterfaceSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
@@ -853,7 +979,7 @@ public protocol DBusInterfaceSkeletonClassProtocol {
 ///
 /// Class structure for `GDBusInterfaceSkeleton`.
 public struct DBusInterfaceSkeletonClassRef: DBusInterfaceSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -906,7 +1032,7 @@ public extension DBusInterfaceSkeletonClassRef {
 ///
 /// Class structure for `GDBusInterfaceSkeleton`.
 open class DBusInterfaceSkeletonClass: DBusInterfaceSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -935,7 +1061,7 @@ open class DBusInterfaceSkeletonClass: DBusInterfaceSkeletonClassProtocol {
         // no reference counting for GDBusInterfaceSkeletonClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusInterfaceSkeletonClass`.
+    /// Do-nothing destructor for `GDBusInterfaceSkeletonClass`.
     deinit {
         // no reference counting for GDBusInterfaceSkeletonClass, cannot unref(cast(_ptr))
     }
@@ -1003,14 +1129,39 @@ open class DBusInterfaceSkeletonClass: DBusInterfaceSkeletonClassProtocol {
 
 }
 
-// MARK: - no DBusInterfaceSkeletonClass properties
+// MARK: no DBusInterfaceSkeletonClass properties
 
-// MARK: - no signals
+// MARK: no DBusInterfaceSkeletonClass signals
 
 
+// MARK: DBusInterfaceSkeletonClass Record: DBusInterfaceSkeletonClassProtocol extension (methods and fields)
 public extension DBusInterfaceSkeletonClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceSkeletonClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceSkeletonClass> { return ptr.assumingMemoryBound(to: GDBusInterfaceSkeletonClass.self) }
+
+
+    /// The parent class.
+    var parentClass: GObjectClass {
+        /// The parent class.
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getInfo is unavailable because get_info is void
+
+    // var getVtable is unavailable because get_vtable is void
+
+    // var getProperties is unavailable because get_properties is void
+
+    // var flush is unavailable because flush is void
+
+    // var vfuncPadding is unavailable because vfunc_padding is private
+
+    // var gAuthorizeMethod is unavailable because g_authorize_method is void
+
+    // var signalPadding is unavailable because signal_padding is private
 
 }
 
@@ -1025,7 +1176,7 @@ public extension DBusInterfaceSkeletonClassProtocol {
 ///
 
 public protocol DBusInterfaceSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
@@ -1038,7 +1189,7 @@ public protocol DBusInterfaceSkeletonPrivateProtocol {
 ///
 
 public struct DBusInterfaceSkeletonPrivateRef: DBusInterfaceSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1091,7 +1242,7 @@ public extension DBusInterfaceSkeletonPrivateRef {
 ///
 
 open class DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1120,7 +1271,7 @@ open class DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivateProtocol {
         // no reference counting for GDBusInterfaceSkeletonPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusInterfaceSkeletonPrivate`.
+    /// Do-nothing destructor for `GDBusInterfaceSkeletonPrivate`.
     deinit {
         // no reference counting for GDBusInterfaceSkeletonPrivate, cannot unref(cast(_ptr))
     }
@@ -1188,14 +1339,17 @@ open class DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivateProtocol {
 
 }
 
-// MARK: - no DBusInterfaceSkeletonPrivate properties
+// MARK: no DBusInterfaceSkeletonPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusInterfaceSkeletonPrivate signals
 
 
+// MARK: DBusInterfaceSkeletonPrivate Record: DBusInterfaceSkeletonPrivateProtocol extension (methods and fields)
 public extension DBusInterfaceSkeletonPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceSkeletonPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceSkeletonPrivate> { return ptr.assumingMemoryBound(to: GDBusInterfaceSkeletonPrivate.self) }
+
+
 
 }
 
@@ -1250,7 +1404,7 @@ public extension DBusInterfaceSkeletonPrivateProtocol {
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 public protocol DBusInterfaceVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceVTable` instance.
@@ -1303,7 +1457,7 @@ public protocol DBusInterfaceVTableProtocol {
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 public struct DBusInterfaceVTableRef: DBusInterfaceVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1396,7 +1550,7 @@ public extension DBusInterfaceVTableRef {
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
 open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1425,7 +1579,7 @@ open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
         // no reference counting for GDBusInterfaceVTable, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusInterfaceVTable`.
+    /// Do-nothing destructor for `GDBusInterfaceVTable`.
     deinit {
         // no reference counting for GDBusInterfaceVTable, cannot unref(cast(_ptr))
     }
@@ -1493,14 +1647,57 @@ open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
 
 }
 
-// MARK: - no DBusInterfaceVTable properties
+// MARK: no DBusInterfaceVTable properties
 
-// MARK: - no signals
+// MARK: no DBusInterfaceVTable signals
 
 
+// MARK: DBusInterfaceVTable Record: DBusInterfaceVTableProtocol extension (methods and fields)
 public extension DBusInterfaceVTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceVTable` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceVTable> { return ptr.assumingMemoryBound(to: GDBusInterfaceVTable.self) }
+
+
+    /// Function for handling incoming method calls.
+    var methodCall: GDBusInterfaceMethodCallFunc {
+        /// Function for handling incoming method calls.
+        get {
+            let rv: GDBusInterfaceMethodCallFunc = cast(_ptr.pointee.method_call)
+            return rv
+        }
+        /// Function for handling incoming method calls.
+         set {
+            _ptr.pointee.method_call = cast(newValue)
+        }
+    }
+
+    /// Function for getting a property.
+    var getProperty: GDBusInterfaceGetPropertyFunc {
+        /// Function for getting a property.
+        get {
+            let rv: GDBusInterfaceGetPropertyFunc = cast(_ptr.pointee.get_property)
+            return rv
+        }
+        /// Function for getting a property.
+         set {
+            _ptr.pointee.get_property = cast(newValue)
+        }
+    }
+
+    /// Function for setting a property.
+    var setProperty: GDBusInterfaceSetPropertyFunc {
+        /// Function for setting a property.
+        get {
+            let rv: GDBusInterfaceSetPropertyFunc = cast(_ptr.pointee.set_property)
+            return rv
+        }
+        /// Function for setting a property.
+         set {
+            _ptr.pointee.set_property = cast(newValue)
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -1515,7 +1712,7 @@ public extension DBusInterfaceVTableProtocol {
 ///
 /// Information about a method on an D-Bus interface.
 public protocol DBusMethodInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
+        /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusMethodInfo` instance.
@@ -1528,7 +1725,7 @@ public protocol DBusMethodInfoProtocol {
 ///
 /// Information about a method on an D-Bus interface.
 public struct DBusMethodInfoRef: DBusMethodInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
+        /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1581,7 +1778,7 @@ public extension DBusMethodInfoRef {
 ///
 /// Information about a method on an D-Bus interface.
 open class DBusMethodInfo: DBusMethodInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
+        /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1678,11 +1875,12 @@ open class DBusMethodInfo: DBusMethodInfoProtocol {
 
 }
 
-// MARK: - no DBusMethodInfo properties
+// MARK: no DBusMethodInfo properties
 
-// MARK: - no signals
+// MARK: no DBusMethodInfo signals
 
 
+// MARK: DBusMethodInfo Record: DBusMethodInfoProtocol extension (methods and fields)
 public extension DBusMethodInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusMethodInfo` instance.
     var dbus_method_info_ptr: UnsafeMutablePointer<GDBusMethodInfo> { return ptr.assumingMemoryBound(to: GDBusMethodInfo.self) }
@@ -1690,7 +1888,7 @@ public extension DBusMethodInfoProtocol {
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusMethodInfo>! {
-        let rv = g_dbus_method_info_ref(cast(dbus_method_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusMethodInfo>! = cast(g_dbus_method_info_ref(cast(dbus_method_info_ptr)))
         return cast(rv)
     }
 
@@ -1701,6 +1899,39 @@ public extension DBusMethodInfoProtocol {
         g_dbus_method_info_unref(cast(dbus_method_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_method_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_method_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The name of the D-Bus method, e.g. `RequestName`.
+    var name: UnsafePointer<CChar> {
+        /// The name of the D-Bus method, e.g. `RequestName`.
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_method_info_ptr.pointee.name)
+            return rv
+        }
+        /// The name of the D-Bus method, e.g. `RequestName`.
+         set {
+            dbus_method_info_ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    // var inArgs is unavailable because in_args is void
+
+    // var outArgs is unavailable because out_args is void
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -1714,7 +1945,7 @@ public extension DBusMethodInfoProtocol {
 ///
 /// Information about nodes in a remote object hierarchy.
 public protocol DBusNodeInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
+        /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusNodeInfo` instance.
@@ -1727,7 +1958,7 @@ public protocol DBusNodeInfoProtocol {
 ///
 /// Information about nodes in a remote object hierarchy.
 public struct DBusNodeInfoRef: DBusNodeInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
+        /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_node_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1781,11 +2012,9 @@ public extension DBusNodeInfoRef {
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     init(xml xml_data: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusNodeInfo>! = cast(g_dbus_node_info_new_for_xml(xml_data, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Parses `xml_data` and returns a `GDBusNodeInfo` representing the data.
@@ -1797,11 +2026,9 @@ public extension DBusNodeInfoRef {
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     static func newFor(xml xml_data: UnsafePointer<gchar>) throws -> DBusNodeInfoRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusNodeInfo>! = cast(g_dbus_node_info_new_for_xml(xml_data, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusNodeInfoRef(cast($0)) }
     }
 }
@@ -1812,7 +2039,7 @@ public extension DBusNodeInfoRef {
 ///
 /// Information about nodes in a remote object hierarchy.
 open class DBusNodeInfo: DBusNodeInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
+        /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_node_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1914,11 +2141,9 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     public init(xml xml_data: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusNodeInfo>! = cast(g_dbus_node_info_new_for_xml(xml_data, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1931,21 +2156,20 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
     public static func newFor(xml xml_data: UnsafePointer<gchar>) throws -> DBusNodeInfo! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusNodeInfo>! = cast(g_dbus_node_info_new_for_xml(xml_data, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusNodeInfo(cast($0)) }
     }
 
 }
 
-// MARK: - no DBusNodeInfo properties
+// MARK: no DBusNodeInfo properties
 
-// MARK: - no signals
+// MARK: no DBusNodeInfo signals
 
 
+// MARK: DBusNodeInfo Record: DBusNodeInfoProtocol extension (methods and fields)
 public extension DBusNodeInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusNodeInfo` instance.
     var dbus_node_info_ptr: UnsafeMutablePointer<GDBusNodeInfo> { return ptr.assumingMemoryBound(to: GDBusNodeInfo.self) }
@@ -1963,14 +2187,14 @@ public extension DBusNodeInfoProtocol {
     /// 
     /// The cost of this function is `O(n)` in number of interfaces.
     func lookupInterface(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
-        let rv = g_dbus_node_info_lookup_interface(cast(dbus_node_info_ptr), name)
+        let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_node_info_lookup_interface(cast(dbus_node_info_ptr), name))
         return cast(rv)
     }
 
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusNodeInfo>! {
-        let rv = g_dbus_node_info_ref(cast(dbus_node_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusNodeInfo>! = cast(g_dbus_node_info_ref(cast(dbus_node_info_ptr)))
         return cast(rv)
     }
 
@@ -1981,6 +2205,39 @@ public extension DBusNodeInfoProtocol {
         g_dbus_node_info_unref(cast(dbus_node_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_node_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_node_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The path of the node or `nil` if omitted. Note that this may be a relative path. See the D-Bus specification for more details.
+    var path: UnsafePointer<CChar> {
+        /// The path of the node or `nil` if omitted. Note that this may be a relative path. See the D-Bus specification for more details.
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_node_info_ptr.pointee.path)
+            return rv
+        }
+        /// The path of the node or `nil` if omitted. Note that this may be a relative path. See the D-Bus specification for more details.
+         set {
+            dbus_node_info_ptr.pointee.path = cast(newValue)
+        }
+    }
+
+    // var interfaces is unavailable because interfaces is void
+
+    // var nodes is unavailable because nodes is void
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -1994,7 +2251,7 @@ public extension DBusNodeInfoProtocol {
 ///
 /// Base object type for D-Bus objects.
 public protocol DBusObjectIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectIface` instance.
@@ -2007,7 +2264,7 @@ public protocol DBusObjectIfaceProtocol {
 ///
 /// Base object type for D-Bus objects.
 public struct DBusObjectIfaceRef: DBusObjectIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2060,7 +2317,7 @@ public extension DBusObjectIfaceRef {
 ///
 /// Base object type for D-Bus objects.
 open class DBusObjectIface: DBusObjectIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2089,7 +2346,7 @@ open class DBusObjectIface: DBusObjectIfaceProtocol {
         // no reference counting for GDBusObjectIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectIface`.
+    /// Do-nothing destructor for `GDBusObjectIface`.
     deinit {
         // no reference counting for GDBusObjectIface, cannot unref(cast(_ptr))
     }
@@ -2157,14 +2414,35 @@ open class DBusObjectIface: DBusObjectIfaceProtocol {
 
 }
 
-// MARK: - no DBusObjectIface properties
+// MARK: no DBusObjectIface properties
 
-// MARK: - no signals
+// MARK: no DBusObjectIface signals
 
 
+// MARK: DBusObjectIface Record: DBusObjectIfaceProtocol extension (methods and fields)
 public extension DBusObjectIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectIface> { return ptr.assumingMemoryBound(to: GDBusObjectIface.self) }
+
+
+    /// The parent interface.
+    var parentIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.parent_iface)
+            return rv
+        }
+    }
+
+    // var getObjectPath is unavailable because get_object_path is void
+
+    // var getInterfaces is unavailable because get_interfaces is void
+
+    // var getInterface is unavailable because get_interface is void
+
+    // var interfaceAdded is unavailable because interface_added is void
+
+    // var interfaceRemoved is unavailable because interface_removed is void
 
 }
 
@@ -2179,7 +2457,7 @@ public extension DBusObjectIfaceProtocol {
 ///
 /// Class structure for `GDBusObjectManagerClient`.
 public protocol DBusObjectManagerClientClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerClientClass` instance.
@@ -2192,7 +2470,7 @@ public protocol DBusObjectManagerClientClassProtocol {
 ///
 /// Class structure for `GDBusObjectManagerClient`.
 public struct DBusObjectManagerClientClassRef: DBusObjectManagerClientClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2245,7 +2523,7 @@ public extension DBusObjectManagerClientClassRef {
 ///
 /// Class structure for `GDBusObjectManagerClient`.
 open class DBusObjectManagerClientClass: DBusObjectManagerClientClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2274,7 +2552,7 @@ open class DBusObjectManagerClientClass: DBusObjectManagerClientClassProtocol {
         // no reference counting for GDBusObjectManagerClientClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectManagerClientClass`.
+    /// Do-nothing destructor for `GDBusObjectManagerClientClass`.
     deinit {
         // no reference counting for GDBusObjectManagerClientClass, cannot unref(cast(_ptr))
     }
@@ -2342,14 +2620,31 @@ open class DBusObjectManagerClientClass: DBusObjectManagerClientClassProtocol {
 
 }
 
-// MARK: - no DBusObjectManagerClientClass properties
+// MARK: no DBusObjectManagerClientClass properties
 
-// MARK: - no signals
+// MARK: no DBusObjectManagerClientClass signals
 
 
+// MARK: DBusObjectManagerClientClass Record: DBusObjectManagerClientClassProtocol extension (methods and fields)
 public extension DBusObjectManagerClientClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerClientClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerClientClass> { return ptr.assumingMemoryBound(to: GDBusObjectManagerClientClass.self) }
+
+
+    /// The parent class.
+    var parentClass: GObjectClass {
+        /// The parent class.
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var interfaceProxySignal is unavailable because interface_proxy_signal is void
+
+    // var interfaceProxyPropertiesChanged is unavailable because interface_proxy_properties_changed is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2364,7 +2659,7 @@ public extension DBusObjectManagerClientClassProtocol {
 ///
 
 public protocol DBusObjectManagerClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
@@ -2377,7 +2672,7 @@ public protocol DBusObjectManagerClientPrivateProtocol {
 ///
 
 public struct DBusObjectManagerClientPrivateRef: DBusObjectManagerClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2430,7 +2725,7 @@ public extension DBusObjectManagerClientPrivateRef {
 ///
 
 open class DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClientPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2459,7 +2754,7 @@ open class DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivateProtoco
         // no reference counting for GDBusObjectManagerClientPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectManagerClientPrivate`.
+    /// Do-nothing destructor for `GDBusObjectManagerClientPrivate`.
     deinit {
         // no reference counting for GDBusObjectManagerClientPrivate, cannot unref(cast(_ptr))
     }
@@ -2527,14 +2822,17 @@ open class DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivateProtoco
 
 }
 
-// MARK: - no DBusObjectManagerClientPrivate properties
+// MARK: no DBusObjectManagerClientPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusObjectManagerClientPrivate signals
 
 
+// MARK: DBusObjectManagerClientPrivate Record: DBusObjectManagerClientPrivateProtocol extension (methods and fields)
 public extension DBusObjectManagerClientPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerClientPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerClientPrivate> { return ptr.assumingMemoryBound(to: GDBusObjectManagerClientPrivate.self) }
+
+
 
 }
 
@@ -2549,7 +2847,7 @@ public extension DBusObjectManagerClientPrivateProtocol {
 ///
 /// Base type for D-Bus object managers.
 public protocol DBusObjectManagerIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerIface` instance.
@@ -2562,7 +2860,7 @@ public protocol DBusObjectManagerIfaceProtocol {
 ///
 /// Base type for D-Bus object managers.
 public struct DBusObjectManagerIfaceRef: DBusObjectManagerIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2615,7 +2913,7 @@ public extension DBusObjectManagerIfaceRef {
 ///
 /// Base type for D-Bus object managers.
 open class DBusObjectManagerIface: DBusObjectManagerIfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2644,7 +2942,7 @@ open class DBusObjectManagerIface: DBusObjectManagerIfaceProtocol {
         // no reference counting for GDBusObjectManagerIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectManagerIface`.
+    /// Do-nothing destructor for `GDBusObjectManagerIface`.
     deinit {
         // no reference counting for GDBusObjectManagerIface, cannot unref(cast(_ptr))
     }
@@ -2712,14 +3010,41 @@ open class DBusObjectManagerIface: DBusObjectManagerIfaceProtocol {
 
 }
 
-// MARK: - no DBusObjectManagerIface properties
+// MARK: no DBusObjectManagerIface properties
 
-// MARK: - no signals
+// MARK: no DBusObjectManagerIface signals
 
 
+// MARK: DBusObjectManagerIface Record: DBusObjectManagerIfaceProtocol extension (methods and fields)
 public extension DBusObjectManagerIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerIface> { return ptr.assumingMemoryBound(to: GDBusObjectManagerIface.self) }
+
+
+    /// The parent interface.
+    var parentIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.parent_iface)
+            return rv
+        }
+    }
+
+    // var getObjectPath is unavailable because get_object_path is void
+
+    // var getObjects is unavailable because get_objects is void
+
+    // var getObject is unavailable because get_object is void
+
+    // var getInterface is unavailable because get_interface is void
+
+    // var objectAdded is unavailable because object_added is void
+
+    // var objectRemoved is unavailable because object_removed is void
+
+    // var interfaceAdded is unavailable because interface_added is void
+
+    // var interfaceRemoved is unavailable because interface_removed is void
 
 }
 
@@ -2734,7 +3059,7 @@ public extension DBusObjectManagerIfaceProtocol {
 ///
 /// Class structure for `GDBusObjectManagerServer`.
 public protocol DBusObjectManagerServerClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerServerClass` instance.
@@ -2747,7 +3072,7 @@ public protocol DBusObjectManagerServerClassProtocol {
 ///
 /// Class structure for `GDBusObjectManagerServer`.
 public struct DBusObjectManagerServerClassRef: DBusObjectManagerServerClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2800,7 +3125,7 @@ public extension DBusObjectManagerServerClassRef {
 ///
 /// Class structure for `GDBusObjectManagerServer`.
 open class DBusObjectManagerServerClass: DBusObjectManagerServerClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2829,7 +3154,7 @@ open class DBusObjectManagerServerClass: DBusObjectManagerServerClassProtocol {
         // no reference counting for GDBusObjectManagerServerClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectManagerServerClass`.
+    /// Do-nothing destructor for `GDBusObjectManagerServerClass`.
     deinit {
         // no reference counting for GDBusObjectManagerServerClass, cannot unref(cast(_ptr))
     }
@@ -2897,14 +3222,27 @@ open class DBusObjectManagerServerClass: DBusObjectManagerServerClassProtocol {
 
 }
 
-// MARK: - no DBusObjectManagerServerClass properties
+// MARK: no DBusObjectManagerServerClass properties
 
-// MARK: - no signals
+// MARK: no DBusObjectManagerServerClass signals
 
 
+// MARK: DBusObjectManagerServerClass Record: DBusObjectManagerServerClassProtocol extension (methods and fields)
 public extension DBusObjectManagerServerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerServerClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerServerClass> { return ptr.assumingMemoryBound(to: GDBusObjectManagerServerClass.self) }
+
+
+    /// The parent class.
+    var parentClass: GObjectClass {
+        /// The parent class.
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2919,7 +3257,7 @@ public extension DBusObjectManagerServerClassProtocol {
 ///
 
 public protocol DBusObjectManagerServerPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
@@ -2932,7 +3270,7 @@ public protocol DBusObjectManagerServerPrivateProtocol {
 ///
 
 public struct DBusObjectManagerServerPrivateRef: DBusObjectManagerServerPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2985,7 +3323,7 @@ public extension DBusObjectManagerServerPrivateRef {
 ///
 
 open class DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServerPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3014,7 +3352,7 @@ open class DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivateProtoco
         // no reference counting for GDBusObjectManagerServerPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectManagerServerPrivate`.
+    /// Do-nothing destructor for `GDBusObjectManagerServerPrivate`.
     deinit {
         // no reference counting for GDBusObjectManagerServerPrivate, cannot unref(cast(_ptr))
     }
@@ -3082,14 +3420,17 @@ open class DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivateProtoco
 
 }
 
-// MARK: - no DBusObjectManagerServerPrivate properties
+// MARK: no DBusObjectManagerServerPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusObjectManagerServerPrivate signals
 
 
+// MARK: DBusObjectManagerServerPrivate Record: DBusObjectManagerServerPrivateProtocol extension (methods and fields)
 public extension DBusObjectManagerServerPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerServerPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerServerPrivate> { return ptr.assumingMemoryBound(to: GDBusObjectManagerServerPrivate.self) }
+
+
 
 }
 
@@ -3104,7 +3445,7 @@ public extension DBusObjectManagerServerPrivateProtocol {
 ///
 /// Class structure for `GDBusObjectProxy`.
 public protocol DBusObjectProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectProxyClass` instance.
@@ -3117,7 +3458,7 @@ public protocol DBusObjectProxyClassProtocol {
 ///
 /// Class structure for `GDBusObjectProxy`.
 public struct DBusObjectProxyClassRef: DBusObjectProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3170,7 +3511,7 @@ public extension DBusObjectProxyClassRef {
 ///
 /// Class structure for `GDBusObjectProxy`.
 open class DBusObjectProxyClass: DBusObjectProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3199,7 +3540,7 @@ open class DBusObjectProxyClass: DBusObjectProxyClassProtocol {
         // no reference counting for GDBusObjectProxyClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectProxyClass`.
+    /// Do-nothing destructor for `GDBusObjectProxyClass`.
     deinit {
         // no reference counting for GDBusObjectProxyClass, cannot unref(cast(_ptr))
     }
@@ -3267,14 +3608,27 @@ open class DBusObjectProxyClass: DBusObjectProxyClassProtocol {
 
 }
 
-// MARK: - no DBusObjectProxyClass properties
+// MARK: no DBusObjectProxyClass properties
 
-// MARK: - no signals
+// MARK: no DBusObjectProxyClass signals
 
 
+// MARK: DBusObjectProxyClass Record: DBusObjectProxyClassProtocol extension (methods and fields)
 public extension DBusObjectProxyClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectProxyClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectProxyClass> { return ptr.assumingMemoryBound(to: GDBusObjectProxyClass.self) }
+
+
+    /// The parent class.
+    var parentClass: GObjectClass {
+        /// The parent class.
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -3289,7 +3643,7 @@ public extension DBusObjectProxyClassProtocol {
 ///
 
 public protocol DBusObjectProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectProxyPrivate` instance.
@@ -3302,7 +3656,7 @@ public protocol DBusObjectProxyPrivateProtocol {
 ///
 
 public struct DBusObjectProxyPrivateRef: DBusObjectProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3355,7 +3709,7 @@ public extension DBusObjectProxyPrivateRef {
 ///
 
 open class DBusObjectProxyPrivate: DBusObjectProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3384,7 +3738,7 @@ open class DBusObjectProxyPrivate: DBusObjectProxyPrivateProtocol {
         // no reference counting for GDBusObjectProxyPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectProxyPrivate`.
+    /// Do-nothing destructor for `GDBusObjectProxyPrivate`.
     deinit {
         // no reference counting for GDBusObjectProxyPrivate, cannot unref(cast(_ptr))
     }
@@ -3452,14 +3806,17 @@ open class DBusObjectProxyPrivate: DBusObjectProxyPrivateProtocol {
 
 }
 
-// MARK: - no DBusObjectProxyPrivate properties
+// MARK: no DBusObjectProxyPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusObjectProxyPrivate signals
 
 
+// MARK: DBusObjectProxyPrivate Record: DBusObjectProxyPrivateProtocol extension (methods and fields)
 public extension DBusObjectProxyPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectProxyPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectProxyPrivate> { return ptr.assumingMemoryBound(to: GDBusObjectProxyPrivate.self) }
+
+
 
 }
 
@@ -3474,7 +3831,7 @@ public extension DBusObjectProxyPrivateProtocol {
 ///
 /// Class structure for `GDBusObjectSkeleton`.
 public protocol DBusObjectSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectSkeletonClass` instance.
@@ -3487,7 +3844,7 @@ public protocol DBusObjectSkeletonClassProtocol {
 ///
 /// Class structure for `GDBusObjectSkeleton`.
 public struct DBusObjectSkeletonClassRef: DBusObjectSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3540,7 +3897,7 @@ public extension DBusObjectSkeletonClassRef {
 ///
 /// Class structure for `GDBusObjectSkeleton`.
 open class DBusObjectSkeletonClass: DBusObjectSkeletonClassProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3569,7 +3926,7 @@ open class DBusObjectSkeletonClass: DBusObjectSkeletonClassProtocol {
         // no reference counting for GDBusObjectSkeletonClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectSkeletonClass`.
+    /// Do-nothing destructor for `GDBusObjectSkeletonClass`.
     deinit {
         // no reference counting for GDBusObjectSkeletonClass, cannot unref(cast(_ptr))
     }
@@ -3637,14 +3994,29 @@ open class DBusObjectSkeletonClass: DBusObjectSkeletonClassProtocol {
 
 }
 
-// MARK: - no DBusObjectSkeletonClass properties
+// MARK: no DBusObjectSkeletonClass properties
 
-// MARK: - no signals
+// MARK: no DBusObjectSkeletonClass signals
 
 
+// MARK: DBusObjectSkeletonClass Record: DBusObjectSkeletonClassProtocol extension (methods and fields)
 public extension DBusObjectSkeletonClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectSkeletonClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectSkeletonClass> { return ptr.assumingMemoryBound(to: GDBusObjectSkeletonClass.self) }
+
+
+    /// The parent class.
+    var parentClass: GObjectClass {
+        /// The parent class.
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var authorizeMethod is unavailable because authorize_method is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -3659,7 +4031,7 @@ public extension DBusObjectSkeletonClassProtocol {
 ///
 
 public protocol DBusObjectSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
@@ -3672,7 +4044,7 @@ public protocol DBusObjectSkeletonPrivateProtocol {
 ///
 
 public struct DBusObjectSkeletonPrivateRef: DBusObjectSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3725,7 +4097,7 @@ public extension DBusObjectSkeletonPrivateRef {
 ///
 
 open class DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeletonPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3754,7 +4126,7 @@ open class DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivateProtocol {
         // no reference counting for GDBusObjectSkeletonPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusObjectSkeletonPrivate`.
+    /// Do-nothing destructor for `GDBusObjectSkeletonPrivate`.
     deinit {
         // no reference counting for GDBusObjectSkeletonPrivate, cannot unref(cast(_ptr))
     }
@@ -3822,14 +4194,17 @@ open class DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivateProtocol {
 
 }
 
-// MARK: - no DBusObjectSkeletonPrivate properties
+// MARK: no DBusObjectSkeletonPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusObjectSkeletonPrivate signals
 
 
+// MARK: DBusObjectSkeletonPrivate Record: DBusObjectSkeletonPrivateProtocol extension (methods and fields)
 public extension DBusObjectSkeletonPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectSkeletonPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectSkeletonPrivate> { return ptr.assumingMemoryBound(to: GDBusObjectSkeletonPrivate.self) }
+
+
 
 }
 
@@ -3844,7 +4219,7 @@ public extension DBusObjectSkeletonPrivateProtocol {
 ///
 /// Information about a D-Bus property on a D-Bus interface.
 public protocol DBusPropertyInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
+        /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusPropertyInfo` instance.
@@ -3857,7 +4232,7 @@ public protocol DBusPropertyInfoProtocol {
 ///
 /// Information about a D-Bus property on a D-Bus interface.
 public struct DBusPropertyInfoRef: DBusPropertyInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
+        /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_property_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3910,7 +4285,7 @@ public extension DBusPropertyInfoRef {
 ///
 /// Information about a D-Bus property on a D-Bus interface.
 open class DBusPropertyInfo: DBusPropertyInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
+        /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_property_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4007,11 +4382,12 @@ open class DBusPropertyInfo: DBusPropertyInfoProtocol {
 
 }
 
-// MARK: - no DBusPropertyInfo properties
+// MARK: no DBusPropertyInfo properties
 
-// MARK: - no signals
+// MARK: no DBusPropertyInfo signals
 
 
+// MARK: DBusPropertyInfo Record: DBusPropertyInfoProtocol extension (methods and fields)
 public extension DBusPropertyInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusPropertyInfo` instance.
     var dbus_property_info_ptr: UnsafeMutablePointer<GDBusPropertyInfo> { return ptr.assumingMemoryBound(to: GDBusPropertyInfo.self) }
@@ -4019,7 +4395,7 @@ public extension DBusPropertyInfoProtocol {
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusPropertyInfo>! {
-        let rv = g_dbus_property_info_ref(cast(dbus_property_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusPropertyInfo>! = cast(g_dbus_property_info_ref(cast(dbus_property_info_ptr)))
         return cast(rv)
     }
 
@@ -4030,6 +4406,61 @@ public extension DBusPropertyInfoProtocol {
         g_dbus_property_info_unref(cast(dbus_property_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_property_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_property_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The name of the D-Bus property, e.g. "SupportedFilesystems".
+    var name: UnsafePointer<CChar> {
+        /// The name of the D-Bus property, e.g. "SupportedFilesystems".
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_property_info_ptr.pointee.name)
+            return rv
+        }
+        /// The name of the D-Bus property, e.g. "SupportedFilesystems".
+         set {
+            dbus_property_info_ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    /// The D-Bus signature of the property (a single complete type).
+    var signature: UnsafePointer<CChar> {
+        /// The D-Bus signature of the property (a single complete type).
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_property_info_ptr.pointee.signature)
+            return rv
+        }
+        /// The D-Bus signature of the property (a single complete type).
+         set {
+            dbus_property_info_ptr.pointee.signature = cast(newValue)
+        }
+    }
+
+    /// Access control flags for the property.
+    var flags: GDBusPropertyInfoFlags {
+        /// Access control flags for the property.
+        get {
+            let rv: GDBusPropertyInfoFlags = cast(dbus_property_info_ptr.pointee.flags)
+            return rv
+        }
+        /// Access control flags for the property.
+         set {
+            dbus_property_info_ptr.pointee.flags = cast(newValue)
+        }
+    }
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -4043,7 +4474,7 @@ public extension DBusPropertyInfoProtocol {
 ///
 /// Class structure for `GDBusProxy`.
 public protocol DBusProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusProxyClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusProxyClass` instance.
@@ -4056,7 +4487,7 @@ public protocol DBusProxyClassProtocol {
 ///
 /// Class structure for `GDBusProxy`.
 public struct DBusProxyClassRef: DBusProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4109,7 +4540,7 @@ public extension DBusProxyClassRef {
 ///
 /// Class structure for `GDBusProxy`.
 open class DBusProxyClass: DBusProxyClassProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyClass` instance.
+        /// Untyped pointer to the underlying `GDBusProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4138,7 +4569,7 @@ open class DBusProxyClass: DBusProxyClassProtocol {
         // no reference counting for GDBusProxyClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusProxyClass`.
+    /// Do-nothing destructor for `GDBusProxyClass`.
     deinit {
         // no reference counting for GDBusProxyClass, cannot unref(cast(_ptr))
     }
@@ -4206,14 +4637,24 @@ open class DBusProxyClass: DBusProxyClassProtocol {
 
 }
 
-// MARK: - no DBusProxyClass properties
+// MARK: no DBusProxyClass properties
 
-// MARK: - no signals
+// MARK: no DBusProxyClass signals
 
 
+// MARK: DBusProxyClass Record: DBusProxyClassProtocol extension (methods and fields)
 public extension DBusProxyClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusProxyClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusProxyClass> { return ptr.assumingMemoryBound(to: GDBusProxyClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var gPropertiesChanged is unavailable because g_properties_changed is void
+
+    // var gSignal is unavailable because g_signal is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -4228,7 +4669,7 @@ public extension DBusProxyClassProtocol {
 ///
 
 public protocol DBusProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusProxyPrivate` instance.
@@ -4241,7 +4682,7 @@ public protocol DBusProxyPrivateProtocol {
 ///
 
 public struct DBusProxyPrivateRef: DBusProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4294,7 +4735,7 @@ public extension DBusProxyPrivateRef {
 ///
 
 open class DBusProxyPrivate: DBusProxyPrivateProtocol {
-    /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
+        /// Untyped pointer to the underlying `GDBusProxyPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4323,7 +4764,7 @@ open class DBusProxyPrivate: DBusProxyPrivateProtocol {
         // no reference counting for GDBusProxyPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusProxyPrivate`.
+    /// Do-nothing destructor for `GDBusProxyPrivate`.
     deinit {
         // no reference counting for GDBusProxyPrivate, cannot unref(cast(_ptr))
     }
@@ -4391,14 +4832,17 @@ open class DBusProxyPrivate: DBusProxyPrivateProtocol {
 
 }
 
-// MARK: - no DBusProxyPrivate properties
+// MARK: no DBusProxyPrivate properties
 
-// MARK: - no signals
+// MARK: no DBusProxyPrivate signals
 
 
+// MARK: DBusProxyPrivate Record: DBusProxyPrivateProtocol extension (methods and fields)
 public extension DBusProxyPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusProxyPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDBusProxyPrivate> { return ptr.assumingMemoryBound(to: GDBusProxyPrivate.self) }
+
+
 
 }
 
@@ -4413,7 +4857,7 @@ public extension DBusProxyPrivateProtocol {
 ///
 /// Information about a signal on a D-Bus interface.
 public protocol DBusSignalInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
+        /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusSignalInfo` instance.
@@ -4426,7 +4870,7 @@ public protocol DBusSignalInfoProtocol {
 ///
 /// Information about a signal on a D-Bus interface.
 public struct DBusSignalInfoRef: DBusSignalInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
+        /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_signal_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4479,7 +4923,7 @@ public extension DBusSignalInfoRef {
 ///
 /// Information about a signal on a D-Bus interface.
 open class DBusSignalInfo: DBusSignalInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
+        /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_signal_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4576,11 +5020,12 @@ open class DBusSignalInfo: DBusSignalInfoProtocol {
 
 }
 
-// MARK: - no DBusSignalInfo properties
+// MARK: no DBusSignalInfo properties
 
-// MARK: - no signals
+// MARK: no DBusSignalInfo signals
 
 
+// MARK: DBusSignalInfo Record: DBusSignalInfoProtocol extension (methods and fields)
 public extension DBusSignalInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusSignalInfo` instance.
     var dbus_signal_info_ptr: UnsafeMutablePointer<GDBusSignalInfo> { return ptr.assumingMemoryBound(to: GDBusSignalInfo.self) }
@@ -4588,7 +5033,7 @@ public extension DBusSignalInfoProtocol {
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusSignalInfo>! {
-        let rv = g_dbus_signal_info_ref(cast(dbus_signal_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusSignalInfo>! = cast(g_dbus_signal_info_ref(cast(dbus_signal_info_ptr)))
         return cast(rv)
     }
 
@@ -4599,6 +5044,37 @@ public extension DBusSignalInfoProtocol {
         g_dbus_signal_info_unref(cast(dbus_signal_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_signal_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_signal_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The name of the D-Bus signal, e.g. "NameOwnerChanged".
+    var name: UnsafePointer<CChar> {
+        /// The name of the D-Bus signal, e.g. "NameOwnerChanged".
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_signal_info_ptr.pointee.name)
+            return rv
+        }
+        /// The name of the D-Bus signal, e.g. "NameOwnerChanged".
+         set {
+            dbus_signal_info_ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    // var args is unavailable because args is void
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 
@@ -4612,7 +5088,7 @@ public extension DBusSignalInfoProtocol {
 ///
 /// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public protocol DBusSubtreeVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
+        /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusSubtreeVTable` instance.
@@ -4625,7 +5101,7 @@ public protocol DBusSubtreeVTableProtocol {
 ///
 /// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public struct DBusSubtreeVTableRef: DBusSubtreeVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
+        /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4678,7 +5154,7 @@ public extension DBusSubtreeVTableRef {
 ///
 /// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
-    /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
+        /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4707,7 +5183,7 @@ open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
         // no reference counting for GDBusSubtreeVTable, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDBusSubtreeVTable`.
+    /// Do-nothing destructor for `GDBusSubtreeVTable`.
     deinit {
         // no reference counting for GDBusSubtreeVTable, cannot unref(cast(_ptr))
     }
@@ -4775,14 +5251,57 @@ open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
 
 }
 
-// MARK: - no DBusSubtreeVTable properties
+// MARK: no DBusSubtreeVTable properties
 
-// MARK: - no signals
+// MARK: no DBusSubtreeVTable signals
 
 
+// MARK: DBusSubtreeVTable Record: DBusSubtreeVTableProtocol extension (methods and fields)
 public extension DBusSubtreeVTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusSubtreeVTable` instance.
     var _ptr: UnsafeMutablePointer<GDBusSubtreeVTable> { return ptr.assumingMemoryBound(to: GDBusSubtreeVTable.self) }
+
+
+    /// Function for enumerating child nodes.
+    var enumerate: GDBusSubtreeEnumerateFunc {
+        /// Function for enumerating child nodes.
+        get {
+            let rv: GDBusSubtreeEnumerateFunc = cast(_ptr.pointee.enumerate)
+            return rv
+        }
+        /// Function for enumerating child nodes.
+         set {
+            _ptr.pointee.enumerate = cast(newValue)
+        }
+    }
+
+    /// Function for introspecting a child node.
+    var introspect: GDBusSubtreeIntrospectFunc {
+        /// Function for introspecting a child node.
+        get {
+            let rv: GDBusSubtreeIntrospectFunc = cast(_ptr.pointee.introspect)
+            return rv
+        }
+        /// Function for introspecting a child node.
+         set {
+            _ptr.pointee.introspect = cast(newValue)
+        }
+    }
+
+    /// Function for dispatching a remote call on a child node.
+    var dispatch: GDBusSubtreeDispatchFunc {
+        /// Function for dispatching a remote call on a child node.
+        get {
+            let rv: GDBusSubtreeDispatchFunc = cast(_ptr.pointee.dispatch)
+            return rv
+        }
+        /// Function for dispatching a remote call on a child node.
+         set {
+            _ptr.pointee.dispatch = cast(newValue)
+        }
+    }
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -4797,7 +5316,7 @@ public extension DBusSubtreeVTableProtocol {
 ///
 
 public protocol DataInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataInputStreamClass` instance.
@@ -4810,7 +5329,7 @@ public protocol DataInputStreamClassProtocol {
 ///
 
 public struct DataInputStreamClassRef: DataInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4863,7 +5382,7 @@ public extension DataInputStreamClassRef {
 ///
 
 open class DataInputStreamClass: DataInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4892,7 +5411,7 @@ open class DataInputStreamClass: DataInputStreamClassProtocol {
         // no reference counting for GDataInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDataInputStreamClass`.
+    /// Do-nothing destructor for `GDataInputStreamClass`.
     deinit {
         // no reference counting for GDataInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -4960,14 +5479,33 @@ open class DataInputStreamClass: DataInputStreamClassProtocol {
 
 }
 
-// MARK: - no DataInputStreamClass properties
+// MARK: no DataInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no DataInputStreamClass signals
 
 
+// MARK: DataInputStreamClass Record: DataInputStreamClassProtocol extension (methods and fields)
 public extension DataInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GDataInputStreamClass> { return ptr.assumingMemoryBound(to: GDataInputStreamClass.self) }
+
+
+    var parentClass: GBufferedInputStreamClass {
+        get {
+            let rv: GBufferedInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -4982,7 +5520,7 @@ public extension DataInputStreamClassProtocol {
 ///
 
 public protocol DataInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataInputStreamPrivate` instance.
@@ -4995,7 +5533,7 @@ public protocol DataInputStreamPrivateProtocol {
 ///
 
 public struct DataInputStreamPrivateRef: DataInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5048,7 +5586,7 @@ public extension DataInputStreamPrivateRef {
 ///
 
 open class DataInputStreamPrivate: DataInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5077,7 +5615,7 @@ open class DataInputStreamPrivate: DataInputStreamPrivateProtocol {
         // no reference counting for GDataInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDataInputStreamPrivate`.
+    /// Do-nothing destructor for `GDataInputStreamPrivate`.
     deinit {
         // no reference counting for GDataInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -5145,14 +5683,17 @@ open class DataInputStreamPrivate: DataInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no DataInputStreamPrivate properties
+// MARK: no DataInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no DataInputStreamPrivate signals
 
 
+// MARK: DataInputStreamPrivate Record: DataInputStreamPrivateProtocol extension (methods and fields)
 public extension DataInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDataInputStreamPrivate> { return ptr.assumingMemoryBound(to: GDataInputStreamPrivate.self) }
+
+
 
 }
 
@@ -5167,7 +5708,7 @@ public extension DataInputStreamPrivateProtocol {
 ///
 
 public protocol DataOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataOutputStreamClass` instance.
@@ -5180,7 +5721,7 @@ public protocol DataOutputStreamClassProtocol {
 ///
 
 public struct DataOutputStreamClassRef: DataOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5233,7 +5774,7 @@ public extension DataOutputStreamClassRef {
 ///
 
 open class DataOutputStreamClass: DataOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5262,7 +5803,7 @@ open class DataOutputStreamClass: DataOutputStreamClassProtocol {
         // no reference counting for GDataOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDataOutputStreamClass`.
+    /// Do-nothing destructor for `GDataOutputStreamClass`.
     deinit {
         // no reference counting for GDataOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -5330,14 +5871,33 @@ open class DataOutputStreamClass: DataOutputStreamClassProtocol {
 
 }
 
-// MARK: - no DataOutputStreamClass properties
+// MARK: no DataOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no DataOutputStreamClass signals
 
 
+// MARK: DataOutputStreamClass Record: DataOutputStreamClassProtocol extension (methods and fields)
 public extension DataOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GDataOutputStreamClass> { return ptr.assumingMemoryBound(to: GDataOutputStreamClass.self) }
+
+
+    var parentClass: GFilterOutputStreamClass {
+        get {
+            let rv: GFilterOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -5352,7 +5912,7 @@ public extension DataOutputStreamClassProtocol {
 ///
 
 public protocol DataOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataOutputStreamPrivate` instance.
@@ -5365,7 +5925,7 @@ public protocol DataOutputStreamPrivateProtocol {
 ///
 
 public struct DataOutputStreamPrivateRef: DataOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5418,7 +5978,7 @@ public extension DataOutputStreamPrivateRef {
 ///
 
 open class DataOutputStreamPrivate: DataOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GDataOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5447,7 +6007,7 @@ open class DataOutputStreamPrivate: DataOutputStreamPrivateProtocol {
         // no reference counting for GDataOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDataOutputStreamPrivate`.
+    /// Do-nothing destructor for `GDataOutputStreamPrivate`.
     deinit {
         // no reference counting for GDataOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -5515,14 +6075,17 @@ open class DataOutputStreamPrivate: DataOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no DataOutputStreamPrivate properties
+// MARK: no DataOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no DataOutputStreamPrivate signals
 
 
+// MARK: DataOutputStreamPrivate Record: DataOutputStreamPrivateProtocol extension (methods and fields)
 public extension DataOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GDataOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GDataOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -5541,7 +6104,7 @@ public extension DataOutputStreamPrivateProtocol {
 /// implemented — so implementations of this API must handle all functionality
 /// documented in the interface methods.
 public protocol DatagramBasedInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
+        /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDatagramBasedInterface` instance.
@@ -5558,7 +6121,7 @@ public protocol DatagramBasedInterfaceProtocol {
 /// implemented — so implementations of this API must handle all functionality
 /// documented in the interface methods.
 public struct DatagramBasedInterfaceRef: DatagramBasedInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
+        /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5615,7 +6178,7 @@ public extension DatagramBasedInterfaceRef {
 /// implemented — so implementations of this API must handle all functionality
 /// documented in the interface methods.
 open class DatagramBasedInterface: DatagramBasedInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
+        /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5644,7 +6207,7 @@ open class DatagramBasedInterface: DatagramBasedInterfaceProtocol {
         // no reference counting for GDatagramBasedInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDatagramBasedInterface`.
+    /// Do-nothing destructor for `GDatagramBasedInterface`.
     deinit {
         // no reference counting for GDatagramBasedInterface, cannot unref(cast(_ptr))
     }
@@ -5712,14 +6275,35 @@ open class DatagramBasedInterface: DatagramBasedInterfaceProtocol {
 
 }
 
-// MARK: - no DatagramBasedInterface properties
+// MARK: no DatagramBasedInterface properties
 
-// MARK: - no signals
+// MARK: no DatagramBasedInterface signals
 
 
+// MARK: DatagramBasedInterface Record: DatagramBasedInterfaceProtocol extension (methods and fields)
 public extension DatagramBasedInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDatagramBasedInterface` instance.
     var _ptr: UnsafeMutablePointer<GDatagramBasedInterface> { return ptr.assumingMemoryBound(to: GDatagramBasedInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var receiveMessages is unavailable because receive_messages is void
+
+    // var sendMessages is unavailable because send_messages is void
+
+    // var createSource is unavailable because create_source is void
+
+    // var conditionCheck is unavailable because condition_check is void
+
+    // var conditionWait is unavailable because condition_wait is void
 
 }
 
@@ -5734,7 +6318,7 @@ public extension DatagramBasedInterfaceProtocol {
 ///
 /// Interface for creating `GDrive` implementations.
 public protocol DriveIfaceProtocol {
-    /// Untyped pointer to the underlying `GDriveIface` instance.
+        /// Untyped pointer to the underlying `GDriveIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDriveIface` instance.
@@ -5747,7 +6331,7 @@ public protocol DriveIfaceProtocol {
 ///
 /// Interface for creating `GDrive` implementations.
 public struct DriveIfaceRef: DriveIfaceProtocol {
-    /// Untyped pointer to the underlying `GDriveIface` instance.
+        /// Untyped pointer to the underlying `GDriveIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5800,7 +6384,7 @@ public extension DriveIfaceRef {
 ///
 /// Interface for creating `GDrive` implementations.
 open class DriveIface: DriveIfaceProtocol {
-    /// Untyped pointer to the underlying `GDriveIface` instance.
+        /// Untyped pointer to the underlying `GDriveIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5829,7 +6413,7 @@ open class DriveIface: DriveIfaceProtocol {
         // no reference counting for GDriveIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDriveIface`.
+    /// Do-nothing destructor for `GDriveIface`.
     deinit {
         // no reference counting for GDriveIface, cannot unref(cast(_ptr))
     }
@@ -5897,14 +6481,89 @@ open class DriveIface: DriveIfaceProtocol {
 
 }
 
-// MARK: - no DriveIface properties
+// MARK: no DriveIface properties
 
-// MARK: - no signals
+// MARK: no DriveIface signals
 
 
+// MARK: DriveIface Record: DriveIfaceProtocol extension (methods and fields)
 public extension DriveIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDriveIface` instance.
     var _ptr: UnsafeMutablePointer<GDriveIface> { return ptr.assumingMemoryBound(to: GDriveIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var changed is unavailable because changed is void
+
+    // var disconnected is unavailable because disconnected is void
+
+    // var ejectButton is unavailable because eject_button is void
+
+    // var getName is unavailable because get_name is void
+
+    // var getIcon is unavailable because get_icon is void
+
+    // var hasVolumes is unavailable because has_volumes is void
+
+    // var getVolumes is unavailable because get_volumes is void
+
+    // var isMediaRemovable is unavailable because is_media_removable is void
+
+    // var hasMedia is unavailable because has_media is void
+
+    // var isMediaCheckAutomatic is unavailable because is_media_check_automatic is void
+
+    // var canEject is unavailable because can_eject is void
+
+    // var canPollForMedia is unavailable because can_poll_for_media is void
+
+    // var eject is unavailable because eject is void
+
+    // var ejectFinish is unavailable because eject_finish is void
+
+    // var pollForMedia is unavailable because poll_for_media is void
+
+    // var pollForMediaFinish is unavailable because poll_for_media_finish is void
+
+    // var getIdentifier is unavailable because get_identifier is void
+
+    // var enumerateIdentifiers is unavailable because enumerate_identifiers is void
+
+    // var getStartStopType is unavailable because get_start_stop_type is void
+
+    // var canStart is unavailable because can_start is void
+
+    // var canStartDegraded is unavailable because can_start_degraded is void
+
+    // var start is unavailable because start is void
+
+    // var startFinish is unavailable because start_finish is void
+
+    // var canStop is unavailable because can_stop is void
+
+    // var stop is unavailable because stop is void
+
+    // var stopFinish is unavailable because stop_finish is void
+
+    // var stopButton is unavailable because stop_button is void
+
+    // var ejectWithOperation is unavailable because eject_with_operation is void
+
+    // var ejectWithOperationFinish is unavailable because eject_with_operation_finish is void
+
+    // var getSortKey is unavailable because get_sort_key is void
+
+    // var getSymbolicIcon is unavailable because get_symbolic_icon is void
+
+    // var isRemovable is unavailable because is_removable is void
 
 }
 
@@ -5919,7 +6578,7 @@ public extension DriveIfaceProtocol {
 ///
 /// vtable for a `GDtlsClientConnection` implementation.
 public protocol DtlsClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDtlsClientConnectionInterface` instance.
@@ -5932,7 +6591,7 @@ public protocol DtlsClientConnectionInterfaceProtocol {
 ///
 /// vtable for a `GDtlsClientConnection` implementation.
 public struct DtlsClientConnectionInterfaceRef: DtlsClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5985,7 +6644,7 @@ public extension DtlsClientConnectionInterfaceRef {
 ///
 /// vtable for a `GDtlsClientConnection` implementation.
 open class DtlsClientConnectionInterface: DtlsClientConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6014,7 +6673,7 @@ open class DtlsClientConnectionInterface: DtlsClientConnectionInterfaceProtocol 
         // no reference counting for GDtlsClientConnectionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDtlsClientConnectionInterface`.
+    /// Do-nothing destructor for `GDtlsClientConnectionInterface`.
     deinit {
         // no reference counting for GDtlsClientConnectionInterface, cannot unref(cast(_ptr))
     }
@@ -6082,14 +6741,25 @@ open class DtlsClientConnectionInterface: DtlsClientConnectionInterfaceProtocol 
 
 }
 
-// MARK: - no DtlsClientConnectionInterface properties
+// MARK: no DtlsClientConnectionInterface properties
 
-// MARK: - no signals
+// MARK: no DtlsClientConnectionInterface signals
 
 
+// MARK: DtlsClientConnectionInterface Record: DtlsClientConnectionInterfaceProtocol extension (methods and fields)
 public extension DtlsClientConnectionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsClientConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsClientConnectionInterface> { return ptr.assumingMemoryBound(to: GDtlsClientConnectionInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
 
 }
 
@@ -6104,7 +6774,7 @@ public extension DtlsClientConnectionInterfaceProtocol {
 ///
 /// Virtual method table for a `GDtlsConnection` implementation.
 public protocol DtlsConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDtlsConnectionInterface` instance.
@@ -6117,7 +6787,7 @@ public protocol DtlsConnectionInterfaceProtocol {
 ///
 /// Virtual method table for a `GDtlsConnection` implementation.
 public struct DtlsConnectionInterfaceRef: DtlsConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6170,7 +6840,7 @@ public extension DtlsConnectionInterfaceRef {
 ///
 /// Virtual method table for a `GDtlsConnection` implementation.
 open class DtlsConnectionInterface: DtlsConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6199,7 +6869,7 @@ open class DtlsConnectionInterface: DtlsConnectionInterfaceProtocol {
         // no reference counting for GDtlsConnectionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDtlsConnectionInterface`.
+    /// Do-nothing destructor for `GDtlsConnectionInterface`.
     deinit {
         // no reference counting for GDtlsConnectionInterface, cannot unref(cast(_ptr))
     }
@@ -6267,14 +6937,43 @@ open class DtlsConnectionInterface: DtlsConnectionInterfaceProtocol {
 
 }
 
-// MARK: - no DtlsConnectionInterface properties
+// MARK: no DtlsConnectionInterface properties
 
-// MARK: - no signals
+// MARK: no DtlsConnectionInterface signals
 
 
+// MARK: DtlsConnectionInterface Record: DtlsConnectionInterfaceProtocol extension (methods and fields)
 public extension DtlsConnectionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsConnectionInterface> { return ptr.assumingMemoryBound(to: GDtlsConnectionInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var acceptCertificate is unavailable because accept_certificate is void
+
+    // var handshake is unavailable because handshake is void
+
+    // var handshakeAsync is unavailable because handshake_async is void
+
+    // var handshakeFinish is unavailable because handshake_finish is void
+
+    // var shutdown is unavailable because shutdown is void
+
+    // var shutdownAsync is unavailable because shutdown_async is void
+
+    // var shutdownFinish is unavailable because shutdown_finish is void
+
+    // var setAdvertisedProtocols is unavailable because set_advertised_protocols is void
+
+    // var getNegotiatedProtocol is unavailable because get_negotiated_protocol is void
 
 }
 
@@ -6289,7 +6988,7 @@ public extension DtlsConnectionInterfaceProtocol {
 ///
 /// vtable for a `GDtlsServerConnection` implementation.
 public protocol DtlsServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDtlsServerConnectionInterface` instance.
@@ -6302,7 +7001,7 @@ public protocol DtlsServerConnectionInterfaceProtocol {
 ///
 /// vtable for a `GDtlsServerConnection` implementation.
 public struct DtlsServerConnectionInterfaceRef: DtlsServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6355,7 +7054,7 @@ public extension DtlsServerConnectionInterfaceRef {
 ///
 /// vtable for a `GDtlsServerConnection` implementation.
 open class DtlsServerConnectionInterface: DtlsServerConnectionInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
+        /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6384,7 +7083,7 @@ open class DtlsServerConnectionInterface: DtlsServerConnectionInterfaceProtocol 
         // no reference counting for GDtlsServerConnectionInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDtlsServerConnectionInterface`.
+    /// Do-nothing destructor for `GDtlsServerConnectionInterface`.
     deinit {
         // no reference counting for GDtlsServerConnectionInterface, cannot unref(cast(_ptr))
     }
@@ -6452,14 +7151,25 @@ open class DtlsServerConnectionInterface: DtlsServerConnectionInterfaceProtocol 
 
 }
 
-// MARK: - no DtlsServerConnectionInterface properties
+// MARK: no DtlsServerConnectionInterface properties
 
-// MARK: - no signals
+// MARK: no DtlsServerConnectionInterface signals
 
 
+// MARK: DtlsServerConnectionInterface Record: DtlsServerConnectionInterfaceProtocol extension (methods and fields)
 public extension DtlsServerConnectionInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsServerConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsServerConnectionInterface> { return ptr.assumingMemoryBound(to: GDtlsServerConnectionInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
 
 }
 
@@ -6474,7 +7184,7 @@ public extension DtlsServerConnectionInterfaceProtocol {
 ///
 
 public protocol EmblemClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemClass` instance.
+        /// Untyped pointer to the underlying `GEmblemClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEmblemClass` instance.
@@ -6487,7 +7197,7 @@ public protocol EmblemClassProtocol {
 ///
 
 public struct EmblemClassRef: EmblemClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemClass` instance.
+        /// Untyped pointer to the underlying `GEmblemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6540,7 +7250,7 @@ public extension EmblemClassRef {
 ///
 
 open class EmblemClass: EmblemClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemClass` instance.
+        /// Untyped pointer to the underlying `GEmblemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6569,7 +7279,7 @@ open class EmblemClass: EmblemClassProtocol {
         // no reference counting for GEmblemClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GEmblemClass`.
+    /// Do-nothing destructor for `GEmblemClass`.
     deinit {
         // no reference counting for GEmblemClass, cannot unref(cast(_ptr))
     }
@@ -6637,14 +7347,17 @@ open class EmblemClass: EmblemClassProtocol {
 
 }
 
-// MARK: - no EmblemClass properties
+// MARK: no EmblemClass properties
 
-// MARK: - no signals
+// MARK: no EmblemClass signals
 
 
+// MARK: EmblemClass Record: EmblemClassProtocol extension (methods and fields)
 public extension EmblemClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblemClass` instance.
     var _ptr: UnsafeMutablePointer<GEmblemClass> { return ptr.assumingMemoryBound(to: GEmblemClass.self) }
+
+
 
 }
 

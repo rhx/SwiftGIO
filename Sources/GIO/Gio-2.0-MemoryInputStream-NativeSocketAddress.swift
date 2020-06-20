@@ -15,7 +15,7 @@ import GLibObject
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
 public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStream` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryInputStream` instance.
@@ -32,7 +32,7 @@ public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStr
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
 public struct MemoryInputStreamRef: MemoryInputStreamProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStream` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -79,30 +79,30 @@ public extension MemoryInputStreamRef {
 
         /// Creates a new empty `GMemoryInputStream`.
     init() {
-        let rv = g_memory_input_stream_new()
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     init(bytes: BytesProtocol) {
-        let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
     init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
-        let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     static func newFrom(bytes: BytesProtocol) -> MemoryInputStreamRef! {
-        let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
         return rv.map { MemoryInputStreamRef(cast($0)) }
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
     static func newFrom(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) -> MemoryInputStreamRef! {
-        let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
         return rv.map { MemoryInputStreamRef(cast($0)) }
     }
 }
@@ -117,7 +117,7 @@ public extension MemoryInputStreamRef {
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
 open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MemoryInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -197,37 +197,37 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
 
     /// Creates a new empty `GMemoryInputStream`.
     public init() {
-        let rv = g_memory_input_stream_new()
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new())
         super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     public init(bytes: BytesProtocol) {
-        let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
         super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
     public init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
-        let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
         super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
     public static func newFrom(bytes: BytesProtocol) -> MemoryInputStream! {
-        let rv = g_memory_input_stream_new_from_bytes(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
         return rv.map { MemoryInputStream(cast($0)) }
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
     public static func newFrom(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) -> MemoryInputStream! {
-        let rv = g_memory_input_stream_new_from_data(cast(data), len, destroy)
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
         return rv.map { MemoryInputStream(cast($0)) }
     }
 
 }
 
-// MARK: - no MemoryInputStream properties
+// MARK: no MemoryInputStream properties
 
 public enum MemoryInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -264,8 +264,8 @@ public extension MemoryInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MemoryInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MemoryInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(memory_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -286,6 +286,7 @@ public extension MemoryInputStreamProtocol {
     }
 }
 
+// MARK: MemoryInputStream Class: MemoryInputStreamProtocol extension (methods and fields)
 public extension MemoryInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryInputStream` instance.
     var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream> { return ptr.assumingMemoryBound(to: GMemoryInputStream.self) }
@@ -301,6 +302,16 @@ public extension MemoryInputStreamProtocol {
         g_memory_input_stream_add_data(cast(memory_input_stream_ptr), cast(data), len, destroy)
     
     }
+
+    var parentInstance: GInputStream {
+        get {
+            let rv: GInputStream = cast(memory_input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -318,7 +329,7 @@ public extension MemoryInputStreamProtocol {
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
 public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryOutputStream` instance.
@@ -335,7 +346,7 @@ public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutput
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
 public struct MemoryOutputStreamRef: MemoryOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -424,13 +435,13 @@ public extension MemoryOutputStreamRef {
     /// ```
     /// 
     init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
-        let rv = g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function)
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
     static func newResizable() -> MemoryOutputStreamRef! {
-        let rv = g_memory_output_stream_new_resizable()
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new_resizable())
         return rv.map { MemoryOutputStreamRef(cast($0)) }
     }
 }
@@ -445,7 +456,7 @@ public extension MemoryOutputStreamRef {
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
 open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -567,14 +578,14 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// ```
     /// 
     public init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
-        let rv = g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function)
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function))
         super.init(cast(rv))
     }
 
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
     public static func newResizable() -> MemoryOutputStream! {
-        let rv = g_memory_output_stream_new_resizable()
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new_resizable())
         return rv.map { MemoryOutputStream(cast($0)) }
     }
 
@@ -602,8 +613,8 @@ public extension MemoryOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -626,6 +637,23 @@ public extension MemoryOutputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a MemoryOutputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: MemoryOutputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a MemoryOutputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: MemoryOutputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -673,8 +701,8 @@ public extension MemoryOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MemoryOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MemoryOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(memory_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -695,6 +723,7 @@ public extension MemoryOutputStreamProtocol {
     }
 }
 
+// MARK: MemoryOutputStream Class: MemoryOutputStreamProtocol extension (methods and fields)
 public extension MemoryOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryOutputStream` instance.
     var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream> { return ptr.assumingMemoryBound(to: GMemoryOutputStream.self) }
@@ -704,7 +733,7 @@ public extension MemoryOutputStreamProtocol {
     /// Note that the returned pointer may become invalid on the next
     /// write or truncate operation on the stream.
     func getData() -> UnsafeMutableRawPointer! {
-        let rv = g_memory_output_stream_get_data(cast(memory_output_stream_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_get_data(cast(memory_output_stream_ptr)))
         return cast(rv)
     }
 
@@ -738,7 +767,7 @@ public extension MemoryOutputStreamProtocol {
     /// Returns data from the `ostream` as a `GBytes`. `ostream` must be
     /// closed before calling this function.
     func stealAsBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_memory_output_stream_steal_as_bytes(cast(memory_output_stream_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_memory_output_stream_steal_as_bytes(cast(memory_output_stream_ptr)))
         return cast(rv)
     }
 
@@ -749,7 +778,7 @@ public extension MemoryOutputStreamProtocol {
     /// 
     /// `ostream` must be closed before calling this function.
     func stealData() -> UnsafeMutableRawPointer! {
-        let rv = g_memory_output_stream_steal_data(cast(memory_output_stream_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_steal_data(cast(memory_output_stream_ptr)))
         return cast(rv)
     }
     /// Pointer to buffer where data will be written.
@@ -759,7 +788,7 @@ public extension MemoryOutputStreamProtocol {
         /// Note that the returned pointer may become invalid on the next
         /// write or truncate operation on the stream.
         get {
-            let rv = g_memory_output_stream_get_data(cast(memory_output_stream_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_get_data(cast(memory_output_stream_ptr)))
             return cast(rv)
         }
     }
@@ -797,6 +826,16 @@ public extension MemoryOutputStreamProtocol {
             return Int(rv)
         }
     }
+
+    var parentInstance: GOutputStream {
+        get {
+            let rv: GOutputStream = cast(memory_output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -817,7 +856,7 @@ public extension MemoryOutputStreamProtocol {
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
 public protocol MenuProtocol: MenuModelProtocol {
-    /// Untyped pointer to the underlying `GMenu` instance.
+        /// Untyped pointer to the underlying `GMenu` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenu` instance.
@@ -837,7 +876,7 @@ public protocol MenuProtocol: MenuModelProtocol {
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
 public struct MenuRef: MenuProtocol {
-    /// Untyped pointer to the underlying `GMenu` instance.
+        /// Untyped pointer to the underlying `GMenu` instance.
     /// For type-safe access, use the generated, typed pointer `menu_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -886,7 +925,7 @@ public extension MenuRef {
     /// 
     /// The new menu has no items.
     init() {
-        let rv = g_menu_new()
+        let rv: UnsafeMutablePointer<GMenu>! = cast(g_menu_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -904,7 +943,7 @@ public extension MenuRef {
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
 open class Menu: MenuModel, MenuProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Menu` instance.
     /// - Parameter op: pointer to the underlying object
@@ -986,14 +1025,14 @@ open class Menu: MenuModel, MenuProtocol {
     /// 
     /// The new menu has no items.
     public init() {
-        let rv = g_menu_new()
+        let rv: UnsafeMutablePointer<GMenu>! = cast(g_menu_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no Menu properties
+// MARK: no Menu properties
 
 public enum MenuSignalName: String, SignalNameProtocol {
     /// Emitted when a change has occured to the menu.
@@ -1051,8 +1090,8 @@ public extension MenuProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MenuSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(menu_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1073,6 +1112,7 @@ public extension MenuProtocol {
     }
 }
 
+// MARK: Menu Class: MenuProtocol extension (methods and fields)
 public extension MenuProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenu` instance.
     var menu_ptr: UnsafeMutablePointer<GMenu> { return ptr.assumingMemoryBound(to: GMenu.self) }
@@ -1220,6 +1260,8 @@ public extension MenuProtocol {
         g_menu_remove_all(cast(menu_ptr))
     
     }
+
+
 }
 
 
@@ -1234,7 +1276,7 @@ public extension MenuProtocol {
 /// `GMenuAttributeIter` is an opaque structure type.  You must access it
 /// using the functions below.
 public protocol MenuAttributeIterProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuAttributeIter` instance.
@@ -1248,7 +1290,7 @@ public protocol MenuAttributeIterProtocol: ObjectProtocol {
 /// `GMenuAttributeIter` is an opaque structure type.  You must access it
 /// using the functions below.
 public struct MenuAttributeIterRef: MenuAttributeIterProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_attribute_iter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1302,7 +1344,7 @@ public extension MenuAttributeIterRef {
 /// `GMenuAttributeIter` is an opaque structure type.  You must access it
 /// using the functions below.
 open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1384,7 +1426,7 @@ open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
 
 }
 
-// MARK: - no MenuAttributeIter properties
+// MARK: no MenuAttributeIter properties
 
 public enum MenuAttributeIterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -1421,8 +1463,8 @@ public extension MenuAttributeIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuAttributeIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MenuAttributeIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(menu_attribute_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1443,6 +1485,7 @@ public extension MenuAttributeIterProtocol {
     }
 }
 
+// MARK: MenuAttributeIter Class: MenuAttributeIterProtocol extension (methods and fields)
 public extension MenuAttributeIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuAttributeIter` instance.
     var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter> { return ptr.assumingMemoryBound(to: GMenuAttributeIter.self) }
@@ -1452,8 +1495,8 @@ public extension MenuAttributeIterProtocol {
     /// 
     /// The iterator is not advanced.
     func getName() -> String! {
-        let rv = g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr)))
+        return cast(rv)
     }
 
     /// This function combines `g_menu_attribute_iter_next()` with
@@ -1480,7 +1523,7 @@ public extension MenuAttributeIterProtocol {
     /// 
     /// The iterator is not advanced.
     func getValue() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr)))
         return cast(rv)
     }
 
@@ -1507,8 +1550,8 @@ public extension MenuAttributeIterProtocol {
         /// 
         /// The iterator is not advanced.
         get {
-            let rv = g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1520,10 +1563,25 @@ public extension MenuAttributeIterProtocol {
         /// 
         /// The iterator is not advanced.
         get {
-            let rv = g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(menu_attribute_iter_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GMenuAttributeIterPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GMenuAttributeIterPrivate> = cast(menu_attribute_iter_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -1538,7 +1596,7 @@ public extension MenuAttributeIterProtocol {
 /// `GMenuItem` is an opaque structure type.  You must access it using the
 /// functions below.
 public protocol MenuItemProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GMenuItem` instance.
+        /// Untyped pointer to the underlying `GMenuItem` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuItem` instance.
@@ -1552,7 +1610,7 @@ public protocol MenuItemProtocol: ObjectProtocol {
 /// `GMenuItem` is an opaque structure type.  You must access it using the
 /// functions below.
 public struct MenuItemRef: MenuItemProtocol {
-    /// Untyped pointer to the underlying `GMenuItem` instance.
+        /// Untyped pointer to the underlying `GMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `menu_item_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1606,7 +1664,7 @@ public extension MenuItemRef {
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
     init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        let rv = g_menu_item_new(label, detailed_action)
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new(label, detailed_action))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1616,7 +1674,7 @@ public extension MenuItemRef {
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
     init(model: MenuModelProtocol, itemIndex item_index: CInt) {
-        let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1682,7 +1740,7 @@ public extension MenuItemRef {
     /// ```
     /// 
     init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        let rv = g_menu_item_new_section(label, cast(section.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1691,7 +1749,7 @@ public extension MenuItemRef {
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
     init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -1700,7 +1758,7 @@ public extension MenuItemRef {
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
     static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItemRef! {
-        let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
         return rv.map { MenuItemRef(cast($0)) }
     }
 
@@ -1766,7 +1824,7 @@ public extension MenuItemRef {
     /// ```
     /// 
     static func new(section label: UnsafePointer<gchar>, section: MenuModelProtocol) -> MenuItemRef! {
-        let rv = g_menu_item_new_section(label, cast(section.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
         return rv.map { MenuItemRef(cast($0)) }
     }
 
@@ -1775,7 +1833,7 @@ public extension MenuItemRef {
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
     static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItemRef! {
-        let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
         return rv.map { MenuItemRef(cast($0)) }
     }
 }
@@ -1787,7 +1845,7 @@ public extension MenuItemRef {
 /// `GMenuItem` is an opaque structure type.  You must access it using the
 /// functions below.
 open class MenuItem: Object, MenuItemProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuItem` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1874,7 +1932,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
     public init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        let rv = g_menu_item_new(label, detailed_action)
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new(label, detailed_action))
         super.init(cast(rv))
     }
 
@@ -1884,7 +1942,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
     public init(model: MenuModelProtocol, itemIndex item_index: CInt) {
-        let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
         super.init(cast(rv))
     }
 
@@ -1950,7 +2008,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// ```
     /// 
     public init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        let rv = g_menu_item_new_section(label, cast(section.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
         super.init(cast(rv))
     }
 
@@ -1959,7 +2017,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
     public init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
         super.init(cast(rv))
     }
 
@@ -1969,7 +2027,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
     public static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItem! {
-        let rv = g_menu_item_new_from_model(cast(model.ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
         return rv.map { MenuItem(cast($0)) }
     }
 
@@ -2035,7 +2093,7 @@ open class MenuItem: Object, MenuItemProtocol {
     /// ```
     /// 
     public static func new(section label: UnsafePointer<gchar>, section: MenuModelProtocol) -> MenuItem! {
-        let rv = g_menu_item_new_section(label, cast(section.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
         return rv.map { MenuItem(cast($0)) }
     }
 
@@ -2044,13 +2102,13 @@ open class MenuItem: Object, MenuItemProtocol {
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
     public static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItem! {
-        let rv = g_menu_item_new_submenu(label, cast(submenu.ptr))
+        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
         return rv.map { MenuItem(cast($0)) }
     }
 
 }
 
-// MARK: - no MenuItem properties
+// MARK: no MenuItem properties
 
 public enum MenuItemSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -2087,8 +2145,8 @@ public extension MenuItemProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuItemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MenuItemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(menu_item_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2109,6 +2167,7 @@ public extension MenuItemProtocol {
     }
 }
 
+// MARK: MenuItem Class: MenuItemProtocol extension (methods and fields)
 public extension MenuItemProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuItem` instance.
     var menu_item_ptr: UnsafeMutablePointer<GMenuItem> { return ptr.assumingMemoryBound(to: GMenuItem.self) }
@@ -2123,13 +2182,13 @@ public extension MenuItemProtocol {
     /// type, `nil` is returned.  `nil` is also returned if the attribute
     /// simply does not exist.
     func getAttributeValue(attribute: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_menu_item_get_attribute_value(cast(menu_item_ptr), attribute, cast(expected_type.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_item_get_attribute_value(cast(menu_item_ptr), attribute, cast(expected_type.ptr)))
         return cast(rv)
     }
 
     /// Queries the named `link` on `menu_item`.
     func get(link: UnsafePointer<gchar>) -> UnsafeMutablePointer<GMenuModel>! {
-        let rv = g_menu_item_get_link(cast(menu_item_ptr), link)
+        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_item_get_link(cast(menu_item_ptr), link))
         return cast(rv)
     }
 
@@ -2286,6 +2345,8 @@ public extension MenuItemProtocol {
         g_menu_item_set_submenu(cast(menu_item_ptr), cast(submenu.ptr))
     
     }
+
+
 }
 
 
@@ -2300,7 +2361,7 @@ public extension MenuItemProtocol {
 /// `GMenuLinkIter` is an opaque structure type.  You must access it using
 /// the functions below.
 public protocol MenuLinkIterProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIter` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuLinkIter` instance.
@@ -2314,7 +2375,7 @@ public protocol MenuLinkIterProtocol: ObjectProtocol {
 /// `GMenuLinkIter` is an opaque structure type.  You must access it using
 /// the functions below.
 public struct MenuLinkIterRef: MenuLinkIterProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIter` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_link_iter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2368,7 +2429,7 @@ public extension MenuLinkIterRef {
 /// `GMenuLinkIter` is an opaque structure type.  You must access it using
 /// the functions below.
 open class MenuLinkIter: Object, MenuLinkIterProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuLinkIter` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2450,7 +2511,7 @@ open class MenuLinkIter: Object, MenuLinkIterProtocol {
 
 }
 
-// MARK: - no MenuLinkIter properties
+// MARK: no MenuLinkIter properties
 
 public enum MenuLinkIterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -2487,8 +2548,8 @@ public extension MenuLinkIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuLinkIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MenuLinkIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(menu_link_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2509,6 +2570,7 @@ public extension MenuLinkIterProtocol {
     }
 }
 
+// MARK: MenuLinkIter Class: MenuLinkIterProtocol extension (methods and fields)
 public extension MenuLinkIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuLinkIter` instance.
     var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter> { return ptr.assumingMemoryBound(to: GMenuLinkIter.self) }
@@ -2517,8 +2579,8 @@ public extension MenuLinkIterProtocol {
     /// 
     /// The iterator is not advanced.
     func getName() -> String! {
-        let rv = g_menu_link_iter_get_name(cast(menu_link_iter_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_menu_link_iter_get_name(cast(menu_link_iter_ptr)))
+        return cast(rv)
     }
 
     /// This function combines `g_menu_link_iter_next()` with
@@ -2544,7 +2606,7 @@ public extension MenuLinkIterProtocol {
     /// 
     /// The iterator is not advanced.
     func getValue() -> UnsafeMutablePointer<GMenuModel>! {
-        let rv = g_menu_link_iter_get_value(cast(menu_link_iter_ptr))
+        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_link_iter_get_value(cast(menu_link_iter_ptr)))
         return cast(rv)
     }
 
@@ -2568,8 +2630,8 @@ public extension MenuLinkIterProtocol {
         /// 
         /// The iterator is not advanced.
         get {
-            let rv = g_menu_link_iter_get_name(cast(menu_link_iter_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_menu_link_iter_get_name(cast(menu_link_iter_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2581,10 +2643,25 @@ public extension MenuLinkIterProtocol {
         /// 
         /// The iterator is not advanced.
         get {
-            let rv = g_menu_link_iter_get_value(cast(menu_link_iter_ptr))
+            let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_link_iter_get_value(cast(menu_link_iter_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(menu_link_iter_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GMenuLinkIterPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GMenuLinkIterPrivate> = cast(menu_link_iter_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -2710,7 +2787,7 @@ public extension MenuLinkIterProtocol {
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
 public protocol MenuModelProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GMenuModel` instance.
+        /// Untyped pointer to the underlying `GMenuModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuModel` instance.
@@ -2835,7 +2912,7 @@ public protocol MenuModelProtocol: ObjectProtocol {
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
 public struct MenuModelRef: MenuModelProtocol {
-    /// Untyped pointer to the underlying `GMenuModel` instance.
+        /// Untyped pointer to the underlying `GMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `menu_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3000,7 +3077,7 @@ public extension MenuModelRef {
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
 open class MenuModel: Object, MenuModelProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuModel` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3082,7 +3159,7 @@ open class MenuModel: Object, MenuModelProtocol {
 
 }
 
-// MARK: - no MenuModel properties
+// MARK: no MenuModel properties
 
 public enum MenuModelSignalName: String, SignalNameProtocol {
     /// Emitted when a change has occured to the menu.
@@ -3140,8 +3217,8 @@ public extension MenuModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(menu_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3162,6 +3239,7 @@ public extension MenuModelProtocol {
     }
 }
 
+// MARK: MenuModel Class: MenuModelProtocol extension (methods and fields)
 public extension MenuModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuModel` instance.
     var menu_model_ptr: UnsafeMutablePointer<GMenuModel> { return ptr.assumingMemoryBound(to: GMenuModel.self) }
@@ -3182,7 +3260,7 @@ public extension MenuModelProtocol {
     /// If the attribute does not exist, or does not match the expected type
     /// then `nil` is returned.
     func getItemAttributeValue(itemIndex item_index: CInt, attribute: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_menu_model_get_item_attribute_value(cast(menu_model_ptr), gint(item_index), attribute, cast(expected_type.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_model_get_item_attribute_value(cast(menu_model_ptr), gint(item_index), attribute, cast(expected_type.ptr)))
         return cast(rv)
     }
 
@@ -3192,14 +3270,14 @@ public extension MenuModelProtocol {
     /// If the link exists, the linked `GMenuModel` is returned.  If the link
     /// does not exist, `nil` is returned.
     func getItemLink(itemIndex item_index: CInt, link: UnsafePointer<gchar>) -> UnsafeMutablePointer<GMenuModel>! {
-        let rv = g_menu_model_get_item_link(cast(menu_model_ptr), gint(item_index), link)
+        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_model_get_item_link(cast(menu_model_ptr), gint(item_index), link))
         return cast(rv)
     }
 
     /// Query the number of items in `model`.
-    func getNItems() -> CInt {
-        let rv = g_menu_model_get_n_items(cast(menu_model_ptr))
-        return CInt(rv)
+    func getNItems() -> Int {
+        let rv: Int = cast(g_menu_model_get_n_items(cast(menu_model_ptr)))
+        return Int(rv)
     }
 
     /// Requests emission of the `GMenuModel::items`-changed signal on `model`.
@@ -3227,7 +3305,7 @@ public extension MenuModelProtocol {
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
     func iterateItemAttributes(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuAttributeIter>! {
-        let rv = g_menu_model_iterate_item_attributes(cast(menu_model_ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuAttributeIter>! = cast(g_menu_model_iterate_item_attributes(cast(menu_model_ptr), gint(item_index)))
         return cast(rv)
     }
 
@@ -3236,7 +3314,7 @@ public extension MenuModelProtocol {
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
     func iterateItemLinks(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuLinkIter>! {
-        let rv = g_menu_model_iterate_item_links(cast(menu_model_ptr), gint(item_index))
+        let rv: UnsafeMutablePointer<GMenuLinkIter>! = cast(g_menu_model_iterate_item_links(cast(menu_model_ptr), gint(item_index)))
         return cast(rv)
     }
     /// Queries if `model` is mutable.
@@ -3255,13 +3333,28 @@ public extension MenuModelProtocol {
     }
 
     /// Query the number of items in `model`.
-    var nItems: CInt {
+    var nItems: Int {
         /// Query the number of items in `model`.
         get {
-            let rv = g_menu_model_get_n_items(cast(menu_model_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_menu_model_get_n_items(cast(menu_model_ptr)))
+            return Int(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(menu_model_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GMenuModelPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GMenuModelPrivate> = cast(menu_model_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -3295,7 +3388,7 @@ public extension MenuModelProtocol {
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
 public protocol MountOperationProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GMountOperation` instance.
+        /// Untyped pointer to the underlying `GMountOperation` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMountOperation` instance.
@@ -3328,7 +3421,7 @@ public protocol MountOperationProtocol: ObjectProtocol {
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
 public struct MountOperationRef: MountOperationProtocol {
-    /// Untyped pointer to the underlying `GMountOperation` instance.
+        /// Untyped pointer to the underlying `GMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3375,7 +3468,7 @@ public extension MountOperationRef {
 
         /// Creates a new mount operation.
     init() {
-        let rv = g_mount_operation_new()
+        let rv: UnsafeMutablePointer<GMountOperation>! = cast(g_mount_operation_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -3406,7 +3499,7 @@ public extension MountOperationRef {
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
 open class MountOperation: Object, MountOperationProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MountOperation` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3486,7 +3579,7 @@ open class MountOperation: Object, MountOperationProtocol {
 
     /// Creates a new mount operation.
     public init() {
-        let rv = g_mount_operation_new()
+        let rv: UnsafeMutablePointer<GMountOperation>! = cast(g_mount_operation_new())
         super.init(cast(rv))
     }
 
@@ -3532,8 +3625,8 @@ public extension MountOperationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3556,6 +3649,23 @@ public extension MountOperationProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a MountOperation property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: MountOperationPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a MountOperation property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: MountOperationPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3671,8 +3781,8 @@ public extension MountOperationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MountOperationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MountOperationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(mount_operation_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3693,6 +3803,7 @@ public extension MountOperationProtocol {
     }
 }
 
+// MARK: MountOperation Class: MountOperationProtocol extension (methods and fields)
 public extension MountOperationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMountOperation` instance.
     var mount_operation_ptr: UnsafeMutablePointer<GMountOperation> { return ptr.assumingMemoryBound(to: GMountOperation.self) }
@@ -3705,15 +3816,15 @@ public extension MountOperationProtocol {
     }
 
     /// Gets a choice from the mount operation.
-    func getChoice() -> CInt {
-        let rv = g_mount_operation_get_choice(cast(mount_operation_ptr))
-        return rv
+    func getChoice() -> Int {
+        let rv: Int = cast(g_mount_operation_get_choice(cast(mount_operation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the domain of the mount operation.
     func getDomain() -> String! {
-        let rv = g_mount_operation_get_domain(cast(mount_operation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_operation_get_domain(cast(mount_operation_ptr)))
+        return cast(rv)
     }
 
     /// Check to see whether the mount operation is being used
@@ -3732,26 +3843,26 @@ public extension MountOperationProtocol {
 
     /// Gets a password from the mount operation.
     func getPassword() -> String! {
-        let rv = g_mount_operation_get_password(cast(mount_operation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_operation_get_password(cast(mount_operation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the state of saving passwords for the mount operation.
     func getPasswordSave() -> GPasswordSave {
         let rv = g_mount_operation_get_password_save(cast(mount_operation_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets a PIM from the mount operation.
-    func getPim() -> CUnsignedInt {
-        let rv = g_mount_operation_get_pim(cast(mount_operation_ptr))
-        return CUnsignedInt(rv)
+    func getPim() -> Int {
+        let rv: Int = cast(g_mount_operation_get_pim(cast(mount_operation_ptr)))
+        return Int(rv)
     }
 
     /// Get the user name from the mount operation.
     func getUsername() -> String! {
-        let rv = g_mount_operation_get_username(cast(mount_operation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_operation_get_username(cast(mount_operation_ptr)))
+        return cast(rv)
     }
 
     /// Emits the `GMountOperation::reply` signal.
@@ -3829,15 +3940,15 @@ public extension MountOperationProtocol {
 
     /// The index of the user's choice when a question is asked during the
     /// mount operation. See the `GMountOperation::ask`-question signal.
-    var choice: CInt {
+    var choice: Int {
         /// Gets a choice from the mount operation.
         get {
-            let rv = g_mount_operation_get_choice(cast(mount_operation_ptr))
-            return rv
+            let rv: Int = cast(g_mount_operation_get_choice(cast(mount_operation_ptr)))
+            return cast(rv)
         }
         /// Sets a default choice for the mount operation.
         nonmutating set {
-            g_mount_operation_set_choice(cast(mount_operation_ptr), newValue)
+            g_mount_operation_set_choice(cast(mount_operation_ptr), cast(newValue))
         }
     }
 
@@ -3845,12 +3956,12 @@ public extension MountOperationProtocol {
     var domain: String! {
         /// Gets the domain of the mount operation.
         get {
-            let rv = g_mount_operation_get_domain(cast(mount_operation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_operation_get_domain(cast(mount_operation_ptr)))
+            return cast(rv)
         }
         /// Sets the mount operation's domain.
         nonmutating set {
-            g_mount_operation_set_domain(cast(mount_operation_ptr), newValue)
+            g_mount_operation_set_domain(cast(mount_operation_ptr), cast(newValue))
         }
     }
 
@@ -3889,12 +4000,12 @@ public extension MountOperationProtocol {
     var password: String! {
         /// Gets a password from the mount operation.
         get {
-            let rv = g_mount_operation_get_password(cast(mount_operation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_operation_get_password(cast(mount_operation_ptr)))
+            return cast(rv)
         }
         /// Sets the mount operation's password to `password`.
         nonmutating set {
-            g_mount_operation_set_password(cast(mount_operation_ptr), newValue)
+            g_mount_operation_set_password(cast(mount_operation_ptr), cast(newValue))
         }
     }
 
@@ -3903,21 +4014,21 @@ public extension MountOperationProtocol {
         /// Gets the state of saving passwords for the mount operation.
         get {
             let rv = g_mount_operation_get_password_save(cast(mount_operation_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the state of saving passwords for the mount operation.
         nonmutating set {
-            g_mount_operation_set_password_save(cast(mount_operation_ptr), newValue)
+            g_mount_operation_set_password_save(cast(mount_operation_ptr), cast(newValue))
         }
     }
 
     /// The VeraCrypt PIM value, when unlocking a VeraCrypt volume. See
     /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations``20Multiplier``20``(PIM)`.html).
-    var pim: CUnsignedInt {
+    var pim: Int {
         /// Gets a PIM from the mount operation.
         get {
-            let rv = g_mount_operation_get_pim(cast(mount_operation_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_mount_operation_get_pim(cast(mount_operation_ptr)))
+            return Int(rv)
         }
         /// Sets the mount operation's PIM to `pim`.
         nonmutating set {
@@ -3930,14 +4041,29 @@ public extension MountOperationProtocol {
     var username: String! {
         /// Get the user name from the mount operation.
         get {
-            let rv = g_mount_operation_get_username(cast(mount_operation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_operation_get_username(cast(mount_operation_ptr)))
+            return cast(rv)
         }
         /// Sets the user name within `op` to `username`.
         nonmutating set {
-            g_mount_operation_set_username(cast(mount_operation_ptr), newValue)
+            g_mount_operation_set_username(cast(mount_operation_ptr), cast(newValue))
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(mount_operation_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GMountOperationPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GMountOperationPrivate> = cast(mount_operation_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -3951,7 +4077,7 @@ public extension MountOperationProtocol {
 ///
 /// A socket address of some unknown native type.
 public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNativeSocketAddress` instance.
@@ -3964,7 +4090,7 @@ public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
 ///
 /// A socket address of some unknown native type.
 public struct NativeSocketAddressRef: NativeSocketAddressProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `native_socket_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4011,7 +4137,7 @@ public extension NativeSocketAddressRef {
 
         /// Creates a new `GNativeSocketAddress` for `native` and `len`.
     init( native: UnsafeMutableRawPointer, len: Int) {
-        let rv = g_native_socket_address_new(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_native_socket_address_new(cast(native), gsize(len)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -4022,7 +4148,7 @@ public extension NativeSocketAddressRef {
 ///
 /// A socket address of some unknown native type.
 open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4102,7 +4228,7 @@ open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
 
     /// Creates a new `GNativeSocketAddress` for `native` and `len`.
     public override init( native: UnsafeMutableRawPointer, len: Int) {
-        let rv = g_native_socket_address_new(cast(native), gsize(len))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_native_socket_address_new(cast(native), gsize(len)))
         super.init(cast(rv))
     }
 
@@ -4122,8 +4248,8 @@ public extension NativeSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -4146,6 +4272,23 @@ public extension NativeSocketAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a NativeSocketAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: NativeSocketAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a NativeSocketAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: NativeSocketAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -4184,8 +4327,8 @@ public extension NativeSocketAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NativeSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NativeSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(native_socket_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4206,9 +4349,20 @@ public extension NativeSocketAddressProtocol {
     }
 }
 
+// MARK: NativeSocketAddress Class: NativeSocketAddressProtocol extension (methods and fields)
 public extension NativeSocketAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeSocketAddress` instance.
     var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress> { return ptr.assumingMemoryBound(to: GNativeSocketAddress.self) }
+
+
+    var parentInstance: GSocketAddress {
+        get {
+            let rv: GSocketAddress = cast(native_socket_address_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
 
 }
 

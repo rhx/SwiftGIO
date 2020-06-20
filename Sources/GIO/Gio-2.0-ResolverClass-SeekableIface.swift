@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol ResolverClassProtocol {
-    /// Untyped pointer to the underlying `GResolverClass` instance.
+        /// Untyped pointer to the underlying `GResolverClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GResolverClass` instance.
@@ -24,7 +24,7 @@ public protocol ResolverClassProtocol {
 ///
 
 public struct ResolverClassRef: ResolverClassProtocol {
-    /// Untyped pointer to the underlying `GResolverClass` instance.
+        /// Untyped pointer to the underlying `GResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension ResolverClassRef {
 ///
 
 open class ResolverClass: ResolverClassProtocol {
-    /// Untyped pointer to the underlying `GResolverClass` instance.
+        /// Untyped pointer to the underlying `GResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class ResolverClass: ResolverClassProtocol {
         // no reference counting for GResolverClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GResolverClass`.
+    /// Do-nothing destructor for `GResolverClass`.
     deinit {
         // no reference counting for GResolverClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,55 @@ open class ResolverClass: ResolverClassProtocol {
 
 }
 
-// MARK: - no ResolverClass properties
+// MARK: no ResolverClass properties
 
-// MARK: - no signals
+// MARK: no ResolverClass signals
 
 
+// MARK: ResolverClass Record: ResolverClassProtocol extension (methods and fields)
 public extension ResolverClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResolverClass` instance.
     var _ptr: UnsafeMutablePointer<GResolverClass> { return ptr.assumingMemoryBound(to: GResolverClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var reload is unavailable because reload is void
+
+    // var lookupByName is unavailable because lookup_by_name is void
+
+    // var lookupByNameAsync is unavailable because lookup_by_name_async is void
+
+    // var lookupByNameFinish is unavailable because lookup_by_name_finish is void
+
+    // var lookupByAddress is unavailable because lookup_by_address is void
+
+    // var lookupByAddressAsync is unavailable because lookup_by_address_async is void
+
+    // var lookupByAddressFinish is unavailable because lookup_by_address_finish is void
+
+    // var lookupService is unavailable because lookup_service is void
+
+    // var lookupServiceAsync is unavailable because lookup_service_async is void
+
+    // var lookupServiceFinish is unavailable because lookup_service_finish is void
+
+    // var lookupRecords is unavailable because lookup_records is void
+
+    // var lookupRecordsAsync is unavailable because lookup_records_async is void
+
+    // var lookupRecordsFinish is unavailable because lookup_records_finish is void
+
+    // var lookupByNameWithFlagsAsync is unavailable because lookup_by_name_with_flags_async is void
+
+    // var lookupByNameWithFlagsFinish is unavailable because lookup_by_name_with_flags_finish is void
+
+    // var lookupByNameWithFlags is unavailable because lookup_by_name_with_flags is void
 
 }
 
@@ -196,7 +237,7 @@ public extension ResolverClassProtocol {
 ///
 
 public protocol ResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GResolverPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GResolverPrivate` instance.
@@ -209,7 +250,7 @@ public protocol ResolverPrivateProtocol {
 ///
 
 public struct ResolverPrivateRef: ResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +303,7 @@ public extension ResolverPrivateRef {
 ///
 
 open class ResolverPrivate: ResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +332,7 @@ open class ResolverPrivate: ResolverPrivateProtocol {
         // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GResolverPrivate`.
+    /// Do-nothing destructor for `GResolverPrivate`.
     deinit {
         // no reference counting for GResolverPrivate, cannot unref(cast(_ptr))
     }
@@ -359,14 +400,17 @@ open class ResolverPrivate: ResolverPrivateProtocol {
 
 }
 
-// MARK: - no ResolverPrivate properties
+// MARK: no ResolverPrivate properties
 
-// MARK: - no signals
+// MARK: no ResolverPrivate signals
 
 
+// MARK: ResolverPrivate Record: ResolverPrivateProtocol extension (methods and fields)
 public extension ResolverPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResolverPrivate` instance.
     var _ptr: UnsafeMutablePointer<GResolverPrivate> { return ptr.assumingMemoryBound(to: GResolverPrivate.self) }
+
+
 
 }
 
@@ -505,7 +549,7 @@ public extension ResolverPrivateProtocol {
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
 public protocol ResourceProtocol {
-    /// Untyped pointer to the underlying `GResource` instance.
+        /// Untyped pointer to the underlying `GResource` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GResource` instance.
@@ -642,7 +686,7 @@ public protocol ResourceProtocol {
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
 public struct ResourceRef: ResourceProtocol {
-    /// Untyped pointer to the underlying `GResource` instance.
+        /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -700,11 +744,9 @@ public extension ResourceRef {
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
     init(data: BytesProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_new_from_data(cast(data.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a GResource from a reference to the binary resource bundle.
@@ -720,11 +762,9 @@ public extension ResourceRef {
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
     static func newFrom(data: BytesProtocol) throws -> ResourceRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_new_from_data(cast(data.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { ResourceRef(cast($0)) }
     }
 
@@ -739,11 +779,9 @@ public extension ResourceRef {
     /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
     static func load(String_: UnsafePointer<gchar>) throws -> ResourceRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_load(String_, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_load(String_, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { ResourceRef(cast($0)) }
     }
 }
@@ -878,7 +916,7 @@ public extension ResourceRef {
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
 open class Resource: ResourceProtocol {
-    /// Untyped pointer to the underlying `GResource` instance.
+        /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -984,11 +1022,9 @@ open class Resource: ResourceProtocol {
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
     public init(data: BytesProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_new_from_data(cast(data.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1005,11 +1041,9 @@ open class Resource: ResourceProtocol {
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
     public static func newFrom(data: BytesProtocol) throws -> Resource! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_new_from_data(cast(data.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Resource(cast($0)) }
     }
 
@@ -1024,21 +1058,20 @@ open class Resource: ResourceProtocol {
     /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
     public static func load(String_: UnsafePointer<gchar>) throws -> Resource! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_load(String_, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_load(String_, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Resource(cast($0)) }
     }
 
 }
 
-// MARK: - no Resource properties
+// MARK: no Resource properties
 
-// MARK: - no signals
+// MARK: no Resource signals
 
 
+// MARK: Resource Record: ResourceProtocol extension (methods and fields)
 public extension ResourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResource` instance.
     var resource_ptr: UnsafeMutablePointer<GResource> { return ptr.assumingMemoryBound(to: GResource.self) }
@@ -1066,11 +1099,9 @@ public extension ResourceProtocol {
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
     func enumerateChildren(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_enumerate_children(cast(resource_ptr), path, lookup_flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_resource_enumerate_children(cast(resource_ptr), path, lookup_flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1079,11 +1110,9 @@ public extension ResourceProtocol {
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
     func getInfo(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<Int>, flags: UnsafeMutablePointer<UInt32>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_get_info(cast(resource_ptr), path, lookup_flags, cast(size), cast(flags), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_resource_get_info(cast(resource_ptr), path, lookup_flags.value, cast(size), cast(flags), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1102,11 +1131,9 @@ public extension ResourceProtocol {
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
     func lookupData(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GBytes>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_lookup_data(cast(resource_ptr), path, lookup_flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_resource_lookup_data(cast(resource_ptr), path, lookup_flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1115,18 +1142,16 @@ public extension ResourceProtocol {
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
     func openStream(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GInputStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resource_open_stream(cast(resource_ptr), path, lookup_flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_resource_open_stream(cast(resource_ptr), path, lookup_flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Atomically increments the reference count of `resource` by one. This
     /// function is MT-safe and may be called from any thread.
     func ref() -> UnsafeMutablePointer<GResource>! {
-        let rv = g_resource_ref(cast(resource_ptr))
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_ref(cast(resource_ptr)))
         return cast(rv)
     }
 
@@ -1152,6 +1177,8 @@ public extension ResourceProtocol {
         g_resources_unregister(cast(resource_ptr))
     
     }
+
+
 }
 
 
@@ -1165,7 +1192,7 @@ public extension ResourceProtocol {
 ///
 /// Provides an interface for implementing seekable functionality on I/O Streams.
 public protocol SeekableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSeekableIface` instance.
+        /// Untyped pointer to the underlying `GSeekableIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSeekableIface` instance.
@@ -1178,7 +1205,7 @@ public protocol SeekableIfaceProtocol {
 ///
 /// Provides an interface for implementing seekable functionality on I/O Streams.
 public struct SeekableIfaceRef: SeekableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSeekableIface` instance.
+        /// Untyped pointer to the underlying `GSeekableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1231,7 +1258,7 @@ public extension SeekableIfaceRef {
 ///
 /// Provides an interface for implementing seekable functionality on I/O Streams.
 open class SeekableIface: SeekableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSeekableIface` instance.
+        /// Untyped pointer to the underlying `GSeekableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1260,7 +1287,7 @@ open class SeekableIface: SeekableIfaceProtocol {
         // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSeekableIface`.
+    /// Do-nothing destructor for `GSeekableIface`.
     deinit {
         // no reference counting for GSeekableIface, cannot unref(cast(_ptr))
     }
@@ -1328,14 +1355,35 @@ open class SeekableIface: SeekableIfaceProtocol {
 
 }
 
-// MARK: - no SeekableIface properties
+// MARK: no SeekableIface properties
 
-// MARK: - no signals
+// MARK: no SeekableIface signals
 
 
+// MARK: SeekableIface Record: SeekableIfaceProtocol extension (methods and fields)
 public extension SeekableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSeekableIface` instance.
     var _ptr: UnsafeMutablePointer<GSeekableIface> { return ptr.assumingMemoryBound(to: GSeekableIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var tell is unavailable because tell is void
+
+    // var canSeek is unavailable because can_seek is void
+
+    // var seek is unavailable because seek is void
+
+    // var canTruncate is unavailable because can_truncate is void
+
+    // var truncateFn is unavailable because truncate_fn is void
 
 }
 

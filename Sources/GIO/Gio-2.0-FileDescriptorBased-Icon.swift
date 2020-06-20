@@ -16,7 +16,7 @@ import GLibObject
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public protocol FileDescriptorBasedProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileDescriptorBased` instance.
@@ -34,7 +34,7 @@ public protocol FileDescriptorBasedProtocol {
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public struct FileDescriptorBasedRef: FileDescriptorBasedProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -92,7 +92,7 @@ public extension FileDescriptorBasedRef {
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 open class FileDescriptorBased: FileDescriptorBasedProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -121,7 +121,7 @@ open class FileDescriptorBased: FileDescriptorBasedProtocol {
         // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
     }
 
-    /// Do-nothing destructor for`GFileDescriptorBased`.
+    /// Do-nothing destructor for `GFileDescriptorBased`.
     deinit {
         // no reference counting for GFileDescriptorBased, cannot unref(cast(file_descriptor_based_ptr))
     }
@@ -189,28 +189,31 @@ open class FileDescriptorBased: FileDescriptorBasedProtocol {
 
 }
 
-// MARK: - no FileDescriptorBased properties
+// MARK: no FileDescriptorBased properties
 
-// MARK: - no signals
+// MARK: no FileDescriptorBased signals
 
 
+// MARK: FileDescriptorBased Interface: FileDescriptorBasedProtocol extension (methods and fields)
 public extension FileDescriptorBasedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileDescriptorBased` instance.
     var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased> { return ptr.assumingMemoryBound(to: GFileDescriptorBased.self) }
 
     /// Gets the underlying file descriptor.
-    func getFd() -> CInt {
-        let rv = g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr))
-        return rv
+    func getFd() -> Int {
+        let rv: Int = cast(g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr)))
+        return cast(rv)
     }
     /// Gets the underlying file descriptor.
-    var fd: CInt {
+    var fd: Int {
         /// Gets the underlying file descriptor.
         get {
-            let rv = g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr))
-            return rv
+            let rv: Int = cast(g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -251,7 +254,7 @@ public extension FileDescriptorBasedProtocol {
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 public protocol IconProtocol {
-    /// Untyped pointer to the underlying `GIcon` instance.
+        /// Untyped pointer to the underlying `GIcon` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIcon` instance.
@@ -291,7 +294,7 @@ public protocol IconProtocol {
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 public struct IconRef: IconProtocol {
-    /// Untyped pointer to the underlying `GIcon` instance.
+        /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -338,7 +341,7 @@ public extension IconRef {
 
         /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
     static func deserialize(value: VariantProtocol) -> IconRef! {
-        let rv = g_icon_deserialize(cast(value.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_deserialize(cast(value.ptr)))
         return rv.map { IconRef(cast($0)) }
     }
 
@@ -349,11 +352,9 @@ public extension IconRef {
     /// implementations you need to ensure that each `GType` is registered
     /// with the type system prior to calling `g_icon_new_for_string()`.
     static func newFor(string str: UnsafePointer<gchar>) throws -> IconRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_icon_new_for_string(str, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_new_for_string(str, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { IconRef(cast($0)) }
     }
 }
@@ -391,7 +392,7 @@ public extension IconRef {
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
 open class Icon: IconProtocol {
-    /// Untyped pointer to the underlying `GIcon` instance.
+        /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -420,7 +421,7 @@ open class Icon: IconProtocol {
         // no reference counting for GIcon, cannot ref(cast(icon_ptr))
     }
 
-    /// Do-nothing destructor for`GIcon`.
+    /// Do-nothing destructor for `GIcon`.
     deinit {
         // no reference counting for GIcon, cannot unref(cast(icon_ptr))
     }
@@ -487,7 +488,7 @@ open class Icon: IconProtocol {
 
     /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
     public static func deserialize(value: VariantProtocol) -> Icon! {
-        let rv = g_icon_deserialize(cast(value.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_deserialize(cast(value.ptr)))
         return rv.map { Icon(cast($0)) }
     }
 
@@ -498,21 +499,20 @@ open class Icon: IconProtocol {
     /// implementations you need to ensure that each `GType` is registered
     /// with the type system prior to calling `g_icon_new_for_string()`.
     public static func newFor(string str: UnsafePointer<gchar>) throws -> Icon! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_icon_new_for_string(str, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_new_for_string(str, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Icon(cast($0)) }
     }
 
 }
 
-// MARK: - no Icon properties
+// MARK: no Icon properties
 
-// MARK: - no signals
+// MARK: no Icon signals
 
 
+// MARK: Icon Interface: IconProtocol extension (methods and fields)
 public extension IconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIcon` instance.
     var icon_ptr: UnsafeMutablePointer<GIcon> { return ptr.assumingMemoryBound(to: GIcon.self) }
@@ -529,7 +529,7 @@ public extension IconProtocol {
     /// makes sense to transfer the `GVariant` between processes on the same machine,
     /// (as opposed to over the network), and within the same file system namespace.
     func serialize() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_icon_serialize(cast(icon_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_icon_serialize(cast(icon_ptr)))
         return cast(rv)
     }
 
@@ -550,9 +550,11 @@ public extension IconProtocol {
     /// - If `icon` is a `GThemedIcon` with exactly one name and no fallbacks,
     ///   the encoding is simply the name (such as `network-server`).
     func toString() -> String! {
-        let rv = g_icon_to_string(cast(icon_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_icon_to_string(cast(icon_ptr)))
+        return cast(rv)
     }
+
+
 }
 
 

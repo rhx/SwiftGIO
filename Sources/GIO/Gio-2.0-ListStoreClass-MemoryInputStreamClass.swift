@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol ListStoreClassProtocol {
-    /// Untyped pointer to the underlying `GListStoreClass` instance.
+        /// Untyped pointer to the underlying `GListStoreClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GListStoreClass` instance.
@@ -24,7 +24,7 @@ public protocol ListStoreClassProtocol {
 ///
 
 public struct ListStoreClassRef: ListStoreClassProtocol {
-    /// Untyped pointer to the underlying `GListStoreClass` instance.
+        /// Untyped pointer to the underlying `GListStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension ListStoreClassRef {
 ///
 
 open class ListStoreClass: ListStoreClassProtocol {
-    /// Untyped pointer to the underlying `GListStoreClass` instance.
+        /// Untyped pointer to the underlying `GListStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class ListStoreClass: ListStoreClassProtocol {
         // no reference counting for GListStoreClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GListStoreClass`.
+    /// Do-nothing destructor for `GListStoreClass`.
     deinit {
         // no reference counting for GListStoreClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,23 @@ open class ListStoreClass: ListStoreClassProtocol {
 
 }
 
-// MARK: - no ListStoreClass properties
+// MARK: no ListStoreClass properties
 
-// MARK: - no signals
+// MARK: no ListStoreClass signals
 
 
+// MARK: ListStoreClass Record: ListStoreClassProtocol extension (methods and fields)
 public extension ListStoreClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListStoreClass` instance.
     var _ptr: UnsafeMutablePointer<GListStoreClass> { return ptr.assumingMemoryBound(to: GListStoreClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -196,7 +205,7 @@ public extension ListStoreClassProtocol {
 ///
 /// Interface for icons that can be loaded as a stream.
 public protocol LoadableIconIfaceProtocol {
-    /// Untyped pointer to the underlying `GLoadableIconIface` instance.
+        /// Untyped pointer to the underlying `GLoadableIconIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GLoadableIconIface` instance.
@@ -209,7 +218,7 @@ public protocol LoadableIconIfaceProtocol {
 ///
 /// Interface for icons that can be loaded as a stream.
 public struct LoadableIconIfaceRef: LoadableIconIfaceProtocol {
-    /// Untyped pointer to the underlying `GLoadableIconIface` instance.
+        /// Untyped pointer to the underlying `GLoadableIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +271,7 @@ public extension LoadableIconIfaceRef {
 ///
 /// Interface for icons that can be loaded as a stream.
 open class LoadableIconIface: LoadableIconIfaceProtocol {
-    /// Untyped pointer to the underlying `GLoadableIconIface` instance.
+        /// Untyped pointer to the underlying `GLoadableIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +300,7 @@ open class LoadableIconIface: LoadableIconIfaceProtocol {
         // no reference counting for GLoadableIconIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GLoadableIconIface`.
+    /// Do-nothing destructor for `GLoadableIconIface`.
     deinit {
         // no reference counting for GLoadableIconIface, cannot unref(cast(_ptr))
     }
@@ -359,14 +368,31 @@ open class LoadableIconIface: LoadableIconIfaceProtocol {
 
 }
 
-// MARK: - no LoadableIconIface properties
+// MARK: no LoadableIconIface properties
 
-// MARK: - no signals
+// MARK: no LoadableIconIface signals
 
 
+// MARK: LoadableIconIface Record: LoadableIconIfaceProtocol extension (methods and fields)
 public extension LoadableIconIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GLoadableIconIface` instance.
     var _ptr: UnsafeMutablePointer<GLoadableIconIface> { return ptr.assumingMemoryBound(to: GLoadableIconIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var load is unavailable because load is void
+
+    // var loadAsync is unavailable because load_async is void
+
+    // var loadFinish is unavailable because load_finish is void
 
 }
 
@@ -381,7 +407,7 @@ public extension LoadableIconIfaceProtocol {
 ///
 
 public protocol MemoryInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryInputStreamClass` instance.
@@ -394,7 +420,7 @@ public protocol MemoryInputStreamClassProtocol {
 ///
 
 public struct MemoryInputStreamClassRef: MemoryInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +473,7 @@ public extension MemoryInputStreamClassRef {
 ///
 
 open class MemoryInputStreamClass: MemoryInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +502,7 @@ open class MemoryInputStreamClass: MemoryInputStreamClassProtocol {
         // no reference counting for GMemoryInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemoryInputStreamClass`.
+    /// Do-nothing destructor for `GMemoryInputStreamClass`.
     deinit {
         // no reference counting for GMemoryInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +570,33 @@ open class MemoryInputStreamClass: MemoryInputStreamClassProtocol {
 
 }
 
-// MARK: - no MemoryInputStreamClass properties
+// MARK: no MemoryInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no MemoryInputStreamClass signals
 
 
+// MARK: MemoryInputStreamClass Record: MemoryInputStreamClassProtocol extension (methods and fields)
 public extension MemoryInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GMemoryInputStreamClass> { return ptr.assumingMemoryBound(to: GMemoryInputStreamClass.self) }
+
+
+    var parentClass: GInputStreamClass {
+        get {
+            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 

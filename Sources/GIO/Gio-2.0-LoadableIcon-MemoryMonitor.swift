@@ -12,7 +12,7 @@ import GLibObject
 /// Extends the `GIcon` interface and adds the ability to
 /// load icons from streams.
 public protocol LoadableIconProtocol: IconProtocol {
-    /// Untyped pointer to the underlying `GLoadableIcon` instance.
+        /// Untyped pointer to the underlying `GLoadableIcon` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GLoadableIcon` instance.
@@ -26,7 +26,7 @@ public protocol LoadableIconProtocol: IconProtocol {
 /// Extends the `GIcon` interface and adds the ability to
 /// load icons from streams.
 public struct LoadableIconRef: LoadableIconProtocol {
-    /// Untyped pointer to the underlying `GLoadableIcon` instance.
+        /// Untyped pointer to the underlying `GLoadableIcon` instance.
     /// For type-safe access, use the generated, typed pointer `loadable_icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -80,7 +80,7 @@ public extension LoadableIconRef {
 /// Extends the `GIcon` interface and adds the ability to
 /// load icons from streams.
 open class LoadableIcon: Icon, LoadableIconProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `LoadableIcon` instance.
     /// - Parameter op: pointer to the underlying object
@@ -162,11 +162,12 @@ open class LoadableIcon: Icon, LoadableIconProtocol {
 
 }
 
-// MARK: - no LoadableIcon properties
+// MARK: no LoadableIcon properties
 
-// MARK: - no signals
+// MARK: no LoadableIcon signals
 
 
+// MARK: LoadableIcon Interface: LoadableIconProtocol extension (methods and fields)
 public extension LoadableIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GLoadableIcon` instance.
     var loadable_icon_ptr: UnsafeMutablePointer<GLoadableIcon> { return ptr.assumingMemoryBound(to: GLoadableIcon.self) }
@@ -174,11 +175,9 @@ public extension LoadableIconProtocol {
     /// Loads a loadable icon. For the asynchronous version of this function,
     /// see `g_loadable_icon_load_async()`.
     func load(size: CInt, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GInputStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_loadable_icon_load(cast(loadable_icon_ptr), size, cast(type), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_loadable_icon_load(cast(loadable_icon_ptr), size, cast(type), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -192,13 +191,13 @@ public extension LoadableIconProtocol {
 
     /// Finishes an asynchronous icon load started in `g_loadable_icon_load_async()`.
     func loadFinish(res: AsyncResultProtocol, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> UnsafeMutablePointer<GInputStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_loadable_icon_load_finish(cast(loadable_icon_ptr), cast(res.ptr), cast(type), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_loadable_icon_load_finish(cast(loadable_icon_ptr), cast(res.ptr), cast(type), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
+
+
 }
 
 
@@ -250,7 +249,7 @@ public extension LoadableIconProtocol {
 /// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 public protocol MemoryMonitorProtocol: InitableProtocol {
-    /// Untyped pointer to the underlying `GMemoryMonitor` instance.
+        /// Untyped pointer to the underlying `GMemoryMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryMonitor` instance.
@@ -301,7 +300,7 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
 /// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 public struct MemoryMonitorRef: MemoryMonitorProtocol {
-    /// Untyped pointer to the underlying `GMemoryMonitor` instance.
+        /// Untyped pointer to the underlying `GMemoryMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `memory_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -348,7 +347,7 @@ public extension MemoryMonitorRef {
 
         /// Gets a reference to the default `GMemoryMonitor` for the system.
     static func dupDefault() -> MemoryMonitorRef! {
-        let rv = g_memory_monitor_dup_default()
+        let rv: UnsafeMutablePointer<GMemoryMonitor>! = cast(g_memory_monitor_dup_default())
         return rv.map { MemoryMonitorRef(cast($0)) }
     }
 }
@@ -397,7 +396,7 @@ public extension MemoryMonitorRef {
 /// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 open class MemoryMonitor: Initable, MemoryMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MemoryMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -478,13 +477,13 @@ open class MemoryMonitor: Initable, MemoryMonitorProtocol {
 
     /// Gets a reference to the default `GMemoryMonitor` for the system.
     public static func dupDefault() -> MemoryMonitor! {
-        let rv = g_memory_monitor_dup_default()
+        let rv: UnsafeMutablePointer<GMemoryMonitor>! = cast(g_memory_monitor_dup_default())
         return rv.map { MemoryMonitor(cast($0)) }
     }
 
 }
 
-// MARK: - no MemoryMonitor properties
+// MARK: no MemoryMonitor properties
 
 public enum MemoryMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when the system is running low on free memory. The signal
@@ -501,8 +500,8 @@ public extension MemoryMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MemoryMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MemoryMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(memory_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -523,9 +522,12 @@ public extension MemoryMonitorProtocol {
     }
 }
 
+// MARK: MemoryMonitor Interface: MemoryMonitorProtocol extension (methods and fields)
 public extension MemoryMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryMonitor` instance.
     var memory_monitor_ptr: UnsafeMutablePointer<GMemoryMonitor> { return ptr.assumingMemoryBound(to: GMemoryMonitor.self) }
+
+
 
 }
 

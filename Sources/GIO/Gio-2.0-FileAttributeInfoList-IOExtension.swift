@@ -12,7 +12,7 @@ import GLibObject
 /// Acts as a lightweight registry for possible valid file attributes.
 /// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 public protocol FileAttributeInfoListProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileAttributeInfoList` instance.
@@ -26,7 +26,7 @@ public protocol FileAttributeInfoListProtocol {
 /// Acts as a lightweight registry for possible valid file attributes.
 /// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 public struct FileAttributeInfoListRef: FileAttributeInfoListProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -73,7 +73,7 @@ public extension FileAttributeInfoListRef {
 
         /// Creates a new file attribute info list.
     init() {
-        let rv = g_file_attribute_info_list_new()
+        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -85,7 +85,7 @@ public extension FileAttributeInfoListRef {
 /// Acts as a lightweight registry for possible valid file attributes.
 /// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 open class FileAttributeInfoList: FileAttributeInfoListProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -180,18 +180,19 @@ open class FileAttributeInfoList: FileAttributeInfoListProtocol {
 
     /// Creates a new file attribute info list.
     public init() {
-        let rv = g_file_attribute_info_list_new()
+        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no FileAttributeInfoList properties
+// MARK: no FileAttributeInfoList properties
 
-// MARK: - no signals
+// MARK: no FileAttributeInfoList signals
 
 
+// MARK: FileAttributeInfoList Record: FileAttributeInfoListProtocol extension (methods and fields)
 public extension FileAttributeInfoListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileAttributeInfoList` instance.
     var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList> { return ptr.assumingMemoryBound(to: GFileAttributeInfoList.self) }
@@ -199,25 +200,25 @@ public extension FileAttributeInfoListProtocol {
     /// Adds a new attribute with `name` to the `list`, setting
     /// its `type` and `flags`.
     func add(name: UnsafePointer<CChar>, type: FileAttributeType, flags: FileAttributeInfoFlags) {
-        g_file_attribute_info_list_add(cast(file_attribute_info_list_ptr), name, type, flags)
+        g_file_attribute_info_list_add(cast(file_attribute_info_list_ptr), name, type, flags.value)
     
     }
 
     /// Makes a duplicate of a file attribute info list.
     func dup() -> UnsafeMutablePointer<GFileAttributeInfoList>! {
-        let rv = g_file_attribute_info_list_dup(cast(file_attribute_info_list_ptr))
+        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_dup(cast(file_attribute_info_list_ptr)))
         return cast(rv)
     }
 
     /// Gets the file attribute with the name `name` from `list`.
     func lookup(name: UnsafePointer<CChar>) -> UnsafePointer<GFileAttributeInfo>! {
-        let rv = g_file_attribute_info_list_lookup(cast(file_attribute_info_list_ptr), name)
+        let rv: UnsafePointer<GFileAttributeInfo>! = cast(g_file_attribute_info_list_lookup(cast(file_attribute_info_list_ptr), name))
         return cast(rv)
     }
 
     /// References a file attribute info list.
     func ref() -> UnsafeMutablePointer<GFileAttributeInfoList>! {
-        let rv = g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr)))
         return cast(rv)
     }
 
@@ -227,6 +228,33 @@ public extension FileAttributeInfoListProtocol {
         g_file_attribute_info_list_unref(cast(file_attribute_info_list_ptr))
     
     }
+
+    /// an array of `GFileAttributeInfos`.
+    var infos: UnsafeMutablePointer<GFileAttributeInfo> {
+        /// an array of `GFileAttributeInfos`.
+        get {
+            let rv: UnsafeMutablePointer<GFileAttributeInfo> = cast(file_attribute_info_list_ptr.pointee.infos)
+            return rv
+        }
+        /// an array of `GFileAttributeInfos`.
+         set {
+            file_attribute_info_list_ptr.pointee.infos = cast(newValue)
+        }
+    }
+
+    /// the number of values in the array.
+    var nInfos: Int {
+        /// the number of values in the array.
+        get {
+            let rv: Int = cast(file_attribute_info_list_ptr.pointee.n_infos)
+            return rv
+        }
+        /// the number of values in the array.
+         set {
+            file_attribute_info_list_ptr.pointee.n_infos = cast(newValue)
+        }
+    }
+
 }
 
 
@@ -240,7 +268,7 @@ public extension FileAttributeInfoListProtocol {
 ///
 /// Determines if a string matches a file attribute.
 public protocol FileAttributeMatcherProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
+        /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileAttributeMatcher` instance.
@@ -253,7 +281,7 @@ public protocol FileAttributeMatcherProtocol {
 ///
 /// Determines if a string matches a file attribute.
 public struct FileAttributeMatcherRef: FileAttributeMatcherProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
+        /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -318,7 +346,7 @@ public extension FileAttributeMatcherRef {
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
     init( attributes: UnsafePointer<CChar>) {
-        let rv = g_file_attribute_matcher_new(attributes)
+        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_new(attributes))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -329,7 +357,7 @@ public extension FileAttributeMatcherRef {
 ///
 /// Determines if a string matches a file attribute.
 open class FileAttributeMatcher: FileAttributeMatcherProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
+        /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -442,18 +470,19 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
     public init( attributes: UnsafePointer<CChar>) {
-        let rv = g_file_attribute_matcher_new(attributes)
+        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_new(attributes))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no FileAttributeMatcher properties
+// MARK: no FileAttributeMatcher properties
 
-// MARK: - no signals
+// MARK: no FileAttributeMatcher signals
 
 
+// MARK: FileAttributeMatcher Record: FileAttributeMatcherProtocol extension (methods and fields)
 public extension FileAttributeMatcherProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileAttributeMatcher` instance.
     var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher> { return ptr.assumingMemoryBound(to: GFileAttributeMatcher.self) }
@@ -471,8 +500,8 @@ public extension FileAttributeMatcherProtocol {
 
     /// Gets the next matched attribute from a `GFileAttributeMatcher`.
     func enumerateNext() -> String! {
-        let rv = g_file_attribute_matcher_enumerate_next(cast(file_attribute_matcher_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_attribute_matcher_enumerate_next(cast(file_attribute_matcher_ptr)))
+        return cast(rv)
     }
 
     /// Checks if an attribute will be matched by an attribute matcher. If
@@ -492,7 +521,7 @@ public extension FileAttributeMatcherProtocol {
 
     /// References a file attribute matcher.
     func ref() -> UnsafeMutablePointer<GFileAttributeMatcher>! {
-        let rv = g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr)))
         return cast(rv)
     }
 
@@ -505,7 +534,7 @@ public extension FileAttributeMatcherProtocol {
     /// is a limitation of the current implementation, but may be fixed
     /// in the future.
     func subtract(subtract: FileAttributeMatcherProtocol) -> UnsafeMutablePointer<GFileAttributeMatcher>! {
-        let rv = g_file_attribute_matcher_subtract(cast(file_attribute_matcher_ptr), cast(subtract.ptr))
+        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_subtract(cast(file_attribute_matcher_ptr), cast(subtract.ptr)))
         return cast(rv)
     }
 
@@ -514,8 +543,8 @@ public extension FileAttributeMatcherProtocol {
     /// The output however, might not be identical, as the matcher may
     /// decide to use a different order or omit needless parts.
     func toString() -> String! {
-        let rv = g_file_attribute_matcher_to_string(cast(file_attribute_matcher_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_attribute_matcher_to_string(cast(file_attribute_matcher_ptr)))
+        return cast(rv)
     }
 
     /// Unreferences `matcher`. If the reference count falls below 1,
@@ -524,6 +553,8 @@ public extension FileAttributeMatcherProtocol {
         g_file_attribute_matcher_unref(cast(file_attribute_matcher_ptr))
     
     }
+
+
 }
 
 
@@ -537,7 +568,7 @@ public extension FileAttributeMatcherProtocol {
 ///
 /// An interface for file descriptor based io objects.
 public protocol FileDescriptorBasedIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileDescriptorBasedIface` instance.
@@ -550,7 +581,7 @@ public protocol FileDescriptorBasedIfaceProtocol {
 ///
 /// An interface for file descriptor based io objects.
 public struct FileDescriptorBasedIfaceRef: FileDescriptorBasedIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -603,7 +634,7 @@ public extension FileDescriptorBasedIfaceRef {
 ///
 /// An interface for file descriptor based io objects.
 open class FileDescriptorBasedIface: FileDescriptorBasedIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
+        /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -632,7 +663,7 @@ open class FileDescriptorBasedIface: FileDescriptorBasedIfaceProtocol {
         // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileDescriptorBasedIface`.
+    /// Do-nothing destructor for `GFileDescriptorBasedIface`.
     deinit {
         // no reference counting for GFileDescriptorBasedIface, cannot unref(cast(_ptr))
     }
@@ -700,14 +731,27 @@ open class FileDescriptorBasedIface: FileDescriptorBasedIfaceProtocol {
 
 }
 
-// MARK: - no FileDescriptorBasedIface properties
+// MARK: no FileDescriptorBasedIface properties
 
-// MARK: - no signals
+// MARK: no FileDescriptorBasedIface signals
 
 
+// MARK: FileDescriptorBasedIface Record: FileDescriptorBasedIfaceProtocol extension (methods and fields)
 public extension FileDescriptorBasedIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileDescriptorBasedIface` instance.
     var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface> { return ptr.assumingMemoryBound(to: GFileDescriptorBasedIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var getFd is unavailable because get_fd is void
 
 }
 
@@ -722,7 +766,7 @@ public extension FileDescriptorBasedIfaceProtocol {
 ///
 
 public protocol FileEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileEnumeratorClass` instance.
@@ -735,7 +779,7 @@ public protocol FileEnumeratorClassProtocol {
 ///
 
 public struct FileEnumeratorClassRef: FileEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -788,7 +832,7 @@ public extension FileEnumeratorClassRef {
 ///
 
 open class FileEnumeratorClass: FileEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -817,7 +861,7 @@ open class FileEnumeratorClass: FileEnumeratorClassProtocol {
         // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileEnumeratorClass`.
+    /// Do-nothing destructor for `GFileEnumeratorClass`.
     deinit {
         // no reference counting for GFileEnumeratorClass, cannot unref(cast(_ptr))
     }
@@ -885,14 +929,49 @@ open class FileEnumeratorClass: FileEnumeratorClassProtocol {
 
 }
 
-// MARK: - no FileEnumeratorClass properties
+// MARK: no FileEnumeratorClass properties
 
-// MARK: - no signals
+// MARK: no FileEnumeratorClass signals
 
 
+// MARK: FileEnumeratorClass Record: FileEnumeratorClassProtocol extension (methods and fields)
 public extension FileEnumeratorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GFileEnumeratorClass> { return ptr.assumingMemoryBound(to: GFileEnumeratorClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var nextFile is unavailable because next_file is void
+
+    // var closeFn is unavailable because close_fn is void
+
+    // var nextFilesAsync is unavailable because next_files_async is void
+
+    // var nextFilesFinish is unavailable because next_files_finish is void
+
+    // var closeAsync is unavailable because close_async is void
+
+    // var closeFinish is unavailable because close_finish is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
 
 }
 
@@ -907,7 +986,7 @@ public extension FileEnumeratorClassProtocol {
 ///
 
 public protocol FileEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileEnumeratorPrivate` instance.
@@ -920,7 +999,7 @@ public protocol FileEnumeratorPrivateProtocol {
 ///
 
 public struct FileEnumeratorPrivateRef: FileEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -973,7 +1052,7 @@ public extension FileEnumeratorPrivateRef {
 ///
 
 open class FileEnumeratorPrivate: FileEnumeratorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1002,7 +1081,7 @@ open class FileEnumeratorPrivate: FileEnumeratorPrivateProtocol {
         // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileEnumeratorPrivate`.
+    /// Do-nothing destructor for `GFileEnumeratorPrivate`.
     deinit {
         // no reference counting for GFileEnumeratorPrivate, cannot unref(cast(_ptr))
     }
@@ -1070,14 +1149,17 @@ open class FileEnumeratorPrivate: FileEnumeratorPrivateProtocol {
 
 }
 
-// MARK: - no FileEnumeratorPrivate properties
+// MARK: no FileEnumeratorPrivate properties
 
-// MARK: - no signals
+// MARK: no FileEnumeratorPrivate signals
 
 
+// MARK: FileEnumeratorPrivate Record: FileEnumeratorPrivateProtocol extension (methods and fields)
 public extension FileEnumeratorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumeratorPrivate` instance.
     var _ptr: UnsafeMutablePointer<GFileEnumeratorPrivate> { return ptr.assumingMemoryBound(to: GFileEnumeratorPrivate.self) }
+
+
 
 }
 
@@ -1092,7 +1174,7 @@ public extension FileEnumeratorPrivateProtocol {
 ///
 
 public protocol FileIOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIOStreamClass` instance.
@@ -1105,7 +1187,7 @@ public protocol FileIOStreamClassProtocol {
 ///
 
 public struct FileIOStreamClassRef: FileIOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1158,7 +1240,7 @@ public extension FileIOStreamClassRef {
 ///
 
 open class FileIOStreamClass: FileIOStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1187,7 +1269,7 @@ open class FileIOStreamClass: FileIOStreamClassProtocol {
         // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileIOStreamClass`.
+    /// Do-nothing destructor for `GFileIOStreamClass`.
     deinit {
         // no reference counting for GFileIOStreamClass, cannot unref(cast(_ptr))
     }
@@ -1255,14 +1337,51 @@ open class FileIOStreamClass: FileIOStreamClassProtocol {
 
 }
 
-// MARK: - no FileIOStreamClass properties
+// MARK: no FileIOStreamClass properties
 
-// MARK: - no signals
+// MARK: no FileIOStreamClass signals
 
 
+// MARK: FileIOStreamClass Record: FileIOStreamClassProtocol extension (methods and fields)
 public extension FileIOStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIOStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileIOStreamClass> { return ptr.assumingMemoryBound(to: GFileIOStreamClass.self) }
+
+
+    var parentClass: GIOStreamClass {
+        get {
+            let rv: GIOStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var tell is unavailable because tell is void
+
+    // var canSeek is unavailable because can_seek is void
+
+    // var seek is unavailable because seek is void
+
+    // var canTruncate is unavailable because can_truncate is void
+
+    // var truncateFn is unavailable because truncate_fn is void
+
+    // var queryInfo is unavailable because query_info is void
+
+    // var queryInfoAsync is unavailable because query_info_async is void
+
+    // var queryInfoFinish is unavailable because query_info_finish is void
+
+    // var getEtag is unavailable because get_etag is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -1277,7 +1396,7 @@ public extension FileIOStreamClassProtocol {
 ///
 
 public protocol FileIOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIOStreamPrivate` instance.
@@ -1290,7 +1409,7 @@ public protocol FileIOStreamPrivateProtocol {
 ///
 
 public struct FileIOStreamPrivateRef: FileIOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1343,7 +1462,7 @@ public extension FileIOStreamPrivateRef {
 ///
 
 open class FileIOStreamPrivate: FileIOStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1372,7 +1491,7 @@ open class FileIOStreamPrivate: FileIOStreamPrivateProtocol {
         // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileIOStreamPrivate`.
+    /// Do-nothing destructor for `GFileIOStreamPrivate`.
     deinit {
         // no reference counting for GFileIOStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -1440,14 +1559,17 @@ open class FileIOStreamPrivate: FileIOStreamPrivateProtocol {
 
 }
 
-// MARK: - no FileIOStreamPrivate properties
+// MARK: no FileIOStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no FileIOStreamPrivate signals
 
 
+// MARK: FileIOStreamPrivate Record: FileIOStreamPrivateProtocol extension (methods and fields)
 public extension FileIOStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIOStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GFileIOStreamPrivate> { return ptr.assumingMemoryBound(to: GFileIOStreamPrivate.self) }
+
+
 
 }
 
@@ -1462,7 +1584,7 @@ public extension FileIOStreamPrivateProtocol {
 ///
 
 public protocol FileIconClassProtocol {
-    /// Untyped pointer to the underlying `GFileIconClass` instance.
+        /// Untyped pointer to the underlying `GFileIconClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIconClass` instance.
@@ -1475,7 +1597,7 @@ public protocol FileIconClassProtocol {
 ///
 
 public struct FileIconClassRef: FileIconClassProtocol {
-    /// Untyped pointer to the underlying `GFileIconClass` instance.
+        /// Untyped pointer to the underlying `GFileIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1528,7 +1650,7 @@ public extension FileIconClassRef {
 ///
 
 open class FileIconClass: FileIconClassProtocol {
-    /// Untyped pointer to the underlying `GFileIconClass` instance.
+        /// Untyped pointer to the underlying `GFileIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1557,7 +1679,7 @@ open class FileIconClass: FileIconClassProtocol {
         // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileIconClass`.
+    /// Do-nothing destructor for `GFileIconClass`.
     deinit {
         // no reference counting for GFileIconClass, cannot unref(cast(_ptr))
     }
@@ -1625,14 +1747,17 @@ open class FileIconClass: FileIconClassProtocol {
 
 }
 
-// MARK: - no FileIconClass properties
+// MARK: no FileIconClass properties
 
-// MARK: - no signals
+// MARK: no FileIconClass signals
 
 
+// MARK: FileIconClass Record: FileIconClassProtocol extension (methods and fields)
 public extension FileIconClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIconClass` instance.
     var _ptr: UnsafeMutablePointer<GFileIconClass> { return ptr.assumingMemoryBound(to: GFileIconClass.self) }
+
+
 
 }
 
@@ -1647,7 +1772,7 @@ public extension FileIconClassProtocol {
 ///
 /// An interface for writing VFS file handles.
 public protocol FileIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileIface` instance.
+        /// Untyped pointer to the underlying `GFileIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIface` instance.
@@ -1660,7 +1785,7 @@ public protocol FileIfaceProtocol {
 ///
 /// An interface for writing VFS file handles.
 public struct FileIfaceRef: FileIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileIface` instance.
+        /// Untyped pointer to the underlying `GFileIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1713,7 +1838,7 @@ public extension FileIfaceRef {
 ///
 /// An interface for writing VFS file handles.
 open class FileIface: FileIfaceProtocol {
-    /// Untyped pointer to the underlying `GFileIface` instance.
+        /// Untyped pointer to the underlying `GFileIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1742,7 +1867,7 @@ open class FileIface: FileIfaceProtocol {
         // no reference counting for GFileIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileIface`.
+    /// Do-nothing destructor for `GFileIface`.
     deinit {
         // no reference counting for GFileIface, cannot unref(cast(_ptr))
     }
@@ -1810,14 +1935,238 @@ open class FileIface: FileIfaceProtocol {
 
 }
 
-// MARK: - no FileIface properties
+// MARK: no FileIface properties
 
-// MARK: - no signals
+// MARK: no FileIface signals
 
 
+// MARK: FileIface Record: FileIfaceProtocol extension (methods and fields)
 public extension FileIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIface` instance.
     var _ptr: UnsafeMutablePointer<GFileIface> { return ptr.assumingMemoryBound(to: GFileIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var dup is unavailable because dup is void
+
+    // var hash is unavailable because hash is void
+
+    // var equal is unavailable because equal is void
+
+    // var isNative is unavailable because is_native is void
+
+    // var hasURIScheme is unavailable because has_uri_scheme is void
+
+    // var getURIScheme is unavailable because get_uri_scheme is void
+
+    // var getBasename is unavailable because get_basename is void
+
+    // var getPath is unavailable because get_path is void
+
+    // var getURI is unavailable because get_uri is void
+
+    // var getParseName is unavailable because get_parse_name is void
+
+    // var getParent is unavailable because get_parent is void
+
+    // var prefixMatches is unavailable because prefix_matches is void
+
+    // var getRelativePath is unavailable because get_relative_path is void
+
+    // var resolveRelativePath is unavailable because resolve_relative_path is void
+
+    // var getChildForDisplayName is unavailable because get_child_for_display_name is void
+
+    // var enumerateChildren is unavailable because enumerate_children is void
+
+    // var enumerateChildrenAsync is unavailable because enumerate_children_async is void
+
+    // var enumerateChildrenFinish is unavailable because enumerate_children_finish is void
+
+    // var queryInfo is unavailable because query_info is void
+
+    // var queryInfoAsync is unavailable because query_info_async is void
+
+    // var queryInfoFinish is unavailable because query_info_finish is void
+
+    // var queryFilesystemInfo is unavailable because query_filesystem_info is void
+
+    // var queryFilesystemInfoAsync is unavailable because query_filesystem_info_async is void
+
+    // var queryFilesystemInfoFinish is unavailable because query_filesystem_info_finish is void
+
+    // var findEnclosingMount is unavailable because find_enclosing_mount is void
+
+    // var findEnclosingMountAsync is unavailable because find_enclosing_mount_async is void
+
+    // var findEnclosingMountFinish is unavailable because find_enclosing_mount_finish is void
+
+    // var setDisplayName is unavailable because set_display_name is void
+
+    // var setDisplayNameAsync is unavailable because set_display_name_async is void
+
+    // var setDisplayNameFinish is unavailable because set_display_name_finish is void
+
+    // var querySettableAttributes is unavailable because query_settable_attributes is void
+
+    // var QuerySettableAttributesAsync is unavailable because _query_settable_attributes_async is void
+
+    // var QuerySettableAttributesFinish is unavailable because _query_settable_attributes_finish is void
+
+    // var queryWritableNamespaces is unavailable because query_writable_namespaces is void
+
+    // var QueryWritableNamespacesAsync is unavailable because _query_writable_namespaces_async is void
+
+    // var QueryWritableNamespacesFinish is unavailable because _query_writable_namespaces_finish is void
+
+    // var setAttribute is unavailable because set_attribute is void
+
+    // var setAttributesFromInfo is unavailable because set_attributes_from_info is void
+
+    // var setAttributesAsync is unavailable because set_attributes_async is void
+
+    // var setAttributesFinish is unavailable because set_attributes_finish is void
+
+    // var readFn is unavailable because read_fn is void
+
+    // var readAsync is unavailable because read_async is void
+
+    // var readFinish is unavailable because read_finish is void
+
+    // var appendTo is unavailable because append_to is void
+
+    // var appendToAsync is unavailable because append_to_async is void
+
+    // var appendToFinish is unavailable because append_to_finish is void
+
+    // var create is unavailable because create is void
+
+    // var createAsync is unavailable because create_async is void
+
+    // var createFinish is unavailable because create_finish is void
+
+    // var replace is unavailable because replace is void
+
+    // var replaceAsync is unavailable because replace_async is void
+
+    // var replaceFinish is unavailable because replace_finish is void
+
+    // var deleteFile is unavailable because delete_file is void
+
+    // var deleteFileAsync is unavailable because delete_file_async is void
+
+    // var deleteFileFinish is unavailable because delete_file_finish is void
+
+    // var trash is unavailable because trash is void
+
+    // var trashAsync is unavailable because trash_async is void
+
+    // var trashFinish is unavailable because trash_finish is void
+
+    // var makeDirectory is unavailable because make_directory is void
+
+    // var makeDirectoryAsync is unavailable because make_directory_async is void
+
+    // var makeDirectoryFinish is unavailable because make_directory_finish is void
+
+    // var makeSymbolicLink is unavailable because make_symbolic_link is void
+
+    // var MakeSymbolicLinkAsync is unavailable because _make_symbolic_link_async is void
+
+    // var MakeSymbolicLinkFinish is unavailable because _make_symbolic_link_finish is void
+
+    // var copy is unavailable because copy is void
+
+    // var copyAsync is unavailable because copy_async is void
+
+    // var copyFinish is unavailable because copy_finish is void
+
+    // var move is unavailable because move is void
+
+    // var MoveAsync is unavailable because _move_async is void
+
+    // var MoveFinish is unavailable because _move_finish is void
+
+    // var mountMountable is unavailable because mount_mountable is void
+
+    // var mountMountableFinish is unavailable because mount_mountable_finish is void
+
+    // var unmountMountable is unavailable because unmount_mountable is void
+
+    // var unmountMountableFinish is unavailable because unmount_mountable_finish is void
+
+    // var ejectMountable is unavailable because eject_mountable is void
+
+    // var ejectMountableFinish is unavailable because eject_mountable_finish is void
+
+    // var mountEnclosingVolume is unavailable because mount_enclosing_volume is void
+
+    // var mountEnclosingVolumeFinish is unavailable because mount_enclosing_volume_finish is void
+
+    // var monitorDir is unavailable because monitor_dir is void
+
+    // var monitorFile is unavailable because monitor_file is void
+
+    // var openReadwrite is unavailable because open_readwrite is void
+
+    // var openReadwriteAsync is unavailable because open_readwrite_async is void
+
+    // var openReadwriteFinish is unavailable because open_readwrite_finish is void
+
+    // var createReadwrite is unavailable because create_readwrite is void
+
+    // var createReadwriteAsync is unavailable because create_readwrite_async is void
+
+    // var createReadwriteFinish is unavailable because create_readwrite_finish is void
+
+    // var replaceReadwrite is unavailable because replace_readwrite is void
+
+    // var replaceReadwriteAsync is unavailable because replace_readwrite_async is void
+
+    // var replaceReadwriteFinish is unavailable because replace_readwrite_finish is void
+
+    // var startMountable is unavailable because start_mountable is void
+
+    // var startMountableFinish is unavailable because start_mountable_finish is void
+
+    // var stopMountable is unavailable because stop_mountable is void
+
+    // var stopMountableFinish is unavailable because stop_mountable_finish is void
+
+    /// a boolean that indicates whether the `GFile` implementation supports thread-default contexts. Since 2.22.
+    var supportsThreadContexts: Bool {
+        /// a boolean that indicates whether the `GFile` implementation supports thread-default contexts. Since 2.22.
+        get {
+            let rv: Bool = cast(_ptr.pointee.supports_thread_contexts)
+            return rv
+        }
+    }
+
+    // var unmountMountableWithOperation is unavailable because unmount_mountable_with_operation is void
+
+    // var unmountMountableWithOperationFinish is unavailable because unmount_mountable_with_operation_finish is void
+
+    // var ejectMountableWithOperation is unavailable because eject_mountable_with_operation is void
+
+    // var ejectMountableWithOperationFinish is unavailable because eject_mountable_with_operation_finish is void
+
+    // var pollMountable is unavailable because poll_mountable is void
+
+    // var pollMountableFinish is unavailable because poll_mountable_finish is void
+
+    // var measureDiskUsage is unavailable because measure_disk_usage is void
+
+    // var measureDiskUsageAsync is unavailable because measure_disk_usage_async is void
+
+    // var measureDiskUsageFinish is unavailable because measure_disk_usage_finish is void
 
 }
 
@@ -1832,7 +2181,7 @@ public extension FileIfaceProtocol {
 ///
 
 public protocol FileInfoClassProtocol {
-    /// Untyped pointer to the underlying `GFileInfoClass` instance.
+        /// Untyped pointer to the underlying `GFileInfoClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileInfoClass` instance.
@@ -1845,7 +2194,7 @@ public protocol FileInfoClassProtocol {
 ///
 
 public struct FileInfoClassRef: FileInfoClassProtocol {
-    /// Untyped pointer to the underlying `GFileInfoClass` instance.
+        /// Untyped pointer to the underlying `GFileInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1898,7 +2247,7 @@ public extension FileInfoClassRef {
 ///
 
 open class FileInfoClass: FileInfoClassProtocol {
-    /// Untyped pointer to the underlying `GFileInfoClass` instance.
+        /// Untyped pointer to the underlying `GFileInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1927,7 +2276,7 @@ open class FileInfoClass: FileInfoClassProtocol {
         // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileInfoClass`.
+    /// Do-nothing destructor for `GFileInfoClass`.
     deinit {
         // no reference counting for GFileInfoClass, cannot unref(cast(_ptr))
     }
@@ -1995,14 +2344,17 @@ open class FileInfoClass: FileInfoClassProtocol {
 
 }
 
-// MARK: - no FileInfoClass properties
+// MARK: no FileInfoClass properties
 
-// MARK: - no signals
+// MARK: no FileInfoClass signals
 
 
+// MARK: FileInfoClass Record: FileInfoClassProtocol extension (methods and fields)
 public extension FileInfoClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInfoClass` instance.
     var _ptr: UnsafeMutablePointer<GFileInfoClass> { return ptr.assumingMemoryBound(to: GFileInfoClass.self) }
+
+
 
 }
 
@@ -2017,7 +2369,7 @@ public extension FileInfoClassProtocol {
 ///
 
 public protocol FileInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileInputStreamClass` instance.
@@ -2030,7 +2382,7 @@ public protocol FileInputStreamClassProtocol {
 ///
 
 public struct FileInputStreamClassRef: FileInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2083,7 +2435,7 @@ public extension FileInputStreamClassRef {
 ///
 
 open class FileInputStreamClass: FileInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2112,7 +2464,7 @@ open class FileInputStreamClass: FileInputStreamClassProtocol {
         // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileInputStreamClass`.
+    /// Do-nothing destructor for `GFileInputStreamClass`.
     deinit {
         // no reference counting for GFileInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -2180,14 +2532,45 @@ open class FileInputStreamClass: FileInputStreamClassProtocol {
 
 }
 
-// MARK: - no FileInputStreamClass properties
+// MARK: no FileInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no FileInputStreamClass signals
 
 
+// MARK: FileInputStreamClass Record: FileInputStreamClassProtocol extension (methods and fields)
 public extension FileInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileInputStreamClass> { return ptr.assumingMemoryBound(to: GFileInputStreamClass.self) }
+
+
+    var parentClass: GInputStreamClass {
+        get {
+            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var tell is unavailable because tell is void
+
+    // var canSeek is unavailable because can_seek is void
+
+    // var seek is unavailable because seek is void
+
+    // var queryInfo is unavailable because query_info is void
+
+    // var queryInfoAsync is unavailable because query_info_async is void
+
+    // var queryInfoFinish is unavailable because query_info_finish is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -2202,7 +2585,7 @@ public extension FileInputStreamClassProtocol {
 ///
 
 public protocol FileInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileInputStreamPrivate` instance.
@@ -2215,7 +2598,7 @@ public protocol FileInputStreamPrivateProtocol {
 ///
 
 public struct FileInputStreamPrivateRef: FileInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2268,7 +2651,7 @@ public extension FileInputStreamPrivateRef {
 ///
 
 open class FileInputStreamPrivate: FileInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2297,7 +2680,7 @@ open class FileInputStreamPrivate: FileInputStreamPrivateProtocol {
         // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileInputStreamPrivate`.
+    /// Do-nothing destructor for `GFileInputStreamPrivate`.
     deinit {
         // no reference counting for GFileInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -2365,14 +2748,17 @@ open class FileInputStreamPrivate: FileInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no FileInputStreamPrivate properties
+// MARK: no FileInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no FileInputStreamPrivate signals
 
 
+// MARK: FileInputStreamPrivate Record: FileInputStreamPrivateProtocol extension (methods and fields)
 public extension FileInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GFileInputStreamPrivate> { return ptr.assumingMemoryBound(to: GFileInputStreamPrivate.self) }
+
+
 
 }
 
@@ -2387,7 +2773,7 @@ public extension FileInputStreamPrivateProtocol {
 ///
 
 public protocol FileMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorClass` instance.
+        /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileMonitorClass` instance.
@@ -2400,7 +2786,7 @@ public protocol FileMonitorClassProtocol {
 ///
 
 public struct FileMonitorClassRef: FileMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorClass` instance.
+        /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2453,7 +2839,7 @@ public extension FileMonitorClassRef {
 ///
 
 open class FileMonitorClass: FileMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorClass` instance.
+        /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2482,7 +2868,7 @@ open class FileMonitorClass: FileMonitorClassProtocol {
         // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileMonitorClass`.
+    /// Do-nothing destructor for `GFileMonitorClass`.
     deinit {
         // no reference counting for GFileMonitorClass, cannot unref(cast(_ptr))
     }
@@ -2550,14 +2936,37 @@ open class FileMonitorClass: FileMonitorClassProtocol {
 
 }
 
-// MARK: - no FileMonitorClass properties
+// MARK: no FileMonitorClass properties
 
-// MARK: - no signals
+// MARK: no FileMonitorClass signals
 
 
+// MARK: FileMonitorClass Record: FileMonitorClassProtocol extension (methods and fields)
 public extension FileMonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GFileMonitorClass> { return ptr.assumingMemoryBound(to: GFileMonitorClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var changed is unavailable because changed is void
+
+    // var cancel is unavailable because cancel is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -2572,7 +2981,7 @@ public extension FileMonitorClassProtocol {
 ///
 
 public protocol FileMonitorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileMonitorPrivate` instance.
@@ -2585,7 +2994,7 @@ public protocol FileMonitorPrivateProtocol {
 ///
 
 public struct FileMonitorPrivateRef: FileMonitorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2638,7 +3047,7 @@ public extension FileMonitorPrivateRef {
 ///
 
 open class FileMonitorPrivate: FileMonitorPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
+        /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2667,7 +3076,7 @@ open class FileMonitorPrivate: FileMonitorPrivateProtocol {
         // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileMonitorPrivate`.
+    /// Do-nothing destructor for `GFileMonitorPrivate`.
     deinit {
         // no reference counting for GFileMonitorPrivate, cannot unref(cast(_ptr))
     }
@@ -2735,14 +3144,17 @@ open class FileMonitorPrivate: FileMonitorPrivateProtocol {
 
 }
 
-// MARK: - no FileMonitorPrivate properties
+// MARK: no FileMonitorPrivate properties
 
-// MARK: - no signals
+// MARK: no FileMonitorPrivate signals
 
 
+// MARK: FileMonitorPrivate Record: FileMonitorPrivateProtocol extension (methods and fields)
 public extension FileMonitorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileMonitorPrivate` instance.
     var _ptr: UnsafeMutablePointer<GFileMonitorPrivate> { return ptr.assumingMemoryBound(to: GFileMonitorPrivate.self) }
+
+
 
 }
 
@@ -2757,7 +3169,7 @@ public extension FileMonitorPrivateProtocol {
 ///
 
 public protocol FileOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileOutputStreamClass` instance.
@@ -2770,7 +3182,7 @@ public protocol FileOutputStreamClassProtocol {
 ///
 
 public struct FileOutputStreamClassRef: FileOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2823,7 +3235,7 @@ public extension FileOutputStreamClassRef {
 ///
 
 open class FileOutputStreamClass: FileOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2852,7 +3264,7 @@ open class FileOutputStreamClass: FileOutputStreamClassProtocol {
         // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileOutputStreamClass`.
+    /// Do-nothing destructor for `GFileOutputStreamClass`.
     deinit {
         // no reference counting for GFileOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -2920,14 +3332,51 @@ open class FileOutputStreamClass: FileOutputStreamClassProtocol {
 
 }
 
-// MARK: - no FileOutputStreamClass properties
+// MARK: no FileOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no FileOutputStreamClass signals
 
 
+// MARK: FileOutputStreamClass Record: FileOutputStreamClassProtocol extension (methods and fields)
 public extension FileOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileOutputStreamClass> { return ptr.assumingMemoryBound(to: GFileOutputStreamClass.self) }
+
+
+    var parentClass: GOutputStreamClass {
+        get {
+            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var tell is unavailable because tell is void
+
+    // var canSeek is unavailable because can_seek is void
+
+    // var seek is unavailable because seek is void
+
+    // var canTruncate is unavailable because can_truncate is void
+
+    // var truncateFn is unavailable because truncate_fn is void
+
+    // var queryInfo is unavailable because query_info is void
+
+    // var queryInfoAsync is unavailable because query_info_async is void
+
+    // var queryInfoFinish is unavailable because query_info_finish is void
+
+    // var getEtag is unavailable because get_etag is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -2942,7 +3391,7 @@ public extension FileOutputStreamClassProtocol {
 ///
 
 public protocol FileOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileOutputStreamPrivate` instance.
@@ -2955,7 +3404,7 @@ public protocol FileOutputStreamPrivateProtocol {
 ///
 
 public struct FileOutputStreamPrivateRef: FileOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3008,7 +3457,7 @@ public extension FileOutputStreamPrivateRef {
 ///
 
 open class FileOutputStreamPrivate: FileOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3037,7 +3486,7 @@ open class FileOutputStreamPrivate: FileOutputStreamPrivateProtocol {
         // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileOutputStreamPrivate`.
+    /// Do-nothing destructor for `GFileOutputStreamPrivate`.
     deinit {
         // no reference counting for GFileOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -3105,14 +3554,17 @@ open class FileOutputStreamPrivate: FileOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no FileOutputStreamPrivate properties
+// MARK: no FileOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no FileOutputStreamPrivate signals
 
 
+// MARK: FileOutputStreamPrivate Record: FileOutputStreamPrivateProtocol extension (methods and fields)
 public extension FileOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GFileOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GFileOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -3127,7 +3579,7 @@ public extension FileOutputStreamPrivateProtocol {
 ///
 
 public protocol FilenameCompleterClassProtocol {
-    /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
+        /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilenameCompleterClass` instance.
@@ -3140,7 +3592,7 @@ public protocol FilenameCompleterClassProtocol {
 ///
 
 public struct FilenameCompleterClassRef: FilenameCompleterClassProtocol {
-    /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
+        /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3193,7 +3645,7 @@ public extension FilenameCompleterClassRef {
 ///
 
 open class FilenameCompleterClass: FilenameCompleterClassProtocol {
-    /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
+        /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3222,7 +3674,7 @@ open class FilenameCompleterClass: FilenameCompleterClassProtocol {
         // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFilenameCompleterClass`.
+    /// Do-nothing destructor for `GFilenameCompleterClass`.
     deinit {
         // no reference counting for GFilenameCompleterClass, cannot unref(cast(_ptr))
     }
@@ -3290,14 +3742,31 @@ open class FilenameCompleterClass: FilenameCompleterClassProtocol {
 
 }
 
-// MARK: - no FilenameCompleterClass properties
+// MARK: no FilenameCompleterClass properties
 
-// MARK: - no signals
+// MARK: no FilenameCompleterClass signals
 
 
+// MARK: FilenameCompleterClass Record: FilenameCompleterClassProtocol extension (methods and fields)
 public extension FilenameCompleterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilenameCompleterClass` instance.
     var _ptr: UnsafeMutablePointer<GFilenameCompleterClass> { return ptr.assumingMemoryBound(to: GFilenameCompleterClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var gotCompletionData is unavailable because got_completion_data is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
 
 }
 
@@ -3312,7 +3781,7 @@ public extension FilenameCompleterClassProtocol {
 ///
 
 public protocol FilterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilterInputStreamClass` instance.
@@ -3325,7 +3794,7 @@ public protocol FilterInputStreamClassProtocol {
 ///
 
 public struct FilterInputStreamClassRef: FilterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3378,7 +3847,7 @@ public extension FilterInputStreamClassRef {
 ///
 
 open class FilterInputStreamClass: FilterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3407,7 +3876,7 @@ open class FilterInputStreamClass: FilterInputStreamClassProtocol {
         // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFilterInputStreamClass`.
+    /// Do-nothing destructor for `GFilterInputStreamClass`.
     deinit {
         // no reference counting for GFilterInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -3475,14 +3944,29 @@ open class FilterInputStreamClass: FilterInputStreamClassProtocol {
 
 }
 
-// MARK: - no FilterInputStreamClass properties
+// MARK: no FilterInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no FilterInputStreamClass signals
 
 
+// MARK: FilterInputStreamClass Record: FilterInputStreamClassProtocol extension (methods and fields)
 public extension FilterInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFilterInputStreamClass> { return ptr.assumingMemoryBound(to: GFilterInputStreamClass.self) }
+
+
+    var parentClass: GInputStreamClass {
+        get {
+            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
 
 }
 
@@ -3497,7 +3981,7 @@ public extension FilterInputStreamClassProtocol {
 ///
 
 public protocol FilterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilterOutputStreamClass` instance.
@@ -3510,7 +3994,7 @@ public protocol FilterOutputStreamClassProtocol {
 ///
 
 public struct FilterOutputStreamClassRef: FilterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3563,7 +4047,7 @@ public extension FilterOutputStreamClassRef {
 ///
 
 open class FilterOutputStreamClass: FilterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3592,7 +4076,7 @@ open class FilterOutputStreamClass: FilterOutputStreamClassProtocol {
         // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFilterOutputStreamClass`.
+    /// Do-nothing destructor for `GFilterOutputStreamClass`.
     deinit {
         // no reference counting for GFilterOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -3660,14 +4144,29 @@ open class FilterOutputStreamClass: FilterOutputStreamClassProtocol {
 
 }
 
-// MARK: - no FilterOutputStreamClass properties
+// MARK: no FilterOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no FilterOutputStreamClass signals
 
 
+// MARK: FilterOutputStreamClass Record: FilterOutputStreamClassProtocol extension (methods and fields)
 public extension FilterOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass> { return ptr.assumingMemoryBound(to: GFilterOutputStreamClass.self) }
+
+
+    var parentClass: GOutputStreamClass {
+        get {
+            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
 
 }
 
@@ -3683,7 +4182,7 @@ public extension FilterOutputStreamClassProtocol {
 /// `GIOExtension` is an opaque data structure and can only be accessed
 /// using the following functions.
 public protocol IOExtensionProtocol {
-    /// Untyped pointer to the underlying `GIOExtension` instance.
+        /// Untyped pointer to the underlying `GIOExtension` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOExtension` instance.
@@ -3697,7 +4196,7 @@ public protocol IOExtensionProtocol {
 /// `GIOExtension` is an opaque data structure and can only be accessed
 /// using the following functions.
 public struct IOExtensionRef: IOExtensionProtocol {
-    /// Untyped pointer to the underlying `GIOExtension` instance.
+        /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3751,7 +4250,7 @@ public extension IOExtensionRef {
 /// `GIOExtension` is an opaque data structure and can only be accessed
 /// using the following functions.
 open class IOExtension: IOExtensionProtocol {
-    /// Untyped pointer to the underlying `GIOExtension` instance.
+        /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3780,7 +4279,7 @@ open class IOExtension: IOExtensionProtocol {
         // no reference counting for GIOExtension, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOExtension`.
+    /// Do-nothing destructor for `GIOExtension`.
     deinit {
         // no reference counting for GIOExtension, cannot unref(cast(_ptr))
     }
@@ -3848,11 +4347,12 @@ open class IOExtension: IOExtensionProtocol {
 
 }
 
-// MARK: - no IOExtension properties
+// MARK: no IOExtension properties
 
-// MARK: - no signals
+// MARK: no IOExtension signals
 
 
+// MARK: IOExtension Record: IOExtensionProtocol extension (methods and fields)
 public extension IOExtensionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOExtension` instance.
     var _ptr: UnsafeMutablePointer<GIOExtension> { return ptr.assumingMemoryBound(to: GIOExtension.self) }
@@ -3862,26 +4362,26 @@ public extension IOExtensionProtocol {
     /// Note that the same type may be registered as extension
     /// for multiple extension points, under different names.
     func getName() -> String! {
-        let rv = g_io_extension_get_name(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_io_extension_get_name(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Gets the priority with which `extension` was registered.
-    func getPriority() -> CInt {
-        let rv = g_io_extension_get_priority(cast(_ptr))
-        return CInt(rv)
+    func getPriority() -> Int {
+        let rv: Int = cast(g_io_extension_get_priority(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Gets the type associated with `extension`.
     func getType() -> GType {
         let rv = g_io_extension_get_type(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets a reference to the class for the type that is
     /// associated with `extension`.
     func refClass() -> UnsafeMutablePointer<GTypeClass>! {
-        let rv = g_io_extension_ref_class(cast(_ptr))
+        let rv: UnsafeMutablePointer<GTypeClass>! = cast(g_io_extension_ref_class(cast(_ptr)))
         return cast(rv)
     }
     /// Gets the name under which `extension` was registered.
@@ -3894,17 +4394,17 @@ public extension IOExtensionProtocol {
         /// Note that the same type may be registered as extension
         /// for multiple extension points, under different names.
         get {
-            let rv = g_io_extension_get_name(cast(_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_io_extension_get_name(cast(_ptr)))
+            return cast(rv)
         }
     }
 
     /// Gets the priority with which `extension` was registered.
-    var priority: CInt {
+    var priority: Int {
         /// Gets the priority with which `extension` was registered.
         get {
-            let rv = g_io_extension_get_priority(cast(_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_io_extension_get_priority(cast(_ptr)))
+            return Int(rv)
         }
     }
 
@@ -3913,9 +4413,11 @@ public extension IOExtensionProtocol {
         /// Gets the type associated with `extension`.
         get {
             let rv = g_io_extension_get_type(cast(_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 

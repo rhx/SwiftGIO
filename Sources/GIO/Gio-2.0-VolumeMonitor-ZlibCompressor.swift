@@ -21,7 +21,7 @@ import GLibObject
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
 public protocol VolumeMonitorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GVolumeMonitor` instance.
+        /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVolumeMonitor` instance.
@@ -44,7 +44,7 @@ public protocol VolumeMonitorProtocol: ObjectProtocol {
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
 public struct VolumeMonitorRef: VolumeMonitorProtocol {
-    /// Untyped pointer to the underlying `GVolumeMonitor` instance.
+        /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `volume_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -91,7 +91,7 @@ public extension VolumeMonitorRef {
 
         /// Gets the volume monitor used by gio.
     static func volumeMonitorGet() -> VolumeMonitorRef! {
-        let rv = g_volume_monitor_get()
+        let rv: UnsafeMutablePointer<GVolumeMonitor>! = cast(g_volume_monitor_get())
         return rv.map { VolumeMonitorRef(cast($0)) }
     }
 }
@@ -112,7 +112,7 @@ public extension VolumeMonitorRef {
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
 open class VolumeMonitor: Object, VolumeMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `VolumeMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -193,13 +193,13 @@ open class VolumeMonitor: Object, VolumeMonitorProtocol {
 
     /// Gets the volume monitor used by gio.
     public static func volumeMonitorGet() -> VolumeMonitor! {
-        let rv = g_volume_monitor_get()
+        let rv: UnsafeMutablePointer<GVolumeMonitor>! = cast(g_volume_monitor_get())
         return rv.map { VolumeMonitor(cast($0)) }
     }
 
 }
 
-// MARK: - no VolumeMonitor properties
+// MARK: no VolumeMonitor properties
 
 public enum VolumeMonitorSignalName: String, SignalNameProtocol {
     /// Emitted when a drive changes.
@@ -263,8 +263,8 @@ public extension VolumeMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: VolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: VolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(volume_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -285,6 +285,7 @@ public extension VolumeMonitorProtocol {
     }
 }
 
+// MARK: VolumeMonitor Class: VolumeMonitorProtocol extension (methods and fields)
 public extension VolumeMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVolumeMonitor` instance.
     var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor> { return ptr.assumingMemoryBound(to: GVolumeMonitor.self) }
@@ -294,13 +295,13 @@ public extension VolumeMonitorProtocol {
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
     func getConnectedDrives() -> UnsafeMutablePointer<GList>! {
-        let rv = g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr)))
         return cast(rv)
     }
 
     /// Finds a `GMount` object by its UUID (see `g_mount_get_uuid()`)
     func getMountFor(uuid: UnsafePointer<CChar>) -> UnsafeMutablePointer<GMount>! {
-        let rv = g_volume_monitor_get_mount_for_uuid(cast(volume_monitor_ptr), uuid)
+        let rv: UnsafeMutablePointer<GMount>! = cast(g_volume_monitor_get_mount_for_uuid(cast(volume_monitor_ptr), uuid))
         return cast(rv)
     }
 
@@ -309,13 +310,13 @@ public extension VolumeMonitorProtocol {
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
     func getMounts() -> UnsafeMutablePointer<GList>! {
-        let rv = g_volume_monitor_get_mounts(cast(volume_monitor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_mounts(cast(volume_monitor_ptr)))
         return cast(rv)
     }
 
     /// Finds a `GVolume` object by its UUID (see `g_volume_get_uuid()`)
     func getVolumeFor(uuid: UnsafePointer<CChar>) -> UnsafeMutablePointer<GVolume>! {
-        let rv = g_volume_monitor_get_volume_for_uuid(cast(volume_monitor_ptr), uuid)
+        let rv: UnsafeMutablePointer<GVolume>! = cast(g_volume_monitor_get_volume_for_uuid(cast(volume_monitor_ptr), uuid))
         return cast(rv)
     }
 
@@ -324,7 +325,7 @@ public extension VolumeMonitorProtocol {
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
     func getVolumes() -> UnsafeMutablePointer<GList>! {
-        let rv = g_volume_monitor_get_volumes(cast(volume_monitor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_volumes(cast(volume_monitor_ptr)))
         return cast(rv)
     }
     /// Gets a list of drives connected to the system.
@@ -337,7 +338,7 @@ public extension VolumeMonitorProtocol {
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr)))
             return cast(rv)
         }
     }
@@ -352,7 +353,7 @@ public extension VolumeMonitorProtocol {
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = g_volume_monitor_get_mounts(cast(volume_monitor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_mounts(cast(volume_monitor_ptr)))
             return cast(rv)
         }
     }
@@ -367,10 +368,20 @@ public extension VolumeMonitorProtocol {
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = g_volume_monitor_get_volumes(cast(volume_monitor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_volumes(cast(volume_monitor_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(volume_monitor_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -384,7 +395,7 @@ public extension VolumeMonitorProtocol {
 ///
 /// Zlib decompression
 public protocol ZlibCompressorProtocol: ObjectProtocol, ConverterProtocol {
-    /// Untyped pointer to the underlying `GZlibCompressor` instance.
+        /// Untyped pointer to the underlying `GZlibCompressor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GZlibCompressor` instance.
@@ -397,7 +408,7 @@ public protocol ZlibCompressorProtocol: ObjectProtocol, ConverterProtocol {
 ///
 /// Zlib decompression
 public struct ZlibCompressorRef: ZlibCompressorProtocol {
-    /// Untyped pointer to the underlying `GZlibCompressor` instance.
+        /// Untyped pointer to the underlying `GZlibCompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_compressor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -444,7 +455,7 @@ public extension ZlibCompressorRef {
 
         /// Creates a new `GZlibCompressor`.
     init( format: ZlibCompressorFormat, level: CInt) {
-        let rv = g_zlib_compressor_new(format, level)
+        let rv: UnsafeMutablePointer<GZlibCompressor>! = cast(g_zlib_compressor_new(format, level))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -455,7 +466,7 @@ public extension ZlibCompressorRef {
 ///
 /// Zlib decompression
 open class ZlibCompressor: Object, ZlibCompressorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZlibCompressor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -535,7 +546,7 @@ open class ZlibCompressor: Object, ZlibCompressorProtocol {
 
     /// Creates a new `GZlibCompressor`.
     public init( format: ZlibCompressorFormat, level: CInt) {
-        let rv = g_zlib_compressor_new(format, level)
+        let rv: UnsafeMutablePointer<GZlibCompressor>! = cast(g_zlib_compressor_new(format, level))
         super.init(cast(rv))
     }
 
@@ -560,8 +571,8 @@ public extension ZlibCompressorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -584,6 +595,23 @@ public extension ZlibCompressorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ZlibCompressor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ZlibCompressorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ZlibCompressor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ZlibCompressorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -627,8 +655,8 @@ public extension ZlibCompressorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ZlibCompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ZlibCompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(zlib_compressor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -649,13 +677,14 @@ public extension ZlibCompressorProtocol {
     }
 }
 
+// MARK: ZlibCompressor Class: ZlibCompressorProtocol extension (methods and fields)
 public extension ZlibCompressorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibCompressor` instance.
     var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor> { return ptr.assumingMemoryBound(to: GZlibCompressor.self) }
 
     /// Returns the `GZlibCompressor:file`-info property.
     func getFileInfo() -> UnsafeMutablePointer<GFileInfo>! {
-        let rv = g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr))
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr)))
         return cast(rv)
     }
 
@@ -675,7 +704,7 @@ public extension ZlibCompressorProtocol {
     var fileInfo: UnsafeMutablePointer<GFileInfo>! {
         /// Returns the `GZlibCompressor:file`-info property.
         get {
-            let rv = g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr))
+            let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr)))
             return cast(rv)
         }
         /// Sets `file_info` in `compressor`. If non-`nil`, and `compressor`'s
@@ -690,6 +719,8 @@ public extension ZlibCompressorProtocol {
             g_zlib_compressor_set_file_info(cast(zlib_compressor_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

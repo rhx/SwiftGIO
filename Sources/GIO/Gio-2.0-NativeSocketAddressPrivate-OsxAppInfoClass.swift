@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol NativeSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNativeSocketAddressPrivate` instance.
@@ -24,7 +24,7 @@ public protocol NativeSocketAddressPrivateProtocol {
 ///
 
 public struct NativeSocketAddressPrivateRef: NativeSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension NativeSocketAddressPrivateRef {
 ///
 
 open class NativeSocketAddressPrivate: NativeSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class NativeSocketAddressPrivate: NativeSocketAddressPrivateProtocol {
         // no reference counting for GNativeSocketAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNativeSocketAddressPrivate`.
+    /// Do-nothing destructor for `GNativeSocketAddressPrivate`.
     deinit {
         // no reference counting for GNativeSocketAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class NativeSocketAddressPrivate: NativeSocketAddressPrivateProtocol {
 
 }
 
-// MARK: - no NativeSocketAddressPrivate properties
+// MARK: no NativeSocketAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no NativeSocketAddressPrivate signals
 
 
+// MARK: NativeSocketAddressPrivate Record: NativeSocketAddressPrivateProtocol extension (methods and fields)
 public extension NativeSocketAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeSocketAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GNativeSocketAddressPrivate> { return ptr.assumingMemoryBound(to: GNativeSocketAddressPrivate.self) }
+
+
 
 }
 
@@ -196,7 +199,7 @@ public extension NativeSocketAddressPrivateProtocol {
 ///
 
 public protocol NativeVolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNativeVolumeMonitorClass` instance.
@@ -209,7 +212,7 @@ public protocol NativeVolumeMonitorClassProtocol {
 ///
 
 public struct NativeVolumeMonitorClassRef: NativeVolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +265,7 @@ public extension NativeVolumeMonitorClassRef {
 ///
 
 open class NativeVolumeMonitorClass: NativeVolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +294,7 @@ open class NativeVolumeMonitorClass: NativeVolumeMonitorClassProtocol {
         // no reference counting for GNativeVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNativeVolumeMonitorClass`.
+    /// Do-nothing destructor for `GNativeVolumeMonitorClass`.
     deinit {
         // no reference counting for GNativeVolumeMonitorClass, cannot unref(cast(_ptr))
     }
@@ -359,14 +362,25 @@ open class NativeVolumeMonitorClass: NativeVolumeMonitorClassProtocol {
 
 }
 
-// MARK: - no NativeVolumeMonitorClass properties
+// MARK: no NativeVolumeMonitorClass properties
 
-// MARK: - no signals
+// MARK: no NativeVolumeMonitorClass signals
 
 
+// MARK: NativeVolumeMonitorClass Record: NativeVolumeMonitorClassProtocol extension (methods and fields)
 public extension NativeVolumeMonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeVolumeMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GNativeVolumeMonitorClass> { return ptr.assumingMemoryBound(to: GNativeVolumeMonitorClass.self) }
+
+
+    var parentClass: GVolumeMonitorClass {
+        get {
+            let rv: GVolumeMonitorClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getMountForMountPath is unavailable because get_mount_for_mount_path is void
 
 }
 
@@ -381,7 +395,7 @@ public extension NativeVolumeMonitorClassProtocol {
 ///
 
 public protocol NetworkAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkAddressClass` instance.
@@ -394,7 +408,7 @@ public protocol NetworkAddressClassProtocol {
 ///
 
 public struct NetworkAddressClassRef: NetworkAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +461,7 @@ public extension NetworkAddressClassRef {
 ///
 
 open class NetworkAddressClass: NetworkAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +490,7 @@ open class NetworkAddressClass: NetworkAddressClassProtocol {
         // no reference counting for GNetworkAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNetworkAddressClass`.
+    /// Do-nothing destructor for `GNetworkAddressClass`.
     deinit {
         // no reference counting for GNetworkAddressClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +558,23 @@ open class NetworkAddressClass: NetworkAddressClassProtocol {
 
 }
 
-// MARK: - no NetworkAddressClass properties
+// MARK: no NetworkAddressClass properties
 
-// MARK: - no signals
+// MARK: no NetworkAddressClass signals
 
 
+// MARK: NetworkAddressClass Record: NetworkAddressClassProtocol extension (methods and fields)
 public extension NetworkAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GNetworkAddressClass> { return ptr.assumingMemoryBound(to: GNetworkAddressClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -566,7 +589,7 @@ public extension NetworkAddressClassProtocol {
 ///
 
 public protocol NetworkAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkAddressPrivate` instance.
@@ -579,7 +602,7 @@ public protocol NetworkAddressPrivateProtocol {
 ///
 
 public struct NetworkAddressPrivateRef: NetworkAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +655,7 @@ public extension NetworkAddressPrivateRef {
 ///
 
 open class NetworkAddressPrivate: NetworkAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +684,7 @@ open class NetworkAddressPrivate: NetworkAddressPrivateProtocol {
         // no reference counting for GNetworkAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNetworkAddressPrivate`.
+    /// Do-nothing destructor for `GNetworkAddressPrivate`.
     deinit {
         // no reference counting for GNetworkAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -729,14 +752,17 @@ open class NetworkAddressPrivate: NetworkAddressPrivateProtocol {
 
 }
 
-// MARK: - no NetworkAddressPrivate properties
+// MARK: no NetworkAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no NetworkAddressPrivate signals
 
 
+// MARK: NetworkAddressPrivate Record: NetworkAddressPrivateProtocol extension (methods and fields)
 public extension NetworkAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GNetworkAddressPrivate> { return ptr.assumingMemoryBound(to: GNetworkAddressPrivate.self) }
+
+
 
 }
 
@@ -751,7 +777,7 @@ public extension NetworkAddressPrivateProtocol {
 ///
 /// The virtual function table for `GNetworkMonitor`.
 public protocol NetworkMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkMonitorInterface` instance.
@@ -764,7 +790,7 @@ public protocol NetworkMonitorInterfaceProtocol {
 ///
 /// The virtual function table for `GNetworkMonitor`.
 public struct NetworkMonitorInterfaceRef: NetworkMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -817,7 +843,7 @@ public extension NetworkMonitorInterfaceRef {
 ///
 /// The virtual function table for `GNetworkMonitor`.
 open class NetworkMonitorInterface: NetworkMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -846,7 +872,7 @@ open class NetworkMonitorInterface: NetworkMonitorInterfaceProtocol {
         // no reference counting for GNetworkMonitorInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNetworkMonitorInterface`.
+    /// Do-nothing destructor for `GNetworkMonitorInterface`.
     deinit {
         // no reference counting for GNetworkMonitorInterface, cannot unref(cast(_ptr))
     }
@@ -914,14 +940,33 @@ open class NetworkMonitorInterface: NetworkMonitorInterfaceProtocol {
 
 }
 
-// MARK: - no NetworkMonitorInterface properties
+// MARK: no NetworkMonitorInterface properties
 
-// MARK: - no signals
+// MARK: no NetworkMonitorInterface signals
 
 
+// MARK: NetworkMonitorInterface Record: NetworkMonitorInterfaceProtocol extension (methods and fields)
 public extension NetworkMonitorInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkMonitorInterface` instance.
     var _ptr: UnsafeMutablePointer<GNetworkMonitorInterface> { return ptr.assumingMemoryBound(to: GNetworkMonitorInterface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var networkChanged is unavailable because network_changed is void
+
+    // var canReach is unavailable because can_reach is void
+
+    // var canReachAsync is unavailable because can_reach_async is void
+
+    // var canReachFinish is unavailable because can_reach_finish is void
 
 }
 
@@ -936,7 +981,7 @@ public extension NetworkMonitorInterfaceProtocol {
 ///
 
 public protocol NetworkServiceClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
+        /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkServiceClass` instance.
@@ -949,7 +994,7 @@ public protocol NetworkServiceClassProtocol {
 ///
 
 public struct NetworkServiceClassRef: NetworkServiceClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
+        /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1002,7 +1047,7 @@ public extension NetworkServiceClassRef {
 ///
 
 open class NetworkServiceClass: NetworkServiceClassProtocol {
-    /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
+        /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1031,7 +1076,7 @@ open class NetworkServiceClass: NetworkServiceClassProtocol {
         // no reference counting for GNetworkServiceClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNetworkServiceClass`.
+    /// Do-nothing destructor for `GNetworkServiceClass`.
     deinit {
         // no reference counting for GNetworkServiceClass, cannot unref(cast(_ptr))
     }
@@ -1099,14 +1144,23 @@ open class NetworkServiceClass: NetworkServiceClassProtocol {
 
 }
 
-// MARK: - no NetworkServiceClass properties
+// MARK: no NetworkServiceClass properties
 
-// MARK: - no signals
+// MARK: no NetworkServiceClass signals
 
 
+// MARK: NetworkServiceClass Record: NetworkServiceClassProtocol extension (methods and fields)
 public extension NetworkServiceClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GNetworkServiceClass> { return ptr.assumingMemoryBound(to: GNetworkServiceClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -1121,7 +1175,7 @@ public extension NetworkServiceClassProtocol {
 ///
 
 public protocol NetworkServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkServicePrivate` instance.
@@ -1134,7 +1188,7 @@ public protocol NetworkServicePrivateProtocol {
 ///
 
 public struct NetworkServicePrivateRef: NetworkServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1187,7 +1241,7 @@ public extension NetworkServicePrivateRef {
 ///
 
 open class NetworkServicePrivate: NetworkServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
+        /// Untyped pointer to the underlying `GNetworkServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1216,7 +1270,7 @@ open class NetworkServicePrivate: NetworkServicePrivateProtocol {
         // no reference counting for GNetworkServicePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNetworkServicePrivate`.
+    /// Do-nothing destructor for `GNetworkServicePrivate`.
     deinit {
         // no reference counting for GNetworkServicePrivate, cannot unref(cast(_ptr))
     }
@@ -1284,14 +1338,17 @@ open class NetworkServicePrivate: NetworkServicePrivateProtocol {
 
 }
 
-// MARK: - no NetworkServicePrivate properties
+// MARK: no NetworkServicePrivate properties
 
-// MARK: - no signals
+// MARK: no NetworkServicePrivate signals
 
 
+// MARK: NetworkServicePrivate Record: NetworkServicePrivateProtocol extension (methods and fields)
 public extension NetworkServicePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkServicePrivate` instance.
     var _ptr: UnsafeMutablePointer<GNetworkServicePrivate> { return ptr.assumingMemoryBound(to: GNetworkServicePrivate.self) }
+
+
 
 }
 
@@ -1306,7 +1363,7 @@ public extension NetworkServicePrivateProtocol {
 ///
 
 public protocol OsxAppInfoClassProtocol {
-    /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
+        /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOsxAppInfoClass` instance.
@@ -1319,7 +1376,7 @@ public protocol OsxAppInfoClassProtocol {
 ///
 
 public struct OsxAppInfoClassRef: OsxAppInfoClassProtocol {
-    /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
+        /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1372,7 +1429,7 @@ public extension OsxAppInfoClassRef {
 ///
 
 open class OsxAppInfoClass: OsxAppInfoClassProtocol {
-    /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
+        /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1401,7 +1458,7 @@ open class OsxAppInfoClass: OsxAppInfoClassProtocol {
         // no reference counting for GOsxAppInfoClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOsxAppInfoClass`.
+    /// Do-nothing destructor for `GOsxAppInfoClass`.
     deinit {
         // no reference counting for GOsxAppInfoClass, cannot unref(cast(_ptr))
     }
@@ -1469,14 +1526,23 @@ open class OsxAppInfoClass: OsxAppInfoClassProtocol {
 
 }
 
-// MARK: - no OsxAppInfoClass properties
+// MARK: no OsxAppInfoClass properties
 
-// MARK: - no signals
+// MARK: no OsxAppInfoClass signals
 
 
+// MARK: OsxAppInfoClass Record: OsxAppInfoClassProtocol extension (methods and fields)
 public extension OsxAppInfoClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOsxAppInfoClass` instance.
     var _ptr: UnsafeMutablePointer<GOsxAppInfoClass> { return ptr.assumingMemoryBound(to: GOsxAppInfoClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 

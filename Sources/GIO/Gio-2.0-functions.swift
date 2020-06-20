@@ -42,11 +42,9 @@ public func actionNameIsValid(actionName action_name: UnsafePointer<gchar>) -> B
 /// For strings, this third format must be used if * target value is
 /// empty or contains characters other than alphanumerics, '-' and '.'.
 public func actionParse(detailedName detailed_name: UnsafePointer<gchar>, actionName action_name: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, targetValue target_value: VariantProtocol) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_action_parse_detailed_name(detailed_name, cast(action_name), cast(target_value.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -64,8 +62,8 @@ public func actionParse(detailedName detailed_name: UnsafePointer<gchar>, action
 /// See that function for the types of strings that will be printed by
 /// this function.
 public func actionPrintDetailedName(actionName action_name: UnsafePointer<gchar>, targetValue target_value: VariantProtocol) -> String! {
-    let rv = g_action_print_detailed_name(action_name, cast(target_value.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_action_print_detailed_name(action_name, cast(target_value.ptr)))
+    return cast(rv)
 }
 
 
@@ -79,11 +77,9 @@ public func actionPrintDetailedName(actionName action_name: UnsafePointer<gchar>
 /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
 /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
 public func appInfoCreateFrom(commandline: UnsafePointer<CChar>, applicationName application_name: UnsafePointer<CChar>, flags: AppInfoCreateFlags) throws -> UnsafeMutablePointer<GAppInfo>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_app_info_create_from_commandline(commandline, application_name, flags, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -99,7 +95,7 @@ public func appInfoCreateFrom(commandline: UnsafePointer<CChar>, applicationName
 /// The returned list does not include applications which have
 /// the `Hidden` key set.
 public func appInfoGetAll() -> UnsafeMutablePointer<GList>! {
-    let rv = g_app_info_get_all()
+    let rv: UnsafeMutablePointer<GList>! = cast(g_app_info_get_all())
     return cast(rv)
 }
 
@@ -111,7 +107,7 @@ public func appInfoGetAll() -> UnsafeMutablePointer<GList>! {
 /// `g_app_info_get_recommended_for_type()` and
 /// `g_app_info_get_fallback_for_type()`.
 public func appInfoGetAllForType(contentType content_type: UnsafePointer<CChar>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_app_info_get_all_for_type(content_type)
+    let rv: UnsafeMutablePointer<GList>! = cast(g_app_info_get_all_for_type(content_type))
     return cast(rv)
 }
 
@@ -120,7 +116,7 @@ public func appInfoGetAllForType(contentType content_type: UnsafePointer<CChar>)
 
 /// Gets the default `GAppInfo` for a given content type.
 public func appInfoGetDefaultForType(contentType content_type: UnsafePointer<CChar>, mustSupportURIs must_support_uris: Bool) -> UnsafeMutablePointer<GAppInfo>! {
-    let rv = g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0))
+    let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0)))
     return cast(rv)
 }
 
@@ -132,7 +128,7 @@ public func appInfoGetDefaultForType(contentType content_type: UnsafePointer<CCh
 /// of the URI, up to but not including the ':', e.g. "http",
 /// "ftp" or "sip".
 public func appInfoGetDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> UnsafeMutablePointer<GAppInfo>! {
-    let rv = g_app_info_get_default_for_uri_scheme(uri_scheme)
+    let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_uri_scheme(uri_scheme))
     return cast(rv)
 }
 
@@ -143,7 +139,7 @@ public func appInfoGetDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> 
 /// those applications which claim to support the given content type
 /// by MIME type subclassing and not directly.
 public func appInfoGetFallbackForType(contentType content_type: UnsafePointer<gchar>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_app_info_get_fallback_for_type(content_type)
+    let rv: UnsafeMutablePointer<GList>! = cast(g_app_info_get_fallback_for_type(content_type))
     return cast(rv)
 }
 
@@ -157,7 +153,7 @@ public func appInfoGetFallbackForType(contentType content_type: UnsafePointer<gc
 /// the last one for which `g_app_info_set_as_last_used_for_type()` has been
 /// called.
 public func appInfoGetRecommendedForType(contentType content_type: UnsafePointer<gchar>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_app_info_get_recommended_for_type(content_type)
+    let rv: UnsafeMutablePointer<GList>! = cast(g_app_info_get_recommended_for_type(content_type))
     return cast(rv)
 }
 
@@ -173,11 +169,9 @@ public func appInfoGetRecommendedForType(contentType content_type: UnsafePointer
 /// terminates too soon after this function. To prevent this, use
 /// `g_app_info_launch_default_for_uri_async()` instead.
 public func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>, context: AppLaunchContextProtocol) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_app_info_launch_default_for_uri(uri, cast(context.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -204,11 +198,9 @@ public func appInfoLaunchDefaultForURIAsync(uri: UnsafePointer<CChar>, context: 
 
 /// Finishes an asynchronous launch-default-for-uri operation.
 public func appInfoLaunchDefaultForURIFinish(result: AsyncResultProtocol) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_app_info_launch_default_for_uri_finish(cast(result.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -272,11 +264,9 @@ public func busGet(busType bus_type: BusType, cancellable: CancellableProtocol, 
 /// Note that the returned `GDBusConnection` object will (usually) have
 /// the `GDBusConnection:exit`-on-close property set to `true`.
 public func busGetFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GDBusConnection>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_bus_get_finish(cast(res.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_bus_get_finish(cast(res.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -300,11 +290,9 @@ public func busGetFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointe
 /// Note that the returned `GDBusConnection` object will (usually) have
 /// the `GDBusConnection:exit`-on-close property set to `true`.
 public func busGetSync(busType bus_type: BusType, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GDBusConnection>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_bus_get_sync(bus_type, cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_bus_get_sync(bus_type, cast(cancellable.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -360,9 +348,9 @@ public func busGetSync(busType bus_type: BusType, cancellable: CancellableProtoc
 /// to [own names](#gdbus-owning-names) and export objects.
 /// Simply register objects to be exported in `bus_acquired_handler` and
 /// unregister the objects (if any) in `name_lost_handler`.
-public func busOwnName(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, busAcquiredHandler bus_acquired_handler: @escaping BusAcquiredCallback, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = g_bus_own_name(bus_type, name, flags, bus_acquired_handler, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func)
-    return CUnsignedInt(rv)
+public func busOwnName(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, busAcquiredHandler bus_acquired_handler: @escaping BusAcquiredCallback, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(g_bus_own_name(bus_type, name, flags.value, bus_acquired_handler, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func))
+    return Int(rv)
 }
 
 
@@ -370,9 +358,9 @@ public func busOwnName(busType bus_type: BusType, name: UnsafePointer<gchar>, fl
 
 /// Like `g_bus_own_name()` but takes a `GDBusConnection` instead of a
 /// `GBusType`.
-public func busOwnNameOn(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = g_bus_own_name_on_connection(cast(connection.ptr), name, flags, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func)
-    return CUnsignedInt(rv)
+public func busOwnNameOn(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(g_bus_own_name_on_connection(cast(connection.ptr), name, flags.value, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func))
+    return Int(rv)
 }
 
 
@@ -380,9 +368,9 @@ public func busOwnNameOn(connection: DBusConnectionProtocol, name: UnsafePointer
 
 /// Version of `g_bus_own_name_on_connection()` using closures instead of
 /// callbacks for easier binding in other languages.
-public func busOwnNameOnConnectionWithClosures(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> CUnsignedInt {
-    let rv = g_bus_own_name_on_connection_with_closures(cast(connection.ptr), name, flags, cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr))
-    return CUnsignedInt(rv)
+public func busOwnNameOnConnectionWithClosures(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> Int {
+    let rv: Int = cast(g_bus_own_name_on_connection_with_closures(cast(connection.ptr), name, flags.value, cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr)))
+    return Int(rv)
 }
 
 
@@ -390,9 +378,9 @@ public func busOwnNameOnConnectionWithClosures(connection: DBusConnectionProtoco
 
 /// Version of `g_bus_own_name()` using closures instead of callbacks for
 /// easier binding in other languages.
-public func busOwnNameWithClosures(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, busAcquiredClosure bus_acquired_closure: ClosureProtocol, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> CUnsignedInt {
-    let rv = g_bus_own_name_with_closures(bus_type, name, flags, cast(bus_acquired_closure.ptr), cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr))
-    return CUnsignedInt(rv)
+public func busOwnNameWithClosures(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, busAcquiredClosure bus_acquired_closure: ClosureProtocol, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> Int {
+    let rv: Int = cast(g_bus_own_name_with_closures(bus_type, name, flags.value, cast(bus_acquired_closure.ptr), cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr)))
+    return Int(rv)
 }
 
 
@@ -459,9 +447,9 @@ public func busUnwatchName(watcherID watcher_id: CUnsignedInt) {
 /// Basically, the application should create object proxies in
 /// `name_appeared_handler` and destroy them again (if any) in
 /// `name_vanished_handler`.
-public func busWatchName(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = g_bus_watch_name(bus_type, name, flags, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func)
-    return CUnsignedInt(rv)
+public func busWatchName(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(g_bus_watch_name(bus_type, name, flags.value, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func))
+    return Int(rv)
 }
 
 
@@ -469,9 +457,9 @@ public func busWatchName(busType bus_type: BusType, name: UnsafePointer<gchar>, 
 
 /// Like `g_bus_watch_name()` but takes a `GDBusConnection` instead of a
 /// `GBusType`.
-public func busWatchNameOn(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = g_bus_watch_name_on_connection(cast(connection.ptr), name, flags, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func)
-    return CUnsignedInt(rv)
+public func busWatchNameOn(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(g_bus_watch_name_on_connection(cast(connection.ptr), name, flags.value, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func))
+    return Int(rv)
 }
 
 
@@ -479,9 +467,9 @@ public func busWatchNameOn(connection: DBusConnectionProtocol, name: UnsafePoint
 
 /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
 /// easier binding in other languages.
-public func busWatchNameOnConnectionWithClosures(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> CUnsignedInt {
-    let rv = g_bus_watch_name_on_connection_with_closures(cast(connection.ptr), name, flags, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr))
-    return CUnsignedInt(rv)
+public func busWatchNameOnConnectionWithClosures(connection: DBusConnectionProtocol, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> Int {
+    let rv: Int = cast(g_bus_watch_name_on_connection_with_closures(cast(connection.ptr), name, flags.value, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr)))
+    return Int(rv)
 }
 
 
@@ -489,9 +477,9 @@ public func busWatchNameOnConnectionWithClosures(connection: DBusConnectionProto
 
 /// Version of `g_bus_watch_name()` using closures instead of callbacks for
 /// easier binding in other languages.
-public func busWatchNameWithClosures(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> CUnsignedInt {
-    let rv = g_bus_watch_name_with_closures(bus_type, name, flags, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr))
-    return CUnsignedInt(rv)
+public func busWatchNameWithClosures(busType bus_type: BusType, name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> Int {
+    let rv: Int = cast(g_bus_watch_name_with_closures(bus_type, name, flags.value, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr)))
+    return Int(rv)
 }
 
 
@@ -518,8 +506,8 @@ public func contentTypeEquals(type1: UnsafePointer<gchar>, type2: UnsafePointer<
 
 /// Tries to find a content type based on the mime type name.
 public func contentTypeFrom(mimeType mime_type: UnsafePointer<gchar>) -> String! {
-    let rv = g_content_type_from_mime_type(mime_type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_content_type_from_mime_type(mime_type))
+    return cast(rv)
 }
 
 
@@ -527,8 +515,8 @@ public func contentTypeFrom(mimeType mime_type: UnsafePointer<gchar>) -> String!
 
 /// Gets the human readable description of the content type.
 public func contentTypeGetDescription(type: UnsafePointer<gchar>) -> String! {
-    let rv = g_content_type_get_description(type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_content_type_get_description(type))
+    return cast(rv)
 }
 
 
@@ -540,8 +528,8 @@ public func contentTypeGetDescription(type: UnsafePointer<gchar>) -> String! {
 /// [shared-mime-info](http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec)
 /// specification for more on the generic icon name.
 public func contentTypeGetGenericIconName(type: UnsafePointer<gchar>) -> String! {
-    let rv = g_content_type_get_generic_icon_name(type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_content_type_get_generic_icon_name(type))
+    return cast(rv)
 }
 
 
@@ -549,7 +537,7 @@ public func contentTypeGetGenericIconName(type: UnsafePointer<gchar>) -> String!
 
 /// Gets the icon for a content type.
 public func contentTypeGetIcon(type: UnsafePointer<gchar>) -> UnsafeMutablePointer<GIcon>! {
-    let rv = g_content_type_get_icon(type)
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_content_type_get_icon(type))
     return cast(rv)
 }
 
@@ -565,8 +553,8 @@ public func contentTypeGetIcon(type: UnsafePointer<gchar>) -> UnsafeMutablePoint
 
 /// Gets the mime type for the content type, if one is registered.
 public func contentTypeGetMime(type: UnsafePointer<gchar>) -> String! {
-    let rv = g_content_type_get_mime_type(type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_content_type_get_mime_type(type))
+    return cast(rv)
 }
 
 
@@ -574,7 +562,7 @@ public func contentTypeGetMime(type: UnsafePointer<gchar>) -> String! {
 
 /// Gets the symbolic icon for a content type.
 public func contentTypeGetSymbolicIcon(type: UnsafePointer<gchar>) -> UnsafeMutablePointer<GIcon>! {
-    let rv = g_content_type_get_symbolic_icon(type)
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_content_type_get_symbolic_icon(type))
     return cast(rv)
 }
 
@@ -586,8 +574,8 @@ public func contentTypeGetSymbolicIcon(type: UnsafePointer<gchar>) -> UnsafeMuta
 /// or `data` may be `nil`, in which case the guess will be based solely
 /// on the other argument.
 public func contentTypeGuess(String_: UnsafePointer<gchar>, data: UnsafePointer<guchar>, dataSize data_size: Int, resultUncertain result_uncertain: UnsafeMutablePointer<Bool>) -> String! {
-    let rv = g_content_type_guess(String_, cast(data), gsize(data_size), cast(result_uncertain))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_content_type_guess(String_, cast(data), gsize(data_size), cast(result_uncertain)))
+    return cast(rv)
 }
 
 
@@ -606,7 +594,7 @@ public func contentTypeGuess(String_: UnsafePointer<gchar>, data: UnsafePointer<
 /// This function is useful in the implementation of
 /// `g_mount_guess_content_type()`.
 public func contentTypeGuessForTree(root: FileProtocol) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_content_type_guess_for_tree(cast(root.ptr))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_content_type_guess_for_tree(cast(root.ptr)))
     return cast(rv)
 }
 
@@ -655,7 +643,7 @@ public func contentTypeIsUnknown(type: UnsafePointer<gchar>) -> Bool {
 /// known to the system. The list and its data should be freed using
 /// `g_list_free_full (list, g_free)`.
 public func contentTypesGetRegistered() -> UnsafeMutablePointer<GList>! {
-    let rv = g_content_types_get_registered()
+    let rv: UnsafeMutablePointer<GList>! = cast(g_content_types_get_registered())
     return cast(rv)
 }
 
@@ -670,8 +658,8 @@ public func contentTypesGetRegistered() -> UnsafeMutablePointer<GList>! {
 /// which could be used in a D-Bus address like
 /// `unix:nonce-tcp:host=127.0.0.1,port=42,noncefile=/run/bus-for-`3A0``.
 public func dbusAddressEscapeValue(string: UnsafePointer<gchar>) -> String! {
-    let rv = g_dbus_address_escape_value(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dbus_address_escape_value(string))
+    return cast(rv)
 }
 
 
@@ -684,12 +672,10 @@ public func dbusAddressEscapeValue(string: UnsafePointer<gchar>) -> String! {
 /// The returned address will be in the
 /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
 public func dbusAddressGetForBusSync(busType bus_type: BusType, cancellable: CancellableProtocol) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dbus_address_get_for_bus_sync(bus_type, cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_dbus_address_get_for_bus_sync(bus_type, cast(cancellable.ptr), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -716,11 +702,9 @@ public func dbusAddressGetStream(address: UnsafePointer<gchar>, cancellable: Can
 
 /// Finishes an operation started with `g_dbus_address_get_stream()`.
 public func dbusAddressGetStreamFinish(res: AsyncResultProtocol, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dbus_address_get_stream_finish(cast(res.ptr), cast(out_guid), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_address_get_stream_finish(cast(res.ptr), cast(out_guid), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -735,11 +719,9 @@ public func dbusAddressGetStreamFinish(res: AsyncResultProtocol, outGuid out_gui
 /// This is a synchronous failable function. See
 /// `g_dbus_address_get_stream()` for the asynchronous version.
 public func dbusAddressGetStreamSync(address: UnsafePointer<gchar>, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dbus_address_get_stream_sync(address, cast(out_guid), cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_address_get_stream_sync(address, cast(out_guid), cast(cancellable.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -750,8 +732,8 @@ public func dbusAddressGetStreamSync(address: UnsafePointer<gchar>, outGuid out_
 /// 
 /// The cost of this function is `O(n)` in number of annotations.
 public func dbusAnnotationInfoLookup(annotations: UnsafeMutablePointer<UnsafeMutablePointer<GDBusAnnotationInfo>>, name: UnsafePointer<gchar>) -> String! {
-    let rv = g_dbus_annotation_info_lookup(cast(annotations), name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dbus_annotation_info_lookup(cast(annotations), name))
+    return cast(rv)
 }
 
 
@@ -769,8 +751,8 @@ public func dbusAnnotationInfoLookup(annotations: UnsafeMutablePointer<UnsafeMut
 /// This function is typically only used in object mappings to put a
 /// `GError` on the wire. Regular applications should not use it.
 public func dbusErrorEncodeGerror(error: ErrorTypeProtocol) -> String! {
-    let rv = g_dbus_error_encode_gerror(cast(error.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dbus_error_encode_gerror(cast(error.ptr)))
+    return cast(rv)
 }
 
 
@@ -783,8 +765,8 @@ public func dbusErrorEncodeGerror(error: ErrorTypeProtocol) -> String! {
 /// (e.g. `g_dbus_connection_call_finish()`) unless
 /// `g_dbus_error_strip_remote_error()` has been used on `error`.
 public func dbusErrorGetRemote(error: ErrorTypeProtocol) -> String! {
-    let rv = g_dbus_error_get_remote_error(cast(error.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dbus_error_get_remote_error(cast(error.ptr)))
+    return cast(rv)
 }
 
 
@@ -827,7 +809,7 @@ public func dbusErrorIsRemote(error: ErrorTypeProtocol) -> Bool {
 /// `GError` instances for applications. Regular applications should not use
 /// it.
 public func dbusErrorNewForDbusError(dbusErrorName dbus_error_name: UnsafePointer<gchar>, dbusErrorMessage dbus_error_message: UnsafePointer<gchar>) -> UnsafeMutablePointer<GError>! {
-    let rv = g_dbus_error_new_for_dbus_error(dbus_error_name, dbus_error_message)
+    let rv: UnsafeMutablePointer<GError>! = cast(g_dbus_error_new_for_dbus_error(dbus_error_name, dbus_error_message))
     return cast(rv)
 }
 
@@ -836,7 +818,7 @@ public func dbusErrorNewForDbusError(dbusErrorName dbus_error_name: UnsafePointe
 
 public func dbusErrorQuark() -> GQuark {
     let rv = g_dbus_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -893,8 +875,8 @@ public func dbusErrorUnregisterError(errorDomain error_domain: GLib.Quark, error
 /// See the D-Bus specification regarding what strings are valid D-Bus
 /// GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
 public func dbusGenerateGuid() -> String! {
-    let rv = g_dbus_generate_guid()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dbus_generate_guid())
+    return cast(rv)
 }
 
 
@@ -929,7 +911,7 @@ public func dbusGenerateGuid() -> String! {
 /// See the `g_dbus_gvariant_to_gvalue()` function for how to convert a
 /// `GVariant` to a `GValue`.
 public func dbusGvalueToGvariant(gvalue: ValueProtocol, type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-    let rv = g_dbus_gvalue_to_gvariant(cast(gvalue.ptr), cast(type.ptr))
+    let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_gvalue_to_gvariant(cast(gvalue.ptr), cast(type.ptr)))
     return cast(rv)
 }
 
@@ -1013,11 +995,9 @@ public func dbusIsName(string: UnsafePointer<gchar>) -> Bool {
 /// are valid. See the specification of the
 /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
 public func dbusIsSupportedAddress(string: UnsafePointer<gchar>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_dbus_is_supported_address(string, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -1036,11 +1016,9 @@ public func dbusIsUniqueName(string: UnsafePointer<gchar>) -> Bool {
 /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
 /// assumed to communicate with the server identified by `server_identity`.
 public func dtlsClientConnectionNew(baseSocket base_socket: DatagramBasedProtocol, serverIdentity server_identity: SocketConnectableProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dtls_client_connection_new(cast(base_socket.ptr), cast(server_identity.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_client_connection_new(cast(base_socket.ptr), cast(server_identity.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1049,11 +1027,9 @@ public func dtlsClientConnectionNew(baseSocket base_socket: DatagramBasedProtoco
 
 /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
 public func dtlsServerConnectionNew(baseSocket base_socket: DatagramBasedProtocol, certificate: TLSCertificateProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dtls_server_connection_new(cast(base_socket.ptr), cast(certificate.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_server_connection_new(cast(base_socket.ptr), cast(certificate.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1075,7 +1051,7 @@ public func dtlsServerConnectionNew(baseSocket base_socket: DatagramBasedProtoco
 /// for you there.  It is also always possible to use this function with
 /// `GOptionContext` arguments of type `G_OPTION_ARG_FILENAME`.
 public func fileNewForCommandline(arg: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-    let rv = g_file_new_for_commandline_arg(arg)
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg(arg))
     return cast(rv)
 }
 
@@ -1094,7 +1070,7 @@ public func fileNewForCommandline(arg: UnsafePointer<CChar>) -> UnsafeMutablePoi
 /// 
 /// See also `g_application_command_line_create_file_for_arg()`.
 public func fileNewForCommandlineArgAndCwd(arg: UnsafePointer<gchar>, cwd: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFile>! {
-    let rv = g_file_new_for_commandline_arg_and_cwd(arg, cwd)
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg_and_cwd(arg, cwd))
     return cast(rv)
 }
 
@@ -1105,7 +1081,7 @@ public func fileNewForCommandlineArgAndCwd(arg: UnsafePointer<gchar>, cwd: Unsaf
 /// fails, but the returned object might not support any I/O
 /// operation if `path` is malformed.
 public func fileNewFor(path: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-    let rv = g_file_new_for_path(path)
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_path(path))
     return cast(rv)
 }
 
@@ -1117,7 +1093,7 @@ public func fileNewFor(path: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile
 /// operation if `uri` is malformed or if the uri type is
 /// not supported.
 public func fileNewFor(uri: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-    let rv = g_file_new_for_uri(uri)
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_uri(uri))
     return cast(rv)
 }
 
@@ -1135,11 +1111,9 @@ public func fileNewFor(uri: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>
 /// Unlike the other `GFile` constructors, this will return `nil` if
 /// a temporary file could not be created.
 public func fileNewTmp(tmpl: UnsafePointer<CChar>, iostream: FileIOStreamProtocol) throws -> UnsafeMutablePointer<GFile>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_file_new_tmp(tmpl, cast(iostream.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_tmp(tmpl, cast(iostream.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1151,7 +1125,7 @@ public func fileNewTmp(tmpl: UnsafePointer<CChar>, iostream: FileIOStreamProtoco
 /// but the returned object might not support any I/O operation if
 /// the `parse_name` cannot be parsed.
 public func file(parseName parse_name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-    let rv = g_file_parse_name(parse_name)
+    let rv: UnsafeMutablePointer<GFile>! = cast(g_file_parse_name(parse_name))
     return cast(rv)
 }
 
@@ -1160,7 +1134,7 @@ public func file(parseName parse_name: UnsafePointer<CChar>) -> UnsafeMutablePoi
 
 /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
 public func iconDeserialize(value: VariantProtocol) -> UnsafeMutablePointer<GIcon>! {
-    let rv = g_icon_deserialize(cast(value.ptr))
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_deserialize(cast(value.ptr)))
     return cast(rv)
 }
 
@@ -1168,9 +1142,9 @@ public func iconDeserialize(value: VariantProtocol) -> UnsafeMutablePointer<GIco
 
 
 /// Gets a hash for an icon.
-public func iconHash(icon: gconstpointer) -> CUnsignedInt {
-    let rv = g_icon_hash(cast(icon))
-    return CUnsignedInt(rv)
+public func iconHash(icon: gconstpointer) -> Int {
+    let rv: Int = cast(g_icon_hash(cast(icon)))
+    return Int(rv)
 }
 
 
@@ -1183,11 +1157,9 @@ public func iconHash(icon: gconstpointer) -> CUnsignedInt {
 /// implementations you need to ensure that each `GType` is registered
 /// with the type system prior to calling `g_icon_new_for_string()`.
 public func iconNewForString(str: UnsafePointer<gchar>) throws -> UnsafeMutablePointer<GIcon>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_icon_new_for_string(str, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_new_for_string(str, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1202,11 +1174,9 @@ public func iconNewForString(str: UnsafePointer<gchar>) throws -> UnsafeMutableP
 /// Use g_object_new_with_properties() and
 /// g_initable_init() instead. See #GParameter for more information.
 @available(*, deprecated) public func initableNewv(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>, cancellable: CancellableProtocol) throws -> UnsafeMutableRawPointer! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_initable_newv(object_type, guint(n_parameters), cast(parameters), cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutableRawPointer! = cast(g_initable_newv(object_type, guint(n_parameters), cast(parameters), cast(cancellable.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1222,7 +1192,7 @@ public func iconNewForString(str: UnsafePointer<gchar>) throws -> UnsafeMutableP
 /// calls, you should save its value as soon as the call which sets it
 public func ioErrorFromErrno(errNo err_no: CInt) -> GIOErrorEnum {
     let rv = g_io_error_from_errno(gint(err_no))
-    return rv
+    return cast(rv)
 }
 
 
@@ -1231,7 +1201,7 @@ public func ioErrorFromErrno(errNo err_no: CInt) -> GIOErrorEnum {
 /// Gets the GIO Error Quark.
 public func ioErrorQuark() -> GQuark {
     let rv = g_io_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1243,7 +1213,7 @@ public func ioErrorQuark() -> GQuark {
 /// If `type` has already been registered as an extension for this
 /// extension point, the existing `GIOExtension` object is returned.
 public func ioExtensionPointImplement(extensionPointName extension_point_name: UnsafePointer<CChar>, type: GType, extensionName extension_name: UnsafePointer<CChar>, priority: CInt) -> UnsafeMutablePointer<GIOExtension>! {
-    let rv = g_io_extension_point_implement(extension_point_name, type, extension_name, gint(priority))
+    let rv: UnsafeMutablePointer<GIOExtension>! = cast(g_io_extension_point_implement(extension_point_name, type, extension_name, gint(priority)))
     return cast(rv)
 }
 
@@ -1252,7 +1222,7 @@ public func ioExtensionPointImplement(extensionPointName extension_point_name: U
 
 /// Looks up an existing extension point.
 public func ioExtensionPointLookup(name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GIOExtensionPoint>! {
-    let rv = g_io_extension_point_lookup(name)
+    let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_lookup(name))
     return cast(rv)
 }
 
@@ -1261,7 +1231,7 @@ public func ioExtensionPointLookup(name: UnsafePointer<CChar>) -> UnsafeMutableP
 
 /// Registers an extension point.
 public func ioExtensionPointRegister(name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GIOExtensionPoint>! {
-    let rv = g_io_extension_point_register(name)
+    let rv: UnsafeMutablePointer<GIOExtensionPoint>! = cast(g_io_extension_point_register(name))
     return cast(rv)
 }
 
@@ -1274,7 +1244,7 @@ public func ioExtensionPointRegister(name: UnsafePointer<CChar>) -> UnsafeMutabl
 /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
 /// which allows delayed/lazy loading of modules.
 public func ioModulesLoadAllInDirectory(dirname: UnsafePointer<gchar>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_io_modules_load_all_in_directory(dirname)
+    let rv: UnsafeMutablePointer<GList>! = cast(g_io_modules_load_all_in_directory(dirname))
     return cast(rv)
 }
 
@@ -1287,7 +1257,7 @@ public func ioModulesLoadAllInDirectory(dirname: UnsafePointer<gchar>) -> Unsafe
 /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
 /// which allows delayed/lazy loading of modules.
 public func ioModulesLoadAllInDirectoryWithScope(dirname: UnsafePointer<gchar>, scope: IOModuleScopeProtocol) -> UnsafeMutablePointer<GList>! {
-    let rv = g_io_modules_load_all_in_directory_with_scope(dirname, cast(scope.ptr))
+    let rv: UnsafeMutablePointer<GList>! = cast(g_io_modules_load_all_in_directory_with_scope(dirname, cast(scope.ptr)))
     return cast(rv)
 }
 
@@ -1418,7 +1388,7 @@ public func ioModulesScanAllInDirectoryWithScope(dirname: UnsafePointer<gchar>, 
 /// and a list of locked keys from a text file with the name `locks` in
 /// the same location.
 public func keyfileSettingsBackendNew(String_: UnsafePointer<gchar>, rootPath root_path: UnsafePointer<gchar>, rootGroup root_group: UnsafePointer<gchar>) -> UnsafeMutablePointer<GSettingsBackend>! {
-    let rv = g_keyfile_settings_backend_new(String_, root_path, root_group)
+    let rv: UnsafeMutablePointer<GSettingsBackend>! = cast(g_keyfile_settings_backend_new(String_, root_path, root_group))
     return cast(rv)
 }
 
@@ -1427,7 +1397,7 @@ public func keyfileSettingsBackendNew(String_: UnsafePointer<gchar>, rootPath ro
 
 /// Gets a reference to the default `GMemoryMonitor` for the system.
 public func memoryMonitorDupDefault() -> UnsafeMutablePointer<GMemoryMonitor>! {
-    let rv = g_memory_monitor_dup_default()
+    let rv: UnsafeMutablePointer<GMemoryMonitor>! = cast(g_memory_monitor_dup_default())
     return cast(rv)
 }
 
@@ -1440,7 +1410,7 @@ public func memoryMonitorDupDefault() -> UnsafeMutablePointer<GMemoryMonitor>! {
 /// to any backing storage, so the next time you run your application,
 /// the memory backend will start out with the default values again.
 public func memorySettingsBackendNew() -> UnsafeMutablePointer<GSettingsBackend>! {
-    let rv = g_memory_settings_backend_new()
+    let rv: UnsafeMutablePointer<GSettingsBackend>! = cast(g_memory_settings_backend_new())
     return cast(rv)
 }
 
@@ -1449,7 +1419,7 @@ public func memorySettingsBackendNew() -> UnsafeMutablePointer<GSettingsBackend>
 
 /// Gets the default `GNetworkMonitor` for the system.
 public func networkMonitorGetDefault() -> UnsafeMutablePointer<GNetworkMonitor>! {
-    let rv = g_network_monitor_get_default()
+    let rv: UnsafeMutablePointer<GNetworkMonitor>! = cast(g_network_monitor_get_default())
     return cast(rv)
 }
 
@@ -1473,7 +1443,7 @@ public func networkingInit() {
 /// This backend does not allow changes to settings, so all settings
 /// will always have their default values.
 public func nullSettingsBackendNew() -> UnsafeMutablePointer<GSettingsBackend>! {
-    let rv = g_null_settings_backend_new()
+    let rv: UnsafeMutablePointer<GSettingsBackend>! = cast(g_null_settings_backend_new())
     return cast(rv)
 }
 
@@ -1486,7 +1456,7 @@ public func nullSettingsBackendNew() -> UnsafeMutablePointer<GSettingsBackend>! 
 /// anything on its own; use `g_source_add_child_source()` to add other
 /// sources to it to cause it to trigger.
 public func pollableSourceNew(pollableStream pollable_stream: ObjectProtocol) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_pollable_source_new(cast(pollable_stream.ptr))
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_source_new(cast(pollable_stream.ptr)))
     return cast(rv)
 }
 
@@ -1498,7 +1468,7 @@ public func pollableSourceNew(pollableStream pollable_stream: ObjectProtocol) ->
 /// `g_pollable_source_new()`, but also attaching `child_source` (with a
 /// dummy callback), and `cancellable`, if they are non-`nil`.
 public func pollableSourceNewFull(pollableStream pollable_stream: ObjectProtocol, childSource child_source: SourceProtocol, cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_pollable_source_new_full(cast(pollable_stream.ptr), cast(child_source.ptr), cast(cancellable.ptr))
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_source_new_full(cast(pollable_stream.ptr), cast(child_source.ptr), cast(cancellable.ptr)))
     return cast(rv)
 }
 
@@ -1515,12 +1485,10 @@ public func pollableSourceNewFull(pollableStream pollable_stream: ObjectProtocol
 /// returns `true`, or else the behavior is undefined. If `blocking` is
 /// `true`, then `stream` does not need to be a `GPollableInputStream`.
 public func pollableStreamRead(stream: InputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_pollable_stream_read(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -1537,12 +1505,10 @@ public func pollableStreamRead(stream: InputStreamProtocol, buffer: UnsafeMutabl
 /// behavior is undefined. If `blocking` is `true`, then `stream` does not
 /// need to be a `GPollableOutputStream`.
 public func pollableStreamWrite(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_pollable_stream_write(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -1567,11 +1533,9 @@ public func pollableStreamWrite(stream: OutputStreamProtocol, buffer: UnsafeMuta
 /// behavior is undefined. If `blocking` is `true`, then `stream` does not
 /// need to be a `GPollableOutputStream`.
 public func pollableStreamWriteAll(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_pollable_stream_write_all(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(bytes_written), cast(cancellable.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -1581,7 +1545,7 @@ public func pollableStreamWriteAll(stream: OutputStreamProtocol, buffer: UnsafeM
 /// Find the `gio-proxy` extension point for a proxy implementation that supports
 /// the specified protocol.
 public func proxyGetDefaultForProtocol(protocol_: UnsafePointer<gchar>) -> UnsafeMutablePointer<GProxy>! {
-    let rv = g_proxy_get_default_for_protocol(protocol_)
+    let rv: UnsafeMutablePointer<GProxy>! = cast(g_proxy_get_default_for_protocol(protocol_))
     return cast(rv)
 }
 
@@ -1590,7 +1554,7 @@ public func proxyGetDefaultForProtocol(protocol_: UnsafePointer<gchar>) -> Unsaf
 
 /// Gets the default `GProxyResolver` for the system.
 public func proxyResolverGetDefault() -> UnsafeMutablePointer<GProxyResolver>! {
-    let rv = g_proxy_resolver_get_default()
+    let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_proxy_resolver_get_default())
     return cast(rv)
 }
 
@@ -1600,7 +1564,7 @@ public func proxyResolverGetDefault() -> UnsafeMutablePointer<GProxyResolver>! {
 /// Gets the `GResolver` Error Quark.
 public func resolverErrorQuark() -> GQuark {
     let rv = g_resolver_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1609,7 +1573,7 @@ public func resolverErrorQuark() -> GQuark {
 /// Gets the `GResource` Error Quark.
 public func resourceErrorQuark() -> GQuark {
     let rv = g_resource_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1626,11 +1590,9 @@ public func resourceErrorQuark() -> GQuark {
 /// there is an error in reading it, an error from `g_mapped_file_new()` will be
 /// returned.
 public func resourceLoad(String_: UnsafePointer<gchar>) throws -> UnsafeMutablePointer<GResource>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_resource_load(String_, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_load(String_, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1644,11 +1606,9 @@ public func resourceLoad(String_: UnsafePointer<gchar>) throws -> UnsafeMutableP
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
 public func resourcesEnumerateChildren(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_resources_enumerate_children(path, lookup_flags, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_resources_enumerate_children(path, lookup_flags.value, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1660,11 +1620,9 @@ public func resourcesEnumerateChildren(path: UnsafePointer<CChar>, lookupFlags l
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
 public func resourcesGetInfo(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<Int>, flags: UnsafeMutablePointer<UInt32>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_resources_get_info(path, lookup_flags, cast(size), cast(flags), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_resources_get_info(path, lookup_flags.value, cast(size), cast(flags), &error)
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -1686,11 +1644,9 @@ public func resourcesGetInfo(path: UnsafePointer<CChar>, lookupFlags lookup_flag
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
 public func resourcesLookupData(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GBytes>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_resources_lookup_data(path, lookup_flags, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GBytes>! = cast(g_resources_lookup_data(path, lookup_flags.value, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1703,11 +1659,9 @@ public func resourcesLookupData(path: UnsafePointer<CChar>, lookupFlags lookup_f
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
 public func resourcesOpenStream(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GInputStream>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_resources_open_stream(path, lookup_flags, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GInputStream>! = cast(g_resources_open_stream(path, lookup_flags.value, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1748,7 +1702,7 @@ public func resourcesUnregister(resource: ResourceProtocol) {
 /// lookups performed against the default source should probably be done
 /// recursively.
 public func settingsSchemaSourceGetDefault() -> UnsafeMutablePointer<GSettingsSchemaSource>! {
-    let rv = g_settings_schema_source_get_default()
+    let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_get_default())
     return cast(rv)
 }
 
@@ -1792,7 +1746,7 @@ public func settingsSchemaSourceGetDefault() -> UnsafeMutablePointer<GSettingsSc
 
 /// Sorts `targets` in place according to the algorithm in RFC 2782.
 public func srvTargetListSort(targets: ListProtocol) -> UnsafeMutablePointer<GList>! {
-    let rv = g_srv_target_list_sort(cast(targets.ptr))
+    let rv: UnsafeMutablePointer<GList>! = cast(g_srv_target_list_sort(cast(targets.ptr)))
     return cast(rv)
 }
 
@@ -1801,7 +1755,7 @@ public func srvTargetListSort(targets: ListProtocol) -> UnsafeMutablePointer<GLi
 
 /// Gets the default `GTlsBackend` for the system.
 public func tlsBackendGetDefault() -> UnsafeMutablePointer<GTlsBackend>! {
-    let rv = g_tls_backend_get_default()
+    let rv: UnsafeMutablePointer<GTlsBackend>! = cast(g_tls_backend_get_default())
     return cast(rv)
 }
 
@@ -1816,11 +1770,9 @@ public func tlsBackendGetDefault() -> UnsafeMutablePointer<GTlsBackend>! {
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 public func tlsClientConnectionNew(baseIoStream base_io_stream: IOStreamProtocol, serverIdentity server_identity: SocketConnectableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_tls_client_connection_new(cast(base_io_stream.ptr), cast(server_identity.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_client_connection_new(cast(base_io_stream.ptr), cast(server_identity.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1830,7 +1782,7 @@ public func tlsClientConnectionNew(baseIoStream base_io_stream: IOStreamProtocol
 /// Gets the TLS error quark.
 public func tlsErrorQuark() -> GQuark {
     let rv = g_tls_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1841,11 +1793,9 @@ public func tlsErrorQuark() -> GQuark {
 /// 
 /// The certificates in `anchors` must be PEM encoded.
 public func tlsFileDatabaseNew(anchors: UnsafePointer<gchar>) throws -> UnsafeMutablePointer<GTlsDatabase>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_tls_file_database_new(anchors, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_file_database_new(anchors, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1859,11 +1809,9 @@ public func tlsFileDatabaseNew(anchors: UnsafePointer<gchar>) throws -> UnsafeMu
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 public func tlsServerConnectionNew(baseIoStream base_io_stream: IOStreamProtocol, certificate: TLSCertificateProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_tls_server_connection_new(cast(base_io_stream.ptr), cast(certificate.ptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_server_connection_new(cast(base_io_stream.ptr), cast(certificate.ptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1919,7 +1867,7 @@ public func unixIsSystem(fsType fs_type: UnsafePointer<CChar>) -> Bool {
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
 public func unixMountAt(mountPath mount_path: UnsafePointer<CChar>, timeRead time_read: UnsafeMutablePointer<UInt64>) -> UnsafeMutablePointer<GUnixMountEntry>! {
-    let rv = g_unix_mount_at(mount_path, cast(time_read))
+    let rv: UnsafeMutablePointer<GUnixMountEntry>! = cast(g_unix_mount_at(mount_path, cast(time_read)))
     return cast(rv)
 }
 
@@ -1927,9 +1875,9 @@ public func unixMountAt(mountPath mount_path: UnsafePointer<CChar>, timeRead tim
 
 
 /// Compares two unix mounts.
-public func unixMountCompare(mount1: UnixMountEntryProtocol, mount2: UnixMountEntryProtocol) -> CInt {
-    let rv = g_unix_mount_compare(cast(mount1.ptr), cast(mount2.ptr))
-    return CInt(rv)
+public func unixMountCompare(mount1: UnixMountEntryProtocol, mount2: UnixMountEntryProtocol) -> Int {
+    let rv: Int = cast(g_unix_mount_compare(cast(mount1.ptr), cast(mount2.ptr)))
+    return Int(rv)
 }
 
 
@@ -1937,7 +1885,7 @@ public func unixMountCompare(mount1: UnixMountEntryProtocol, mount2: UnixMountEn
 
 /// Makes a copy of `mount_entry`.
 public func unixMountCopy(mountEntry mount_entry: UnixMountEntryProtocol) -> UnsafeMutablePointer<GUnixMountEntry>! {
-    let rv = g_unix_mount_copy(cast(mount_entry.ptr))
+    let rv: UnsafeMutablePointer<GUnixMountEntry>! = cast(g_unix_mount_copy(cast(mount_entry.ptr)))
     return cast(rv)
 }
 
@@ -1951,7 +1899,7 @@ public func unixMountCopy(mountEntry mount_entry: UnixMountEntryProtocol) -> Uns
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
 public func unixMountFor(filePath file_path: UnsafePointer<CChar>, timeRead time_read: UnsafeMutablePointer<UInt64>) -> UnsafeMutablePointer<GUnixMountEntry>! {
-    let rv = g_unix_mount_for(file_path, cast(time_read))
+    let rv: UnsafeMutablePointer<GUnixMountEntry>! = cast(g_unix_mount_for(file_path, cast(time_read)))
     return cast(rv)
 }
 
@@ -1969,8 +1917,8 @@ public func unixMountFree(mountEntry mount_entry: UnixMountEntryProtocol) {
 
 /// Gets the device path for a unix mount.
 public func unixMountGetDevicePath(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_get_device_path(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_get_device_path(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -1978,8 +1926,8 @@ public func unixMountGetDevicePath(mountEntry mount_entry: UnixMountEntryProtoco
 
 /// Gets the filesystem type for the unix mount.
 public func unixMountGetFsType(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_get_fs_type(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_get_fs_type(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -1987,8 +1935,8 @@ public func unixMountGetFsType(mountEntry mount_entry: UnixMountEntryProtocol) -
 
 /// Gets the mount path for a unix mount.
 public func unixMountGetMountPath(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_get_mount_path(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_get_mount_path(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -2000,8 +1948,8 @@ public func unixMountGetMountPath(mountEntry mount_entry: UnixMountEntryProtocol
 /// This is similar to `g_unix_mount_point_get_options()`, but it takes
 /// a `GUnixMountEntry` as an argument.
 public func unixMountGetOptions(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_get_options(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_get_options(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -2014,8 +1962,8 @@ public func unixMountGetOptions(mountEntry mount_entry: UnixMountEntryProtocol) 
 /// "mount /dev/sda1 /mnt/foo" and "/bar" for
 /// "mount --bind /mnt/foo/bar /mnt/bar".
 public func unixMountGetRootPath(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_get_root_path(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_get_root_path(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -2032,7 +1980,7 @@ public func unixMountGuessCanEject(mountEntry mount_entry: UnixMountEntryProtoco
 
 /// Guesses the icon of a Unix mount.
 public func unixMountGuessIcon(mountEntry mount_entry: UnixMountEntryProtocol) -> UnsafeMutablePointer<GIcon>! {
-    let rv = g_unix_mount_guess_icon(cast(mount_entry.ptr))
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_guess_icon(cast(mount_entry.ptr)))
     return cast(rv)
 }
 
@@ -2042,8 +1990,8 @@ public func unixMountGuessIcon(mountEntry mount_entry: UnixMountEntryProtocol) -
 /// Guesses the name of a Unix mount.
 /// The result is a translated string.
 public func unixMountGuessName(mountEntry mount_entry: UnixMountEntryProtocol) -> String! {
-    let rv = g_unix_mount_guess_name(cast(mount_entry.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_unix_mount_guess_name(cast(mount_entry.ptr)))
+    return cast(rv)
 }
 
 
@@ -2060,7 +2008,7 @@ public func unixMountGuessShouldDisplay(mountEntry mount_entry: UnixMountEntryPr
 
 /// Guesses the symbolic icon of a Unix mount.
 public func unixMountGuessSymbolicIcon(mountEntry mount_entry: UnixMountEntryProtocol) -> UnsafeMutablePointer<GIcon>! {
-    let rv = g_unix_mount_guess_symbolic_icon(cast(mount_entry.ptr))
+    let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_guess_symbolic_icon(cast(mount_entry.ptr)))
     return cast(rv)
 }
 
@@ -2104,7 +2052,7 @@ public func unixMountPointsChangedSince(time: UInt64) -> Bool {
 /// allowing for checking if the mounts have changed with
 /// `g_unix_mount_points_changed_since()`.
 public func unixMountPointsGet(timeRead time_read: UnsafeMutablePointer<UInt64>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_unix_mount_points_get(cast(time_read))
+    let rv: UnsafeMutablePointer<GList>! = cast(g_unix_mount_points_get(cast(time_read)))
     return cast(rv)
 }
 
@@ -2125,7 +2073,7 @@ public func unixMountsChangedSince(time: UInt64) -> Bool {
 /// timestamp, allowing for checking if the mounts have changed
 /// with `g_unix_mounts_changed_since()`.
 public func unixMountsGet(timeRead time_read: UnsafeMutablePointer<UInt64>) -> UnsafeMutablePointer<GList>! {
-    let rv = g_unix_mounts_get(cast(time_read))
+    let rv: UnsafeMutablePointer<GList>! = cast(g_unix_mounts_get(cast(time_read)))
     return cast(rv)
 }
 

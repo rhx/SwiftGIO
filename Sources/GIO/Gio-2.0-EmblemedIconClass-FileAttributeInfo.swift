@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol EmblemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEmblemedIconClass` instance.
@@ -24,7 +24,7 @@ public protocol EmblemedIconClassProtocol {
 ///
 
 public struct EmblemedIconClassRef: EmblemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension EmblemedIconClassRef {
 ///
 
 open class EmblemedIconClass: EmblemedIconClassProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class EmblemedIconClass: EmblemedIconClassProtocol {
         // no reference counting for GEmblemedIconClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GEmblemedIconClass`.
+    /// Do-nothing destructor for `GEmblemedIconClass`.
     deinit {
         // no reference counting for GEmblemedIconClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,23 @@ open class EmblemedIconClass: EmblemedIconClassProtocol {
 
 }
 
-// MARK: - no EmblemedIconClass properties
+// MARK: no EmblemedIconClass properties
 
-// MARK: - no signals
+// MARK: no EmblemedIconClass signals
 
 
+// MARK: EmblemedIconClass Record: EmblemedIconClassProtocol extension (methods and fields)
 public extension EmblemedIconClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblemedIconClass` instance.
     var _ptr: UnsafeMutablePointer<GEmblemedIconClass> { return ptr.assumingMemoryBound(to: GEmblemedIconClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -196,7 +205,7 @@ public extension EmblemedIconClassProtocol {
 ///
 
 public protocol EmblemedIconPrivateProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEmblemedIconPrivate` instance.
@@ -209,7 +218,7 @@ public protocol EmblemedIconPrivateProtocol {
 ///
 
 public struct EmblemedIconPrivateRef: EmblemedIconPrivateProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +271,7 @@ public extension EmblemedIconPrivateRef {
 ///
 
 open class EmblemedIconPrivate: EmblemedIconPrivateProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
+        /// Untyped pointer to the underlying `GEmblemedIconPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +300,7 @@ open class EmblemedIconPrivate: EmblemedIconPrivateProtocol {
         // no reference counting for GEmblemedIconPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GEmblemedIconPrivate`.
+    /// Do-nothing destructor for `GEmblemedIconPrivate`.
     deinit {
         // no reference counting for GEmblemedIconPrivate, cannot unref(cast(_ptr))
     }
@@ -359,14 +368,17 @@ open class EmblemedIconPrivate: EmblemedIconPrivateProtocol {
 
 }
 
-// MARK: - no EmblemedIconPrivate properties
+// MARK: no EmblemedIconPrivate properties
 
-// MARK: - no signals
+// MARK: no EmblemedIconPrivate signals
 
 
+// MARK: EmblemedIconPrivate Record: EmblemedIconPrivateProtocol extension (methods and fields)
 public extension EmblemedIconPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblemedIconPrivate` instance.
     var _ptr: UnsafeMutablePointer<GEmblemedIconPrivate> { return ptr.assumingMemoryBound(to: GEmblemedIconPrivate.self) }
+
+
 
 }
 
@@ -381,7 +393,7 @@ public extension EmblemedIconPrivateProtocol {
 ///
 /// Information about a specific attribute.
 public protocol FileAttributeInfoProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileAttributeInfo` instance.
@@ -394,7 +406,7 @@ public protocol FileAttributeInfoProtocol {
 ///
 /// Information about a specific attribute.
 public struct FileAttributeInfoRef: FileAttributeInfoProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +459,7 @@ public extension FileAttributeInfoRef {
 ///
 /// Information about a specific attribute.
 open class FileAttributeInfo: FileAttributeInfoProtocol {
-    /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
+        /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +488,7 @@ open class FileAttributeInfo: FileAttributeInfoProtocol {
         // no reference counting for GFileAttributeInfo, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GFileAttributeInfo`.
+    /// Do-nothing destructor for `GFileAttributeInfo`.
     deinit {
         // no reference counting for GFileAttributeInfo, cannot unref(cast(_ptr))
     }
@@ -544,14 +556,55 @@ open class FileAttributeInfo: FileAttributeInfoProtocol {
 
 }
 
-// MARK: - no FileAttributeInfo properties
+// MARK: no FileAttributeInfo properties
 
-// MARK: - no signals
+// MARK: no FileAttributeInfo signals
 
 
+// MARK: FileAttributeInfo Record: FileAttributeInfoProtocol extension (methods and fields)
 public extension FileAttributeInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileAttributeInfo` instance.
     var _ptr: UnsafeMutablePointer<GFileAttributeInfo> { return ptr.assumingMemoryBound(to: GFileAttributeInfo.self) }
+
+
+    /// the name of the attribute.
+    var name: UnsafePointer<CChar> {
+        /// the name of the attribute.
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.name)
+            return rv
+        }
+        /// the name of the attribute.
+         set {
+            _ptr.pointee.name = cast(newValue)
+        }
+    }
+
+    /// the `GFileAttributeType` type of the attribute.
+    var type: GFileAttributeType {
+        /// the `GFileAttributeType` type of the attribute.
+        get {
+            let rv: GFileAttributeType = cast(_ptr.pointee.type)
+            return rv
+        }
+        /// the `GFileAttributeType` type of the attribute.
+         set {
+            _ptr.pointee.type = cast(newValue)
+        }
+    }
+
+    /// a set of `GFileAttributeInfoFlags`.
+    var flags: GFileAttributeInfoFlags {
+        /// a set of `GFileAttributeInfoFlags`.
+        get {
+            let rv: GFileAttributeInfoFlags = cast(_ptr.pointee.flags)
+            return rv
+        }
+        /// a set of `GFileAttributeInfoFlags`.
+         set {
+            _ptr.pointee.flags = cast(newValue)
+        }
+    }
 
 }
 

@@ -16,7 +16,7 @@ import GLibObject
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
 public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIcon` instance.
+        /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEmblemedIcon` instance.
@@ -34,7 +34,7 @@ public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
 public struct EmblemedIconRef: EmblemedIconProtocol {
-    /// Untyped pointer to the underlying `GEmblemedIcon` instance.
+        /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     /// For type-safe access, use the generated, typed pointer `emblemed_icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension EmblemedIconRef {
 
         /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
     init( icon: IconProtocol, emblem: EmblemProtocol) {
-        let rv = g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -97,7 +97,7 @@ public extension EmblemedIconRef {
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
 open class EmblemedIcon: Object, EmblemedIconProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `EmblemedIcon` instance.
     /// - Parameter op: pointer to the underlying object
@@ -177,7 +177,7 @@ open class EmblemedIcon: Object, EmblemedIconProtocol {
 
     /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
     public init( icon: IconProtocol, emblem: EmblemProtocol) {
-        let rv = g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr)))
         super.init(cast(rv))
     }
 
@@ -197,8 +197,8 @@ public extension EmblemedIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -221,6 +221,23 @@ public extension EmblemedIconProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a EmblemedIcon property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: EmblemedIconPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a EmblemedIcon property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: EmblemedIconPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -259,8 +276,8 @@ public extension EmblemedIconProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: EmblemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: EmblemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(emblemed_icon_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -281,6 +298,7 @@ public extension EmblemedIconProtocol {
     }
 }
 
+// MARK: EmblemedIcon Class: EmblemedIconProtocol extension (methods and fields)
 public extension EmblemedIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblemedIcon` instance.
     var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon> { return ptr.assumingMemoryBound(to: GEmblemedIcon.self) }
@@ -299,20 +317,20 @@ public extension EmblemedIconProtocol {
 
     /// Gets the list of emblems for the `icon`.
     func getEmblems() -> UnsafeMutablePointer<GList>! {
-        let rv = g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr)))
         return cast(rv)
     }
 
     /// Gets the main icon for `emblemed`.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_emblemed_icon_get_icon(cast(emblemed_icon_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_get_icon(cast(emblemed_icon_ptr)))
         return cast(rv)
     }
     /// Gets the list of emblems for the `icon`.
     var emblems: UnsafeMutablePointer<GList>! {
         /// Gets the list of emblems for the `icon`.
         get {
-            let rv = g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr)))
             return cast(rv)
         }
     }
@@ -321,10 +339,20 @@ public extension EmblemedIconProtocol {
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gets the main icon for `emblemed`.
         get {
-            let rv = g_emblemed_icon_get_icon(cast(emblemed_icon_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_get_icon(cast(emblemed_icon_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(emblemed_icon_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -363,7 +391,7 @@ public extension EmblemedIconProtocol {
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
 public protocol FileEnumeratorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GFileEnumerator` instance.
+        /// Untyped pointer to the underlying `GFileEnumerator` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileEnumerator` instance.
@@ -401,7 +429,7 @@ public protocol FileEnumeratorProtocol: ObjectProtocol {
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
 public struct FileEnumeratorRef: FileEnumeratorProtocol {
-    /// Untyped pointer to the underlying `GFileEnumerator` instance.
+        /// Untyped pointer to the underlying `GFileEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `file_enumerator_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -479,7 +507,7 @@ public extension FileEnumeratorRef {
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
 open class FileEnumerator: Object, FileEnumeratorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileEnumerator` instance.
     /// - Parameter op: pointer to the underlying object
@@ -574,8 +602,8 @@ public extension FileEnumeratorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -598,6 +626,23 @@ public extension FileEnumeratorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FileEnumerator property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FileEnumeratorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FileEnumerator property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FileEnumeratorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -636,8 +681,8 @@ public extension FileEnumeratorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_enumerator_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -658,6 +703,7 @@ public extension FileEnumeratorProtocol {
     }
 }
 
+// MARK: FileEnumerator Class: FileEnumeratorProtocol extension (methods and fields)
 public extension FileEnumeratorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumerator` instance.
     var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator> { return ptr.assumingMemoryBound(to: GFileEnumerator.self) }
@@ -669,11 +715,9 @@ public extension FileEnumeratorProtocol {
     /// is dropped, but you might want to call this function to make
     /// sure resources are released as early as possible.
     func close(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_file_enumerator_close(cast(file_enumerator_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -699,11 +743,9 @@ public extension FileEnumeratorProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `false` will be
     /// returned.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_file_enumerator_close_finish(cast(file_enumerator_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -720,13 +762,13 @@ public extension FileEnumeratorProtocol {
     /// ```
     /// 
     func getChild(info: FileInfoProtocol) -> UnsafeMutablePointer<GFile>! {
-        let rv = g_file_enumerator_get_child(cast(file_enumerator_ptr), cast(info.ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_child(cast(file_enumerator_ptr), cast(info.ptr)))
         return cast(rv)
     }
 
     /// Get the `GFile` container which is being enumerated.
     func getContainer() -> UnsafeMutablePointer<GFile>! {
-        let rv = g_file_enumerator_get_container(cast(file_enumerator_ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_container(cast(file_enumerator_ptr)))
         return cast(rv)
     }
 
@@ -776,11 +818,9 @@ public extension FileEnumeratorProtocol {
     /// ```
     /// 
     func iterate(outInfo out_info: FileInfoProtocol, outChild out_child: FileProtocol, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_file_enumerator_iterate(cast(file_enumerator_ptr), cast(out_info.ptr), cast(out_child.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -796,11 +836,9 @@ public extension FileEnumeratorProtocol {
     /// enumerator is at the end, `nil` will be returned and `error` will
     /// be unset.
     func nextFile(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_enumerator_next_file(cast(file_enumerator_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_enumerator_next_file(cast(file_enumerator_ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -830,11 +868,9 @@ public extension FileEnumeratorProtocol {
 
     /// Finishes the asynchronous operation started with `g_file_enumerator_next_files_async()`.
     func nextFilesFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_enumerator_next_files_finish(cast(file_enumerator_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_file_enumerator_next_files_finish(cast(file_enumerator_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -846,7 +882,7 @@ public extension FileEnumeratorProtocol {
     var container: UnsafeMutablePointer<GFile>! {
         /// Get the `GFile` container which is being enumerated.
         get {
-            let rv = g_file_enumerator_get_container(cast(file_enumerator_ptr))
+            let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_container(cast(file_enumerator_ptr)))
             return cast(rv)
         }
     }
@@ -859,6 +895,16 @@ public extension FileEnumeratorProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(file_enumerator_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 

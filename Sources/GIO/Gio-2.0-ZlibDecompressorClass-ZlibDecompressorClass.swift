@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol ZlibDecompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GZlibDecompressorClass` instance.
@@ -24,7 +24,7 @@ public protocol ZlibDecompressorClassProtocol {
 ///
 
 public struct ZlibDecompressorClassRef: ZlibDecompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension ZlibDecompressorClassRef {
 ///
 
 open class ZlibDecompressorClass: ZlibDecompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class ZlibDecompressorClass: ZlibDecompressorClassProtocol {
         // no reference counting for GZlibDecompressorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GZlibDecompressorClass`.
+    /// Do-nothing destructor for `GZlibDecompressorClass`.
     deinit {
         // no reference counting for GZlibDecompressorClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,23 @@ open class ZlibDecompressorClass: ZlibDecompressorClassProtocol {
 
 }
 
-// MARK: - no ZlibDecompressorClass properties
+// MARK: no ZlibDecompressorClass properties
 
-// MARK: - no signals
+// MARK: no ZlibDecompressorClass signals
 
 
+// MARK: ZlibDecompressorClass Record: ZlibDecompressorClassProtocol extension (methods and fields)
 public extension ZlibDecompressorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibDecompressorClass` instance.
     var _ptr: UnsafeMutablePointer<GZlibDecompressorClass> { return ptr.assumingMemoryBound(to: GZlibDecompressorClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 

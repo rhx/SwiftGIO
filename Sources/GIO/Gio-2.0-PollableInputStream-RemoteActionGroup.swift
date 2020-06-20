@@ -14,7 +14,7 @@ import GLibObject
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableInputStreamProtocol: InputStreamProtocol {
-    /// Untyped pointer to the underlying `GPollableInputStream` instance.
+        /// Untyped pointer to the underlying `GPollableInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPollableInputStream` instance.
@@ -30,7 +30,7 @@ public protocol PollableInputStreamProtocol: InputStreamProtocol {
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public struct PollableInputStreamRef: PollableInputStreamProtocol {
-    /// Untyped pointer to the underlying `GPollableInputStream` instance.
+        /// Untyped pointer to the underlying `GPollableInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -86,7 +86,7 @@ public extension PollableInputStreamRef {
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 open class PollableInputStream: InputStream, PollableInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PollableInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -168,7 +168,7 @@ open class PollableInputStream: InputStream, PollableInputStreamProtocol {
 
 }
 
-// MARK: - no PollableInputStream properties
+// MARK: no PollableInputStream properties
 
 public enum PollableInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -205,8 +205,8 @@ public extension PollableInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PollableInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: PollableInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(pollable_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -227,6 +227,7 @@ public extension PollableInputStreamProtocol {
     }
 }
 
+// MARK: PollableInputStream Interface: PollableInputStreamProtocol extension (methods and fields)
 public extension PollableInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableInputStream` instance.
     var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream> { return ptr.assumingMemoryBound(to: GPollableInputStream.self) }
@@ -252,7 +253,7 @@ public extension PollableInputStreamProtocol {
     /// triggers, so you should use `g_pollable_input_stream_read_nonblocking()`
     /// rather than `g_input_stream_read()` from the callback.
     func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_pollable_input_stream_create_source(cast(pollable_input_stream_ptr), cast(cancellable.ptr))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_input_stream_create_source(cast(pollable_input_stream_ptr), cast(cancellable.ptr)))
         return cast(rv)
     }
 
@@ -268,12 +269,10 @@ public extension PollableInputStreamProtocol {
     /// may happen if you call this method after a source triggers due
     /// to having been cancelled.
     func readNonblocking(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_input_stream_read_nonblocking(cast(pollable_input_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
     /// Checks if `stream` can be read.
     /// 
@@ -297,6 +296,8 @@ public extension PollableInputStreamProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 
@@ -313,7 +314,7 @@ public extension PollableInputStreamProtocol {
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
-    /// Untyped pointer to the underlying `GPollableOutputStream` instance.
+        /// Untyped pointer to the underlying `GPollableOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPollableOutputStream` instance.
@@ -329,7 +330,7 @@ public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public struct PollableOutputStreamRef: PollableOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GPollableOutputStream` instance.
+        /// Untyped pointer to the underlying `GPollableOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -385,7 +386,7 @@ public extension PollableOutputStreamRef {
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PollableOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -467,7 +468,7 @@ open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
 
 }
 
-// MARK: - no PollableOutputStream properties
+// MARK: no PollableOutputStream properties
 
 public enum PollableOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -504,8 +505,8 @@ public extension PollableOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PollableOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: PollableOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(pollable_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -526,6 +527,7 @@ public extension PollableOutputStreamProtocol {
     }
 }
 
+// MARK: PollableOutputStream Interface: PollableOutputStreamProtocol extension (methods and fields)
 public extension PollableOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableOutputStream` instance.
     var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream> { return ptr.assumingMemoryBound(to: GPollableOutputStream.self) }
@@ -551,7 +553,7 @@ public extension PollableOutputStreamProtocol {
     /// triggers, so you should use `g_pollable_output_stream_write_nonblocking()`
     /// rather than `g_output_stream_write()` from the callback.
     func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_pollable_output_stream_create_source(cast(pollable_output_stream_ptr), cast(cancellable.ptr))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_output_stream_create_source(cast(pollable_output_stream_ptr), cast(cancellable.ptr)))
         return cast(rv)
     }
 
@@ -571,12 +573,10 @@ public extension PollableOutputStreamProtocol {
     /// transports like D/TLS require that you re-send the same `buffer` and
     /// `count` in the next write call.
     func writeNonblocking(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_output_stream_write_nonblocking(cast(pollable_output_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Attempts to write the bytes contained in the `n_vectors` `vectors` to `stream`,
@@ -596,12 +596,10 @@ public extension PollableOutputStreamProtocol {
     /// transports like D/TLS require that you re-send the same `vectors` and
     /// `n_vectors` in the next write call.
     func writevNonblocking(vectors: UnsafePointer<GOutputVector>, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> GPollableReturn {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_output_stream_writev_nonblocking(cast(pollable_output_stream_ptr), cast(vectors), gsize(n_vectors), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
     /// Checks if `stream` can be written.
     /// 
@@ -625,6 +623,8 @@ public extension PollableOutputStreamProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 
@@ -643,7 +643,7 @@ public extension PollableOutputStreamProtocol {
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
 public protocol ProxyProtocol {
-    /// Untyped pointer to the underlying `GProxy` instance.
+        /// Untyped pointer to the underlying `GProxy` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxy` instance.
@@ -661,7 +661,7 @@ public protocol ProxyProtocol {
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
 public struct ProxyRef: ProxyProtocol {
-    /// Untyped pointer to the underlying `GProxy` instance.
+        /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -709,7 +709,7 @@ public extension ProxyRef {
         /// Find the `gio-proxy` extension point for a proxy implementation that supports
     /// the specified protocol.
     static func getDefaultFor(protocol_: UnsafePointer<gchar>) -> ProxyRef! {
-        let rv = g_proxy_get_default_for_protocol(protocol_)
+        let rv: UnsafeMutablePointer<GProxy>! = cast(g_proxy_get_default_for_protocol(protocol_))
         return rv.map { ProxyRef(cast($0)) }
     }
 }
@@ -725,7 +725,7 @@ public extension ProxyRef {
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
 open class Proxy: ProxyProtocol {
-    /// Untyped pointer to the underlying `GProxy` instance.
+        /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -754,7 +754,7 @@ open class Proxy: ProxyProtocol {
         // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
     }
 
-    /// Do-nothing destructor for`GProxy`.
+    /// Do-nothing destructor for `GProxy`.
     deinit {
         // no reference counting for GProxy, cannot unref(cast(proxy_ptr))
     }
@@ -822,17 +822,18 @@ open class Proxy: ProxyProtocol {
     /// Find the `gio-proxy` extension point for a proxy implementation that supports
     /// the specified protocol.
     public static func getDefaultFor(protocol_: UnsafePointer<gchar>) -> Proxy! {
-        let rv = g_proxy_get_default_for_protocol(protocol_)
+        let rv: UnsafeMutablePointer<GProxy>! = cast(g_proxy_get_default_for_protocol(protocol_))
         return rv.map { Proxy(cast($0)) }
     }
 
 }
 
-// MARK: - no Proxy properties
+// MARK: no Proxy properties
 
-// MARK: - no signals
+// MARK: no Proxy signals
 
 
+// MARK: Proxy Interface: ProxyProtocol extension (methods and fields)
 public extension ProxyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxy` instance.
     var proxy_ptr: UnsafeMutablePointer<GProxy> { return ptr.assumingMemoryBound(to: GProxy.self) }
@@ -842,11 +843,9 @@ public extension ProxyProtocol {
     /// does the necessary handshake to connect to `proxy_address`, and if
     /// required, wraps the `GIOStream` to handle proxy payload.
     func connect(connection: IOStreamProtocol, proxyAddress proxy_address: ProxyAddressProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_proxy_connect(cast(proxy_ptr), cast(connection.ptr), cast(proxy_address.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_proxy_connect(cast(proxy_ptr), cast(connection.ptr), cast(proxy_address.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -858,11 +857,9 @@ public extension ProxyProtocol {
 
     /// See `g_proxy_connect()`.
     func connectFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_proxy_connect_finish(cast(proxy_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_proxy_connect_finish(cast(proxy_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -877,6 +874,8 @@ public extension ProxyProtocol {
         let rv = g_proxy_supports_hostname(cast(proxy_ptr))
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -896,7 +895,7 @@ public extension ProxyProtocol {
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
 public protocol ProxyResolverProtocol {
-    /// Untyped pointer to the underlying `GProxyResolver` instance.
+        /// Untyped pointer to the underlying `GProxyResolver` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyResolver` instance.
@@ -915,7 +914,7 @@ public protocol ProxyResolverProtocol {
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
 public struct ProxyResolverRef: ProxyResolverProtocol {
-    /// Untyped pointer to the underlying `GProxyResolver` instance.
+        /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -962,7 +961,7 @@ public extension ProxyResolverRef {
 
         /// Gets the default `GProxyResolver` for the system.
     static func getDefault() -> ProxyResolverRef! {
-        let rv = g_proxy_resolver_get_default()
+        let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_proxy_resolver_get_default())
         return rv.map { ProxyResolverRef(cast($0)) }
     }
 }
@@ -979,7 +978,7 @@ public extension ProxyResolverRef {
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
 open class ProxyResolver: ProxyResolverProtocol {
-    /// Untyped pointer to the underlying `GProxyResolver` instance.
+        /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1008,7 +1007,7 @@ open class ProxyResolver: ProxyResolverProtocol {
         // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
     }
 
-    /// Do-nothing destructor for`GProxyResolver`.
+    /// Do-nothing destructor for `GProxyResolver`.
     deinit {
         // no reference counting for GProxyResolver, cannot unref(cast(proxy_resolver_ptr))
     }
@@ -1075,17 +1074,18 @@ open class ProxyResolver: ProxyResolverProtocol {
 
     /// Gets the default `GProxyResolver` for the system.
     public static func getDefault() -> ProxyResolver! {
-        let rv = g_proxy_resolver_get_default()
+        let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_proxy_resolver_get_default())
         return rv.map { ProxyResolver(cast($0)) }
     }
 
 }
 
-// MARK: - no ProxyResolver properties
+// MARK: no ProxyResolver properties
 
-// MARK: - no signals
+// MARK: no ProxyResolver signals
 
 
+// MARK: ProxyResolver Interface: ProxyResolverProtocol extension (methods and fields)
 public extension ProxyResolverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyResolver` instance.
     var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver> { return ptr.assumingMemoryBound(to: GProxyResolver.self) }
@@ -1106,11 +1106,9 @@ public extension ProxyResolverProtocol {
     /// Direct connection should not be attempted unless it is part of the
     /// returned array of proxies.
     func lookup(uri: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_proxy_resolver_lookup(cast(proxy_resolver_ptr), uri, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_proxy_resolver_lookup(cast(proxy_resolver_ptr), uri, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1125,11 +1123,9 @@ public extension ProxyResolverProtocol {
     /// `g_proxy_resolver_lookup_async()` is complete. See
     /// `g_proxy_resolver_lookup()` for more details.
     func lookupFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_proxy_resolver_lookup_finish(cast(proxy_resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_proxy_resolver_lookup_finish(cast(proxy_resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Checks if `resolver` can be used on this system. (This is used
@@ -1144,6 +1140,8 @@ public extension ProxyResolverProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 
@@ -1177,7 +1175,7 @@ public extension ProxyResolverProtocol {
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
 public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
-    /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
+        /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRemoteActionGroup` instance.
@@ -1210,7 +1208,7 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
 public struct RemoteActionGroupRef: RemoteActionGroupProtocol {
-    /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
+        /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `remote_action_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1283,7 +1281,7 @@ public extension RemoteActionGroupRef {
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
 open class RemoteActionGroup: ActionGroup, RemoteActionGroupProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1365,7 +1363,7 @@ open class RemoteActionGroup: ActionGroup, RemoteActionGroupProtocol {
 
 }
 
-// MARK: - no RemoteActionGroup properties
+// MARK: no RemoteActionGroup properties
 
 public enum RemoteActionGroupSignalName: String, SignalNameProtocol {
     /// Signals that a new action was just added to the group.
@@ -1389,8 +1387,8 @@ public extension RemoteActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: RemoteActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: RemoteActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(remote_action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1411,6 +1409,7 @@ public extension RemoteActionGroupProtocol {
     }
 }
 
+// MARK: RemoteActionGroup Interface: RemoteActionGroupProtocol extension (methods and fields)
 public extension RemoteActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRemoteActionGroup` instance.
     var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup> { return ptr.assumingMemoryBound(to: GRemoteActionGroup.self) }
@@ -1442,6 +1441,8 @@ public extension RemoteActionGroupProtocol {
         g_remote_action_group_change_action_state_full(cast(remote_action_group_ptr), action_name, cast(value.ptr), cast(platform_data.ptr))
     
     }
+
+
 }
 
 

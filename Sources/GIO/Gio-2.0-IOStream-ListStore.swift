@@ -56,7 +56,7 @@ import GLibObject
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
 public protocol IOStreamProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GIOStream` instance.
+        /// Untyped pointer to the underlying `GIOStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOStream` instance.
@@ -114,7 +114,7 @@ public protocol IOStreamProtocol: ObjectProtocol {
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
 public struct IOStreamRef: IOStreamProtocol {
-    /// Untyped pointer to the underlying `GIOStream` instance.
+        /// Untyped pointer to the underlying `GIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `io_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -212,7 +212,7 @@ public extension IOStreamRef {
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
 open class IOStream: Object, IOStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `IOStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -309,8 +309,8 @@ public extension IOStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: IOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: IOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -333,6 +333,23 @@ public extension IOStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a IOStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: IOStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a IOStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: IOStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -373,8 +390,8 @@ public extension IOStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: IOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: IOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(io_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -395,6 +412,7 @@ public extension IOStreamProtocol {
     }
 }
 
+// MARK: IOStream Class: IOStreamProtocol extension (methods and fields)
 public extension IOStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOStream` instance.
     var io_stream_ptr: UnsafeMutablePointer<GIOStream> { return ptr.assumingMemoryBound(to: GIOStream.self) }
@@ -439,11 +457,9 @@ public extension IOStreamProtocol {
     /// The default implementation of this method just calls close on the
     /// individual input/output streams.
     func close(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_stream_close(cast(io_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -464,25 +480,23 @@ public extension IOStreamProtocol {
 
     /// Closes a stream.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_stream_close_finish(cast(io_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Gets the input stream for this object. This is used
     /// for reading.
     func getInputStream() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = g_io_stream_get_input_stream(cast(io_stream_ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_io_stream_get_input_stream(cast(io_stream_ptr)))
         return cast(rv)
     }
 
     /// Gets the output stream for this object. This is used for
     /// writing.
     func getOutputStream() -> UnsafeMutablePointer<GOutputStream>! {
-        let rv = g_io_stream_get_output_stream(cast(io_stream_ptr))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_io_stream_get_output_stream(cast(io_stream_ptr)))
         return cast(rv)
     }
 
@@ -496,11 +510,9 @@ public extension IOStreamProtocol {
     /// already set or `stream` is closed, it will return `false` and set
     /// `error`.
     func setPending() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_stream_set_pending(cast(io_stream_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -512,7 +524,7 @@ public extension IOStreamProtocol {
     /// You can then call `g_io_stream_splice_finish()` to get the
     /// result of the operation.
     func spliceAsync(stream2: IOStreamProtocol, flags: IOStreamSpliceFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_io_stream_splice_async(cast(io_stream_ptr), cast(stream2.ptr), flags, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+        g_io_stream_splice_async(cast(io_stream_ptr), cast(stream2.ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -524,11 +536,9 @@ public extension IOStreamProtocol {
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsClientConnectionNew(serverIdentity server_identity: SocketConnectableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_tls_client_connection_new(cast(io_stream_ptr), cast(server_identity.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_client_connection_new(cast(io_stream_ptr), cast(server_identity.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -539,11 +549,9 @@ public extension IOStreamProtocol {
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     func tlsServerConnectionNew(certificate: TLSCertificateProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_tls_server_connection_new(cast(io_stream_ptr), cast(certificate.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_server_connection_new(cast(io_stream_ptr), cast(certificate.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Gets the input stream for this object. This is used
@@ -552,7 +560,7 @@ public extension IOStreamProtocol {
         /// Gets the input stream for this object. This is used
         /// for reading.
         get {
-            let rv = g_io_stream_get_input_stream(cast(io_stream_ptr))
+            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_io_stream_get_input_stream(cast(io_stream_ptr)))
             return cast(rv)
         }
     }
@@ -572,10 +580,20 @@ public extension IOStreamProtocol {
         /// Gets the output stream for this object. This is used for
         /// writing.
         get {
-            let rv = g_io_stream_get_output_stream(cast(io_stream_ptr))
+            let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_io_stream_get_output_stream(cast(io_stream_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(io_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -598,7 +616,7 @@ public extension IOStreamProtocol {
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
 public protocol InetAddressProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GInetAddress` instance.
+        /// Untyped pointer to the underlying `GInetAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddress` instance.
@@ -620,7 +638,7 @@ public protocol InetAddressProtocol: ObjectProtocol {
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
 public struct InetAddressRef: InetAddressProtocol {
-    /// Untyped pointer to the underlying `GInetAddress` instance.
+        /// Untyped pointer to the underlying `GInetAddress` instance.
     /// For type-safe access, use the generated, typed pointer `inet_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -668,7 +686,7 @@ public extension InetAddressRef {
         /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
     init(any family: SocketFamily) {
-        let rv = g_inet_address_new_any(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_any(family))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -676,25 +694,25 @@ public extension InetAddressRef {
     /// `bytes` should be 4 bytes for `G_SOCKET_FAMILY_IPV4` and 16 bytes for
     /// `G_SOCKET_FAMILY_IPV6`.
     init(bytes: UnsafePointer<UInt8>, family: SocketFamily) {
-        let rv = g_inet_address_new_from_bytes(cast(bytes), family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_bytes(cast(bytes), family))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
     init(string: UnsafePointer<gchar>) {
-        let rv = g_inet_address_new_from_string(string)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_string(string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
     init(loopback family: SocketFamily) {
-        let rv = g_inet_address_new_loopback(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_loopback(family))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
     static func new(any family: SocketFamily) -> InetAddressRef! {
-        let rv = g_inet_address_new_any(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_any(family))
         return rv.map { InetAddressRef(cast($0)) }
     }
 
@@ -702,19 +720,19 @@ public extension InetAddressRef {
     /// `bytes` should be 4 bytes for `G_SOCKET_FAMILY_IPV4` and 16 bytes for
     /// `G_SOCKET_FAMILY_IPV6`.
     static func newFrom(bytes: UnsafePointer<UInt8>, family: SocketFamily) -> InetAddressRef! {
-        let rv = g_inet_address_new_from_bytes(cast(bytes), family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_bytes(cast(bytes), family))
         return rv.map { InetAddressRef(cast($0)) }
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
     static func newFrom(string: UnsafePointer<gchar>) -> InetAddressRef! {
-        let rv = g_inet_address_new_from_string(string)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_string(string))
         return rv.map { InetAddressRef(cast($0)) }
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
     static func new(loopback family: SocketFamily) -> InetAddressRef! {
-        let rv = g_inet_address_new_loopback(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_loopback(family))
         return rv.map { InetAddressRef(cast($0)) }
     }
 }
@@ -734,7 +752,7 @@ public extension InetAddressRef {
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
 open class InetAddress: Object, InetAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InetAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -815,7 +833,7 @@ open class InetAddress: Object, InetAddressProtocol {
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
     public init(any family: SocketFamily) {
-        let rv = g_inet_address_new_any(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_any(family))
         super.init(cast(rv))
     }
 
@@ -823,26 +841,26 @@ open class InetAddress: Object, InetAddressProtocol {
     /// `bytes` should be 4 bytes for `G_SOCKET_FAMILY_IPV4` and 16 bytes for
     /// `G_SOCKET_FAMILY_IPV6`.
     public init(bytes: UnsafePointer<UInt8>, family: SocketFamily) {
-        let rv = g_inet_address_new_from_bytes(cast(bytes), family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_bytes(cast(bytes), family))
         super.init(cast(rv))
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
     public init(string: UnsafePointer<gchar>) {
-        let rv = g_inet_address_new_from_string(string)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_string(string))
         super.init(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
     public init(loopback family: SocketFamily) {
-        let rv = g_inet_address_new_loopback(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_loopback(family))
         super.init(cast(rv))
     }
 
     /// Creates a `GInetAddress` for the "any" address (unassigned/"don't
     /// care") for `family`.
     public static func new(any family: SocketFamily) -> InetAddress! {
-        let rv = g_inet_address_new_any(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_any(family))
         return rv.map { InetAddress(cast($0)) }
     }
 
@@ -850,19 +868,19 @@ open class InetAddress: Object, InetAddressProtocol {
     /// `bytes` should be 4 bytes for `G_SOCKET_FAMILY_IPV4` and 16 bytes for
     /// `G_SOCKET_FAMILY_IPV6`.
     public static func newFrom(bytes: UnsafePointer<UInt8>, family: SocketFamily) -> InetAddress! {
-        let rv = g_inet_address_new_from_bytes(cast(bytes), family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_bytes(cast(bytes), family))
         return rv.map { InetAddress(cast($0)) }
     }
 
     /// Parses `string` as an IP address and creates a new `GInetAddress`.
     public static func newFrom(string: UnsafePointer<gchar>) -> InetAddress! {
-        let rv = g_inet_address_new_from_string(string)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_from_string(string))
         return rv.map { InetAddress(cast($0)) }
     }
 
     /// Creates a `GInetAddress` for the loopback address for `family`.
     public static func new(loopback family: SocketFamily) -> InetAddress! {
-        let rv = g_inet_address_new_loopback(family)
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_new_loopback(family))
         return rv.map { InetAddress(cast($0)) }
     }
 
@@ -912,8 +930,8 @@ public extension InetAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -936,6 +954,23 @@ public extension InetAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a InetAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: InetAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a InetAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: InetAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1005,8 +1040,8 @@ public extension InetAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InetAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InetAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(inet_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1027,6 +1062,7 @@ public extension InetAddressProtocol {
     }
 }
 
+// MARK: InetAddress Class: InetAddressProtocol extension (methods and fields)
 public extension InetAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddress` instance.
     var inet_address_ptr: UnsafeMutablePointer<GInetAddress> { return ptr.assumingMemoryBound(to: GInetAddress.self) }
@@ -1040,7 +1076,7 @@ public extension InetAddressProtocol {
     /// Gets `address`'s family
     func getFamily() -> GSocketFamily {
         let rv = g_inet_address_get_family(cast(inet_address_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Tests whether `address` is the "any" address for its family.
@@ -1117,20 +1153,20 @@ public extension InetAddressProtocol {
 
     /// Gets the raw binary address data from `address`.
     func toBytes() -> UnsafePointer<UInt8>! {
-        let rv = g_inet_address_to_bytes(cast(inet_address_ptr))
+        let rv: UnsafePointer<UInt8>! = cast(g_inet_address_to_bytes(cast(inet_address_ptr)))
         return cast(rv)
     }
 
     /// Converts `address` to string form.
     func toString() -> String! {
-        let rv = g_inet_address_to_string(cast(inet_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_inet_address_to_string(cast(inet_address_ptr)))
+        return cast(rv)
     }
     var family: GSocketFamily {
         /// Gets `address`'s family
         get {
             let rv = g_inet_address_get_family(cast(inet_address_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1244,6 +1280,16 @@ public extension InetAddressProtocol {
             return Int(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(inet_address_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1260,7 +1306,7 @@ public extension InetAddressProtocol {
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 public protocol InetAddressMaskProtocol: ObjectProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMask` instance.
+        /// Untyped pointer to the underlying `GInetAddressMask` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetAddressMask` instance.
@@ -1276,7 +1322,7 @@ public protocol InetAddressMaskProtocol: ObjectProtocol, InitableProtocol {
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 public struct InetAddressMaskRef: InetAddressMaskProtocol {
-    /// Untyped pointer to the underlying `GInetAddressMask` instance.
+        /// Untyped pointer to the underlying `GInetAddressMask` instance.
     /// For type-safe access, use the generated, typed pointer `inet_address_mask_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1324,11 +1370,9 @@ public extension InetAddressMaskRef {
         /// Creates a new `GInetAddressMask` representing all addresses whose
     /// first `length` bits match `addr`.
     init( addr: InetAddressProtocol, length: CUnsignedInt) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new(cast(addr.ptr), guint(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new(cast(addr.ptr), guint(length), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1337,11 +1381,9 @@ public extension InetAddressMaskRef {
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
     init(string mask_string: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new_from_string(mask_string, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Parses `mask_string` as an IP address and (optional) length, and
@@ -1349,11 +1391,9 @@ public extension InetAddressMaskRef {
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
     static func newFrom(string mask_string: UnsafePointer<gchar>) throws -> InetAddressMaskRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new_from_string(mask_string, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { InetAddressMaskRef(cast($0)) }
     }
 }
@@ -1367,7 +1407,7 @@ public extension InetAddressMaskRef {
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 open class InetAddressMask: Object, InetAddressMaskProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InetAddressMask` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1448,11 +1488,9 @@ open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// Creates a new `GInetAddressMask` representing all addresses whose
     /// first `length` bits match `addr`.
     public init( addr: InetAddressProtocol, length: CUnsignedInt) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new(cast(addr.ptr), guint(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new(cast(addr.ptr), guint(length), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -1461,11 +1499,9 @@ open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
     public init(string mask_string: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new_from_string(mask_string, &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -1474,11 +1510,9 @@ open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
     public static func newFrom(string mask_string: UnsafePointer<gchar>) throws -> InetAddressMask! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GInetAddressMask>! = cast(g_inet_address_mask_new_from_string(mask_string, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { InetAddressMask(cast($0)) }
     }
 
@@ -1499,8 +1533,8 @@ public extension InetAddressMaskProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressMaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressMaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1523,6 +1557,23 @@ public extension InetAddressMaskProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a InetAddressMask property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: InetAddressMaskPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a InetAddressMask property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: InetAddressMaskPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1563,8 +1614,8 @@ public extension InetAddressMaskProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InetAddressMaskSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InetAddressMaskSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(inet_address_mask_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1585,6 +1636,7 @@ public extension InetAddressMaskProtocol {
     }
 }
 
+// MARK: InetAddressMask Class: InetAddressMaskProtocol extension (methods and fields)
 public extension InetAddressMaskProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetAddressMask` instance.
     var inet_address_mask_ptr: UnsafeMutablePointer<GInetAddressMask> { return ptr.assumingMemoryBound(to: GInetAddressMask.self) }
@@ -1597,20 +1649,20 @@ public extension InetAddressMaskProtocol {
 
     /// Gets `mask`'s base address
     func getAddress() -> UnsafeMutablePointer<GInetAddress>! {
-        let rv = g_inet_address_mask_get_address(cast(inet_address_mask_ptr))
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_mask_get_address(cast(inet_address_mask_ptr)))
         return cast(rv)
     }
 
     /// Gets the `GSocketFamily` of `mask`'s address
     func getFamily() -> GSocketFamily {
         let rv = g_inet_address_mask_get_family(cast(inet_address_mask_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets `mask`'s length
-    func getLength() -> CUnsignedInt {
-        let rv = g_inet_address_mask_get_length(cast(inet_address_mask_ptr))
-        return CUnsignedInt(rv)
+    func getLength() -> Int {
+        let rv: Int = cast(g_inet_address_mask_get_length(cast(inet_address_mask_ptr)))
+        return Int(rv)
     }
 
     /// Tests if `address` falls within the range described by `mask`.
@@ -1621,13 +1673,13 @@ public extension InetAddressMaskProtocol {
 
     /// Converts `mask` back to its corresponding string form.
     func toString() -> String! {
-        let rv = g_inet_address_mask_to_string(cast(inet_address_mask_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_inet_address_mask_to_string(cast(inet_address_mask_ptr)))
+        return cast(rv)
     }
     var address: UnsafeMutablePointer<GInetAddress>! {
         /// Gets `mask`'s base address
         get {
-            let rv = g_inet_address_mask_get_address(cast(inet_address_mask_ptr))
+            let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_address_mask_get_address(cast(inet_address_mask_ptr)))
             return cast(rv)
         }
     }
@@ -1636,17 +1688,27 @@ public extension InetAddressMaskProtocol {
         /// Gets the `GSocketFamily` of `mask`'s address
         get {
             let rv = g_inet_address_mask_get_family(cast(inet_address_mask_ptr))
+            return cast(rv)
+        }
+    }
+
+    var length: Int {
+        /// Gets `mask`'s length
+        get {
+            let rv: Int = cast(g_inet_address_mask_get_length(cast(inet_address_mask_ptr)))
+            return Int(rv)
+        }
+    }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(inet_address_mask_ptr.pointee.parent_instance)
             return rv
         }
     }
 
-    var length: CUnsignedInt {
-        /// Gets `mask`'s length
-        get {
-            let rv = g_inet_address_mask_get_length(cast(inet_address_mask_ptr))
-            return CUnsignedInt(rv)
-        }
-    }
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1661,7 +1723,7 @@ public extension InetAddressMaskProtocol {
 /// An IPv4 or IPv6 socket address; that is, the combination of a
 /// `GInetAddress` and a port number.
 public protocol InetSocketAddressProtocol: SocketAddressProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddress` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInetSocketAddress` instance.
@@ -1675,7 +1737,7 @@ public protocol InetSocketAddressProtocol: SocketAddressProtocol {
 /// An IPv4 or IPv6 socket address; that is, the combination of a
 /// `GInetAddress` and a port number.
 public struct InetSocketAddressRef: InetSocketAddressProtocol {
-    /// Untyped pointer to the underlying `GInetSocketAddress` instance.
+        /// Untyped pointer to the underlying `GInetSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `inet_socket_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1722,7 +1784,7 @@ public extension InetSocketAddressRef {
 
         /// Creates a new `GInetSocketAddress` for `address` and `port`.
     init( address: InetAddressProtocol, port: UInt16) {
-        let rv = g_inet_socket_address_new(cast(address.ptr), guint16(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new(cast(address.ptr), guint16(port)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1731,7 +1793,7 @@ public extension InetSocketAddressRef {
     /// If `address` is an IPv6 address, it can also contain a scope ID
     /// (separated from the address by a ````).
     init(string address: UnsafePointer<CChar>, port: CUnsignedInt) {
-        let rv = g_inet_socket_address_new_from_string(address, guint(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new_from_string(address, guint(port)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
@@ -1739,7 +1801,7 @@ public extension InetSocketAddressRef {
     /// If `address` is an IPv6 address, it can also contain a scope ID
     /// (separated from the address by a ````).
     static func newFrom(string address: UnsafePointer<CChar>, port: CUnsignedInt) -> InetSocketAddressRef! {
-        let rv = g_inet_socket_address_new_from_string(address, guint(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new_from_string(address, guint(port)))
         return rv.map { InetSocketAddressRef(cast($0)) }
     }
 }
@@ -1751,7 +1813,7 @@ public extension InetSocketAddressRef {
 /// An IPv4 or IPv6 socket address; that is, the combination of a
 /// `GInetAddress` and a port number.
 open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InetSocketAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1831,7 +1893,7 @@ open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
 
     /// Creates a new `GInetSocketAddress` for `address` and `port`.
     public init( address: InetAddressProtocol, port: UInt16) {
-        let rv = g_inet_socket_address_new(cast(address.ptr), guint16(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new(cast(address.ptr), guint16(port)))
         super.init(cast(rv))
     }
 
@@ -1840,7 +1902,7 @@ open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
     /// If `address` is an IPv6 address, it can also contain a scope ID
     /// (separated from the address by a ````).
     public init(string address: UnsafePointer<CChar>, port: CUnsignedInt) {
-        let rv = g_inet_socket_address_new_from_string(address, guint(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new_from_string(address, guint(port)))
         super.init(cast(rv))
     }
 
@@ -1849,7 +1911,7 @@ open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
     /// If `address` is an IPv6 address, it can also contain a scope ID
     /// (separated from the address by a ````).
     public static func newFrom(string address: UnsafePointer<CChar>, port: CUnsignedInt) -> InetSocketAddress! {
-        let rv = g_inet_socket_address_new_from_string(address, guint(port))
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_inet_socket_address_new_from_string(address, guint(port)))
         return rv.map { InetSocketAddress(cast($0)) }
     }
 
@@ -1873,8 +1935,8 @@ public extension InetSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1897,6 +1959,23 @@ public extension InetSocketAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a InetSocketAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: InetSocketAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a InetSocketAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: InetSocketAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1940,8 +2019,8 @@ public extension InetSocketAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InetSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InetSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(inet_socket_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1962,13 +2041,14 @@ public extension InetSocketAddressProtocol {
     }
 }
 
+// MARK: InetSocketAddress Class: InetSocketAddressProtocol extension (methods and fields)
 public extension InetSocketAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInetSocketAddress` instance.
     var inet_socket_address_ptr: UnsafeMutablePointer<GInetSocketAddress> { return ptr.assumingMemoryBound(to: GInetSocketAddress.self) }
 
     /// Gets `address`'s `GInetAddress`.
     func getAddress() -> UnsafeMutablePointer<GInetAddress>! {
-        let rv = g_inet_socket_address_get_address(cast(inet_socket_address_ptr))
+        let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_socket_address_get_address(cast(inet_socket_address_ptr)))
         return cast(rv)
     }
 
@@ -1994,7 +2074,7 @@ public extension InetSocketAddressProtocol {
     var address: UnsafeMutablePointer<GInetAddress>! {
         /// Gets `address`'s `GInetAddress`.
         get {
-            let rv = g_inet_socket_address_get_address(cast(inet_socket_address_ptr))
+            let rv: UnsafeMutablePointer<GInetAddress>! = cast(g_inet_socket_address_get_address(cast(inet_socket_address_ptr)))
             return cast(rv)
         }
     }
@@ -2027,6 +2107,16 @@ public extension InetSocketAddressProtocol {
             return UInt32(rv)
         }
     }
+
+    var parentInstance: GSocketAddress {
+        get {
+            let rv: GSocketAddress = cast(inet_socket_address_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2050,7 +2140,7 @@ public extension InetSocketAddressProtocol {
 /// 
 /// All of these functions have async variants too.
 public protocol InputStreamProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GInputStream` instance.
+        /// Untyped pointer to the underlying `GInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GInputStream` instance.
@@ -2073,7 +2163,7 @@ public protocol InputStreamProtocol: ObjectProtocol {
 /// 
 /// All of these functions have async variants too.
 public struct InputStreamRef: InputStreamProtocol {
-    /// Untyped pointer to the underlying `GInputStream` instance.
+        /// Untyped pointer to the underlying `GInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2136,7 +2226,7 @@ public extension InputStreamRef {
 /// 
 /// All of these functions have async variants too.
 open class InputStream: Object, InputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2218,7 +2308,7 @@ open class InputStream: Object, InputStreamProtocol {
 
 }
 
-// MARK: - no InputStream properties
+// MARK: no InputStream properties
 
 public enum InputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -2255,8 +2345,8 @@ public extension InputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2277,6 +2367,7 @@ public extension InputStreamProtocol {
     }
 }
 
+// MARK: InputStream Class: InputStreamProtocol extension (methods and fields)
 public extension InputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInputStream` instance.
     var input_stream_ptr: UnsafeMutablePointer<GInputStream> { return ptr.assumingMemoryBound(to: GInputStream.self) }
@@ -2311,11 +2402,9 @@ public extension InputStreamProtocol {
     /// Cancelling a close will still leave the stream closed, but some streams
     /// can use a faster close that doesn't block to e.g. check errors.
     func close(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_close(cast(input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2336,11 +2425,9 @@ public extension InputStreamProtocol {
 
     /// Finishes closing a stream asynchronously, started from `g_input_stream_close_async()`.
     func closeFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_close_finish(cast(input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2372,12 +2459,10 @@ public extension InputStreamProtocol {
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     func read(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_read(cast(input_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to read `count` bytes from the stream into the buffer starting at
@@ -2400,11 +2485,9 @@ public extension InputStreamProtocol {
     /// available from C.  If you need it from another language then you must
     /// write your own loop around `g_input_stream_read()`.
     func readAll(buffer: UnsafeMutableRawPointer, count: Int, bytesRead bytes_read: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_read_all(cast(input_stream_ptr), cast(buffer), gsize(count), cast(bytes_read), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2433,11 +2516,9 @@ public extension InputStreamProtocol {
     /// available from C.  If you need it from another language then you must
     /// write your own loop around `g_input_stream_read_async()`.
     func readAllFinish(result: AsyncResultProtocol, bytesRead bytes_read: UnsafeMutablePointer<Int>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_read_all_finish(cast(input_stream_ptr), cast(result.ptr), cast(bytes_read), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2493,11 +2574,9 @@ public extension InputStreamProtocol {
     /// 
     /// On error `nil` is returned and `error` is set accordingly.
     func readBytes(count: Int, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GBytes>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_input_stream_read_bytes(cast(input_stream_ptr), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_input_stream_read_bytes(cast(input_stream_ptr), gsize(count), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -2528,33 +2607,27 @@ public extension InputStreamProtocol {
 
     /// Finishes an asynchronous stream read-into-`GBytes` operation.
     func readBytesFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GBytes>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_input_stream_read_bytes_finish(cast(input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_input_stream_read_bytes_finish(cast(input_stream_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Finishes an asynchronous stream read operation.
     func readFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_read_finish(cast(input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Sets `stream` to have actions pending. If the pending flag is
     /// already set or `stream` is closed, it will return `false` and set
     /// `error`.
     func setPending() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_set_pending(cast(input_stream_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2573,12 +2646,10 @@ public extension InputStreamProtocol {
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
     func skip(count: Int, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_skip(cast(input_stream_ptr), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Request an asynchronous skip of `count` bytes from the stream.
@@ -2611,12 +2682,10 @@ public extension InputStreamProtocol {
 
     /// Finishes a stream skip operation.
     func skipFinish(result: AsyncResultProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_skip_finish(cast(input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to read from `stream`, as with `g_input_stream_read()` (if
@@ -2629,12 +2698,10 @@ public extension InputStreamProtocol {
     /// returns `true`, or else the behavior is undefined. If `blocking` is
     /// `true`, then `stream` does not need to be a `GPollableInputStream`.
     func pollableStreamRead(buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, cancellable: CancellableProtocol) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_read(cast(input_stream_ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
     /// Checks if an input stream is closed.
     var isClosed: Bool {
@@ -2644,6 +2711,16 @@ public extension InputStreamProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2661,7 +2738,7 @@ public extension InputStreamProtocol {
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
 public protocol ListStoreProtocol: ObjectProtocol, ListModelProtocol {
-    /// Untyped pointer to the underlying `GListStore` instance.
+        /// Untyped pointer to the underlying `GListStore` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GListStore` instance.
@@ -2678,7 +2755,7 @@ public protocol ListStoreProtocol: ObjectProtocol, ListModelProtocol {
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
 public struct ListStoreRef: ListStoreProtocol {
-    /// Untyped pointer to the underlying `GListStore` instance.
+        /// Untyped pointer to the underlying `GListStore` instance.
     /// For type-safe access, use the generated, typed pointer `list_store_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2726,7 +2803,7 @@ public extension ListStoreRef {
         /// Creates a new `GListStore` with items of type `item_type`. `item_type`
     /// must be a subclass of `GObject`.
     init( item_type: GType) {
-        let rv = g_list_store_new(item_type)
+        let rv: UnsafeMutablePointer<GListStore>! = cast(g_list_store_new(item_type))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -2741,7 +2818,7 @@ public extension ListStoreRef {
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
 open class ListStore: Object, ListStoreProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ListStore` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2822,7 +2899,7 @@ open class ListStore: Object, ListStoreProtocol {
     /// Creates a new `GListStore` with items of type `item_type`. `item_type`
     /// must be a subclass of `GObject`.
     public init( item_type: GType) {
-        let rv = g_list_store_new(item_type)
+        let rv: UnsafeMutablePointer<GListStore>! = cast(g_list_store_new(item_type))
         super.init(cast(rv))
     }
 
@@ -2844,8 +2921,8 @@ public extension ListStoreProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ListStorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ListStorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2868,6 +2945,23 @@ public extension ListStoreProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ListStore property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ListStorePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ListStore property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ListStorePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2908,8 +3002,8 @@ public extension ListStoreProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ListStoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ListStoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(list_store_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2930,6 +3024,7 @@ public extension ListStoreProtocol {
     }
 }
 
+// MARK: ListStore Class: ListStoreProtocol extension (methods and fields)
 public extension ListStoreProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListStore` instance.
     var list_store_ptr: UnsafeMutablePointer<GListStore> { return ptr.assumingMemoryBound(to: GListStore.self) }
@@ -2986,9 +3081,9 @@ public extension ListStoreProtocol {
     /// inserting items by way of this function.
     /// 
     /// This function takes a ref on `item`.
-    func insertSorted(item: ObjectProtocol, compareFunc compare_func: @escaping GCompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_list_store_insert_sorted(cast(list_store_ptr), cast(item.ptr), compare_func, cast(user_data))
-        return CUnsignedInt(rv)
+    func insertSorted(item: ObjectProtocol, compareFunc compare_func: @escaping GCompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_list_store_insert_sorted(cast(list_store_ptr), cast(item.ptr), compare_func, cast(user_data)))
+        return Int(rv)
     }
 
     /// Removes the item from `store` that is at `position`. `position` must be
@@ -3030,6 +3125,8 @@ public extension ListStoreProtocol {
         g_list_store_splice(cast(list_store_ptr), guint(position), guint(n_removals), cast(additions), guint(n_additions))
     
     }
+
+
 }
 
 

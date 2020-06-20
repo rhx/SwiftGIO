@@ -24,7 +24,7 @@ import GLibObject
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedOutputStream` instance.
@@ -50,7 +50,7 @@ public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, Seekab
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 public struct BufferedOutputStreamRef: BufferedOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `buffered_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -97,18 +97,18 @@ public extension BufferedOutputStreamRef {
 
         /// Creates a new buffered output stream for a base stream.
     init( base_stream: OutputStreamProtocol) {
-        let rv = g_buffered_output_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new(cast(base_stream.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
     init(sized base_stream: OutputStreamProtocol, size: Int) {
-        let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new buffered output stream with a given buffer size.
     static func new(sized base_stream: OutputStreamProtocol, size: Int) -> BufferedOutputStreamRef! {
-        let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         return rv.map { BufferedOutputStreamRef(cast($0)) }
     }
 }
@@ -132,7 +132,7 @@ public extension BufferedOutputStreamRef {
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
 open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BufferedOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -212,19 +212,19 @@ open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtoco
 
     /// Creates a new buffered output stream for a base stream.
     public init( base_stream: OutputStreamProtocol) {
-        let rv = g_buffered_output_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new(cast(base_stream.ptr)))
         super.init(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
     public init(sized base_stream: OutputStreamProtocol, size: Int) {
-        let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         super.init(cast(rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
     public static func new(sized base_stream: OutputStreamProtocol, size: Int) -> BufferedOutputStream! {
-        let rv = g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_buffered_output_stream_new_sized(cast(base_stream.ptr), gsize(size)))
         return rv.map { BufferedOutputStream(cast($0)) }
     }
 
@@ -246,8 +246,8 @@ public extension BufferedOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -270,6 +270,23 @@ public extension BufferedOutputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a BufferedOutputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: BufferedOutputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a BufferedOutputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: BufferedOutputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -311,8 +328,8 @@ public extension BufferedOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BufferedOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: BufferedOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(buffered_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -333,6 +350,7 @@ public extension BufferedOutputStreamProtocol {
     }
 }
 
+// MARK: BufferedOutputStream Class: BufferedOutputStreamProtocol extension (methods and fields)
 public extension BufferedOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedOutputStream` instance.
     var buffered_output_stream_ptr: UnsafeMutablePointer<GBufferedOutputStream> { return ptr.assumingMemoryBound(to: GBufferedOutputStream.self) }
@@ -391,6 +409,21 @@ public extension BufferedOutputStreamProtocol {
             g_buffered_output_stream_set_buffer_size(cast(buffered_output_stream_ptr), gsize(newValue))
         }
     }
+
+    var parentInstance: GFilterOutputStream {
+        get {
+            let rv: GFilterOutputStream = cast(buffered_output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GBufferedOutputStreamPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GBufferedOutputStreamPrivate> = cast(buffered_output_stream_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 
@@ -405,7 +438,7 @@ public extension BufferedOutputStreamProtocol {
 /// `GBytesIcon` specifies an image held in memory in a common format (usually
 /// png) to be used as icon.
 public protocol BytesIconProtocol: ObjectProtocol, IconProtocol, LoadableIconProtocol {
-    /// Untyped pointer to the underlying `GBytesIcon` instance.
+        /// Untyped pointer to the underlying `GBytesIcon` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBytesIcon` instance.
@@ -419,7 +452,7 @@ public protocol BytesIconProtocol: ObjectProtocol, IconProtocol, LoadableIconPro
 /// `GBytesIcon` specifies an image held in memory in a common format (usually
 /// png) to be used as icon.
 public struct BytesIconRef: BytesIconProtocol {
-    /// Untyped pointer to the underlying `GBytesIcon` instance.
+        /// Untyped pointer to the underlying `GBytesIcon` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -466,7 +499,7 @@ public extension BytesIconRef {
 
         /// Creates a new icon for a bytes.
     init( bytes: BytesProtocol) {
-        let rv = g_bytes_icon_new(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_bytes_icon_new(cast(bytes.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -478,7 +511,7 @@ public extension BytesIconRef {
 /// `GBytesIcon` specifies an image held in memory in a common format (usually
 /// png) to be used as icon.
 open class BytesIcon: Object, BytesIconProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BytesIcon` instance.
     /// - Parameter op: pointer to the underlying object
@@ -558,7 +591,7 @@ open class BytesIcon: Object, BytesIconProtocol {
 
     /// Creates a new icon for a bytes.
     public init( bytes: BytesProtocol) {
-        let rv = g_bytes_icon_new(cast(bytes.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_bytes_icon_new(cast(bytes.ptr)))
         super.init(cast(rv))
     }
 
@@ -579,8 +612,8 @@ public extension BytesIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BytesIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BytesIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -603,6 +636,23 @@ public extension BytesIconProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a BytesIcon property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: BytesIconPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a BytesIcon property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: BytesIconPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -642,8 +692,8 @@ public extension BytesIconProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BytesIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: BytesIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(bytes_icon_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -664,23 +714,26 @@ public extension BytesIconProtocol {
     }
 }
 
+// MARK: BytesIcon Class: BytesIconProtocol extension (methods and fields)
 public extension BytesIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBytesIcon` instance.
     var bytes_icon_ptr: UnsafeMutablePointer<GBytesIcon> { return ptr.assumingMemoryBound(to: GBytesIcon.self) }
 
     /// Gets the `GBytes` associated with the given `icon`.
     func getBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_bytes_icon_get_bytes(cast(bytes_icon_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_icon_get_bytes(cast(bytes_icon_ptr)))
         return cast(rv)
     }
     /// The bytes containing the icon.
     var bytes: UnsafeMutablePointer<GBytes>! {
         /// Gets the `GBytes` associated with the given `icon`.
         get {
-            let rv = g_bytes_icon_get_bytes(cast(bytes_icon_ptr))
+            let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_icon_get_bytes(cast(bytes_icon_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -696,7 +749,7 @@ public extension BytesIconProtocol {
 /// throughout GIO to allow for cancellation of synchronous and
 /// asynchronous operations.
 public protocol CancellableProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GCancellable` instance.
+        /// Untyped pointer to the underlying `GCancellable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCancellable` instance.
@@ -711,7 +764,7 @@ public protocol CancellableProtocol: ObjectProtocol {
 /// throughout GIO to allow for cancellation of synchronous and
 /// asynchronous operations.
 public struct CancellableRef: CancellableProtocol {
-    /// Untyped pointer to the underlying `GCancellable` instance.
+        /// Untyped pointer to the underlying `GCancellable` instance.
     /// For type-safe access, use the generated, typed pointer `cancellable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -765,12 +818,12 @@ public extension CancellableRef {
     /// One `GCancellable` can be used in multiple consecutive
     /// operations or in multiple concurrent operations.
     init() {
-        let rv = g_cancellable_new()
+        let rv: UnsafeMutablePointer<GCancellable>! = cast(g_cancellable_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Gets the top cancellable from the stack.
     static func getCurrent() -> CancellableRef! {
-        let rv = g_cancellable_get_current()
+        let rv: UnsafeMutablePointer<GCancellable>! = cast(g_cancellable_get_current())
         return rv.map { CancellableRef(cast($0)) }
     }
 }
@@ -783,7 +836,7 @@ public extension CancellableRef {
 /// throughout GIO to allow for cancellation of synchronous and
 /// asynchronous operations.
 open class Cancellable: Object, CancellableProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Cancellable` instance.
     /// - Parameter op: pointer to the underlying object
@@ -870,19 +923,19 @@ open class Cancellable: Object, CancellableProtocol {
     /// One `GCancellable` can be used in multiple consecutive
     /// operations or in multiple concurrent operations.
     public init() {
-        let rv = g_cancellable_new()
+        let rv: UnsafeMutablePointer<GCancellable>! = cast(g_cancellable_new())
         super.init(cast(rv))
     }
 
     /// Gets the top cancellable from the stack.
     public static func getCurrent() -> Cancellable! {
-        let rv = g_cancellable_get_current()
+        let rv: UnsafeMutablePointer<GCancellable>! = cast(g_cancellable_get_current())
         return rv.map { Cancellable(cast($0)) }
     }
 
 }
 
-// MARK: - no Cancellable properties
+// MARK: no Cancellable properties
 
 public enum CancellableSignalName: String, SignalNameProtocol {
     /// Emitted when the operation has been cancelled.
@@ -972,8 +1025,8 @@ public extension CancellableProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: CancellableSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: CancellableSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(cancellable_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -994,6 +1047,7 @@ public extension CancellableProtocol {
     }
 }
 
+// MARK: Cancellable Class: CancellableProtocol extension (methods and fields)
 public extension CancellableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCancellable` instance.
     var cancellable_ptr: UnsafeMutablePointer<GCancellable> { return ptr.assumingMemoryBound(to: GCancellable.self) }
@@ -1037,9 +1091,9 @@ public extension CancellableProtocol {
     /// `callback` is invoked.  This lifts a restriction in place for
     /// earlier GLib versions which now makes it easier to write cleanup
     /// code that unconditionally invokes e.g. `g_cancellable_cancel()`.
-    func connect(callback: @escaping GLibObject.Callback, data: UnsafeMutableRawPointer, dataDestroyFunc data_destroy_func: @escaping GLib.DestroyNotify) -> CUnsignedLong {
-        let rv = g_cancellable_connect(cast(cancellable_ptr), callback, cast(data), data_destroy_func)
-        return CUnsignedLong(rv)
+    func connect(callback: @escaping GLibObject.Callback, data: UnsafeMutableRawPointer, dataDestroyFunc data_destroy_func: @escaping GLib.DestroyNotify) -> Int {
+        let rv: Int = cast(g_cancellable_connect(cast(cancellable_ptr), callback, cast(data), data_destroy_func))
+        return Int(rv)
     }
 
     /// Disconnects a handler from a cancellable instance similar to
@@ -1074,9 +1128,9 @@ public extension CancellableProtocol {
     /// the returned file descriptor.
     /// 
     /// See also `g_cancellable_make_pollfd()`.
-    func getFd() -> CInt {
-        let rv = g_cancellable_get_fd(cast(cancellable_ptr))
-        return rv
+    func getFd() -> Int {
+        let rv: Int = cast(g_cancellable_get_fd(cast(cancellable_ptr)))
+        return cast(rv)
     }
 
     /// Creates a `GPollFD` corresponding to `cancellable`; this can be passed
@@ -1155,11 +1209,9 @@ public extension CancellableProtocol {
     /// If the `cancellable` is cancelled, sets the error to notify
     /// that the operation was cancelled.
     func setErrorIfCancelled() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_cancellable_set_error_if_cancelled(cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1173,7 +1225,7 @@ public extension CancellableProtocol {
     /// 
     /// The new `GSource` will hold a reference to the `GCancellable`.
     func sourceNew() -> UnsafeMutablePointer<GSource>! {
-        let rv = g_cancellable_source_new(cast(cancellable_ptr))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_cancellable_source_new(cast(cancellable_ptr)))
         return cast(rv)
     }
 
@@ -1236,11 +1288,9 @@ public extension CancellableProtocol {
     /// Note that the returned `GDBusConnection` object will (usually) have
     /// the `GDBusConnection:exit`-on-close property set to `true`.
     func busGetSync(busType bus_type: BusType) throws -> UnsafeMutablePointer<GDBusConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_bus_get_sync(bus_type, cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_bus_get_sync(bus_type, cast(cancellable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1251,12 +1301,10 @@ public extension CancellableProtocol {
     /// The returned address will be in the
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     func dbusAddressGetForBusSync(busType bus_type: BusType) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_address_get_for_bus_sync(bus_type, cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_dbus_address_get_for_bus_sync(bus_type, cast(cancellable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Asynchronously connects to an endpoint specified by `address` and
@@ -1283,11 +1331,9 @@ public extension CancellableProtocol {
     /// This is a synchronous failable function. See
     /// `g_dbus_address_get_stream()` for the asynchronous version.
     func dbusAddressGetStreamSync(address: UnsafePointer<gchar>, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_address_get_stream_sync(address, cast(out_guid), cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_address_get_stream_sync(address, cast(out_guid), cast(cancellable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1299,11 +1345,9 @@ public extension CancellableProtocol {
     /// Use g_object_new_with_properties() and
     /// g_initable_init() instead. See #GParameter for more information.
     @available(*, deprecated) func initableNewv(objectType object_type: GType, nParameters n_parameters: CUnsignedInt, parameters: UnsafeMutablePointer<GParameter>) throws -> UnsafeMutableRawPointer! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_initable_newv(object_type, guint(n_parameters), cast(parameters), cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutableRawPointer! = cast(g_initable_newv(object_type, guint(n_parameters), cast(parameters), cast(cancellable_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1328,7 +1372,7 @@ public extension CancellableProtocol {
     /// `g_pollable_source_new()`, but also attaching `child_source` (with a
     /// dummy callback), and `cancellable`, if they are non-`nil`.
     func pollableSourceNewFull(pollableStream pollable_stream: ObjectProtocol, childSource child_source: SourceProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_pollable_source_new_full(cast(pollable_stream.ptr), cast(child_source.ptr), cast(cancellable_ptr))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_source_new_full(cast(pollable_stream.ptr), cast(child_source.ptr), cast(cancellable_ptr)))
         return cast(rv)
     }
 
@@ -1342,12 +1386,10 @@ public extension CancellableProtocol {
     /// returns `true`, or else the behavior is undefined. If `blocking` is
     /// `true`, then `stream` does not need to be a `GPollableInputStream`.
     func pollableStreamRead(stream: InputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_read(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to write to `stream`, as with `g_output_stream_write()` (if
@@ -1361,12 +1403,10 @@ public extension CancellableProtocol {
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWrite(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool) throws -> gssize {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_write(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Tries to write `count` bytes to `stream`, as with
@@ -1388,11 +1428,9 @@ public extension CancellableProtocol {
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
     func pollableStreamWriteAll(stream: OutputStreamProtocol, buffer: UnsafeMutableRawPointer, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_write_all(cast(stream.ptr), cast(buffer), gsize(count), gboolean(blocking ? 1 : 0), cast(bytes_written), cast(cancellable_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     /// Gets the file descriptor for a cancellable job. This can be used to
@@ -1408,7 +1446,7 @@ public extension CancellableProtocol {
     /// the returned file descriptor.
     /// 
     /// See also `g_cancellable_make_pollfd()`.
-    var fd: CInt {
+    var fd: Int {
         /// Gets the file descriptor for a cancellable job. This can be used to
         /// implement cancellable operations on Unix systems. The returned fd will
         /// turn readable when `cancellable` is cancelled.
@@ -1423,8 +1461,8 @@ public extension CancellableProtocol {
         /// 
         /// See also `g_cancellable_make_pollfd()`.
         get {
-            let rv = g_cancellable_get_fd(cast(cancellable_ptr))
-            return rv
+            let rv: Int = cast(g_cancellable_get_fd(cast(cancellable_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1436,6 +1474,16 @@ public extension CancellableProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(cancellable_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 

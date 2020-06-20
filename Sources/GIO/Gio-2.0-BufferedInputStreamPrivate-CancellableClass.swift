@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol BufferedInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedInputStreamPrivate` instance.
@@ -24,7 +24,7 @@ public protocol BufferedInputStreamPrivateProtocol {
 ///
 
 public struct BufferedInputStreamPrivateRef: BufferedInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension BufferedInputStreamPrivateRef {
 ///
 
 open class BufferedInputStreamPrivate: BufferedInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class BufferedInputStreamPrivate: BufferedInputStreamPrivateProtocol {
         // no reference counting for GBufferedInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GBufferedInputStreamPrivate`.
+    /// Do-nothing destructor for `GBufferedInputStreamPrivate`.
     deinit {
         // no reference counting for GBufferedInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class BufferedInputStreamPrivate: BufferedInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no BufferedInputStreamPrivate properties
+// MARK: no BufferedInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no BufferedInputStreamPrivate signals
 
 
+// MARK: BufferedInputStreamPrivate Record: BufferedInputStreamPrivateProtocol extension (methods and fields)
 public extension BufferedInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GBufferedInputStreamPrivate> { return ptr.assumingMemoryBound(to: GBufferedInputStreamPrivate.self) }
+
+
 
 }
 
@@ -196,7 +199,7 @@ public extension BufferedInputStreamPrivateProtocol {
 ///
 
 public protocol BufferedOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedOutputStreamClass` instance.
@@ -209,7 +212,7 @@ public protocol BufferedOutputStreamClassProtocol {
 ///
 
 public struct BufferedOutputStreamClassRef: BufferedOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +265,7 @@ public extension BufferedOutputStreamClassRef {
 ///
 
 open class BufferedOutputStreamClass: BufferedOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +294,7 @@ open class BufferedOutputStreamClass: BufferedOutputStreamClassProtocol {
         // no reference counting for GBufferedOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GBufferedOutputStreamClass`.
+    /// Do-nothing destructor for `GBufferedOutputStreamClass`.
     deinit {
         // no reference counting for GBufferedOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -359,14 +362,27 @@ open class BufferedOutputStreamClass: BufferedOutputStreamClassProtocol {
 
 }
 
-// MARK: - no BufferedOutputStreamClass properties
+// MARK: no BufferedOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no BufferedOutputStreamClass signals
 
 
+// MARK: BufferedOutputStreamClass Record: BufferedOutputStreamClassProtocol extension (methods and fields)
 public extension BufferedOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GBufferedOutputStreamClass> { return ptr.assumingMemoryBound(to: GBufferedOutputStreamClass.self) }
+
+
+    var parentClass: GFilterOutputStreamClass {
+        get {
+            let rv: GFilterOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
 
 }
 
@@ -381,7 +397,7 @@ public extension BufferedOutputStreamClassProtocol {
 ///
 
 public protocol BufferedOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBufferedOutputStreamPrivate` instance.
@@ -394,7 +410,7 @@ public protocol BufferedOutputStreamPrivateProtocol {
 ///
 
 public struct BufferedOutputStreamPrivateRef: BufferedOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +463,7 @@ public extension BufferedOutputStreamPrivateRef {
 ///
 
 open class BufferedOutputStreamPrivate: BufferedOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GBufferedOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +492,7 @@ open class BufferedOutputStreamPrivate: BufferedOutputStreamPrivateProtocol {
         // no reference counting for GBufferedOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GBufferedOutputStreamPrivate`.
+    /// Do-nothing destructor for `GBufferedOutputStreamPrivate`.
     deinit {
         // no reference counting for GBufferedOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -544,14 +560,17 @@ open class BufferedOutputStreamPrivate: BufferedOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no BufferedOutputStreamPrivate properties
+// MARK: no BufferedOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no BufferedOutputStreamPrivate signals
 
 
+// MARK: BufferedOutputStreamPrivate Record: BufferedOutputStreamPrivateProtocol extension (methods and fields)
 public extension BufferedOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GBufferedOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GBufferedOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -566,7 +585,7 @@ public extension BufferedOutputStreamPrivateProtocol {
 ///
 
 public protocol CancellableClassProtocol {
-    /// Untyped pointer to the underlying `GCancellableClass` instance.
+        /// Untyped pointer to the underlying `GCancellableClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCancellableClass` instance.
@@ -579,7 +598,7 @@ public protocol CancellableClassProtocol {
 ///
 
 public struct CancellableClassRef: CancellableClassProtocol {
-    /// Untyped pointer to the underlying `GCancellableClass` instance.
+        /// Untyped pointer to the underlying `GCancellableClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +651,7 @@ public extension CancellableClassRef {
 ///
 
 open class CancellableClass: CancellableClassProtocol {
-    /// Untyped pointer to the underlying `GCancellableClass` instance.
+        /// Untyped pointer to the underlying `GCancellableClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +680,7 @@ open class CancellableClass: CancellableClassProtocol {
         // no reference counting for GCancellableClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCancellableClass`.
+    /// Do-nothing destructor for `GCancellableClass`.
     deinit {
         // no reference counting for GCancellableClass, cannot unref(cast(_ptr))
     }
@@ -729,14 +748,35 @@ open class CancellableClass: CancellableClassProtocol {
 
 }
 
-// MARK: - no CancellableClass properties
+// MARK: no CancellableClass properties
 
-// MARK: - no signals
+// MARK: no CancellableClass signals
 
 
+// MARK: CancellableClass Record: CancellableClassProtocol extension (methods and fields)
 public extension CancellableClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCancellableClass` instance.
     var _ptr: UnsafeMutablePointer<GCancellableClass> { return ptr.assumingMemoryBound(to: GCancellableClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var cancelled is unavailable because cancelled is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 

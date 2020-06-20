@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol CancellablePrivateProtocol {
-    /// Untyped pointer to the underlying `GCancellablePrivate` instance.
+        /// Untyped pointer to the underlying `GCancellablePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCancellablePrivate` instance.
@@ -24,7 +24,7 @@ public protocol CancellablePrivateProtocol {
 ///
 
 public struct CancellablePrivateRef: CancellablePrivateProtocol {
-    /// Untyped pointer to the underlying `GCancellablePrivate` instance.
+        /// Untyped pointer to the underlying `GCancellablePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension CancellablePrivateRef {
 ///
 
 open class CancellablePrivate: CancellablePrivateProtocol {
-    /// Untyped pointer to the underlying `GCancellablePrivate` instance.
+        /// Untyped pointer to the underlying `GCancellablePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class CancellablePrivate: CancellablePrivateProtocol {
         // no reference counting for GCancellablePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCancellablePrivate`.
+    /// Do-nothing destructor for `GCancellablePrivate`.
     deinit {
         // no reference counting for GCancellablePrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class CancellablePrivate: CancellablePrivateProtocol {
 
 }
 
-// MARK: - no CancellablePrivate properties
+// MARK: no CancellablePrivate properties
 
-// MARK: - no signals
+// MARK: no CancellablePrivate signals
 
 
+// MARK: CancellablePrivate Record: CancellablePrivateProtocol extension (methods and fields)
 public extension CancellablePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCancellablePrivate` instance.
     var _ptr: UnsafeMutablePointer<GCancellablePrivate> { return ptr.assumingMemoryBound(to: GCancellablePrivate.self) }
+
+
 
 }
 
@@ -196,7 +199,7 @@ public extension CancellablePrivateProtocol {
 ///
 
 public protocol CharsetConverterClassProtocol {
-    /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
+        /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCharsetConverterClass` instance.
@@ -209,7 +212,7 @@ public protocol CharsetConverterClassProtocol {
 ///
 
 public struct CharsetConverterClassRef: CharsetConverterClassProtocol {
-    /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
+        /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +265,7 @@ public extension CharsetConverterClassRef {
 ///
 
 open class CharsetConverterClass: CharsetConverterClassProtocol {
-    /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
+        /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +294,7 @@ open class CharsetConverterClass: CharsetConverterClassProtocol {
         // no reference counting for GCharsetConverterClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCharsetConverterClass`.
+    /// Do-nothing destructor for `GCharsetConverterClass`.
     deinit {
         // no reference counting for GCharsetConverterClass, cannot unref(cast(_ptr))
     }
@@ -359,14 +362,23 @@ open class CharsetConverterClass: CharsetConverterClassProtocol {
 
 }
 
-// MARK: - no CharsetConverterClass properties
+// MARK: no CharsetConverterClass properties
 
-// MARK: - no signals
+// MARK: no CharsetConverterClass signals
 
 
+// MARK: CharsetConverterClass Record: CharsetConverterClassProtocol extension (methods and fields)
 public extension CharsetConverterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCharsetConverterClass` instance.
     var _ptr: UnsafeMutablePointer<GCharsetConverterClass> { return ptr.assumingMemoryBound(to: GCharsetConverterClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -383,7 +395,7 @@ public extension CharsetConverterClassProtocol {
 /// to another type. The conversion can be stateful
 /// and may fail at any place.
 public protocol ConverterIfaceProtocol {
-    /// Untyped pointer to the underlying `GConverterIface` instance.
+        /// Untyped pointer to the underlying `GConverterIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverterIface` instance.
@@ -398,7 +410,7 @@ public protocol ConverterIfaceProtocol {
 /// to another type. The conversion can be stateful
 /// and may fail at any place.
 public struct ConverterIfaceRef: ConverterIfaceProtocol {
-    /// Untyped pointer to the underlying `GConverterIface` instance.
+        /// Untyped pointer to the underlying `GConverterIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -453,7 +465,7 @@ public extension ConverterIfaceRef {
 /// to another type. The conversion can be stateful
 /// and may fail at any place.
 open class ConverterIface: ConverterIfaceProtocol {
-    /// Untyped pointer to the underlying `GConverterIface` instance.
+        /// Untyped pointer to the underlying `GConverterIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -482,7 +494,7 @@ open class ConverterIface: ConverterIfaceProtocol {
         // no reference counting for GConverterIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GConverterIface`.
+    /// Do-nothing destructor for `GConverterIface`.
     deinit {
         // no reference counting for GConverterIface, cannot unref(cast(_ptr))
     }
@@ -550,14 +562,29 @@ open class ConverterIface: ConverterIfaceProtocol {
 
 }
 
-// MARK: - no ConverterIface properties
+// MARK: no ConverterIface properties
 
-// MARK: - no signals
+// MARK: no ConverterIface signals
 
 
+// MARK: ConverterIface Record: ConverterIfaceProtocol extension (methods and fields)
 public extension ConverterIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterIface` instance.
     var _ptr: UnsafeMutablePointer<GConverterIface> { return ptr.assumingMemoryBound(to: GConverterIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var convert is unavailable because convert is void
+
+    // var reset is unavailable because reset is void
 
 }
 
@@ -572,7 +599,7 @@ public extension ConverterIfaceProtocol {
 ///
 
 public protocol ConverterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverterInputStreamClass` instance.
@@ -585,7 +612,7 @@ public protocol ConverterInputStreamClassProtocol {
 ///
 
 public struct ConverterInputStreamClassRef: ConverterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -638,7 +665,7 @@ public extension ConverterInputStreamClassRef {
 ///
 
 open class ConverterInputStreamClass: ConverterInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -667,7 +694,7 @@ open class ConverterInputStreamClass: ConverterInputStreamClassProtocol {
         // no reference counting for GConverterInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GConverterInputStreamClass`.
+    /// Do-nothing destructor for `GConverterInputStreamClass`.
     deinit {
         // no reference counting for GConverterInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -735,14 +762,33 @@ open class ConverterInputStreamClass: ConverterInputStreamClassProtocol {
 
 }
 
-// MARK: - no ConverterInputStreamClass properties
+// MARK: no ConverterInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no ConverterInputStreamClass signals
 
 
+// MARK: ConverterInputStreamClass Record: ConverterInputStreamClassProtocol extension (methods and fields)
 public extension ConverterInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GConverterInputStreamClass> { return ptr.assumingMemoryBound(to: GConverterInputStreamClass.self) }
+
+
+    var parentClass: GFilterInputStreamClass {
+        get {
+            let rv: GFilterInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -757,7 +803,7 @@ public extension ConverterInputStreamClassProtocol {
 ///
 
 public protocol ConverterInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverterInputStreamPrivate` instance.
@@ -770,7 +816,7 @@ public protocol ConverterInputStreamPrivateProtocol {
 ///
 
 public struct ConverterInputStreamPrivateRef: ConverterInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -823,7 +869,7 @@ public extension ConverterInputStreamPrivateRef {
 ///
 
 open class ConverterInputStreamPrivate: ConverterInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -852,7 +898,7 @@ open class ConverterInputStreamPrivate: ConverterInputStreamPrivateProtocol {
         // no reference counting for GConverterInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GConverterInputStreamPrivate`.
+    /// Do-nothing destructor for `GConverterInputStreamPrivate`.
     deinit {
         // no reference counting for GConverterInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -920,14 +966,17 @@ open class ConverterInputStreamPrivate: ConverterInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no ConverterInputStreamPrivate properties
+// MARK: no ConverterInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no ConverterInputStreamPrivate signals
 
 
+// MARK: ConverterInputStreamPrivate Record: ConverterInputStreamPrivateProtocol extension (methods and fields)
 public extension ConverterInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GConverterInputStreamPrivate> { return ptr.assumingMemoryBound(to: GConverterInputStreamPrivate.self) }
+
+
 
 }
 
@@ -942,7 +991,7 @@ public extension ConverterInputStreamPrivateProtocol {
 ///
 
 public protocol ConverterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverterOutputStreamClass` instance.
@@ -955,7 +1004,7 @@ public protocol ConverterOutputStreamClassProtocol {
 ///
 
 public struct ConverterOutputStreamClassRef: ConverterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1008,7 +1057,7 @@ public extension ConverterOutputStreamClassRef {
 ///
 
 open class ConverterOutputStreamClass: ConverterOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1037,7 +1086,7 @@ open class ConverterOutputStreamClass: ConverterOutputStreamClassProtocol {
         // no reference counting for GConverterOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GConverterOutputStreamClass`.
+    /// Do-nothing destructor for `GConverterOutputStreamClass`.
     deinit {
         // no reference counting for GConverterOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -1105,14 +1154,33 @@ open class ConverterOutputStreamClass: ConverterOutputStreamClassProtocol {
 
 }
 
-// MARK: - no ConverterOutputStreamClass properties
+// MARK: no ConverterOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no ConverterOutputStreamClass signals
 
 
+// MARK: ConverterOutputStreamClass Record: ConverterOutputStreamClassProtocol extension (methods and fields)
 public extension ConverterOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GConverterOutputStreamClass> { return ptr.assumingMemoryBound(to: GConverterOutputStreamClass.self) }
+
+
+    var parentClass: GFilterOutputStreamClass {
+        get {
+            let rv: GFilterOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -1127,7 +1195,7 @@ public extension ConverterOutputStreamClassProtocol {
 ///
 
 public protocol ConverterOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverterOutputStreamPrivate` instance.
@@ -1140,7 +1208,7 @@ public protocol ConverterOutputStreamPrivateProtocol {
 ///
 
 public struct ConverterOutputStreamPrivateRef: ConverterOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1193,7 +1261,7 @@ public extension ConverterOutputStreamPrivateRef {
 ///
 
 open class ConverterOutputStreamPrivate: ConverterOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GConverterOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1222,7 +1290,7 @@ open class ConverterOutputStreamPrivate: ConverterOutputStreamPrivateProtocol {
         // no reference counting for GConverterOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GConverterOutputStreamPrivate`.
+    /// Do-nothing destructor for `GConverterOutputStreamPrivate`.
     deinit {
         // no reference counting for GConverterOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -1290,14 +1358,17 @@ open class ConverterOutputStreamPrivate: ConverterOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no ConverterOutputStreamPrivate properties
+// MARK: no ConverterOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no ConverterOutputStreamPrivate signals
 
 
+// MARK: ConverterOutputStreamPrivate Record: ConverterOutputStreamPrivateProtocol extension (methods and fields)
 public extension ConverterOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GConverterOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GConverterOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -1312,7 +1383,7 @@ public extension ConverterOutputStreamPrivateProtocol {
 ///
 /// Class structure for `GCredentials`.
 public protocol CredentialsClassProtocol {
-    /// Untyped pointer to the underlying `GCredentialsClass` instance.
+        /// Untyped pointer to the underlying `GCredentialsClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCredentialsClass` instance.
@@ -1325,7 +1396,7 @@ public protocol CredentialsClassProtocol {
 ///
 /// Class structure for `GCredentials`.
 public struct CredentialsClassRef: CredentialsClassProtocol {
-    /// Untyped pointer to the underlying `GCredentialsClass` instance.
+        /// Untyped pointer to the underlying `GCredentialsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1378,7 +1449,7 @@ public extension CredentialsClassRef {
 ///
 /// Class structure for `GCredentials`.
 open class CredentialsClass: CredentialsClassProtocol {
-    /// Untyped pointer to the underlying `GCredentialsClass` instance.
+        /// Untyped pointer to the underlying `GCredentialsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1407,7 +1478,7 @@ open class CredentialsClass: CredentialsClassProtocol {
         // no reference counting for GCredentialsClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCredentialsClass`.
+    /// Do-nothing destructor for `GCredentialsClass`.
     deinit {
         // no reference counting for GCredentialsClass, cannot unref(cast(_ptr))
     }
@@ -1475,14 +1546,17 @@ open class CredentialsClass: CredentialsClassProtocol {
 
 }
 
-// MARK: - no CredentialsClass properties
+// MARK: no CredentialsClass properties
 
-// MARK: - no signals
+// MARK: no CredentialsClass signals
 
 
+// MARK: CredentialsClass Record: CredentialsClassProtocol extension (methods and fields)
 public extension CredentialsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCredentialsClass` instance.
     var _ptr: UnsafeMutablePointer<GCredentialsClass> { return ptr.assumingMemoryBound(to: GCredentialsClass.self) }
+
+
 
 }
 
@@ -1497,7 +1571,7 @@ public extension CredentialsClassProtocol {
 ///
 /// Information about an annotation.
 public protocol DBusAnnotationInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
+        /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusAnnotationInfo` instance.
@@ -1510,7 +1584,7 @@ public protocol DBusAnnotationInfoProtocol {
 ///
 /// Information about an annotation.
 public struct DBusAnnotationInfoRef: DBusAnnotationInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
+        /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_annotation_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1563,7 +1637,7 @@ public extension DBusAnnotationInfoRef {
 ///
 /// Information about an annotation.
 open class DBusAnnotationInfo: DBusAnnotationInfoProtocol {
-    /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
+        /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_annotation_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1660,11 +1734,12 @@ open class DBusAnnotationInfo: DBusAnnotationInfoProtocol {
 
 }
 
-// MARK: - no DBusAnnotationInfo properties
+// MARK: no DBusAnnotationInfo properties
 
-// MARK: - no signals
+// MARK: no DBusAnnotationInfo signals
 
 
+// MARK: DBusAnnotationInfo Record: DBusAnnotationInfoProtocol extension (methods and fields)
 public extension DBusAnnotationInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusAnnotationInfo` instance.
     var dbus_annotation_info_ptr: UnsafeMutablePointer<GDBusAnnotationInfo> { return ptr.assumingMemoryBound(to: GDBusAnnotationInfo.self) }
@@ -1672,7 +1747,7 @@ public extension DBusAnnotationInfoProtocol {
     /// If `info` is statically allocated does nothing. Otherwise increases
     /// the reference count.
     func ref() -> UnsafeMutablePointer<GDBusAnnotationInfo>! {
-        let rv = g_dbus_annotation_info_ref(cast(dbus_annotation_info_ptr))
+        let rv: UnsafeMutablePointer<GDBusAnnotationInfo>! = cast(g_dbus_annotation_info_ref(cast(dbus_annotation_info_ptr)))
         return cast(rv)
     }
 
@@ -1683,6 +1758,48 @@ public extension DBusAnnotationInfoProtocol {
         g_dbus_annotation_info_unref(cast(dbus_annotation_info_ptr))
     
     }
+
+    /// The reference count or -1 if statically allocated.
+    var refCount: Int {
+        /// The reference count or -1 if statically allocated.
+        get {
+            let rv: Int = cast(dbus_annotation_info_ptr.pointee.ref_count)
+            return rv
+        }
+        /// The reference count or -1 if statically allocated.
+         set {
+            dbus_annotation_info_ptr.pointee.ref_count = gint(newValue)
+        }
+    }
+
+    /// The name of the annotation, e.g. "org.freedesktop.DBus.Deprecated".
+    var key: UnsafePointer<CChar> {
+        /// The name of the annotation, e.g. "org.freedesktop.DBus.Deprecated".
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_annotation_info_ptr.pointee.key)
+            return rv
+        }
+        /// The name of the annotation, e.g. "org.freedesktop.DBus.Deprecated".
+         set {
+            dbus_annotation_info_ptr.pointee.key = cast(newValue)
+        }
+    }
+
+    /// The value of the annotation.
+    var value: UnsafePointer<CChar> {
+        /// The value of the annotation.
+        get {
+            let rv: UnsafePointer<CChar> = cast(dbus_annotation_info_ptr.pointee.value)
+            return rv
+        }
+        /// The value of the annotation.
+         set {
+            dbus_annotation_info_ptr.pointee.value = cast(newValue)
+        }
+    }
+
+    // var annotations is unavailable because annotations is void
+
 }
 
 

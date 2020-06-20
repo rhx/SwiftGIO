@@ -12,7 +12,7 @@ import GLibObject
 /// `GTlsClientConnection` is the client-side subclass of
 /// `GTlsConnection`, representing a client-side TLS connection.
 public protocol TLSClientConnectionProtocol: TLSConnectionProtocol {
-    /// Untyped pointer to the underlying `GTlsClientConnection` instance.
+        /// Untyped pointer to the underlying `GTlsClientConnection` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsClientConnection` instance.
@@ -26,7 +26,7 @@ public protocol TLSClientConnectionProtocol: TLSConnectionProtocol {
 /// `GTlsClientConnection` is the client-side subclass of
 /// `GTlsConnection`, representing a client-side TLS connection.
 public struct TLSClientConnectionRef: TLSClientConnectionProtocol {
-    /// Untyped pointer to the underlying `GTlsClientConnection` instance.
+        /// Untyped pointer to the underlying `GTlsClientConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_client_connection_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -80,7 +80,7 @@ public extension TLSClientConnectionRef {
 /// `GTlsClientConnection` is the client-side subclass of
 /// `GTlsConnection`, representing a client-side TLS connection.
 open class TLSClientConnection: TLSConnection, TLSClientConnectionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSClientConnection` instance.
     /// - Parameter op: pointer to the underlying object
@@ -266,8 +266,8 @@ public extension TLSClientConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -290,6 +290,23 @@ public extension TLSClientConnectionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a TLSClientConnection property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: TLSClientConnectionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a TLSClientConnection property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: TLSClientConnectionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -453,8 +470,8 @@ public extension TLSClientConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSClientConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: TLSClientConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(tls_client_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -475,6 +492,7 @@ public extension TLSClientConnectionProtocol {
     }
 }
 
+// MARK: TLSClientConnection Interface: TLSClientConnectionProtocol extension (methods and fields)
 public extension TLSClientConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsClientConnection` instance.
     var tls_client_connection_ptr: UnsafeMutablePointer<GTlsClientConnection> { return ptr.assumingMemoryBound(to: GTlsClientConnection.self) }
@@ -520,13 +538,13 @@ public extension TLSClientConnectionProtocol {
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
     func getAcceptedCas() -> UnsafeMutablePointer<GList>! {
-        let rv = g_tls_client_connection_get_accepted_cas(cast(tls_client_connection_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_tls_client_connection_get_accepted_cas(cast(tls_client_connection_ptr)))
         return cast(rv)
     }
 
     /// Gets `conn`'s expected server identity
     func getServerIdentity() -> UnsafeMutablePointer<GSocketConnectable>! {
-        let rv = g_tls_client_connection_get_server_identity(cast(tls_client_connection_ptr))
+        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_tls_client_connection_get_server_identity(cast(tls_client_connection_ptr)))
         return cast(rv)
     }
 
@@ -543,7 +561,7 @@ public extension TLSClientConnectionProtocol {
     /// Gets `conn`'s validation flags
     func getValidationFlags() -> GTlsCertificateFlags {
         let rv = g_tls_client_connection_get_validation_flags(cast(tls_client_connection_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Sets `conn`'s expected server identity, which is used both to tell
@@ -577,7 +595,7 @@ public extension TLSClientConnectionProtocol {
     /// checks performed when validating a server certificate. By default,
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL` is used.
     func setValidation(flags: TLSCertificateFlags) {
-        g_tls_client_connection_set_validation_flags(cast(tls_client_connection_ptr), flags)
+        g_tls_client_connection_set_validation_flags(cast(tls_client_connection_ptr), flags.value)
     
     }
     /// Gets the list of distinguished names of the Certificate Authorities
@@ -596,7 +614,7 @@ public extension TLSClientConnectionProtocol {
         /// Each item in the list is a `GByteArray` which contains the complete
         /// subject DN of the certificate authority.
         get {
-            let rv = g_tls_client_connection_get_accepted_cas(cast(tls_client_connection_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_tls_client_connection_get_accepted_cas(cast(tls_client_connection_ptr)))
             return cast(rv)
         }
     }
@@ -605,7 +623,7 @@ public extension TLSClientConnectionProtocol {
     var serverIdentity: UnsafeMutablePointer<GSocketConnectable>! {
         /// Gets `conn`'s expected server identity
         get {
-            let rv = g_tls_client_connection_get_server_identity(cast(tls_client_connection_ptr))
+            let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_tls_client_connection_get_server_identity(cast(tls_client_connection_ptr)))
             return cast(rv)
         }
         /// Sets `conn`'s expected server identity, which is used both to tell
@@ -655,15 +673,17 @@ public extension TLSClientConnectionProtocol {
         /// Gets `conn`'s validation flags
         get {
             let rv = g_tls_client_connection_get_validation_flags(cast(tls_client_connection_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets `conn`'s validation flags, to override the default set of
         /// checks performed when validating a server certificate. By default,
         /// `G_TLS_CERTIFICATE_VALIDATE_ALL` is used.
         nonmutating set {
-            g_tls_client_connection_set_validation_flags(cast(tls_client_connection_ptr), newValue)
+            g_tls_client_connection_set_validation_flags(cast(tls_client_connection_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -679,7 +699,7 @@ public extension TLSClientConnectionProtocol {
 /// their certificate information from a file. It is an interface which
 /// TLS library specific subtypes implement.
 public protocol TLSFileDatabaseProtocol: TLSDatabaseProtocol {
-    /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
+        /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsFileDatabase` instance.
@@ -694,7 +714,7 @@ public protocol TLSFileDatabaseProtocol: TLSDatabaseProtocol {
 /// their certificate information from a file. It is an interface which
 /// TLS library specific subtypes implement.
 public struct TLSFileDatabaseRef: TLSFileDatabaseProtocol {
-    /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
+        /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
     /// For type-safe access, use the generated, typed pointer `tls_file_database_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -749,7 +769,7 @@ public extension TLSFileDatabaseRef {
 /// their certificate information from a file. It is an interface which
 /// TLS library specific subtypes implement.
 open class TLSFileDatabase: TLSDatabase, TLSFileDatabaseProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSFileDatabase` instance.
     /// - Parameter op: pointer to the underlying object
@@ -848,8 +868,8 @@ public extension TLSFileDatabaseProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSFileDatabasePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSFileDatabasePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -872,6 +892,23 @@ public extension TLSFileDatabaseProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a TLSFileDatabase property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: TLSFileDatabasePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a TLSFileDatabase property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: TLSFileDatabasePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -914,8 +951,8 @@ public extension TLSFileDatabaseProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSFileDatabaseSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: TLSFileDatabaseSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(tls_file_database_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -936,9 +973,12 @@ public extension TLSFileDatabaseProtocol {
     }
 }
 
+// MARK: TLSFileDatabase Interface: TLSFileDatabaseProtocol extension (methods and fields)
 public extension TLSFileDatabaseProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsFileDatabase` instance.
     var tls_file_database_ptr: UnsafeMutablePointer<GTlsFileDatabase> { return ptr.assumingMemoryBound(to: GTlsFileDatabase.self) }
+
+
 
 }
 
@@ -954,7 +994,7 @@ public extension TLSFileDatabaseProtocol {
 /// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
 /// representing a server-side TLS connection.
 public protocol TLSServerConnectionProtocol: TLSConnectionProtocol {
-    /// Untyped pointer to the underlying `GTlsServerConnection` instance.
+        /// Untyped pointer to the underlying `GTlsServerConnection` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTlsServerConnection` instance.
@@ -968,7 +1008,7 @@ public protocol TLSServerConnectionProtocol: TLSConnectionProtocol {
 /// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
 /// representing a server-side TLS connection.
 public struct TLSServerConnectionRef: TLSServerConnectionProtocol {
-    /// Untyped pointer to the underlying `GTlsServerConnection` instance.
+        /// Untyped pointer to the underlying `GTlsServerConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_server_connection_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1022,7 +1062,7 @@ public extension TLSServerConnectionRef {
 /// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
 /// representing a server-side TLS connection.
 open class TLSServerConnection: TLSConnection, TLSServerConnectionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSServerConnection` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1178,8 +1218,8 @@ public extension TLSServerConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1202,6 +1242,23 @@ public extension TLSServerConnectionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a TLSServerConnection property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: TLSServerConnectionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a TLSServerConnection property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: TLSServerConnectionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1335,8 +1392,8 @@ public extension TLSServerConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSServerConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: TLSServerConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(tls_server_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1357,9 +1414,12 @@ public extension TLSServerConnectionProtocol {
     }
 }
 
+// MARK: TLSServerConnection Interface: TLSServerConnectionProtocol extension (methods and fields)
 public extension TLSServerConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsServerConnection` instance.
     var tls_server_connection_ptr: UnsafeMutablePointer<GTlsServerConnection> { return ptr.assumingMemoryBound(to: GTlsServerConnection.self) }
+
+
 
 }
 
@@ -1414,7 +1474,7 @@ public extension TLSServerConnectionProtocol {
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
 public protocol VolumeProtocol {
-    /// Untyped pointer to the underlying `GVolume` instance.
+        /// Untyped pointer to the underlying `GVolume` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVolume` instance.
@@ -1467,7 +1527,7 @@ public protocol VolumeProtocol {
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
 public struct VolumeRef: VolumeProtocol {
-    /// Untyped pointer to the underlying `GVolume` instance.
+        /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1560,7 +1620,7 @@ public extension VolumeRef {
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
 open class Volume: VolumeProtocol {
-    /// Untyped pointer to the underlying `GVolume` instance.
+        /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1589,7 +1649,7 @@ open class Volume: VolumeProtocol {
         // no reference counting for GVolume, cannot ref(cast(volume_ptr))
     }
 
-    /// Do-nothing destructor for`GVolume`.
+    /// Do-nothing destructor for `GVolume`.
     deinit {
         // no reference counting for GVolume, cannot unref(cast(volume_ptr))
     }
@@ -1657,7 +1717,7 @@ open class Volume: VolumeProtocol {
 
 }
 
-// MARK: - no Volume properties
+// MARK: no Volume properties
 
 public enum VolumeSignalName: String, SignalNameProtocol {
     /// Emitted when the volume has been changed.
@@ -1675,8 +1735,8 @@ public extension VolumeProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: VolumeSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: VolumeSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(volume_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1697,6 +1757,7 @@ public extension VolumeProtocol {
     }
 }
 
+// MARK: Volume Interface: VolumeProtocol extension (methods and fields)
 public extension VolumeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVolume` instance.
     var volume_ptr: UnsafeMutablePointer<GVolume> { return ptr.assumingMemoryBound(to: GVolume.self) }
@@ -1720,7 +1781,7 @@ public extension VolumeProtocol {
     /// **eject is deprecated:**
     /// Use g_volume_eject_with_operation() instead.
     @available(*, deprecated) func eject(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_volume_eject(cast(volume_ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+        g_volume_eject(cast(volume_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -1730,11 +1791,9 @@ public extension VolumeProtocol {
     /// **eject_finish is deprecated:**
     /// Use g_volume_eject_with_operation_finish() instead.
     @available(*, deprecated) func ejectFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_volume_eject_finish(cast(volume_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1742,25 +1801,23 @@ public extension VolumeProtocol {
     /// finished by calling `g_volume_eject_with_operation_finish()` with the `volume`
     /// and `GAsyncResult` data returned in the `callback`.
     func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_volume_eject_with_operation(cast(volume_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_volume_eject_with_operation(cast(volume_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes ejecting a volume. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
     func ejectWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_volume_eject_with_operation_finish(cast(volume_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Gets the kinds of [identifiers](#volume-identifier) that `volume` has.
     /// Use `g_volume_get_identifier()` to obtain the identifiers themselves.
     func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv = g_volume_enumerate_identifiers(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_volume_enumerate_identifiers(cast(volume_ptr)))
         return cast(rv)
     }
 
@@ -1793,19 +1850,19 @@ public extension VolumeProtocol {
     /// implementations to find the underlying mount to shadow, see
     /// `g_mount_is_shadowed()` for more details.
     func getActivationRoot() -> UnsafeMutablePointer<GFile>! {
-        let rv = g_volume_get_activation_root(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_volume_get_activation_root(cast(volume_ptr)))
         return cast(rv)
     }
 
     /// Gets the drive for the `volume`.
     func getDrive() -> UnsafeMutablePointer<GDrive>! {
-        let rv = g_volume_get_drive(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<GDrive>! = cast(g_volume_get_drive(cast(volume_ptr)))
         return cast(rv)
     }
 
     /// Gets the icon for `volume`.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_volume_get_icon(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_volume_get_icon(cast(volume_ptr)))
         return cast(rv)
     }
 
@@ -1813,31 +1870,31 @@ public extension VolumeProtocol {
     /// See the [introduction](#volume-identifier) for more
     /// information about volume identifiers.
     func getIdentifier(kind: UnsafePointer<CChar>) -> String! {
-        let rv = g_volume_get_identifier(cast(volume_ptr), kind)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_volume_get_identifier(cast(volume_ptr), kind))
+        return cast(rv)
     }
 
     /// Gets the mount for the `volume`.
     func getMount() -> UnsafeMutablePointer<GMount>! {
-        let rv = g_volume_get_mount(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<GMount>! = cast(g_volume_get_mount(cast(volume_ptr)))
         return cast(rv)
     }
 
     /// Gets the name of `volume`.
     func getName() -> String! {
-        let rv = g_volume_get_name(cast(volume_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_volume_get_name(cast(volume_ptr)))
+        return cast(rv)
     }
 
     /// Gets the sort key for `volume`, if any.
     func getSortKey() -> String! {
-        let rv = g_volume_get_sort_key(cast(volume_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_volume_get_sort_key(cast(volume_ptr)))
+        return cast(rv)
     }
 
     /// Gets the symbolic icon for `volume`.
     func getSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_volume_get_symbolic_icon(cast(volume_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_volume_get_symbolic_icon(cast(volume_ptr)))
         return cast(rv)
     }
 
@@ -1846,15 +1903,15 @@ public extension VolumeProtocol {
     /// considered an opaque string. Returns `nil` if there is no UUID
     /// available.
     func getUuid() -> String! {
-        let rv = g_volume_get_uuid(cast(volume_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_volume_get_uuid(cast(volume_ptr)))
+        return cast(rv)
     }
 
     /// Mounts a volume. This is an asynchronous operation, and is
     /// finished by calling `g_volume_mount_finish()` with the `volume`
     /// and `GAsyncResult` returned in the `callback`.
-    func mount(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_volume_mount(cast(volume_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    func getMount(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
+        g_volume_mount(cast(volume_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -1866,11 +1923,9 @@ public extension VolumeProtocol {
     /// function; there's no need to listen for the 'mount-added' signal on
     /// `GVolumeMonitor`.
     func mountFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_volume_mount_finish(cast(volume_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1937,7 +1992,7 @@ public extension VolumeProtocol {
         /// implementations to find the underlying mount to shadow, see
         /// `g_mount_is_shadowed()` for more details.
         get {
-            let rv = g_volume_get_activation_root(cast(volume_ptr))
+            let rv: UnsafeMutablePointer<GFile>! = cast(g_volume_get_activation_root(cast(volume_ptr)))
             return cast(rv)
         }
     }
@@ -1946,7 +2001,7 @@ public extension VolumeProtocol {
     var drive: UnsafeMutablePointer<GDrive>! {
         /// Gets the drive for the `volume`.
         get {
-            let rv = g_volume_get_drive(cast(volume_ptr))
+            let rv: UnsafeMutablePointer<GDrive>! = cast(g_volume_get_drive(cast(volume_ptr)))
             return cast(rv)
         }
     }
@@ -1955,7 +2010,7 @@ public extension VolumeProtocol {
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gets the icon for `volume`.
         get {
-            let rv = g_volume_get_icon(cast(volume_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_volume_get_icon(cast(volume_ptr)))
             return cast(rv)
         }
     }
@@ -1964,7 +2019,7 @@ public extension VolumeProtocol {
     var mount: UnsafeMutablePointer<GMount>! {
         /// Gets the mount for the `volume`.
         get {
-            let rv = g_volume_get_mount(cast(volume_ptr))
+            let rv: UnsafeMutablePointer<GMount>! = cast(g_volume_get_mount(cast(volume_ptr)))
             return cast(rv)
         }
     }
@@ -1973,8 +2028,8 @@ public extension VolumeProtocol {
     var name: String! {
         /// Gets the name of `volume`.
         get {
-            let rv = g_volume_get_name(cast(volume_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_volume_get_name(cast(volume_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1982,8 +2037,8 @@ public extension VolumeProtocol {
     var sortKey: String! {
         /// Gets the sort key for `volume`, if any.
         get {
-            let rv = g_volume_get_sort_key(cast(volume_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_volume_get_sort_key(cast(volume_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1991,7 +2046,7 @@ public extension VolumeProtocol {
     var symbolicIcon: UnsafeMutablePointer<GIcon>! {
         /// Gets the symbolic icon for `volume`.
         get {
-            let rv = g_volume_get_symbolic_icon(cast(volume_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_volume_get_symbolic_icon(cast(volume_ptr)))
             return cast(rv)
         }
     }
@@ -2006,10 +2061,12 @@ public extension VolumeProtocol {
         /// considered an opaque string. Returns `nil` if there is no UUID
         /// available.
         get {
-            let rv = g_volume_get_uuid(cast(volume_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_volume_get_uuid(cast(volume_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

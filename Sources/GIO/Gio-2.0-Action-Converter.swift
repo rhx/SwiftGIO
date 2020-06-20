@@ -39,7 +39,7 @@ import GLibObject
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
 public protocol ActionProtocol {
-    /// Untyped pointer to the underlying `GAction` instance.
+        /// Untyped pointer to the underlying `GAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAction` instance.
@@ -80,7 +80,7 @@ public protocol ActionProtocol {
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
 public struct ActionRef: ActionProtocol {
-    /// Untyped pointer to the underlying `GAction` instance.
+        /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -161,7 +161,7 @@ public extension ActionRef {
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
 open class Action: ActionProtocol {
-    /// Untyped pointer to the underlying `GAction` instance.
+        /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -190,7 +190,7 @@ open class Action: ActionProtocol {
         // no reference counting for GAction, cannot ref(cast(action_ptr))
     }
 
-    /// Do-nothing destructor for`GAction`.
+    /// Do-nothing destructor for `GAction`.
     deinit {
         // no reference counting for GAction, cannot unref(cast(action_ptr))
     }
@@ -287,8 +287,8 @@ public extension ActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -311,6 +311,23 @@ public extension ActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Action property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Action property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -341,8 +358,8 @@ public extension ActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -363,6 +380,7 @@ public extension ActionProtocol {
     }
 }
 
+// MARK: Action Interface: ActionProtocol extension (methods and fields)
 public extension ActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAction` instance.
     var action_ptr: UnsafeMutablePointer<GAction> { return ptr.assumingMemoryBound(to: GAction.self) }
@@ -405,8 +423,8 @@ public extension ActionProtocol {
 
     /// Queries the name of `action`.
     func getName() -> String! {
-        let rv = g_action_get_name(cast(action_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_action_get_name(cast(action_ptr)))
+        return cast(rv)
     }
 
     /// Queries the type of the parameter that must be given when activating
@@ -418,7 +436,7 @@ public extension ActionProtocol {
     /// In the case that this function returns `nil`, you must not give any
     /// `GVariant`, but `nil` instead.
     func getParameterType() -> UnsafePointer<GVariantType>! {
-        let rv = g_action_get_parameter_type(cast(action_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_action_get_parameter_type(cast(action_ptr)))
         return cast(rv)
     }
 
@@ -431,7 +449,7 @@ public extension ActionProtocol {
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
     func getState() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_action_get_state(cast(action_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state(cast(action_ptr)))
         return cast(rv)
     }
 
@@ -454,7 +472,7 @@ public extension ActionProtocol {
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
     func getStateHint() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_action_get_state_hint(cast(action_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state_hint(cast(action_ptr)))
         return cast(rv)
     }
 
@@ -471,7 +489,7 @@ public extension ActionProtocol {
     /// then this function will return `nil`. In that case, `g_action_get_state()`
     /// will return `nil` and you must not call `g_action_change_state()`.
     func getStateType() -> UnsafePointer<GVariantType>! {
-        let rv = g_action_get_state_type(cast(action_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_action_get_state_type(cast(action_ptr)))
         return cast(rv)
     }
     /// If `action` is currently enabled.
@@ -494,8 +512,8 @@ public extension ActionProtocol {
     var name: String! {
         /// Queries the name of `action`.
         get {
-            let rv = g_action_get_name(cast(action_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_action_get_name(cast(action_ptr)))
+            return cast(rv)
         }
     }
 
@@ -517,7 +535,7 @@ public extension ActionProtocol {
         /// In the case that this function returns `nil`, you must not give any
         /// `GVariant`, but `nil` instead.
         get {
-            let rv = g_action_get_parameter_type(cast(action_ptr))
+            let rv: UnsafePointer<GVariantType>! = cast(g_action_get_parameter_type(cast(action_ptr)))
             return cast(rv)
         }
     }
@@ -533,7 +551,7 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv = g_action_get_state(cast(action_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state(cast(action_ptr)))
             return cast(rv)
         }
     }
@@ -576,7 +594,7 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv = g_action_get_state_hint(cast(action_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state_hint(cast(action_ptr)))
             return cast(rv)
         }
     }
@@ -607,10 +625,12 @@ public extension ActionProtocol {
         /// then this function will return `nil`. In that case, `g_action_get_state()`
         /// will return `nil` and you must not call `g_action_change_state()`.
         get {
-            let rv = g_action_get_state_type(cast(action_ptr))
+            let rv: UnsafePointer<GVariantType>! = cast(g_action_get_state_type(cast(action_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -668,7 +688,7 @@ public extension ActionProtocol {
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
 public protocol ActionGroupProtocol {
-    /// Untyped pointer to the underlying `GActionGroup` instance.
+        /// Untyped pointer to the underlying `GActionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionGroup` instance.
@@ -725,7 +745,7 @@ public protocol ActionGroupProtocol {
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
 public struct ActionGroupRef: ActionGroupProtocol {
-    /// Untyped pointer to the underlying `GActionGroup` instance.
+        /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -822,7 +842,7 @@ public extension ActionGroupRef {
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
 open class ActionGroup: ActionGroupProtocol {
-    /// Untyped pointer to the underlying `GActionGroup` instance.
+        /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -851,7 +871,7 @@ open class ActionGroup: ActionGroupProtocol {
         // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
     }
 
-    /// Do-nothing destructor for`GActionGroup`.
+    /// Do-nothing destructor for `GActionGroup`.
     deinit {
         // no reference counting for GActionGroup, cannot unref(cast(action_group_ptr))
     }
@@ -919,7 +939,7 @@ open class ActionGroup: ActionGroupProtocol {
 
 }
 
-// MARK: - no ActionGroup properties
+// MARK: no ActionGroup properties
 
 public enum ActionGroupSignalName: String, SignalNameProtocol {
     /// Signals that a new action was just added to the group.
@@ -943,8 +963,8 @@ public extension ActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -965,6 +985,7 @@ public extension ActionGroupProtocol {
     }
 }
 
+// MARK: ActionGroup Interface: ActionGroupProtocol extension (methods and fields)
 public extension ActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionGroup` instance.
     var action_group_ptr: UnsafeMutablePointer<GActionGroup> { return ptr.assumingMemoryBound(to: GActionGroup.self) }
@@ -1051,7 +1072,7 @@ public extension ActionGroupProtocol {
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different parameter type.
     func getActionParameterType(actionName action_name: UnsafePointer<gchar>) -> UnsafePointer<GVariantType>! {
-        let rv = g_action_group_get_action_parameter_type(cast(action_group_ptr), action_name)
+        let rv: UnsafePointer<GVariantType>! = cast(g_action_group_get_action_parameter_type(cast(action_group_ptr), action_name))
         return cast(rv)
     }
 
@@ -1064,7 +1085,7 @@ public extension ActionGroupProtocol {
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
     func getActionState(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_action_group_get_action_state(cast(action_group_ptr), action_name)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_group_get_action_state(cast(action_group_ptr), action_name))
         return cast(rv)
     }
 
@@ -1087,7 +1108,7 @@ public extension ActionGroupProtocol {
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
     func getActionStateHint(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_action_group_get_action_state_hint(cast(action_group_ptr), action_name)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_group_get_action_state_hint(cast(action_group_ptr), action_name))
         return cast(rv)
     }
 
@@ -1108,7 +1129,7 @@ public extension ActionGroupProtocol {
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different state type.
     func getActionStateType(actionName action_name: UnsafePointer<gchar>) -> UnsafePointer<GVariantType>! {
-        let rv = g_action_group_get_action_state_type(cast(action_group_ptr), action_name)
+        let rv: UnsafePointer<GVariantType>! = cast(g_action_group_get_action_state_type(cast(action_group_ptr), action_name))
         return cast(rv)
     }
 
@@ -1123,7 +1144,7 @@ public extension ActionGroupProtocol {
     /// The caller is responsible for freeing the list with `g_strfreev()` when
     /// it is no longer required.
     func listActions() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_action_group_list_actions(cast(action_group_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_action_group_list_actions(cast(action_group_ptr)))
         return cast(rv)
     }
 
@@ -1158,6 +1179,8 @@ public extension ActionGroupProtocol {
         let rv = g_action_group_query_action(cast(action_group_ptr), action_name, cast(enabled), cast(parameter_type.ptr), cast(state_type.ptr), cast(state_hint.ptr), cast(state.ptr))
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -1179,7 +1202,7 @@ public extension ActionGroupProtocol {
 /// This is the motivation for the 'Map' part of the interface
 /// name.
 public protocol ActionMapProtocol {
-    /// Untyped pointer to the underlying `GActionMap` instance.
+        /// Untyped pointer to the underlying `GActionMap` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GActionMap` instance.
@@ -1200,7 +1223,7 @@ public protocol ActionMapProtocol {
 /// This is the motivation for the 'Map' part of the interface
 /// name.
 public struct ActionMapRef: ActionMapProtocol {
-    /// Untyped pointer to the underlying `GActionMap` instance.
+        /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1261,7 +1284,7 @@ public extension ActionMapRef {
 /// This is the motivation for the 'Map' part of the interface
 /// name.
 open class ActionMap: ActionMapProtocol {
-    /// Untyped pointer to the underlying `GActionMap` instance.
+        /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1290,7 +1313,7 @@ open class ActionMap: ActionMapProtocol {
         // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
     }
 
-    /// Do-nothing destructor for`GActionMap`.
+    /// Do-nothing destructor for `GActionMap`.
     deinit {
         // no reference counting for GActionMap, cannot unref(cast(action_map_ptr))
     }
@@ -1358,11 +1381,12 @@ open class ActionMap: ActionMapProtocol {
 
 }
 
-// MARK: - no ActionMap properties
+// MARK: no ActionMap properties
 
-// MARK: - no signals
+// MARK: no ActionMap signals
 
 
+// MARK: ActionMap Interface: ActionMapProtocol extension (methods and fields)
 public extension ActionMapProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionMap` instance.
     var action_map_ptr: UnsafeMutablePointer<GActionMap> { return ptr.assumingMemoryBound(to: GActionMap.self) }
@@ -1426,7 +1450,7 @@ public extension ActionMapProtocol {
     /// 
     /// If no such action exists, returns `nil`.
     func lookupAction(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GAction>! {
-        let rv = g_action_map_lookup_action(cast(action_map_ptr), action_name)
+        let rv: UnsafeMutablePointer<GAction>! = cast(g_action_map_lookup_action(cast(action_map_ptr), action_name))
         return cast(rv)
     }
 
@@ -1437,6 +1461,8 @@ public extension ActionMapProtocol {
         g_action_map_remove_action(cast(action_map_ptr), action_name)
     
     }
+
+
 }
 
 
@@ -1497,7 +1523,7 @@ public extension ActionMapProtocol {
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
 public protocol AppInfoProtocol {
-    /// Untyped pointer to the underlying `GAppInfo` instance.
+        /// Untyped pointer to the underlying `GAppInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAppInfo` instance.
@@ -1557,7 +1583,7 @@ public protocol AppInfoProtocol {
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
 public struct AppInfoRef: AppInfoProtocol {
-    /// Untyped pointer to the underlying `GAppInfo` instance.
+        /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1610,17 +1636,15 @@ public extension AppInfoRef {
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
     static func createFrom(commandline: UnsafePointer<CChar>, applicationName application_name: UnsafePointer<CChar>, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_app_info_create_from_commandline(commandline, application_name, flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { AppInfoRef(cast($0)) }
     }
 
     /// Gets the default `GAppInfo` for a given content type.
     static func getDefaultFor(type content_type: UnsafePointer<CChar>, mustSupportURIs must_support_uris: Bool) -> AppInfoRef! {
-        let rv = g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0))
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0)))
         return rv.map { AppInfoRef(cast($0)) }
     }
 
@@ -1629,7 +1653,7 @@ public extension AppInfoRef {
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
     static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> AppInfoRef! {
-        let rv = g_app_info_get_default_for_uri_scheme(uri_scheme)
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_uri_scheme(uri_scheme))
         return rv.map { AppInfoRef(cast($0)) }
     }
 }
@@ -1687,7 +1711,7 @@ public extension AppInfoRef {
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
 open class AppInfo: AppInfoProtocol {
-    /// Untyped pointer to the underlying `GAppInfo` instance.
+        /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1716,7 +1740,7 @@ open class AppInfo: AppInfoProtocol {
 	g_object_ref(cast(ptr))
     }
 
-    /// Do-nothing destructor for`GAppInfo`.
+    /// Do-nothing destructor for `GAppInfo`.
     deinit {
 	g_object_unref(cast(ptr))
     }
@@ -1789,17 +1813,15 @@ open class AppInfo: AppInfoProtocol {
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
     public static func createFrom(commandline: UnsafePointer<CChar>, applicationName application_name: UnsafePointer<CChar>, flags: AppInfoCreateFlags) throws -> AppInfo! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_app_info_create_from_commandline(commandline, application_name, flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { AppInfo(cast($0)) }
     }
 
     /// Gets the default `GAppInfo` for a given content type.
     public static func getDefaultFor(type content_type: UnsafePointer<CChar>, mustSupportURIs must_support_uris: Bool) -> AppInfo! {
-        let rv = g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0))
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0)))
         return rv.map { AppInfo(cast($0)) }
     }
 
@@ -1808,17 +1830,18 @@ open class AppInfo: AppInfoProtocol {
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
     public static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> AppInfo! {
-        let rv = g_app_info_get_default_for_uri_scheme(uri_scheme)
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_uri_scheme(uri_scheme))
         return rv.map { AppInfo(cast($0)) }
     }
 
 }
 
-// MARK: - no AppInfo properties
+// MARK: no AppInfo properties
 
-// MARK: - no signals
+// MARK: no AppInfo signals
 
 
+// MARK: AppInfo Interface: AppInfoProtocol extension (methods and fields)
 public extension AppInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppInfo` instance.
     var app_info_ptr: UnsafeMutablePointer<GAppInfo> { return ptr.assumingMemoryBound(to: GAppInfo.self) }
@@ -1826,11 +1849,9 @@ public extension AppInfoProtocol {
     /// Adds a content type to the application information to indicate the
     /// application is capable of opening files with the given content type.
     func addSupportsType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_add_supports_type(cast(app_info_ptr), content_type, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1859,7 +1880,7 @@ public extension AppInfoProtocol {
 
     /// Creates a duplicate of a `GAppInfo`.
     func dup() -> UnsafeMutablePointer<GAppInfo>! {
-        let rv = g_app_info_dup(cast(app_info_ptr))
+        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_dup(cast(app_info_ptr)))
         return cast(rv)
     }
 
@@ -1876,32 +1897,32 @@ public extension AppInfoProtocol {
     /// Gets the commandline with which the application will be
     /// started.
     func getCommandline() -> String! {
-        let rv = g_app_info_get_commandline(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_commandline(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets a human-readable description of an installed application.
     func getDescription() -> String! {
-        let rv = g_app_info_get_description(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_description(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the display name of the application. The display name is often more
     /// descriptive to the user than the name itself.
     func getDisplayName() -> String! {
-        let rv = g_app_info_get_display_name(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_display_name(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the executable's name for the installed application.
     func getExecutable() -> String! {
-        let rv = g_app_info_get_executable(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_executable(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the icon for the application.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_app_info_get_icon(cast(app_info_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_app_info_get_icon(cast(app_info_ptr)))
         return cast(rv)
     }
 
@@ -1913,14 +1934,14 @@ public extension AppInfoProtocol {
     /// Note that the returned ID may be `nil`, depending on how
     /// the `appinfo` has been constructed.
     func getID() -> String! {
-        let rv = g_app_info_get_id(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_id(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the installed name of the application.
     func getName() -> String! {
-        let rv = g_app_info_get_name(cast(app_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_app_info_get_name(cast(app_info_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the list of content types that `app_info` claims to support.
@@ -1930,7 +1951,7 @@ public extension AppInfoProtocol {
     /// `g_app_info_add_supports_type()`, but only those exported directly by
     /// the application.
     func getSupportedTypes() -> UnsafePointer<UnsafePointer<CChar>>! {
-        let rv = g_app_info_get_supported_types(cast(app_info_ptr))
+        let rv: UnsafePointer<UnsafePointer<CChar>>! = cast(g_app_info_get_supported_types(cast(app_info_ptr)))
         return cast(rv)
     }
 
@@ -1962,11 +1983,9 @@ public extension AppInfoProtocol {
     /// `DESKTOP_STARTUP_ID` environment variables are also set, based
     /// on information provided in `context`.
     func launch(files: ListProtocol, context: AppLaunchContextProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_launch(cast(app_info_ptr), cast(files.ptr), cast(context.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1981,11 +2000,9 @@ public extension AppInfoProtocol {
     /// can fail to start if it runs into problems during startup. There is
     /// no way to detect this.
     func launch(uris: ListProtocol, context: AppLaunchContextProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_launch_uris(cast(app_info_ptr), cast(uris.ptr), cast(context.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2002,41 +2019,33 @@ public extension AppInfoProtocol {
 
     /// Finishes a `g_app_info_launch_uris_async()` operation.
     func launchURIsFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_launch_uris_finish(cast(app_info_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Removes a supported type from an application, if possible.
     func removeSupportsType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_remove_supports_type(cast(app_info_ptr), content_type, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Sets the application as the default handler for the given file extension.
     func setAsDefaultForExtension(extension_: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_set_as_default_for_extension(cast(app_info_ptr), extension_, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Sets the application as the default handler for a given type.
     func setAsDefaultForType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_set_as_default_for_type(cast(app_info_ptr), content_type, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2045,11 +2054,9 @@ public extension AppInfoProtocol {
     /// by `g_app_info_get_recommended_for_type()`, regardless of the default
     /// application for that content type.
     func setAsLastUsedForType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_set_as_last_used_for_type(cast(app_info_ptr), content_type, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2077,8 +2084,8 @@ public extension AppInfoProtocol {
         /// Gets the commandline with which the application will be
         /// started.
         get {
-            let rv = g_app_info_get_commandline(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_commandline(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2086,8 +2093,8 @@ public extension AppInfoProtocol {
     var description: String! {
         /// Gets a human-readable description of an installed application.
         get {
-            let rv = g_app_info_get_description(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_description(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2097,8 +2104,8 @@ public extension AppInfoProtocol {
         /// Gets the display name of the application. The display name is often more
         /// descriptive to the user than the name itself.
         get {
-            let rv = g_app_info_get_display_name(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_display_name(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2106,8 +2113,8 @@ public extension AppInfoProtocol {
     var executable: String! {
         /// Gets the executable's name for the installed application.
         get {
-            let rv = g_app_info_get_executable(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_executable(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2115,7 +2122,7 @@ public extension AppInfoProtocol {
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gets the icon for the application.
         get {
-            let rv = g_app_info_get_icon(cast(app_info_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_app_info_get_icon(cast(app_info_ptr)))
             return cast(rv)
         }
     }
@@ -2136,8 +2143,8 @@ public extension AppInfoProtocol {
         /// Note that the returned ID may be `nil`, depending on how
         /// the `appinfo` has been constructed.
         get {
-            let rv = g_app_info_get_id(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_id(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2145,8 +2152,8 @@ public extension AppInfoProtocol {
     var name: String! {
         /// Gets the installed name of the application.
         get {
-            let rv = g_app_info_get_name(cast(app_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_app_info_get_name(cast(app_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2164,10 +2171,12 @@ public extension AppInfoProtocol {
         /// `g_app_info_add_supports_type()`, but only those exported directly by
         /// the application.
         get {
-            let rv = g_app_info_get_supported_types(cast(app_info_ptr))
+            let rv: UnsafePointer<UnsafePointer<CChar>>! = cast(g_app_info_get_supported_types(cast(app_info_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -2280,7 +2289,7 @@ public extension AppInfoProtocol {
 /// ```
 /// 
 public protocol AsyncInitableProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitable` instance.
+        /// Untyped pointer to the underlying `GAsyncInitable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAsyncInitable` instance.
@@ -2392,7 +2401,7 @@ public protocol AsyncInitableProtocol {
 /// ```
 /// 
 public struct AsyncInitableRef: AsyncInitableProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitable` instance.
+        /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2544,7 +2553,7 @@ public extension AsyncInitableRef {
 /// ```
 /// 
 open class AsyncInitable: AsyncInitableProtocol {
-    /// Untyped pointer to the underlying `GAsyncInitable` instance.
+        /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2573,7 +2582,7 @@ open class AsyncInitable: AsyncInitableProtocol {
         // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
     }
 
-    /// Do-nothing destructor for`GAsyncInitable`.
+    /// Do-nothing destructor for `GAsyncInitable`.
     deinit {
         // no reference counting for GAsyncInitable, cannot unref(cast(async_initable_ptr))
     }
@@ -2641,11 +2650,12 @@ open class AsyncInitable: AsyncInitableProtocol {
 
 }
 
-// MARK: - no AsyncInitable properties
+// MARK: no AsyncInitable properties
 
-// MARK: - no signals
+// MARK: no AsyncInitable signals
 
 
+// MARK: AsyncInitable Interface: AsyncInitableProtocol extension (methods and fields)
 public extension AsyncInitableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncInitable` instance.
     var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable> { return ptr.assumingMemoryBound(to: GAsyncInitable.self) }
@@ -2694,24 +2704,22 @@ public extension AsyncInitableProtocol {
     /// Finishes asynchronous initialization and returns the result.
     /// See `g_async_initable_init_async()`.
     func initFinish(res: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_async_initable_init_finish(cast(async_initable_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Finishes the async construction for the various g_async_initable_new
     /// calls, returning the created object or `nil` on error.
     func newFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GObject>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_async_initable_new_finish(cast(async_initable_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_async_initable_new_finish(cast(async_initable_ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
+
+
 }
 
 
@@ -2809,7 +2817,7 @@ public extension AsyncInitableProtocol {
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
 public protocol AsyncResultProtocol {
-    /// Untyped pointer to the underlying `GAsyncResult` instance.
+        /// Untyped pointer to the underlying `GAsyncResult` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAsyncResult` instance.
@@ -2906,7 +2914,7 @@ public protocol AsyncResultProtocol {
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
 public struct AsyncResultRef: AsyncResultProtocol {
-    /// Untyped pointer to the underlying `GAsyncResult` instance.
+        /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3043,7 +3051,7 @@ public extension AsyncResultRef {
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
 open class AsyncResult: AsyncResultProtocol {
-    /// Untyped pointer to the underlying `GAsyncResult` instance.
+        /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3072,7 +3080,7 @@ open class AsyncResult: AsyncResultProtocol {
         // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
     }
 
-    /// Do-nothing destructor for`GAsyncResult`.
+    /// Do-nothing destructor for `GAsyncResult`.
     deinit {
         // no reference counting for GAsyncResult, cannot unref(cast(async_result_ptr))
     }
@@ -3140,24 +3148,25 @@ open class AsyncResult: AsyncResultProtocol {
 
 }
 
-// MARK: - no AsyncResult properties
+// MARK: no AsyncResult properties
 
-// MARK: - no signals
+// MARK: no AsyncResult signals
 
 
+// MARK: AsyncResult Interface: AsyncResultProtocol extension (methods and fields)
 public extension AsyncResultProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncResult` instance.
     var async_result_ptr: UnsafeMutablePointer<GAsyncResult> { return ptr.assumingMemoryBound(to: GAsyncResult.self) }
 
     /// Gets the source object from a `GAsyncResult`.
     func getSourceObject() -> UnsafeMutablePointer<GObject>! {
-        let rv = g_async_result_get_source_object(cast(async_result_ptr))
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_async_result_get_source_object(cast(async_result_ptr)))
         return cast(rv)
     }
 
     /// Gets the user data from a `GAsyncResult`.
     func getUserData() -> UnsafeMutableRawPointer! {
-        let rv = g_async_result_get_user_data(cast(async_result_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_result_get_user_data(cast(async_result_ptr)))
         return cast(rv)
     }
 
@@ -3179,21 +3188,17 @@ public extension AsyncResultProtocol {
     /// set by virtual methods should also be extracted by virtual methods,
     /// to enable subclasses to chain up correctly.
     func legacyPropagateError() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_async_result_legacy_propagate_error(cast(async_result_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Finishes an asynchronous launch-default-for-uri operation.
     func appInfoLaunchDefaultForURIFinish() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_app_info_launch_default_for_uri_finish(cast(async_result_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -3208,28 +3213,24 @@ public extension AsyncResultProtocol {
     /// Note that the returned `GDBusConnection` object will (usually) have
     /// the `GDBusConnection:exit`-on-close property set to `true`.
     func busGetFinish() throws -> UnsafeMutablePointer<GDBusConnection>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_bus_get_finish(cast(async_result_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_bus_get_finish(cast(async_result_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Finishes an operation started with `g_dbus_address_get_stream()`.
     func dbusAddressGetStreamFinish(outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_address_get_stream_finish(cast(async_result_ptr), cast(out_guid), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_address_get_stream_finish(cast(async_result_ptr), cast(out_guid), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Gets the source object from a `GAsyncResult`.
     var sourceObject: UnsafeMutablePointer<GObject>! {
         /// Gets the source object from a `GAsyncResult`.
         get {
-            let rv = g_async_result_get_source_object(cast(async_result_ptr))
+            let rv: UnsafeMutablePointer<GObject>! = cast(g_async_result_get_source_object(cast(async_result_ptr)))
             return cast(rv)
         }
     }
@@ -3238,10 +3239,12 @@ public extension AsyncResultProtocol {
     var userData: UnsafeMutableRawPointer! {
         /// Gets the user data from a `GAsyncResult`.
         get {
-            let rv = g_async_result_get_user_data(cast(async_result_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_async_result_get_user_data(cast(async_result_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -3261,7 +3264,7 @@ public extension AsyncResultProtocol {
 /// compression, decompression and regular expression
 /// replace.
 public protocol ConverterProtocol {
-    /// Untyped pointer to the underlying `GConverter` instance.
+        /// Untyped pointer to the underlying `GConverter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GConverter` instance.
@@ -3280,7 +3283,7 @@ public protocol ConverterProtocol {
 /// compression, decompression and regular expression
 /// replace.
 public struct ConverterRef: ConverterProtocol {
-    /// Untyped pointer to the underlying `GConverter` instance.
+        /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3339,7 +3342,7 @@ public extension ConverterRef {
 /// compression, decompression and regular expression
 /// replace.
 open class Converter: ConverterProtocol {
-    /// Untyped pointer to the underlying `GConverter` instance.
+        /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3368,7 +3371,7 @@ open class Converter: ConverterProtocol {
         // no reference counting for GConverter, cannot ref(cast(converter_ptr))
     }
 
-    /// Do-nothing destructor for`GConverter`.
+    /// Do-nothing destructor for `GConverter`.
     deinit {
         // no reference counting for GConverter, cannot unref(cast(converter_ptr))
     }
@@ -3436,11 +3439,12 @@ open class Converter: ConverterProtocol {
 
 }
 
-// MARK: - no Converter properties
+// MARK: no Converter properties
 
-// MARK: - no signals
+// MARK: no Converter signals
 
 
+// MARK: Converter Interface: ConverterProtocol extension (methods and fields)
 public extension ConverterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverter` instance.
     var converter_ptr: UnsafeMutablePointer<GConverter> { return ptr.assumingMemoryBound(to: GConverter.self) }
@@ -3528,12 +3532,10 @@ public extension ConverterProtocol {
     /// to produce as much output as possible and then return an error
     /// (typically `G_IO_ERROR_PARTIAL_INPUT`).
     func convert(inbuf: UnsafeMutableRawPointer, inbufSize inbuf_size: Int, outbuf: UnsafeMutableRawPointer, outbufSize outbuf_size: Int, flags: ConverterFlags, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> GConverterResult {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_converter_convert(cast(converter_ptr), cast(inbuf), gsize(inbuf_size), cast(outbuf), gsize(outbuf_size), flags, cast(bytes_read), cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_converter_convert(cast(converter_ptr), cast(inbuf), gsize(inbuf_size), cast(outbuf), gsize(outbuf_size), flags.value, cast(bytes_read), cast(bytes_written), &error)
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Resets all internal state in the converter, making it behave
@@ -3543,6 +3545,8 @@ public extension ConverterProtocol {
         g_converter_reset(cast(converter_ptr))
     
     }
+
+
 }
 
 

@@ -61,7 +61,7 @@ import GLibObject
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
 public protocol PropertyActionProtocol: ObjectProtocol, ActionProtocol {
-    /// Untyped pointer to the underlying `GPropertyAction` instance.
+        /// Untyped pointer to the underlying `GPropertyAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPropertyAction` instance.
@@ -124,7 +124,7 @@ public protocol PropertyActionProtocol: ObjectProtocol, ActionProtocol {
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
 public struct PropertyActionRef: PropertyActionProtocol {
-    /// Untyped pointer to the underlying `GPropertyAction` instance.
+        /// Untyped pointer to the underlying `GPropertyAction` instance.
     /// For type-safe access, use the generated, typed pointer `property_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -178,7 +178,7 @@ public extension PropertyActionRef {
     /// This function takes a reference on `object` and doesn't release it
     /// until the action is destroyed.
     init( name: UnsafePointer<gchar>, object: ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) {
-        let rv = g_property_action_new(name, cast(object.ptr), property_name)
+        let rv: UnsafeMutablePointer<GPropertyAction>! = cast(g_property_action_new(name, cast(object.ptr), property_name))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -239,7 +239,7 @@ public extension PropertyActionRef {
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
 open class PropertyAction: Object, PropertyActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PropertyAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -326,7 +326,7 @@ open class PropertyAction: Object, PropertyActionProtocol {
     /// This function takes a reference on `object` and doesn't release it
     /// until the action is destroyed.
     public init( name: UnsafePointer<gchar>, object: ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) {
-        let rv = g_property_action_new(name, cast(object.ptr), property_name)
+        let rv: UnsafeMutablePointer<GPropertyAction>! = cast(g_property_action_new(name, cast(object.ptr), property_name))
         super.init(cast(rv))
     }
 
@@ -373,8 +373,8 @@ public extension PropertyActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PropertyActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PropertyActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -397,6 +397,23 @@ public extension PropertyActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a PropertyAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: PropertyActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a PropertyAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: PropertyActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -462,8 +479,8 @@ public extension PropertyActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PropertyActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: PropertyActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(property_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -484,9 +501,12 @@ public extension PropertyActionProtocol {
     }
 }
 
+// MARK: PropertyAction Class: PropertyActionProtocol extension (methods and fields)
 public extension PropertyActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPropertyAction` instance.
     var property_action_ptr: UnsafeMutablePointer<GPropertyAction> { return ptr.assumingMemoryBound(to: GPropertyAction.self) }
+
+
 
 }
 
@@ -501,7 +521,7 @@ public extension PropertyActionProtocol {
 ///
 /// Support for proxied `GInetSocketAddress`.
 public protocol ProxyAddressProtocol: InetSocketAddressProtocol {
-    /// Untyped pointer to the underlying `GProxyAddress` instance.
+        /// Untyped pointer to the underlying `GProxyAddress` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddress` instance.
@@ -514,7 +534,7 @@ public protocol ProxyAddressProtocol: InetSocketAddressProtocol {
 ///
 /// Support for proxied `GInetSocketAddress`.
 public struct ProxyAddressRef: ProxyAddressProtocol {
-    /// Untyped pointer to the underlying `GProxyAddress` instance.
+        /// Untyped pointer to the underlying `GProxyAddress` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_address_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -566,7 +586,7 @@ public extension ProxyAddressRef {
     /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
     init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
-        let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -577,7 +597,7 @@ public extension ProxyAddressRef {
 ///
 /// Support for proxied `GInetSocketAddress`.
 open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ProxyAddress` instance.
     /// - Parameter op: pointer to the underlying object
@@ -662,7 +682,7 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
     public init( inetaddr: InetAddressProtocol, port: UInt16, protocol_: UnsafePointer<gchar>, destHostname dest_hostname: UnsafePointer<gchar>, destPort dest_port: UInt16, username: UnsafePointer<gchar>, password: UnsafePointer<gchar>) {
-        let rv = g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password)
+        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_proxy_address_new(cast(inetaddr.ptr), guint16(port), protocol_, dest_hostname, guint16(dest_port), username, password))
         super.init(cast(rv))
     }
 
@@ -698,8 +718,8 @@ public extension ProxyAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -722,6 +742,23 @@ public extension ProxyAddressProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ProxyAddress property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ProxyAddressPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ProxyAddress property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ProxyAddressPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -776,8 +813,8 @@ public extension ProxyAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ProxyAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ProxyAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(proxy_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -798,6 +835,7 @@ public extension ProxyAddressProtocol {
     }
 }
 
+// MARK: ProxyAddress Class: ProxyAddressProtocol extension (methods and fields)
 public extension ProxyAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddress` instance.
     var proxy_address_ptr: UnsafeMutablePointer<GProxyAddress> { return ptr.assumingMemoryBound(to: GProxyAddress.self) }
@@ -806,8 +844,8 @@ public extension ProxyAddressProtocol {
     /// that will be connected to via the proxy, not the name of the proxy
     /// itself.
     func getDestinationHostname() -> String! {
-        let rv = g_proxy_address_get_destination_hostname(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_destination_hostname(cast(proxy_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets `proxy`'s destination port; that is, the port on the
@@ -821,32 +859,32 @@ public extension ProxyAddressProtocol {
     /// Gets the protocol that is being spoken to the destination
     /// server; eg, "http" or "ftp".
     func getDestinationProtocol() -> String! {
-        let rv = g_proxy_address_get_destination_protocol(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_destination_protocol(cast(proxy_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets `proxy`'s password.
     func getPassword() -> String! {
-        let rv = g_proxy_address_get_password(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_password(cast(proxy_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets `proxy`'s protocol. eg, "socks" or "http"
     func getProtocol() -> String! {
-        let rv = g_proxy_address_get_protocol(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_protocol(cast(proxy_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets the proxy URI that `proxy` was constructed from.
     func getURI() -> String! {
-        let rv = g_proxy_address_get_uri(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_uri(cast(proxy_address_ptr)))
+        return cast(rv)
     }
 
     /// Gets `proxy`'s username.
     func getUsername() -> String! {
-        let rv = g_proxy_address_get_username(cast(proxy_address_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_proxy_address_get_username(cast(proxy_address_ptr)))
+        return cast(rv)
     }
     /// Gets `proxy`'s destination hostname; that is, the name of the host
     /// that will be connected to via the proxy, not the name of the proxy
@@ -856,8 +894,8 @@ public extension ProxyAddressProtocol {
         /// that will be connected to via the proxy, not the name of the proxy
         /// itself.
         get {
-            let rv = g_proxy_address_get_destination_hostname(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_destination_hostname(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
 
@@ -880,24 +918,24 @@ public extension ProxyAddressProtocol {
         /// Gets the protocol that is being spoken to the destination
         /// server; eg, "http" or "ftp".
         get {
-            let rv = g_proxy_address_get_destination_protocol(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_destination_protocol(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
 
     var password: String! {
         /// Gets `proxy`'s password.
         get {
-            let rv = g_proxy_address_get_password(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_password(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
 
-    var protocol_: String! {
+    var `protocol`: String! {
         /// Gets `proxy`'s protocol. eg, "socks" or "http"
         get {
-            let rv = g_proxy_address_get_protocol(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_protocol(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
 
@@ -906,18 +944,28 @@ public extension ProxyAddressProtocol {
     var uri: String! {
         /// Gets the proxy URI that `proxy` was constructed from.
         get {
-            let rv = g_proxy_address_get_uri(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_uri(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
 
     var username: String! {
         /// Gets `proxy`'s username.
         get {
-            let rv = g_proxy_address_get_username(cast(proxy_address_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_proxy_address_get_username(cast(proxy_address_ptr)))
+            return cast(rv)
         }
     }
+
+    var parentInstance: GInetSocketAddress {
+        get {
+            let rv: GInetSocketAddress = cast(proxy_address_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -939,7 +987,7 @@ public extension ProxyAddressProtocol {
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GProxyAddressEnumerator` instance.
@@ -960,7 +1008,7 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 public struct ProxyAddressEnumeratorRef: ProxyAddressEnumeratorProtocol {
-    /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
+        /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_address_enumerator_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1021,7 +1069,7 @@ public extension ProxyAddressEnumeratorRef {
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
 open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumeratorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ProxyAddressEnumerator` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1122,8 +1170,8 @@ public extension ProxyAddressEnumeratorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1146,6 +1194,23 @@ public extension ProxyAddressEnumeratorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ProxyAddressEnumerator property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ProxyAddressEnumeratorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ProxyAddressEnumerator property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ProxyAddressEnumeratorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1190,8 +1255,8 @@ public extension ProxyAddressEnumeratorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ProxyAddressEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ProxyAddressEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(proxy_address_enumerator_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1212,9 +1277,15 @@ public extension ProxyAddressEnumeratorProtocol {
     }
 }
 
+// MARK: ProxyAddressEnumerator Class: ProxyAddressEnumeratorProtocol extension (methods and fields)
 public extension ProxyAddressEnumeratorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyAddressEnumerator` instance.
     var proxy_address_enumerator_ptr: UnsafeMutablePointer<GProxyAddressEnumerator> { return ptr.assumingMemoryBound(to: GProxyAddressEnumerator.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
 
 }
 
@@ -1236,7 +1307,7 @@ public extension ProxyAddressEnumeratorProtocol {
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
 public protocol ResolverProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GResolver` instance.
+        /// Untyped pointer to the underlying `GResolver` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GResolver` instance.
@@ -1256,7 +1327,7 @@ public protocol ResolverProtocol: ObjectProtocol {
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
 public struct ResolverRef: ResolverProtocol {
-    /// Untyped pointer to the underlying `GResolver` instance.
+        /// Untyped pointer to the underlying `GResolver` instance.
     /// For type-safe access, use the generated, typed pointer `resolver_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1305,7 +1376,7 @@ public extension ResolverRef {
     /// with it. `GResolver` may use its reference count as a hint about how
     /// many threads it should allocate for concurrent DNS resolutions.
     static func getDefault() -> ResolverRef! {
-        let rv = g_resolver_get_default()
+        let rv: UnsafeMutablePointer<GResolver>! = cast(g_resolver_get_default())
         return rv.map { ResolverRef(cast($0)) }
     }
 }
@@ -1323,7 +1394,7 @@ public extension ResolverRef {
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
 open class Resolver: Object, ResolverProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Resolver` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1406,13 +1477,13 @@ open class Resolver: Object, ResolverProtocol {
     /// with it. `GResolver` may use its reference count as a hint about how
     /// many threads it should allocate for concurrent DNS resolutions.
     public static func getDefault() -> Resolver! {
-        let rv = g_resolver_get_default()
+        let rv: UnsafeMutablePointer<GResolver>! = cast(g_resolver_get_default())
         return rv.map { Resolver(cast($0)) }
     }
 
 }
 
-// MARK: - no Resolver properties
+// MARK: no Resolver properties
 
 public enum ResolverSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -1452,8 +1523,8 @@ public extension ResolverProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ResolverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ResolverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(resolver_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1474,6 +1545,7 @@ public extension ResolverProtocol {
     }
 }
 
+// MARK: Resolver Class: ResolverProtocol extension (methods and fields)
 public extension ResolverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResolver` instance.
     var resolver_ptr: UnsafeMutablePointer<GResolver> { return ptr.assumingMemoryBound(to: GResolver.self) }
@@ -1488,12 +1560,10 @@ public extension ResolverProtocol {
     /// operation, in which case `error` (if non-`nil`) will be set to
     /// `G_IO_ERROR_CANCELLED`.
     func lookupBy(address: InetAddressProtocol, cancellable: CancellableProtocol) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_address(cast(resolver_ptr), cast(address.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_resolver_lookup_by_address(cast(resolver_ptr), cast(address.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Begins asynchronously reverse-resolving `address` to determine its
@@ -1511,12 +1581,10 @@ public extension ResolverProtocol {
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
     func lookupByAddressFinish(result: AsyncResultProtocol) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_address_finish(cast(resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_resolver_lookup_by_address_finish(cast(resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Synchronously resolves `hostname` to determine its associated IP
@@ -1543,11 +1611,9 @@ public extension ResolverProtocol {
     /// address, it may be easier to create a `GNetworkAddress` and use its
     /// `GSocketConnectable` interface.
     func lookupByName(hostname: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_name(cast(resolver_ptr), hostname, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_by_name(cast(resolver_ptr), hostname, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1567,11 +1633,9 @@ public extension ResolverProtocol {
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
     func lookupByNameFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_name_finish(cast(resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_by_name_finish(cast(resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1579,11 +1643,9 @@ public extension ResolverProtocol {
     /// the lookup behavior with `flags`. For example this can be used to limit
     /// results with `G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY`.
     func lookupByNameWithFlags(hostname: UnsafePointer<gchar>, flags: ResolverNameLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_name_with_flags(cast(resolver_ptr), hostname, flags, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_by_name_with_flags(cast(resolver_ptr), hostname, flags.value, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1592,7 +1654,7 @@ public extension ResolverProtocol {
     /// must call `g_resolver_lookup_by_name_with_flags_finish()` to get the result.
     /// See `g_resolver_lookup_by_name()` for more details.
     func lookupByNameWithFlagsAsync(hostname: UnsafePointer<gchar>, flags: ResolverNameLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_resolver_lookup_by_name_with_flags_async(cast(resolver_ptr), hostname, flags, cast(cancellable.ptr), callback, cast(user_data))
+        g_resolver_lookup_by_name_with_flags_async(cast(resolver_ptr), hostname, flags.value, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -1603,11 +1665,9 @@ public extension ResolverProtocol {
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
     func lookupByNameWithFlagsFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_by_name_with_flags_finish(cast(resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_by_name_with_flags_finish(cast(resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1622,11 +1682,9 @@ public extension ResolverProtocol {
     /// operation, in which case `error` (if non-`nil`) will be set to
     /// `G_IO_ERROR_CANCELLED`.
     func lookupRecords(rrname: UnsafePointer<gchar>, recordType record_type: ResolverRecordType, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_records(cast(resolver_ptr), rrname, record_type, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_records(cast(resolver_ptr), rrname, record_type, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1648,11 +1706,9 @@ public extension ResolverProtocol {
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
     func lookupRecordsFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_records_finish(cast(resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_records_finish(cast(resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1678,11 +1734,9 @@ public extension ResolverProtocol {
     /// to create a `GNetworkService` and use its `GSocketConnectable`
     /// interface.
     func lookup(service: UnsafePointer<gchar>, protocol_: UnsafePointer<gchar>, domain: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_service(cast(resolver_ptr), service, protocol_, domain, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_service(cast(resolver_ptr), service, protocol_, domain, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1703,11 +1757,9 @@ public extension ResolverProtocol {
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
     func lookupServiceFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_resolver_lookup_service_finish(cast(resolver_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GList>! = cast(g_resolver_lookup_service_finish(cast(resolver_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1724,6 +1776,21 @@ public extension ResolverProtocol {
         g_resolver_set_default(cast(resolver_ptr))
     
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(resolver_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var priv: UnsafeMutablePointer<GResolverPrivate> {
+        get {
+            let rv: UnsafeMutablePointer<GResolverPrivate> = cast(resolver_ptr.pointee.priv)
+            return rv
+        }
+    }
+
 }
 
 

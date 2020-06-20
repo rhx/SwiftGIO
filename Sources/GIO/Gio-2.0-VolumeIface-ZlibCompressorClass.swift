@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// Interface for implementing operations for mountable volumes.
 public protocol VolumeIfaceProtocol {
-    /// Untyped pointer to the underlying `GVolumeIface` instance.
+        /// Untyped pointer to the underlying `GVolumeIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVolumeIface` instance.
@@ -24,7 +24,7 @@ public protocol VolumeIfaceProtocol {
 ///
 /// Interface for implementing operations for mountable volumes.
 public struct VolumeIfaceRef: VolumeIfaceProtocol {
-    /// Untyped pointer to the underlying `GVolumeIface` instance.
+        /// Untyped pointer to the underlying `GVolumeIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension VolumeIfaceRef {
 ///
 /// Interface for implementing operations for mountable volumes.
 open class VolumeIface: VolumeIfaceProtocol {
-    /// Untyped pointer to the underlying `GVolumeIface` instance.
+        /// Untyped pointer to the underlying `GVolumeIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class VolumeIface: VolumeIfaceProtocol {
         // no reference counting for GVolumeIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GVolumeIface`.
+    /// Do-nothing destructor for `GVolumeIface`.
     deinit {
         // no reference counting for GVolumeIface, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,67 @@ open class VolumeIface: VolumeIfaceProtocol {
 
 }
 
-// MARK: - no VolumeIface properties
+// MARK: no VolumeIface properties
 
-// MARK: - no signals
+// MARK: no VolumeIface signals
 
 
+// MARK: VolumeIface Record: VolumeIfaceProtocol extension (methods and fields)
 public extension VolumeIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVolumeIface` instance.
     var _ptr: UnsafeMutablePointer<GVolumeIface> { return ptr.assumingMemoryBound(to: GVolumeIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var changed is unavailable because changed is void
+
+    // var removed is unavailable because removed is void
+
+    // var getName is unavailable because get_name is void
+
+    // var getIcon is unavailable because get_icon is void
+
+    // var getUuid is unavailable because get_uuid is void
+
+    // var getDrive is unavailable because get_drive is void
+
+    // var getMount is unavailable because get_mount is void
+
+    // var canMount is unavailable because can_mount is void
+
+    // var canEject is unavailable because can_eject is void
+
+    // var mountFn is unavailable because mount_fn is void
+
+    // var mountFinish is unavailable because mount_finish is void
+
+    // var eject is unavailable because eject is void
+
+    // var ejectFinish is unavailable because eject_finish is void
+
+    // var getIdentifier is unavailable because get_identifier is void
+
+    // var enumerateIdentifiers is unavailable because enumerate_identifiers is void
+
+    // var shouldAutomount is unavailable because should_automount is void
+
+    // var getActivationRoot is unavailable because get_activation_root is void
+
+    // var ejectWithOperation is unavailable because eject_with_operation is void
+
+    // var ejectWithOperationFinish is unavailable because eject_with_operation_finish is void
+
+    // var getSortKey is unavailable because get_sort_key is void
+
+    // var getSymbolicIcon is unavailable because get_symbolic_icon is void
 
 }
 
@@ -196,7 +249,7 @@ public extension VolumeIfaceProtocol {
 ///
 
 public protocol VolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVolumeMonitorClass` instance.
@@ -209,7 +262,7 @@ public protocol VolumeMonitorClassProtocol {
 ///
 
 public struct VolumeMonitorClassRef: VolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +315,7 @@ public extension VolumeMonitorClassRef {
 ///
 
 open class VolumeMonitorClass: VolumeMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
+        /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +344,7 @@ open class VolumeMonitorClass: VolumeMonitorClassProtocol {
         // no reference counting for GVolumeMonitorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GVolumeMonitorClass`.
+    /// Do-nothing destructor for `GVolumeMonitorClass`.
     deinit {
         // no reference counting for GVolumeMonitorClass, cannot unref(cast(_ptr))
     }
@@ -359,14 +412,73 @@ open class VolumeMonitorClass: VolumeMonitorClassProtocol {
 
 }
 
-// MARK: - no VolumeMonitorClass properties
+// MARK: no VolumeMonitorClass properties
 
-// MARK: - no signals
+// MARK: no VolumeMonitorClass signals
 
 
+// MARK: VolumeMonitorClass Record: VolumeMonitorClassProtocol extension (methods and fields)
 public extension VolumeMonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVolumeMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GVolumeMonitorClass> { return ptr.assumingMemoryBound(to: GVolumeMonitorClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var volumeAdded is unavailable because volume_added is void
+
+    // var volumeRemoved is unavailable because volume_removed is void
+
+    // var volumeChanged is unavailable because volume_changed is void
+
+    // var mountAdded is unavailable because mount_added is void
+
+    // var mountRemoved is unavailable because mount_removed is void
+
+    // var mountPreUnmount is unavailable because mount_pre_unmount is void
+
+    // var mountChanged is unavailable because mount_changed is void
+
+    // var driveConnected is unavailable because drive_connected is void
+
+    // var driveDisconnected is unavailable because drive_disconnected is void
+
+    // var driveChanged is unavailable because drive_changed is void
+
+    // var isSupported is unavailable because is_supported is void
+
+    // var getConnectedDrives is unavailable because get_connected_drives is void
+
+    // var getVolumes is unavailable because get_volumes is void
+
+    // var getMounts is unavailable because get_mounts is void
+
+    // var getVolumeForUuid is unavailable because get_volume_for_uuid is void
+
+    // var getMountForUuid is unavailable because get_mount_for_uuid is void
+
+    // var adoptOrphanMount is unavailable because adopt_orphan_mount is void
+
+    // var driveEjectButton is unavailable because drive_eject_button is void
+
+    // var driveStopButton is unavailable because drive_stop_button is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
 
 }
 
@@ -381,7 +493,7 @@ public extension VolumeMonitorClassProtocol {
 ///
 
 public protocol ZlibCompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GZlibCompressorClass` instance.
@@ -394,7 +506,7 @@ public protocol ZlibCompressorClassProtocol {
 ///
 
 public struct ZlibCompressorClassRef: ZlibCompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +559,7 @@ public extension ZlibCompressorClassRef {
 ///
 
 open class ZlibCompressorClass: ZlibCompressorClassProtocol {
-    /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
+        /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +588,7 @@ open class ZlibCompressorClass: ZlibCompressorClassProtocol {
         // no reference counting for GZlibCompressorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GZlibCompressorClass`.
+    /// Do-nothing destructor for `GZlibCompressorClass`.
     deinit {
         // no reference counting for GZlibCompressorClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +656,23 @@ open class ZlibCompressorClass: ZlibCompressorClassProtocol {
 
 }
 
-// MARK: - no ZlibCompressorClass properties
+// MARK: no ZlibCompressorClass properties
 
-// MARK: - no signals
+// MARK: no ZlibCompressorClass signals
 
 
+// MARK: ZlibCompressorClass Record: ZlibCompressorClassProtocol extension (methods and fields)
 public extension ZlibCompressorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibCompressorClass` instance.
     var _ptr: UnsafeMutablePointer<GZlibCompressorClass> { return ptr.assumingMemoryBound(to: GZlibCompressorClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 

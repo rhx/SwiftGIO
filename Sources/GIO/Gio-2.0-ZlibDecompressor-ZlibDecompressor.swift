@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// Zlib decompression
 public protocol ZlibDecompressorProtocol: ObjectProtocol, ConverterProtocol {
-    /// Untyped pointer to the underlying `GZlibDecompressor` instance.
+        /// Untyped pointer to the underlying `GZlibDecompressor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GZlibDecompressor` instance.
@@ -24,7 +24,7 @@ public protocol ZlibDecompressorProtocol: ObjectProtocol, ConverterProtocol {
 ///
 /// Zlib decompression
 public struct ZlibDecompressorRef: ZlibDecompressorProtocol {
-    /// Untyped pointer to the underlying `GZlibDecompressor` instance.
+        /// Untyped pointer to the underlying `GZlibDecompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_decompressor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,7 +71,7 @@ public extension ZlibDecompressorRef {
 
         /// Creates a new `GZlibDecompressor`.
     init( format: ZlibCompressorFormat) {
-        let rv = g_zlib_decompressor_new(format)
+        let rv: UnsafeMutablePointer<GZlibDecompressor>! = cast(g_zlib_decompressor_new(format))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -82,7 +82,7 @@ public extension ZlibDecompressorRef {
 ///
 /// Zlib decompression
 open class ZlibDecompressor: Object, ZlibDecompressorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -162,7 +162,7 @@ open class ZlibDecompressor: Object, ZlibDecompressorProtocol {
 
     /// Creates a new `GZlibDecompressor`.
     public init( format: ZlibCompressorFormat) {
-        let rv = g_zlib_decompressor_new(format)
+        let rv: UnsafeMutablePointer<GZlibDecompressor>! = cast(g_zlib_decompressor_new(format))
         super.init(cast(rv))
     }
 
@@ -187,8 +187,8 @@ public extension ZlibDecompressorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibDecompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibDecompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -211,6 +211,23 @@ public extension ZlibDecompressorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ZlibDecompressor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ZlibDecompressorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ZlibDecompressor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ZlibDecompressorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -254,8 +271,8 @@ public extension ZlibDecompressorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ZlibDecompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ZlibDecompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(zlib_decompressor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -276,6 +293,7 @@ public extension ZlibDecompressorProtocol {
     }
 }
 
+// MARK: ZlibDecompressor Class: ZlibDecompressorProtocol extension (methods and fields)
 public extension ZlibDecompressorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibDecompressor` instance.
     var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor> { return ptr.assumingMemoryBound(to: GZlibDecompressor.self) }
@@ -286,7 +304,7 @@ public extension ZlibDecompressorProtocol {
     /// or the header data was not fully processed yet, or it not present in the
     /// data stream at all.
     func getFileInfo() -> UnsafeMutablePointer<GFileInfo>! {
-        let rv = g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr))
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr)))
         return cast(rv)
     }
     /// Retrieves the `GFileInfo` constructed from the GZIP header data
@@ -301,10 +319,12 @@ public extension ZlibDecompressorProtocol {
         /// or the header data was not fully processed yet, or it not present in the
         /// data stream at all.
         get {
-            let rv = g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr))
+            let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

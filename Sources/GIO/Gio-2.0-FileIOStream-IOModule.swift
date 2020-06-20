@@ -30,7 +30,7 @@ import GLibObject
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
 public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GFileIOStream` instance.
+        /// Untyped pointer to the underlying `GFileIOStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIOStream` instance.
@@ -62,7 +62,7 @@ public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
 public struct FileIOStreamRef: FileIOStreamProtocol {
-    /// Untyped pointer to the underlying `GFileIOStream` instance.
+        /// Untyped pointer to the underlying `GFileIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_io_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -134,7 +134,7 @@ public extension FileIOStreamRef {
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
 open class FileIOStream: IOStream, FileIOStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIOStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -231,8 +231,8 @@ public extension FileIOStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -255,6 +255,23 @@ public extension FileIOStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FileIOStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FileIOStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FileIOStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FileIOStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -295,8 +312,8 @@ public extension FileIOStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileIOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileIOStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_io_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -317,6 +334,7 @@ public extension FileIOStreamProtocol {
     }
 }
 
+// MARK: FileIOStream Class: FileIOStreamProtocol extension (methods and fields)
 public extension FileIOStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIOStream` instance.
     var file_io_stream_ptr: UnsafeMutablePointer<GFileIOStream> { return ptr.assumingMemoryBound(to: GFileIOStream.self) }
@@ -325,8 +343,8 @@ public extension FileIOStreamProtocol {
     /// This must be called after the stream has been written
     /// and closed, as the etag can change while writing.
     func getEtag() -> String! {
-        let rv = g_file_io_stream_get_etag(cast(file_io_stream_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_io_stream_get_etag(cast(file_io_stream_ptr)))
+        return cast(rv)
     }
 
     /// Queries a file io stream for the given `attributes`.
@@ -347,11 +365,9 @@ public extension FileIOStreamProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
     /// be returned.
     func queryInfo(attributes: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_io_stream_query_info(cast(file_io_stream_ptr), attributes, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_io_stream_query_info(cast(file_io_stream_ptr), attributes, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -369,11 +385,9 @@ public extension FileIOStreamProtocol {
     /// Finalizes the asynchronous query started
     /// by `g_file_io_stream_query_info_async()`.
     func queryInfoFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_io_stream_query_info_finish(cast(file_io_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_io_stream_query_info_finish(cast(file_io_stream_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -388,11 +402,9 @@ public extension FileIOStreamProtocol {
     /// Unlike the other `GFile` constructors, this will return `nil` if
     /// a temporary file could not be created.
     func fileNewTmp(tmpl: UnsafePointer<CChar>) throws -> UnsafeMutablePointer<GFile>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_new_tmp(tmpl, cast(file_io_stream_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_tmp(tmpl, cast(file_io_stream_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Gets the entity tag for the file when it has been written.
@@ -403,10 +415,20 @@ public extension FileIOStreamProtocol {
         /// This must be called after the stream has been written
         /// and closed, as the etag can change while writing.
         get {
-            let rv = g_file_io_stream_get_etag(cast(file_io_stream_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_io_stream_get_etag(cast(file_io_stream_ptr)))
+            return cast(rv)
         }
     }
+
+    var parentInstance: GIOStream {
+        get {
+            let rv: GIOStream = cast(file_io_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -421,7 +443,7 @@ public extension FileIOStreamProtocol {
 /// `GFileIcon` specifies an icon by pointing to an image file
 /// to be used as icon.
 public protocol FileIconProtocol: ObjectProtocol, IconProtocol, LoadableIconProtocol {
-    /// Untyped pointer to the underlying `GFileIcon` instance.
+        /// Untyped pointer to the underlying `GFileIcon` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileIcon` instance.
@@ -435,7 +457,7 @@ public protocol FileIconProtocol: ObjectProtocol, IconProtocol, LoadableIconProt
 /// `GFileIcon` specifies an icon by pointing to an image file
 /// to be used as icon.
 public struct FileIconRef: FileIconProtocol {
-    /// Untyped pointer to the underlying `GFileIcon` instance.
+        /// Untyped pointer to the underlying `GFileIcon` instance.
     /// For type-safe access, use the generated, typed pointer `file_icon_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -482,7 +504,7 @@ public extension FileIconRef {
 
         /// Creates a new icon for a file.
     init( file: FileProtocol) {
-        let rv = g_file_icon_new(cast(file.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_icon_new(cast(file.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -494,7 +516,7 @@ public extension FileIconRef {
 /// `GFileIcon` specifies an icon by pointing to an image file
 /// to be used as icon.
 open class FileIcon: Object, FileIconProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIcon` instance.
     /// - Parameter op: pointer to the underlying object
@@ -574,7 +596,7 @@ open class FileIcon: Object, FileIconProtocol {
 
     /// Creates a new icon for a file.
     public init( file: FileProtocol) {
-        let rv = g_file_icon_new(cast(file.ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_icon_new(cast(file.ptr)))
         super.init(cast(rv))
     }
 
@@ -595,8 +617,8 @@ public extension FileIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -619,6 +641,23 @@ public extension FileIconProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FileIcon property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FileIconPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FileIcon property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FileIconPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -658,8 +697,8 @@ public extension FileIconProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_icon_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -680,23 +719,26 @@ public extension FileIconProtocol {
     }
 }
 
+// MARK: FileIcon Class: FileIconProtocol extension (methods and fields)
 public extension FileIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIcon` instance.
     var file_icon_ptr: UnsafeMutablePointer<GFileIcon> { return ptr.assumingMemoryBound(to: GFileIcon.self) }
 
     /// Gets the `GFile` associated with the given `icon`.
     func getFile() -> UnsafeMutablePointer<GFile>! {
-        let rv = g_file_icon_get_file(cast(file_icon_ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_icon_get_file(cast(file_icon_ptr)))
         return cast(rv)
     }
     /// The file containing the icon.
     var file: UnsafeMutablePointer<GFile>! {
         /// Gets the `GFile` associated with the given `icon`.
         get {
-            let rv = g_file_icon_get_file(cast(file_icon_ptr))
+            let rv: UnsafeMutablePointer<GFile>! = cast(g_file_icon_get_file(cast(file_icon_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -733,7 +775,7 @@ public extension FileIconProtocol {
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
 public protocol FileInfoProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GFileInfo` instance.
+        /// Untyped pointer to the underlying `GFileInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileInfo` instance.
@@ -769,7 +811,7 @@ public protocol FileInfoProtocol: ObjectProtocol {
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
 public struct FileInfoRef: FileInfoProtocol {
-    /// Untyped pointer to the underlying `GFileInfo` instance.
+        /// Untyped pointer to the underlying `GFileInfo` instance.
     /// For type-safe access, use the generated, typed pointer `file_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -816,7 +858,7 @@ public extension FileInfoRef {
 
         /// Creates a new file info structure.
     init() {
-        let rv = g_file_info_new()
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_info_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -850,7 +892,7 @@ public extension FileInfoRef {
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
 open class FileInfo: Object, FileInfoProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInfo` instance.
     /// - Parameter op: pointer to the underlying object
@@ -930,14 +972,14 @@ open class FileInfo: Object, FileInfoProtocol {
 
     /// Creates a new file info structure.
     public init() {
-        let rv = g_file_info_new()
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_info_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no FileInfo properties
+// MARK: no FileInfo properties
 
 public enum FileInfoSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -974,8 +1016,8 @@ public extension FileInfoProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileInfoSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileInfoSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_info_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -996,6 +1038,7 @@ public extension FileInfoProtocol {
     }
 }
 
+// MARK: FileInfo Class: FileInfoProtocol extension (methods and fields)
 public extension FileInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInfo` instance.
     var file_info_ptr: UnsafeMutablePointer<GFileInfo> { return ptr.assumingMemoryBound(to: GFileInfo.self) }
@@ -1015,7 +1058,7 @@ public extension FileInfoProtocol {
 
     /// Duplicates a file info structure.
     func dup() -> UnsafeMutablePointer<GFileInfo>! {
-        let rv = g_file_info_dup(cast(file_info_ptr))
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_info_dup(cast(file_info_ptr)))
         return cast(rv)
     }
 
@@ -1023,8 +1066,8 @@ public extension FileInfoProtocol {
     /// This escapes things as needed to make the string valid
     /// UTF-8.
     func getAttributeAsString(attribute: UnsafePointer<CChar>) -> String! {
-        let rv = g_file_info_get_attribute_as_string(cast(file_info_ptr), attribute)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_attribute_as_string(cast(file_info_ptr), attribute))
+        return cast(rv)
     }
 
     /// Gets the value of a boolean attribute. If the attribute does not
@@ -1037,8 +1080,8 @@ public extension FileInfoProtocol {
     /// Gets the value of a byte string attribute. If the attribute does
     /// not contain a byte string, `nil` will be returned.
     func getAttributeByteString(attribute: UnsafePointer<CChar>) -> String! {
-        let rv = g_file_info_get_attribute_byte_string(cast(file_info_ptr), attribute)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_attribute_byte_string(cast(file_info_ptr), attribute))
+        return cast(rv)
     }
 
     /// Gets the attribute type, value and status for an attribute key.
@@ -1066,34 +1109,34 @@ public extension FileInfoProtocol {
     /// Gets the value of a `GObject` attribute. If the attribute does
     /// not contain a `GObject`, `nil` will be returned.
     func getAttributeObject(attribute: UnsafePointer<CChar>) -> UnsafeMutablePointer<GObject>! {
-        let rv = g_file_info_get_attribute_object(cast(file_info_ptr), attribute)
+        let rv: UnsafeMutablePointer<GObject>! = cast(g_file_info_get_attribute_object(cast(file_info_ptr), attribute))
         return cast(rv)
     }
 
     /// Gets the attribute status for an attribute key.
     func getAttributeStatus(attribute: UnsafePointer<CChar>) -> GFileAttributeStatus {
         let rv = g_file_info_get_attribute_status(cast(file_info_ptr), attribute)
-        return rv
+        return cast(rv)
     }
 
     /// Gets the value of a string attribute. If the attribute does
     /// not contain a string, `nil` will be returned.
     func getAttributeString(attribute: UnsafePointer<CChar>) -> String! {
-        let rv = g_file_info_get_attribute_string(cast(file_info_ptr), attribute)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_attribute_string(cast(file_info_ptr), attribute))
+        return cast(rv)
     }
 
     /// Gets the value of a stringv attribute. If the attribute does
     /// not contain a stringv, `nil` will be returned.
     func getAttributeStringv(attribute: UnsafePointer<CChar>) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv = g_file_info_get_attribute_stringv(cast(file_info_ptr), attribute)
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_file_info_get_attribute_stringv(cast(file_info_ptr), attribute))
         return cast(rv)
     }
 
     /// Gets the attribute type for an attribute key.
     func getAttributeType(attribute: UnsafePointer<CChar>) -> GFileAttributeType {
         let rv = g_file_info_get_attribute_type(cast(file_info_ptr), attribute)
-        return rv
+        return cast(rv)
     }
 
     /// Gets an unsigned 32-bit integer contained within the attribute. If the
@@ -1114,47 +1157,47 @@ public extension FileInfoProtocol {
 
     /// Gets the file's content type.
     func getContentType() -> String! {
-        let rv = g_file_info_get_content_type(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_content_type(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Returns the `GDateTime` representing the deletion date of the file, as
     /// available in G_FILE_ATTRIBUTE_TRASH_DELETION_DATE. If the
     /// G_FILE_ATTRIBUTE_TRASH_DELETION_DATE attribute is unset, `nil` is returned.
     func getDeletionDate() -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_file_info_get_deletion_date(cast(file_info_ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_file_info_get_deletion_date(cast(file_info_ptr)))
         return cast(rv)
     }
 
     /// Gets a display name for a file.
     func getDisplayName() -> String! {
-        let rv = g_file_info_get_display_name(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_display_name(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the edit name for a file.
     func getEditName() -> String! {
-        let rv = g_file_info_get_edit_name(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_edit_name(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the [entity tag](#gfile-etag) for a given
     /// `GFileInfo`. See `G_FILE_ATTRIBUTE_ETAG_VALUE`.
     func getEtag() -> String! {
-        let rv = g_file_info_get_etag(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_etag(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets a file's type (whether it is a regular file, symlink, etc).
     /// This is different from the file's content type, see `g_file_info_get_content_type()`.
     func getFileType() -> GFileType {
         let rv = g_file_info_get_file_type(cast(file_info_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the icon for a file.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_file_info_get_icon(cast(file_info_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_info_get_icon(cast(file_info_ptr)))
         return cast(rv)
     }
 
@@ -1183,7 +1226,7 @@ public extension FileInfoProtocol {
     /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
     /// will have microsecond precision.
     func getModificationDateTime() -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_file_info_get_modification_date_time(cast(file_info_ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_file_info_get_modification_date_time(cast(file_info_ptr)))
         return cast(rv)
     }
 
@@ -1200,8 +1243,8 @@ public extension FileInfoProtocol {
 
     /// Gets the name for a file.
     func getName() -> String! {
-        let rv = g_file_info_get_name(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_name(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Gets the file's size.
@@ -1219,14 +1262,14 @@ public extension FileInfoProtocol {
 
     /// Gets the symbolic icon for a file.
     func getSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_file_info_get_symbolic_icon(cast(file_info_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_info_get_symbolic_icon(cast(file_info_ptr)))
         return cast(rv)
     }
 
     /// Gets the symlink target for a given `GFileInfo`.
     func getSymlinkTarget() -> String! {
-        let rv = g_file_info_get_symlink_target(cast(file_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_info_get_symlink_target(cast(file_info_ptr)))
+        return cast(rv)
     }
 
     /// Checks if a file info structure has an attribute named `attribute`.
@@ -1244,7 +1287,7 @@ public extension FileInfoProtocol {
 
     /// Lists the file info structure's attributes.
     func listAttributes(nameSpace name_space: UnsafePointer<CChar>) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv = g_file_info_list_attributes(cast(file_info_ptr), name_space)
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_file_info_list_attributes(cast(file_info_ptr), name_space))
         return cast(rv)
     }
 
@@ -1457,13 +1500,13 @@ public extension FileInfoProtocol {
     var contentType: String! {
         /// Gets the file's content type.
         get {
-            let rv = g_file_info_get_content_type(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_content_type(cast(file_info_ptr)))
+            return cast(rv)
         }
         /// Sets the content type attribute for a given `GFileInfo`.
         /// See `G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`.
         nonmutating set {
-            g_file_info_set_content_type(cast(file_info_ptr), newValue)
+            g_file_info_set_content_type(cast(file_info_ptr), cast(newValue))
         }
     }
 
@@ -1475,7 +1518,7 @@ public extension FileInfoProtocol {
         /// available in G_FILE_ATTRIBUTE_TRASH_DELETION_DATE. If the
         /// G_FILE_ATTRIBUTE_TRASH_DELETION_DATE attribute is unset, `nil` is returned.
         get {
-            let rv = g_file_info_get_deletion_date(cast(file_info_ptr))
+            let rv: UnsafeMutablePointer<GDateTime>! = cast(g_file_info_get_deletion_date(cast(file_info_ptr)))
             return cast(rv)
         }
     }
@@ -1484,13 +1527,13 @@ public extension FileInfoProtocol {
     var displayName: String! {
         /// Gets a display name for a file.
         get {
-            let rv = g_file_info_get_display_name(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_display_name(cast(file_info_ptr)))
+            return cast(rv)
         }
         /// Sets the display name for the current `GFileInfo`.
         /// See `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`.
         nonmutating set {
-            g_file_info_set_display_name(cast(file_info_ptr), newValue)
+            g_file_info_set_display_name(cast(file_info_ptr), cast(newValue))
         }
     }
 
@@ -1498,13 +1541,13 @@ public extension FileInfoProtocol {
     var editName: String! {
         /// Gets the edit name for a file.
         get {
-            let rv = g_file_info_get_edit_name(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_edit_name(cast(file_info_ptr)))
+            return cast(rv)
         }
         /// Sets the edit name for the current file.
         /// See `G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME`.
         nonmutating set {
-            g_file_info_set_edit_name(cast(file_info_ptr), newValue)
+            g_file_info_set_edit_name(cast(file_info_ptr), cast(newValue))
         }
     }
 
@@ -1514,8 +1557,8 @@ public extension FileInfoProtocol {
         /// Gets the [entity tag](#gfile-etag) for a given
         /// `GFileInfo`. See `G_FILE_ATTRIBUTE_ETAG_VALUE`.
         get {
-            let rv = g_file_info_get_etag(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_etag(cast(file_info_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1526,12 +1569,12 @@ public extension FileInfoProtocol {
         /// This is different from the file's content type, see `g_file_info_get_content_type()`.
         get {
             let rv = g_file_info_get_file_type(cast(file_info_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the file type in a `GFileInfo` to `type`.
         /// See `G_FILE_ATTRIBUTE_STANDARD_TYPE`.
         nonmutating set {
-            g_file_info_set_file_type(cast(file_info_ptr), newValue)
+            g_file_info_set_file_type(cast(file_info_ptr), cast(newValue))
         }
     }
 
@@ -1539,7 +1582,7 @@ public extension FileInfoProtocol {
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gets the icon for a file.
         get {
-            let rv = g_file_info_get_icon(cast(file_info_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_info_get_icon(cast(file_info_ptr)))
             return cast(rv)
         }
         /// Sets the icon for a given `GFileInfo`.
@@ -1600,7 +1643,7 @@ public extension FileInfoProtocol {
         /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
         /// will have microsecond precision.
         get {
-            let rv = g_file_info_get_modification_date_time(cast(file_info_ptr))
+            let rv: UnsafeMutablePointer<GDateTime>! = cast(g_file_info_get_modification_date_time(cast(file_info_ptr)))
             return cast(rv)
         }
         /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
@@ -1615,13 +1658,13 @@ public extension FileInfoProtocol {
     var name: String! {
         /// Gets the name for a file.
         get {
-            let rv = g_file_info_get_name(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_name(cast(file_info_ptr)))
+            return cast(rv)
         }
         /// Sets the name attribute for the current `GFileInfo`.
         /// See `G_FILE_ATTRIBUTE_STANDARD_NAME`.
         nonmutating set {
-            g_file_info_set_name(cast(file_info_ptr), newValue)
+            g_file_info_set_name(cast(file_info_ptr), cast(newValue))
         }
     }
 
@@ -1659,7 +1702,7 @@ public extension FileInfoProtocol {
     var symbolicIcon: UnsafeMutablePointer<GIcon>! {
         /// Gets the symbolic icon for a file.
         get {
-            let rv = g_file_info_get_symbolic_icon(cast(file_info_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_file_info_get_symbolic_icon(cast(file_info_ptr)))
             return cast(rv)
         }
         /// Sets the symbolic icon for a given `GFileInfo`.
@@ -1673,15 +1716,17 @@ public extension FileInfoProtocol {
     var symlinkTarget: String! {
         /// Gets the symlink target for a given `GFileInfo`.
         get {
-            let rv = g_file_info_get_symlink_target(cast(file_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_info_get_symlink_target(cast(file_info_ptr)))
+            return cast(rv)
         }
         /// Sets the `G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET` attribute in the file info
         /// to the given symlink target.
         nonmutating set {
-            g_file_info_set_symlink_target(cast(file_info_ptr), newValue)
+            g_file_info_set_symlink_target(cast(file_info_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -1703,7 +1748,7 @@ public extension FileInfoProtocol {
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
 public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GFileInputStream` instance.
+        /// Untyped pointer to the underlying `GFileInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileInputStream` instance.
@@ -1724,7 +1769,7 @@ public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
 public struct FileInputStreamRef: FileInputStreamProtocol {
-    /// Untyped pointer to the underlying `GFileInputStream` instance.
+        /// Untyped pointer to the underlying `GFileInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1785,7 +1830,7 @@ public extension FileInputStreamRef {
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
 open class FileInputStream: InputStream, FileInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1867,7 +1912,7 @@ open class FileInputStream: InputStream, FileInputStreamProtocol {
 
 }
 
-// MARK: - no FileInputStream properties
+// MARK: no FileInputStream properties
 
 public enum FileInputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -1904,8 +1949,8 @@ public extension FileInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1926,6 +1971,7 @@ public extension FileInputStreamProtocol {
     }
 }
 
+// MARK: FileInputStream Class: FileInputStreamProtocol extension (methods and fields)
 public extension FileInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInputStream` instance.
     var file_input_stream_ptr: UnsafeMutablePointer<GFileInputStream> { return ptr.assumingMemoryBound(to: GFileInputStream.self) }
@@ -1936,11 +1982,9 @@ public extension FileInputStreamProtocol {
     /// stream is blocked, the stream will set the pending flag internally, and
     /// any other operations on the stream will fail with `G_IO_ERROR_PENDING`.
     func queryInfo(attributes: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_input_stream_query_info(cast(file_input_stream_ptr), attributes, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_input_stream_query_info(cast(file_input_stream_ptr), attributes, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1962,13 +2006,21 @@ public extension FileInputStreamProtocol {
 
     /// Finishes an asynchronous info query operation.
     func queryInfoFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_input_stream_query_info_finish(cast(file_input_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_input_stream_query_info_finish(cast(file_input_stream_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
+
+    var parentInstance: GInputStream {
+        get {
+            let rv: GInputStream = cast(file_input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1995,7 +2047,7 @@ public extension FileInputStreamProtocol {
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
 public protocol FileMonitorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GFileMonitor` instance.
+        /// Untyped pointer to the underlying `GFileMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileMonitor` instance.
@@ -2021,7 +2073,7 @@ public protocol FileMonitorProtocol: ObjectProtocol {
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
 public struct FileMonitorRef: FileMonitorProtocol {
-    /// Untyped pointer to the underlying `GFileMonitor` instance.
+        /// Untyped pointer to the underlying `GFileMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `file_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2087,7 +2139,7 @@ public extension FileMonitorRef {
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
 open class FileMonitor: Object, FileMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2183,8 +2235,8 @@ public extension FileMonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2207,6 +2259,23 @@ public extension FileMonitorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FileMonitor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FileMonitorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FileMonitor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FileMonitorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2275,8 +2344,8 @@ public extension FileMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2297,6 +2366,7 @@ public extension FileMonitorProtocol {
     }
 }
 
+// MARK: FileMonitor Class: FileMonitorProtocol extension (methods and fields)
 public extension FileMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileMonitor` instance.
     var file_monitor_ptr: UnsafeMutablePointer<GFileMonitor> { return ptr.assumingMemoryBound(to: GFileMonitor.self) }
@@ -2333,6 +2403,16 @@ public extension FileMonitorProtocol {
             return Bool(rv != 0)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(file_monitor_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2359,7 +2439,7 @@ public extension FileMonitorProtocol {
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
 public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStream` instance.
+        /// Untyped pointer to the underlying `GFileOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFileOutputStream` instance.
@@ -2385,7 +2465,7 @@ public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
 public struct FileOutputStreamRef: FileOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GFileOutputStream` instance.
+        /// Untyped pointer to the underlying `GFileOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2451,7 +2531,7 @@ public extension FileOutputStreamRef {
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
 open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2533,7 +2613,7 @@ open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
 
 }
 
-// MARK: - no FileOutputStream properties
+// MARK: no FileOutputStream properties
 
 public enum FileOutputStreamSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -2570,8 +2650,8 @@ public extension FileOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FileOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(file_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2592,6 +2672,7 @@ public extension FileOutputStreamProtocol {
     }
 }
 
+// MARK: FileOutputStream Class: FileOutputStreamProtocol extension (methods and fields)
 public extension FileOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileOutputStream` instance.
     var file_output_stream_ptr: UnsafeMutablePointer<GFileOutputStream> { return ptr.assumingMemoryBound(to: GFileOutputStream.self) }
@@ -2600,8 +2681,8 @@ public extension FileOutputStreamProtocol {
     /// This must be called after the stream has been written
     /// and closed, as the etag can change while writing.
     func getEtag() -> String! {
-        let rv = g_file_output_stream_get_etag(cast(file_output_stream_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_file_output_stream_get_etag(cast(file_output_stream_ptr)))
+        return cast(rv)
     }
 
     /// Queries a file output stream for the given `attributes`.
@@ -2622,11 +2703,9 @@ public extension FileOutputStreamProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
     /// be returned.
     func queryInfo(attributes: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_output_stream_query_info(cast(file_output_stream_ptr), attributes, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_output_stream_query_info(cast(file_output_stream_ptr), attributes, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -2644,11 +2723,9 @@ public extension FileOutputStreamProtocol {
     /// Finalizes the asynchronous query started
     /// by `g_file_output_stream_query_info_async()`.
     func queryInfoFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_file_output_stream_query_info_finish(cast(file_output_stream_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_output_stream_query_info_finish(cast(file_output_stream_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Gets the entity tag for the file when it has been written.
@@ -2659,10 +2736,20 @@ public extension FileOutputStreamProtocol {
         /// This must be called after the stream has been written
         /// and closed, as the etag can change while writing.
         get {
-            let rv = g_file_output_stream_get_etag(cast(file_output_stream_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_file_output_stream_get_etag(cast(file_output_stream_ptr)))
+            return cast(rv)
         }
     }
+
+    var parentInstance: GOutputStream {
+        get {
+            let rv: GOutputStream = cast(file_output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2678,7 +2765,7 @@ public extension FileOutputStreamProtocol {
 /// looking in the file system for clues. Can return a list of possible
 /// completion strings for widget implementations.
 public protocol FilenameCompleterProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GFilenameCompleter` instance.
+        /// Untyped pointer to the underlying `GFilenameCompleter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilenameCompleter` instance.
@@ -2693,7 +2780,7 @@ public protocol FilenameCompleterProtocol: ObjectProtocol {
 /// looking in the file system for clues. Can return a list of possible
 /// completion strings for widget implementations.
 public struct FilenameCompleterRef: FilenameCompleterProtocol {
-    /// Untyped pointer to the underlying `GFilenameCompleter` instance.
+        /// Untyped pointer to the underlying `GFilenameCompleter` instance.
     /// For type-safe access, use the generated, typed pointer `filename_completer_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2740,7 +2827,7 @@ public extension FilenameCompleterRef {
 
         /// Creates a new filename completer.
     init() {
-        let rv = g_filename_completer_new()
+        let rv: UnsafeMutablePointer<GFilenameCompleter>! = cast(g_filename_completer_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -2753,7 +2840,7 @@ public extension FilenameCompleterRef {
 /// looking in the file system for clues. Can return a list of possible
 /// completion strings for widget implementations.
 open class FilenameCompleter: Object, FilenameCompleterProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilenameCompleter` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2833,14 +2920,14 @@ open class FilenameCompleter: Object, FilenameCompleterProtocol {
 
     /// Creates a new filename completer.
     public init() {
-        let rv = g_filename_completer_new()
+        let rv: UnsafeMutablePointer<GFilenameCompleter>! = cast(g_filename_completer_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no FilenameCompleter properties
+// MARK: no FilenameCompleter properties
 
 public enum FilenameCompleterSignalName: String, SignalNameProtocol {
     /// Emitted when the file name completion information comes available.
@@ -2879,8 +2966,8 @@ public extension FilenameCompleterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FilenameCompleterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FilenameCompleterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(filename_completer_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2901,19 +2988,20 @@ public extension FilenameCompleterProtocol {
     }
 }
 
+// MARK: FilenameCompleter Class: FilenameCompleterProtocol extension (methods and fields)
 public extension FilenameCompleterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilenameCompleter` instance.
     var filename_completer_ptr: UnsafeMutablePointer<GFilenameCompleter> { return ptr.assumingMemoryBound(to: GFilenameCompleter.self) }
 
     /// Obtains a completion for `initial_text` from `completer`.
     func getCompletionSuffix(initialText initial_text: UnsafePointer<CChar>) -> String! {
-        let rv = g_filename_completer_get_completion_suffix(cast(filename_completer_ptr), initial_text)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_filename_completer_get_completion_suffix(cast(filename_completer_ptr), initial_text))
+        return cast(rv)
     }
 
     /// Gets an array of completion strings for a given initial text.
     func getCompletions(initialText initial_text: UnsafePointer<CChar>) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv = g_filename_completer_get_completions(cast(filename_completer_ptr), initial_text)
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_filename_completer_get_completions(cast(filename_completer_ptr), initial_text))
         return cast(rv)
     }
 
@@ -2923,6 +3011,8 @@ public extension FilenameCompleterProtocol {
         g_filename_completer_set_dirs_only(cast(filename_completer_ptr), gboolean(dirs_only ? 1 : 0))
     
     }
+
+
 }
 
 
@@ -2939,7 +3029,7 @@ public extension FilenameCompleterProtocol {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 public protocol FilterInputStreamProtocol: InputStreamProtocol {
-    /// Untyped pointer to the underlying `GFilterInputStream` instance.
+        /// Untyped pointer to the underlying `GFilterInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilterInputStream` instance.
@@ -2955,7 +3045,7 @@ public protocol FilterInputStreamProtocol: InputStreamProtocol {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 public struct FilterInputStreamRef: FilterInputStreamProtocol {
-    /// Untyped pointer to the underlying `GFilterInputStream` instance.
+        /// Untyped pointer to the underlying `GFilterInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `filter_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3011,7 +3101,7 @@ public extension FilterInputStreamRef {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 open class FilterInputStream: InputStream, FilterInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilterInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3107,8 +3197,8 @@ public extension FilterInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3131,6 +3221,23 @@ public extension FilterInputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FilterInputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FilterInputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FilterInputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FilterInputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3170,8 +3277,8 @@ public extension FilterInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FilterInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FilterInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(filter_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3192,13 +3299,14 @@ public extension FilterInputStreamProtocol {
     }
 }
 
+// MARK: FilterInputStream Class: FilterInputStreamProtocol extension (methods and fields)
 public extension FilterInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterInputStream` instance.
     var filter_input_stream_ptr: UnsafeMutablePointer<GFilterInputStream> { return ptr.assumingMemoryBound(to: GFilterInputStream.self) }
 
     /// Gets the base stream for the filter stream.
     func getBaseStream() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = g_filter_input_stream_get_base_stream(cast(filter_input_stream_ptr))
+        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_filter_input_stream_get_base_stream(cast(filter_input_stream_ptr)))
         return cast(rv)
     }
 
@@ -3218,7 +3326,7 @@ public extension FilterInputStreamProtocol {
     var baseStream: UnsafeMutablePointer<GInputStream>! {
         /// Gets the base stream for the filter stream.
         get {
-            let rv = g_filter_input_stream_get_base_stream(cast(filter_input_stream_ptr))
+            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_filter_input_stream_get_base_stream(cast(filter_input_stream_ptr)))
             return cast(rv)
         }
     }
@@ -3237,6 +3345,21 @@ public extension FilterInputStreamProtocol {
             g_filter_input_stream_set_close_base_stream(cast(filter_input_stream_ptr), gboolean(newValue ? 1 : 0))
         }
     }
+
+    var parentInstance: GInputStream {
+        get {
+            let rv: GInputStream = cast(filter_input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var _baseStream: UnsafeMutablePointer<GInputStream> {
+        get {
+            let rv: UnsafeMutablePointer<GInputStream> = cast(filter_input_stream_ptr.pointee.base_stream)
+            return rv
+        }
+    }
+
 }
 
 
@@ -3253,7 +3376,7 @@ public extension FilterInputStreamProtocol {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 public protocol FilterOutputStreamProtocol: OutputStreamProtocol {
-    /// Untyped pointer to the underlying `GFilterOutputStream` instance.
+        /// Untyped pointer to the underlying `GFilterOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GFilterOutputStream` instance.
@@ -3269,7 +3392,7 @@ public protocol FilterOutputStreamProtocol: OutputStreamProtocol {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 public struct FilterOutputStreamRef: FilterOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GFilterOutputStream` instance.
+        /// Untyped pointer to the underlying `GFilterOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `filter_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3325,7 +3448,7 @@ public extension FilterOutputStreamRef {
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
 open class FilterOutputStream: OutputStream, FilterOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilterOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3421,8 +3544,8 @@ public extension FilterOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3445,6 +3568,23 @@ public extension FilterOutputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FilterOutputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FilterOutputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FilterOutputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FilterOutputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3484,8 +3624,8 @@ public extension FilterOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FilterOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FilterOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(filter_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3506,13 +3646,14 @@ public extension FilterOutputStreamProtocol {
     }
 }
 
+// MARK: FilterOutputStream Class: FilterOutputStreamProtocol extension (methods and fields)
 public extension FilterOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterOutputStream` instance.
     var filter_output_stream_ptr: UnsafeMutablePointer<GFilterOutputStream> { return ptr.assumingMemoryBound(to: GFilterOutputStream.self) }
 
     /// Gets the base stream for the filter stream.
     func getBaseStream() -> UnsafeMutablePointer<GOutputStream>! {
-        let rv = g_filter_output_stream_get_base_stream(cast(filter_output_stream_ptr))
+        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_filter_output_stream_get_base_stream(cast(filter_output_stream_ptr)))
         return cast(rv)
     }
 
@@ -3532,7 +3673,7 @@ public extension FilterOutputStreamProtocol {
     var baseStream: UnsafeMutablePointer<GOutputStream>! {
         /// Gets the base stream for the filter stream.
         get {
-            let rv = g_filter_output_stream_get_base_stream(cast(filter_output_stream_ptr))
+            let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_filter_output_stream_get_base_stream(cast(filter_output_stream_ptr)))
             return cast(rv)
         }
     }
@@ -3551,6 +3692,21 @@ public extension FilterOutputStreamProtocol {
             g_filter_output_stream_set_close_base_stream(cast(filter_output_stream_ptr), gboolean(newValue ? 1 : 0))
         }
     }
+
+    var parentInstance: GOutputStream {
+        get {
+            let rv: GOutputStream = cast(filter_output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    var _baseStream: UnsafeMutablePointer<GOutputStream> {
+        get {
+            let rv: UnsafeMutablePointer<GOutputStream> = cast(filter_output_stream_ptr.pointee.base_stream)
+            return rv
+        }
+    }
+
 }
 
 
@@ -3566,7 +3722,7 @@ public extension FilterOutputStreamProtocol {
 /// modules. This is used internally to make GIO extensible, but can also
 /// be used by others to implement module loading.
 public protocol IOModuleProtocol: TypeModuleProtocol {
-    /// Untyped pointer to the underlying `GIOModule` instance.
+        /// Untyped pointer to the underlying `GIOModule` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOModule` instance.
@@ -3581,7 +3737,7 @@ public protocol IOModuleProtocol: TypeModuleProtocol {
 /// modules. This is used internally to make GIO extensible, but can also
 /// be used by others to implement module loading.
 public struct IOModuleRef: IOModuleProtocol {
-    /// Untyped pointer to the underlying `GIOModule` instance.
+        /// Untyped pointer to the underlying `GIOModule` instance.
     /// For type-safe access, use the generated, typed pointer `io_module_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3629,7 +3785,7 @@ public extension IOModuleRef {
         /// Creates a new GIOModule that will load the specific
     /// shared library when in use.
     init( String_: UnsafePointer<gchar>) {
-        let rv = g_io_module_new(String_)
+        let rv: UnsafeMutablePointer<GIOModule>! = cast(g_io_module_new(String_))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -3642,7 +3798,7 @@ public extension IOModuleRef {
 /// modules. This is used internally to make GIO extensible, but can also
 /// be used by others to implement module loading.
 open class IOModule: TypeModule, IOModuleProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `IOModule` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3723,14 +3879,14 @@ open class IOModule: TypeModule, IOModuleProtocol {
     /// Creates a new GIOModule that will load the specific
     /// shared library when in use.
     public init( String_: UnsafePointer<gchar>) {
-        let rv = g_io_module_new(String_)
+        let rv: UnsafeMutablePointer<GIOModule>! = cast(g_io_module_new(String_))
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no IOModule properties
+// MARK: no IOModule properties
 
 public enum IOModuleSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -3767,8 +3923,8 @@ public extension IOModuleProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: IOModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: IOModuleSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(io_module_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3789,6 +3945,7 @@ public extension IOModuleProtocol {
     }
 }
 
+// MARK: IOModule Class: IOModuleProtocol extension (methods and fields)
 public extension IOModuleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOModule` instance.
     var io_module_ptr: UnsafeMutablePointer<GIOModule> { return ptr.assumingMemoryBound(to: GIOModule.self) }
@@ -3827,6 +3984,8 @@ public extension IOModuleProtocol {
         _g_io_module_unload(cast(io_module_ptr))
     
     }
+
+
 }
 
 

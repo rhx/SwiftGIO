@@ -73,7 +73,7 @@ import GLibObject
 /// ```
 /// 
 public protocol DBusAuthObserverProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
+        /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusAuthObserver` instance.
@@ -148,7 +148,7 @@ public protocol DBusAuthObserverProtocol: ObjectProtocol {
 /// ```
 /// 
 public struct DBusAuthObserverRef: DBusAuthObserverProtocol {
-    /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
+        /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_auth_observer_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -195,7 +195,7 @@ public extension DBusAuthObserverRef {
 
         /// Creates a new `GDBusAuthObserver` object.
     init() {
-        let rv = g_dbus_auth_observer_new()
+        let rv: UnsafeMutablePointer<GDBusAuthObserver>! = cast(g_dbus_auth_observer_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -268,7 +268,7 @@ public extension DBusAuthObserverRef {
 /// ```
 /// 
 open class DBusAuthObserver: Object, DBusAuthObserverProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusAuthObserver` instance.
     /// - Parameter op: pointer to the underlying object
@@ -348,14 +348,14 @@ open class DBusAuthObserver: Object, DBusAuthObserverProtocol {
 
     /// Creates a new `GDBusAuthObserver` object.
     public init() {
-        let rv = g_dbus_auth_observer_new()
+        let rv: UnsafeMutablePointer<GDBusAuthObserver>! = cast(g_dbus_auth_observer_new())
         super.init(cast(rv))
     }
 
 
 }
 
-// MARK: - no DBusAuthObserver properties
+// MARK: no DBusAuthObserver properties
 
 public enum DBusAuthObserverSignalName: String, SignalNameProtocol {
     /// Emitted to check if `mechanism` is allowed to be used.
@@ -397,8 +397,8 @@ public extension DBusAuthObserverProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusAuthObserverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusAuthObserverSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_auth_observer_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -419,6 +419,7 @@ public extension DBusAuthObserverProtocol {
     }
 }
 
+// MARK: DBusAuthObserver Class: DBusAuthObserverProtocol extension (methods and fields)
 public extension DBusAuthObserverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusAuthObserver` instance.
     var dbus_auth_observer_ptr: UnsafeMutablePointer<GDBusAuthObserver> { return ptr.assumingMemoryBound(to: GDBusAuthObserver.self) }
@@ -434,6 +435,8 @@ public extension DBusAuthObserverProtocol {
         let rv = g_dbus_auth_observer_authorize_authenticated_peer(cast(dbus_auth_observer_ptr), cast(stream.ptr), cast(credentials.ptr))
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -495,7 +498,7 @@ public extension DBusAuthObserverProtocol {
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GDBusConnection` instance.
+        /// Untyped pointer to the underlying `GDBusConnection` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusConnection` instance.
@@ -556,7 +559,7 @@ public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, I
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 public struct DBusConnectionRef: DBusConnectionProtocol {
-    /// Untyped pointer to the underlying `GDBusConnection` instance.
+        /// Untyped pointer to the underlying `GDBusConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_connection_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -603,21 +606,17 @@ public extension DBusConnectionRef {
 
         /// Finishes an operation started with `g_dbus_connection_new()`.
     init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     init(addressFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -638,11 +637,9 @@ public extension DBusConnectionRef {
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     init(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_sync(address, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_sync(address, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -662,30 +659,24 @@ public extension DBusConnectionRef {
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
     init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_sync(cast(stream.ptr), guid, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes an operation started with `g_dbus_connection_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusConnectionRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnectionRef(cast($0)) }
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     static func newFor(addressFinish res: AsyncResultProtocol) throws -> DBusConnectionRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnectionRef(cast($0)) }
     }
 
@@ -706,11 +697,9 @@ public extension DBusConnectionRef {
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     static func newFor(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnectionRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_sync(address, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_sync(address, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnectionRef(cast($0)) }
     }
 
@@ -730,11 +719,9 @@ public extension DBusConnectionRef {
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
     static func new(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnectionRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_sync(cast(stream.ptr), guid, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnectionRef(cast($0)) }
     }
 }
@@ -793,7 +780,7 @@ public extension DBusConnectionRef {
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
 open class DBusConnection: Object, DBusConnectionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusConnection` instance.
     /// - Parameter op: pointer to the underlying object
@@ -873,21 +860,17 @@ open class DBusConnection: Object, DBusConnectionProtocol {
 
     /// Finishes an operation started with `g_dbus_connection_new()`.
     public init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     public init(addressFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -908,11 +891,9 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     public init(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_sync(address, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_sync(address, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -932,31 +913,25 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
     public init(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_sync(cast(stream.ptr), guid, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_connection_new()`.
     public static func new(finish res: AsyncResultProtocol) throws -> DBusConnection! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnection(cast($0)) }
     }
 
     /// Finishes an operation started with `g_dbus_connection_new_for_address()`.
     public static func newFor(addressFinish res: AsyncResultProtocol) throws -> DBusConnection! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnection(cast($0)) }
     }
 
@@ -977,11 +952,9 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
     public static func newFor(addressSync address: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnection! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_for_address_sync(address, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_for_address_sync(address, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnection(cast($0)) }
     }
 
@@ -1001,11 +974,9 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
     public static func new(sync stream: IOStreamProtocol, guid: UnsafePointer<gchar>, flags: DBusConnectionFlags, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusConnection! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_new_sync(cast(stream.ptr), guid, flags, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_connection_new_sync(cast(stream.ptr), guid, flags.value, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusConnection(cast($0)) }
     }
 
@@ -1068,8 +1039,8 @@ public extension DBusConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1092,6 +1063,23 @@ public extension DBusConnectionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusConnection property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusConnectionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusConnection property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusConnectionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1191,8 +1179,8 @@ public extension DBusConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1213,6 +1201,7 @@ public extension DBusConnectionProtocol {
     }
 }
 
+// MARK: DBusConnection Class: DBusConnectionProtocol extension (methods and fields)
 public extension DBusConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusConnection` instance.
     var dbus_connection_ptr: UnsafeMutablePointer<GDBusConnection> { return ptr.assumingMemoryBound(to: GDBusConnection.self) }
@@ -1244,9 +1233,9 @@ public extension DBusConnectionProtocol {
     /// needed. (It is not guaranteed to be called synchronously when the
     /// filter is removed, and may be called after `connection` has been
     /// destroyed.)
-    func addFilter(filterFunction filter_function: @escaping DBusMessageFilterFunction, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-        let rv = g_dbus_connection_add_filter(cast(dbus_connection_ptr), filter_function, cast(user_data), user_data_free_func)
-        return CUnsignedInt(rv)
+    func addFilter(filterFunction filter_function: @escaping DBusMessageFilterFunction, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+        let rv: Int = cast(g_dbus_connection_add_filter(cast(dbus_connection_ptr), filter_function, cast(user_data), user_data_free_func))
+        return Int(rv)
     }
 
     /// Asynchronously invokes the `method_name` method on the
@@ -1296,17 +1285,15 @@ public extension DBusConnectionProtocol {
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
     /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
     func call(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dbus_connection_call(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags, gint(timeout_msec), cast(cancellable.ptr), callback, cast(user_data))
+        g_dbus_connection_call(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags.value, gint(timeout_msec), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an operation started with `g_dbus_connection_call()`.
     func callFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_call_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_connection_call_finish(cast(dbus_connection_ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1348,11 +1335,9 @@ public extension DBusConnectionProtocol {
     /// `g_dbus_connection_call()` for the asynchronous version of
     /// this method.
     func callSync(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_call_sync(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags, gint(timeout_msec), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_connection_call_sync(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags.value, gint(timeout_msec), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1360,17 +1345,15 @@ public extension DBusConnectionProtocol {
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdList(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dbus_connection_call_with_unix_fd_list(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags, gint(timeout_msec), cast(fd_list.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_dbus_connection_call_with_unix_fd_list(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags.value, gint(timeout_msec), cast(fd_list.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an operation started with `g_dbus_connection_call_with_unix_fd_list()`.
     func callWithUnixFdListFinish(outFdList out_fd_list: UnixFDListProtocol, res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_call_with_unix_fd_list_finish(cast(dbus_connection_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_connection_call_with_unix_fd_list_finish(cast(dbus_connection_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1378,11 +1361,9 @@ public extension DBusConnectionProtocol {
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdListSync(busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, replyType reply_type: VariantTypeProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, outFdList out_fd_list: UnixFDListProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_call_with_unix_fd_list_sync(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags, gint(timeout_msec), cast(fd_list.ptr), cast(out_fd_list.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_connection_call_with_unix_fd_list_sync(cast(dbus_connection_ptr), bus_name, object_path, interface_name, method_name, cast(parameters.ptr), cast(reply_type.ptr), flags.value, gint(timeout_msec), cast(fd_list.ptr), cast(out_fd_list.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1417,11 +1398,9 @@ public extension DBusConnectionProtocol {
 
     /// Finishes an operation started with `g_dbus_connection_close()`.
     func closeFinish(res: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_close_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1430,11 +1409,9 @@ public extension DBusConnectionProtocol {
     /// asynchronous version of this method and more details about what it
     /// does.
     func closeSync(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_close_sync(cast(dbus_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1446,11 +1423,9 @@ public extension DBusConnectionProtocol {
     /// (`G_IO_ERROR_INVALID_ARGUMENT`), or if `connection` has been closed
     /// (`G_IO_ERROR_CLOSED`).
     func emitSignal(destinationBusName destination_bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, signalName signal_name: UnsafePointer<gchar>, parameters: VariantProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_emit_signal(cast(dbus_connection_ptr), destination_bus_name, object_path, interface_name, signal_name, cast(parameters.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1475,13 +1450,11 @@ public extension DBusConnectionProtocol {
     /// rather likely to cause changes on the action group, this effectively
     /// limits a given action group to being exported from only one main
     /// context.
-    func exportActionGroup(objectPath object_path: UnsafePointer<gchar>, actionGroup action_group: ActionGroupProtocol) throws -> CUnsignedInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_export_action_group(cast(dbus_connection_ptr), object_path, cast(action_group.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CUnsignedInt(rv)
+    func exportActionGroup(objectPath object_path: UnsafePointer<gchar>, actionGroup action_group: ActionGroupProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_dbus_connection_export_action_group(cast(dbus_connection_ptr), object_path, cast(action_group.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Exports `menu` on `connection` at `object_path`.
@@ -1496,13 +1469,11 @@ public extension DBusConnectionProtocol {
     /// You can unexport the menu model using
     /// `g_dbus_connection_unexport_menu_model()` with the return value of
     /// this function.
-    func exportMenuModel(objectPath object_path: UnsafePointer<gchar>, menu: MenuModelProtocol) throws -> CUnsignedInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_export_menu_model(cast(dbus_connection_ptr), object_path, cast(menu.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CUnsignedInt(rv)
+    func exportMenuModel(objectPath object_path: UnsafePointer<gchar>, menu: MenuModelProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_dbus_connection_export_menu_model(cast(dbus_connection_ptr), object_path, cast(menu.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Asynchronously flushes `connection`, that is, writes all queued
@@ -1526,11 +1497,9 @@ public extension DBusConnectionProtocol {
 
     /// Finishes an operation started with `g_dbus_connection_flush()`.
     func flushFinish(res: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_flush_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1539,18 +1508,16 @@ public extension DBusConnectionProtocol {
     /// asynchronous version of this method and more details about what it
     /// does.
     func flushSync(cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_flush_sync(cast(dbus_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Gets the capabilities negotiated with the remote peer
     func getCapabilities() -> GDBusCapabilityFlags {
         let rv = g_dbus_connection_get_capabilities(cast(dbus_connection_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets whether the process is terminated when `connection` is
@@ -1564,14 +1531,14 @@ public extension DBusConnectionProtocol {
     /// Gets the flags used to construct this connection
     func getFlags() -> GDBusConnectionFlags {
         let rv = g_dbus_connection_get_flags(cast(dbus_connection_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// The GUID of the peer performing the role of server when
     /// authenticating. See `GDBusConnection:guid` for more details.
     func getGuid() -> String! {
-        let rv = g_dbus_connection_get_guid(cast(dbus_connection_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_connection_get_guid(cast(dbus_connection_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the last serial number assigned to a `GDBusMessage` on
@@ -1594,7 +1561,7 @@ public extension DBusConnectionProtocol {
     /// each application is a client. So this method will always return
     /// `nil` for message bus clients.
     func getPeerCredentials() -> UnsafeMutablePointer<GCredentials>! {
-        let rv = g_dbus_connection_get_peer_credentials(cast(dbus_connection_ptr))
+        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_dbus_connection_get_peer_credentials(cast(dbus_connection_ptr)))
         return cast(rv)
     }
 
@@ -1604,7 +1571,7 @@ public extension DBusConnectionProtocol {
     /// stream from a worker thread, so it is not safe to interact with
     /// the stream directly.
     func getStream() -> UnsafeMutablePointer<GIOStream>! {
-        let rv = g_dbus_connection_get_stream(cast(dbus_connection_ptr))
+        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_connection_get_stream(cast(dbus_connection_ptr)))
         return cast(rv)
     }
 
@@ -1612,8 +1579,8 @@ public extension DBusConnectionProtocol {
     /// bus. This can also be used to figure out if `connection` is a
     /// message bus connection.
     func getUniqueName() -> String! {
-        let rv = g_dbus_connection_get_unique_name(cast(dbus_connection_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_connection_get_unique_name(cast(dbus_connection_ptr)))
+        return cast(rv)
     }
 
     /// Registers callbacks for exported objects at `object_path` with the
@@ -1654,24 +1621,20 @@ public extension DBusConnectionProtocol {
     /// as the object is exported. Also note that `vtable` will be copied.
     /// 
     /// See this [server](#gdbus-server) for an example of how to use this method.
-    func registerObject(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, vtable: DBusInterfaceVTableProtocol, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> CUnsignedInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_register_object(cast(dbus_connection_ptr), object_path, cast(interface_info.ptr), cast(vtable.ptr), cast(user_data), user_data_free_func, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CUnsignedInt(rv)
+    func registerObject(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, vtable: DBusInterfaceVTableProtocol, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_dbus_connection_register_object(cast(dbus_connection_ptr), object_path, cast(interface_info.ptr), cast(vtable.ptr), cast(user_data), user_data_free_func, &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Version of `g_dbus_connection_register_object()` using closures instead of a
     /// `GDBusInterfaceVTable` for easier binding in other languages.
-    func registerObjectWithClosures(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, methodCallClosure method_call_closure: ClosureProtocol, getPropertyClosure get_property_closure: ClosureProtocol, setPropertyClosure set_property_closure: ClosureProtocol) throws -> CUnsignedInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_register_object_with_closures(cast(dbus_connection_ptr), object_path, cast(interface_info.ptr), cast(method_call_closure.ptr), cast(get_property_closure.ptr), cast(set_property_closure.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CUnsignedInt(rv)
+    func registerObjectWithClosures(objectPath object_path: UnsafePointer<gchar>, interfaceInfo interface_info: DBusInterfaceInfoProtocol, methodCallClosure method_call_closure: ClosureProtocol, getPropertyClosure get_property_closure: ClosureProtocol, setPropertyClosure set_property_closure: ClosureProtocol) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_dbus_connection_register_object_with_closures(cast(dbus_connection_ptr), object_path, cast(interface_info.ptr), cast(method_call_closure.ptr), cast(get_property_closure.ptr), cast(set_property_closure.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Registers a whole subtree of dynamic objects.
@@ -1708,13 +1671,11 @@ public extension DBusConnectionProtocol {
     /// 
     /// See this [server](#gdbus-subtree-server) for an example of how to use
     /// this method.
-    func registerSubtree(objectPath object_path: UnsafePointer<gchar>, vtable: DBusSubtreeVTableProtocol, flags: DBusSubtreeFlags, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> CUnsignedInt {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_register_subtree(cast(dbus_connection_ptr), object_path, cast(vtable.ptr), flags, cast(user_data), user_data_free_func, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return CUnsignedInt(rv)
+    func registerSubtree(objectPath object_path: UnsafePointer<gchar>, vtable: DBusSubtreeVTableProtocol, flags: DBusSubtreeFlags, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv: Int = cast(g_dbus_connection_register_subtree(cast(dbus_connection_ptr), object_path, cast(vtable.ptr), flags.value, cast(user_data), user_data_free_func, &error))
+        if let error = error { throw ErrorType(error) }
+        return Int(rv)
     }
 
     /// Removes a filter.
@@ -1750,11 +1711,9 @@ public extension DBusConnectionProtocol {
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
     func send(message: DBusMessageProtocol, flags: DBusSendMessageFlags, outSerial out_serial: UnsafeMutablePointer<UInt32>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_send_message(cast(dbus_connection_ptr), cast(message.ptr), flags, cast(out_serial), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_dbus_connection_send_message(cast(dbus_connection_ptr), cast(message.ptr), flags.value, cast(out_serial), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1786,7 +1745,7 @@ public extension DBusConnectionProtocol {
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func sendMessageWithReply(message: DBusMessageProtocol, flags: DBusSendMessageFlags, timeoutMsec timeout_msec: CInt, outSerial out_serial: UnsafeMutablePointer<UInt32>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dbus_connection_send_message_with_reply(cast(dbus_connection_ptr), cast(message.ptr), flags, gint(timeout_msec), cast(out_serial), cast(cancellable.ptr), callback, cast(user_data))
+        g_dbus_connection_send_message_with_reply(cast(dbus_connection_ptr), cast(message.ptr), flags.value, gint(timeout_msec), cast(out_serial), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -1801,11 +1760,9 @@ public extension DBusConnectionProtocol {
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func sendMessageWithReplyFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GDBusMessage>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_send_message_with_reply_finish(cast(dbus_connection_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_connection_send_message_with_reply_finish(cast(dbus_connection_ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1838,11 +1795,9 @@ public extension DBusConnectionProtocol {
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
     func sendMessageWithReplySync(message: DBusMessageProtocol, flags: DBusSendMessageFlags, timeoutMsec timeout_msec: CInt, outSerial out_serial: UnsafeMutablePointer<UInt32>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GDBusMessage>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_connection_send_message_with_reply_sync(cast(dbus_connection_ptr), cast(message.ptr), flags, gint(timeout_msec), cast(out_serial), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_connection_send_message_with_reply_sync(cast(dbus_connection_ptr), cast(message.ptr), flags.value, gint(timeout_msec), cast(out_serial), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -1910,9 +1865,9 @@ public extension DBusConnectionProtocol {
     /// to never be zero.
     /// 
     /// This function can never fail.
-    func signalSubscribe(sender: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, member: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, arg0: UnsafePointer<gchar>, flags: DBusSignalFlags, callback: @escaping DBusSignalCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-        let rv = g_dbus_connection_signal_subscribe(cast(dbus_connection_ptr), sender, interface_name, member, object_path, arg0, flags, callback, cast(user_data), user_data_free_func)
-        return CUnsignedInt(rv)
+    func signalSubscribe(sender: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, member: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, arg0: UnsafePointer<gchar>, flags: DBusSignalFlags, callback: @escaping DBusSignalCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+        let rv: Int = cast(g_dbus_connection_signal_subscribe(cast(dbus_connection_ptr), sender, interface_name, member, object_path, arg0, flags.value, callback, cast(user_data), user_data_free_func))
+        return Int(rv)
     }
 
     /// Unsubscribes from signals.
@@ -1974,30 +1929,30 @@ public extension DBusConnectionProtocol {
 
     /// Like `g_bus_own_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
-    func busOwnNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-        let rv = g_bus_own_name_on_connection(cast(dbus_connection_ptr), name, flags, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func)
-        return CUnsignedInt(rv)
+    func busOwnNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: @escaping BusNameAcquiredCallback, nameLostHandler name_lost_handler: @escaping BusNameLostCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+        let rv: Int = cast(g_bus_own_name_on_connection(cast(dbus_connection_ptr), name, flags.value, name_acquired_handler, name_lost_handler, cast(user_data), user_data_free_func))
+        return Int(rv)
     }
 
     /// Version of `g_bus_own_name_on_connection()` using closures instead of
     /// callbacks for easier binding in other languages.
-    func busOwnNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> CUnsignedInt {
-        let rv = g_bus_own_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags, cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr))
-        return CUnsignedInt(rv)
+    func busOwnNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureProtocol, nameLostClosure name_lost_closure: ClosureProtocol) -> Int {
+        let rv: Int = cast(g_bus_own_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags.value, cast(name_acquired_closure.ptr), cast(name_lost_closure.ptr)))
+        return Int(rv)
     }
 
     /// Like `g_bus_watch_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
-    func busWatchNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-        let rv = g_bus_watch_name_on_connection(cast(dbus_connection_ptr), name, flags, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func)
-        return CUnsignedInt(rv)
+    func busWatchNameOnConnection(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: @escaping BusNameAppearedCallback, nameVanishedHandler name_vanished_handler: @escaping BusNameVanishedCallback, userData user_data: UnsafeMutableRawPointer, userDataFreeFunc user_data_free_func: @escaping GLib.DestroyNotify) -> Int {
+        let rv: Int = cast(g_bus_watch_name_on_connection(cast(dbus_connection_ptr), name, flags.value, name_appeared_handler, name_vanished_handler, cast(user_data), user_data_free_func))
+        return Int(rv)
     }
 
     /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
     /// easier binding in other languages.
-    func busWatchNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> CUnsignedInt {
-        let rv = g_bus_watch_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr))
-        return CUnsignedInt(rv)
+    func busWatchNameOnConnectionWithClosures(name: UnsafePointer<gchar>, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureProtocol, nameVanishedClosure name_vanished_closure: ClosureProtocol) -> Int {
+        let rv: Int = cast(g_bus_watch_name_on_connection_with_closures(cast(dbus_connection_ptr), name, flags.value, cast(name_appeared_closure.ptr), cast(name_vanished_closure.ptr)))
+        return Int(rv)
     }
     /// Flags from the `GDBusCapabilityFlags` enumeration
     /// representing connection features negotiated with the other peer.
@@ -2005,7 +1960,7 @@ public extension DBusConnectionProtocol {
         /// Gets the capabilities negotiated with the remote peer
         get {
             let rv = g_dbus_connection_get_capabilities(cast(dbus_connection_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -2040,7 +1995,7 @@ public extension DBusConnectionProtocol {
         /// Gets the flags used to construct this connection
         get {
             let rv = g_dbus_connection_get_flags(cast(dbus_connection_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -2061,8 +2016,8 @@ public extension DBusConnectionProtocol {
         /// The GUID of the peer performing the role of server when
         /// authenticating. See `GDBusConnection:guid` for more details.
         get {
-            let rv = g_dbus_connection_get_guid(cast(dbus_connection_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_connection_get_guid(cast(dbus_connection_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2112,7 +2067,7 @@ public extension DBusConnectionProtocol {
         /// each application is a client. So this method will always return
         /// `nil` for message bus clients.
         get {
-            let rv = g_dbus_connection_get_peer_credentials(cast(dbus_connection_ptr))
+            let rv: UnsafeMutablePointer<GCredentials>! = cast(g_dbus_connection_get_peer_credentials(cast(dbus_connection_ptr)))
             return cast(rv)
         }
     }
@@ -2132,7 +2087,7 @@ public extension DBusConnectionProtocol {
         /// stream from a worker thread, so it is not safe to interact with
         /// the stream directly.
         get {
-            let rv = g_dbus_connection_get_stream(cast(dbus_connection_ptr))
+            let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_connection_get_stream(cast(dbus_connection_ptr)))
             return cast(rv)
         }
     }
@@ -2145,10 +2100,12 @@ public extension DBusConnectionProtocol {
         /// bus. This can also be used to figure out if `connection` is a
         /// message bus connection.
         get {
-            let rv = g_dbus_connection_get_unique_name(cast(dbus_connection_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_connection_get_unique_name(cast(dbus_connection_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -2162,7 +2119,7 @@ public extension DBusConnectionProtocol {
 ///
 /// Abstract base class for D-Bus interfaces on the service side.
 public protocol DBusInterfaceSkeletonProtocol: ObjectProtocol, DBusInterfaceProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusInterfaceSkeleton` instance.
@@ -2175,7 +2132,7 @@ public protocol DBusInterfaceSkeletonProtocol: ObjectProtocol, DBusInterfaceProt
 ///
 /// Abstract base class for D-Bus interfaces on the service side.
 public struct DBusInterfaceSkeletonRef: DBusInterfaceSkeletonProtocol {
-    /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
+        /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_skeleton_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2228,7 +2185,7 @@ public extension DBusInterfaceSkeletonRef {
 ///
 /// Abstract base class for D-Bus interfaces on the service side.
 open class DBusInterfaceSkeleton: Object, DBusInterfaceSkeletonProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusInterfaceSkeleton` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2324,8 +2281,8 @@ public extension DBusInterfaceSkeletonProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusInterfaceSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusInterfaceSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2348,6 +2305,23 @@ public extension DBusInterfaceSkeletonProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusInterfaceSkeleton property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusInterfaceSkeletonPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusInterfaceSkeleton property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusInterfaceSkeletonPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2421,8 +2395,8 @@ public extension DBusInterfaceSkeletonProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusInterfaceSkeletonSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusInterfaceSkeletonSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_interface_skeleton_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2443,6 +2417,7 @@ public extension DBusInterfaceSkeletonProtocol {
     }
 }
 
+// MARK: DBusInterfaceSkeleton Class: DBusInterfaceSkeletonProtocol extension (methods and fields)
 public extension DBusInterfaceSkeletonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterfaceSkeleton` instance.
     var dbus_interface_skeleton_ptr: UnsafeMutablePointer<GDBusInterfaceSkeleton> { return ptr.assumingMemoryBound(to: GDBusInterfaceSkeleton.self) }
@@ -2455,11 +2430,9 @@ public extension DBusInterfaceSkeletonProtocol {
     /// 
     /// Use `g_dbus_interface_skeleton_unexport()` to unexport the object.
     func export(connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_interface_skeleton_export(cast(dbus_interface_skeleton_ptr), cast(connection.ptr), object_path, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -2478,13 +2451,13 @@ public extension DBusInterfaceSkeletonProtocol {
 
     /// Gets the first connection that `interface_` is exported on, if any.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_interface_skeleton_get_connection(cast(dbus_interface_skeleton_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_interface_skeleton_get_connection(cast(dbus_interface_skeleton_ptr)))
         return cast(rv)
     }
 
     /// Gets a list of the connections that `interface_` is exported on.
     func getConnections() -> UnsafeMutablePointer<GList>! {
-        let rv = g_dbus_interface_skeleton_get_connections(cast(dbus_interface_skeleton_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_interface_skeleton_get_connections(cast(dbus_interface_skeleton_ptr)))
         return cast(rv)
     }
 
@@ -2492,25 +2465,25 @@ public extension DBusInterfaceSkeletonProtocol {
     /// of `interface_`
     func getFlags() -> GDBusInterfaceSkeletonFlags {
         let rv = g_dbus_interface_skeleton_get_flags(cast(dbus_interface_skeleton_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets D-Bus introspection information for the D-Bus interface
     /// implemented by `interface_`.
     func getInfo() -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
-        let rv = g_dbus_interface_skeleton_get_info(cast(dbus_interface_skeleton_ptr))
+        let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_interface_skeleton_get_info(cast(dbus_interface_skeleton_ptr)))
         return cast(rv)
     }
 
     /// Gets the object path that `interface_` is exported on, if any.
     func getObjectPath() -> String! {
-        let rv = g_dbus_interface_skeleton_get_object_path(cast(dbus_interface_skeleton_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_interface_skeleton_get_object_path(cast(dbus_interface_skeleton_ptr)))
+        return cast(rv)
     }
 
     /// Gets all D-Bus properties for `interface_`.
     func getProperties() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_dbus_interface_skeleton_get_properties(cast(dbus_interface_skeleton_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_interface_skeleton_get_properties(cast(dbus_interface_skeleton_ptr)))
         return cast(rv)
     }
 
@@ -2518,7 +2491,7 @@ public extension DBusInterfaceSkeletonProtocol {
     /// `interface_`. The returned function pointers should expect `interface_`
     /// itself to be passed as `user_data`.
     func getVtable() -> UnsafeMutablePointer<GDBusInterfaceVTable>! {
-        let rv = g_dbus_interface_skeleton_get_vtable(cast(dbus_interface_skeleton_ptr))
+        let rv: UnsafeMutablePointer<GDBusInterfaceVTable>! = cast(g_dbus_interface_skeleton_get_vtable(cast(dbus_interface_skeleton_ptr)))
         return cast(rv)
     }
 
@@ -2530,7 +2503,7 @@ public extension DBusInterfaceSkeletonProtocol {
 
     /// Sets flags describing what the behavior of `skeleton` should be.
     func set(flags: DBusInterfaceSkeletonFlags) {
-        g_dbus_interface_skeleton_set_flags(cast(dbus_interface_skeleton_ptr), flags)
+        g_dbus_interface_skeleton_set_flags(cast(dbus_interface_skeleton_ptr), flags.value)
     
     }
 
@@ -2555,7 +2528,7 @@ public extension DBusInterfaceSkeletonProtocol {
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the first connection that `interface_` is exported on, if any.
         get {
-            let rv = g_dbus_interface_skeleton_get_connection(cast(dbus_interface_skeleton_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_interface_skeleton_get_connection(cast(dbus_interface_skeleton_ptr)))
             return cast(rv)
         }
     }
@@ -2564,7 +2537,7 @@ public extension DBusInterfaceSkeletonProtocol {
     var connections: UnsafeMutablePointer<GList>! {
         /// Gets a list of the connections that `interface_` is exported on.
         get {
-            let rv = g_dbus_interface_skeleton_get_connections(cast(dbus_interface_skeleton_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_interface_skeleton_get_connections(cast(dbus_interface_skeleton_ptr)))
             return cast(rv)
         }
     }
@@ -2576,11 +2549,11 @@ public extension DBusInterfaceSkeletonProtocol {
         /// of `interface_`
         get {
             let rv = g_dbus_interface_skeleton_get_flags(cast(dbus_interface_skeleton_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets flags describing what the behavior of `skeleton` should be.
         nonmutating set {
-            g_dbus_interface_skeleton_set_flags(cast(dbus_interface_skeleton_ptr), newValue)
+            g_dbus_interface_skeleton_set_flags(cast(dbus_interface_skeleton_ptr), cast(newValue))
         }
     }
 
@@ -2590,7 +2563,7 @@ public extension DBusInterfaceSkeletonProtocol {
         /// Gets D-Bus introspection information for the D-Bus interface
         /// implemented by `interface_`.
         get {
-            let rv = g_dbus_interface_skeleton_get_info(cast(dbus_interface_skeleton_ptr))
+            let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_interface_skeleton_get_info(cast(dbus_interface_skeleton_ptr)))
             return cast(rv)
         }
     }
@@ -2599,8 +2572,8 @@ public extension DBusInterfaceSkeletonProtocol {
     var objectPath: String! {
         /// Gets the object path that `interface_` is exported on, if any.
         get {
-            let rv = g_dbus_interface_skeleton_get_object_path(cast(dbus_interface_skeleton_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_interface_skeleton_get_object_path(cast(dbus_interface_skeleton_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2608,7 +2581,7 @@ public extension DBusInterfaceSkeletonProtocol {
     var properties: UnsafeMutablePointer<GVariant>! {
         /// Gets all D-Bus properties for `interface_`.
         get {
-            let rv = g_dbus_interface_skeleton_get_properties(cast(dbus_interface_skeleton_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_interface_skeleton_get_properties(cast(dbus_interface_skeleton_ptr)))
             return cast(rv)
         }
     }
@@ -2621,10 +2594,15 @@ public extension DBusInterfaceSkeletonProtocol {
         /// `interface_`. The returned function pointers should expect `interface_`
         /// itself to be passed as `user_data`.
         get {
-            let rv = g_dbus_interface_skeleton_get_vtable(cast(dbus_interface_skeleton_ptr))
+            let rv: UnsafeMutablePointer<GDBusInterfaceVTable>! = cast(g_dbus_interface_skeleton_get_vtable(cast(dbus_interface_skeleton_ptr)))
             return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -2640,7 +2618,7 @@ public extension DBusInterfaceSkeletonProtocol {
 /// as a proxy for a menu model that is exported over D-Bus with
 /// `g_dbus_connection_export_menu_model()`.
 public protocol DBusMenuModelProtocol: MenuModelProtocol {
-    /// Untyped pointer to the underlying `GDBusMenuModel` instance.
+        /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusMenuModel` instance.
@@ -2655,7 +2633,7 @@ public protocol DBusMenuModelProtocol: MenuModelProtocol {
 /// as a proxy for a menu model that is exported over D-Bus with
 /// `g_dbus_connection_export_menu_model()`.
 public struct DBusMenuModelRef: DBusMenuModelProtocol {
-    /// Untyped pointer to the underlying `GDBusMenuModel` instance.
+        /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_menu_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2709,7 +2687,7 @@ public extension DBusMenuModelRef {
     /// (and linked models) must also originate from this same context, with
     /// the thread default main context unchanged.
     static func dbusMenuModelGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusMenuModelRef! {
-        let rv = g_dbus_menu_model_get(cast(connection.ptr), bus_name, object_path)
+        let rv: UnsafeMutablePointer<GDBusMenuModel>! = cast(g_dbus_menu_model_get(cast(connection.ptr), bus_name, object_path))
         return rv.map { DBusMenuModelRef(cast($0)) }
     }
 }
@@ -2722,7 +2700,7 @@ public extension DBusMenuModelRef {
 /// as a proxy for a menu model that is exported over D-Bus with
 /// `g_dbus_connection_export_menu_model()`.
 open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusMenuModel` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2810,13 +2788,13 @@ open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
     /// (and linked models) must also originate from this same context, with
     /// the thread default main context unchanged.
     public static func dbusMenuModelGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusMenuModel! {
-        let rv = g_dbus_menu_model_get(cast(connection.ptr), bus_name, object_path)
+        let rv: UnsafeMutablePointer<GDBusMenuModel>! = cast(g_dbus_menu_model_get(cast(connection.ptr), bus_name, object_path))
         return rv.map { DBusMenuModel(cast($0)) }
     }
 
 }
 
-// MARK: - no DBusMenuModel properties
+// MARK: no DBusMenuModel properties
 
 public enum DBusMenuModelSignalName: String, SignalNameProtocol {
     /// Emitted when a change has occured to the menu.
@@ -2874,8 +2852,8 @@ public extension DBusMenuModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusMenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusMenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_menu_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2896,9 +2874,12 @@ public extension DBusMenuModelProtocol {
     }
 }
 
+// MARK: DBusMenuModel Class: DBusMenuModelProtocol extension (methods and fields)
 public extension DBusMenuModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusMenuModel` instance.
     var dbus_menu_model_ptr: UnsafeMutablePointer<GDBusMenuModel> { return ptr.assumingMemoryBound(to: GDBusMenuModel.self) }
+
+
 
 }
 
@@ -2914,7 +2895,7 @@ public extension DBusMenuModelProtocol {
 /// A type for representing D-Bus messages that can be sent or received
 /// on a `GDBusConnection`.
 public protocol DBusMessageProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GDBusMessage` instance.
+        /// Untyped pointer to the underlying `GDBusMessage` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusMessage` instance.
@@ -2928,7 +2909,7 @@ public protocol DBusMessageProtocol: ObjectProtocol {
 /// A type for representing D-Bus messages that can be sent or received
 /// on a `GDBusConnection`.
 public struct DBusMessageRef: DBusMessageProtocol {
-    /// Untyped pointer to the underlying `GDBusMessage` instance.
+        /// Untyped pointer to the underlying `GDBusMessage` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_message_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2975,7 +2956,7 @@ public extension DBusMessageRef {
 
         /// Creates a new empty `GDBusMessage`.
     init() {
-        let rv = g_dbus_message_new()
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -2986,23 +2967,21 @@ public extension DBusMessageRef {
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
     init(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities.value, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a method call.
     init(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_call(name, path, interface_, method))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
     init(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_signal(path, interface_, signal))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
@@ -3012,23 +2991,21 @@ public extension DBusMessageRef {
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
     static func newFrom(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessageRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusMessageRef(cast($0)) }
     }
 
     /// Creates a new `GDBusMessage` for a method call.
     static func newMethodCall(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) -> DBusMessageRef! {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_call(name, path, interface_, method))
         return rv.map { DBusMessageRef(cast($0)) }
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
     static func new(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) -> DBusMessageRef! {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_signal(path, interface_, signal))
         return rv.map { DBusMessageRef(cast($0)) }
     }
 }
@@ -3040,7 +3017,7 @@ public extension DBusMessageRef {
 /// A type for representing D-Bus messages that can be sent or received
 /// on a `GDBusConnection`.
 open class DBusMessage: Object, DBusMessageProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusMessage` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3120,7 +3097,7 @@ open class DBusMessage: Object, DBusMessageProtocol {
 
     /// Creates a new empty `GDBusMessage`.
     public init() {
-        let rv = g_dbus_message_new()
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new())
         super.init(cast(rv))
     }
 
@@ -3131,23 +3108,21 @@ open class DBusMessage: Object, DBusMessageProtocol {
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
     public init(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities.value, &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a method call.
     public init(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_call(name, path, interface_, method))
         super.init(cast(rv))
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
     public init(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_signal(path, interface_, signal))
         super.init(cast(rv))
     }
 
@@ -3158,23 +3133,21 @@ open class DBusMessage: Object, DBusMessageProtocol {
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
     public static func newFrom(blob: UnsafeMutablePointer<guchar>, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessage! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_from_blob(cast(blob), gsize(blob_len), capabilities.value, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusMessage(cast($0)) }
     }
 
     /// Creates a new `GDBusMessage` for a method call.
     public static func newMethodCall(method_call name: UnsafePointer<gchar>, path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, method: UnsafePointer<gchar>) -> DBusMessage! {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_call(name, path, interface_, method))
         return rv.map { DBusMessage(cast($0)) }
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
     public static func new(signal path: UnsafePointer<gchar>, interface_: UnsafePointer<gchar>, signal: UnsafePointer<gchar>) -> DBusMessage! {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_signal(path, interface_, signal))
         return rv.map { DBusMessage(cast($0)) }
     }
 
@@ -3193,8 +3166,8 @@ public extension DBusMessageProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3217,6 +3190,23 @@ public extension DBusMessageProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusMessage property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusMessagePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusMessage property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusMessagePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3255,8 +3245,8 @@ public extension DBusMessageProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusMessageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusMessageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_message_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3277,6 +3267,7 @@ public extension DBusMessageProtocol {
     }
 }
 
+// MARK: DBusMessage Class: DBusMessageProtocol extension (methods and fields)
 public extension DBusMessageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusMessage` instance.
     var dbus_message_ptr: UnsafeMutablePointer<GDBusMessage> { return ptr.assumingMemoryBound(to: GDBusMessage.self) }
@@ -3288,48 +3279,46 @@ public extension DBusMessageProtocol {
     /// This operation can fail if e.g. `message` contains file descriptors
     /// and the per-process or system-wide open files limit is reached.
     func copy() throws -> UnsafeMutablePointer<GDBusMessage>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_copy(cast(dbus_message_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_copy(cast(dbus_message_ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Convenience to get the first item in the body of `message`.
     func getArg0() -> String! {
-        let rv = g_dbus_message_get_arg0(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_arg0(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Gets the body of a message.
     func getBody() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_dbus_message_get_body(cast(dbus_message_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_message_get_body(cast(dbus_message_ptr)))
         return cast(rv)
     }
 
     /// Gets the byte order of `message`.
     func getByteOrder() -> GDBusMessageByteOrder {
         let rv = g_dbus_message_get_byte_order(cast(dbus_message_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_DESTINATION` header field.
     func getDestination() -> String! {
-        let rv = g_dbus_message_get_destination(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_destination(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME` header field.
     func getErrorName() -> String! {
-        let rv = g_dbus_message_get_error_name(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_error_name(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Gets the flags for `message`.
     func getFlags() -> GDBusMessageFlags {
         let rv = g_dbus_message_get_flags(cast(dbus_message_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets a header field on `message`.
@@ -3337,20 +3326,20 @@ public extension DBusMessageProtocol {
     /// The caller is responsible for checking the type of the returned `GVariant`
     /// matches what is expected.
     func getHeader(headerField header_field: DBusMessageHeaderField) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_dbus_message_get_header(cast(dbus_message_ptr), header_field)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_message_get_header(cast(dbus_message_ptr), header_field))
         return cast(rv)
     }
 
     /// Gets an array of all header fields on `message` that are set.
     func getHeaderFields() -> UnsafeMutablePointer<guchar>! {
-        let rv = g_dbus_message_get_header_fields(cast(dbus_message_ptr))
+        let rv: UnsafeMutablePointer<guchar>! = cast(g_dbus_message_get_header_fields(cast(dbus_message_ptr)))
         return cast(rv)
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_INTERFACE` header field.
     func getInterface() -> String! {
-        let rv = g_dbus_message_get_interface(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_interface(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Checks whether `message` is locked. To monitor changes to this
@@ -3363,14 +3352,14 @@ public extension DBusMessageProtocol {
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_MEMBER` header field.
     func getMember() -> String! {
-        let rv = g_dbus_message_get_member(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_member(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Gets the type of `message`.
     func getMessageType() -> GDBusMessageType {
         let rv = g_dbus_message_get_message_type(cast(dbus_message_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_NUM_UNIX_FDS` header field.
@@ -3381,8 +3370,8 @@ public extension DBusMessageProtocol {
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_PATH` header field.
     func getPath() -> String! {
-        let rv = g_dbus_message_get_path(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_path(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_REPLY_SERIAL` header field.
@@ -3393,8 +3382,8 @@ public extension DBusMessageProtocol {
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SENDER` header field.
     func getSender() -> String! {
-        let rv = g_dbus_message_get_sender(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_sender(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Gets the serial for `message`.
@@ -3405,15 +3394,15 @@ public extension DBusMessageProtocol {
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
     func getSignature() -> String! {
-        let rv = g_dbus_message_get_signature(cast(dbus_message_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_get_signature(cast(dbus_message_ptr)))
+        return cast(rv)
     }
 
     /// Gets the UNIX file descriptors associated with `message`, if any.
     /// 
     /// This method is only available on UNIX.
     func getUnixFdList() -> UnsafeMutablePointer<GUnixFDList>! {
-        let rv = g_dbus_message_get_unix_fd_list(cast(dbus_message_ptr))
+        let rv: UnsafeMutablePointer<GUnixFDList>! = cast(g_dbus_message_get_unix_fd_list(cast(dbus_message_ptr)))
         return cast(rv)
     }
 
@@ -3429,19 +3418,19 @@ public extension DBusMessageProtocol {
 
     /// Creates a new `GDBusMessage` that is an error reply to `method_call_message`.
     func newMethodErrorLiteral(errorName error_name: UnsafePointer<gchar>, errorMessage error_message: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusMessage>! {
-        let rv = g_dbus_message_new_method_error_literal(cast(dbus_message_ptr), error_name, error_message)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_error_literal(cast(dbus_message_ptr), error_name, error_message))
         return cast(rv)
     }
 
     /// Like `g_dbus_message_new_method_error()` but intended for language bindings.
     func newMethodErrorValist(errorName error_name: UnsafePointer<gchar>, errorMessageFormat error_message_format: UnsafePointer<gchar>, varArgs var_args: CVaListPointer) -> UnsafeMutablePointer<GDBusMessage>! {
-        let rv = g_dbus_message_new_method_error_valist(cast(dbus_message_ptr), error_name, error_message_format, var_args)
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_error_valist(cast(dbus_message_ptr), error_name, error_message_format, var_args))
         return cast(rv)
     }
 
     /// Creates a new `GDBusMessage` that is a reply to `method_call_message`.
     func newMethodReply() -> UnsafeMutablePointer<GDBusMessage>! {
-        let rv = g_dbus_message_new_method_reply(cast(dbus_message_ptr))
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_message_new_method_reply(cast(dbus_message_ptr)))
         return cast(rv)
     }
 
@@ -3479,8 +3468,8 @@ public extension DBusMessageProtocol {
     /// ```
     /// 
     func print(indent: CUnsignedInt) -> String! {
-        let rv = g_dbus_message_print(cast(dbus_message_ptr), guint(indent))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_message_print(cast(dbus_message_ptr), guint(indent)))
+        return cast(rv)
     }
 
     /// Sets the body `message`. As a side-effect the
@@ -3513,7 +3502,7 @@ public extension DBusMessageProtocol {
 
     /// Sets the flags to set on `message`.
     func set(flags: DBusMessageFlags) {
-        g_dbus_message_set_flags(cast(dbus_message_ptr), flags)
+        g_dbus_message_set_flags(cast(dbus_message_ptr), flags.value)
     
     }
 
@@ -3593,11 +3582,9 @@ public extension DBusMessageProtocol {
     /// Serializes `message` to a blob. The byte order returned by
     /// `g_dbus_message_get_byte_order()` will be used.
     func toBlob(outSize out_size: UnsafeMutablePointer<Int>, capabilities: DBusCapabilityFlags) throws -> UnsafeMutablePointer<guchar>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_message_to_blob(cast(dbus_message_ptr), cast(out_size), capabilities, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<guchar>! = cast(g_dbus_message_to_blob(cast(dbus_message_ptr), cast(out_size), capabilities.value, &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -3609,19 +3596,17 @@ public extension DBusMessageProtocol {
     /// `G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME` header field of `message` as
     /// well as the first string item in `message`'s body.
     func toGerror() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_message_to_gerror(cast(dbus_message_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
     /// Convenience to get the first item in the body of `message`.
     var arg0: String! {
         /// Convenience to get the first item in the body of `message`.
         get {
-            let rv = g_dbus_message_get_arg0(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_arg0(cast(dbus_message_ptr)))
+            return cast(rv)
         }
     }
 
@@ -3629,7 +3614,7 @@ public extension DBusMessageProtocol {
     var body: UnsafeMutablePointer<GVariant>! {
         /// Gets the body of a message.
         get {
-            let rv = g_dbus_message_get_body(cast(dbus_message_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_message_get_body(cast(dbus_message_ptr)))
             return cast(rv)
         }
         /// Sets the body `message`. As a side-effect the
@@ -3647,11 +3632,11 @@ public extension DBusMessageProtocol {
         /// Gets the byte order of `message`.
         get {
             let rv = g_dbus_message_get_byte_order(cast(dbus_message_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the byte order of `message`.
         nonmutating set {
-            g_dbus_message_set_byte_order(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_byte_order(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3659,12 +3644,12 @@ public extension DBusMessageProtocol {
     var destination: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_DESTINATION` header field.
         get {
-            let rv = g_dbus_message_get_destination(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_destination(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_DESTINATION` header field.
         nonmutating set {
-            g_dbus_message_set_destination(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_destination(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3672,12 +3657,12 @@ public extension DBusMessageProtocol {
     var errorName: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME` header field.
         get {
-            let rv = g_dbus_message_get_error_name(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_error_name(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_ERROR_NAME` header field.
         nonmutating set {
-            g_dbus_message_set_error_name(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_error_name(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3686,11 +3671,11 @@ public extension DBusMessageProtocol {
         /// Gets the flags for `message`.
         get {
             let rv = g_dbus_message_get_flags(cast(dbus_message_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the flags to set on `message`.
         nonmutating set {
-            g_dbus_message_set_flags(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_flags(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3698,7 +3683,7 @@ public extension DBusMessageProtocol {
     var headerFields: UnsafeMutablePointer<guchar>! {
         /// Gets an array of all header fields on `message` that are set.
         get {
-            let rv = g_dbus_message_get_header_fields(cast(dbus_message_ptr))
+            let rv: UnsafeMutablePointer<guchar>! = cast(g_dbus_message_get_header_fields(cast(dbus_message_ptr)))
             return cast(rv)
         }
     }
@@ -3707,12 +3692,12 @@ public extension DBusMessageProtocol {
     var interface: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_INTERFACE` header field.
         get {
-            let rv = g_dbus_message_get_interface(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_interface(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_INTERFACE` header field.
         nonmutating set {
-            g_dbus_message_set_interface(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_interface(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3730,12 +3715,12 @@ public extension DBusMessageProtocol {
     var member: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_MEMBER` header field.
         get {
-            let rv = g_dbus_message_get_member(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_member(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_MEMBER` header field.
         nonmutating set {
-            g_dbus_message_set_member(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_member(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3744,11 +3729,11 @@ public extension DBusMessageProtocol {
         /// Gets the type of `message`.
         get {
             let rv = g_dbus_message_get_message_type(cast(dbus_message_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets `message` to be of `type`.
         nonmutating set {
-            g_dbus_message_set_message_type(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_message_type(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3769,12 +3754,12 @@ public extension DBusMessageProtocol {
     var path: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_PATH` header field.
         get {
-            let rv = g_dbus_message_get_path(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_path(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_PATH` header field.
         nonmutating set {
-            g_dbus_message_set_path(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_path(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3795,12 +3780,12 @@ public extension DBusMessageProtocol {
     var sender: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SENDER` header field.
         get {
-            let rv = g_dbus_message_get_sender(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_sender(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_SENDER` header field.
         nonmutating set {
-            g_dbus_message_set_sender(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_sender(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3821,12 +3806,12 @@ public extension DBusMessageProtocol {
     var signature: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
         get {
-            let rv = g_dbus_message_get_signature(cast(dbus_message_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_message_get_signature(cast(dbus_message_ptr)))
+            return cast(rv)
         }
         /// Convenience setter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
         nonmutating set {
-            g_dbus_message_set_signature(cast(dbus_message_ptr), newValue)
+            g_dbus_message_set_signature(cast(dbus_message_ptr), cast(newValue))
         }
     }
 
@@ -3838,7 +3823,7 @@ public extension DBusMessageProtocol {
         /// 
         /// This method is only available on UNIX.
         get {
-            let rv = g_dbus_message_get_unix_fd_list(cast(dbus_message_ptr))
+            let rv: UnsafeMutablePointer<GUnixFDList>! = cast(g_dbus_message_get_unix_fd_list(cast(dbus_message_ptr)))
             return cast(rv)
         }
         /// Sets the UNIX file descriptors associated with `message`. As a
@@ -3851,6 +3836,8 @@ public extension DBusMessageProtocol {
             g_dbus_message_set_unix_fd_list(cast(dbus_message_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -3870,7 +3857,7 @@ public extension DBusMessageProtocol {
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 public protocol DBusMethodInvocationProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
+        /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusMethodInvocation` instance.
@@ -3889,7 +3876,7 @@ public protocol DBusMethodInvocationProtocol: ObjectProtocol {
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 public struct DBusMethodInvocationRef: DBusMethodInvocationProtocol {
-    /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
+        /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_invocation_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3948,7 +3935,7 @@ public extension DBusMethodInvocationRef {
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
 open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusMethodInvocation` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4030,7 +4017,7 @@ open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
 
 }
 
-// MARK: - no DBusMethodInvocation properties
+// MARK: no DBusMethodInvocation properties
 
 public enum DBusMethodInvocationSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -4067,8 +4054,8 @@ public extension DBusMethodInvocationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusMethodInvocationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusMethodInvocationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_method_invocation_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4089,13 +4076,14 @@ public extension DBusMethodInvocationProtocol {
     }
 }
 
+// MARK: DBusMethodInvocation Class: DBusMethodInvocationProtocol extension (methods and fields)
 public extension DBusMethodInvocationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusMethodInvocation` instance.
     var dbus_method_invocation_ptr: UnsafeMutablePointer<GDBusMethodInvocation> { return ptr.assumingMemoryBound(to: GDBusMethodInvocation.self) }
 
     /// Gets the `GDBusConnection` the method was invoked on.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_method_invocation_get_connection(cast(dbus_method_invocation_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_method_invocation_get_connection(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
@@ -4106,8 +4094,8 @@ public extension DBusMethodInvocationProtocol {
     /// "org.freedesktop.DBus.Properties" will be returned.  See
     /// `GDBusInterfaceVTable` for more information.
     func getInterfaceName() -> String! {
-        let rv = g_dbus_method_invocation_get_interface_name(cast(dbus_method_invocation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_method_invocation_get_interface_name(cast(dbus_method_invocation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the `GDBusMessage` for the method invocation. This is useful if
@@ -4119,7 +4107,7 @@ public extension DBusMethodInvocationProtocol {
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
     func getMessage() -> UnsafeMutablePointer<GDBusMessage>! {
-        let rv = g_dbus_method_invocation_get_message(cast(dbus_method_invocation_ptr))
+        let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_method_invocation_get_message(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
@@ -4130,26 +4118,26 @@ public extension DBusMethodInvocationProtocol {
     /// returned.  See `g_dbus_method_invocation_get_property_info()` and
     /// `GDBusInterfaceVTable` for more information.
     func getMethodInfo() -> UnsafePointer<GDBusMethodInfo>! {
-        let rv = g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr))
+        let rv: UnsafePointer<GDBusMethodInfo>! = cast(g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
     /// Gets the name of the method that was invoked.
     func getMethodName() -> String! {
-        let rv = g_dbus_method_invocation_get_method_name(cast(dbus_method_invocation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_method_invocation_get_method_name(cast(dbus_method_invocation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the object path the method was invoked on.
     func getObjectPath() -> String! {
-        let rv = g_dbus_method_invocation_get_object_path(cast(dbus_method_invocation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_method_invocation_get_object_path(cast(dbus_method_invocation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the parameters of the method invocation. If there are no input
     /// parameters then this will return a GVariant with 0 children rather than NULL.
     func getParameters() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_dbus_method_invocation_get_parameters(cast(dbus_method_invocation_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_method_invocation_get_parameters(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
@@ -4165,19 +4153,19 @@ public extension DBusMethodInvocationProtocol {
     /// 
     /// If the call was GetAll, `nil` will be returned.
     func getPropertyInfo() -> UnsafePointer<GDBusPropertyInfo>! {
-        let rv = g_dbus_method_invocation_get_property_info(cast(dbus_method_invocation_ptr))
+        let rv: UnsafePointer<GDBusPropertyInfo>! = cast(g_dbus_method_invocation_get_property_info(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
     /// Gets the bus name that invoked the method.
     func getSender() -> String! {
-        let rv = g_dbus_method_invocation_get_sender(cast(dbus_method_invocation_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_method_invocation_get_sender(cast(dbus_method_invocation_ptr)))
+        return cast(rv)
     }
 
     /// Gets the `user_data` `gpointer` passed to `g_dbus_connection_register_object()`.
     func getUserData() -> UnsafeMutableRawPointer! {
-        let rv = g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr)))
         return cast(rv)
     }
 
@@ -4291,7 +4279,7 @@ public extension DBusMethodInvocationProtocol {
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the `GDBusConnection` the method was invoked on.
         get {
-            let rv = g_dbus_method_invocation_get_connection(cast(dbus_method_invocation_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_method_invocation_get_connection(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
@@ -4310,8 +4298,8 @@ public extension DBusMethodInvocationProtocol {
         /// "org.freedesktop.DBus.Properties" will be returned.  See
         /// `GDBusInterfaceVTable` for more information.
         get {
-            let rv = g_dbus_method_invocation_get_interface_name(cast(dbus_method_invocation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_method_invocation_get_interface_name(cast(dbus_method_invocation_ptr)))
+            return cast(rv)
         }
     }
 
@@ -4333,7 +4321,7 @@ public extension DBusMethodInvocationProtocol {
         /// for an example of how to use this low-level API to send and receive
         /// UNIX file descriptors.
         get {
-            let rv = g_dbus_method_invocation_get_message(cast(dbus_method_invocation_ptr))
+            let rv: UnsafeMutablePointer<GDBusMessage>! = cast(g_dbus_method_invocation_get_message(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
@@ -4352,7 +4340,7 @@ public extension DBusMethodInvocationProtocol {
         /// returned.  See `g_dbus_method_invocation_get_property_info()` and
         /// `GDBusInterfaceVTable` for more information.
         get {
-            let rv = g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr))
+            let rv: UnsafePointer<GDBusMethodInfo>! = cast(g_dbus_method_invocation_get_method_info(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
@@ -4361,8 +4349,8 @@ public extension DBusMethodInvocationProtocol {
     var methodName: String! {
         /// Gets the name of the method that was invoked.
         get {
-            let rv = g_dbus_method_invocation_get_method_name(cast(dbus_method_invocation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_method_invocation_get_method_name(cast(dbus_method_invocation_ptr)))
+            return cast(rv)
         }
     }
 
@@ -4370,8 +4358,8 @@ public extension DBusMethodInvocationProtocol {
     var objectPath: String! {
         /// Gets the object path the method was invoked on.
         get {
-            let rv = g_dbus_method_invocation_get_object_path(cast(dbus_method_invocation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_method_invocation_get_object_path(cast(dbus_method_invocation_ptr)))
+            return cast(rv)
         }
     }
 
@@ -4381,7 +4369,7 @@ public extension DBusMethodInvocationProtocol {
         /// Gets the parameters of the method invocation. If there are no input
         /// parameters then this will return a GVariant with 0 children rather than NULL.
         get {
-            let rv = g_dbus_method_invocation_get_parameters(cast(dbus_method_invocation_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_method_invocation_get_parameters(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
@@ -4410,7 +4398,7 @@ public extension DBusMethodInvocationProtocol {
         /// 
         /// If the call was GetAll, `nil` will be returned.
         get {
-            let rv = g_dbus_method_invocation_get_property_info(cast(dbus_method_invocation_ptr))
+            let rv: UnsafePointer<GDBusPropertyInfo>! = cast(g_dbus_method_invocation_get_property_info(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
@@ -4419,8 +4407,8 @@ public extension DBusMethodInvocationProtocol {
     var sender: String! {
         /// Gets the bus name that invoked the method.
         get {
-            let rv = g_dbus_method_invocation_get_sender(cast(dbus_method_invocation_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_method_invocation_get_sender(cast(dbus_method_invocation_ptr)))
+            return cast(rv)
         }
     }
 
@@ -4428,10 +4416,12 @@ public extension DBusMethodInvocationProtocol {
     var userData: UnsafeMutableRawPointer! {
         /// Gets the `user_data` `gpointer` passed to `g_dbus_connection_register_object()`.
         get {
-            let rv = g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_dbus_method_invocation_get_user_data(cast(dbus_method_invocation_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -4519,7 +4509,7 @@ public extension DBusMethodInvocationProtocol {
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
 public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitableProtocol, DBusObjectManagerProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerClient` instance.
@@ -4606,7 +4596,7 @@ public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitablePr
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
 public struct DBusObjectManagerClientRef: DBusObjectManagerClientProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_client_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4653,21 +4643,17 @@ public extension DBusObjectManagerClientRef {
 
         /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     init(busFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -4678,11 +4664,9 @@ public extension DBusObjectManagerClientRef {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -4692,30 +4676,24 @@ public extension DBusObjectManagerClientRef {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusObjectManagerClientRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusObjectManagerClientRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 
@@ -4726,11 +4704,9 @@ public extension DBusObjectManagerClientRef {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     static func newFor(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClientRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 
@@ -4740,11 +4716,9 @@ public extension DBusObjectManagerClientRef {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     static func new(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClientRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClientRef(cast($0)) }
     }
 }
@@ -4829,7 +4803,7 @@ public extension DBusObjectManagerClientRef {
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
 open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectManagerClient` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4909,21 +4883,17 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     public init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     public init(busFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -4934,11 +4904,9 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     public init(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -4948,31 +4916,25 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     public init(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new()`.
     public static func new(finish res: AsyncResultProtocol) throws -> DBusObjectManagerClient! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
     /// Finishes an operation started with `g_dbus_object_manager_client_new_for_bus()`.
     public static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusObjectManagerClient! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
@@ -4983,11 +4945,9 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new_for_bus()`
     /// for the asynchronous version.
     public static func newFor(busSync bus_type: BusType, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClient! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_for_bus_sync(bus_type, flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
@@ -4997,11 +4957,9 @@ open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
     /// blocked until a reply is received. See `g_dbus_object_manager_client_new()`
     /// for the asynchronous version.
     public static func new(sync connection: DBusConnectionProtocol, flags: DBusObjectManagerClientFlags, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, getProxyTypeFunc get_proxy_type_func: @escaping DBusProxyTypeFunc, getProxyTypeUserData get_proxy_type_user_data: UnsafeMutableRawPointer, getProxyTypeDestroyNotify get_proxy_type_destroy_notify: @escaping GLib.DestroyNotify, cancellable: CancellableProtocol) throws -> DBusObjectManagerClient! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusObjectManager>! = cast(g_dbus_object_manager_client_new_sync(cast(connection.ptr), flags.value, name, object_path, get_proxy_type_func, cast(get_proxy_type_user_data), get_proxy_type_destroy_notify, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusObjectManagerClient(cast($0)) }
     }
 
@@ -5043,8 +5001,8 @@ public extension DBusObjectManagerClientProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -5067,6 +5025,23 @@ public extension DBusObjectManagerClientProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusObjectManagerClient property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusObjectManagerClientPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusObjectManagerClient property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusObjectManagerClientPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -5149,8 +5124,8 @@ public extension DBusObjectManagerClientProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectManagerClientSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusObjectManagerClientSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_object_manager_client_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -5171,27 +5146,28 @@ public extension DBusObjectManagerClientProtocol {
     }
 }
 
+// MARK: DBusObjectManagerClient Class: DBusObjectManagerClientProtocol extension (methods and fields)
 public extension DBusObjectManagerClientProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerClient` instance.
     var dbus_object_manager_client_ptr: UnsafeMutablePointer<GDBusObjectManagerClient> { return ptr.assumingMemoryBound(to: GDBusObjectManagerClient.self) }
 
     /// Gets the `GDBusConnection` used by `manager`.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_object_manager_client_get_connection(cast(dbus_object_manager_client_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_manager_client_get_connection(cast(dbus_object_manager_client_ptr)))
         return cast(rv)
     }
 
     /// Gets the flags that `manager` was constructed with.
     func getFlags() -> GDBusObjectManagerClientFlags {
         let rv = g_dbus_object_manager_client_get_flags(cast(dbus_object_manager_client_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the name that `manager` is for, or `nil` if not a message bus
     /// connection.
     func getName() -> String! {
-        let rv = g_dbus_object_manager_client_get_name(cast(dbus_object_manager_client_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_object_manager_client_get_name(cast(dbus_object_manager_client_ptr)))
+        return cast(rv)
     }
 
     /// The unique name that owns the name that `manager` is for or `nil` if
@@ -5199,14 +5175,14 @@ public extension DBusObjectManagerClientProtocol {
     /// `GObject::notify` signal to track changes to the
     /// `GDBusObjectManagerClient:name`-owner property.
     func getNameOwner() -> String! {
-        let rv = g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr)))
+        return cast(rv)
     }
     /// The `GDBusConnection` to use.
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the `GDBusConnection` used by `manager`.
         get {
-            let rv = g_dbus_object_manager_client_get_connection(cast(dbus_object_manager_client_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_manager_client_get_connection(cast(dbus_object_manager_client_ptr)))
             return cast(rv)
         }
     }
@@ -5216,7 +5192,7 @@ public extension DBusObjectManagerClientProtocol {
         /// Gets the flags that `manager` was constructed with.
         get {
             let rv = g_dbus_object_manager_client_get_flags(cast(dbus_object_manager_client_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -5225,8 +5201,8 @@ public extension DBusObjectManagerClientProtocol {
         /// Gets the name that `manager` is for, or `nil` if not a message bus
         /// connection.
         get {
-            let rv = g_dbus_object_manager_client_get_name(cast(dbus_object_manager_client_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_object_manager_client_get_name(cast(dbus_object_manager_client_ptr)))
+            return cast(rv)
         }
     }
 
@@ -5240,10 +5216,15 @@ public extension DBusObjectManagerClientProtocol {
         /// `GObject::notify` signal to track changes to the
         /// `GDBusObjectManagerClient:name`-owner property.
         get {
-            let rv = g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_object_manager_client_get_name_owner(cast(dbus_object_manager_client_ptr)))
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -5278,7 +5259,7 @@ public extension DBusObjectManagerClientProtocol {
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
 public protocol DBusObjectManagerServerProtocol: ObjectProtocol, DBusObjectManagerProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectManagerServer` instance.
@@ -5312,7 +5293,7 @@ public protocol DBusObjectManagerServerProtocol: ObjectProtocol, DBusObjectManag
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
 public struct DBusObjectManagerServerRef: DBusObjectManagerServerProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
+        /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_server_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5365,7 +5346,7 @@ public extension DBusObjectManagerServerRef {
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
     init( object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_manager_server_new(object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectManagerServer>! = cast(g_dbus_object_manager_server_new(object_path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -5397,7 +5378,7 @@ public extension DBusObjectManagerServerRef {
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
 open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectManagerServer` instance.
     /// - Parameter op: pointer to the underlying object
@@ -5483,7 +5464,7 @@ open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
     public init( object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_manager_server_new(object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectManagerServer>! = cast(g_dbus_object_manager_server_new(object_path))
         super.init(cast(rv))
     }
 
@@ -5506,8 +5487,8 @@ public extension DBusObjectManagerServerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -5530,6 +5511,23 @@ public extension DBusObjectManagerServerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusObjectManagerServer property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusObjectManagerServerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusObjectManagerServer property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusObjectManagerServerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -5571,8 +5569,8 @@ public extension DBusObjectManagerServerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectManagerServerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusObjectManagerServerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_object_manager_server_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -5593,6 +5591,7 @@ public extension DBusObjectManagerServerProtocol {
     }
 }
 
+// MARK: DBusObjectManagerServer Class: DBusObjectManagerServerProtocol extension (methods and fields)
 public extension DBusObjectManagerServerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManagerServer` instance.
     var dbus_object_manager_server_ptr: UnsafeMutablePointer<GDBusObjectManagerServer> { return ptr.assumingMemoryBound(to: GDBusObjectManagerServer.self) }
@@ -5623,7 +5622,7 @@ public extension DBusObjectManagerServerProtocol {
 
     /// Gets the `GDBusConnection` used by `manager`.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_object_manager_server_get_connection(cast(dbus_object_manager_server_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_manager_server_get_connection(cast(dbus_object_manager_server_ptr)))
         return cast(rv)
     }
 
@@ -5653,7 +5652,7 @@ public extension DBusObjectManagerServerProtocol {
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the `GDBusConnection` used by `manager`.
         get {
-            let rv = g_dbus_object_manager_server_get_connection(cast(dbus_object_manager_server_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_manager_server_get_connection(cast(dbus_object_manager_server_ptr)))
             return cast(rv)
         }
         /// Exports all objects managed by `manager` on `connection`. If
@@ -5662,6 +5661,11 @@ public extension DBusObjectManagerServerProtocol {
             g_dbus_object_manager_server_set_connection(cast(dbus_object_manager_server_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -5678,7 +5682,7 @@ public extension DBusObjectManagerServerProtocol {
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
 public protocol DBusObjectProxyProtocol: ObjectProtocol, DBusObjectProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectProxy` instance.
@@ -5694,7 +5698,7 @@ public protocol DBusObjectProxyProtocol: ObjectProtocol, DBusObjectProtocol {
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
 public struct DBusObjectProxyRef: DBusObjectProxyProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
+        /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_proxy_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5742,7 +5746,7 @@ public extension DBusObjectProxyRef {
         /// Creates a new `GDBusObjectProxy` for the given connection and
     /// object path.
     init( connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_proxy_new(cast(connection.ptr), object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectProxy>! = cast(g_dbus_object_proxy_new(cast(connection.ptr), object_path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -5756,7 +5760,7 @@ public extension DBusObjectProxyRef {
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
 open class DBusObjectProxy: Object, DBusObjectProxyProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectProxy` instance.
     /// - Parameter op: pointer to the underlying object
@@ -5837,7 +5841,7 @@ open class DBusObjectProxy: Object, DBusObjectProxyProtocol {
     /// Creates a new `GDBusObjectProxy` for the given connection and
     /// object path.
     public init( connection: DBusConnectionProtocol, objectPath object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_proxy_new(cast(connection.ptr), object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectProxy>! = cast(g_dbus_object_proxy_new(cast(connection.ptr), object_path))
         super.init(cast(rv))
     }
 
@@ -5860,8 +5864,8 @@ public extension DBusObjectProxyProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -5884,6 +5888,23 @@ public extension DBusObjectProxyProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusObjectProxy property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusObjectProxyPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusObjectProxy property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusObjectProxyPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -5925,8 +5946,8 @@ public extension DBusObjectProxyProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectProxySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusObjectProxySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_object_proxy_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -5947,23 +5968,29 @@ public extension DBusObjectProxyProtocol {
     }
 }
 
+// MARK: DBusObjectProxy Class: DBusObjectProxyProtocol extension (methods and fields)
 public extension DBusObjectProxyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectProxy` instance.
     var dbus_object_proxy_ptr: UnsafeMutablePointer<GDBusObjectProxy> { return ptr.assumingMemoryBound(to: GDBusObjectProxy.self) }
 
     /// Gets the connection that `proxy` is for.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_object_proxy_get_connection(cast(dbus_object_proxy_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_proxy_get_connection(cast(dbus_object_proxy_ptr)))
         return cast(rv)
     }
     /// Gets the connection that `proxy` is for.
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the connection that `proxy` is for.
         get {
-            let rv = g_dbus_object_proxy_get_connection(cast(dbus_object_proxy_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_object_proxy_get_connection(cast(dbus_object_proxy_ptr)))
             return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -5981,7 +6008,7 @@ public extension DBusObjectProxyProtocol {
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
 public protocol DBusObjectSkeletonProtocol: ObjectProtocol, DBusObjectProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusObjectSkeleton` instance.
@@ -5998,7 +6025,7 @@ public protocol DBusObjectSkeletonProtocol: ObjectProtocol, DBusObjectProtocol {
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
 public struct DBusObjectSkeletonRef: DBusObjectSkeletonProtocol {
-    /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
+        /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_skeleton_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6045,7 +6072,7 @@ public extension DBusObjectSkeletonRef {
 
         /// Creates a new `GDBusObjectSkeleton`.
     init( object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_skeleton_new(object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectSkeleton>! = cast(g_dbus_object_skeleton_new(object_path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -6060,7 +6087,7 @@ public extension DBusObjectSkeletonRef {
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
 open class DBusObjectSkeleton: Object, DBusObjectSkeletonProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectSkeleton` instance.
     /// - Parameter op: pointer to the underlying object
@@ -6140,7 +6167,7 @@ open class DBusObjectSkeleton: Object, DBusObjectSkeletonProtocol {
 
     /// Creates a new `GDBusObjectSkeleton`.
     public init( object_path: UnsafePointer<gchar>) {
-        let rv = g_dbus_object_skeleton_new(object_path)
+        let rv: UnsafeMutablePointer<GDBusObjectSkeleton>! = cast(g_dbus_object_skeleton_new(object_path))
         super.init(cast(rv))
     }
 
@@ -6161,8 +6188,8 @@ public extension DBusObjectSkeletonProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -6185,6 +6212,23 @@ public extension DBusObjectSkeletonProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusObjectSkeleton property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusObjectSkeletonPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusObjectSkeleton property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusObjectSkeletonPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -6233,8 +6277,8 @@ public extension DBusObjectSkeletonProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectSkeletonSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusObjectSkeletonSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_object_skeleton_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -6255,6 +6299,7 @@ public extension DBusObjectSkeletonProtocol {
     }
 }
 
+// MARK: DBusObjectSkeleton Class: DBusObjectSkeletonProtocol extension (methods and fields)
 public extension DBusObjectSkeletonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectSkeleton` instance.
     var dbus_object_skeleton_ptr: UnsafeMutablePointer<GDBusObjectSkeleton> { return ptr.assumingMemoryBound(to: GDBusObjectSkeleton.self) }
@@ -6299,6 +6344,11 @@ public extension DBusObjectSkeletonProtocol {
         g_dbus_object_skeleton_set_object_path(cast(dbus_object_skeleton_ptr), object_path)
     
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -6348,7 +6398,7 @@ public extension DBusObjectSkeletonProtocol {
 /// An example using a proxy for a well-known name can be found in
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
 public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusInterfaceProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GDBusProxy` instance.
+        /// Untyped pointer to the underlying `GDBusProxy` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusProxy` instance.
@@ -6397,7 +6447,7 @@ public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusIn
 /// An example using a proxy for a well-known name can be found in
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
 public struct DBusProxyRef: DBusProxyProtocol {
-    /// Untyped pointer to the underlying `GDBusProxy` instance.
+        /// Untyped pointer to the underlying `GDBusProxy` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_proxy_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6444,21 +6494,17 @@ public extension DBusProxyRef {
 
         /// Finishes creating a `GDBusProxy`.
     init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
     init(busFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -6466,11 +6512,9 @@ public extension DBusProxyRef {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -6497,30 +6541,24 @@ public extension DBusProxyRef {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_sync(cast(connection.ptr), flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Finishes creating a `GDBusProxy`.
     static func new(finish res: AsyncResultProtocol) throws -> DBusProxyRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxyRef(cast($0)) }
     }
 
     /// Finishes creating a `GDBusProxy`.
     static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusProxyRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxyRef(cast($0)) }
     }
 
@@ -6528,11 +6566,9 @@ public extension DBusProxyRef {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxyRef(cast($0)) }
     }
 
@@ -6559,11 +6595,9 @@ public extension DBusProxyRef {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxyRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_sync(cast(connection.ptr), flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxyRef(cast($0)) }
     }
 }
@@ -6610,7 +6644,7 @@ public extension DBusProxyRef {
 /// An example using a proxy for a well-known name can be found in
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
 open class DBusProxy: Object, DBusProxyProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusProxy` instance.
     /// - Parameter op: pointer to the underlying object
@@ -6690,21 +6724,17 @@ open class DBusProxy: Object, DBusProxyProtocol {
 
     /// Finishes creating a `GDBusProxy`.
     public init(finish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
     public init(busFinish res: AsyncResultProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -6712,11 +6742,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public init(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -6743,31 +6771,25 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public init(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_sync(cast(connection.ptr), flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
     /// Finishes creating a `GDBusProxy`.
     public static func new(finish res: AsyncResultProtocol) throws -> DBusProxy! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxy(cast($0)) }
     }
 
     /// Finishes creating a `GDBusProxy`.
     public static func newFor(busFinish res: AsyncResultProtocol) throws -> DBusProxy! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_finish(cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxy(cast($0)) }
     }
 
@@ -6775,11 +6797,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public static func newFor(busSync bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxy(cast($0)) }
     }
 
@@ -6806,11 +6826,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
     public static func new(sync connection: DBusConnectionProtocol, flags: DBusProxyFlags, info: DBusInterfaceInfoProtocol, name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> DBusProxy! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_new_sync(cast(connection.ptr), flags, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusProxy>! = cast(g_dbus_proxy_new_sync(cast(connection.ptr), flags.value, cast(info.ptr), name, object_path, interface_name, cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusProxy(cast($0)) }
     }
 
@@ -6881,8 +6899,8 @@ public extension DBusProxyProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -6905,6 +6923,23 @@ public extension DBusProxyProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusProxy property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusProxyPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusProxy property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusProxyPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -7010,8 +7045,8 @@ public extension DBusProxyProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusProxySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusProxySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_proxy_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -7032,6 +7067,7 @@ public extension DBusProxyProtocol {
     }
 }
 
+// MARK: DBusProxy Class: DBusProxyProtocol extension (methods and fields)
 public extension DBusProxyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusProxy` instance.
     var dbus_proxy_ptr: UnsafeMutablePointer<GDBusProxy> { return ptr.assumingMemoryBound(to: GDBusProxy.self) }
@@ -7080,17 +7116,15 @@ public extension DBusProxyProtocol {
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
     /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
     func call(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dbus_proxy_call(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags, gint(timeout_msec), cast(cancellable.ptr), callback, cast(user_data))
+        g_dbus_proxy_call(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags.value, gint(timeout_msec), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an operation started with `g_dbus_proxy_call()`.
     func callFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_call_finish(cast(dbus_proxy_ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_proxy_call_finish(cast(dbus_proxy_ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -7130,11 +7164,9 @@ public extension DBusProxyProtocol {
     /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
     /// then the return value is checked against the return type.
     func callSync(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_call_sync(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags, gint(timeout_msec), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_proxy_call_sync(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags.value, gint(timeout_msec), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -7142,17 +7174,15 @@ public extension DBusProxyProtocol {
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdList(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dbus_proxy_call_with_unix_fd_list(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags, gint(timeout_msec), cast(fd_list.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_dbus_proxy_call_with_unix_fd_list(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags.value, gint(timeout_msec), cast(fd_list.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes an operation started with `g_dbus_proxy_call_with_unix_fd_list()`.
     func callWithUnixFdListFinish(outFdList out_fd_list: UnixFDListProtocol, res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_call_with_unix_fd_list_finish(cast(dbus_proxy_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_proxy_call_with_unix_fd_list_finish(cast(dbus_proxy_ptr), cast(out_fd_list.ptr), cast(res.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -7160,11 +7190,9 @@ public extension DBusProxyProtocol {
     /// 
     /// This method is only available on UNIX.
     func callWithUnixFdListSync(methodName method_name: UnsafePointer<gchar>, parameters: VariantProtocol, flags: DBusCallFlags, timeoutMsec timeout_msec: CInt, fdList fd_list: UnixFDListProtocol, outFdList out_fd_list: UnixFDListProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_proxy_call_with_unix_fd_list_sync(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags, gint(timeout_msec), cast(fd_list.ptr), cast(out_fd_list.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_proxy_call_with_unix_fd_list_sync(cast(dbus_proxy_ptr), method_name, cast(parameters.ptr), flags.value, gint(timeout_msec), cast(fd_list.ptr), cast(out_fd_list.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -7175,19 +7203,19 @@ public extension DBusProxyProtocol {
     /// `GDBusProxy:g`-interface-info) and `property_name` is referenced by
     /// it, then `value` is checked against the type of the property.
     func getCachedProperty(propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_dbus_proxy_get_cached_property(cast(dbus_proxy_ptr), property_name)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_dbus_proxy_get_cached_property(cast(dbus_proxy_ptr), property_name))
         return cast(rv)
     }
 
     /// Gets the names of all cached properties on `proxy`.
     func getCachedPropertyNames() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_dbus_proxy_get_cached_property_names(cast(dbus_proxy_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_dbus_proxy_get_cached_property_names(cast(dbus_proxy_ptr)))
         return cast(rv)
     }
 
     /// Gets the connection `proxy` is for.
     func getConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv = g_dbus_proxy_get_connection(cast(dbus_proxy_ptr))
+        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_proxy_get_connection(cast(dbus_proxy_ptr)))
         return cast(rv)
     }
 
@@ -7196,35 +7224,35 @@ public extension DBusProxyProtocol {
     /// `g_dbus_proxy_call_sync()` functions.
     /// 
     /// See the `GDBusProxy:g`-default-timeout property for more details.
-    func getDefaultTimeout() -> CInt {
-        let rv = g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr))
-        return CInt(rv)
+    func getDefaultTimeout() -> Int {
+        let rv: Int = cast(g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr)))
+        return Int(rv)
     }
 
     /// Gets the flags that `proxy` was constructed with.
     func getFlags() -> GDBusProxyFlags {
         let rv = g_dbus_proxy_get_flags(cast(dbus_proxy_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the `GDBusInterfaceInfo`, if any, specifying the interface
     /// that `proxy` conforms to. See the `GDBusProxy:g`-interface-info
     /// property for more details.
     func getInterfaceInfo() -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
-        let rv = g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr))
+        let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr)))
         return cast(rv)
     }
 
     /// Gets the D-Bus interface name `proxy` is for.
     func getInterfaceName() -> String! {
-        let rv = g_dbus_proxy_get_interface_name(cast(dbus_proxy_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_proxy_get_interface_name(cast(dbus_proxy_ptr)))
+        return cast(rv)
     }
 
     /// Gets the name that `proxy` was constructed for.
     func getName() -> String! {
-        let rv = g_dbus_proxy_get_name(cast(dbus_proxy_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_proxy_get_name(cast(dbus_proxy_ptr)))
+        return cast(rv)
     }
 
     /// The unique name that owns the name that `proxy` is for or `nil` if
@@ -7232,14 +7260,14 @@ public extension DBusProxyProtocol {
     /// `GObject::notify` signal to track changes to the
     /// `GDBusProxy:g`-name-owner property.
     func getNameOwner() -> String! {
-        let rv = g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr)))
+        return cast(rv)
     }
 
     /// Gets the object path `proxy` is for.
     func getObjectPath() -> String! {
-        let rv = g_dbus_proxy_get_object_path(cast(dbus_proxy_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_proxy_get_object_path(cast(dbus_proxy_ptr)))
+        return cast(rv)
     }
 
     /// If `value` is not `nil`, sets the cached value for the property with
@@ -7302,7 +7330,7 @@ public extension DBusProxyProtocol {
     var cachedPropertyNames: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
         /// Gets the names of all cached properties on `proxy`.
         get {
-            let rv = g_dbus_proxy_get_cached_property_names(cast(dbus_proxy_ptr))
+            let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_dbus_proxy_get_cached_property_names(cast(dbus_proxy_ptr)))
             return cast(rv)
         }
     }
@@ -7311,7 +7339,7 @@ public extension DBusProxyProtocol {
     var connection: UnsafeMutablePointer<GDBusConnection>! {
         /// Gets the connection `proxy` is for.
         get {
-            let rv = g_dbus_proxy_get_connection(cast(dbus_proxy_ptr))
+            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_dbus_proxy_get_connection(cast(dbus_proxy_ptr)))
             return cast(rv)
         }
     }
@@ -7321,15 +7349,15 @@ public extension DBusProxyProtocol {
     /// `g_dbus_proxy_call_sync()` functions.
     /// 
     /// See the `GDBusProxy:g`-default-timeout property for more details.
-    var defaultTimeout: CInt {
+    var defaultTimeout: Int {
         /// Gets the timeout to use if -1 (specifying default timeout) is
         /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
         /// `g_dbus_proxy_call_sync()` functions.
         /// 
         /// See the `GDBusProxy:g`-default-timeout property for more details.
         get {
-            let rv = g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_dbus_proxy_get_default_timeout(cast(dbus_proxy_ptr)))
+            return Int(rv)
         }
         /// Sets the timeout to use if -1 (specifying default timeout) is
         /// passed as `timeout_msec` in the `g_dbus_proxy_call()` and
@@ -7346,7 +7374,7 @@ public extension DBusProxyProtocol {
         /// Gets the flags that `proxy` was constructed with.
         get {
             let rv = g_dbus_proxy_get_flags(cast(dbus_proxy_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -7358,7 +7386,7 @@ public extension DBusProxyProtocol {
         /// that `proxy` conforms to. See the `GDBusProxy:g`-interface-info
         /// property for more details.
         get {
-            let rv = g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr))
+            let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_proxy_get_interface_info(cast(dbus_proxy_ptr)))
             return cast(rv)
         }
         /// Ensure that interactions with `proxy` conform to the given
@@ -7373,8 +7401,8 @@ public extension DBusProxyProtocol {
     var interfaceName: String! {
         /// Gets the D-Bus interface name `proxy` is for.
         get {
-            let rv = g_dbus_proxy_get_interface_name(cast(dbus_proxy_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_proxy_get_interface_name(cast(dbus_proxy_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7382,8 +7410,8 @@ public extension DBusProxyProtocol {
     var name: String! {
         /// Gets the name that `proxy` was constructed for.
         get {
-            let rv = g_dbus_proxy_get_name(cast(dbus_proxy_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_proxy_get_name(cast(dbus_proxy_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7397,8 +7425,8 @@ public extension DBusProxyProtocol {
         /// `GObject::notify` signal to track changes to the
         /// `GDBusProxy:g`-name-owner property.
         get {
-            let rv = g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_proxy_get_name_owner(cast(dbus_proxy_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7406,10 +7434,15 @@ public extension DBusProxyProtocol {
     var objectPath: String! {
         /// Gets the object path `proxy` is for.
         get {
-            let rv = g_dbus_proxy_get_object_path(cast(dbus_proxy_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_proxy_get_object_path(cast(dbus_proxy_ptr)))
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -7438,7 +7471,7 @@ public extension DBusProxyProtocol {
 /// that only accepts connections that have successfully authenticated
 /// as the same user that is running the `GDBusServer`.
 public protocol DBusServerProtocol: ObjectProtocol, InitableProtocol {
-    /// Untyped pointer to the underlying `GDBusServer` instance.
+        /// Untyped pointer to the underlying `GDBusServer` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDBusServer` instance.
@@ -7466,7 +7499,7 @@ public protocol DBusServerProtocol: ObjectProtocol, InitableProtocol {
 /// that only accepts connections that have successfully authenticated
 /// as the same user that is running the `GDBusServer`.
 public struct DBusServerRef: DBusServerProtocol {
-    /// Untyped pointer to the underlying `GDBusServer` instance.
+        /// Untyped pointer to the underlying `GDBusServer` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_server_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7532,11 +7565,9 @@ public extension DBusServerRef {
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
     init(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_server_new_sync(address, flags, guid, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusServer>! = cast(g_dbus_server_new_sync(address, flags.value, guid, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new D-Bus server that listens on the first address in
@@ -7560,11 +7591,9 @@ public extension DBusServerRef {
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
     static func new(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusServerRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_server_new_sync(address, flags, guid, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusServer>! = cast(g_dbus_server_new_sync(address, flags.value, guid, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusServerRef(cast($0)) }
     }
 }
@@ -7590,7 +7619,7 @@ public extension DBusServerRef {
 /// that only accepts connections that have successfully authenticated
 /// as the same user that is running the `GDBusServer`.
 open class DBusServer: Object, DBusServerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusServer` instance.
     /// - Parameter op: pointer to the underlying object
@@ -7689,11 +7718,9 @@ open class DBusServer: Object, DBusServerProtocol {
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
     public init(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_server_new_sync(address, flags, guid, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusServer>! = cast(g_dbus_server_new_sync(address, flags.value, guid, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         super.init(cast(rv))
     }
 
@@ -7718,11 +7745,9 @@ open class DBusServer: Object, DBusServerProtocol {
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
     public static func new(sync address: UnsafePointer<gchar>, flags: DBusServerFlags, guid: UnsafePointer<gchar>, observer: DBusAuthObserverProtocol, cancellable: CancellableProtocol) throws -> DBusServer! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dbus_server_new_sync(address, flags, guid, cast(observer.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDBusServer>! = cast(g_dbus_server_new_sync(address, flags.value, guid, cast(observer.ptr), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DBusServer(cast($0)) }
     }
 
@@ -7752,8 +7777,8 @@ public extension DBusServerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -7776,6 +7801,23 @@ public extension DBusServerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DBusServer property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DBusServerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DBusServer property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DBusServerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -7847,8 +7889,8 @@ public extension DBusServerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusServerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DBusServerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(dbus_server_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -7869,6 +7911,7 @@ public extension DBusServerProtocol {
     }
 }
 
+// MARK: DBusServer Class: DBusServerProtocol extension (methods and fields)
 public extension DBusServerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusServer` instance.
     var dbus_server_ptr: UnsafeMutablePointer<GDBusServer> { return ptr.assumingMemoryBound(to: GDBusServer.self) }
@@ -7877,20 +7920,20 @@ public extension DBusServerProtocol {
     /// [D-Bus address](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
     /// string that can be used by clients to connect to `server`.
     func getClientAddress() -> String! {
-        let rv = g_dbus_server_get_client_address(cast(dbus_server_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_server_get_client_address(cast(dbus_server_ptr)))
+        return cast(rv)
     }
 
     /// Gets the flags for `server`.
     func getFlags() -> GDBusServerFlags {
         let rv = g_dbus_server_get_flags(cast(dbus_server_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the GUID for `server`.
     func getGuid() -> String! {
-        let rv = g_dbus_server_get_guid(cast(dbus_server_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dbus_server_get_guid(cast(dbus_server_ptr)))
+        return cast(rv)
     }
 
     /// Starts `server`.
@@ -7912,8 +7955,8 @@ public extension DBusServerProtocol {
         /// [D-Bus address](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
         /// string that can be used by clients to connect to `server`.
         get {
-            let rv = g_dbus_server_get_client_address(cast(dbus_server_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_server_get_client_address(cast(dbus_server_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7922,7 +7965,7 @@ public extension DBusServerProtocol {
         /// Gets the flags for `server`.
         get {
             let rv = g_dbus_server_get_flags(cast(dbus_server_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -7930,8 +7973,8 @@ public extension DBusServerProtocol {
     var guid: String! {
         /// Gets the GUID for `server`.
         get {
-            let rv = g_dbus_server_get_guid(cast(dbus_server_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_dbus_server_get_guid(cast(dbus_server_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7943,6 +7986,8 @@ public extension DBusServerProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 
@@ -7957,7 +8002,7 @@ public extension DBusServerProtocol {
 /// Data input stream implements `GInputStream` and includes functions for
 /// reading structured data directly from a binary input stream.
 public protocol DataInputStreamProtocol: BufferedInputStreamProtocol {
-    /// Untyped pointer to the underlying `GDataInputStream` instance.
+        /// Untyped pointer to the underlying `GDataInputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataInputStream` instance.
@@ -7971,7 +8016,7 @@ public protocol DataInputStreamProtocol: BufferedInputStreamProtocol {
 /// Data input stream implements `GInputStream` and includes functions for
 /// reading structured data directly from a binary input stream.
 public struct DataInputStreamRef: DataInputStreamProtocol {
-    /// Untyped pointer to the underlying `GDataInputStream` instance.
+        /// Untyped pointer to the underlying `GDataInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `data_input_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -8018,7 +8063,7 @@ public extension DataInputStreamRef {
 
         /// Creates a new data input stream for the `base_stream`.
     init( base_stream: InputStreamProtocol) {
-        let rv = g_data_input_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GDataInputStream>! = cast(g_data_input_stream_new(cast(base_stream.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -8030,7 +8075,7 @@ public extension DataInputStreamRef {
 /// Data input stream implements `GInputStream` and includes functions for
 /// reading structured data directly from a binary input stream.
 open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DataInputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -8110,7 +8155,7 @@ open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
 
     /// Creates a new data input stream for the `base_stream`.
     public override init( base_stream: InputStreamProtocol) {
-        let rv = g_data_input_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GDataInputStream>! = cast(g_data_input_stream_new(cast(base_stream.ptr)))
         super.init(cast(rv))
     }
 
@@ -8134,8 +8179,8 @@ public extension DataInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -8158,6 +8203,23 @@ public extension DataInputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DataInputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DataInputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DataInputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DataInputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -8200,8 +8262,8 @@ public extension DataInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DataInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DataInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(data_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -8222,6 +8284,7 @@ public extension DataInputStreamProtocol {
     }
 }
 
+// MARK: DataInputStream Class: DataInputStreamProtocol extension (methods and fields)
 public extension DataInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataInputStream` instance.
     var data_input_stream_ptr: UnsafeMutablePointer<GDataInputStream> { return ptr.assumingMemoryBound(to: GDataInputStream.self) }
@@ -8229,23 +8292,21 @@ public extension DataInputStreamProtocol {
     /// Gets the byte order for the data input stream.
     func getByteOrder() -> GDataStreamByteOrder {
         let rv = g_data_input_stream_get_byte_order(cast(data_input_stream_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the current newline type for the `stream`.
     func getNewlineType() -> GDataStreamNewlineType {
         let rv = g_data_input_stream_get_newline_type(cast(data_input_stream_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Reads an unsigned 8-bit/1-byte value from `stream`.
     func readByte(cancellable: CancellableProtocol) throws -> guchar {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_byte(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a 16-bit/2-byte value from `stream`.
@@ -8253,11 +8314,9 @@ public extension DataInputStreamProtocol {
     /// In order to get the correct byte order for this read operation,
     /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     func readInt16(cancellable: CancellableProtocol) throws -> Int16 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int16(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Int16(rv)
     }
 
@@ -8270,11 +8329,9 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readInt32(cancellable: CancellableProtocol) throws -> Int32 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int32(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Int32(rv)
     }
 
@@ -8287,11 +8344,9 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readInt64(cancellable: CancellableProtocol) throws -> Int64 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int64(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Int64(rv)
     }
 
@@ -8303,11 +8358,9 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readLine(length: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<CChar>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_line(cast(data_input_stream_ptr), cast(length), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<CChar>! = cast(g_data_input_stream_read_line(cast(data_input_stream_ptr), cast(length), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -8327,23 +8380,19 @@ public extension DataInputStreamProtocol {
     /// string encoding in `g_data_input_stream_read_line()` applies here as
     /// well.
     func readLineFinish(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<CChar>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_line_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<CChar>! = cast(g_data_input_stream_read_line_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
     /// Finish an asynchronous call started by
     /// `g_data_input_stream_read_line_async()`.
     func readLineFinishUTF8(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_line_finish_utf8(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_line_finish_utf8(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a UTF-8 encoded line from the data input stream.
@@ -8352,12 +8401,10 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readLineUTF8(length: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_line_utf8(cast(data_input_stream_ptr), cast(length), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_line_utf8(cast(data_input_stream_ptr), cast(length), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads an unsigned 16-bit/2-byte value from `stream`.
@@ -8365,11 +8412,9 @@ public extension DataInputStreamProtocol {
     /// In order to get the correct byte order for this read operation,
     /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
     func readUint16(cancellable: CancellableProtocol) throws -> UInt16 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint16(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return UInt16(rv)
     }
 
@@ -8382,11 +8427,9 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readUint32(cancellable: CancellableProtocol) throws -> UInt32 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint32(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return UInt32(rv)
     }
 
@@ -8399,11 +8442,9 @@ public extension DataInputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     func readUint64(cancellable: CancellableProtocol) throws -> UInt64 {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint64(cast(data_input_stream_ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return UInt64(rv)
     }
 
@@ -8423,12 +8464,10 @@ public extension DataInputStreamProtocol {
     /// Use g_data_input_stream_read_upto() instead, which has more
     ///     consistent behaviour regarding the stop character.
     @available(*, deprecated) func readUntil(stopChars stop_chars: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_until(cast(data_input_stream_ptr), stop_chars, cast(length), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_until(cast(data_input_stream_ptr), stop_chars, cast(length), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// The asynchronous version of `g_data_input_stream_read_until()`.
@@ -8462,12 +8501,10 @@ public extension DataInputStreamProtocol {
     /// Use g_data_input_stream_read_upto_finish() instead, which
     ///     has more consistent behaviour regarding the stop character.
     @available(*, deprecated) func readUntilFinish(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_until_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_until_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a string from the data input stream, up to the first
@@ -8483,12 +8520,10 @@ public extension DataInputStreamProtocol {
     /// 
     /// The returned string will always be nul-terminated on success.
     func readUpto(stopChars stop_chars: UnsafePointer<gchar>, stopCharsLen stop_chars_len: gssize, length: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_upto(cast(data_input_stream_ptr), stop_chars, stop_chars_len, cast(length), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_upto(cast(data_input_stream_ptr), stop_chars, stop_chars_len, cast(length), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// The asynchronous version of `g_data_input_stream_read_upto()`.
@@ -8519,12 +8554,10 @@ public extension DataInputStreamProtocol {
     /// 
     /// The returned string will always be nul-terminated on success.
     func readUptoFinish(result: AsyncResultProtocol, length: UnsafeMutablePointer<Int>) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_data_input_stream_read_upto_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_data_input_stream_read_upto_finish(cast(data_input_stream_ptr), cast(result.ptr), cast(length), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This function sets the byte order for the given `stream`. All subsequent
@@ -8548,12 +8581,12 @@ public extension DataInputStreamProtocol {
         /// Gets the byte order for the data input stream.
         get {
             let rv = g_data_input_stream_get_byte_order(cast(data_input_stream_ptr))
-            return rv
+            return cast(rv)
         }
         /// This function sets the byte order for the given `stream`. All subsequent
         /// reads from the `stream` will be read in the given `order`.
         nonmutating set {
-            g_data_input_stream_set_byte_order(cast(data_input_stream_ptr), newValue)
+            g_data_input_stream_set_byte_order(cast(data_input_stream_ptr), cast(newValue))
         }
     }
 
@@ -8562,7 +8595,7 @@ public extension DataInputStreamProtocol {
         /// Gets the current newline type for the `stream`.
         get {
             let rv = g_data_input_stream_get_newline_type(cast(data_input_stream_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the newline type for the `stream`.
         /// 
@@ -8570,9 +8603,19 @@ public extension DataInputStreamProtocol {
         /// chunk ends in "CR" we must read an additional byte to know if this is "CR" or
         /// "CR LF", and this might block if there is no more data available.
         nonmutating set {
-            g_data_input_stream_set_newline_type(cast(data_input_stream_ptr), newValue)
+            g_data_input_stream_set_newline_type(cast(data_input_stream_ptr), cast(newValue))
         }
     }
+
+    var parentInstance: GBufferedInputStream {
+        get {
+            let rv: GBufferedInputStream = cast(data_input_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -8587,7 +8630,7 @@ public extension DataInputStreamProtocol {
 /// Data output stream implements `GOutputStream` and includes functions for
 /// writing data directly to an output stream.
 public protocol DataOutputStreamProtocol: FilterOutputStreamProtocol, SeekableProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStream` instance.
+        /// Untyped pointer to the underlying `GDataOutputStream` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDataOutputStream` instance.
@@ -8601,7 +8644,7 @@ public protocol DataOutputStreamProtocol: FilterOutputStreamProtocol, SeekablePr
 /// Data output stream implements `GOutputStream` and includes functions for
 /// writing data directly to an output stream.
 public struct DataOutputStreamRef: DataOutputStreamProtocol {
-    /// Untyped pointer to the underlying `GDataOutputStream` instance.
+        /// Untyped pointer to the underlying `GDataOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `data_output_stream_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -8648,7 +8691,7 @@ public extension DataOutputStreamRef {
 
         /// Creates a new data output stream for `base_stream`.
     init( base_stream: OutputStreamProtocol) {
-        let rv = g_data_output_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GDataOutputStream>! = cast(g_data_output_stream_new(cast(base_stream.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -8660,7 +8703,7 @@ public extension DataOutputStreamRef {
 /// Data output stream implements `GOutputStream` and includes functions for
 /// writing data directly to an output stream.
 open class DataOutputStream: FilterOutputStream, DataOutputStreamProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DataOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
@@ -8740,7 +8783,7 @@ open class DataOutputStream: FilterOutputStream, DataOutputStreamProtocol {
 
     /// Creates a new data output stream for `base_stream`.
     public init( base_stream: OutputStreamProtocol) {
-        let rv = g_data_output_stream_new(cast(base_stream.ptr))
+        let rv: UnsafeMutablePointer<GDataOutputStream>! = cast(g_data_output_stream_new(cast(base_stream.ptr)))
         super.init(cast(rv))
     }
 
@@ -8764,8 +8807,8 @@ public extension DataOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -8788,6 +8831,23 @@ public extension DataOutputStreamProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DataOutputStream property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DataOutputStreamPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DataOutputStream property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DataOutputStreamPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -8830,8 +8890,8 @@ public extension DataOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DataOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DataOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(data_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -8852,6 +8912,7 @@ public extension DataOutputStreamProtocol {
     }
 }
 
+// MARK: DataOutputStream Class: DataOutputStreamProtocol extension (methods and fields)
 public extension DataOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDataOutputStream` instance.
     var data_output_stream_ptr: UnsafeMutablePointer<GDataOutputStream> { return ptr.assumingMemoryBound(to: GDataOutputStream.self) }
@@ -8859,86 +8920,70 @@ public extension DataOutputStreamProtocol {
     /// Gets the byte order for the stream.
     func getByteOrder() -> GDataStreamByteOrder {
         let rv = g_data_output_stream_get_byte_order(cast(data_output_stream_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Puts a byte into the output stream.
     func putByte(data: UInt8, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_byte(cast(data_output_stream_ptr), data, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts a signed 16-bit integer into the output stream.
     func putInt16(data: Int16, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_int16(cast(data_output_stream_ptr), gint16(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts a signed 32-bit integer into the output stream.
     func putInt32(data: Int32, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_int32(cast(data_output_stream_ptr), gint32(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts a signed 64-bit integer into the stream.
     func putInt64(data: Int64, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_int64(cast(data_output_stream_ptr), gint64(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts a string into the output stream.
     func putString(str: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_string(cast(data_output_stream_ptr), str, cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts an unsigned 16-bit integer into the output stream.
     func putUint16(data: UInt16, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_uint16(cast(data_output_stream_ptr), guint16(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts an unsigned 32-bit integer into the stream.
     func putUint32(data: UInt32, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_uint32(cast(data_output_stream_ptr), guint32(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Puts an unsigned 64-bit integer into the stream.
     func putUint64(data: UInt64, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_data_output_stream_put_uint64(cast(data_output_stream_ptr), guint64(data), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -8952,13 +8997,23 @@ public extension DataOutputStreamProtocol {
         /// Gets the byte order for the stream.
         get {
             let rv = g_data_output_stream_get_byte_order(cast(data_output_stream_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the byte order of the data output stream to `order`.
         nonmutating set {
-            g_data_output_stream_set_byte_order(cast(data_output_stream_ptr), newValue)
+            g_data_output_stream_set_byte_order(cast(data_output_stream_ptr), cast(newValue))
         }
     }
+
+    var parentInstance: GFilterOutputStream {
+        get {
+            let rv: GFilterOutputStream = cast(data_output_stream_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -8977,7 +9032,7 @@ public extension DataOutputStreamProtocol {
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
 public protocol EmblemProtocol: ObjectProtocol, IconProtocol {
-    /// Untyped pointer to the underlying `GEmblem` instance.
+        /// Untyped pointer to the underlying `GEmblem` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GEmblem` instance.
@@ -8995,7 +9050,7 @@ public protocol EmblemProtocol: ObjectProtocol, IconProtocol {
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
 public struct EmblemRef: EmblemProtocol {
-    /// Untyped pointer to the underlying `GEmblem` instance.
+        /// Untyped pointer to the underlying `GEmblem` instance.
     /// For type-safe access, use the generated, typed pointer `emblem_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -9042,18 +9097,18 @@ public extension EmblemRef {
 
         /// Creates a new emblem for `icon`.
     init( icon: IconProtocol) {
-        let rv = g_emblem_new(cast(icon.ptr))
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new(cast(icon.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.
     init(origin icon: IconProtocol, origin: EmblemOrigin) {
-        let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new_with_origin(cast(icon.ptr), origin))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new emblem for `icon`.
     static func newWith(origin icon: IconProtocol, origin: EmblemOrigin) -> EmblemRef! {
-        let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new_with_origin(cast(icon.ptr), origin))
         return rv.map { EmblemRef(cast($0)) }
     }
 }
@@ -9069,7 +9124,7 @@ public extension EmblemRef {
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
 open class Emblem: Object, EmblemProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Emblem` instance.
     /// - Parameter op: pointer to the underlying object
@@ -9149,19 +9204,19 @@ open class Emblem: Object, EmblemProtocol {
 
     /// Creates a new emblem for `icon`.
     public init( icon: IconProtocol) {
-        let rv = g_emblem_new(cast(icon.ptr))
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new(cast(icon.ptr)))
         super.init(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.
     public init(origin icon: IconProtocol, origin: EmblemOrigin) {
-        let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new_with_origin(cast(icon.ptr), origin))
         super.init(cast(rv))
     }
 
     /// Creates a new emblem for `icon`.
     public static func newWith(origin icon: IconProtocol, origin: EmblemOrigin) -> Emblem! {
-        let rv = g_emblem_new_with_origin(cast(icon.ptr), origin)
+        let rv: UnsafeMutablePointer<GEmblem>! = cast(g_emblem_new_with_origin(cast(icon.ptr), origin))
         return rv.map { Emblem(cast($0)) }
     }
 
@@ -9181,8 +9236,8 @@ public extension EmblemProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -9205,6 +9260,23 @@ public extension EmblemProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Emblem property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: EmblemPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Emblem property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: EmblemPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -9244,8 +9316,8 @@ public extension EmblemProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: EmblemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: EmblemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(emblem_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -9266,25 +9338,26 @@ public extension EmblemProtocol {
     }
 }
 
+// MARK: Emblem Class: EmblemProtocol extension (methods and fields)
 public extension EmblemProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblem` instance.
     var emblem_ptr: UnsafeMutablePointer<GEmblem> { return ptr.assumingMemoryBound(to: GEmblem.self) }
 
     /// Gives back the icon from `emblem`.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_emblem_get_icon(cast(emblem_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblem_get_icon(cast(emblem_ptr)))
         return cast(rv)
     }
 
     /// Gets the origin of the emblem.
     func getOrigin() -> GEmblemOrigin {
         let rv = g_emblem_get_origin(cast(emblem_ptr))
-        return rv
+        return cast(rv)
     }
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gives back the icon from `emblem`.
         get {
-            let rv = g_emblem_get_icon(cast(emblem_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblem_get_icon(cast(emblem_ptr)))
             return cast(rv)
         }
     }
@@ -9293,9 +9366,11 @@ public extension EmblemProtocol {
         /// Gets the origin of the emblem.
         get {
             let rv = g_emblem_get_origin(cast(emblem_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 

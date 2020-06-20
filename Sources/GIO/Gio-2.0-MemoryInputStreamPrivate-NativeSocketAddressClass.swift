@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol MemoryInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryInputStreamPrivate` instance.
@@ -24,7 +24,7 @@ public protocol MemoryInputStreamPrivateProtocol {
 ///
 
 public struct MemoryInputStreamPrivateRef: MemoryInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension MemoryInputStreamPrivateRef {
 ///
 
 open class MemoryInputStreamPrivate: MemoryInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class MemoryInputStreamPrivate: MemoryInputStreamPrivateProtocol {
         // no reference counting for GMemoryInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemoryInputStreamPrivate`.
+    /// Do-nothing destructor for `GMemoryInputStreamPrivate`.
     deinit {
         // no reference counting for GMemoryInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class MemoryInputStreamPrivate: MemoryInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no MemoryInputStreamPrivate properties
+// MARK: no MemoryInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no MemoryInputStreamPrivate signals
 
 
+// MARK: MemoryInputStreamPrivate Record: MemoryInputStreamPrivateProtocol extension (methods and fields)
 public extension MemoryInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMemoryInputStreamPrivate> { return ptr.assumingMemoryBound(to: GMemoryInputStreamPrivate.self) }
+
+
 
 }
 
@@ -196,7 +199,7 @@ public extension MemoryInputStreamPrivateProtocol {
 ///
 /// The virtual function table for `GMemoryMonitor`.
 public protocol MemoryMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryMonitorInterface` instance.
@@ -209,7 +212,7 @@ public protocol MemoryMonitorInterfaceProtocol {
 ///
 /// The virtual function table for `GMemoryMonitor`.
 public struct MemoryMonitorInterfaceRef: MemoryMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +265,7 @@ public extension MemoryMonitorInterfaceRef {
 ///
 /// The virtual function table for `GMemoryMonitor`.
 open class MemoryMonitorInterface: MemoryMonitorInterfaceProtocol {
-    /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
+        /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +294,7 @@ open class MemoryMonitorInterface: MemoryMonitorInterfaceProtocol {
         // no reference counting for GMemoryMonitorInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemoryMonitorInterface`.
+    /// Do-nothing destructor for `GMemoryMonitorInterface`.
     deinit {
         // no reference counting for GMemoryMonitorInterface, cannot unref(cast(_ptr))
     }
@@ -359,14 +362,20 @@ open class MemoryMonitorInterface: MemoryMonitorInterfaceProtocol {
 
 }
 
-// MARK: - no MemoryMonitorInterface properties
+// MARK: no MemoryMonitorInterface properties
 
-// MARK: - no signals
+// MARK: no MemoryMonitorInterface signals
 
 
+// MARK: MemoryMonitorInterface Record: MemoryMonitorInterfaceProtocol extension (methods and fields)
 public extension MemoryMonitorInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryMonitorInterface` instance.
     var _ptr: UnsafeMutablePointer<GMemoryMonitorInterface> { return ptr.assumingMemoryBound(to: GMemoryMonitorInterface.self) }
+
+
+    // var gIface is unavailable because g_iface is private
+
+    // var lowMemoryWarning is unavailable because low_memory_warning is void
 
 }
 
@@ -381,7 +390,7 @@ public extension MemoryMonitorInterfaceProtocol {
 ///
 
 public protocol MemoryOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryOutputStreamClass` instance.
@@ -394,7 +403,7 @@ public protocol MemoryOutputStreamClassProtocol {
 ///
 
 public struct MemoryOutputStreamClassRef: MemoryOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +456,7 @@ public extension MemoryOutputStreamClassRef {
 ///
 
 open class MemoryOutputStreamClass: MemoryOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +485,7 @@ open class MemoryOutputStreamClass: MemoryOutputStreamClassProtocol {
         // no reference counting for GMemoryOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemoryOutputStreamClass`.
+    /// Do-nothing destructor for `GMemoryOutputStreamClass`.
     deinit {
         // no reference counting for GMemoryOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +553,33 @@ open class MemoryOutputStreamClass: MemoryOutputStreamClassProtocol {
 
 }
 
-// MARK: - no MemoryOutputStreamClass properties
+// MARK: no MemoryOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no MemoryOutputStreamClass signals
 
 
+// MARK: MemoryOutputStreamClass Record: MemoryOutputStreamClassProtocol extension (methods and fields)
 public extension MemoryOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GMemoryOutputStreamClass> { return ptr.assumingMemoryBound(to: GMemoryOutputStreamClass.self) }
+
+
+    var parentClass: GOutputStreamClass {
+        get {
+            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -566,7 +594,7 @@ public extension MemoryOutputStreamClassProtocol {
 ///
 
 public protocol MemoryOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemoryOutputStreamPrivate` instance.
@@ -579,7 +607,7 @@ public protocol MemoryOutputStreamPrivateProtocol {
 ///
 
 public struct MemoryOutputStreamPrivateRef: MemoryOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +660,7 @@ public extension MemoryOutputStreamPrivateRef {
 ///
 
 open class MemoryOutputStreamPrivate: MemoryOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GMemoryOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +689,7 @@ open class MemoryOutputStreamPrivate: MemoryOutputStreamPrivateProtocol {
         // no reference counting for GMemoryOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemoryOutputStreamPrivate`.
+    /// Do-nothing destructor for `GMemoryOutputStreamPrivate`.
     deinit {
         // no reference counting for GMemoryOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -729,14 +757,17 @@ open class MemoryOutputStreamPrivate: MemoryOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no MemoryOutputStreamPrivate properties
+// MARK: no MemoryOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no MemoryOutputStreamPrivate signals
 
 
+// MARK: MemoryOutputStreamPrivate Record: MemoryOutputStreamPrivateProtocol extension (methods and fields)
 public extension MemoryOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMemoryOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GMemoryOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -751,7 +782,7 @@ public extension MemoryOutputStreamPrivateProtocol {
 ///
 
 public protocol MenuAttributeIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuAttributeIterClass` instance.
@@ -764,7 +795,7 @@ public protocol MenuAttributeIterClassProtocol {
 ///
 
 public struct MenuAttributeIterClassRef: MenuAttributeIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -817,7 +848,7 @@ public extension MenuAttributeIterClassRef {
 ///
 
 open class MenuAttributeIterClass: MenuAttributeIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -846,7 +877,7 @@ open class MenuAttributeIterClass: MenuAttributeIterClassProtocol {
         // no reference counting for GMenuAttributeIterClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuAttributeIterClass`.
+    /// Do-nothing destructor for `GMenuAttributeIterClass`.
     deinit {
         // no reference counting for GMenuAttributeIterClass, cannot unref(cast(_ptr))
     }
@@ -914,14 +945,25 @@ open class MenuAttributeIterClass: MenuAttributeIterClassProtocol {
 
 }
 
-// MARK: - no MenuAttributeIterClass properties
+// MARK: no MenuAttributeIterClass properties
 
-// MARK: - no signals
+// MARK: no MenuAttributeIterClass signals
 
 
+// MARK: MenuAttributeIterClass Record: MenuAttributeIterClassProtocol extension (methods and fields)
 public extension MenuAttributeIterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuAttributeIterClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuAttributeIterClass> { return ptr.assumingMemoryBound(to: GMenuAttributeIterClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getNext is unavailable because get_next is void
 
 }
 
@@ -936,7 +978,7 @@ public extension MenuAttributeIterClassProtocol {
 ///
 
 public protocol MenuAttributeIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuAttributeIterPrivate` instance.
@@ -949,7 +991,7 @@ public protocol MenuAttributeIterPrivateProtocol {
 ///
 
 public struct MenuAttributeIterPrivateRef: MenuAttributeIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1002,7 +1044,7 @@ public extension MenuAttributeIterPrivateRef {
 ///
 
 open class MenuAttributeIterPrivate: MenuAttributeIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuAttributeIterPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1031,7 +1073,7 @@ open class MenuAttributeIterPrivate: MenuAttributeIterPrivateProtocol {
         // no reference counting for GMenuAttributeIterPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuAttributeIterPrivate`.
+    /// Do-nothing destructor for `GMenuAttributeIterPrivate`.
     deinit {
         // no reference counting for GMenuAttributeIterPrivate, cannot unref(cast(_ptr))
     }
@@ -1099,14 +1141,17 @@ open class MenuAttributeIterPrivate: MenuAttributeIterPrivateProtocol {
 
 }
 
-// MARK: - no MenuAttributeIterPrivate properties
+// MARK: no MenuAttributeIterPrivate properties
 
-// MARK: - no signals
+// MARK: no MenuAttributeIterPrivate signals
 
 
+// MARK: MenuAttributeIterPrivate Record: MenuAttributeIterPrivateProtocol extension (methods and fields)
 public extension MenuAttributeIterPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuAttributeIterPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMenuAttributeIterPrivate> { return ptr.assumingMemoryBound(to: GMenuAttributeIterPrivate.self) }
+
+
 
 }
 
@@ -1121,7 +1166,7 @@ public extension MenuAttributeIterPrivateProtocol {
 ///
 
 public protocol MenuLinkIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuLinkIterClass` instance.
@@ -1134,7 +1179,7 @@ public protocol MenuLinkIterClassProtocol {
 ///
 
 public struct MenuLinkIterClassRef: MenuLinkIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1187,7 +1232,7 @@ public extension MenuLinkIterClassRef {
 ///
 
 open class MenuLinkIterClass: MenuLinkIterClassProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1216,7 +1261,7 @@ open class MenuLinkIterClass: MenuLinkIterClassProtocol {
         // no reference counting for GMenuLinkIterClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuLinkIterClass`.
+    /// Do-nothing destructor for `GMenuLinkIterClass`.
     deinit {
         // no reference counting for GMenuLinkIterClass, cannot unref(cast(_ptr))
     }
@@ -1284,14 +1329,25 @@ open class MenuLinkIterClass: MenuLinkIterClassProtocol {
 
 }
 
-// MARK: - no MenuLinkIterClass properties
+// MARK: no MenuLinkIterClass properties
 
-// MARK: - no signals
+// MARK: no MenuLinkIterClass signals
 
 
+// MARK: MenuLinkIterClass Record: MenuLinkIterClassProtocol extension (methods and fields)
 public extension MenuLinkIterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuLinkIterClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuLinkIterClass> { return ptr.assumingMemoryBound(to: GMenuLinkIterClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getNext is unavailable because get_next is void
 
 }
 
@@ -1306,7 +1362,7 @@ public extension MenuLinkIterClassProtocol {
 ///
 
 public protocol MenuLinkIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuLinkIterPrivate` instance.
@@ -1319,7 +1375,7 @@ public protocol MenuLinkIterPrivateProtocol {
 ///
 
 public struct MenuLinkIterPrivateRef: MenuLinkIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1372,7 +1428,7 @@ public extension MenuLinkIterPrivateRef {
 ///
 
 open class MenuLinkIterPrivate: MenuLinkIterPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuLinkIterPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1401,7 +1457,7 @@ open class MenuLinkIterPrivate: MenuLinkIterPrivateProtocol {
         // no reference counting for GMenuLinkIterPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuLinkIterPrivate`.
+    /// Do-nothing destructor for `GMenuLinkIterPrivate`.
     deinit {
         // no reference counting for GMenuLinkIterPrivate, cannot unref(cast(_ptr))
     }
@@ -1469,14 +1525,17 @@ open class MenuLinkIterPrivate: MenuLinkIterPrivateProtocol {
 
 }
 
-// MARK: - no MenuLinkIterPrivate properties
+// MARK: no MenuLinkIterPrivate properties
 
-// MARK: - no signals
+// MARK: no MenuLinkIterPrivate signals
 
 
+// MARK: MenuLinkIterPrivate Record: MenuLinkIterPrivateProtocol extension (methods and fields)
 public extension MenuLinkIterPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuLinkIterPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMenuLinkIterPrivate> { return ptr.assumingMemoryBound(to: GMenuLinkIterPrivate.self) }
+
+
 
 }
 
@@ -1491,7 +1550,7 @@ public extension MenuLinkIterPrivateProtocol {
 ///
 
 public protocol MenuModelClassProtocol {
-    /// Untyped pointer to the underlying `GMenuModelClass` instance.
+        /// Untyped pointer to the underlying `GMenuModelClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuModelClass` instance.
@@ -1504,7 +1563,7 @@ public protocol MenuModelClassProtocol {
 ///
 
 public struct MenuModelClassRef: MenuModelClassProtocol {
-    /// Untyped pointer to the underlying `GMenuModelClass` instance.
+        /// Untyped pointer to the underlying `GMenuModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1557,7 +1616,7 @@ public extension MenuModelClassRef {
 ///
 
 open class MenuModelClass: MenuModelClassProtocol {
-    /// Untyped pointer to the underlying `GMenuModelClass` instance.
+        /// Untyped pointer to the underlying `GMenuModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1586,7 +1645,7 @@ open class MenuModelClass: MenuModelClassProtocol {
         // no reference counting for GMenuModelClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuModelClass`.
+    /// Do-nothing destructor for `GMenuModelClass`.
     deinit {
         // no reference counting for GMenuModelClass, cannot unref(cast(_ptr))
     }
@@ -1654,14 +1713,39 @@ open class MenuModelClass: MenuModelClassProtocol {
 
 }
 
-// MARK: - no MenuModelClass properties
+// MARK: no MenuModelClass properties
 
-// MARK: - no signals
+// MARK: no MenuModelClass signals
 
 
+// MARK: MenuModelClass Record: MenuModelClassProtocol extension (methods and fields)
 public extension MenuModelClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuModelClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuModelClass> { return ptr.assumingMemoryBound(to: GMenuModelClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var isMutable is unavailable because is_mutable is void
+
+    // var getNItems is unavailable because get_n_items is void
+
+    // var getItemAttributes is unavailable because get_item_attributes is void
+
+    // var iterateItemAttributes is unavailable because iterate_item_attributes is void
+
+    // var getItemAttributeValue is unavailable because get_item_attribute_value is void
+
+    // var getItemLinks is unavailable because get_item_links is void
+
+    // var iterateItemLinks is unavailable because iterate_item_links is void
+
+    // var getItemLink is unavailable because get_item_link is void
 
 }
 
@@ -1676,7 +1760,7 @@ public extension MenuModelClassProtocol {
 ///
 
 public protocol MenuModelPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMenuModelPrivate` instance.
@@ -1689,7 +1773,7 @@ public protocol MenuModelPrivateProtocol {
 ///
 
 public struct MenuModelPrivateRef: MenuModelPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1742,7 +1826,7 @@ public extension MenuModelPrivateRef {
 ///
 
 open class MenuModelPrivate: MenuModelPrivateProtocol {
-    /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
+        /// Untyped pointer to the underlying `GMenuModelPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1771,7 +1855,7 @@ open class MenuModelPrivate: MenuModelPrivateProtocol {
         // no reference counting for GMenuModelPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMenuModelPrivate`.
+    /// Do-nothing destructor for `GMenuModelPrivate`.
     deinit {
         // no reference counting for GMenuModelPrivate, cannot unref(cast(_ptr))
     }
@@ -1839,14 +1923,17 @@ open class MenuModelPrivate: MenuModelPrivateProtocol {
 
 }
 
-// MARK: - no MenuModelPrivate properties
+// MARK: no MenuModelPrivate properties
 
-// MARK: - no signals
+// MARK: no MenuModelPrivate signals
 
 
+// MARK: MenuModelPrivate Record: MenuModelPrivateProtocol extension (methods and fields)
 public extension MenuModelPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuModelPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMenuModelPrivate> { return ptr.assumingMemoryBound(to: GMenuModelPrivate.self) }
+
+
 
 }
 
@@ -1861,7 +1948,7 @@ public extension MenuModelPrivateProtocol {
 ///
 /// Interface for implementing operations for mounts.
 public protocol MountIfaceProtocol {
-    /// Untyped pointer to the underlying `GMountIface` instance.
+        /// Untyped pointer to the underlying `GMountIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMountIface` instance.
@@ -1874,7 +1961,7 @@ public protocol MountIfaceProtocol {
 ///
 /// Interface for implementing operations for mounts.
 public struct MountIfaceRef: MountIfaceProtocol {
-    /// Untyped pointer to the underlying `GMountIface` instance.
+        /// Untyped pointer to the underlying `GMountIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1927,7 +2014,7 @@ public extension MountIfaceRef {
 ///
 /// Interface for implementing operations for mounts.
 open class MountIface: MountIfaceProtocol {
-    /// Untyped pointer to the underlying `GMountIface` instance.
+        /// Untyped pointer to the underlying `GMountIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1956,7 +2043,7 @@ open class MountIface: MountIfaceProtocol {
         // no reference counting for GMountIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMountIface`.
+    /// Do-nothing destructor for `GMountIface`.
     deinit {
         // no reference counting for GMountIface, cannot unref(cast(_ptr))
     }
@@ -2024,14 +2111,79 @@ open class MountIface: MountIfaceProtocol {
 
 }
 
-// MARK: - no MountIface properties
+// MARK: no MountIface properties
 
-// MARK: - no signals
+// MARK: no MountIface signals
 
 
+// MARK: MountIface Record: MountIfaceProtocol extension (methods and fields)
 public extension MountIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMountIface` instance.
     var _ptr: UnsafeMutablePointer<GMountIface> { return ptr.assumingMemoryBound(to: GMountIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var changed is unavailable because changed is void
+
+    // var unmounted is unavailable because unmounted is void
+
+    // var getRoot is unavailable because get_root is void
+
+    // var getName is unavailable because get_name is void
+
+    // var getIcon is unavailable because get_icon is void
+
+    // var getUuid is unavailable because get_uuid is void
+
+    // var getVolume is unavailable because get_volume is void
+
+    // var getDrive is unavailable because get_drive is void
+
+    // var canUnmount is unavailable because can_unmount is void
+
+    // var canEject is unavailable because can_eject is void
+
+    // var unmount is unavailable because unmount is void
+
+    // var unmountFinish is unavailable because unmount_finish is void
+
+    // var eject is unavailable because eject is void
+
+    // var ejectFinish is unavailable because eject_finish is void
+
+    // var remount is unavailable because remount is void
+
+    // var remountFinish is unavailable because remount_finish is void
+
+    // var guessContentType is unavailable because guess_content_type is void
+
+    // var guessContentTypeFinish is unavailable because guess_content_type_finish is void
+
+    // var guessContentTypeSync is unavailable because guess_content_type_sync is void
+
+    // var preUnmount is unavailable because pre_unmount is void
+
+    // var unmountWithOperation is unavailable because unmount_with_operation is void
+
+    // var unmountWithOperationFinish is unavailable because unmount_with_operation_finish is void
+
+    // var ejectWithOperation is unavailable because eject_with_operation is void
+
+    // var ejectWithOperationFinish is unavailable because eject_with_operation_finish is void
+
+    // var getDefaultLocation is unavailable because get_default_location is void
+
+    // var getSortKey is unavailable because get_sort_key is void
+
+    // var getSymbolicIcon is unavailable because get_symbolic_icon is void
 
 }
 
@@ -2046,7 +2198,7 @@ public extension MountIfaceProtocol {
 ///
 
 public protocol MountOperationClassProtocol {
-    /// Untyped pointer to the underlying `GMountOperationClass` instance.
+        /// Untyped pointer to the underlying `GMountOperationClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMountOperationClass` instance.
@@ -2059,7 +2211,7 @@ public protocol MountOperationClassProtocol {
 ///
 
 public struct MountOperationClassRef: MountOperationClassProtocol {
-    /// Untyped pointer to the underlying `GMountOperationClass` instance.
+        /// Untyped pointer to the underlying `GMountOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2112,7 +2264,7 @@ public extension MountOperationClassRef {
 ///
 
 open class MountOperationClass: MountOperationClassProtocol {
-    /// Untyped pointer to the underlying `GMountOperationClass` instance.
+        /// Untyped pointer to the underlying `GMountOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2141,7 +2293,7 @@ open class MountOperationClass: MountOperationClassProtocol {
         // no reference counting for GMountOperationClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMountOperationClass`.
+    /// Do-nothing destructor for `GMountOperationClass`.
     deinit {
         // no reference counting for GMountOperationClass, cannot unref(cast(_ptr))
     }
@@ -2209,14 +2361,53 @@ open class MountOperationClass: MountOperationClassProtocol {
 
 }
 
-// MARK: - no MountOperationClass properties
+// MARK: no MountOperationClass properties
 
-// MARK: - no signals
+// MARK: no MountOperationClass signals
 
 
+// MARK: MountOperationClass Record: MountOperationClassProtocol extension (methods and fields)
 public extension MountOperationClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMountOperationClass` instance.
     var _ptr: UnsafeMutablePointer<GMountOperationClass> { return ptr.assumingMemoryBound(to: GMountOperationClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var askPassword is unavailable because ask_password is void
+
+    // var askQuestion is unavailable because ask_question is void
+
+    // var reply is unavailable because reply is void
+
+    // var aborted is unavailable because aborted is void
+
+    // var showProcesses is unavailable because show_processes is void
+
+    // var showUnmountProgress is unavailable because show_unmount_progress is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
+
+    // var GReserved8 is unavailable because _g_reserved8 is void
+
+    // var GReserved9 is unavailable because _g_reserved9 is void
 
 }
 
@@ -2231,7 +2422,7 @@ public extension MountOperationClassProtocol {
 ///
 
 public protocol MountOperationPrivateProtocol {
-    /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
+        /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMountOperationPrivate` instance.
@@ -2244,7 +2435,7 @@ public protocol MountOperationPrivateProtocol {
 ///
 
 public struct MountOperationPrivateRef: MountOperationPrivateProtocol {
-    /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
+        /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2297,7 +2488,7 @@ public extension MountOperationPrivateRef {
 ///
 
 open class MountOperationPrivate: MountOperationPrivateProtocol {
-    /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
+        /// Untyped pointer to the underlying `GMountOperationPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2326,7 +2517,7 @@ open class MountOperationPrivate: MountOperationPrivateProtocol {
         // no reference counting for GMountOperationPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMountOperationPrivate`.
+    /// Do-nothing destructor for `GMountOperationPrivate`.
     deinit {
         // no reference counting for GMountOperationPrivate, cannot unref(cast(_ptr))
     }
@@ -2394,14 +2585,17 @@ open class MountOperationPrivate: MountOperationPrivateProtocol {
 
 }
 
-// MARK: - no MountOperationPrivate properties
+// MARK: no MountOperationPrivate properties
 
-// MARK: - no signals
+// MARK: no MountOperationPrivate signals
 
 
+// MARK: MountOperationPrivate Record: MountOperationPrivateProtocol extension (methods and fields)
 public extension MountOperationPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMountOperationPrivate` instance.
     var _ptr: UnsafeMutablePointer<GMountOperationPrivate> { return ptr.assumingMemoryBound(to: GMountOperationPrivate.self) }
+
+
 
 }
 
@@ -2416,7 +2610,7 @@ public extension MountOperationPrivateProtocol {
 ///
 
 public protocol NativeSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNativeSocketAddressClass` instance.
@@ -2429,7 +2623,7 @@ public protocol NativeSocketAddressClassProtocol {
 ///
 
 public struct NativeSocketAddressClassRef: NativeSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2482,7 +2676,7 @@ public extension NativeSocketAddressClassRef {
 ///
 
 open class NativeSocketAddressClass: NativeSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2511,7 +2705,7 @@ open class NativeSocketAddressClass: NativeSocketAddressClassProtocol {
         // no reference counting for GNativeSocketAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GNativeSocketAddressClass`.
+    /// Do-nothing destructor for `GNativeSocketAddressClass`.
     deinit {
         // no reference counting for GNativeSocketAddressClass, cannot unref(cast(_ptr))
     }
@@ -2579,14 +2773,23 @@ open class NativeSocketAddressClass: NativeSocketAddressClassProtocol {
 
 }
 
-// MARK: - no NativeSocketAddressClass properties
+// MARK: no NativeSocketAddressClass properties
 
-// MARK: - no signals
+// MARK: no NativeSocketAddressClass signals
 
 
+// MARK: NativeSocketAddressClass Record: NativeSocketAddressClassProtocol extension (methods and fields)
 public extension NativeSocketAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GNativeSocketAddressClass> { return ptr.assumingMemoryBound(to: GNativeSocketAddressClass.self) }
+
+
+    var parentClass: GSocketAddressClass {
+        get {
+            let rv: GSocketAddressClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 

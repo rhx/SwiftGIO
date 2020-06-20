@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// Class structure for `GSettingsBackend`.
 public protocol SettingsBackendClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsBackendClass` instance.
@@ -24,7 +24,7 @@ public protocol SettingsBackendClassProtocol {
 ///
 /// Class structure for `GSettingsBackend`.
 public struct SettingsBackendClassRef: SettingsBackendClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension SettingsBackendClassRef {
 ///
 /// Class structure for `GSettingsBackend`.
 open class SettingsBackendClass: SettingsBackendClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class SettingsBackendClass: SettingsBackendClassProtocol {
         // no reference counting for GSettingsBackendClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSettingsBackendClass`.
+    /// Do-nothing destructor for `GSettingsBackendClass`.
     deinit {
         // no reference counting for GSettingsBackendClass, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,45 @@ open class SettingsBackendClass: SettingsBackendClassProtocol {
 
 }
 
-// MARK: - no SettingsBackendClass properties
+// MARK: no SettingsBackendClass properties
 
-// MARK: - no signals
+// MARK: no SettingsBackendClass signals
 
 
+// MARK: SettingsBackendClass Record: SettingsBackendClassProtocol extension (methods and fields)
 public extension SettingsBackendClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsBackendClass` instance.
     var _ptr: UnsafeMutablePointer<GSettingsBackendClass> { return ptr.assumingMemoryBound(to: GSettingsBackendClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var read is unavailable because read is void
+
+    // var getWritable is unavailable because get_writable is void
+
+    // var write is unavailable because write is void
+
+    // var writeTree is unavailable because write_tree is void
+
+    // var reset is unavailable because reset is void
+
+    // var subscribe is unavailable because subscribe is void
+
+    // var unsubscribe is unavailable because unsubscribe is void
+
+    // var sync is unavailable because sync is void
+
+    // var getPermission is unavailable because get_permission is void
+
+    // var readUserValue is unavailable because read_user_value is void
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -196,7 +227,7 @@ public extension SettingsBackendClassProtocol {
 ///
 
 public protocol SettingsBackendPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsBackendPrivate` instance.
@@ -209,7 +240,7 @@ public protocol SettingsBackendPrivateProtocol {
 ///
 
 public struct SettingsBackendPrivateRef: SettingsBackendPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +293,7 @@ public extension SettingsBackendPrivateRef {
 ///
 
 open class SettingsBackendPrivate: SettingsBackendPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsBackendPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +322,7 @@ open class SettingsBackendPrivate: SettingsBackendPrivateProtocol {
         // no reference counting for GSettingsBackendPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSettingsBackendPrivate`.
+    /// Do-nothing destructor for `GSettingsBackendPrivate`.
     deinit {
         // no reference counting for GSettingsBackendPrivate, cannot unref(cast(_ptr))
     }
@@ -359,14 +390,17 @@ open class SettingsBackendPrivate: SettingsBackendPrivateProtocol {
 
 }
 
-// MARK: - no SettingsBackendPrivate properties
+// MARK: no SettingsBackendPrivate properties
 
-// MARK: - no signals
+// MARK: no SettingsBackendPrivate signals
 
 
+// MARK: SettingsBackendPrivate Record: SettingsBackendPrivateProtocol extension (methods and fields)
 public extension SettingsBackendPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsBackendPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSettingsBackendPrivate> { return ptr.assumingMemoryBound(to: GSettingsBackendPrivate.self) }
+
+
 
 }
 
@@ -381,7 +415,7 @@ public extension SettingsBackendPrivateProtocol {
 ///
 
 public protocol SettingsClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsClass` instance.
+        /// Untyped pointer to the underlying `GSettingsClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsClass` instance.
@@ -394,7 +428,7 @@ public protocol SettingsClassProtocol {
 ///
 
 public struct SettingsClassRef: SettingsClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsClass` instance.
+        /// Untyped pointer to the underlying `GSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +481,7 @@ public extension SettingsClassRef {
 ///
 
 open class SettingsClass: SettingsClassProtocol {
-    /// Untyped pointer to the underlying `GSettingsClass` instance.
+        /// Untyped pointer to the underlying `GSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +510,7 @@ open class SettingsClass: SettingsClassProtocol {
         // no reference counting for GSettingsClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSettingsClass`.
+    /// Do-nothing destructor for `GSettingsClass`.
     deinit {
         // no reference counting for GSettingsClass, cannot unref(cast(_ptr))
     }
@@ -544,14 +578,33 @@ open class SettingsClass: SettingsClassProtocol {
 
 }
 
-// MARK: - no SettingsClass properties
+// MARK: no SettingsClass properties
 
-// MARK: - no signals
+// MARK: no SettingsClass signals
 
 
+// MARK: SettingsClass Record: SettingsClassProtocol extension (methods and fields)
 public extension SettingsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsClass` instance.
     var _ptr: UnsafeMutablePointer<GSettingsClass> { return ptr.assumingMemoryBound(to: GSettingsClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var writableChanged is unavailable because writable_changed is void
+
+    // var changed is unavailable because changed is void
+
+    // var writableChangeEvent is unavailable because writable_change_event is void
+
+    // var changeEvent is unavailable because change_event is void
+
+    // var padding is unavailable because padding is void
 
 }
 
@@ -566,7 +619,7 @@ public extension SettingsClassProtocol {
 ///
 
 public protocol SettingsPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsPrivate` instance.
@@ -579,7 +632,7 @@ public protocol SettingsPrivateProtocol {
 ///
 
 public struct SettingsPrivateRef: SettingsPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +685,7 @@ public extension SettingsPrivateRef {
 ///
 
 open class SettingsPrivate: SettingsPrivateProtocol {
-    /// Untyped pointer to the underlying `GSettingsPrivate` instance.
+        /// Untyped pointer to the underlying `GSettingsPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +714,7 @@ open class SettingsPrivate: SettingsPrivateProtocol {
         // no reference counting for GSettingsPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSettingsPrivate`.
+    /// Do-nothing destructor for `GSettingsPrivate`.
     deinit {
         // no reference counting for GSettingsPrivate, cannot unref(cast(_ptr))
     }
@@ -729,14 +782,17 @@ open class SettingsPrivate: SettingsPrivateProtocol {
 
 }
 
-// MARK: - no SettingsPrivate properties
+// MARK: no SettingsPrivate properties
 
-// MARK: - no signals
+// MARK: no SettingsPrivate signals
 
 
+// MARK: SettingsPrivate Record: SettingsPrivateProtocol extension (methods and fields)
 public extension SettingsPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSettingsPrivate> { return ptr.assumingMemoryBound(to: GSettingsPrivate.self) }
+
+
 
 }
 
@@ -842,7 +898,7 @@ public extension SettingsPrivateProtocol {
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
 public protocol SettingsSchemaProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchema` instance.
+        /// Untyped pointer to the underlying `GSettingsSchema` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsSchema` instance.
@@ -946,7 +1002,7 @@ public protocol SettingsSchemaProtocol {
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
 public struct SettingsSchemaRef: SettingsSchemaProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchema` instance.
+        /// Untyped pointer to the underlying `GSettingsSchema` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1090,7 +1146,7 @@ public extension SettingsSchemaRef {
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
 open class SettingsSchema: SettingsSchemaProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchema` instance.
+        /// Untyped pointer to the underlying `GSettingsSchema` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1187,19 +1243,20 @@ open class SettingsSchema: SettingsSchemaProtocol {
 
 }
 
-// MARK: - no SettingsSchema properties
+// MARK: no SettingsSchema properties
 
-// MARK: - no signals
+// MARK: no SettingsSchema signals
 
 
+// MARK: SettingsSchema Record: SettingsSchemaProtocol extension (methods and fields)
 public extension SettingsSchemaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsSchema` instance.
     var settings_schema_ptr: UnsafeMutablePointer<GSettingsSchema> { return ptr.assumingMemoryBound(to: GSettingsSchema.self) }
 
     /// Get the ID of `schema`.
     func getID() -> String! {
-        let rv = g_settings_schema_get_id(cast(settings_schema_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_schema_get_id(cast(settings_schema_ptr)))
+        return cast(rv)
     }
 
     /// Gets the key named `name` from `schema`.
@@ -1207,7 +1264,7 @@ public extension SettingsSchemaProtocol {
     /// It is a programmer error to request a key that does not exist.  See
     /// `g_settings_schema_list_keys()`.
     func getKey(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GSettingsSchemaKey>! {
-        let rv = g_settings_schema_get_key(cast(settings_schema_ptr), name)
+        let rv: UnsafeMutablePointer<GSettingsSchemaKey>! = cast(g_settings_schema_get_key(cast(settings_schema_ptr), name))
         return cast(rv)
     }
 
@@ -1221,8 +1278,8 @@ public extension SettingsSchemaProtocol {
     /// therefore describe multiple sets of keys at different locations.  For
     /// relocatable schemas, this function will return `nil`.
     func getPath() -> String! {
-        let rv = g_settings_schema_get_path(cast(settings_schema_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_schema_get_path(cast(settings_schema_ptr)))
+        return cast(rv)
     }
 
     /// Checks if `schema` has a key named `name`.
@@ -1236,7 +1293,7 @@ public extension SettingsSchemaProtocol {
     /// You should free the return value with `g_strfreev()` when you are done
     /// with it.
     func listChildren() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_settings_schema_list_children(cast(settings_schema_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_settings_schema_list_children(cast(settings_schema_ptr)))
         return cast(rv)
     }
 
@@ -1246,13 +1303,13 @@ public extension SettingsSchemaProtocol {
     /// (since you should already know what keys are in your schema).  This
     /// function is intended for introspection reasons.
     func listKeys() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_settings_schema_list_keys(cast(settings_schema_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_settings_schema_list_keys(cast(settings_schema_ptr)))
         return cast(rv)
     }
 
     /// Increase the reference count of `schema`, returning a new reference.
     func ref() -> UnsafeMutablePointer<GSettingsSchema>! {
-        let rv = g_settings_schema_ref(cast(settings_schema_ptr))
+        let rv: UnsafeMutablePointer<GSettingsSchema>! = cast(g_settings_schema_ref(cast(settings_schema_ptr)))
         return cast(rv)
     }
 
@@ -1265,8 +1322,8 @@ public extension SettingsSchemaProtocol {
     var id: String! {
         /// Get the ID of `schema`.
         get {
-            let rv = g_settings_schema_get_id(cast(settings_schema_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_settings_schema_get_id(cast(settings_schema_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1290,10 +1347,12 @@ public extension SettingsSchemaProtocol {
         /// therefore describe multiple sets of keys at different locations.  For
         /// relocatable schemas, this function will return `nil`.
         get {
-            let rv = g_settings_schema_get_path(cast(settings_schema_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_settings_schema_get_path(cast(settings_schema_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -1308,7 +1367,7 @@ public extension SettingsSchemaProtocol {
 /// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
 /// using the following functions.
 public protocol SettingsSchemaKeyProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsSchemaKey` instance.
@@ -1322,7 +1381,7 @@ public protocol SettingsSchemaKeyProtocol {
 /// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
 /// using the following functions.
 public struct SettingsSchemaKeyRef: SettingsSchemaKeyProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_key_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1376,7 +1435,7 @@ public extension SettingsSchemaKeyRef {
 /// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
 /// using the following functions.
 open class SettingsSchemaKey: SettingsSchemaKeyProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_key_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1473,11 +1532,12 @@ open class SettingsSchemaKey: SettingsSchemaKeyProtocol {
 
 }
 
-// MARK: - no SettingsSchemaKey properties
+// MARK: no SettingsSchemaKey properties
 
-// MARK: - no signals
+// MARK: no SettingsSchemaKey signals
 
 
+// MARK: SettingsSchemaKey Record: SettingsSchemaKeyProtocol extension (methods and fields)
 public extension SettingsSchemaKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsSchemaKey` instance.
     var settings_schema_key_ptr: UnsafeMutablePointer<GSettingsSchemaKey> { return ptr.assumingMemoryBound(to: GSettingsSchemaKey.self) }
@@ -1487,7 +1547,7 @@ public extension SettingsSchemaKeyProtocol {
     /// Note that this is the default value according to the schema.  System
     /// administrator defaults and lockdown are not visible via this API.
     func getDefaultValue() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_schema_key_get_default_value(cast(settings_schema_key_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_schema_key_get_default_value(cast(settings_schema_key_ptr)))
         return cast(rv)
     }
 
@@ -1506,14 +1566,14 @@ public extension SettingsSchemaKeyProtocol {
     /// function has to parse all of the source XML files in the schema
     /// directory.
     func getDescription() -> String! {
-        let rv = g_settings_schema_key_get_description(cast(settings_schema_key_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_schema_key_get_description(cast(settings_schema_key_ptr)))
+        return cast(rv)
     }
 
     /// Gets the name of `key`.
     func getName() -> String! {
-        let rv = g_settings_schema_key_get_name(cast(settings_schema_key_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_schema_key_get_name(cast(settings_schema_key_ptr)))
+        return cast(rv)
     }
 
     /// Queries the range of a key.
@@ -1553,7 +1613,7 @@ public extension SettingsSchemaKeyProtocol {
     /// You should free the returned value with `g_variant_unref()` when it is
     /// no longer needed.
     func getRange() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_settings_schema_key_get_range(cast(settings_schema_key_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_schema_key_get_range(cast(settings_schema_key_ptr)))
         return cast(rv)
     }
 
@@ -1571,13 +1631,13 @@ public extension SettingsSchemaKeyProtocol {
     /// function has to parse all of the source XML files in the schema
     /// directory.
     func getSummary() -> String! {
-        let rv = g_settings_schema_key_get_summary(cast(settings_schema_key_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_settings_schema_key_get_summary(cast(settings_schema_key_ptr)))
+        return cast(rv)
     }
 
     /// Gets the `GVariantType` of `key`.
     func getValueType() -> UnsafePointer<GVariantType>! {
-        let rv = g_settings_schema_key_get_value_type(cast(settings_schema_key_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_settings_schema_key_get_value_type(cast(settings_schema_key_ptr)))
         return cast(rv)
     }
 
@@ -1593,7 +1653,7 @@ public extension SettingsSchemaKeyProtocol {
 
     /// Increase the reference count of `key`, returning a new reference.
     func ref() -> UnsafeMutablePointer<GSettingsSchemaKey>! {
-        let rv = g_settings_schema_key_ref(cast(settings_schema_key_ptr))
+        let rv: UnsafeMutablePointer<GSettingsSchemaKey>! = cast(g_settings_schema_key_ref(cast(settings_schema_key_ptr)))
         return cast(rv)
     }
 
@@ -1612,7 +1672,7 @@ public extension SettingsSchemaKeyProtocol {
         /// Note that this is the default value according to the schema.  System
         /// administrator defaults and lockdown are not visible via this API.
         get {
-            let rv = g_settings_schema_key_get_default_value(cast(settings_schema_key_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_schema_key_get_default_value(cast(settings_schema_key_ptr)))
             return cast(rv)
         }
     }
@@ -1647,8 +1707,8 @@ public extension SettingsSchemaKeyProtocol {
         /// function has to parse all of the source XML files in the schema
         /// directory.
         get {
-            let rv = g_settings_schema_key_get_description(cast(settings_schema_key_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_settings_schema_key_get_description(cast(settings_schema_key_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1656,8 +1716,8 @@ public extension SettingsSchemaKeyProtocol {
     var name: String! {
         /// Gets the name of `key`.
         get {
-            let rv = g_settings_schema_key_get_name(cast(settings_schema_key_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_settings_schema_key_get_name(cast(settings_schema_key_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1735,7 +1795,7 @@ public extension SettingsSchemaKeyProtocol {
         /// You should free the returned value with `g_variant_unref()` when it is
         /// no longer needed.
         get {
-            let rv = g_settings_schema_key_get_range(cast(settings_schema_key_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_settings_schema_key_get_range(cast(settings_schema_key_ptr)))
             return cast(rv)
         }
     }
@@ -1768,8 +1828,8 @@ public extension SettingsSchemaKeyProtocol {
         /// function has to parse all of the source XML files in the schema
         /// directory.
         get {
-            let rv = g_settings_schema_key_get_summary(cast(settings_schema_key_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_settings_schema_key_get_summary(cast(settings_schema_key_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1777,10 +1837,12 @@ public extension SettingsSchemaKeyProtocol {
     var valueType: UnsafePointer<GVariantType>! {
         /// Gets the `GVariantType` of `key`.
         get {
-            let rv = g_settings_schema_key_get_value_type(cast(settings_schema_key_ptr))
+            let rv: UnsafePointer<GVariantType>! = cast(g_settings_schema_key_get_value_type(cast(settings_schema_key_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -1794,7 +1856,7 @@ public extension SettingsSchemaKeyProtocol {
 ///
 /// This is an opaque structure type.  You may not access it directly.
 public protocol SettingsSchemaSourceProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSettingsSchemaSource` instance.
@@ -1807,7 +1869,7 @@ public protocol SettingsSchemaSourceProtocol {
 ///
 /// This is an opaque structure type.  You may not access it directly.
 public struct SettingsSchemaSourceRef: SettingsSchemaSourceProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_source_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1884,11 +1946,9 @@ public extension SettingsSchemaSourceRef {
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
     init(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Attempts to create a new schema source corresponding to the contents
@@ -1923,11 +1983,9 @@ public extension SettingsSchemaSourceRef {
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
     static func newFrom(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws -> SettingsSchemaSourceRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { SettingsSchemaSourceRef(cast($0)) }
     }
 
@@ -1945,7 +2003,7 @@ public extension SettingsSchemaSourceRef {
     /// lookups performed against the default source should probably be done
     /// recursively.
     static func getDefault() -> SettingsSchemaSourceRef! {
-        let rv = g_settings_schema_source_get_default()
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_get_default())
         return rv.map { SettingsSchemaSourceRef(cast($0)) }
     }
 }
@@ -1956,7 +2014,7 @@ public extension SettingsSchemaSourceRef {
 ///
 /// This is an opaque structure type.  You may not access it directly.
 open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
-    /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
+        /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_source_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2081,11 +2139,9 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
     public init(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -2121,11 +2177,9 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
     public static func newFrom(directory: UnsafePointer<gchar>, parent: SettingsSchemaSourceProtocol, trusted: Bool) throws -> SettingsSchemaSource! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_new_from_directory(directory, cast(parent.ptr), gboolean(trusted ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { SettingsSchemaSource(cast($0)) }
     }
 
@@ -2143,17 +2197,18 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// lookups performed against the default source should probably be done
     /// recursively.
     public static func getDefault() -> SettingsSchemaSource! {
-        let rv = g_settings_schema_source_get_default()
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_get_default())
         return rv.map { SettingsSchemaSource(cast($0)) }
     }
 
 }
 
-// MARK: - no SettingsSchemaSource properties
+// MARK: no SettingsSchemaSource properties
 
-// MARK: - no signals
+// MARK: no SettingsSchemaSource signals
 
 
+// MARK: SettingsSchemaSource Record: SettingsSchemaSourceProtocol extension (methods and fields)
 public extension SettingsSchemaSourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSettingsSchemaSource` instance.
     var settings_schema_source_ptr: UnsafeMutablePointer<GSettingsSchemaSource> { return ptr.assumingMemoryBound(to: GSettingsSchemaSource.self) }
@@ -2186,13 +2241,13 @@ public extension SettingsSchemaSourceProtocol {
     /// 
     /// If the schema isn't found, `nil` is returned.
     func lookup(schemaID schema_id: UnsafePointer<gchar>, recursive: Bool) -> UnsafeMutablePointer<GSettingsSchema>! {
-        let rv = g_settings_schema_source_lookup(cast(settings_schema_source_ptr), schema_id, gboolean(recursive ? 1 : 0))
+        let rv: UnsafeMutablePointer<GSettingsSchema>! = cast(g_settings_schema_source_lookup(cast(settings_schema_source_ptr), schema_id, gboolean(recursive ? 1 : 0)))
         return cast(rv)
     }
 
     /// Increase the reference count of `source`, returning a new reference.
     func ref() -> UnsafeMutablePointer<GSettingsSchemaSource>! {
-        let rv = g_settings_schema_source_ref(cast(settings_schema_source_ptr))
+        let rv: UnsafeMutablePointer<GSettingsSchemaSource>! = cast(g_settings_schema_source_ref(cast(settings_schema_source_ptr)))
         return cast(rv)
     }
 
@@ -2201,6 +2256,8 @@ public extension SettingsSchemaSourceProtocol {
         g_settings_schema_source_unref(cast(settings_schema_source_ptr))
     
     }
+
+
 }
 
 
@@ -2214,7 +2271,7 @@ public extension SettingsSchemaSourceProtocol {
 ///
 
 public protocol SimpleActionGroupClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleActionGroupClass` instance.
@@ -2227,7 +2284,7 @@ public protocol SimpleActionGroupClassProtocol {
 ///
 
 public struct SimpleActionGroupClassRef: SimpleActionGroupClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2280,7 +2337,7 @@ public extension SimpleActionGroupClassRef {
 ///
 
 open class SimpleActionGroupClass: SimpleActionGroupClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2309,7 +2366,7 @@ open class SimpleActionGroupClass: SimpleActionGroupClassProtocol {
         // no reference counting for GSimpleActionGroupClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSimpleActionGroupClass`.
+    /// Do-nothing destructor for `GSimpleActionGroupClass`.
     deinit {
         // no reference counting for GSimpleActionGroupClass, cannot unref(cast(_ptr))
     }
@@ -2377,14 +2434,20 @@ open class SimpleActionGroupClass: SimpleActionGroupClassProtocol {
 
 }
 
-// MARK: - no SimpleActionGroupClass properties
+// MARK: no SimpleActionGroupClass properties
 
-// MARK: - no signals
+// MARK: no SimpleActionGroupClass signals
 
 
+// MARK: SimpleActionGroupClass Record: SimpleActionGroupClassProtocol extension (methods and fields)
 public extension SimpleActionGroupClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleActionGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleActionGroupClass> { return ptr.assumingMemoryBound(to: GSimpleActionGroupClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var padding is unavailable because padding is private
 
 }
 
@@ -2399,7 +2462,7 @@ public extension SimpleActionGroupClassProtocol {
 ///
 
 public protocol SimpleActionGroupPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleActionGroupPrivate` instance.
@@ -2412,7 +2475,7 @@ public protocol SimpleActionGroupPrivateProtocol {
 ///
 
 public struct SimpleActionGroupPrivateRef: SimpleActionGroupPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2465,7 +2528,7 @@ public extension SimpleActionGroupPrivateRef {
 ///
 
 open class SimpleActionGroupPrivate: SimpleActionGroupPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleActionGroupPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2494,7 +2557,7 @@ open class SimpleActionGroupPrivate: SimpleActionGroupPrivateProtocol {
         // no reference counting for GSimpleActionGroupPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSimpleActionGroupPrivate`.
+    /// Do-nothing destructor for `GSimpleActionGroupPrivate`.
     deinit {
         // no reference counting for GSimpleActionGroupPrivate, cannot unref(cast(_ptr))
     }
@@ -2562,14 +2625,17 @@ open class SimpleActionGroupPrivate: SimpleActionGroupPrivateProtocol {
 
 }
 
-// MARK: - no SimpleActionGroupPrivate properties
+// MARK: no SimpleActionGroupPrivate properties
 
-// MARK: - no signals
+// MARK: no SimpleActionGroupPrivate signals
 
 
+// MARK: SimpleActionGroupPrivate Record: SimpleActionGroupPrivateProtocol extension (methods and fields)
 public extension SimpleActionGroupPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleActionGroupPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSimpleActionGroupPrivate> { return ptr.assumingMemoryBound(to: GSimpleActionGroupPrivate.self) }
+
+
 
 }
 
@@ -2584,7 +2650,7 @@ public extension SimpleActionGroupPrivateProtocol {
 ///
 
 public protocol SimpleAsyncResultClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
+        /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleAsyncResultClass` instance.
@@ -2597,7 +2663,7 @@ public protocol SimpleAsyncResultClassProtocol {
 ///
 
 public struct SimpleAsyncResultClassRef: SimpleAsyncResultClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
+        /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2650,7 +2716,7 @@ public extension SimpleAsyncResultClassRef {
 ///
 
 open class SimpleAsyncResultClass: SimpleAsyncResultClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
+        /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2679,7 +2745,7 @@ open class SimpleAsyncResultClass: SimpleAsyncResultClassProtocol {
         // no reference counting for GSimpleAsyncResultClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSimpleAsyncResultClass`.
+    /// Do-nothing destructor for `GSimpleAsyncResultClass`.
     deinit {
         // no reference counting for GSimpleAsyncResultClass, cannot unref(cast(_ptr))
     }
@@ -2747,14 +2813,17 @@ open class SimpleAsyncResultClass: SimpleAsyncResultClassProtocol {
 
 }
 
-// MARK: - no SimpleAsyncResultClass properties
+// MARK: no SimpleAsyncResultClass properties
 
-// MARK: - no signals
+// MARK: no SimpleAsyncResultClass signals
 
 
+// MARK: SimpleAsyncResultClass Record: SimpleAsyncResultClassProtocol extension (methods and fields)
 public extension SimpleAsyncResultClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleAsyncResultClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleAsyncResultClass> { return ptr.assumingMemoryBound(to: GSimpleAsyncResultClass.self) }
+
+
 
 }
 
@@ -2769,7 +2838,7 @@ public extension SimpleAsyncResultClassProtocol {
 ///
 
 public protocol SimpleProxyResolverClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleProxyResolverClass` instance.
@@ -2782,7 +2851,7 @@ public protocol SimpleProxyResolverClassProtocol {
 ///
 
 public struct SimpleProxyResolverClassRef: SimpleProxyResolverClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2835,7 +2904,7 @@ public extension SimpleProxyResolverClassRef {
 ///
 
 open class SimpleProxyResolverClass: SimpleProxyResolverClassProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2864,7 +2933,7 @@ open class SimpleProxyResolverClass: SimpleProxyResolverClassProtocol {
         // no reference counting for GSimpleProxyResolverClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSimpleProxyResolverClass`.
+    /// Do-nothing destructor for `GSimpleProxyResolverClass`.
     deinit {
         // no reference counting for GSimpleProxyResolverClass, cannot unref(cast(_ptr))
     }
@@ -2932,14 +3001,33 @@ open class SimpleProxyResolverClass: SimpleProxyResolverClassProtocol {
 
 }
 
-// MARK: - no SimpleProxyResolverClass properties
+// MARK: no SimpleProxyResolverClass properties
 
-// MARK: - no signals
+// MARK: no SimpleProxyResolverClass signals
 
 
+// MARK: SimpleProxyResolverClass Record: SimpleProxyResolverClassProtocol extension (methods and fields)
 public extension SimpleProxyResolverClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleProxyResolverClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleProxyResolverClass> { return ptr.assumingMemoryBound(to: GSimpleProxyResolverClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -2954,7 +3042,7 @@ public extension SimpleProxyResolverClassProtocol {
 ///
 
 public protocol SimpleProxyResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSimpleProxyResolverPrivate` instance.
@@ -2967,7 +3055,7 @@ public protocol SimpleProxyResolverPrivateProtocol {
 ///
 
 public struct SimpleProxyResolverPrivateRef: SimpleProxyResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3020,7 +3108,7 @@ public extension SimpleProxyResolverPrivateRef {
 ///
 
 open class SimpleProxyResolverPrivate: SimpleProxyResolverPrivateProtocol {
-    /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
+        /// Untyped pointer to the underlying `GSimpleProxyResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3049,7 +3137,7 @@ open class SimpleProxyResolverPrivate: SimpleProxyResolverPrivateProtocol {
         // no reference counting for GSimpleProxyResolverPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSimpleProxyResolverPrivate`.
+    /// Do-nothing destructor for `GSimpleProxyResolverPrivate`.
     deinit {
         // no reference counting for GSimpleProxyResolverPrivate, cannot unref(cast(_ptr))
     }
@@ -3117,14 +3205,17 @@ open class SimpleProxyResolverPrivate: SimpleProxyResolverPrivateProtocol {
 
 }
 
-// MARK: - no SimpleProxyResolverPrivate properties
+// MARK: no SimpleProxyResolverPrivate properties
 
-// MARK: - no signals
+// MARK: no SimpleProxyResolverPrivate signals
 
 
+// MARK: SimpleProxyResolverPrivate Record: SimpleProxyResolverPrivateProtocol extension (methods and fields)
 public extension SimpleProxyResolverPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSimpleProxyResolverPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSimpleProxyResolverPrivate> { return ptr.assumingMemoryBound(to: GSimpleProxyResolverPrivate.self) }
+
+
 
 }
 
@@ -3139,7 +3230,7 @@ public extension SimpleProxyResolverPrivateProtocol {
 ///
 
 public protocol SocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketAddressClass` instance.
@@ -3152,7 +3243,7 @@ public protocol SocketAddressClassProtocol {
 ///
 
 public struct SocketAddressClassRef: SocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3205,7 +3296,7 @@ public extension SocketAddressClassRef {
 ///
 
 open class SocketAddressClass: SocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3234,7 +3325,7 @@ open class SocketAddressClass: SocketAddressClassProtocol {
         // no reference counting for GSocketAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketAddressClass`.
+    /// Do-nothing destructor for `GSocketAddressClass`.
     deinit {
         // no reference counting for GSocketAddressClass, cannot unref(cast(_ptr))
     }
@@ -3302,14 +3393,29 @@ open class SocketAddressClass: SocketAddressClassProtocol {
 
 }
 
-// MARK: - no SocketAddressClass properties
+// MARK: no SocketAddressClass properties
 
-// MARK: - no signals
+// MARK: no SocketAddressClass signals
 
 
+// MARK: SocketAddressClass Record: SocketAddressClassProtocol extension (methods and fields)
 public extension SocketAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketAddressClass> { return ptr.assumingMemoryBound(to: GSocketAddressClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getFamily is unavailable because get_family is void
+
+    // var getNativeSize is unavailable because get_native_size is void
+
+    // var toNative is unavailable because to_native is void
 
 }
 
@@ -3324,7 +3430,7 @@ public extension SocketAddressClassProtocol {
 ///
 /// Class structure for `GSocketAddressEnumerator`.
 public protocol SocketAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketAddressEnumeratorClass` instance.
@@ -3337,7 +3443,7 @@ public protocol SocketAddressEnumeratorClassProtocol {
 ///
 /// Class structure for `GSocketAddressEnumerator`.
 public struct SocketAddressEnumeratorClassRef: SocketAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3390,7 +3496,7 @@ public extension SocketAddressEnumeratorClassRef {
 ///
 /// Class structure for `GSocketAddressEnumerator`.
 open class SocketAddressEnumeratorClass: SocketAddressEnumeratorClassProtocol {
-    /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
+        /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3419,7 +3525,7 @@ open class SocketAddressEnumeratorClass: SocketAddressEnumeratorClassProtocol {
         // no reference counting for GSocketAddressEnumeratorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketAddressEnumeratorClass`.
+    /// Do-nothing destructor for `GSocketAddressEnumeratorClass`.
     deinit {
         // no reference counting for GSocketAddressEnumeratorClass, cannot unref(cast(_ptr))
     }
@@ -3487,14 +3593,24 @@ open class SocketAddressEnumeratorClass: SocketAddressEnumeratorClassProtocol {
 
 }
 
-// MARK: - no SocketAddressEnumeratorClass properties
+// MARK: no SocketAddressEnumeratorClass properties
 
-// MARK: - no signals
+// MARK: no SocketAddressEnumeratorClass signals
 
 
+// MARK: SocketAddressEnumeratorClass Record: SocketAddressEnumeratorClassProtocol extension (methods and fields)
 public extension SocketAddressEnumeratorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketAddressEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketAddressEnumeratorClass> { return ptr.assumingMemoryBound(to: GSocketAddressEnumeratorClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var next is unavailable because next is void
+
+    // var nextAsync is unavailable because next_async is void
+
+    // var nextFinish is unavailable because next_finish is void
 
 }
 
@@ -3509,7 +3625,7 @@ public extension SocketAddressEnumeratorClassProtocol {
 ///
 
 public protocol SocketClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClass` instance.
+        /// Untyped pointer to the underlying `GSocketClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketClass` instance.
@@ -3522,7 +3638,7 @@ public protocol SocketClassProtocol {
 ///
 
 public struct SocketClassRef: SocketClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClass` instance.
+        /// Untyped pointer to the underlying `GSocketClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3575,7 +3691,7 @@ public extension SocketClassRef {
 ///
 
 open class SocketClass: SocketClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClass` instance.
+        /// Untyped pointer to the underlying `GSocketClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3604,7 +3720,7 @@ open class SocketClass: SocketClassProtocol {
         // no reference counting for GSocketClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketClass`.
+    /// Do-nothing destructor for `GSocketClass`.
     deinit {
         // no reference counting for GSocketClass, cannot unref(cast(_ptr))
     }
@@ -3672,14 +3788,43 @@ open class SocketClass: SocketClassProtocol {
 
 }
 
-// MARK: - no SocketClass properties
+// MARK: no SocketClass properties
 
-// MARK: - no signals
+// MARK: no SocketClass signals
 
 
+// MARK: SocketClass Record: SocketClassProtocol extension (methods and fields)
 public extension SocketClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketClass> { return ptr.assumingMemoryBound(to: GSocketClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
+
+    // var GReserved7 is unavailable because _g_reserved7 is void
+
+    // var GReserved8 is unavailable because _g_reserved8 is void
+
+    // var GReserved9 is unavailable because _g_reserved9 is void
+
+    // var GReserved10 is unavailable because _g_reserved10 is void
 
 }
 
@@ -3694,7 +3839,7 @@ public extension SocketClassProtocol {
 ///
 
 public protocol SocketClientClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClientClass` instance.
+        /// Untyped pointer to the underlying `GSocketClientClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketClientClass` instance.
@@ -3707,7 +3852,7 @@ public protocol SocketClientClassProtocol {
 ///
 
 public struct SocketClientClassRef: SocketClientClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClientClass` instance.
+        /// Untyped pointer to the underlying `GSocketClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3760,7 +3905,7 @@ public extension SocketClientClassRef {
 ///
 
 open class SocketClientClass: SocketClientClassProtocol {
-    /// Untyped pointer to the underlying `GSocketClientClass` instance.
+        /// Untyped pointer to the underlying `GSocketClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3789,7 +3934,7 @@ open class SocketClientClass: SocketClientClassProtocol {
         // no reference counting for GSocketClientClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketClientClass`.
+    /// Do-nothing destructor for `GSocketClientClass`.
     deinit {
         // no reference counting for GSocketClientClass, cannot unref(cast(_ptr))
     }
@@ -3857,14 +4002,33 @@ open class SocketClientClass: SocketClientClassProtocol {
 
 }
 
-// MARK: - no SocketClientClass properties
+// MARK: no SocketClientClass properties
 
-// MARK: - no signals
+// MARK: no SocketClientClass signals
 
 
+// MARK: SocketClientClass Record: SocketClientClassProtocol extension (methods and fields)
 public extension SocketClientClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketClientClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketClientClass> { return ptr.assumingMemoryBound(to: GSocketClientClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var event is unavailable because event is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
 
 }
 
@@ -3879,7 +4043,7 @@ public extension SocketClientClassProtocol {
 ///
 
 public protocol SocketClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketClientPrivate` instance.
@@ -3892,7 +4056,7 @@ public protocol SocketClientPrivateProtocol {
 ///
 
 public struct SocketClientPrivateRef: SocketClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3945,7 +4109,7 @@ public extension SocketClientPrivateRef {
 ///
 
 open class SocketClientPrivate: SocketClientPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketClientPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3974,7 +4138,7 @@ open class SocketClientPrivate: SocketClientPrivateProtocol {
         // no reference counting for GSocketClientPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketClientPrivate`.
+    /// Do-nothing destructor for `GSocketClientPrivate`.
     deinit {
         // no reference counting for GSocketClientPrivate, cannot unref(cast(_ptr))
     }
@@ -4042,14 +4206,17 @@ open class SocketClientPrivate: SocketClientPrivateProtocol {
 
 }
 
-// MARK: - no SocketClientPrivate properties
+// MARK: no SocketClientPrivate properties
 
-// MARK: - no signals
+// MARK: no SocketClientPrivate signals
 
 
+// MARK: SocketClientPrivate Record: SocketClientPrivateProtocol extension (methods and fields)
 public extension SocketClientPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketClientPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketClientPrivate> { return ptr.assumingMemoryBound(to: GSocketClientPrivate.self) }
+
+
 
 }
 
@@ -4065,7 +4232,7 @@ public extension SocketClientPrivateProtocol {
 /// Provides an interface for returning a `GSocketAddressEnumerator`
 /// and `GProxyAddressEnumerator`
 public protocol SocketConnectableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
+        /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketConnectableIface` instance.
@@ -4079,7 +4246,7 @@ public protocol SocketConnectableIfaceProtocol {
 /// Provides an interface for returning a `GSocketAddressEnumerator`
 /// and `GProxyAddressEnumerator`
 public struct SocketConnectableIfaceRef: SocketConnectableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
+        /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4133,7 +4300,7 @@ public extension SocketConnectableIfaceRef {
 /// Provides an interface for returning a `GSocketAddressEnumerator`
 /// and `GProxyAddressEnumerator`
 open class SocketConnectableIface: SocketConnectableIfaceProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
+        /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4162,7 +4329,7 @@ open class SocketConnectableIface: SocketConnectableIfaceProtocol {
         // no reference counting for GSocketConnectableIface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketConnectableIface`.
+    /// Do-nothing destructor for `GSocketConnectableIface`.
     deinit {
         // no reference counting for GSocketConnectableIface, cannot unref(cast(_ptr))
     }
@@ -4230,14 +4397,31 @@ open class SocketConnectableIface: SocketConnectableIfaceProtocol {
 
 }
 
-// MARK: - no SocketConnectableIface properties
+// MARK: no SocketConnectableIface properties
 
-// MARK: - no signals
+// MARK: no SocketConnectableIface signals
 
 
+// MARK: SocketConnectableIface Record: SocketConnectableIfaceProtocol extension (methods and fields)
 public extension SocketConnectableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnectableIface` instance.
     var _ptr: UnsafeMutablePointer<GSocketConnectableIface> { return ptr.assumingMemoryBound(to: GSocketConnectableIface.self) }
+
+
+    /// The parent interface.
+    var gIface: GTypeInterface {
+        /// The parent interface.
+        get {
+            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            return rv
+        }
+    }
+
+    // var enumerate is unavailable because enumerate is void
+
+    // var proxyEnumerate is unavailable because proxy_enumerate is void
+
+    // var toString is unavailable because to_string is void
 
 }
 
@@ -4252,7 +4436,7 @@ public extension SocketConnectableIfaceProtocol {
 ///
 
 public protocol SocketConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketConnectionClass` instance.
@@ -4265,7 +4449,7 @@ public protocol SocketConnectionClassProtocol {
 ///
 
 public struct SocketConnectionClassRef: SocketConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4318,7 +4502,7 @@ public extension SocketConnectionClassRef {
 ///
 
 open class SocketConnectionClass: SocketConnectionClassProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4347,7 +4531,7 @@ open class SocketConnectionClass: SocketConnectionClassProtocol {
         // no reference counting for GSocketConnectionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketConnectionClass`.
+    /// Do-nothing destructor for `GSocketConnectionClass`.
     deinit {
         // no reference counting for GSocketConnectionClass, cannot unref(cast(_ptr))
     }
@@ -4415,14 +4599,35 @@ open class SocketConnectionClass: SocketConnectionClassProtocol {
 
 }
 
-// MARK: - no SocketConnectionClass properties
+// MARK: no SocketConnectionClass properties
 
-// MARK: - no signals
+// MARK: no SocketConnectionClass signals
 
 
+// MARK: SocketConnectionClass Record: SocketConnectionClassProtocol extension (methods and fields)
 public extension SocketConnectionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketConnectionClass> { return ptr.assumingMemoryBound(to: GSocketConnectionClass.self) }
+
+
+    var parentClass: GIOStreamClass {
+        get {
+            let rv: GIOStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
 
 }
 
@@ -4437,7 +4642,7 @@ public extension SocketConnectionClassProtocol {
 ///
 
 public protocol SocketConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketConnectionPrivate` instance.
@@ -4450,7 +4655,7 @@ public protocol SocketConnectionPrivateProtocol {
 ///
 
 public struct SocketConnectionPrivateRef: SocketConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4503,7 +4708,7 @@ public extension SocketConnectionPrivateRef {
 ///
 
 open class SocketConnectionPrivate: SocketConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4532,7 +4737,7 @@ open class SocketConnectionPrivate: SocketConnectionPrivateProtocol {
         // no reference counting for GSocketConnectionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketConnectionPrivate`.
+    /// Do-nothing destructor for `GSocketConnectionPrivate`.
     deinit {
         // no reference counting for GSocketConnectionPrivate, cannot unref(cast(_ptr))
     }
@@ -4600,14 +4805,17 @@ open class SocketConnectionPrivate: SocketConnectionPrivateProtocol {
 
 }
 
-// MARK: - no SocketConnectionPrivate properties
+// MARK: no SocketConnectionPrivate properties
 
-// MARK: - no signals
+// MARK: no SocketConnectionPrivate signals
 
 
+// MARK: SocketConnectionPrivate Record: SocketConnectionPrivateProtocol extension (methods and fields)
 public extension SocketConnectionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnectionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketConnectionPrivate> { return ptr.assumingMemoryBound(to: GSocketConnectionPrivate.self) }
+
+
 
 }
 
@@ -4622,7 +4830,7 @@ public extension SocketConnectionPrivateProtocol {
 ///
 /// Class structure for `GSocketControlMessage`.
 public protocol SocketControlMessageClassProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketControlMessageClass` instance.
@@ -4635,7 +4843,7 @@ public protocol SocketControlMessageClassProtocol {
 ///
 /// Class structure for `GSocketControlMessage`.
 public struct SocketControlMessageClassRef: SocketControlMessageClassProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4688,7 +4896,7 @@ public extension SocketControlMessageClassRef {
 ///
 /// Class structure for `GSocketControlMessage`.
 open class SocketControlMessageClass: SocketControlMessageClassProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4717,7 +4925,7 @@ open class SocketControlMessageClass: SocketControlMessageClassProtocol {
         // no reference counting for GSocketControlMessageClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketControlMessageClass`.
+    /// Do-nothing destructor for `GSocketControlMessageClass`.
     deinit {
         // no reference counting for GSocketControlMessageClass, cannot unref(cast(_ptr))
     }
@@ -4785,14 +4993,43 @@ open class SocketControlMessageClass: SocketControlMessageClassProtocol {
 
 }
 
-// MARK: - no SocketControlMessageClass properties
+// MARK: no SocketControlMessageClass properties
 
-// MARK: - no signals
+// MARK: no SocketControlMessageClass signals
 
 
+// MARK: SocketControlMessageClass Record: SocketControlMessageClassProtocol extension (methods and fields)
 public extension SocketControlMessageClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketControlMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketControlMessageClass> { return ptr.assumingMemoryBound(to: GSocketControlMessageClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var getSize is unavailable because get_size is void
+
+    // var getLevel is unavailable because get_level is void
+
+    // var getType is unavailable because get_type is void
+
+    // var serialize is unavailable because serialize is void
+
+    // var deserialize is unavailable because deserialize is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -4807,7 +5044,7 @@ public extension SocketControlMessageClassProtocol {
 ///
 
 public protocol SocketControlMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketControlMessagePrivate` instance.
@@ -4820,7 +5057,7 @@ public protocol SocketControlMessagePrivateProtocol {
 ///
 
 public struct SocketControlMessagePrivateRef: SocketControlMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4873,7 +5110,7 @@ public extension SocketControlMessagePrivateRef {
 ///
 
 open class SocketControlMessagePrivate: SocketControlMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketControlMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4902,7 +5139,7 @@ open class SocketControlMessagePrivate: SocketControlMessagePrivateProtocol {
         // no reference counting for GSocketControlMessagePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketControlMessagePrivate`.
+    /// Do-nothing destructor for `GSocketControlMessagePrivate`.
     deinit {
         // no reference counting for GSocketControlMessagePrivate, cannot unref(cast(_ptr))
     }
@@ -4970,14 +5207,17 @@ open class SocketControlMessagePrivate: SocketControlMessagePrivateProtocol {
 
 }
 
-// MARK: - no SocketControlMessagePrivate properties
+// MARK: no SocketControlMessagePrivate properties
 
-// MARK: - no signals
+// MARK: no SocketControlMessagePrivate signals
 
 
+// MARK: SocketControlMessagePrivate Record: SocketControlMessagePrivateProtocol extension (methods and fields)
 public extension SocketControlMessagePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketControlMessagePrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketControlMessagePrivate> { return ptr.assumingMemoryBound(to: GSocketControlMessagePrivate.self) }
+
+
 
 }
 
@@ -4992,7 +5232,7 @@ public extension SocketControlMessagePrivateProtocol {
 ///
 /// Class structure for `GSocketListener`.
 public protocol SocketListenerClassProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerClass` instance.
+        /// Untyped pointer to the underlying `GSocketListenerClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketListenerClass` instance.
@@ -5005,7 +5245,7 @@ public protocol SocketListenerClassProtocol {
 ///
 /// Class structure for `GSocketListener`.
 public struct SocketListenerClassRef: SocketListenerClassProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerClass` instance.
+        /// Untyped pointer to the underlying `GSocketListenerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5058,7 +5298,7 @@ public extension SocketListenerClassRef {
 ///
 /// Class structure for `GSocketListener`.
 open class SocketListenerClass: SocketListenerClassProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerClass` instance.
+        /// Untyped pointer to the underlying `GSocketListenerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5087,7 +5327,7 @@ open class SocketListenerClass: SocketListenerClassProtocol {
         // no reference counting for GSocketListenerClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketListenerClass`.
+    /// Do-nothing destructor for `GSocketListenerClass`.
     deinit {
         // no reference counting for GSocketListenerClass, cannot unref(cast(_ptr))
     }
@@ -5155,14 +5395,37 @@ open class SocketListenerClass: SocketListenerClassProtocol {
 
 }
 
-// MARK: - no SocketListenerClass properties
+// MARK: no SocketListenerClass properties
 
-// MARK: - no signals
+// MARK: no SocketListenerClass signals
 
 
+// MARK: SocketListenerClass Record: SocketListenerClassProtocol extension (methods and fields)
 public extension SocketListenerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketListenerClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketListenerClass> { return ptr.assumingMemoryBound(to: GSocketListenerClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var changed is unavailable because changed is void
+
+    // var event is unavailable because event is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
 
 }
 
@@ -5177,7 +5440,7 @@ public extension SocketListenerClassProtocol {
 ///
 
 public protocol SocketListenerPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketListenerPrivate` instance.
@@ -5190,7 +5453,7 @@ public protocol SocketListenerPrivateProtocol {
 ///
 
 public struct SocketListenerPrivateRef: SocketListenerPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5243,7 +5506,7 @@ public extension SocketListenerPrivateRef {
 ///
 
 open class SocketListenerPrivate: SocketListenerPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketListenerPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5272,7 +5535,7 @@ open class SocketListenerPrivate: SocketListenerPrivateProtocol {
         // no reference counting for GSocketListenerPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketListenerPrivate`.
+    /// Do-nothing destructor for `GSocketListenerPrivate`.
     deinit {
         // no reference counting for GSocketListenerPrivate, cannot unref(cast(_ptr))
     }
@@ -5340,14 +5603,17 @@ open class SocketListenerPrivate: SocketListenerPrivateProtocol {
 
 }
 
-// MARK: - no SocketListenerPrivate properties
+// MARK: no SocketListenerPrivate properties
 
-// MARK: - no signals
+// MARK: no SocketListenerPrivate signals
 
 
+// MARK: SocketListenerPrivate Record: SocketListenerPrivateProtocol extension (methods and fields)
 public extension SocketListenerPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketListenerPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketListenerPrivate> { return ptr.assumingMemoryBound(to: GSocketListenerPrivate.self) }
+
+
 
 }
 
@@ -5362,7 +5628,7 @@ public extension SocketListenerPrivateProtocol {
 ///
 
 public protocol SocketPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketPrivate` instance.
@@ -5375,7 +5641,7 @@ public protocol SocketPrivateProtocol {
 ///
 
 public struct SocketPrivateRef: SocketPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5428,7 +5694,7 @@ public extension SocketPrivateRef {
 ///
 
 open class SocketPrivate: SocketPrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketPrivate` instance.
+        /// Untyped pointer to the underlying `GSocketPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5457,7 +5723,7 @@ open class SocketPrivate: SocketPrivateProtocol {
         // no reference counting for GSocketPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketPrivate`.
+    /// Do-nothing destructor for `GSocketPrivate`.
     deinit {
         // no reference counting for GSocketPrivate, cannot unref(cast(_ptr))
     }
@@ -5525,14 +5791,17 @@ open class SocketPrivate: SocketPrivateProtocol {
 
 }
 
-// MARK: - no SocketPrivate properties
+// MARK: no SocketPrivate properties
 
-// MARK: - no signals
+// MARK: no SocketPrivate signals
 
 
+// MARK: SocketPrivate Record: SocketPrivateProtocol extension (methods and fields)
 public extension SocketPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketPrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketPrivate> { return ptr.assumingMemoryBound(to: GSocketPrivate.self) }
+
+
 
 }
 
@@ -5547,7 +5816,7 @@ public extension SocketPrivateProtocol {
 ///
 /// Class structure for `GSocketService`.
 public protocol SocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GSocketServiceClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketServiceClass` instance.
@@ -5560,7 +5829,7 @@ public protocol SocketServiceClassProtocol {
 ///
 /// Class structure for `GSocketService`.
 public struct SocketServiceClassRef: SocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5613,7 +5882,7 @@ public extension SocketServiceClassRef {
 ///
 /// Class structure for `GSocketService`.
 open class SocketServiceClass: SocketServiceClassProtocol {
-    /// Untyped pointer to the underlying `GSocketServiceClass` instance.
+        /// Untyped pointer to the underlying `GSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5642,7 +5911,7 @@ open class SocketServiceClass: SocketServiceClassProtocol {
         // no reference counting for GSocketServiceClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketServiceClass`.
+    /// Do-nothing destructor for `GSocketServiceClass`.
     deinit {
         // no reference counting for GSocketServiceClass, cannot unref(cast(_ptr))
     }
@@ -5710,14 +5979,37 @@ open class SocketServiceClass: SocketServiceClassProtocol {
 
 }
 
-// MARK: - no SocketServiceClass properties
+// MARK: no SocketServiceClass properties
 
-// MARK: - no signals
+// MARK: no SocketServiceClass signals
 
 
+// MARK: SocketServiceClass Record: SocketServiceClassProtocol extension (methods and fields)
 public extension SocketServiceClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketServiceClass> { return ptr.assumingMemoryBound(to: GSocketServiceClass.self) }
+
+
+    var parentClass: GSocketListenerClass {
+        get {
+            let rv: GSocketListenerClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var incoming is unavailable because incoming is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
 
 }
 
@@ -5732,7 +6024,7 @@ public extension SocketServiceClassProtocol {
 ///
 
 public protocol SocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSocketServicePrivate` instance.
@@ -5745,7 +6037,7 @@ public protocol SocketServicePrivateProtocol {
 ///
 
 public struct SocketServicePrivateRef: SocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -5798,7 +6090,7 @@ public extension SocketServicePrivateRef {
 ///
 
 open class SocketServicePrivate: SocketServicePrivateProtocol {
-    /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
+        /// Untyped pointer to the underlying `GSocketServicePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -5827,7 +6119,7 @@ open class SocketServicePrivate: SocketServicePrivateProtocol {
         // no reference counting for GSocketServicePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSocketServicePrivate`.
+    /// Do-nothing destructor for `GSocketServicePrivate`.
     deinit {
         // no reference counting for GSocketServicePrivate, cannot unref(cast(_ptr))
     }
@@ -5895,14 +6187,17 @@ open class SocketServicePrivate: SocketServicePrivateProtocol {
 
 }
 
-// MARK: - no SocketServicePrivate properties
+// MARK: no SocketServicePrivate properties
 
-// MARK: - no signals
+// MARK: no SocketServicePrivate signals
 
 
+// MARK: SocketServicePrivate Record: SocketServicePrivateProtocol extension (methods and fields)
 public extension SocketServicePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketServicePrivate` instance.
     var _ptr: UnsafeMutablePointer<GSocketServicePrivate> { return ptr.assumingMemoryBound(to: GSocketServicePrivate.self) }
+
+
 
 }
 
@@ -5930,7 +6225,7 @@ public extension SocketServicePrivateProtocol {
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
 public protocol SrvTargetProtocol {
-    /// Untyped pointer to the underlying `GSrvTarget` instance.
+        /// Untyped pointer to the underlying `GSrvTarget` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSrvTarget` instance.
@@ -5956,7 +6251,7 @@ public protocol SrvTargetProtocol {
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
 public struct SrvTargetRef: SrvTargetProtocol {
-    /// Untyped pointer to the underlying `GSrvTarget` instance.
+        /// Untyped pointer to the underlying `GSrvTarget` instance.
     /// For type-safe access, use the generated, typed pointer `srv_target_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6006,7 +6301,7 @@ public extension SrvTargetRef {
     /// You should not need to use this; normally `GSrvTargets` are
     /// created by `GResolver`.
     init( hostname: UnsafePointer<gchar>, port: UInt16, priority: UInt16, weight: UInt16) {
-        let rv = g_srv_target_new(hostname, guint16(port), guint16(priority), guint16(weight))
+        let rv: UnsafeMutablePointer<GSrvTarget>! = cast(g_srv_target_new(hostname, guint16(port), guint16(priority), guint16(weight)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -6030,7 +6325,7 @@ public extension SrvTargetRef {
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
 open class SrvTarget: SrvTargetProtocol {
-    /// Untyped pointer to the underlying `GSrvTarget` instance.
+        /// Untyped pointer to the underlying `GSrvTarget` instance.
     /// For type-safe access, use the generated, typed pointer `srv_target_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6059,7 +6354,7 @@ open class SrvTarget: SrvTargetProtocol {
         // no reference counting for GSrvTarget, cannot ref(cast(srv_target_ptr))
     }
 
-    /// Do-nothing destructor for`GSrvTarget`.
+    /// Do-nothing destructor for `GSrvTarget`.
     deinit {
         // no reference counting for GSrvTarget, cannot unref(cast(srv_target_ptr))
     }
@@ -6128,25 +6423,26 @@ open class SrvTarget: SrvTargetProtocol {
     /// You should not need to use this; normally `GSrvTargets` are
     /// created by `GResolver`.
     public init( hostname: UnsafePointer<gchar>, port: UInt16, priority: UInt16, weight: UInt16) {
-        let rv = g_srv_target_new(hostname, guint16(port), guint16(priority), guint16(weight))
+        let rv: UnsafeMutablePointer<GSrvTarget>! = cast(g_srv_target_new(hostname, guint16(port), guint16(priority), guint16(weight)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no SrvTarget properties
+// MARK: no SrvTarget properties
 
-// MARK: - no signals
+// MARK: no SrvTarget signals
 
 
+// MARK: SrvTarget Record: SrvTargetProtocol extension (methods and fields)
 public extension SrvTargetProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSrvTarget` instance.
     var srv_target_ptr: UnsafeMutablePointer<GSrvTarget> { return ptr.assumingMemoryBound(to: GSrvTarget.self) }
 
     /// Copies `target`
     func copy() -> UnsafeMutablePointer<GSrvTarget>! {
-        let rv = g_srv_target_copy(cast(srv_target_ptr))
+        let rv: UnsafeMutablePointer<GSrvTarget>! = cast(g_srv_target_copy(cast(srv_target_ptr)))
         return cast(rv)
     }
 
@@ -6161,8 +6457,8 @@ public extension SrvTargetProtocol {
     /// check if it contains encoded Unicode segments, and use
     /// `g_hostname_to_unicode()` to convert it if it does.)
     func getHostname() -> String! {
-        let rv = g_srv_target_get_hostname(cast(srv_target_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_srv_target_get_hostname(cast(srv_target_ptr)))
+        return cast(rv)
     }
 
     /// Gets `target`'s port
@@ -6196,8 +6492,8 @@ public extension SrvTargetProtocol {
         /// check if it contains encoded Unicode segments, and use
         /// `g_hostname_to_unicode()` to convert it if it does.)
         get {
-            let rv = g_srv_target_get_hostname(cast(srv_target_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_srv_target_get_hostname(cast(srv_target_ptr)))
+            return cast(rv)
         }
     }
 
@@ -6235,6 +6531,8 @@ public extension SrvTargetProtocol {
             return UInt16(rv)
         }
     }
+
+
 }
 
 
@@ -6249,7 +6547,7 @@ public extension SrvTargetProtocol {
 /// `GStaticResource` is an opaque data structure and can only be accessed
 /// using the following functions.
 public protocol StaticResourceProtocol {
-    /// Untyped pointer to the underlying `GStaticResource` instance.
+        /// Untyped pointer to the underlying `GStaticResource` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GStaticResource` instance.
@@ -6263,7 +6561,7 @@ public protocol StaticResourceProtocol {
 /// `GStaticResource` is an opaque data structure and can only be accessed
 /// using the following functions.
 public struct StaticResourceRef: StaticResourceProtocol {
-    /// Untyped pointer to the underlying `GStaticResource` instance.
+        /// Untyped pointer to the underlying `GStaticResource` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6317,7 +6615,7 @@ public extension StaticResourceRef {
 /// `GStaticResource` is an opaque data structure and can only be accessed
 /// using the following functions.
 open class StaticResource: StaticResourceProtocol {
-    /// Untyped pointer to the underlying `GStaticResource` instance.
+        /// Untyped pointer to the underlying `GStaticResource` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6346,7 +6644,7 @@ open class StaticResource: StaticResourceProtocol {
         // no reference counting for GStaticResource, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GStaticResource`.
+    /// Do-nothing destructor for `GStaticResource`.
     deinit {
         // no reference counting for GStaticResource, cannot unref(cast(_ptr))
     }
@@ -6414,11 +6712,12 @@ open class StaticResource: StaticResourceProtocol {
 
 }
 
-// MARK: - no StaticResource properties
+// MARK: no StaticResource properties
 
-// MARK: - no signals
+// MARK: no StaticResource signals
 
 
+// MARK: StaticResource Record: StaticResourceProtocol extension (methods and fields)
 public extension StaticResourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GStaticResource` instance.
     var _ptr: UnsafeMutablePointer<GStaticResource> { return ptr.assumingMemoryBound(to: GStaticResource.self) }
@@ -6439,7 +6738,7 @@ public extension StaticResourceProtocol {
     /// [glib-compile-resources](#glib-compile-resources)
     /// and is not typically used by other code.
     func getResource() -> UnsafeMutablePointer<GResource>! {
-        let rv = g_static_resource_get_resource(cast(_ptr))
+        let rv: UnsafeMutablePointer<GResource>! = cast(g_static_resource_get_resource(cast(_ptr)))
         return cast(rv)
     }
 
@@ -6465,10 +6764,21 @@ public extension StaticResourceProtocol {
         /// [glib-compile-resources](#glib-compile-resources)
         /// and is not typically used by other code.
         get {
-            let rv = g_static_resource_get_resource(cast(_ptr))
+            let rv: UnsafeMutablePointer<GResource>! = cast(g_static_resource_get_resource(cast(_ptr)))
             return cast(rv)
         }
     }
+
+    // var data is unavailable because data is private
+
+    // var dataLen is unavailable because data_len is private
+
+    // var _resource is unavailable because resource is private
+
+    // var next is unavailable because next is private
+
+    // var padding is unavailable because padding is private
+
 }
 
 
@@ -6482,7 +6792,7 @@ public extension StaticResourceProtocol {
 ///
 
 public protocol TaskClassProtocol {
-    /// Untyped pointer to the underlying `GTaskClass` instance.
+        /// Untyped pointer to the underlying `GTaskClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTaskClass` instance.
@@ -6495,7 +6805,7 @@ public protocol TaskClassProtocol {
 ///
 
 public struct TaskClassRef: TaskClassProtocol {
-    /// Untyped pointer to the underlying `GTaskClass` instance.
+        /// Untyped pointer to the underlying `GTaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6548,7 +6858,7 @@ public extension TaskClassRef {
 ///
 
 open class TaskClass: TaskClassProtocol {
-    /// Untyped pointer to the underlying `GTaskClass` instance.
+        /// Untyped pointer to the underlying `GTaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -6577,7 +6887,7 @@ open class TaskClass: TaskClassProtocol {
         // no reference counting for GTaskClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTaskClass`.
+    /// Do-nothing destructor for `GTaskClass`.
     deinit {
         // no reference counting for GTaskClass, cannot unref(cast(_ptr))
     }
@@ -6645,14 +6955,17 @@ open class TaskClass: TaskClassProtocol {
 
 }
 
-// MARK: - no TaskClass properties
+// MARK: no TaskClass properties
 
-// MARK: - no signals
+// MARK: no TaskClass signals
 
 
+// MARK: TaskClass Record: TaskClassProtocol extension (methods and fields)
 public extension TaskClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTaskClass` instance.
     var _ptr: UnsafeMutablePointer<GTaskClass> { return ptr.assumingMemoryBound(to: GTaskClass.self) }
+
+
 
 }
 

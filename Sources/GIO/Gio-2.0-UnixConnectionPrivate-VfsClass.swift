@@ -11,7 +11,7 @@ import GLibObject
 ///
 
 public protocol UnixConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixConnectionPrivate` instance.
@@ -24,7 +24,7 @@ public protocol UnixConnectionPrivateProtocol {
 ///
 
 public struct UnixConnectionPrivateRef: UnixConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,7 +77,7 @@ public extension UnixConnectionPrivateRef {
 ///
 
 open class UnixConnectionPrivate: UnixConnectionPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixConnectionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -106,7 +106,7 @@ open class UnixConnectionPrivate: UnixConnectionPrivateProtocol {
         // no reference counting for GUnixConnectionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixConnectionPrivate`.
+    /// Do-nothing destructor for `GUnixConnectionPrivate`.
     deinit {
         // no reference counting for GUnixConnectionPrivate, cannot unref(cast(_ptr))
     }
@@ -174,14 +174,17 @@ open class UnixConnectionPrivate: UnixConnectionPrivateProtocol {
 
 }
 
-// MARK: - no UnixConnectionPrivate properties
+// MARK: no UnixConnectionPrivate properties
 
-// MARK: - no signals
+// MARK: no UnixConnectionPrivate signals
 
 
+// MARK: UnixConnectionPrivate Record: UnixConnectionPrivateProtocol extension (methods and fields)
 public extension UnixConnectionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixConnectionPrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixConnectionPrivate> { return ptr.assumingMemoryBound(to: GUnixConnectionPrivate.self) }
+
+
 
 }
 
@@ -196,7 +199,7 @@ public extension UnixConnectionPrivateProtocol {
 ///
 /// Class structure for `GUnixCredentialsMessage`.
 public protocol UnixCredentialsMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixCredentialsMessageClass` instance.
@@ -209,7 +212,7 @@ public protocol UnixCredentialsMessageClassProtocol {
 ///
 /// Class structure for `GUnixCredentialsMessage`.
 public struct UnixCredentialsMessageClassRef: UnixCredentialsMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -262,7 +265,7 @@ public extension UnixCredentialsMessageClassRef {
 ///
 /// Class structure for `GUnixCredentialsMessage`.
 open class UnixCredentialsMessageClass: UnixCredentialsMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -291,7 +294,7 @@ open class UnixCredentialsMessageClass: UnixCredentialsMessageClassProtocol {
         // no reference counting for GUnixCredentialsMessageClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixCredentialsMessageClass`.
+    /// Do-nothing destructor for `GUnixCredentialsMessageClass`.
     deinit {
         // no reference counting for GUnixCredentialsMessageClass, cannot unref(cast(_ptr))
     }
@@ -359,14 +362,27 @@ open class UnixCredentialsMessageClass: UnixCredentialsMessageClassProtocol {
 
 }
 
-// MARK: - no UnixCredentialsMessageClass properties
+// MARK: no UnixCredentialsMessageClass properties
 
-// MARK: - no signals
+// MARK: no UnixCredentialsMessageClass signals
 
 
+// MARK: UnixCredentialsMessageClass Record: UnixCredentialsMessageClassProtocol extension (methods and fields)
 public extension UnixCredentialsMessageClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixCredentialsMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixCredentialsMessageClass> { return ptr.assumingMemoryBound(to: GUnixCredentialsMessageClass.self) }
+
+
+    var parentClass: GSocketControlMessageClass {
+        get {
+            let rv: GSocketControlMessageClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
 
 }
 
@@ -381,7 +397,7 @@ public extension UnixCredentialsMessageClassProtocol {
 ///
 
 public protocol UnixCredentialsMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
@@ -394,7 +410,7 @@ public protocol UnixCredentialsMessagePrivateProtocol {
 ///
 
 public struct UnixCredentialsMessagePrivateRef: UnixCredentialsMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -447,7 +463,7 @@ public extension UnixCredentialsMessagePrivateRef {
 ///
 
 open class UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixCredentialsMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -476,7 +492,7 @@ open class UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivateProtocol 
         // no reference counting for GUnixCredentialsMessagePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixCredentialsMessagePrivate`.
+    /// Do-nothing destructor for `GUnixCredentialsMessagePrivate`.
     deinit {
         // no reference counting for GUnixCredentialsMessagePrivate, cannot unref(cast(_ptr))
     }
@@ -544,14 +560,17 @@ open class UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivateProtocol 
 
 }
 
-// MARK: - no UnixCredentialsMessagePrivate properties
+// MARK: no UnixCredentialsMessagePrivate properties
 
-// MARK: - no signals
+// MARK: no UnixCredentialsMessagePrivate signals
 
 
+// MARK: UnixCredentialsMessagePrivate Record: UnixCredentialsMessagePrivateProtocol extension (methods and fields)
 public extension UnixCredentialsMessagePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixCredentialsMessagePrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixCredentialsMessagePrivate> { return ptr.assumingMemoryBound(to: GUnixCredentialsMessagePrivate.self) }
+
+
 
 }
 
@@ -566,7 +585,7 @@ public extension UnixCredentialsMessagePrivateProtocol {
 ///
 
 public protocol UnixFDListClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDListClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixFDListClass` instance.
@@ -579,7 +598,7 @@ public protocol UnixFDListClassProtocol {
 ///
 
 public struct UnixFDListClassRef: UnixFDListClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDListClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -632,7 +651,7 @@ public extension UnixFDListClassRef {
 ///
 
 open class UnixFDListClass: UnixFDListClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDListClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -661,7 +680,7 @@ open class UnixFDListClass: UnixFDListClassProtocol {
         // no reference counting for GUnixFDListClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixFDListClass`.
+    /// Do-nothing destructor for `GUnixFDListClass`.
     deinit {
         // no reference counting for GUnixFDListClass, cannot unref(cast(_ptr))
     }
@@ -729,14 +748,33 @@ open class UnixFDListClass: UnixFDListClassProtocol {
 
 }
 
-// MARK: - no UnixFDListClass properties
+// MARK: no UnixFDListClass properties
 
-// MARK: - no signals
+// MARK: no UnixFDListClass signals
 
 
+// MARK: UnixFDListClass Record: UnixFDListClassProtocol extension (methods and fields)
 public extension UnixFDListClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixFDListClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDListClass> { return ptr.assumingMemoryBound(to: GUnixFDListClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -751,7 +789,7 @@ public extension UnixFDListClassProtocol {
 ///
 
 public protocol UnixFDListPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixFDListPrivate` instance.
@@ -764,7 +802,7 @@ public protocol UnixFDListPrivateProtocol {
 ///
 
 public struct UnixFDListPrivateRef: UnixFDListPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -817,7 +855,7 @@ public extension UnixFDListPrivateRef {
 ///
 
 open class UnixFDListPrivate: UnixFDListPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDListPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -846,7 +884,7 @@ open class UnixFDListPrivate: UnixFDListPrivateProtocol {
         // no reference counting for GUnixFDListPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixFDListPrivate`.
+    /// Do-nothing destructor for `GUnixFDListPrivate`.
     deinit {
         // no reference counting for GUnixFDListPrivate, cannot unref(cast(_ptr))
     }
@@ -914,14 +952,17 @@ open class UnixFDListPrivate: UnixFDListPrivateProtocol {
 
 }
 
-// MARK: - no UnixFDListPrivate properties
+// MARK: no UnixFDListPrivate properties
 
-// MARK: - no signals
+// MARK: no UnixFDListPrivate signals
 
 
+// MARK: UnixFDListPrivate Record: UnixFDListPrivateProtocol extension (methods and fields)
 public extension UnixFDListPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixFDListPrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDListPrivate> { return ptr.assumingMemoryBound(to: GUnixFDListPrivate.self) }
+
+
 
 }
 
@@ -936,7 +977,7 @@ public extension UnixFDListPrivateProtocol {
 ///
 
 public protocol UnixFDMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixFDMessageClass` instance.
@@ -949,7 +990,7 @@ public protocol UnixFDMessageClassProtocol {
 ///
 
 public struct UnixFDMessageClassRef: UnixFDMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1002,7 +1043,7 @@ public extension UnixFDMessageClassRef {
 ///
 
 open class UnixFDMessageClass: UnixFDMessageClassProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1031,7 +1072,7 @@ open class UnixFDMessageClass: UnixFDMessageClassProtocol {
         // no reference counting for GUnixFDMessageClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixFDMessageClass`.
+    /// Do-nothing destructor for `GUnixFDMessageClass`.
     deinit {
         // no reference counting for GUnixFDMessageClass, cannot unref(cast(_ptr))
     }
@@ -1099,14 +1140,27 @@ open class UnixFDMessageClass: UnixFDMessageClassProtocol {
 
 }
 
-// MARK: - no UnixFDMessageClass properties
+// MARK: no UnixFDMessageClass properties
 
-// MARK: - no signals
+// MARK: no UnixFDMessageClass signals
 
 
+// MARK: UnixFDMessageClass Record: UnixFDMessageClassProtocol extension (methods and fields)
 public extension UnixFDMessageClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixFDMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDMessageClass> { return ptr.assumingMemoryBound(to: GUnixFDMessageClass.self) }
+
+
+    var parentClass: GSocketControlMessageClass {
+        get {
+            let rv: GSocketControlMessageClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
 
 }
 
@@ -1121,7 +1175,7 @@ public extension UnixFDMessageClassProtocol {
 ///
 
 public protocol UnixFDMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixFDMessagePrivate` instance.
@@ -1134,7 +1188,7 @@ public protocol UnixFDMessagePrivateProtocol {
 ///
 
 public struct UnixFDMessagePrivateRef: UnixFDMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1187,7 +1241,7 @@ public extension UnixFDMessagePrivateRef {
 ///
 
 open class UnixFDMessagePrivate: UnixFDMessagePrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
+        /// Untyped pointer to the underlying `GUnixFDMessagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1216,7 +1270,7 @@ open class UnixFDMessagePrivate: UnixFDMessagePrivateProtocol {
         // no reference counting for GUnixFDMessagePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixFDMessagePrivate`.
+    /// Do-nothing destructor for `GUnixFDMessagePrivate`.
     deinit {
         // no reference counting for GUnixFDMessagePrivate, cannot unref(cast(_ptr))
     }
@@ -1284,14 +1338,17 @@ open class UnixFDMessagePrivate: UnixFDMessagePrivateProtocol {
 
 }
 
-// MARK: - no UnixFDMessagePrivate properties
+// MARK: no UnixFDMessagePrivate properties
 
-// MARK: - no signals
+// MARK: no UnixFDMessagePrivate signals
 
 
+// MARK: UnixFDMessagePrivate Record: UnixFDMessagePrivateProtocol extension (methods and fields)
 public extension UnixFDMessagePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixFDMessagePrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDMessagePrivate> { return ptr.assumingMemoryBound(to: GUnixFDMessagePrivate.self) }
+
+
 
 }
 
@@ -1306,7 +1363,7 @@ public extension UnixFDMessagePrivateProtocol {
 ///
 
 public protocol UnixInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixInputStreamClass` instance.
@@ -1319,7 +1376,7 @@ public protocol UnixInputStreamClassProtocol {
 ///
 
 public struct UnixInputStreamClassRef: UnixInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1372,7 +1429,7 @@ public extension UnixInputStreamClassRef {
 ///
 
 open class UnixInputStreamClass: UnixInputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1401,7 +1458,7 @@ open class UnixInputStreamClass: UnixInputStreamClassProtocol {
         // no reference counting for GUnixInputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixInputStreamClass`.
+    /// Do-nothing destructor for `GUnixInputStreamClass`.
     deinit {
         // no reference counting for GUnixInputStreamClass, cannot unref(cast(_ptr))
     }
@@ -1469,14 +1526,33 @@ open class UnixInputStreamClass: UnixInputStreamClassProtocol {
 
 }
 
-// MARK: - no UnixInputStreamClass properties
+// MARK: no UnixInputStreamClass properties
 
-// MARK: - no signals
+// MARK: no UnixInputStreamClass signals
 
 
+// MARK: UnixInputStreamClass Record: UnixInputStreamClassProtocol extension (methods and fields)
 public extension UnixInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixInputStreamClass> { return ptr.assumingMemoryBound(to: GUnixInputStreamClass.self) }
+
+
+    var parentClass: GInputStreamClass {
+        get {
+            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -1491,7 +1567,7 @@ public extension UnixInputStreamClassProtocol {
 ///
 
 public protocol UnixInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixInputStreamPrivate` instance.
@@ -1504,7 +1580,7 @@ public protocol UnixInputStreamPrivateProtocol {
 ///
 
 public struct UnixInputStreamPrivateRef: UnixInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1557,7 +1633,7 @@ public extension UnixInputStreamPrivateRef {
 ///
 
 open class UnixInputStreamPrivate: UnixInputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1586,7 +1662,7 @@ open class UnixInputStreamPrivate: UnixInputStreamPrivateProtocol {
         // no reference counting for GUnixInputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixInputStreamPrivate`.
+    /// Do-nothing destructor for `GUnixInputStreamPrivate`.
     deinit {
         // no reference counting for GUnixInputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -1654,14 +1730,17 @@ open class UnixInputStreamPrivate: UnixInputStreamPrivateProtocol {
 
 }
 
-// MARK: - no UnixInputStreamPrivate properties
+// MARK: no UnixInputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no UnixInputStreamPrivate signals
 
 
+// MARK: UnixInputStreamPrivate Record: UnixInputStreamPrivateProtocol extension (methods and fields)
 public extension UnixInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixInputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixInputStreamPrivate> { return ptr.assumingMemoryBound(to: GUnixInputStreamPrivate.self) }
+
+
 
 }
 
@@ -1677,7 +1756,7 @@ public extension UnixInputStreamPrivateProtocol {
 /// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
 /// This corresponds roughly to a mtab entry.
 public protocol UnixMountEntryProtocol {
-    /// Untyped pointer to the underlying `GUnixMountEntry` instance.
+        /// Untyped pointer to the underlying `GUnixMountEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixMountEntry` instance.
@@ -1691,7 +1770,7 @@ public protocol UnixMountEntryProtocol {
 /// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
 /// This corresponds roughly to a mtab entry.
 public struct UnixMountEntryRef: UnixMountEntryProtocol {
-    /// Untyped pointer to the underlying `GUnixMountEntry` instance.
+        /// Untyped pointer to the underlying `GUnixMountEntry` instance.
     /// For type-safe access, use the generated, typed pointer `unix_mount_entry_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1745,7 +1824,7 @@ public extension UnixMountEntryRef {
 /// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
 /// This corresponds roughly to a mtab entry.
 open class UnixMountEntry: UnixMountEntryProtocol {
-    /// Untyped pointer to the underlying `GUnixMountEntry` instance.
+        /// Untyped pointer to the underlying `GUnixMountEntry` instance.
     /// For type-safe access, use the generated, typed pointer `unix_mount_entry_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1774,7 +1853,7 @@ open class UnixMountEntry: UnixMountEntryProtocol {
         // no reference counting for GUnixMountEntry, cannot ref(cast(unix_mount_entry_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixMountEntry`.
+    /// Do-nothing destructor for `GUnixMountEntry`.
     deinit {
         // no reference counting for GUnixMountEntry, cannot unref(cast(unix_mount_entry_ptr))
     }
@@ -1842,24 +1921,25 @@ open class UnixMountEntry: UnixMountEntryProtocol {
 
 }
 
-// MARK: - no UnixMountEntry properties
+// MARK: no UnixMountEntry properties
 
-// MARK: - no signals
+// MARK: no UnixMountEntry signals
 
 
+// MARK: UnixMountEntry Record: UnixMountEntryProtocol extension (methods and fields)
 public extension UnixMountEntryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixMountEntry` instance.
     var unix_mount_entry_ptr: UnsafeMutablePointer<GUnixMountEntry> { return ptr.assumingMemoryBound(to: GUnixMountEntry.self) }
 
     /// Compares two unix mounts.
-    func unixMountCompare(mount2: UnixMountEntryProtocol) -> CInt {
-        let rv = g_unix_mount_compare(cast(unix_mount_entry_ptr), cast(mount2.ptr))
-        return CInt(rv)
+    func unixMountCompare(mount2: UnixMountEntryProtocol) -> Int {
+        let rv: Int = cast(g_unix_mount_compare(cast(unix_mount_entry_ptr), cast(mount2.ptr)))
+        return Int(rv)
     }
 
     /// Makes a copy of `mount_entry`.
     func unixMountCopy() -> UnsafeMutablePointer<GUnixMountEntry>! {
-        let rv = g_unix_mount_copy(cast(unix_mount_entry_ptr))
+        let rv: UnsafeMutablePointer<GUnixMountEntry>! = cast(g_unix_mount_copy(cast(unix_mount_entry_ptr)))
         return cast(rv)
     }
 
@@ -1871,20 +1951,20 @@ public extension UnixMountEntryProtocol {
 
     /// Gets the device path for a unix mount.
     func unixMountGetDevicePath() -> String! {
-        let rv = g_unix_mount_get_device_path(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_get_device_path(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Gets the filesystem type for the unix mount.
     func unixMountGetFsType() -> String! {
-        let rv = g_unix_mount_get_fs_type(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_get_fs_type(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Gets the mount path for a unix mount.
     func unixMountGetMountPath() -> String! {
-        let rv = g_unix_mount_get_mount_path(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_get_mount_path(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Gets a comma-separated list of mount options for the unix mount. For example,
@@ -1893,8 +1973,8 @@ public extension UnixMountEntryProtocol {
     /// This is similar to `g_unix_mount_point_get_options()`, but it takes
     /// a `GUnixMountEntry` as an argument.
     func unixMountGetOptions() -> String! {
-        let rv = g_unix_mount_get_options(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_get_options(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Gets the root of the mount within the filesystem. This is useful e.g. for
@@ -1904,8 +1984,8 @@ public extension UnixMountEntryProtocol {
     /// "mount /dev/sda1 /mnt/foo" and "/bar" for
     /// "mount --bind /mnt/foo/bar /mnt/bar".
     func unixMountGetRootPath() -> String! {
-        let rv = g_unix_mount_get_root_path(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_get_root_path(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Guesses whether a Unix mount can be ejected.
@@ -1916,15 +1996,15 @@ public extension UnixMountEntryProtocol {
 
     /// Guesses the icon of a Unix mount.
     func unixMountGuessIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_unix_mount_guess_icon(cast(unix_mount_entry_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_guess_icon(cast(unix_mount_entry_ptr)))
         return cast(rv)
     }
 
     /// Guesses the name of a Unix mount.
     /// The result is a translated string.
     func unixMountGuessName() -> String! {
-        let rv = g_unix_mount_guess_name(cast(unix_mount_entry_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_guess_name(cast(unix_mount_entry_ptr)))
+        return cast(rv)
     }
 
     /// Guesses whether a Unix mount should be displayed in the UI.
@@ -1935,7 +2015,7 @@ public extension UnixMountEntryProtocol {
 
     /// Guesses the symbolic icon of a Unix mount.
     func unixMountGuessSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_unix_mount_guess_symbolic_icon(cast(unix_mount_entry_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_guess_symbolic_icon(cast(unix_mount_entry_ptr)))
         return cast(rv)
     }
 
@@ -1955,6 +2035,8 @@ public extension UnixMountEntryProtocol {
         let rv = g_unix_mount_is_system_internal(cast(unix_mount_entry_ptr))
         return Bool(rv != 0)
     }
+
+
 }
 
 
@@ -1968,7 +2050,7 @@ public extension UnixMountEntryProtocol {
 ///
 
 public protocol UnixMountMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
+        /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixMountMonitorClass` instance.
@@ -1981,7 +2063,7 @@ public protocol UnixMountMonitorClassProtocol {
 ///
 
 public struct UnixMountMonitorClassRef: UnixMountMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
+        /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2034,7 +2116,7 @@ public extension UnixMountMonitorClassRef {
 ///
 
 open class UnixMountMonitorClass: UnixMountMonitorClassProtocol {
-    /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
+        /// Untyped pointer to the underlying `GUnixMountMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2063,7 +2145,7 @@ open class UnixMountMonitorClass: UnixMountMonitorClassProtocol {
         // no reference counting for GUnixMountMonitorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixMountMonitorClass`.
+    /// Do-nothing destructor for `GUnixMountMonitorClass`.
     deinit {
         // no reference counting for GUnixMountMonitorClass, cannot unref(cast(_ptr))
     }
@@ -2131,14 +2213,17 @@ open class UnixMountMonitorClass: UnixMountMonitorClassProtocol {
 
 }
 
-// MARK: - no UnixMountMonitorClass properties
+// MARK: no UnixMountMonitorClass properties
 
-// MARK: - no signals
+// MARK: no UnixMountMonitorClass signals
 
 
+// MARK: UnixMountMonitorClass Record: UnixMountMonitorClassProtocol extension (methods and fields)
 public extension UnixMountMonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixMountMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixMountMonitorClass> { return ptr.assumingMemoryBound(to: GUnixMountMonitorClass.self) }
+
+
 
 }
 
@@ -2154,7 +2239,7 @@ public extension UnixMountMonitorClassProtocol {
 /// Defines a Unix mount point (e.g. <filename>/dev</filename>).
 /// This corresponds roughly to a fstab entry.
 public protocol UnixMountPointProtocol {
-    /// Untyped pointer to the underlying `GUnixMountPoint` instance.
+        /// Untyped pointer to the underlying `GUnixMountPoint` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixMountPoint` instance.
@@ -2168,7 +2253,7 @@ public protocol UnixMountPointProtocol {
 /// Defines a Unix mount point (e.g. <filename>/dev</filename>).
 /// This corresponds roughly to a fstab entry.
 public struct UnixMountPointRef: UnixMountPointProtocol {
-    /// Untyped pointer to the underlying `GUnixMountPoint` instance.
+        /// Untyped pointer to the underlying `GUnixMountPoint` instance.
     /// For type-safe access, use the generated, typed pointer `unix_mount_point_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2222,7 +2307,7 @@ public extension UnixMountPointRef {
 /// Defines a Unix mount point (e.g. <filename>/dev</filename>).
 /// This corresponds roughly to a fstab entry.
 open class UnixMountPoint: UnixMountPointProtocol {
-    /// Untyped pointer to the underlying `GUnixMountPoint` instance.
+        /// Untyped pointer to the underlying `GUnixMountPoint` instance.
     /// For type-safe access, use the generated, typed pointer `unix_mount_point_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2251,7 +2336,7 @@ open class UnixMountPoint: UnixMountPointProtocol {
         // no reference counting for GUnixMountPoint, cannot ref(cast(unix_mount_point_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixMountPoint`.
+    /// Do-nothing destructor for `GUnixMountPoint`.
     deinit {
         // no reference counting for GUnixMountPoint, cannot unref(cast(unix_mount_point_ptr))
     }
@@ -2319,24 +2404,25 @@ open class UnixMountPoint: UnixMountPointProtocol {
 
 }
 
-// MARK: - no UnixMountPoint properties
+// MARK: no UnixMountPoint properties
 
-// MARK: - no signals
+// MARK: no UnixMountPoint signals
 
 
+// MARK: UnixMountPoint Record: UnixMountPointProtocol extension (methods and fields)
 public extension UnixMountPointProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixMountPoint` instance.
     var unix_mount_point_ptr: UnsafeMutablePointer<GUnixMountPoint> { return ptr.assumingMemoryBound(to: GUnixMountPoint.self) }
 
     /// Compares two unix mount points.
-    func compare(mount2: UnixMountPointProtocol) -> CInt {
-        let rv = g_unix_mount_point_compare(cast(unix_mount_point_ptr), cast(mount2.ptr))
-        return CInt(rv)
+    func compare(mount2: UnixMountPointProtocol) -> Int {
+        let rv: Int = cast(g_unix_mount_point_compare(cast(unix_mount_point_ptr), cast(mount2.ptr)))
+        return Int(rv)
     }
 
     /// Makes a copy of `mount_point`.
     func copy() -> UnsafeMutablePointer<GUnixMountPoint>! {
-        let rv = g_unix_mount_point_copy(cast(unix_mount_point_ptr))
+        let rv: UnsafeMutablePointer<GUnixMountPoint>! = cast(g_unix_mount_point_copy(cast(unix_mount_point_ptr)))
         return cast(rv)
     }
 
@@ -2348,26 +2434,26 @@ public extension UnixMountPointProtocol {
 
     /// Gets the device path for a unix mount point.
     func getDevicePath() -> String! {
-        let rv = g_unix_mount_point_get_device_path(cast(unix_mount_point_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_point_get_device_path(cast(unix_mount_point_ptr)))
+        return cast(rv)
     }
 
     /// Gets the file system type for the mount point.
     func getFsType() -> String! {
-        let rv = g_unix_mount_point_get_fs_type(cast(unix_mount_point_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_point_get_fs_type(cast(unix_mount_point_ptr)))
+        return cast(rv)
     }
 
     /// Gets the mount path for a unix mount point.
     func getMountPath() -> String! {
-        let rv = g_unix_mount_point_get_mount_path(cast(unix_mount_point_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_point_get_mount_path(cast(unix_mount_point_ptr)))
+        return cast(rv)
     }
 
     /// Gets the options for the mount point.
     func getOptions() -> String! {
-        let rv = g_unix_mount_point_get_options(cast(unix_mount_point_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_point_get_options(cast(unix_mount_point_ptr)))
+        return cast(rv)
     }
 
     /// Guesses whether a Unix mount point can be ejected.
@@ -2378,28 +2464,28 @@ public extension UnixMountPointProtocol {
 
     /// Guesses the icon of a Unix mount point.
     func guessIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_unix_mount_point_guess_icon(cast(unix_mount_point_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_point_guess_icon(cast(unix_mount_point_ptr)))
         return cast(rv)
     }
 
     /// Guesses the name of a Unix mount point.
     /// The result is a translated string.
     func guessName() -> String! {
-        let rv = g_unix_mount_point_guess_name(cast(unix_mount_point_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_unix_mount_point_guess_name(cast(unix_mount_point_ptr)))
+        return cast(rv)
     }
 
     /// Guesses the symbolic icon of a Unix mount point.
     func guessSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_unix_mount_point_guess_symbolic_icon(cast(unix_mount_point_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_unix_mount_point_guess_symbolic_icon(cast(unix_mount_point_ptr)))
         return cast(rv)
     }
     /// Gets the device path for a unix mount point.
     var devicePath: String! {
         /// Gets the device path for a unix mount point.
         get {
-            let rv = g_unix_mount_point_get_device_path(cast(unix_mount_point_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_unix_mount_point_get_device_path(cast(unix_mount_point_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2407,8 +2493,8 @@ public extension UnixMountPointProtocol {
     var fsType: String! {
         /// Gets the file system type for the mount point.
         get {
-            let rv = g_unix_mount_point_get_fs_type(cast(unix_mount_point_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_unix_mount_point_get_fs_type(cast(unix_mount_point_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2443,8 +2529,8 @@ public extension UnixMountPointProtocol {
     var mountPath: String! {
         /// Gets the mount path for a unix mount point.
         get {
-            let rv = g_unix_mount_point_get_mount_path(cast(unix_mount_point_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_unix_mount_point_get_mount_path(cast(unix_mount_point_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2452,10 +2538,12 @@ public extension UnixMountPointProtocol {
     var options: String! {
         /// Gets the options for the mount point.
         get {
-            let rv = g_unix_mount_point_get_options(cast(unix_mount_point_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_unix_mount_point_get_options(cast(unix_mount_point_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -2469,7 +2557,7 @@ public extension UnixMountPointProtocol {
 ///
 
 public protocol UnixOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixOutputStreamClass` instance.
@@ -2482,7 +2570,7 @@ public protocol UnixOutputStreamClassProtocol {
 ///
 
 public struct UnixOutputStreamClassRef: UnixOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2535,7 +2623,7 @@ public extension UnixOutputStreamClassRef {
 ///
 
 open class UnixOutputStreamClass: UnixOutputStreamClassProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2564,7 +2652,7 @@ open class UnixOutputStreamClass: UnixOutputStreamClassProtocol {
         // no reference counting for GUnixOutputStreamClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixOutputStreamClass`.
+    /// Do-nothing destructor for `GUnixOutputStreamClass`.
     deinit {
         // no reference counting for GUnixOutputStreamClass, cannot unref(cast(_ptr))
     }
@@ -2632,14 +2720,33 @@ open class UnixOutputStreamClass: UnixOutputStreamClassProtocol {
 
 }
 
-// MARK: - no UnixOutputStreamClass properties
+// MARK: no UnixOutputStreamClass properties
 
-// MARK: - no signals
+// MARK: no UnixOutputStreamClass signals
 
 
+// MARK: UnixOutputStreamClass Record: UnixOutputStreamClassProtocol extension (methods and fields)
 public extension UnixOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixOutputStreamClass> { return ptr.assumingMemoryBound(to: GUnixOutputStreamClass.self) }
+
+
+    var parentClass: GOutputStreamClass {
+        get {
+            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
 
 }
 
@@ -2654,7 +2761,7 @@ public extension UnixOutputStreamClassProtocol {
 ///
 
 public protocol UnixOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixOutputStreamPrivate` instance.
@@ -2667,7 +2774,7 @@ public protocol UnixOutputStreamPrivateProtocol {
 ///
 
 public struct UnixOutputStreamPrivateRef: UnixOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2720,7 +2827,7 @@ public extension UnixOutputStreamPrivateRef {
 ///
 
 open class UnixOutputStreamPrivate: UnixOutputStreamPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2749,7 +2856,7 @@ open class UnixOutputStreamPrivate: UnixOutputStreamPrivateProtocol {
         // no reference counting for GUnixOutputStreamPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixOutputStreamPrivate`.
+    /// Do-nothing destructor for `GUnixOutputStreamPrivate`.
     deinit {
         // no reference counting for GUnixOutputStreamPrivate, cannot unref(cast(_ptr))
     }
@@ -2817,14 +2924,17 @@ open class UnixOutputStreamPrivate: UnixOutputStreamPrivateProtocol {
 
 }
 
-// MARK: - no UnixOutputStreamPrivate properties
+// MARK: no UnixOutputStreamPrivate properties
 
-// MARK: - no signals
+// MARK: no UnixOutputStreamPrivate signals
 
 
+// MARK: UnixOutputStreamPrivate Record: UnixOutputStreamPrivateProtocol extension (methods and fields)
 public extension UnixOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixOutputStreamPrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GUnixOutputStreamPrivate.self) }
+
+
 
 }
 
@@ -2839,7 +2949,7 @@ public extension UnixOutputStreamPrivateProtocol {
 ///
 
 public protocol UnixSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixSocketAddressClass` instance.
@@ -2852,7 +2962,7 @@ public protocol UnixSocketAddressClassProtocol {
 ///
 
 public struct UnixSocketAddressClassRef: UnixSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2905,7 +3015,7 @@ public extension UnixSocketAddressClassRef {
 ///
 
 open class UnixSocketAddressClass: UnixSocketAddressClassProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2934,7 +3044,7 @@ open class UnixSocketAddressClass: UnixSocketAddressClassProtocol {
         // no reference counting for GUnixSocketAddressClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixSocketAddressClass`.
+    /// Do-nothing destructor for `GUnixSocketAddressClass`.
     deinit {
         // no reference counting for GUnixSocketAddressClass, cannot unref(cast(_ptr))
     }
@@ -3002,14 +3112,23 @@ open class UnixSocketAddressClass: UnixSocketAddressClassProtocol {
 
 }
 
-// MARK: - no UnixSocketAddressClass properties
+// MARK: no UnixSocketAddressClass properties
 
-// MARK: - no signals
+// MARK: no UnixSocketAddressClass signals
 
 
+// MARK: UnixSocketAddressClass Record: UnixSocketAddressClassProtocol extension (methods and fields)
 public extension UnixSocketAddressClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixSocketAddressClass> { return ptr.assumingMemoryBound(to: GUnixSocketAddressClass.self) }
+
+
+    var parentClass: GSocketAddressClass {
+        get {
+            let rv: GSocketAddressClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
 
 }
 
@@ -3024,7 +3143,7 @@ public extension UnixSocketAddressClassProtocol {
 ///
 
 public protocol UnixSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GUnixSocketAddressPrivate` instance.
@@ -3037,7 +3156,7 @@ public protocol UnixSocketAddressPrivateProtocol {
 ///
 
 public struct UnixSocketAddressPrivateRef: UnixSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3090,7 +3209,7 @@ public extension UnixSocketAddressPrivateRef {
 ///
 
 open class UnixSocketAddressPrivate: UnixSocketAddressPrivateProtocol {
-    /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
+        /// Untyped pointer to the underlying `GUnixSocketAddressPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3119,7 +3238,7 @@ open class UnixSocketAddressPrivate: UnixSocketAddressPrivateProtocol {
         // no reference counting for GUnixSocketAddressPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GUnixSocketAddressPrivate`.
+    /// Do-nothing destructor for `GUnixSocketAddressPrivate`.
     deinit {
         // no reference counting for GUnixSocketAddressPrivate, cannot unref(cast(_ptr))
     }
@@ -3187,14 +3306,17 @@ open class UnixSocketAddressPrivate: UnixSocketAddressPrivateProtocol {
 
 }
 
-// MARK: - no UnixSocketAddressPrivate properties
+// MARK: no UnixSocketAddressPrivate properties
 
-// MARK: - no signals
+// MARK: no UnixSocketAddressPrivate signals
 
 
+// MARK: UnixSocketAddressPrivate Record: UnixSocketAddressPrivateProtocol extension (methods and fields)
 public extension UnixSocketAddressPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixSocketAddressPrivate` instance.
     var _ptr: UnsafeMutablePointer<GUnixSocketAddressPrivate> { return ptr.assumingMemoryBound(to: GUnixSocketAddressPrivate.self) }
+
+
 
 }
 
@@ -3209,7 +3331,7 @@ public extension UnixSocketAddressPrivateProtocol {
 ///
 
 public protocol VfsClassProtocol {
-    /// Untyped pointer to the underlying `GVfsClass` instance.
+        /// Untyped pointer to the underlying `GVfsClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVfsClass` instance.
@@ -3222,7 +3344,7 @@ public protocol VfsClassProtocol {
 ///
 
 public struct VfsClassRef: VfsClassProtocol {
-    /// Untyped pointer to the underlying `GVfsClass` instance.
+        /// Untyped pointer to the underlying `GVfsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3275,7 +3397,7 @@ public extension VfsClassRef {
 ///
 
 open class VfsClass: VfsClassProtocol {
-    /// Untyped pointer to the underlying `GVfsClass` instance.
+        /// Untyped pointer to the underlying `GVfsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3304,7 +3426,7 @@ open class VfsClass: VfsClassProtocol {
         // no reference counting for GVfsClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GVfsClass`.
+    /// Do-nothing destructor for `GVfsClass`.
     deinit {
         // no reference counting for GVfsClass, cannot unref(cast(_ptr))
     }
@@ -3372,14 +3494,57 @@ open class VfsClass: VfsClassProtocol {
 
 }
 
-// MARK: - no VfsClass properties
+// MARK: no VfsClass properties
 
-// MARK: - no signals
+// MARK: no VfsClass signals
 
 
+// MARK: VfsClass Record: VfsClassProtocol extension (methods and fields)
 public extension VfsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVfsClass` instance.
     var _ptr: UnsafeMutablePointer<GVfsClass> { return ptr.assumingMemoryBound(to: GVfsClass.self) }
+
+
+    var parentClass: GObjectClass {
+        get {
+            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            return rv
+        }
+    }
+
+    // var isActive is unavailable because is_active is void
+
+    // var getFileForPath is unavailable because get_file_for_path is void
+
+    // var getFileForURI is unavailable because get_file_for_uri is void
+
+    // var getSupportedURISchemes is unavailable because get_supported_uri_schemes is void
+
+    // var parseName is unavailable because parse_name is void
+
+    // var localFileAddInfo is unavailable because local_file_add_info is void
+
+    // var addWritableNamespaces is unavailable because add_writable_namespaces is void
+
+    // var localFileSetAttributes is unavailable because local_file_set_attributes is void
+
+    // var localFileRemoved is unavailable because local_file_removed is void
+
+    // var localFileMoved is unavailable because local_file_moved is void
+
+    // var deserializeIcon is unavailable because deserialize_icon is void
+
+    // var GReserved1 is unavailable because _g_reserved1 is void
+
+    // var GReserved2 is unavailable because _g_reserved2 is void
+
+    // var GReserved3 is unavailable because _g_reserved3 is void
+
+    // var GReserved4 is unavailable because _g_reserved4 is void
+
+    // var GReserved5 is unavailable because _g_reserved5 is void
+
+    // var GReserved6 is unavailable because _g_reserved6 is void
 
 }
 

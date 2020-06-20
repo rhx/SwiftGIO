@@ -29,7 +29,7 @@ import GLibObject
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 public protocol MountProtocol {
-    /// Untyped pointer to the underlying `GMount` instance.
+        /// Untyped pointer to the underlying `GMount` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMount` instance.
@@ -60,7 +60,7 @@ public protocol MountProtocol {
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 public struct MountRef: MountProtocol {
-    /// Untyped pointer to the underlying `GMount` instance.
+        /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -131,7 +131,7 @@ public extension MountRef {
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
 open class Mount: MountProtocol {
-    /// Untyped pointer to the underlying `GMount` instance.
+        /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -160,7 +160,7 @@ open class Mount: MountProtocol {
         // no reference counting for GMount, cannot ref(cast(mount_ptr))
     }
 
-    /// Do-nothing destructor for`GMount`.
+    /// Do-nothing destructor for `GMount`.
     deinit {
         // no reference counting for GMount, cannot unref(cast(mount_ptr))
     }
@@ -228,7 +228,7 @@ open class Mount: MountProtocol {
 
 }
 
-// MARK: - no Mount properties
+// MARK: no Mount properties
 
 public enum MountSignalName: String, SignalNameProtocol {
     /// Emitted when the mount has been changed.
@@ -253,8 +253,8 @@ public extension MountProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MountSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MountSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(mount_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -275,6 +275,7 @@ public extension MountProtocol {
     }
 }
 
+// MARK: Mount Interface: MountProtocol extension (methods and fields)
 public extension MountProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMount` instance.
     var mount_ptr: UnsafeMutablePointer<GMount> { return ptr.assumingMemoryBound(to: GMount.self) }
@@ -298,7 +299,7 @@ public extension MountProtocol {
     /// **eject is deprecated:**
     /// Use g_mount_eject_with_operation() instead.
     @available(*, deprecated) func eject(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_eject(cast(mount_ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+        g_mount_eject(cast(mount_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -308,11 +309,9 @@ public extension MountProtocol {
     /// **eject_finish is deprecated:**
     /// Use g_mount_eject_with_operation_finish() instead.
     @available(*, deprecated) func ejectFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_mount_eject_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -320,18 +319,16 @@ public extension MountProtocol {
     /// finished by calling `g_mount_eject_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_eject_with_operation(cast(mount_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_mount_eject_with_operation(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes ejecting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
     func ejectWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_mount_eject_with_operation_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -339,7 +336,7 @@ public extension MountProtocol {
     /// `mount` is a path that reflects the main entry point for the user (e.g.
     /// the home directory, or the root of the volume).
     func getDefaultLocation() -> UnsafeMutablePointer<GFile>! {
-        let rv = g_mount_get_default_location(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_default_location(cast(mount_ptr)))
         return cast(rv)
     }
 
@@ -348,37 +345,37 @@ public extension MountProtocol {
     /// This is a convenience method for getting the `GVolume` and then
     /// using that object to get the `GDrive`.
     func getDrive() -> UnsafeMutablePointer<GDrive>! {
-        let rv = g_mount_get_drive(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GDrive>! = cast(g_mount_get_drive(cast(mount_ptr)))
         return cast(rv)
     }
 
     /// Gets the icon for `mount`.
     func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_mount_get_icon(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_icon(cast(mount_ptr)))
         return cast(rv)
     }
 
     /// Gets the name of `mount`.
     func getName() -> String! {
-        let rv = g_mount_get_name(cast(mount_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_get_name(cast(mount_ptr)))
+        return cast(rv)
     }
 
     /// Gets the root directory on `mount`.
     func getRoot() -> UnsafeMutablePointer<GFile>! {
-        let rv = g_mount_get_root(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_root(cast(mount_ptr)))
         return cast(rv)
     }
 
     /// Gets the sort key for `mount`, if any.
     func getSortKey() -> String! {
-        let rv = g_mount_get_sort_key(cast(mount_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_get_sort_key(cast(mount_ptr)))
+        return cast(rv)
     }
 
     /// Gets the symbolic icon for `mount`.
     func getSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv = g_mount_get_symbolic_icon(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_symbolic_icon(cast(mount_ptr)))
         return cast(rv)
     }
 
@@ -387,13 +384,13 @@ public extension MountProtocol {
     /// considered an opaque string. Returns `nil` if there is no UUID
     /// available.
     func getUuid() -> String! {
-        let rv = g_mount_get_uuid(cast(mount_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mount_get_uuid(cast(mount_ptr)))
+        return cast(rv)
     }
 
     /// Gets the volume for the `mount`.
     func getVolume() -> UnsafeMutablePointer<GVolume>! {
-        let rv = g_mount_get_volume(cast(mount_ptr))
+        let rv: UnsafeMutablePointer<GVolume>! = cast(g_mount_get_volume(cast(mount_ptr)))
         return cast(rv)
     }
 
@@ -419,11 +416,9 @@ public extension MountProtocol {
     /// `G_IO_ERROR_NOT_SUPPORTED` if the mount does not support content
     /// guessing.
     func guessContentTypeFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mount_guess_content_type_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_mount_guess_content_type_finish(cast(mount_ptr), cast(result.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -437,11 +432,9 @@ public extension MountProtocol {
     /// This is a synchronous operation and as such may block doing IO;
     /// see `g_mount_guess_content_type()` for the asynchronous version.
     func guessContentTypeSync(forceRescan force_rescan: Bool, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mount_guess_content_type_sync(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_mount_guess_content_type_sync(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -455,18 +448,16 @@ public extension MountProtocol {
     /// and then remounting not all backends might need to actually be
     /// unmounted.
     func remount(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_remount(cast(mount_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_mount_remount(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes remounting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
     func remountFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_mount_remount_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -486,7 +477,7 @@ public extension MountProtocol {
     /// **unmount is deprecated:**
     /// Use g_mount_unmount_with_operation() instead.
     @available(*, deprecated) func unmount(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_unmount(cast(mount_ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+        g_mount_unmount(cast(mount_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
@@ -496,11 +487,9 @@ public extension MountProtocol {
     /// **unmount_finish is deprecated:**
     /// Use g_mount_unmount_with_operation_finish() instead.
     @available(*, deprecated) func unmountFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_mount_unmount_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -508,18 +497,16 @@ public extension MountProtocol {
     /// finished by calling `g_mount_unmount_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
     func unmountWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_unmount_with_operation(cast(mount_ptr), flags, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+        g_mount_unmount_with_operation(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
     
     }
 
     /// Finishes unmounting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
     func unmountWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_mount_unmount_with_operation_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -539,7 +526,7 @@ public extension MountProtocol {
         /// `mount` is a path that reflects the main entry point for the user (e.g.
         /// the home directory, or the root of the volume).
         get {
-            let rv = g_mount_get_default_location(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_default_location(cast(mount_ptr)))
             return cast(rv)
         }
     }
@@ -554,7 +541,7 @@ public extension MountProtocol {
         /// This is a convenience method for getting the `GVolume` and then
         /// using that object to get the `GDrive`.
         get {
-            let rv = g_mount_get_drive(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GDrive>! = cast(g_mount_get_drive(cast(mount_ptr)))
             return cast(rv)
         }
     }
@@ -563,7 +550,7 @@ public extension MountProtocol {
     var icon: UnsafeMutablePointer<GIcon>! {
         /// Gets the icon for `mount`.
         get {
-            let rv = g_mount_get_icon(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_icon(cast(mount_ptr)))
             return cast(rv)
         }
     }
@@ -625,8 +612,8 @@ public extension MountProtocol {
     var name: String! {
         /// Gets the name of `mount`.
         get {
-            let rv = g_mount_get_name(cast(mount_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_get_name(cast(mount_ptr)))
+            return cast(rv)
         }
     }
 
@@ -634,7 +621,7 @@ public extension MountProtocol {
     var root: UnsafeMutablePointer<GFile>! {
         /// Gets the root directory on `mount`.
         get {
-            let rv = g_mount_get_root(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_root(cast(mount_ptr)))
             return cast(rv)
         }
     }
@@ -643,8 +630,8 @@ public extension MountProtocol {
     var sortKey: String! {
         /// Gets the sort key for `mount`, if any.
         get {
-            let rv = g_mount_get_sort_key(cast(mount_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_get_sort_key(cast(mount_ptr)))
+            return cast(rv)
         }
     }
 
@@ -652,7 +639,7 @@ public extension MountProtocol {
     var symbolicIcon: UnsafeMutablePointer<GIcon>! {
         /// Gets the symbolic icon for `mount`.
         get {
-            let rv = g_mount_get_symbolic_icon(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_symbolic_icon(cast(mount_ptr)))
             return cast(rv)
         }
     }
@@ -667,8 +654,8 @@ public extension MountProtocol {
         /// considered an opaque string. Returns `nil` if there is no UUID
         /// available.
         get {
-            let rv = g_mount_get_uuid(cast(mount_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mount_get_uuid(cast(mount_ptr)))
+            return cast(rv)
         }
     }
 
@@ -676,10 +663,12 @@ public extension MountProtocol {
     var volume: UnsafeMutablePointer<GVolume>! {
         /// Gets the volume for the `mount`.
         get {
-            let rv = g_mount_get_volume(cast(mount_ptr))
+            let rv: UnsafeMutablePointer<GVolume>! = cast(g_mount_get_volume(cast(mount_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -698,7 +687,7 @@ public extension MountProtocol {
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
 public protocol NetworkMonitorProtocol: InitableProtocol {
-    /// Untyped pointer to the underlying `GNetworkMonitor` instance.
+        /// Untyped pointer to the underlying `GNetworkMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GNetworkMonitor` instance.
@@ -716,7 +705,7 @@ public protocol NetworkMonitorProtocol: InitableProtocol {
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
 public struct NetworkMonitorRef: NetworkMonitorProtocol {
-    /// Untyped pointer to the underlying `GNetworkMonitor` instance.
+        /// Untyped pointer to the underlying `GNetworkMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `network_monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -763,7 +752,7 @@ public extension NetworkMonitorRef {
 
         /// Gets the default `GNetworkMonitor` for the system.
     static func getDefault() -> NetworkMonitorRef! {
-        let rv = g_network_monitor_get_default()
+        let rv: UnsafeMutablePointer<GNetworkMonitor>! = cast(g_network_monitor_get_default())
         return rv.map { NetworkMonitorRef(cast($0)) }
     }
 }
@@ -779,7 +768,7 @@ public extension NetworkMonitorRef {
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
 open class NetworkMonitor: Initable, NetworkMonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkMonitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -860,7 +849,7 @@ open class NetworkMonitor: Initable, NetworkMonitorProtocol {
 
     /// Gets the default `GNetworkMonitor` for the system.
     public static func getDefault() -> NetworkMonitor! {
-        let rv = g_network_monitor_get_default()
+        let rv: UnsafeMutablePointer<GNetworkMonitor>! = cast(g_network_monitor_get_default())
         return rv.map { NetworkMonitor(cast($0)) }
     }
 
@@ -918,8 +907,8 @@ public extension NetworkMonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -942,6 +931,23 @@ public extension NetworkMonitorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a NetworkMonitor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: NetworkMonitorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a NetworkMonitor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: NetworkMonitorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -996,8 +1002,8 @@ public extension NetworkMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NetworkMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: NetworkMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(network_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1018,6 +1024,7 @@ public extension NetworkMonitorProtocol {
     }
 }
 
+// MARK: NetworkMonitor Interface: NetworkMonitorProtocol extension (methods and fields)
 public extension NetworkMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkMonitor` instance.
     var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor> { return ptr.assumingMemoryBound(to: GNetworkMonitor.self) }
@@ -1040,11 +1047,9 @@ public extension NetworkMonitorProtocol {
     /// trying to do multicast DNS on the local network), so if you do not
     /// want to block, you should use `g_network_monitor_can_reach_async()`.
     func canReach(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_network_monitor_can_reach(cast(network_monitor_ptr), cast(connectable.ptr), cast(cancellable.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1065,11 +1070,9 @@ public extension NetworkMonitorProtocol {
     /// Finishes an async network connectivity test.
     /// See `g_network_monitor_can_reach_async()`.
     func canReachFinish(result: AsyncResultProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_network_monitor_can_reach_finish(cast(network_monitor_ptr), cast(result.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -1094,7 +1097,7 @@ public extension NetworkMonitorProtocol {
     /// back to their "offline" behavior if the connection attempt fails.
     func getConnectivity() -> GNetworkConnectivity {
         let rv = g_network_monitor_get_connectivity(cast(network_monitor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Checks if the network is available. "Available" here means that the
@@ -1137,7 +1140,7 @@ public extension NetworkMonitorProtocol {
         /// back to their "offline" behavior if the connection attempt fails.
         get {
             let rv = g_network_monitor_get_connectivity(cast(network_monitor_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1166,6 +1169,8 @@ public extension NetworkMonitorProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 
