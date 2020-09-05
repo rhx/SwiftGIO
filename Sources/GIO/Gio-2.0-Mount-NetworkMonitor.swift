@@ -30,10 +30,11 @@ import GLibObject
 /// is called, then it will be filled with any error information.
 public protocol MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMount` instance.
-    var mount_ptr: UnsafeMutablePointer<GMount> { get }
+    var mount_ptr: UnsafeMutablePointer<GMount>! { get }
+
 }
 
 /// The `MountRef` type acts as a lightweight Swift reference to an underlying `GMount` instance.
@@ -62,46 +63,76 @@ public protocol MountProtocol {
 public struct MountRef: MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MountRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMount>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMount>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMount>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMount>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMount>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MountProtocol`
-    init<T: MountProtocol>(_ other: T) {
+    @inlinable init<T: MountProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -133,95 +164,141 @@ public extension MountRef {
 open class Mount: MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Mount` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMount>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GMount>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Mount` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMount>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Mount` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Mount` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Mount` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMount>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Mount` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMount>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GMount` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Mount` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMount>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMount>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
     /// Reference intialiser for a related type that implements `MountProtocol`
     /// `GMount` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `MountProtocol`
-    public init<T: MountProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.mount_ptr)
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+    @inlinable public init<T: MountProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
     /// Do-nothing destructor for `GMount`.
     deinit {
-        // no reference counting for GMount, cannot unref(cast(mount_ptr))
+        // no reference counting for GMount, cannot unref(mount_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GMount, cannot ref(cast(mount_ptr))
+        // no reference counting for GMount, cannot ref(mount_ptr)
     }
 
 
@@ -253,11 +330,11 @@ public extension MountProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MountSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MountSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(mount_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -278,18 +355,18 @@ public extension MountProtocol {
 // MARK: Mount Interface: MountProtocol extension (methods and fields)
 public extension MountProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMount` instance.
-    var mount_ptr: UnsafeMutablePointer<GMount> { return ptr.assumingMemoryBound(to: GMount.self) }
+    @inlinable var mount_ptr: UnsafeMutablePointer<GMount>! { return ptr?.assumingMemoryBound(to: GMount.self) }
 
     /// Checks if `mount` can be ejected.
-    func canEject() -> Bool {
-        let rv = g_mount_can_eject(cast(mount_ptr))
-        return Bool(rv != 0)
+    @inlinable func canEject() -> Bool {
+        let rv = ((g_mount_can_eject(mount_ptr)) != 0)
+        return rv
     }
 
     /// Checks if `mount` can be unmounted.
-    func canUnmount() -> Bool {
-        let rv = g_mount_can_unmount(cast(mount_ptr))
-        return Bool(rv != 0)
+    @inlinable func canUnmount() -> Bool {
+        let rv = ((g_mount_can_unmount(mount_ptr)) != 0)
+        return rv
     }
 
     /// Ejects a mount. This is an asynchronous operation, and is
@@ -298,8 +375,8 @@ public extension MountProtocol {
     ///
     /// **eject is deprecated:**
     /// Use g_mount_eject_with_operation() instead.
-    @available(*, deprecated) func eject(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_eject(cast(mount_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_eject(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -308,90 +385,90 @@ public extension MountProtocol {
     ///
     /// **eject_finish is deprecated:**
     /// Use g_mount_eject_with_operation_finish() instead.
-    @available(*, deprecated) func ejectFinish(result: AsyncResultProtocol) throws -> Bool {
+    @available(*, deprecated) @inlinable func ejectFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_eject_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_mount_eject_finish(mount_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Ejects a mount. This is an asynchronous operation, and is
     /// finished by calling `g_mount_eject_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
-    func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_eject_with_operation(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_eject_with_operation(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes ejecting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
-    func ejectWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func ejectWithOperationFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_eject_with_operation_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_mount_eject_with_operation_finish(mount_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the default location of `mount`. The default location of the given
     /// `mount` is a path that reflects the main entry point for the user (e.g.
     /// the home directory, or the root of the volume).
-    func getDefaultLocation() -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_default_location(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getDefaultLocation() -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_mount_get_default_location(mount_ptr)))
+        return rv
     }
 
     /// Gets the drive for the `mount`.
     /// 
     /// This is a convenience method for getting the `GVolume` and then
     /// using that object to get the `GDrive`.
-    func getDrive() -> UnsafeMutablePointer<GDrive>! {
-        let rv: UnsafeMutablePointer<GDrive>! = cast(g_mount_get_drive(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getDrive() -> DriveRef! {
+        let rv = DriveRef(gconstpointer: gconstpointer(g_mount_get_drive(mount_ptr)))
+        return rv
     }
 
     /// Gets the icon for `mount`.
-    func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_icon(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_mount_get_icon(mount_ptr)))
+        return rv
     }
 
     /// Gets the name of `mount`.
-    func getName() -> String! {
-        let rv: String! = cast(g_mount_get_name(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_mount_get_name(mount_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the root directory on `mount`.
-    func getRoot() -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_root(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getRoot() -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_mount_get_root(mount_ptr)))
+        return rv
     }
 
     /// Gets the sort key for `mount`, if any.
-    func getSortKey() -> String! {
-        let rv: String! = cast(g_mount_get_sort_key(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getSortKey() -> String! {
+        let rv = g_mount_get_sort_key(mount_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the symbolic icon for `mount`.
-    func getSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_symbolic_icon(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getSymbolicIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_mount_get_symbolic_icon(mount_ptr)))
+        return rv
     }
 
     /// Gets the UUID for the `mount`. The reference is typically based on
     /// the file system UUID for the mount in question and should be
     /// considered an opaque string. Returns `nil` if there is no UUID
     /// available.
-    func getUuid() -> String! {
-        let rv: String! = cast(g_mount_get_uuid(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getUuid() -> String! {
+        let rv = g_mount_get_uuid(mount_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the volume for the `mount`.
-    func getVolume() -> UnsafeMutablePointer<GVolume>! {
-        let rv: UnsafeMutablePointer<GVolume>! = cast(g_mount_get_volume(cast(mount_ptr)))
-        return cast(rv)
+    @inlinable func getVolume() -> VolumeRef! {
+        let rv = VolumeRef(gconstpointer: gconstpointer(g_mount_get_volume(mount_ptr)))
+        return rv
     }
 
     /// Tries to guess the type of content stored on `mount`. Returns one or
@@ -405,8 +482,8 @@ public extension MountProtocol {
     /// `g_mount_guess_content_type_sync()` for the synchronous version), and
     /// is finished by calling `g_mount_guess_content_type_finish()` with the
     /// `mount` and `GAsyncResult` data returned in the `callback`.
-    func guessContentType(forceRescan force_rescan: Bool, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_guess_content_type(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func guessContentType<CancellableT: CancellableProtocol>(forceRescan force_rescan: Bool, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_guess_content_type(mount_ptr, gboolean((force_rescan) ? 1 : 0), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -415,11 +492,11 @@ public extension MountProtocol {
     /// `false` will be returned. In particular, you may get an
     /// `G_IO_ERROR_NOT_SUPPORTED` if the mount does not support content
     /// guessing.
-    func guessContentTypeFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func guessContentTypeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_mount_guess_content_type_finish(cast(mount_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_mount_guess_content_type_finish(mount_ptr, result.async_result_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Tries to guess the type of content stored on `mount`. Returns one or
@@ -431,11 +508,11 @@ public extension MountProtocol {
     /// 
     /// This is a synchronous operation and as such may block doing IO;
     /// see `g_mount_guess_content_type()` for the asynchronous version.
-    func guessContentTypeSync(forceRescan force_rescan: Bool, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func guessContentTypeSync<CancellableT: CancellableProtocol>(forceRescan force_rescan: Bool, cancellable: CancellableT? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_mount_guess_content_type_sync(cast(mount_ptr), gboolean(force_rescan ? 1 : 0), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_mount_guess_content_type_sync(mount_ptr, gboolean((force_rescan) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Remounts a mount. This is an asynchronous operation, and is
@@ -447,26 +524,26 @@ public extension MountProtocol {
     /// take affect. While this is semantically equivalent with unmounting
     /// and then remounting not all backends might need to actually be
     /// unmounted.
-    func remount(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_remount(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func remount<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_remount(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes remounting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
-    func remountFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func remountFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_remount_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_mount_remount_finish(mount_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Increments the shadow count on `mount`. Usually used by
     /// `GVolumeMonitor` implementations when creating a shadow mount for
     /// `mount`, see `g_mount_is_shadowed()` for more information. The caller
     /// will need to emit the `GMount::changed` signal on `mount` manually.
-    func shadow() {
-        g_mount_shadow(cast(mount_ptr))
+    @inlinable func shadow() {
+        g_mount_shadow(mount_ptr)
     
     }
 
@@ -476,8 +553,8 @@ public extension MountProtocol {
     ///
     /// **unmount is deprecated:**
     /// Use g_mount_unmount_with_operation() instead.
-    @available(*, deprecated) func unmount(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_unmount(cast(mount_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @available(*, deprecated) @inlinable func unmount<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_unmount(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -486,48 +563,48 @@ public extension MountProtocol {
     ///
     /// **unmount_finish is deprecated:**
     /// Use g_mount_unmount_with_operation_finish() instead.
-    @available(*, deprecated) func unmountFinish(result: AsyncResultProtocol) throws -> Bool {
+    @available(*, deprecated) @inlinable func unmountFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_unmount_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_mount_unmount_finish(mount_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Unmounts a mount. This is an asynchronous operation, and is
     /// finished by calling `g_mount_unmount_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
-    func unmountWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_mount_unmount_with_operation(cast(mount_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func unmountWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_mount_unmount_with_operation(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes unmounting a mount. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
-    func unmountWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func unmountWithOperationFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_unmount_with_operation_finish(cast(mount_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_mount_unmount_with_operation_finish(mount_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Decrements the shadow count on `mount`. Usually used by
     /// `GVolumeMonitor` implementations when destroying a shadow mount for
     /// `mount`, see `g_mount_is_shadowed()` for more information. The caller
     /// will need to emit the `GMount::changed` signal on `mount` manually.
-    func unshadow() {
-        g_mount_unshadow(cast(mount_ptr))
+    @inlinable func unshadow() {
+        g_mount_unshadow(mount_ptr)
     
     }
     /// Gets the default location of `mount`. The default location of the given
     /// `mount` is a path that reflects the main entry point for the user (e.g.
     /// the home directory, or the root of the volume).
-    var defaultLocation: UnsafeMutablePointer<GFile>! {
+    @inlinable var defaultLocation: FileRef! {
         /// Gets the default location of `mount`. The default location of the given
         /// `mount` is a path that reflects the main entry point for the user (e.g.
         /// the home directory, or the root of the volume).
         get {
-            let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_default_location(cast(mount_ptr)))
-            return cast(rv)
+            let rv = FileRef(gconstpointer: gconstpointer(g_mount_get_default_location(mount_ptr)))
+            return rv
         }
     }
 
@@ -535,23 +612,23 @@ public extension MountProtocol {
     /// 
     /// This is a convenience method for getting the `GVolume` and then
     /// using that object to get the `GDrive`.
-    var drive: UnsafeMutablePointer<GDrive>! {
+    @inlinable var drive: DriveRef! {
         /// Gets the drive for the `mount`.
         /// 
         /// This is a convenience method for getting the `GVolume` and then
         /// using that object to get the `GDrive`.
         get {
-            let rv: UnsafeMutablePointer<GDrive>! = cast(g_mount_get_drive(cast(mount_ptr)))
-            return cast(rv)
+            let rv = DriveRef(gconstpointer: gconstpointer(g_mount_get_drive(mount_ptr)))
+            return rv
         }
     }
 
     /// Gets the icon for `mount`.
-    var icon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var icon: IconRef! {
         /// Gets the icon for `mount`.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_icon(cast(mount_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_mount_get_icon(mount_ptr)))
+            return rv
         }
     }
 
@@ -578,7 +655,7 @@ public extension MountProtocol {
     /// The proxy monitor in GVfs 2.26 and later, automatically creates and
     /// manage shadow mounts (and shadows the underlying mount) if the
     /// activation root on a `GVolume` is set.
-    var isShadowed: Bool {
+    @inlinable var isShadowed: Bool {
         /// Determines if `mount` is shadowed. Applications or libraries should
         /// avoid displaying `mount` in the user interface if it is shadowed.
         /// 
@@ -603,44 +680,44 @@ public extension MountProtocol {
         /// manage shadow mounts (and shadows the underlying mount) if the
         /// activation root on a `GVolume` is set.
         get {
-            let rv = g_mount_is_shadowed(cast(mount_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_mount_is_shadowed(mount_ptr)) != 0)
+            return rv
         }
     }
 
     /// Gets the name of `mount`.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the name of `mount`.
         get {
-            let rv: String! = cast(g_mount_get_name(cast(mount_ptr)))
-            return cast(rv)
+            let rv = g_mount_get_name(mount_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the root directory on `mount`.
-    var root: UnsafeMutablePointer<GFile>! {
+    @inlinable var root: FileRef! {
         /// Gets the root directory on `mount`.
         get {
-            let rv: UnsafeMutablePointer<GFile>! = cast(g_mount_get_root(cast(mount_ptr)))
-            return cast(rv)
+            let rv = FileRef(gconstpointer: gconstpointer(g_mount_get_root(mount_ptr)))
+            return rv
         }
     }
 
     /// Gets the sort key for `mount`, if any.
-    var sortKey: String! {
+    @inlinable var sortKey: String! {
         /// Gets the sort key for `mount`, if any.
         get {
-            let rv: String! = cast(g_mount_get_sort_key(cast(mount_ptr)))
-            return cast(rv)
+            let rv = g_mount_get_sort_key(mount_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the symbolic icon for `mount`.
-    var symbolicIcon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var symbolicIcon: IconRef! {
         /// Gets the symbolic icon for `mount`.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_mount_get_symbolic_icon(cast(mount_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_mount_get_symbolic_icon(mount_ptr)))
+            return rv
         }
     }
 
@@ -648,23 +725,23 @@ public extension MountProtocol {
     /// the file system UUID for the mount in question and should be
     /// considered an opaque string. Returns `nil` if there is no UUID
     /// available.
-    var uuid: String! {
+    @inlinable var uuid: String! {
         /// Gets the UUID for the `mount`. The reference is typically based on
         /// the file system UUID for the mount in question and should be
         /// considered an opaque string. Returns `nil` if there is no UUID
         /// available.
         get {
-            let rv: String! = cast(g_mount_get_uuid(cast(mount_ptr)))
-            return cast(rv)
+            let rv = g_mount_get_uuid(mount_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the volume for the `mount`.
-    var volume: UnsafeMutablePointer<GVolume>! {
+    @inlinable var volume: VolumeRef! {
         /// Gets the volume for the `mount`.
         get {
-            let rv: UnsafeMutablePointer<GVolume>! = cast(g_mount_get_volume(cast(mount_ptr)))
-            return cast(rv)
+            let rv = VolumeRef(gconstpointer: gconstpointer(g_mount_get_volume(mount_ptr)))
+            return rv
         }
     }
 
@@ -688,10 +765,11 @@ public extension MountProtocol {
 /// There is also an implementation for use inside Flatpak sandboxes.
 public protocol NetworkMonitorProtocol: InitableProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitor` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GNetworkMonitor` instance.
-    var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor> { get }
+    var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor>! { get }
+
 }
 
 /// The `NetworkMonitorRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitor` instance.
@@ -707,53 +785,83 @@ public protocol NetworkMonitorProtocol: InitableProtocol {
 public struct NetworkMonitorRef: NetworkMonitorProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `network_monitor_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension NetworkMonitorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GNetworkMonitor>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GNetworkMonitor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GNetworkMonitor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GNetworkMonitor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GNetworkMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `NetworkMonitorProtocol`
-    init<T: NetworkMonitorProtocol>(_ other: T) {
+    @inlinable init<T: NetworkMonitorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Gets the default `GNetworkMonitor` for the system.
-    static func getDefault() -> NetworkMonitorRef! {
-        let rv: UnsafeMutablePointer<GNetworkMonitor>! = cast(g_network_monitor_get_default())
-        return rv.map { NetworkMonitorRef(cast($0)) }
+    @inlinable static func getDefault() -> NetworkMonitorRef! {
+        guard let rv = NetworkMonitorRef(gconstpointer: gconstpointer(g_network_monitor_get_default())) else { return nil }
+        return rv
     }
 }
 
@@ -772,85 +880,131 @@ open class NetworkMonitor: Initable, NetworkMonitorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GNetworkMonitor>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GNetworkMonitor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NetworkMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GNetworkMonitor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NetworkMonitor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NetworkMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NetworkMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GNetworkMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NetworkMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GNetworkMonitor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GNetworkMonitor` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `NetworkMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GNetworkMonitor>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GNetworkMonitor>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `NetworkMonitorProtocol`
     /// `GNetworkMonitor` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `NetworkMonitorProtocol`
-    public init<T: NetworkMonitorProtocol>(networkMonitor other: T) {
-        super.init(retaining: cast(other.network_monitor_ptr))
+    @inlinable public init<T: NetworkMonitorProtocol>(networkMonitor other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
 
     /// Gets the default `GNetworkMonitor` for the system.
-    public static func getDefault() -> NetworkMonitor! {
-        let rv: UnsafeMutablePointer<GNetworkMonitor>! = cast(g_network_monitor_get_default())
-        return rv.map { NetworkMonitor(cast($0)) }
+    @inlinable public static func getDefault() -> NetworkMonitor! {
+        guard let rv = NetworkMonitor(gconstpointer: gconstpointer(g_network_monitor_get_default())) else { return nil }
+        return rv
     }
 
 }
@@ -907,18 +1061,18 @@ public extension NetworkMonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(network_monitor_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -936,7 +1090,7 @@ public extension NetworkMonitorProtocol {
     /// Get the value of a NetworkMonitor property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: NetworkMonitorPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: NetworkMonitorPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -946,7 +1100,7 @@ public extension NetworkMonitorProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: NetworkMonitorPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: NetworkMonitorPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1002,11 +1156,11 @@ public extension NetworkMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NetworkMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: NetworkMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(network_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1027,7 +1181,7 @@ public extension NetworkMonitorProtocol {
 // MARK: NetworkMonitor Interface: NetworkMonitorProtocol extension (methods and fields)
 public extension NetworkMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNetworkMonitor` instance.
-    var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor> { return ptr.assumingMemoryBound(to: GNetworkMonitor.self) }
+    @inlinable var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor>! { return ptr?.assumingMemoryBound(to: GNetworkMonitor.self) }
 
     /// Attempts to determine whether or not the host pointed to by
     /// `connectable` can be reached, without actually trying to connect to
@@ -1046,11 +1200,11 @@ public extension NetworkMonitorProtocol {
     /// `connectable`, it may still block for a brief period of time (eg,
     /// trying to do multicast DNS on the local network), so if you do not
     /// want to block, you should use `g_network_monitor_can_reach_async()`.
-    func canReach(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func canReach<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_network_monitor_can_reach(cast(network_monitor_ptr), cast(connectable.ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_network_monitor_can_reach(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously attempts to determine whether or not the host
@@ -1062,18 +1216,18 @@ public extension NetworkMonitorProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_network_monitor_can_reach_finish()`
     /// to get the result of the operation.
-    func canReachAsync(connectable: SocketConnectableProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_network_monitor_can_reach_async(cast(network_monitor_ptr), cast(connectable.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func canReachAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_network_monitor_can_reach_async(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an async network connectivity test.
     /// See `g_network_monitor_can_reach_async()`.
-    func canReachFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func canReachFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_network_monitor_can_reach_finish(cast(network_monitor_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_network_monitor_can_reach_finish(network_monitor_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets a more detailed networking state than
@@ -1095,30 +1249,30 @@ public extension NetworkMonitorProtocol {
     /// reachable but others are not. In this case, applications can
     /// attempt to connect to remote servers, but should gracefully fall
     /// back to their "offline" behavior if the connection attempt fails.
-    func getConnectivity() -> GNetworkConnectivity {
-        let rv = g_network_monitor_get_connectivity(cast(network_monitor_ptr))
-        return cast(rv)
+    @inlinable func getConnectivity() -> GNetworkConnectivity {
+        let rv = g_network_monitor_get_connectivity(network_monitor_ptr)
+        return rv
     }
 
     /// Checks if the network is available. "Available" here means that the
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
     /// reachable. See `GNetworkMonitor:network`-available for more details.
-    func getNetworkAvailable() -> Bool {
-        let rv = g_network_monitor_get_network_available(cast(network_monitor_ptr))
-        return Bool(rv != 0)
+    @inlinable func getNetworkAvailable() -> Bool {
+        let rv = ((g_network_monitor_get_network_available(network_monitor_ptr)) != 0)
+        return rv
     }
 
     /// Checks if the network is metered.
     /// See `GNetworkMonitor:network`-metered for more details.
-    func getNetworkMetered() -> Bool {
-        let rv = g_network_monitor_get_network_metered(cast(network_monitor_ptr))
-        return Bool(rv != 0)
+    @inlinable func getNetworkMetered() -> Bool {
+        let rv = ((g_network_monitor_get_network_metered(network_monitor_ptr)) != 0)
+        return rv
     }
     /// More detailed information about the host's network connectivity.
     /// See `g_network_monitor_get_connectivity()` and
     /// `GNetworkConnectivity` for more details.
-    var connectivity: GNetworkConnectivity {
+    @inlinable var connectivity: GNetworkConnectivity {
         /// Gets a more detailed networking state than
         /// `g_network_monitor_get_network_available()`.
         /// 
@@ -1139,8 +1293,8 @@ public extension NetworkMonitorProtocol {
         /// attempt to connect to remote servers, but should gracefully fall
         /// back to their "offline" behavior if the connection attempt fails.
         get {
-            let rv = g_network_monitor_get_connectivity(cast(network_monitor_ptr))
-            return cast(rv)
+            let rv = g_network_monitor_get_connectivity(network_monitor_ptr)
+            return rv
         }
     }
 
@@ -1148,25 +1302,25 @@ public extension NetworkMonitorProtocol {
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
     /// reachable. See `GNetworkMonitor:network`-available for more details.
-    var networkAvailable: Bool {
+    @inlinable var networkAvailable: Bool {
         /// Checks if the network is available. "Available" here means that the
         /// system has a default route available for at least one of IPv4 or
         /// IPv6. It does not necessarily imply that the public Internet is
         /// reachable. See `GNetworkMonitor:network`-available for more details.
         get {
-            let rv = g_network_monitor_get_network_available(cast(network_monitor_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_network_monitor_get_network_available(network_monitor_ptr)) != 0)
+            return rv
         }
     }
 
     /// Checks if the network is metered.
     /// See `GNetworkMonitor:network`-metered for more details.
-    var networkMetered: Bool {
+    @inlinable var networkMetered: Bool {
         /// Checks if the network is metered.
         /// See `GNetworkMonitor:network`-metered for more details.
         get {
-            let rv = g_network_monitor_get_network_metered(cast(network_monitor_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_network_monitor_get_network_metered(network_monitor_ptr)) != 0)
+            return rv
         }
     }
 

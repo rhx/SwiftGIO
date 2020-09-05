@@ -17,10 +17,11 @@ import GLibObject
 /// of the emblems. See also `GEmblem` for more information.
 public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GEmblemedIcon` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GEmblemedIcon` instance.
-    var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon> { get }
+    var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon>! { get }
+
 }
 
 /// The `EmblemedIconRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIcon` instance.
@@ -36,55 +37,80 @@ public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
 public struct EmblemedIconRef: EmblemedIconProtocol {
         /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     /// For type-safe access, use the generated, typed pointer `emblemed_icon_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension EmblemedIconRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GEmblemedIcon>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GEmblemedIcon>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GEmblemedIcon>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GEmblemedIcon>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GEmblemedIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `EmblemedIconProtocol`
-    init<T: EmblemedIconProtocol>(_ other: T) {
+    @inlinable init<T: EmblemedIconProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
-    init( icon: IconProtocol, emblem: EmblemProtocol) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
     }
-}
 
 /// The `EmblemedIcon` type acts as a reference-counted owner of an underlying `GEmblemedIcon` instance.
 /// It provides the methods that can operate on this data type through `EmblemedIconProtocol` conformance.
@@ -101,85 +127,126 @@ open class EmblemedIcon: Object, EmblemedIconProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `EmblemedIcon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GEmblemedIcon>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GEmblemedIcon>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GEmblemedIcon>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GEmblemedIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `EmblemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GEmblemedIcon>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GEmblemedIcon`.
     /// i.e., ownership is transferred to the `EmblemedIcon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GEmblemedIcon>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GEmblemedIcon>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `EmblemedIconProtocol`
     /// Will retain `GEmblemedIcon`.
     /// - Parameter other: an instance of a related type that implements `EmblemedIconProtocol`
-    public init<T: EmblemedIconProtocol>(emblemedIcon other: T) {
-        super.init(retaining: cast(other.emblemed_icon_ptr))
+    @inlinable public init<T: EmblemedIconProtocol>(emblemedIcon other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new emblemed icon for `icon` with the emblem `emblem`.
-    public init( icon: IconProtocol, emblem: EmblemProtocol) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_new(cast(icon.ptr), cast(emblem.ptr)))
-        super.init(cast(rv))
-    }
 
 
 }
@@ -197,18 +264,18 @@ public extension EmblemedIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(emblemed_icon_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -226,7 +293,7 @@ public extension EmblemedIconProtocol {
     /// Get the value of a EmblemedIcon property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: EmblemedIconPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: EmblemedIconPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -236,7 +303,7 @@ public extension EmblemedIconProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: EmblemedIconPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: EmblemedIconPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -276,11 +343,11 @@ public extension EmblemedIconProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: EmblemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: EmblemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(emblemed_icon_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -301,52 +368,52 @@ public extension EmblemedIconProtocol {
 // MARK: EmblemedIcon Class: EmblemedIconProtocol extension (methods and fields)
 public extension EmblemedIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GEmblemedIcon` instance.
-    var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon> { return ptr.assumingMemoryBound(to: GEmblemedIcon.self) }
+    @inlinable var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon>! { return ptr?.assumingMemoryBound(to: GEmblemedIcon.self) }
 
     /// Adds `emblem` to the `GList` of `GEmblems`.
-    func add(emblem: EmblemProtocol) {
-        g_emblemed_icon_add_emblem(cast(emblemed_icon_ptr), cast(emblem.ptr))
+    @inlinable func add<EmblemT: EmblemProtocol>(emblem: EmblemT) {
+        g_emblemed_icon_add_emblem(emblemed_icon_ptr, emblem.emblem_ptr)
     
     }
 
     /// Removes all the emblems from `icon`.
-    func clearEmblems() {
-        g_emblemed_icon_clear_emblems(cast(emblemed_icon_ptr))
+    @inlinable func clearEmblems() {
+        g_emblemed_icon_clear_emblems(emblemed_icon_ptr)
     
     }
 
     /// Gets the list of emblems for the `icon`.
-    func getEmblems() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr)))
-        return cast(rv)
+    @inlinable func getEmblems() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_emblemed_icon_get_emblems(emblemed_icon_ptr)))
+        return rv
     }
 
     /// Gets the main icon for `emblemed`.
-    func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_get_icon(cast(emblemed_icon_ptr)))
-        return cast(rv)
+    @inlinable func getIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_emblemed_icon_get_icon(emblemed_icon_ptr)))
+        return rv
     }
     /// Gets the list of emblems for the `icon`.
-    var emblems: UnsafeMutablePointer<GList>! {
+    @inlinable var emblems: ListRef! {
         /// Gets the list of emblems for the `icon`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_emblemed_icon_get_emblems(cast(emblemed_icon_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_emblemed_icon_get_emblems(emblemed_icon_ptr)))
+            return rv
         }
     }
 
     /// Gets the main icon for `emblemed`.
-    var icon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var icon: IconRef! {
         /// Gets the main icon for `emblemed`.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_emblemed_icon_get_icon(cast(emblemed_icon_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_emblemed_icon_get_icon(emblemed_icon_ptr)))
+            return rv
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(emblemed_icon_ptr.pointee.parent_instance)
+            let rv = emblemed_icon_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -392,10 +459,11 @@ public extension EmblemedIconProtocol {
 /// on it, and it should be freed with `g_object_unref()`.
 public protocol FileEnumeratorProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GFileEnumerator` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileEnumerator` instance.
-    var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator> { get }
+    var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator>! { get }
+
 }
 
 /// The `FileEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GFileEnumerator` instance.
@@ -431,46 +499,76 @@ public protocol FileEnumeratorProtocol: ObjectProtocol {
 public struct FileEnumeratorRef: FileEnumeratorProtocol {
         /// Untyped pointer to the underlying `GFileEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `file_enumerator_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileEnumeratorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileEnumerator>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileEnumerator>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileEnumerator>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileEnumerator>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileEnumerator>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorProtocol`
-    init<T: FileEnumeratorProtocol>(_ other: T) {
+    @inlinable init<T: FileEnumeratorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -511,77 +609,123 @@ open class FileEnumerator: Object, FileEnumeratorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileEnumerator` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileEnumerator>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileEnumerator>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileEnumerator>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileEnumerator>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumerator` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileEnumerator>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileEnumerator`.
     /// i.e., ownership is transferred to the `FileEnumerator` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileEnumerator>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileEnumerator>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorProtocol`
     /// Will retain `GFileEnumerator`.
     /// - Parameter other: an instance of a related type that implements `FileEnumeratorProtocol`
-    public init<T: FileEnumeratorProtocol>(fileEnumerator other: T) {
-        super.init(retaining: cast(other.file_enumerator_ptr))
+    @inlinable public init<T: FileEnumeratorProtocol>(fileEnumerator other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -602,18 +746,18 @@ public extension FileEnumeratorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(file_enumerator_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -631,7 +775,7 @@ public extension FileEnumeratorProtocol {
     /// Get the value of a FileEnumerator property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: FileEnumeratorPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: FileEnumeratorPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -641,7 +785,7 @@ public extension FileEnumeratorProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: FileEnumeratorPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: FileEnumeratorPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -681,11 +825,11 @@ public extension FileEnumeratorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FileEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: FileEnumeratorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(file_enumerator_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -706,7 +850,7 @@ public extension FileEnumeratorProtocol {
 // MARK: FileEnumerator Class: FileEnumeratorProtocol extension (methods and fields)
 public extension FileEnumeratorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumerator` instance.
-    var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator> { return ptr.assumingMemoryBound(to: GFileEnumerator.self) }
+    @inlinable var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator>! { return ptr?.assumingMemoryBound(to: GFileEnumerator.self) }
 
     /// Releases all resources used by this enumerator, making the
     /// enumerator return `G_IO_ERROR_CLOSED` on all calls.
@@ -714,11 +858,11 @@ public extension FileEnumeratorProtocol {
     /// This will be automatically called when the last reference
     /// is dropped, but you might want to call this function to make
     /// sure resources are released as early as possible.
-    func close(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_enumerator_close(cast(file_enumerator_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_enumerator_close(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously closes the file enumerator.
@@ -727,8 +871,8 @@ public extension FileEnumeratorProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned in
     /// `g_file_enumerator_close_finish()`.
-    func closeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_enumerator_close_async(cast(file_enumerator_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_enumerator_close_async(file_enumerator_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -742,11 +886,11 @@ public extension FileEnumeratorProtocol {
     /// cancelled by triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `false` will be
     /// returned.
-    func closeFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func closeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_enumerator_close_finish(cast(file_enumerator_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_enumerator_close_finish(file_enumerator_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Return a new `GFile` which refers to the file named by `info` in the source
@@ -761,21 +905,21 @@ public extension FileEnumeratorProtocol {
     ///                                    name);
     /// ```
     /// 
-    func getChild(info: FileInfoProtocol) -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_child(cast(file_enumerator_ptr), cast(info.ptr)))
-        return cast(rv)
+    @inlinable func getChild<FileInfoT: FileInfoProtocol>(info: FileInfoT) -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_file_enumerator_get_child(file_enumerator_ptr, info.file_info_ptr)))
+        return rv
     }
 
     /// Get the `GFile` container which is being enumerated.
-    func getContainer() -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_container(cast(file_enumerator_ptr)))
-        return cast(rv)
+    @inlinable func getContainer() -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_file_enumerator_get_container(file_enumerator_ptr)))
+        return rv
     }
 
     /// Checks if the file enumerator has pending operations.
-    func hasPending() -> Bool {
-        let rv = g_file_enumerator_has_pending(cast(file_enumerator_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasPending() -> Bool {
+        let rv = ((g_file_enumerator_has_pending(file_enumerator_ptr)) != 0)
+        return rv
     }
 
     /// This is a version of `g_file_enumerator_next_file()` that's easier to
@@ -817,11 +961,11 @@ public extension FileEnumeratorProtocol {
     ///   g_object_unref (direnum); // Note: frees the last @info
     /// ```
     /// 
-    func iterate(outInfo out_info: FileInfoProtocol, outChild out_child: FileProtocol, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func iterate<CancellableT: CancellableProtocol>(outInfo out_info: UnsafeMutablePointer<UnsafeMutablePointer<GFileInfo>?>! = nil, outChild out_child: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_enumerator_iterate(cast(file_enumerator_ptr), cast(out_info.ptr), cast(out_child.ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_enumerator_iterate(file_enumerator_ptr, out_info, out_child, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns information for the next file in the enumerated object.
@@ -835,11 +979,11 @@ public extension FileEnumeratorProtocol {
     /// On error, returns `nil` and sets `error` to the error. If the
     /// enumerator is at the end, `nil` will be returned and `error` will
     /// be unset.
-    func nextFile(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
+    @inlinable func nextFile<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_enumerator_next_file(cast(file_enumerator_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_enumerator_next_file(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Request information for a number of files from the enumerator asynchronously.
@@ -861,44 +1005,44 @@ public extension FileEnumeratorProtocol {
     /// Any outstanding i/o request with higher priority (lower numerical value) will
     /// be executed before an outstanding request with lower priority. Default
     /// priority is `G_PRIORITY_DEFAULT`.
-    func nextFilesAsync(numFiles num_files: CInt, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_enumerator_next_files_async(cast(file_enumerator_ptr), num_files, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func nextFilesAsync<CancellableT: CancellableProtocol>(numFiles num_files: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_enumerator_next_files_async(file_enumerator_ptr, gint(num_files), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes the asynchronous operation started with `g_file_enumerator_next_files_async()`.
-    func nextFilesFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
+    @inlinable func nextFilesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GList>! = cast(g_file_enumerator_next_files_finish(cast(file_enumerator_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = ListRef(gconstpointer: gconstpointer(g_file_enumerator_next_files_finish(file_enumerator_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the file enumerator as having pending operations.
-    func set(pending: Bool) {
-        g_file_enumerator_set_pending(cast(file_enumerator_ptr), gboolean(pending ? 1 : 0))
+    @inlinable func set(pending: Bool) {
+        g_file_enumerator_set_pending(file_enumerator_ptr, gboolean((pending) ? 1 : 0))
     
     }
-    var container: UnsafeMutablePointer<GFile>! {
+    @inlinable var container: FileRef! {
         /// Get the `GFile` container which is being enumerated.
         get {
-            let rv: UnsafeMutablePointer<GFile>! = cast(g_file_enumerator_get_container(cast(file_enumerator_ptr)))
-            return cast(rv)
+            let rv = FileRef(gconstpointer: gconstpointer(g_file_enumerator_get_container(file_enumerator_ptr)))
+            return rv
         }
     }
 
     /// Checks if the file enumerator has been closed.
-    var isClosed: Bool {
+    @inlinable var isClosed: Bool {
         /// Checks if the file enumerator has been closed.
         get {
-            let rv = g_file_enumerator_is_closed(cast(file_enumerator_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_file_enumerator_is_closed(file_enumerator_ptr)) != 0)
+            return rv
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(file_enumerator_ptr.pointee.parent_instance)
+            let rv = file_enumerator_ptr.pointee.parent_instance
             return rv
         }
     }

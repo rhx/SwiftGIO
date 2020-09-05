@@ -28,10 +28,11 @@ import GLibObject
 /// rescanning the list on every change is pointless and expensive.
 public protocol AppInfoMonitorProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAppInfoMonitor` instance.
-    var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor> { get }
+    var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor>! { get }
+
 }
 
 /// The `AppInfoMonitorRef` type acts as a lightweight Swift reference to an underlying `GAppInfoMonitor` instance.
@@ -58,46 +59,76 @@ public protocol AppInfoMonitorProtocol: ObjectProtocol {
 public struct AppInfoMonitorRef: AppInfoMonitorProtocol {
         /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_monitor_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension AppInfoMonitorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAppInfoMonitor>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAppInfoMonitor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAppInfoMonitor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAppInfoMonitor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAppInfoMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `AppInfoMonitorProtocol`
-    init<T: AppInfoMonitorProtocol>(_ other: T) {
+    @inlinable init<T: AppInfoMonitorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -110,9 +141,9 @@ public extension AppInfoMonitorRef {
     /// 
     /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
-    static func appInfoMonitorGet() -> AppInfoMonitorRef! {
-        let rv: UnsafeMutablePointer<GAppInfoMonitor>! = cast(g_app_info_monitor_get())
-        return rv.map { AppInfoMonitorRef(cast($0)) }
+    @inlinable static func appInfoMonitorGet() -> AppInfoMonitorRef! {
+        guard let rv = AppInfoMonitorRef(gconstpointer: gconstpointer(g_app_info_monitor_get())) else { return nil }
+        return rv
     }
 }
 
@@ -142,77 +173,123 @@ open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAppInfoMonitor>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GAppInfoMonitor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAppInfoMonitor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAppInfoMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAppInfoMonitor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GAppInfoMonitor`.
     /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAppInfoMonitor>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAppInfoMonitor>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `AppInfoMonitorProtocol`
     /// Will retain `GAppInfoMonitor`.
     /// - Parameter other: an instance of a related type that implements `AppInfoMonitorProtocol`
-    public init<T: AppInfoMonitorProtocol>(appInfoMonitor other: T) {
-        super.init(retaining: cast(other.app_info_monitor_ptr))
+    @inlinable public init<T: AppInfoMonitorProtocol>(appInfoMonitor other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -226,9 +303,9 @@ open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
     /// 
     /// You must only call `g_object_unref()` on the return value from under
     /// the same main context as you created it.
-    public static func appInfoMonitorGet() -> AppInfoMonitor! {
-        let rv: UnsafeMutablePointer<GAppInfoMonitor>! = cast(g_app_info_monitor_get())
-        return rv.map { AppInfoMonitor(cast($0)) }
+    @inlinable public static func appInfoMonitorGet() -> AppInfoMonitor! {
+        guard let rv = AppInfoMonitor(gconstpointer: gconstpointer(g_app_info_monitor_get())) else { return nil }
+        return rv
     }
 
 }
@@ -273,11 +350,11 @@ public extension AppInfoMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AppInfoMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: AppInfoMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(app_info_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -298,7 +375,7 @@ public extension AppInfoMonitorProtocol {
 // MARK: AppInfoMonitor Class: AppInfoMonitorProtocol extension (methods and fields)
 public extension AppInfoMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppInfoMonitor` instance.
-    var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor> { return ptr.assumingMemoryBound(to: GAppInfoMonitor.self) }
+    @inlinable var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor>! { return ptr?.assumingMemoryBound(to: GAppInfoMonitor.self) }
 
 
 
@@ -318,10 +395,11 @@ public extension AppInfoMonitorProtocol {
 /// on the same screen as the launching window.
 public protocol AppLaunchContextProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContext` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAppLaunchContext` instance.
-    var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext> { get }
+    var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext>! { get }
+
 }
 
 /// The `AppLaunchContextRef` type acts as a lightweight Swift reference to an underlying `GAppLaunchContext` instance.
@@ -334,54 +412,84 @@ public protocol AppLaunchContextProtocol: ObjectProtocol {
 public struct AppLaunchContextRef: AppLaunchContextProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension AppLaunchContextRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAppLaunchContext>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAppLaunchContext>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAppLaunchContext>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAppLaunchContext>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAppLaunchContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
-    init<T: AppLaunchContextProtocol>(_ other: T) {
+    @inlinable init<T: AppLaunchContextProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new application launch context. This is not normally used,
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
-    init() {
-        let rv: UnsafeMutablePointer<GAppLaunchContext>! = cast(g_app_launch_context_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_app_launch_context_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -397,85 +505,131 @@ open class AppLaunchContext: Object, AppLaunchContextProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAppLaunchContext>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GAppLaunchContext>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAppLaunchContext>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAppLaunchContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAppLaunchContext>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GAppLaunchContext`.
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAppLaunchContext>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAppLaunchContext>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
     /// Will retain `GAppLaunchContext`.
     /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
-    public init<T: AppLaunchContextProtocol>(appLaunchContext other: T) {
-        super.init(retaining: cast(other.app_launch_context_ptr))
+    @inlinable public init<T: AppLaunchContextProtocol>(appLaunchContext other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new application launch context. This is not normally used,
     /// instead you instantiate a subclass of this, such as `GdkAppLaunchContext`.
-    public init() {
-        let rv: UnsafeMutablePointer<GAppLaunchContext>! = cast(g_app_launch_context_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = g_app_launch_context_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -528,11 +682,11 @@ public extension AppLaunchContextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(app_launch_context_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -553,23 +707,23 @@ public extension AppLaunchContextProtocol {
 // MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
 public extension AppLaunchContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppLaunchContext` instance.
-    var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext> { return ptr.assumingMemoryBound(to: GAppLaunchContext.self) }
+    @inlinable var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext>! { return ptr?.assumingMemoryBound(to: GAppLaunchContext.self) }
 
     /// Gets the display string for the `context`. This is used to ensure new
     /// applications are started on the same display as the launching
     /// application, by setting the `DISPLAY` environment variable.
-    func getDisplay(info: AppInfoProtocol, files: ListProtocol) -> String! {
-        let rv: String! = cast(g_app_launch_context_get_display(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr)))
-        return cast(rv)
+    @inlinable func getDisplay<AppInfoT: AppInfoProtocol, ListT: ListProtocol>(info: AppInfoT, files: ListT) -> String! {
+        let rv = g_app_launch_context_get_display(app_launch_context_ptr, info.app_info_ptr, files._ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the complete environment variable list to be passed to
     /// the child process when `context` is used to launch an application.
     /// This is a `nil`-terminated array of strings, where each string has
     /// the form `KEY=VALUE`.
-    func getEnvironment() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_app_launch_context_get_environment(cast(app_launch_context_ptr)))
-        return cast(rv)
+    @inlinable func getEnvironment() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+        let rv = g_app_launch_context_get_environment(app_launch_context_ptr)
+        return rv
     }
 
     /// Initiates startup notification for the application and returns the
@@ -577,29 +731,29 @@ public extension AppLaunchContextProtocol {
     /// 
     /// Startup notification IDs are defined in the
     /// [FreeDesktop.Org Startup Notifications standard](http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt).
-    func getStartupNotifyID(info: AppInfoProtocol, files: ListProtocol) -> String! {
-        let rv: String! = cast(g_app_launch_context_get_startup_notify_id(cast(app_launch_context_ptr), cast(info.ptr), cast(files.ptr)))
-        return cast(rv)
+    @inlinable func getStartupNotifyID<AppInfoT: AppInfoProtocol, ListT: ListProtocol>(info: AppInfoT, files: ListT) -> String! {
+        let rv = g_app_launch_context_get_startup_notify_id(app_launch_context_ptr, info.app_info_ptr, files._ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Called when an application has failed to launch, so that it can cancel
     /// the application startup notification started in `g_app_launch_context_get_startup_notify_id()`.
-    func launchFailed(startupNotifyID startup_notify_id: UnsafePointer<CChar>) {
-        g_app_launch_context_launch_failed(cast(app_launch_context_ptr), startup_notify_id)
+    @inlinable func launchFailed(startupNotifyID startup_notify_id: UnsafePointer<CChar>!) {
+        g_app_launch_context_launch_failed(app_launch_context_ptr, startup_notify_id)
     
     }
 
     /// Arranges for `variable` to be set to `value` in the child's
     /// environment when `context` is used to launch an application.
-    func setenv(variable: UnsafePointer<CChar>, value: UnsafePointer<CChar>) {
-        g_app_launch_context_setenv(cast(app_launch_context_ptr), variable, value)
+    @inlinable func setenv(variable: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!) {
+        g_app_launch_context_setenv(app_launch_context_ptr, variable, value)
     
     }
 
     /// Arranges for `variable` to be unset in the child's environment
     /// when `context` is used to launch an application.
-    func unsetenv(variable: UnsafePointer<CChar>) {
-        g_app_launch_context_unsetenv(cast(app_launch_context_ptr), variable)
+    @inlinable func unsetenv(variable: UnsafePointer<CChar>!) {
+        g_app_launch_context_unsetenv(app_launch_context_ptr, variable)
     
     }
 
@@ -611,11 +765,11 @@ public extension AppLaunchContextProtocol {
     /// The D-Bus–activated applications don't have to be started if your application
     /// terminates too soon after this function. To prevent this, use
     /// `g_app_info_launch_default_for_uri_async()` instead.
-    func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_launch_default_for_uri(uri, cast(app_launch_context_ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_launch_default_for_uri(uri, app_launch_context_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Async version of `g_app_info_launch_default_for_uri()`.
@@ -628,28 +782,28 @@ public extension AppLaunchContextProtocol {
     /// This is also useful if you want to be sure that the D-Bus–activated
     /// applications are really started before termination and if you are interested
     /// in receiving error information from their activation.
-    func appInfoLaunchDefaultForURIAsync(uri: UnsafePointer<CChar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_app_info_launch_default_for_uri_async(uri, cast(app_launch_context_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func appInfoLaunchDefaultForURIAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<CChar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_app_info_launch_default_for_uri_async(uri, app_launch_context_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
     /// Gets the complete environment variable list to be passed to
     /// the child process when `context` is used to launch an application.
     /// This is a `nil`-terminated array of strings, where each string has
     /// the form `KEY=VALUE`.
-    var environment: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
+    @inlinable var environment: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         /// Gets the complete environment variable list to be passed to
         /// the child process when `context` is used to launch an application.
         /// This is a `nil`-terminated array of strings, where each string has
         /// the form `KEY=VALUE`.
         get {
-            let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_app_launch_context_get_environment(cast(app_launch_context_ptr)))
-            return cast(rv)
+            let rv = g_app_launch_context_get_environment(app_launch_context_ptr)
+            return rv
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(app_launch_context_ptr.pointee.parent_instance)
+            let rv = app_launch_context_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -783,10 +937,11 @@ public extension AppLaunchContextProtocol {
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
 public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
         /// Untyped pointer to the underlying `GApplication` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GApplication` instance.
-    var application_ptr: UnsafeMutablePointer<GApplication> { get }
+    var application_ptr: UnsafeMutablePointer<GApplication>! { get }
+
 }
 
 /// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GApplication` instance.
@@ -910,46 +1065,76 @@ public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, Action
 public struct ApplicationRef: ApplicationProtocol {
         /// Untyped pointer to the underlying `GApplication` instance.
     /// For type-safe access, use the generated, typed pointer `application_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ApplicationRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GApplication>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GApplication>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GApplication>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GApplication>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GApplication>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ApplicationProtocol`
-    init<T: ApplicationProtocol>(_ other: T) {
+    @inlinable init<T: ApplicationProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -960,9 +1145,9 @@ public extension ApplicationRef {
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
-    init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
-        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_new(application_id, flags.value))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( application_id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
+        let rv = g_application_new(application_id, flags.value)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Returns the default `GApplication` instance for this process.
     /// 
@@ -971,9 +1156,9 @@ public extension ApplicationRef {
     /// this by using `g_application_set_default()`.
     /// 
     /// If there is no default application then `nil` is returned.
-    static func getDefault() -> ApplicationRef! {
-        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_get_default())
-        return rv.map { ApplicationRef(cast($0)) }
+    @inlinable static func getDefault() -> ApplicationRef! {
+        guard let rv = ApplicationRef(gconstpointer: gconstpointer(g_application_get_default())) else { return nil }
+        return rv
     }
 }
 
@@ -1100,77 +1285,123 @@ open class Application: Object, ApplicationProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Application` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GApplication>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GApplication>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GApplication>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GApplication>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Application` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GApplication>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GApplication`.
     /// i.e., ownership is transferred to the `Application` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GApplication>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GApplication>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ApplicationProtocol`
     /// Will retain `GApplication`.
     /// - Parameter other: an instance of a related type that implements `ApplicationProtocol`
-    public init<T: ApplicationProtocol>(application other: T) {
-        super.init(retaining: cast(other.application_ptr))
+    @inlinable public init<T: ApplicationProtocol>(application other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -1181,9 +1412,9 @@ open class Application: Object, ApplicationProtocol {
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
-    public init( application_id: UnsafePointer<gchar>, flags: ApplicationFlags) {
-        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_new(application_id, flags.value))
-        super.init(cast(rv))
+    @inlinable public init( application_id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
+        let rv = g_application_new(application_id, flags.value)
+        super.init(gpointer: (rv))
     }
 
     /// Returns the default `GApplication` instance for this process.
@@ -1193,9 +1424,9 @@ open class Application: Object, ApplicationProtocol {
     /// this by using `g_application_set_default()`.
     /// 
     /// If there is no default application then `nil` is returned.
-    public static func getDefault() -> Application! {
-        let rv: UnsafeMutablePointer<GApplication>! = cast(g_application_get_default())
-        return rv.map { Application(cast($0)) }
+    @inlinable public static func getDefault() -> Application! {
+        guard let rv = Application(gconstpointer: gconstpointer(g_application_get_default())) else { return nil }
+        return rv
     }
 
 }
@@ -1222,18 +1453,18 @@ public extension ApplicationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(application_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1251,7 +1482,7 @@ public extension ApplicationProtocol {
     /// Get the value of a Application property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ApplicationPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ApplicationPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1261,7 +1492,7 @@ public extension ApplicationProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ApplicationPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ApplicationPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1374,11 +1605,11 @@ public extension ApplicationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ApplicationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(application_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1399,7 +1630,7 @@ public extension ApplicationProtocol {
 // MARK: Application Class: ApplicationProtocol extension (methods and fields)
 public extension ApplicationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplication` instance.
-    var application_ptr: UnsafeMutablePointer<GApplication> { return ptr.assumingMemoryBound(to: GApplication.self) }
+    @inlinable var application_ptr: UnsafeMutablePointer<GApplication>! { return ptr?.assumingMemoryBound(to: GApplication.self) }
 
     /// Activates the application.
     /// 
@@ -1407,8 +1638,8 @@ public extension ApplicationProtocol {
     /// emitted in the primary instance.
     /// 
     /// The application must be registered before calling this function.
-    func activate() {
-        g_application_activate(cast(application_ptr))
+    @inlinable func activate() {
+        g_application_activate(application_ptr)
     
     }
 
@@ -1425,8 +1656,8 @@ public extension ApplicationProtocol {
     /// `g_application_add_main_option_entries()` for more details.
     /// 
     /// See `GOptionEntry` for more documentation of the arguments.
-    func addMainOption(longName long_name: UnsafePointer<CChar>, shortName short_name: gchar, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: UnsafePointer<CChar>, argDescription arg_description: UnsafePointer<CChar>) {
-        g_application_add_main_option(cast(application_ptr), long_name, short_name, flags.value, arg, description, arg_description)
+    @inlinable func addMainOption(longName long_name: UnsafePointer<CChar>!, shortName short_name: CChar, flags: OptionFlags, arg: GOptionArg, description: UnsafePointer<CChar>!, argDescription arg_description: UnsafePointer<CChar>? = nil) {
+        g_application_add_main_option(application_ptr, long_name, short_name, flags.value, arg, description, arg_description)
     
     }
 
@@ -1484,8 +1715,8 @@ public extension ApplicationProtocol {
     /// - for `G_OPTION_ARG_FILENAME`, use `^&ay`
     /// - for `G_OPTION_ARG_STRING_ARRAY`, use `^a&s`
     /// - for `G_OPTION_ARG_FILENAME_ARRAY`, use `^a&ay`
-    func addMainOption(entries: UnsafePointer<GOptionEntry>) {
-        g_application_add_main_option_entries(cast(application_ptr), cast(entries))
+    @inlinable func addMainOption(entries: UnsafePointer<GOptionEntry>!) {
+        g_application_add_main_option_entries(application_ptr, entries)
     
     }
 
@@ -1514,8 +1745,8 @@ public extension ApplicationProtocol {
     /// group to be parsed, but it does not cause you to be "opted in" to the
     /// new functionality whereby unrecognised options are rejected even if
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` was given.
-    func addOption(group: OptionGroupProtocol) {
-        g_application_add_option_group(cast(application_ptr), cast(group.ptr))
+    @inlinable func addOption<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+        g_application_add_option_group(application_ptr, group.option_group_ptr)
     
     }
 
@@ -1525,15 +1756,15 @@ public extension ApplicationProtocol {
     /// The binding holds a reference to `application` while it is active, but
     /// not to `object`. Instead, the binding is destroyed when `object` is
     /// finalized.
-    func bindBusyProperty(object: ObjectProtocol, property: UnsafePointer<gchar>) {
-        g_application_bind_busy_property(cast(application_ptr), cast(object.ptr), property)
+    @inlinable func bindBusyProperty<ObjectT: ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
+        g_application_bind_busy_property(application_ptr, object.object_ptr, property)
     
     }
 
     /// Gets the unique identifier for `application`.
-    func getApplicationID() -> String! {
-        let rv: String! = cast(g_application_get_application_id(cast(application_ptr)))
-        return cast(rv)
+    @inlinable func getApplicationID() -> String! {
+        let rv = g_application_get_application_id(application_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the `GDBusConnection` being used by the application, or `nil`.
@@ -1549,9 +1780,9 @@ public extension ApplicationProtocol {
     /// 
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
-    func getDbusConnection() -> UnsafeMutablePointer<GDBusConnection>! {
-        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_application_get_dbus_connection(cast(application_ptr)))
-        return cast(rv)
+    @inlinable func getDbusConnection() -> DBusConnectionRef! {
+        let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_application_get_dbus_connection(application_ptr)))
+        return rv
     }
 
     /// Gets the D-Bus object path being used by the application, or `nil`.
@@ -1568,42 +1799,42 @@ public extension ApplicationProtocol {
     /// 
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
-    func getDbusObjectPath() -> String! {
-        let rv: String! = cast(g_application_get_dbus_object_path(cast(application_ptr)))
-        return cast(rv)
+    @inlinable func getDbusObjectPath() -> String! {
+        let rv = g_application_get_dbus_object_path(application_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the flags for `application`.
     /// 
     /// See `GApplicationFlags`.
-    func getFlags() -> GApplicationFlags {
-        let rv = g_application_get_flags(cast(application_ptr))
-        return cast(rv)
+    @inlinable func getFlags() -> ApplicationFlags {
+        let rv = ApplicationFlags(g_application_get_flags(application_ptr))
+        return rv
     }
 
     /// Gets the current inactivity timeout for the application.
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
     /// `g_application_release()` before the application stops running.
-    func getInactivityTimeout() -> Int {
-        let rv: Int = cast(g_application_get_inactivity_timeout(cast(application_ptr)))
-        return Int(rv)
+    @inlinable func getInactivityTimeout() -> Int {
+        let rv = Int(g_application_get_inactivity_timeout(application_ptr))
+        return rv
     }
 
     /// Gets the application's current busy state, as set through
     /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
-    func getIsBusy() -> Bool {
-        let rv = g_application_get_is_busy(cast(application_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsBusy() -> Bool {
+        let rv = ((g_application_get_is_busy(application_ptr)) != 0)
+        return rv
     }
 
     /// Checks if `application` is registered.
     /// 
     /// An application is registered if `g_application_register()` has been
     /// successfully called.
-    func getIsRegistered() -> Bool {
-        let rv = g_application_get_is_registered(cast(application_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsRegistered() -> Bool {
+        let rv = ((g_application_get_is_registered(application_ptr)) != 0)
+        return rv
     }
 
     /// Checks if `application` is remote.
@@ -1616,17 +1847,17 @@ public extension ApplicationProtocol {
     /// The value of this property cannot be accessed before
     /// `g_application_register()` has been called.  See
     /// `g_application_get_is_registered()`.
-    func getIsRemote() -> Bool {
-        let rv = g_application_get_is_remote(cast(application_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsRemote() -> Bool {
+        let rv = ((g_application_get_is_remote(application_ptr)) != 0)
+        return rv
     }
 
     /// Gets the resource base path of `application`.
     /// 
     /// See `g_application_set_resource_base_path()` for more information.
-    func getResourceBasePath() -> String! {
-        let rv: String! = cast(g_application_get_resource_base_path(cast(application_ptr)))
-        return cast(rv)
+    @inlinable func getResourceBasePath() -> String! {
+        let rv = g_application_get_resource_base_path(application_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Increases the use count of `application`.
@@ -1636,8 +1867,8 @@ public extension ApplicationProtocol {
     /// when a toplevel window is on the screen.
     /// 
     /// To cancel the hold, call `g_application_release()`.
-    func hold() {
-        g_application_hold(cast(application_ptr))
+    @inlinable func hold() {
+        g_application_hold(application_ptr)
     
     }
 
@@ -1651,8 +1882,8 @@ public extension ApplicationProtocol {
     /// spinner).
     /// 
     /// To cancel the busy indication, use `g_application_unmark_busy()`.
-    func markBusy() {
-        g_application_mark_busy(cast(application_ptr))
+    @inlinable func markBusy() {
+        g_application_mark_busy(application_ptr)
     
     }
 
@@ -1670,8 +1901,8 @@ public extension ApplicationProtocol {
     /// 
     /// The application must be registered before calling this function
     /// and it must have the `G_APPLICATION_HANDLES_OPEN` flag set.
-    func open(files: UnsafeMutablePointer<UnsafeMutablePointer<GFile>>, nFiles n_files: CInt, hint: UnsafePointer<gchar>) {
-        g_application_open(cast(application_ptr), cast(files), gint(n_files), hint)
+    @inlinable func open(files: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>!, nFiles n_files: Int, hint: UnsafePointer<gchar>!) {
+        g_application_open(application_ptr, files, gint(n_files), hint)
     
     }
 
@@ -1688,8 +1919,8 @@ public extension ApplicationProtocol {
     /// 
     /// The result of calling `g_application_run()` again after it returns is
     /// unspecified.
-    func quit() {
-        g_application_quit(cast(application_ptr))
+    @inlinable func quit() {
+        g_application_quit(application_ptr)
     
     }
 
@@ -1723,11 +1954,11 @@ public extension ApplicationProtocol {
     /// Note: the return value of this function is not an indicator that this
     /// instance is or is not the primary instance of the application.  See
     /// `g_application_get_is_remote()` for that.
-    func register(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func register<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_application_register(cast(application_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_application_register(application_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Decrease the use count of `application`.
@@ -1736,8 +1967,8 @@ public extension ApplicationProtocol {
     /// 
     /// Never call this function except to cancel the effect of a previous
     /// call to `g_application_hold()`.
-    func release() {
-        g_application_release(cast(application_ptr))
+    @inlinable func release() {
+        g_application_release(application_ptr)
     
     }
 
@@ -1816,9 +2047,9 @@ public extension ApplicationProtocol {
     /// should not be used from applications like editors that need precise
     /// control over when processes invoked via the commandline will exit and
     /// what their exit status will be.
-    func run(argc: CInt, argv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) -> Int {
-        let rv: Int = cast(g_application_run(cast(application_ptr), argc, cast(argv)))
-        return cast(rv)
+    @inlinable func run(argc: Int, argv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) -> Int {
+        let rv = Int(g_application_run(application_ptr, gint(argc), argv))
+        return rv
     }
 
     /// Sends a notification on behalf of `application` to the desktop shell.
@@ -1847,8 +2078,8 @@ public extension ApplicationProtocol {
     /// 
     /// If `notification` is no longer relevant, it can be withdrawn with
     /// `g_application_withdraw_notification()`.
-    func sendNotification(id: UnsafePointer<gchar>, notification: NotificationProtocol) {
-        g_application_send_notification(cast(application_ptr), id, cast(notification.ptr))
+    @inlinable func sendNotification<NotificationT: NotificationProtocol>(id: UnsafePointer<gchar>? = nil, notification: NotificationT) {
+        g_application_send_notification(application_ptr, id, notification.notification_ptr)
     
     }
 
@@ -1861,8 +2092,8 @@ public extension ApplicationProtocol {
     /// or things will go very badly wrong.  This function is known to
     /// introduce buggy behaviour (ie: signals not emitted on changes to the
     /// action group), so you should really use #GActionMap instead.
-    @available(*, deprecated) func set(actionGroup action_group: ActionGroupProtocol) {
-        g_application_set_action_group(cast(application_ptr), cast(action_group.ptr))
+    @available(*, deprecated) @inlinable func set<ActionGroupT: ActionGroupProtocol>(actionGroup action_group: ActionGroupT? = nil) {
+        g_application_set_action_group(application_ptr, action_group?.action_group_ptr)
     
     }
 
@@ -1873,8 +2104,8 @@ public extension ApplicationProtocol {
     /// 
     /// If non-`nil`, the application id must be valid.  See
     /// `g_application_id_is_valid()`.
-    func set(applicationID application_id: UnsafePointer<gchar>) {
-        g_application_set_application_id(cast(application_ptr), application_id)
+    @inlinable func set(applicationID application_id: UnsafePointer<gchar>? = nil) {
+        g_application_set_application_id(application_ptr, application_id)
     
     }
 
@@ -1884,8 +2115,8 @@ public extension ApplicationProtocol {
     /// This function does not take its own reference on `application`.  If
     /// `application` is destroyed then the default application will revert
     /// back to `nil`.
-    func setDefault() {
-        g_application_set_default(cast(application_ptr))
+    @inlinable func setDefault() {
+        g_application_set_default(application_ptr)
     
     }
 
@@ -1895,8 +2126,8 @@ public extension ApplicationProtocol {
     /// registered.
     /// 
     /// See `GApplicationFlags`.
-    func set(flags: ApplicationFlags) {
-        g_application_set_flags(cast(application_ptr), flags.value)
+    @inlinable func set(flags: ApplicationFlags) {
+        g_application_set_flags(application_ptr, flags.value)
     
     }
 
@@ -1908,16 +2139,16 @@ public extension ApplicationProtocol {
     /// This call has no side effects of its own.  The value set here is only
     /// used for next time `g_application_release()` drops the use count to
     /// zero.  Any timeouts currently in progress are not impacted.
-    func set(inactivityTimeout inactivity_timeout: CUnsignedInt) {
-        g_application_set_inactivity_timeout(cast(application_ptr), guint(inactivity_timeout))
+    @inlinable func set(inactivityTimeout inactivity_timeout: Int) {
+        g_application_set_inactivity_timeout(application_ptr, guint(inactivity_timeout))
     
     }
 
     /// Adds a description to the `application` option context.
     /// 
     /// See `g_option_context_set_description()` for more information.
-    func setOptionContext(description: UnsafePointer<gchar>) {
-        g_application_set_option_context_description(cast(application_ptr), description)
+    @inlinable func setOptionContext(description: UnsafePointer<gchar>? = nil) {
+        g_application_set_option_context_description(application_ptr, description)
     
     }
 
@@ -1927,16 +2158,16 @@ public extension ApplicationProtocol {
     /// when the internal `GOptionContext` of `application` is created.
     /// 
     /// See `g_option_context_new()` for more information about `parameter_string`.
-    func setOptionContext(parameterString parameter_string: UnsafePointer<gchar>) {
-        g_application_set_option_context_parameter_string(cast(application_ptr), parameter_string)
+    @inlinable func setOptionContext(parameterString parameter_string: UnsafePointer<gchar>? = nil) {
+        g_application_set_option_context_parameter_string(application_ptr, parameter_string)
     
     }
 
     /// Adds a summary to the `application` option context.
     /// 
     /// See `g_option_context_set_summary()` for more information.
-    func setOptionContext(summary: UnsafePointer<gchar>) {
-        g_application_set_option_context_summary(cast(application_ptr), summary)
+    @inlinable func setOptionContext(summary: UnsafePointer<gchar>? = nil) {
+        g_application_set_option_context_summary(application_ptr, summary)
     
     }
 
@@ -1973,16 +2204,16 @@ public extension ApplicationProtocol {
     /// this function during the instance initialization. Alternatively, you
     /// can call this function in the `GApplicationClass.startup` virtual function,
     /// before chaining up to the parent implementation.
-    func setResourceBasePath(resourcePath resource_path: UnsafePointer<gchar>) {
-        g_application_set_resource_base_path(cast(application_ptr), resource_path)
+    @inlinable func setResourceBasePath(resourcePath resource_path: UnsafePointer<gchar>? = nil) {
+        g_application_set_resource_base_path(application_ptr, resource_path)
     
     }
 
     /// Destroys a binding between `property` and the busy state of
     /// `application` that was previously created with
     /// `g_application_bind_busy_property()`.
-    func unbindBusyProperty(object: ObjectProtocol, property: UnsafePointer<gchar>) {
-        g_application_unbind_busy_property(cast(application_ptr), cast(object.ptr), property)
+    @inlinable func unbindBusyProperty<ObjectT: ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
+        g_application_unbind_busy_property(application_ptr, object.object_ptr, property)
     
     }
 
@@ -1993,8 +2224,8 @@ public extension ApplicationProtocol {
     /// 
     /// This function must only be called to cancel the effect of a previous
     /// call to `g_application_mark_busy()`.
-    func unmarkBusy() {
-        g_application_unmark_busy(cast(application_ptr))
+    @inlinable func unmarkBusy() {
+        g_application_unmark_busy(application_ptr)
     
     }
 
@@ -2011,16 +2242,16 @@ public extension ApplicationProtocol {
     /// Note that notifications are dismissed when the user clicks on one
     /// of the buttons in a notification or triggers its default action, so
     /// there is no need to explicitly withdraw the notification in that case.
-    func withdrawNotification(id: UnsafePointer<gchar>) {
-        g_application_withdraw_notification(cast(application_ptr), id)
+    @inlinable func withdrawNotification(id: UnsafePointer<gchar>!) {
+        g_application_withdraw_notification(application_ptr, id)
     
     }
     /// Gets the unique identifier for `application`.
-    var applicationID: String! {
+    @inlinable var applicationID: String! {
         /// Gets the unique identifier for `application`.
         get {
-            let rv: String! = cast(g_application_get_application_id(cast(application_ptr)))
-            return cast(rv)
+            let rv = g_application_get_application_id(application_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the unique identifier for `application`.
         /// 
@@ -2030,7 +2261,7 @@ public extension ApplicationProtocol {
         /// If non-`nil`, the application id must be valid.  See
         /// `g_application_id_is_valid()`.
         nonmutating set {
-            g_application_set_application_id(cast(application_ptr), cast(newValue))
+            g_application_set_application_id(application_ptr, newValue)
         }
     }
 
@@ -2047,7 +2278,7 @@ public extension ApplicationProtocol {
     /// 
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
-    var dbusConnection: UnsafeMutablePointer<GDBusConnection>! {
+    @inlinable var dbusConnection: DBusConnectionRef! {
         /// Gets the `GDBusConnection` being used by the application, or `nil`.
         /// 
         /// If `GApplication` is using its D-Bus backend then this function will
@@ -2062,8 +2293,8 @@ public extension ApplicationProtocol {
         /// This function must not be called before the application has been
         /// registered.  See `g_application_get_is_registered()`.
         get {
-            let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_application_get_dbus_connection(cast(application_ptr)))
-            return cast(rv)
+            let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_application_get_dbus_connection(application_ptr)))
+            return rv
         }
     }
 
@@ -2081,7 +2312,7 @@ public extension ApplicationProtocol {
     /// 
     /// This function must not be called before the application has been
     /// registered.  See `g_application_get_is_registered()`.
-    var dbusObjectPath: String! {
+    @inlinable var dbusObjectPath: String! {
         /// Gets the D-Bus object path being used by the application, or `nil`.
         /// 
         /// If `GApplication` is using its D-Bus backend then this function will
@@ -2097,18 +2328,18 @@ public extension ApplicationProtocol {
         /// This function must not be called before the application has been
         /// registered.  See `g_application_get_is_registered()`.
         get {
-            let rv: String! = cast(g_application_get_dbus_object_path(cast(application_ptr)))
-            return cast(rv)
+            let rv = g_application_get_dbus_object_path(application_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
-    var flags: GApplicationFlags {
+    @inlinable var flags: ApplicationFlags {
         /// Gets the flags for `application`.
         /// 
         /// See `GApplicationFlags`.
         get {
-            let rv = g_application_get_flags(cast(application_ptr))
-            return cast(rv)
+            let rv = ApplicationFlags(g_application_get_flags(application_ptr))
+            return rv
         }
         /// Sets the flags for `application`.
         /// 
@@ -2117,7 +2348,7 @@ public extension ApplicationProtocol {
         /// 
         /// See `GApplicationFlags`.
         nonmutating set {
-            g_application_set_flags(cast(application_ptr), cast(newValue))
+            g_application_set_flags(application_ptr, newValue.value)
         }
     }
 
@@ -2125,14 +2356,14 @@ public extension ApplicationProtocol {
     /// 
     /// This is the amount of time (in milliseconds) after the last call to
     /// `g_application_release()` before the application stops running.
-    var inactivityTimeout: Int {
+    @inlinable var inactivityTimeout: Int {
         /// Gets the current inactivity timeout for the application.
         /// 
         /// This is the amount of time (in milliseconds) after the last call to
         /// `g_application_release()` before the application stops running.
         get {
-            let rv: Int = cast(g_application_get_inactivity_timeout(cast(application_ptr)))
-            return Int(rv)
+            let rv = Int(g_application_get_inactivity_timeout(application_ptr))
+            return rv
         }
         /// Sets the current inactivity timeout for the application.
         /// 
@@ -2143,18 +2374,18 @@ public extension ApplicationProtocol {
         /// used for next time `g_application_release()` drops the use count to
         /// zero.  Any timeouts currently in progress are not impacted.
         nonmutating set {
-            g_application_set_inactivity_timeout(cast(application_ptr), guint(newValue))
+            g_application_set_inactivity_timeout(application_ptr, guint(newValue))
         }
     }
 
     /// Gets the application's current busy state, as set through
     /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
-    var isBusy: Bool {
+    @inlinable var isBusy: Bool {
         /// Gets the application's current busy state, as set through
         /// `g_application_mark_busy()` or `g_application_bind_busy_property()`.
         get {
-            let rv = g_application_get_is_busy(cast(application_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_application_get_is_busy(application_ptr)) != 0)
+            return rv
         }
     }
 
@@ -2162,14 +2393,14 @@ public extension ApplicationProtocol {
     /// 
     /// An application is registered if `g_application_register()` has been
     /// successfully called.
-    var isRegistered: Bool {
+    @inlinable var isRegistered: Bool {
         /// Checks if `application` is registered.
         /// 
         /// An application is registered if `g_application_register()` has been
         /// successfully called.
         get {
-            let rv = g_application_get_is_registered(cast(application_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_application_get_is_registered(application_ptr)) != 0)
+            return rv
         }
     }
 
@@ -2183,7 +2414,7 @@ public extension ApplicationProtocol {
     /// The value of this property cannot be accessed before
     /// `g_application_register()` has been called.  See
     /// `g_application_get_is_registered()`.
-    var isRemote: Bool {
+    @inlinable var isRemote: Bool {
         /// Checks if `application` is remote.
         /// 
         /// If `application` is remote then it means that another instance of
@@ -2195,21 +2426,21 @@ public extension ApplicationProtocol {
         /// `g_application_register()` has been called.  See
         /// `g_application_get_is_registered()`.
         get {
-            let rv = g_application_get_is_remote(cast(application_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_application_get_is_remote(application_ptr)) != 0)
+            return rv
         }
     }
 
     /// Gets the resource base path of `application`.
     /// 
     /// See `g_application_set_resource_base_path()` for more information.
-    var resourceBasePath: String! {
+    @inlinable var resourceBasePath: String! {
         /// Gets the resource base path of `application`.
         /// 
         /// See `g_application_set_resource_base_path()` for more information.
         get {
-            let rv: String! = cast(g_application_get_resource_base_path(cast(application_ptr)))
-            return cast(rv)
+            let rv = g_application_get_resource_base_path(application_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets (or unsets) the base resource path of `application`.
         /// 
@@ -2245,7 +2476,7 @@ public extension ApplicationProtocol {
         /// can call this function in the `GApplicationClass.startup` virtual function,
         /// before chaining up to the parent implementation.
         nonmutating set {
-            g_application_set_resource_base_path(cast(application_ptr), cast(newValue))
+            g_application_set_resource_base_path(application_ptr, newValue)
         }
     }
 
@@ -2423,10 +2654,11 @@ public extension ApplicationProtocol {
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
 public protocol ApplicationCommandLineProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GApplicationCommandLine` instance.
-    var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine> { get }
+    var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine>! { get }
+
 }
 
 /// The `ApplicationCommandLineRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLine` instance.
@@ -2593,46 +2825,76 @@ public protocol ApplicationCommandLineProtocol: ObjectProtocol {
 public struct ApplicationCommandLineRef: ApplicationCommandLineProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     /// For type-safe access, use the generated, typed pointer `application_command_line_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ApplicationCommandLineRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GApplicationCommandLine>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GApplicationCommandLine>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GApplicationCommandLine>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GApplicationCommandLine>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GApplicationCommandLine>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ApplicationCommandLineProtocol`
-    init<T: ApplicationCommandLineProtocol>(_ other: T) {
+    @inlinable init<T: ApplicationCommandLineProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2804,77 +3066,123 @@ open class ApplicationCommandLine: Object, ApplicationCommandLineProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GApplicationCommandLine>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GApplicationCommandLine>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GApplicationCommandLine>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GApplicationCommandLine>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GApplicationCommandLine>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GApplicationCommandLine`.
     /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GApplicationCommandLine>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GApplicationCommandLine>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ApplicationCommandLineProtocol`
     /// Will retain `GApplicationCommandLine`.
     /// - Parameter other: an instance of a related type that implements `ApplicationCommandLineProtocol`
-    public init<T: ApplicationCommandLineProtocol>(applicationCommandLine other: T) {
-        super.init(retaining: cast(other.application_command_line_ptr))
+    @inlinable public init<T: ApplicationCommandLineProtocol>(applicationCommandLine other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2898,18 +3206,18 @@ public extension ApplicationCommandLineProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(application_command_line_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -2927,7 +3235,7 @@ public extension ApplicationCommandLineProtocol {
     /// Get the value of a ApplicationCommandLine property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ApplicationCommandLinePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ApplicationCommandLinePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -2937,7 +3245,7 @@ public extension ApplicationCommandLineProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ApplicationCommandLinePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ApplicationCommandLinePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2980,11 +3288,11 @@ public extension ApplicationCommandLineProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ApplicationCommandLineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ApplicationCommandLineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(application_command_line_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3005,7 +3313,7 @@ public extension ApplicationCommandLineProtocol {
 // MARK: ApplicationCommandLine Class: ApplicationCommandLineProtocol extension (methods and fields)
 public extension ApplicationCommandLineProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GApplicationCommandLine` instance.
-    var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine> { return ptr.assumingMemoryBound(to: GApplicationCommandLine.self) }
+    @inlinable var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine>! { return ptr?.assumingMemoryBound(to: GApplicationCommandLine.self) }
 
     /// Creates a `GFile` corresponding to a filename that was given as part
     /// of the invocation of `cmdline`.
@@ -3013,9 +3321,9 @@ public extension ApplicationCommandLineProtocol {
     /// This differs from `g_file_new_for_commandline_arg()` in that it
     /// resolves relative pathnames using the current working directory of
     /// the invoking process rather than the local process.
-    func createFileFor(arg: UnsafePointer<gchar>) -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_application_command_line_create_file_for_arg(cast(application_command_line_ptr), arg))
-        return cast(rv)
+    @inlinable func createFileFor(arg: UnsafePointer<gchar>!) -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_application_command_line_create_file_for_arg(application_command_line_ptr, arg)))
+        return rv
     }
 
     /// Gets the list of arguments that was passed on the command line.
@@ -3029,9 +3337,9 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// The return value is `nil`-terminated and should be freed using
     /// `g_strfreev()`.
-    func getArguments(argc: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_application_command_line_get_arguments(cast(application_command_line_ptr), cast(argc)))
-        return cast(rv)
+    @inlinable func getArguments(argc: UnsafeMutablePointer<gint>! = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_application_command_line_get_arguments(application_command_line_ptr, argc)
+        return rv
     }
 
     /// Gets the working directory of the command line invocation.
@@ -3042,9 +3350,9 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
-    func getCwd() -> String! {
-        let rv: String! = cast(g_application_command_line_get_cwd(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getCwd() -> String! {
+        let rv = g_application_command_line_get_cwd(application_command_line_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the contents of the 'environ' variable of the command line
@@ -3062,22 +3370,22 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// See `g_application_command_line_getenv()` if you are only interested
     /// in the value of a single environment variable.
-    func getEnviron() -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_application_command_line_get_environ(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getEnviron() -> UnsafePointer<UnsafePointer<gchar>?>! {
+        let rv = g_application_command_line_get_environ(application_command_line_ptr)
+        return rv
     }
 
     /// Gets the exit status of `cmdline`.  See
     /// `g_application_command_line_set_exit_status()` for more information.
-    func getExitStatus() -> Int {
-        let rv: Int = cast(g_application_command_line_get_exit_status(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getExitStatus() -> Int {
+        let rv = Int(g_application_command_line_get_exit_status(application_command_line_ptr))
+        return rv
     }
 
     /// Determines if `cmdline` represents a remote invocation.
-    func getIsRemote() -> Bool {
-        let rv = g_application_command_line_get_is_remote(cast(application_command_line_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsRemote() -> Bool {
+        let rv = ((g_application_command_line_get_is_remote(application_command_line_ptr)) != 0)
+        return rv
     }
 
     /// Gets the options there were passed to `g_application_command_line()`.
@@ -3089,9 +3397,9 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
-    func getOptionsDict() -> UnsafeMutablePointer<GVariantDict>! {
-        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_application_command_line_get_options_dict(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getOptionsDict() -> VariantDictRef! {
+        let rv = VariantDictRef(gconstpointer: gconstpointer(g_application_command_line_get_options_dict(application_command_line_ptr)))
+        return rv
     }
 
     /// Gets the platform data associated with the invocation of `cmdline`.
@@ -3102,9 +3410,9 @@ public extension ApplicationCommandLineProtocol {
     /// notification ID.
     /// 
     /// For local invocation, it will be `nil`.
-    func getPlatformData() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_application_command_line_get_platform_data(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getPlatformData() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_application_command_line_get_platform_data(application_command_line_ptr)))
+        return rv
     }
 
     /// Gets the stdin of the invoking process.
@@ -3117,9 +3425,9 @@ public extension ApplicationCommandLineProtocol {
     /// future, support may be expanded to other platforms.
     /// 
     /// You must only call this function once per commandline invocation.
-    func getStdin() -> UnsafeMutablePointer<GInputStream>! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_application_command_line_get_stdin(cast(application_command_line_ptr)))
-        return cast(rv)
+    @inlinable func getStdin() -> InputStreamRef! {
+        let rv = InputStreamRef(gconstpointer: gconstpointer(g_application_command_line_get_stdin(application_command_line_ptr)))
+        return rv
     }
 
     /// Gets the value of a particular environment variable of the command
@@ -3133,9 +3441,9 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
-    func getenv(name: UnsafePointer<gchar>) -> String! {
-        let rv: String! = cast(g_application_command_line_getenv(cast(application_command_line_ptr), name))
-        return cast(rv)
+    @inlinable func getenv(name: UnsafePointer<gchar>!) -> String! {
+        let rv = g_application_command_line_getenv(application_command_line_ptr, name).map({ String(cString: $0) })
+        return rv
     }
 
 
@@ -3167,8 +3475,8 @@ public extension ApplicationCommandLineProtocol {
     /// have been 'successful' in a certain sense, and the exit status is
     /// always zero.  If the application use count is zero, though, the exit
     /// status of the local `GApplicationCommandLine` is used.
-    func set(exitStatus exit_status: CInt) {
-        g_application_command_line_set_exit_status(cast(application_command_line_ptr), exit_status)
+    @inlinable func set(exitStatus exit_status: Int) {
+        g_application_command_line_set_exit_status(application_command_line_ptr, gint(exit_status))
     
     }
     /// Gets the working directory of the command line invocation.
@@ -3179,7 +3487,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// The return value should not be modified or freed and is valid for as
     /// long as `cmdline` exists.
-    var cwd: String! {
+    @inlinable var cwd: String! {
         /// Gets the working directory of the command line invocation.
         /// The string may contain non-utf8 data.
         /// 
@@ -3189,8 +3497,8 @@ public extension ApplicationCommandLineProtocol {
         /// The return value should not be modified or freed and is valid for as
         /// long as `cmdline` exists.
         get {
-            let rv: String! = cast(g_application_command_line_get_cwd(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = g_application_command_line_get_cwd(application_command_line_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -3209,7 +3517,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// See `g_application_command_line_getenv()` if you are only interested
     /// in the value of a single environment variable.
-    var environ: UnsafePointer<UnsafePointer<gchar>>! {
+    @inlinable var environ: UnsafePointer<UnsafePointer<gchar>?>! {
         /// Gets the contents of the 'environ' variable of the command line
         /// invocation, as would be returned by `g_get_environ()`, ie as a
         /// `nil`-terminated list of strings in the form 'NAME=VALUE'.
@@ -3226,19 +3534,19 @@ public extension ApplicationCommandLineProtocol {
         /// See `g_application_command_line_getenv()` if you are only interested
         /// in the value of a single environment variable.
         get {
-            let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_application_command_line_get_environ(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = g_application_command_line_get_environ(application_command_line_ptr)
+            return rv
         }
     }
 
     /// Gets the exit status of `cmdline`.  See
     /// `g_application_command_line_set_exit_status()` for more information.
-    var exitStatus: Int {
+    @inlinable var exitStatus: Int {
         /// Gets the exit status of `cmdline`.  See
         /// `g_application_command_line_set_exit_status()` for more information.
         get {
-            let rv: Int = cast(g_application_command_line_get_exit_status(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = Int(g_application_command_line_get_exit_status(application_command_line_ptr))
+            return rv
         }
         /// Sets the exit status that will be used when the invoking process
         /// exits.
@@ -3262,16 +3570,16 @@ public extension ApplicationCommandLineProtocol {
         /// always zero.  If the application use count is zero, though, the exit
         /// status of the local `GApplicationCommandLine` is used.
         nonmutating set {
-            g_application_command_line_set_exit_status(cast(application_command_line_ptr), cast(newValue))
+            g_application_command_line_set_exit_status(application_command_line_ptr, gint(newValue))
         }
     }
 
     /// Determines if `cmdline` represents a remote invocation.
-    var isRemote: Bool {
+    @inlinable var isRemote: Bool {
         /// Determines if `cmdline` represents a remote invocation.
         get {
-            let rv = g_application_command_line_get_is_remote(cast(application_command_line_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_application_command_line_get_is_remote(application_command_line_ptr)) != 0)
+            return rv
         }
     }
 
@@ -3284,7 +3592,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
-    var optionsDict: UnsafeMutablePointer<GVariantDict>! {
+    @inlinable var optionsDict: VariantDictRef! {
         /// Gets the options there were passed to `g_application_command_line()`.
         /// 
         /// If you did not override `local_command_line()` then these are the same
@@ -3295,8 +3603,8 @@ public extension ApplicationCommandLineProtocol {
         /// If no options were sent then an empty dictionary is returned so that
         /// you don't need to check for `nil`.
         get {
-            let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_application_command_line_get_options_dict(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = VariantDictRef(gconstpointer: gconstpointer(g_application_command_line_get_options_dict(application_command_line_ptr)))
+            return rv
         }
     }
 
@@ -3308,7 +3616,7 @@ public extension ApplicationCommandLineProtocol {
     /// notification ID.
     /// 
     /// For local invocation, it will be `nil`.
-    var platformData: UnsafeMutablePointer<GVariant>! {
+    @inlinable var platformData: VariantRef! {
         /// Gets the platform data associated with the invocation of `cmdline`.
         /// 
         /// This is a `GVariant` dictionary containing information about the
@@ -3318,8 +3626,8 @@ public extension ApplicationCommandLineProtocol {
         /// 
         /// For local invocation, it will be `nil`.
         get {
-            let rv: UnsafeMutablePointer<GVariant>! = cast(g_application_command_line_get_platform_data(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = VariantRef(gconstpointer: gconstpointer(g_application_command_line_get_platform_data(application_command_line_ptr)))
+            return rv
         }
     }
 
@@ -3333,7 +3641,7 @@ public extension ApplicationCommandLineProtocol {
     /// future, support may be expanded to other platforms.
     /// 
     /// You must only call this function once per commandline invocation.
-    var stdin: UnsafeMutablePointer<GInputStream>! {
+    @inlinable var stdin: InputStreamRef! {
         /// Gets the stdin of the invoking process.
         /// 
         /// The `GInputStream` can be used to read data passed to the standard
@@ -3345,8 +3653,8 @@ public extension ApplicationCommandLineProtocol {
         /// 
         /// You must only call this function once per commandline invocation.
         get {
-            let rv: UnsafeMutablePointer<GInputStream>! = cast(g_application_command_line_get_stdin(cast(application_command_line_ptr)))
-            return cast(rv)
+            let rv = InputStreamRef(gconstpointer: gconstpointer(g_application_command_line_get_stdin(application_command_line_ptr)))
+            return rv
         }
     }
 
@@ -3381,10 +3689,11 @@ public extension ApplicationCommandLineProtocol {
 /// cannot be reduced below the size of the data within the buffer.
 public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GBufferedInputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GBufferedInputStream` instance.
-    var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream> { get }
+    var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream>! { get }
+
 }
 
 /// The `BufferedInputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStream` instance.
@@ -3408,67 +3717,97 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
 public struct BufferedInputStreamRef: BufferedInputStreamProtocol {
         /// Untyped pointer to the underlying `GBufferedInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `buffered_input_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension BufferedInputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GBufferedInputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GBufferedInputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GBufferedInputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GBufferedInputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GBufferedInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `BufferedInputStreamProtocol`
-    init<T: BufferedInputStreamProtocol>(_ other: T) {
+    @inlinable init<T: BufferedInputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
-    init( base_stream: InputStreamProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new(cast(base_stream.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
+        let rv = g_buffered_input_stream_new(base_stream.input_stream_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    init(sized base_stream: InputStreamProtocol, size: Int) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) {
+        let rv = g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size))
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    static func new(sized base_stream: InputStreamProtocol, size: Int) -> BufferedInputStreamRef! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
-        return rv.map { BufferedInputStreamRef(cast($0)) }
+    @inlinable static func new<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) -> InputStreamRef! {
+        guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size)))) else { return nil }
+        return rv
     }
 }
 
@@ -3495,99 +3834,145 @@ open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BufferedInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GBufferedInputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GBufferedInputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GBufferedInputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GBufferedInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BufferedInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GBufferedInputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GBufferedInputStream`.
     /// i.e., ownership is transferred to the `BufferedInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GBufferedInputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GBufferedInputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `BufferedInputStreamProtocol`
     /// Will retain `GBufferedInputStream`.
     /// - Parameter other: an instance of a related type that implements `BufferedInputStreamProtocol`
-    public init<T: BufferedInputStreamProtocol>(bufferedInputStream other: T) {
-        super.init(retaining: cast(other.buffered_input_stream_ptr))
+    @inlinable public init<T: BufferedInputStreamProtocol>(bufferedInputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
-    public init( base_stream: InputStreamProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new(cast(base_stream.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
+        let rv = g_buffered_input_stream_new(base_stream.input_stream_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    public init(sized base_stream: InputStreamProtocol, size: Int) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
-        super.init(cast(rv))
+    @inlinable public init<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) {
+        let rv = g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size))
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    public static func new(sized base_stream: InputStreamProtocol, size: Int) -> BufferedInputStream! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_buffered_input_stream_new_sized(cast(base_stream.ptr), gsize(size)))
-        return rv.map { BufferedInputStream(cast($0)) }
+    @inlinable public static func new<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) -> InputStream! {
+        guard let rv = InputStream(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size)))) else { return nil }
+        return rv
     }
 
 }
@@ -3607,18 +3992,18 @@ public extension BufferedInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(buffered_input_stream_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -3636,7 +4021,7 @@ public extension BufferedInputStreamProtocol {
     /// Get the value of a BufferedInputStream property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: BufferedInputStreamPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: BufferedInputStreamPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -3646,7 +4031,7 @@ public extension BufferedInputStreamProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: BufferedInputStreamPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: BufferedInputStreamPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -3688,11 +4073,11 @@ public extension BufferedInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BufferedInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: BufferedInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(buffered_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3713,7 +4098,7 @@ public extension BufferedInputStreamProtocol {
 // MARK: BufferedInputStream Class: BufferedInputStreamProtocol extension (methods and fields)
 public extension BufferedInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBufferedInputStream` instance.
-    var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream> { return ptr.assumingMemoryBound(to: GBufferedInputStream.self) }
+    @inlinable var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream>! { return ptr?.assumingMemoryBound(to: GBufferedInputStream.self) }
 
     /// Tries to read `count` bytes from the stream into the buffer.
     /// Will block during this read.
@@ -3739,11 +4124,11 @@ public extension BufferedInputStreamProtocol {
     /// 
     /// For the asynchronous, non-blocking, version of this function, see
     /// `g_buffered_input_stream_fill_async()`.
-    func fill(count: gssize, cancellable: CancellableProtocol) throws -> gssize {
+    @inlinable func fill<CancellableT: CancellableProtocol>(count: gssize, cancellable: CancellableT? = nil) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_buffered_input_stream_fill(cast(buffered_input_stream_ptr), count, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_buffered_input_stream_fill(buffered_input_stream_ptr, count, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Reads data into `stream`'s buffer asynchronously, up to `count` size.
@@ -3752,44 +4137,44 @@ public extension BufferedInputStreamProtocol {
     /// 
     /// If `count` is -1 then the attempted read size is equal to the number
     /// of bytes that are required to fill the buffer.
-    func fillAsync(count: gssize, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_buffered_input_stream_fill_async(cast(buffered_input_stream_ptr), count, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func fillAsync<CancellableT: CancellableProtocol>(count: gssize, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_buffered_input_stream_fill_async(buffered_input_stream_ptr, count, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous read.
-    func fillFinish(result: AsyncResultProtocol) throws -> gssize {
+    @inlinable func fillFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_buffered_input_stream_fill_finish(cast(buffered_input_stream_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_buffered_input_stream_fill_finish(buffered_input_stream_ptr, result.async_result_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the size of the available data within the stream.
-    func getAvailable() -> Int {
-        let rv = g_buffered_input_stream_get_available(cast(buffered_input_stream_ptr))
-        return Int(rv)
+    @inlinable func getAvailable() -> Int {
+        let rv = Int(g_buffered_input_stream_get_available(buffered_input_stream_ptr))
+        return rv
     }
 
     /// Gets the size of the input buffer.
-    func getBufferSize() -> Int {
-        let rv = g_buffered_input_stream_get_buffer_size(cast(buffered_input_stream_ptr))
-        return Int(rv)
+    @inlinable func getBufferSize() -> Int {
+        let rv = Int(g_buffered_input_stream_get_buffer_size(buffered_input_stream_ptr))
+        return rv
     }
 
     /// Peeks in the buffer, copying data of size `count` into `buffer`,
     /// offset `offset` bytes.
-    func peek(buffer: UnsafeMutableRawPointer, offset: Int, count: Int) -> Int {
-        let rv = g_buffered_input_stream_peek(cast(buffered_input_stream_ptr), cast(buffer), gsize(offset), gsize(count))
-        return Int(rv)
+    @inlinable func peek(buffer: UnsafeMutableRawPointer!, offset: Int, count: Int) -> Int {
+        let rv = Int(g_buffered_input_stream_peek(buffered_input_stream_ptr, buffer, gsize(offset), gsize(count)))
+        return rv
     }
 
     /// Returns the buffer with the currently available bytes. The returned
     /// buffer must not be modified and will become invalid when reading from
     /// the stream or filling the buffer.
-    func peekBuffer(count: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_buffered_input_stream_peek_buffer(cast(buffered_input_stream_ptr), cast(count)))
-        return cast(rv)
+    @inlinable func peekBuffer(count: UnsafeMutablePointer<gsize>!) -> UnsafeRawPointer! {
+        let rv = g_buffered_input_stream_peek_buffer(buffered_input_stream_ptr, count)
+        return rv
     }
 
     /// Tries to read a single byte from the stream or the buffer. Will block
@@ -3805,47 +4190,47 @@ public extension BufferedInputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
-    func readByte(cancellable: CancellableProtocol) throws -> Int {
+    @inlinable func readByte<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_buffered_input_stream_read_byte(cast(buffered_input_stream_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = Int(g_buffered_input_stream_read_byte(buffered_input_stream_ptr, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the size of the internal buffer of `stream` to `size`, or to the
     /// size of the contents of the buffer. The buffer can never be resized
     /// smaller than its current contents.
-    func setBuffer(size: Int) {
-        g_buffered_input_stream_set_buffer_size(cast(buffered_input_stream_ptr), gsize(size))
+    @inlinable func setBuffer(size: Int) {
+        g_buffered_input_stream_set_buffer_size(buffered_input_stream_ptr, gsize(size))
     
     }
     /// Gets the size of the available data within the stream.
-    var available: Int {
+    @inlinable var available: Int {
         /// Gets the size of the available data within the stream.
         get {
-            let rv = g_buffered_input_stream_get_available(cast(buffered_input_stream_ptr))
-            return Int(rv)
+            let rv = Int(g_buffered_input_stream_get_available(buffered_input_stream_ptr))
+            return rv
         }
     }
 
     /// Gets the size of the input buffer.
-    var bufferSize: Int {
+    @inlinable var bufferSize: Int {
         /// Gets the size of the input buffer.
         get {
-            let rv = g_buffered_input_stream_get_buffer_size(cast(buffered_input_stream_ptr))
-            return Int(rv)
+            let rv = Int(g_buffered_input_stream_get_buffer_size(buffered_input_stream_ptr))
+            return rv
         }
         /// Sets the size of the internal buffer of `stream` to `size`, or to the
         /// size of the contents of the buffer. The buffer can never be resized
         /// smaller than its current contents.
         nonmutating set {
-            g_buffered_input_stream_set_buffer_size(cast(buffered_input_stream_ptr), gsize(newValue))
+            g_buffered_input_stream_set_buffer_size(buffered_input_stream_ptr, gsize(newValue))
         }
     }
 
-    var parentInstance: GFilterInputStream {
+    @inlinable var parentInstance: GFilterInputStream {
         get {
-            let rv: GFilterInputStream = cast(buffered_input_stream_ptr.pointee.parent_instance)
+            let rv = buffered_input_stream_ptr.pointee.parent_instance
             return rv
         }
     }

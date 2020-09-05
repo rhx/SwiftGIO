@@ -40,10 +40,11 @@ import GLibObject
 /// inside of a `GSimpleActionGroup`.
 public protocol ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAction` instance.
-    var action_ptr: UnsafeMutablePointer<GAction> { get }
+    var action_ptr: UnsafeMutablePointer<GAction>! { get }
+
 }
 
 /// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GAction` instance.
@@ -82,46 +83,76 @@ public protocol ActionProtocol {
 public struct ActionRef: ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ActionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ActionProtocol`
-    init<T: ActionProtocol>(_ other: T) {
+    @inlinable init<T: ActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -163,95 +194,141 @@ public extension ActionRef {
 open class Action: ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Action` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAction>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GAction>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAction>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GAction` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Action` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAction>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAction>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ActionProtocol`
     /// `GAction` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ActionProtocol`
-    public init<T: ActionProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.action_ptr)
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+    @inlinable public init<T: ActionProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
     /// Do-nothing destructor for `GAction`.
     deinit {
-        // no reference counting for GAction, cannot unref(cast(action_ptr))
+        // no reference counting for GAction, cannot unref(action_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GAction, cannot ref(cast(action_ptr))
+        // no reference counting for GAction, cannot ref(action_ptr)
     }
 
 
@@ -287,18 +364,18 @@ public extension ActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(action_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -316,7 +393,7 @@ public extension ActionProtocol {
     /// Get the value of a Action property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ActionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ActionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -326,7 +403,7 @@ public extension ActionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ActionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ActionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -358,11 +435,11 @@ public extension ActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -383,7 +460,7 @@ public extension ActionProtocol {
 // MARK: Action Interface: ActionProtocol extension (methods and fields)
 public extension ActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAction` instance.
-    var action_ptr: UnsafeMutablePointer<GAction> { return ptr.assumingMemoryBound(to: GAction.self) }
+    @inlinable var action_ptr: UnsafeMutablePointer<GAction>! { return ptr?.assumingMemoryBound(to: GAction.self) }
 
     /// Activates the action.
     /// 
@@ -392,8 +469,8 @@ public extension ActionProtocol {
     /// type was `nil` then `parameter` must also be `nil`.
     /// 
     /// If the `parameter` GVariant is floating, it is consumed.
-    func activate(parameter: VariantProtocol) {
-        g_action_activate(cast(action_ptr), cast(parameter.ptr))
+    @inlinable func activate<VariantT: VariantProtocol>(parameter: VariantT? = nil) {
+        g_action_activate(action_ptr, parameter?.variant_ptr)
     
     }
 
@@ -407,8 +484,8 @@ public extension ActionProtocol {
     /// See `g_action_get_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
-    func changeState(value: VariantProtocol) {
-        g_action_change_state(cast(action_ptr), cast(value.ptr))
+    @inlinable func changeState<VariantT: VariantProtocol>(value: VariantT) {
+        g_action_change_state(action_ptr, value.variant_ptr)
     
     }
 
@@ -416,15 +493,15 @@ public extension ActionProtocol {
     /// 
     /// An action must be enabled in order to be activated or in order to
     /// have its state changed from outside callers.
-    func getEnabled() -> Bool {
-        let rv = g_action_get_enabled(cast(action_ptr))
-        return Bool(rv != 0)
+    @inlinable func getEnabled() -> Bool {
+        let rv = ((g_action_get_enabled(action_ptr)) != 0)
+        return rv
     }
 
     /// Queries the name of `action`.
-    func getName() -> String! {
-        let rv: String! = cast(g_action_get_name(cast(action_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_action_get_name(action_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Queries the type of the parameter that must be given when activating
@@ -435,9 +512,9 @@ public extension ActionProtocol {
     /// 
     /// In the case that this function returns `nil`, you must not give any
     /// `GVariant`, but `nil` instead.
-    func getParameterType() -> UnsafePointer<GVariantType>! {
-        let rv: UnsafePointer<GVariantType>! = cast(g_action_get_parameter_type(cast(action_ptr)))
-        return cast(rv)
+    @inlinable func getParameterType() -> VariantTypeRef! {
+        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_parameter_type(action_ptr)))
+        return rv
     }
 
     /// Queries the current state of `action`.
@@ -448,9 +525,9 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    func getState() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state(cast(action_ptr)))
-        return cast(rv)
+    @inlinable func getState() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state(action_ptr)))
+        return rv
     }
 
     /// Requests a hint about the valid range of values for the state of
@@ -471,9 +548,9 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    func getStateHint() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state_hint(cast(action_ptr)))
-        return cast(rv)
+    @inlinable func getStateHint() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state_hint(action_ptr)))
+        return rv
     }
 
     /// Queries the type of the state of `action`.
@@ -488,32 +565,32 @@ public extension ActionProtocol {
     /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
     /// then this function will return `nil`. In that case, `g_action_get_state()`
     /// will return `nil` and you must not call `g_action_change_state()`.
-    func getStateType() -> UnsafePointer<GVariantType>! {
-        let rv: UnsafePointer<GVariantType>! = cast(g_action_get_state_type(cast(action_ptr)))
-        return cast(rv)
+    @inlinable func getStateType() -> VariantTypeRef! {
+        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_state_type(action_ptr)))
+        return rv
     }
     /// If `action` is currently enabled.
     /// 
     /// If the action is disabled then calls to `g_action_activate()` and
     /// `g_action_change_state()` have no effect.
-    var enabled: Bool {
+    @inlinable var enabled: Bool {
         /// Checks if `action` is currently enabled.
         /// 
         /// An action must be enabled in order to be activated or in order to
         /// have its state changed from outside callers.
         get {
-            let rv = g_action_get_enabled(cast(action_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_action_get_enabled(action_ptr)) != 0)
+            return rv
         }
     }
 
     /// The name of the action.  This is mostly meaningful for identifying
     /// the action once it has been added to a `GActionGroup`. It is immutable.
-    var name: String! {
+    @inlinable var name: String! {
         /// Queries the name of `action`.
         get {
-            let rv: String! = cast(g_action_get_name(cast(action_ptr)))
-            return cast(rv)
+            let rv = g_action_get_name(action_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -525,7 +602,7 @@ public extension ActionProtocol {
     /// 
     /// In the case that this function returns `nil`, you must not give any
     /// `GVariant`, but `nil` instead.
-    var parameterType: UnsafePointer<GVariantType>! {
+    @inlinable var parameterType: VariantTypeRef! {
         /// Queries the type of the parameter that must be given when activating
         /// `action`.
         /// 
@@ -535,13 +612,13 @@ public extension ActionProtocol {
         /// In the case that this function returns `nil`, you must not give any
         /// `GVariant`, but `nil` instead.
         get {
-            let rv: UnsafePointer<GVariantType>! = cast(g_action_get_parameter_type(cast(action_ptr)))
-            return cast(rv)
+            let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_parameter_type(action_ptr)))
+            return rv
         }
     }
 
     /// The state of the action, or `nil` if the action is stateless.
-    var state: UnsafeMutablePointer<GVariant>! {
+    @inlinable var state: VariantRef! {
         /// Queries the current state of `action`.
         /// 
         /// If the action is not stateful then `nil` will be returned.  If the
@@ -551,8 +628,8 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state(cast(action_ptr)))
-            return cast(rv)
+            let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state(action_ptr)))
+            return rv
         }
     }
 
@@ -574,7 +651,7 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    var stateHint: UnsafeMutablePointer<GVariant>! {
+    @inlinable var stateHint: VariantRef! {
         /// Requests a hint about the valid range of values for the state of
         /// `action`.
         /// 
@@ -594,8 +671,8 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_get_state_hint(cast(action_ptr)))
-            return cast(rv)
+            let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state_hint(action_ptr)))
+            return rv
         }
     }
 
@@ -611,7 +688,7 @@ public extension ActionProtocol {
     /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
     /// then this function will return `nil`. In that case, `g_action_get_state()`
     /// will return `nil` and you must not call `g_action_change_state()`.
-    var stateType: UnsafePointer<GVariantType>! {
+    @inlinable var stateType: VariantTypeRef! {
         /// Queries the type of the state of `action`.
         /// 
         /// If the action is stateful (e.g. created with
@@ -625,8 +702,8 @@ public extension ActionProtocol {
         /// then this function will return `nil`. In that case, `g_action_get_state()`
         /// will return `nil` and you must not call `g_action_change_state()`.
         get {
-            let rv: UnsafePointer<GVariantType>! = cast(g_action_get_state_type(cast(action_ptr)))
-            return cast(rv)
+            let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_state_type(action_ptr)))
+            return rv
         }
     }
 
@@ -689,10 +766,11 @@ public extension ActionProtocol {
 /// calls to `g_action_group_query_action()`.
 public protocol ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GActionGroup` instance.
-    var action_group_ptr: UnsafeMutablePointer<GActionGroup> { get }
+    var action_group_ptr: UnsafeMutablePointer<GActionGroup>! { get }
+
 }
 
 /// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GActionGroup` instance.
@@ -747,46 +825,76 @@ public protocol ActionGroupProtocol {
 public struct ActionGroupRef: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ActionGroupRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GActionGroup>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GActionGroup>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GActionGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GActionGroup>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ActionGroupProtocol`
-    init<T: ActionGroupProtocol>(_ other: T) {
+    @inlinable init<T: ActionGroupProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -844,95 +952,141 @@ public extension ActionGroupRef {
 open class ActionGroup: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GActionGroup>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GActionGroup>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GActionGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GActionGroup>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GActionGroup` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GActionGroup>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GActionGroup>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ActionGroupProtocol`
     /// `GActionGroup` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ActionGroupProtocol`
-    public init<T: ActionGroupProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.action_group_ptr)
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+    @inlinable public init<T: ActionGroupProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
     /// Do-nothing destructor for `GActionGroup`.
     deinit {
-        // no reference counting for GActionGroup, cannot unref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot unref(action_group_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GActionGroup, cannot ref(cast(action_group_ptr))
+        // no reference counting for GActionGroup, cannot ref(action_group_ptr)
     }
 
 
@@ -963,11 +1117,11 @@ public extension ActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -988,37 +1142,37 @@ public extension ActionGroupProtocol {
 // MARK: ActionGroup Interface: ActionGroupProtocol extension (methods and fields)
 public extension ActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionGroup` instance.
-    var action_group_ptr: UnsafeMutablePointer<GActionGroup> { return ptr.assumingMemoryBound(to: GActionGroup.self) }
+    @inlinable var action_group_ptr: UnsafeMutablePointer<GActionGroup>! { return ptr?.assumingMemoryBound(to: GActionGroup.self) }
 
     /// Emits the `GActionGroup::action`-added signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    func actionAdded(actionName action_name: UnsafePointer<gchar>) {
-        g_action_group_action_added(cast(action_group_ptr), action_name)
+    @inlinable func actionAdded(actionName action_name: UnsafePointer<gchar>!) {
+        g_action_group_action_added(action_group_ptr, action_name)
     
     }
 
     /// Emits the `GActionGroup::action`-enabled-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    func actionEnabledChanged(actionName action_name: UnsafePointer<gchar>, enabled: Bool) {
-        g_action_group_action_enabled_changed(cast(action_group_ptr), action_name, gboolean(enabled ? 1 : 0))
+    @inlinable func actionEnabledChanged(actionName action_name: UnsafePointer<gchar>!, enabled: Bool) {
+        g_action_group_action_enabled_changed(action_group_ptr, action_name, gboolean((enabled) ? 1 : 0))
     
     }
 
     /// Emits the `GActionGroup::action`-removed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    func actionRemoved(actionName action_name: UnsafePointer<gchar>) {
-        g_action_group_action_removed(cast(action_group_ptr), action_name)
+    @inlinable func actionRemoved(actionName action_name: UnsafePointer<gchar>!) {
+        g_action_group_action_removed(action_group_ptr, action_name)
     
     }
 
     /// Emits the `GActionGroup::action`-state-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    func actionStateChanged(actionName action_name: UnsafePointer<gchar>, state: VariantProtocol) {
-        g_action_group_action_state_changed(cast(action_group_ptr), action_name, cast(state.ptr))
+    @inlinable func actionStateChanged<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, state: VariantT) {
+        g_action_group_action_state_changed(action_group_ptr, action_name, state.variant_ptr)
     
     }
 
@@ -1028,8 +1182,8 @@ public extension ActionGroupProtocol {
     /// parameter must be given as `parameter`.  If the action is expecting no
     /// parameters then `parameter` must be `nil`.  See
     /// `g_action_group_get_action_parameter_type()`.
-    func activateAction(actionName action_name: UnsafePointer<gchar>, parameter: VariantProtocol) {
-        g_action_group_activate_action(cast(action_group_ptr), action_name, cast(parameter.ptr))
+    @inlinable func activateAction<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, parameter: VariantT? = nil) {
+        g_action_group_activate_action(action_group_ptr, action_name, parameter?.variant_ptr)
     
     }
 
@@ -1044,8 +1198,8 @@ public extension ActionGroupProtocol {
     /// See `g_action_group_get_action_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
-    func changeActionState(actionName action_name: UnsafePointer<gchar>, value: VariantProtocol) {
-        g_action_group_change_action_state(cast(action_group_ptr), action_name, cast(value.ptr))
+    @inlinable func changeActionState<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, value: VariantT) {
+        g_action_group_change_action_state(action_group_ptr, action_name, value.variant_ptr)
     
     }
 
@@ -1053,9 +1207,9 @@ public extension ActionGroupProtocol {
     /// 
     /// An action must be enabled in order to be activated or in order to
     /// have its state changed from outside callers.
-    func getActionEnabled(actionName action_name: UnsafePointer<gchar>) -> Bool {
-        let rv = g_action_group_get_action_enabled(cast(action_group_ptr), action_name)
-        return Bool(rv != 0)
+    @inlinable func getActionEnabled(actionName action_name: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_action_group_get_action_enabled(action_group_ptr, action_name)) != 0)
+        return rv
     }
 
     /// Queries the type of the parameter that must be given when activating
@@ -1071,9 +1225,9 @@ public extension ActionGroupProtocol {
     /// The parameter type of a particular action will never change but it is
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different parameter type.
-    func getActionParameterType(actionName action_name: UnsafePointer<gchar>) -> UnsafePointer<GVariantType>! {
-        let rv: UnsafePointer<GVariantType>! = cast(g_action_group_get_action_parameter_type(cast(action_group_ptr), action_name))
-        return cast(rv)
+    @inlinable func getActionParameterType(actionName action_name: UnsafePointer<gchar>!) -> VariantTypeRef! {
+        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_group_get_action_parameter_type(action_group_ptr, action_name)))
+        return rv
     }
 
     /// Queries the current state of the named action within `action_group`.
@@ -1084,9 +1238,9 @@ public extension ActionGroupProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    func getActionState(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_group_get_action_state(cast(action_group_ptr), action_name))
-        return cast(rv)
+    @inlinable func getActionState(actionName action_name: UnsafePointer<gchar>!) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_action_group_get_action_state(action_group_ptr, action_name)))
+        return rv
     }
 
     /// Requests a hint about the valid range of values for the state of the
@@ -1107,9 +1261,9 @@ public extension ActionGroupProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    func getActionStateHint(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_action_group_get_action_state_hint(cast(action_group_ptr), action_name))
-        return cast(rv)
+    @inlinable func getActionStateHint(actionName action_name: UnsafePointer<gchar>!) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_action_group_get_action_state_hint(action_group_ptr, action_name)))
+        return rv
     }
 
     /// Queries the type of the state of the named action within
@@ -1128,24 +1282,24 @@ public extension ActionGroupProtocol {
     /// The state type of a particular action will never change but it is
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different state type.
-    func getActionStateType(actionName action_name: UnsafePointer<gchar>) -> UnsafePointer<GVariantType>! {
-        let rv: UnsafePointer<GVariantType>! = cast(g_action_group_get_action_state_type(cast(action_group_ptr), action_name))
-        return cast(rv)
+    @inlinable func getActionStateType(actionName action_name: UnsafePointer<gchar>!) -> VariantTypeRef! {
+        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_group_get_action_state_type(action_group_ptr, action_name)))
+        return rv
     }
 
     /// Checks if the named action exists within `action_group`.
-    func hasAction(actionName action_name: UnsafePointer<gchar>) -> Bool {
-        let rv = g_action_group_has_action(cast(action_group_ptr), action_name)
-        return Bool(rv != 0)
+    @inlinable func hasAction(actionName action_name: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_action_group_has_action(action_group_ptr, action_name)) != 0)
+        return rv
     }
 
     /// Lists the actions contained within `action_group`.
     /// 
     /// The caller is responsible for freeing the list with `g_strfreev()` when
     /// it is no longer required.
-    func listActions() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_action_group_list_actions(cast(action_group_ptr)))
-        return cast(rv)
+    @inlinable func listActions() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_action_group_list_actions(action_group_ptr)
+        return rv
     }
 
     /// Queries all aspects of the named action within an `action_group`.
@@ -1175,9 +1329,9 @@ public extension ActionGroupProtocol {
     /// fields (as indicated by having a non-`nil` reference passed in) are
     /// filled.  If the action doesn't exist, `false` is returned and the
     /// fields may or may not have been modified.
-    func queryAction(actionName action_name: UnsafePointer<gchar>, enabled: UnsafeMutablePointer<Bool>, parameterType parameter_type: VariantTypeProtocol, stateType state_type: VariantTypeProtocol, stateHint state_hint: VariantProtocol, state: VariantProtocol) -> Bool {
-        let rv = g_action_group_query_action(cast(action_group_ptr), action_name, cast(enabled), cast(parameter_type.ptr), cast(state_type.ptr), cast(state_hint.ptr), cast(state.ptr))
-        return Bool(rv != 0)
+    @inlinable func queryAction(actionName action_name: UnsafePointer<gchar>!, enabled: UnsafeMutablePointer<gboolean>!, parameterType parameter_type: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateType state_type: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateHint state_hint: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil, state: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
+        let rv = ((g_action_group_query_action(action_group_ptr, action_name, enabled, parameter_type, state_type, state_hint, state)) != 0)
+        return rv
     }
 
 
@@ -1203,10 +1357,11 @@ public extension ActionGroupProtocol {
 /// name.
 public protocol ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GActionMap` instance.
-    var action_map_ptr: UnsafeMutablePointer<GActionMap> { get }
+    var action_map_ptr: UnsafeMutablePointer<GActionMap>! { get }
+
 }
 
 /// The `ActionMapRef` type acts as a lightweight Swift reference to an underlying `GActionMap` instance.
@@ -1225,46 +1380,76 @@ public protocol ActionMapProtocol {
 public struct ActionMapRef: ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ActionMapRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GActionMap>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GActionMap>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GActionMap>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GActionMap>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GActionMap>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ActionMapProtocol`
-    init<T: ActionMapProtocol>(_ other: T) {
+    @inlinable init<T: ActionMapProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1286,95 +1471,141 @@ public extension ActionMapRef {
 open class ActionMap: ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ActionMap` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GActionMap>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GActionMap>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GActionMap>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GActionMap>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActionMap` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GActionMap>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GActionMap` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ActionMap` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GActionMap>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GActionMap>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ActionMapProtocol`
     /// `GActionMap` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ActionMapProtocol`
-    public init<T: ActionMapProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.action_map_ptr)
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+    @inlinable public init<T: ActionMapProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
     /// Do-nothing destructor for `GActionMap`.
     deinit {
-        // no reference counting for GActionMap, cannot unref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot unref(action_map_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GActionMap, cannot ref(cast(action_map_ptr))
+        // no reference counting for GActionMap, cannot ref(action_map_ptr)
     }
 
 
@@ -1389,7 +1620,7 @@ open class ActionMap: ActionMapProtocol {
 // MARK: ActionMap Interface: ActionMapProtocol extension (methods and fields)
 public extension ActionMapProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionMap` instance.
-    var action_map_ptr: UnsafeMutablePointer<GActionMap> { return ptr.assumingMemoryBound(to: GActionMap.self) }
+    @inlinable var action_map_ptr: UnsafeMutablePointer<GActionMap>! { return ptr?.assumingMemoryBound(to: GActionMap.self) }
 
     /// Adds an action to the `action_map`.
     /// 
@@ -1397,8 +1628,8 @@ public extension ActionMapProtocol {
     /// as `action` then the old action is dropped from the action map.
     /// 
     /// The action map takes its own reference on `action`.
-    func add(action: ActionProtocol) {
-        g_action_map_add_action(cast(action_map_ptr), cast(action.ptr))
+    @inlinable func add<ActionT: ActionProtocol>(action: ActionT) {
+        g_action_map_add_action(action_map_ptr, action.action_ptr)
     
     }
 
@@ -1441,24 +1672,24 @@ public extension ActionMapProtocol {
     /// }
     /// ```
     /// 
-    func addAction(entries: UnsafePointer<GActionEntry>, nEntries n_entries: CInt, userData user_data: UnsafeMutableRawPointer) {
-        g_action_map_add_action_entries(cast(action_map_ptr), cast(entries), gint(n_entries), cast(user_data))
+    @inlinable func addAction(entries: UnsafePointer<GActionEntry>!, nEntries n_entries: Int, userData user_data: gpointer! = nil) {
+        g_action_map_add_action_entries(action_map_ptr, entries, gint(n_entries), user_data)
     
     }
 
     /// Looks up the action with the name `action_name` in `action_map`.
     /// 
     /// If no such action exists, returns `nil`.
-    func lookupAction(actionName action_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GAction>! {
-        let rv: UnsafeMutablePointer<GAction>! = cast(g_action_map_lookup_action(cast(action_map_ptr), action_name))
-        return cast(rv)
+    @inlinable func lookupAction(actionName action_name: UnsafePointer<gchar>!) -> ActionRef! {
+        let rv = ActionRef(gconstpointer: gconstpointer(g_action_map_lookup_action(action_map_ptr, action_name)))
+        return rv
     }
 
     /// Removes the named action from the action map.
     /// 
     /// If no action of this name is in the map then nothing happens.
-    func removeAction(actionName action_name: UnsafePointer<gchar>) {
-        g_action_map_remove_action(cast(action_map_ptr), action_name)
+    @inlinable func removeAction(actionName action_name: UnsafePointer<gchar>!) {
+        g_action_map_remove_action(action_map_ptr, action_name)
     
     }
 
@@ -1524,10 +1755,11 @@ public extension ActionMapProtocol {
 /// different ideas of what a given URI means.
 public protocol AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAppInfo` instance.
-    var app_info_ptr: UnsafeMutablePointer<GAppInfo> { get }
+    var app_info_ptr: UnsafeMutablePointer<GAppInfo>! { get }
+
 }
 
 /// The `AppInfoRef` type acts as a lightweight Swift reference to an underlying `GAppInfo` instance.
@@ -1585,46 +1817,76 @@ public protocol AppInfoProtocol {
 public struct AppInfoRef: AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension AppInfoRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAppInfo>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAppInfo>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAppInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAppInfo>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAppInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `AppInfoProtocol`
-    init<T: AppInfoProtocol>(_ other: T) {
+    @inlinable init<T: AppInfoProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1635,26 +1897,27 @@ public extension AppInfoRef {
     /// are applied. For example, if the `commandline` contains
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
-    static func createFrom(commandline: UnsafePointer<CChar>, applicationName application_name: UnsafePointer<CChar>, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
+    @inlinable static func createFrom(commandline: UnsafePointer<CChar>!, applicationName application_name: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { AppInfoRef(cast($0)) }
+        let maybeRV = AppInfoRef(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Gets the default `GAppInfo` for a given content type.
-    static func getDefaultFor(type content_type: UnsafePointer<CChar>, mustSupportURIs must_support_uris: Bool) -> AppInfoRef! {
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0)))
-        return rv.map { AppInfoRef(cast($0)) }
+    @inlinable static func getDefaultFor(type content_type: UnsafePointer<CChar>!, mustSupportURIs must_support_uris: Bool) -> AppInfoRef! {
+        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_type(content_type, gboolean((must_support_uris) ? 1 : 0)))) else { return nil }
+        return rv
     }
 
     /// Gets the default application for handling URIs with
     /// the given URI scheme. A URI scheme is the initial part
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
-    static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> AppInfoRef! {
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_uri_scheme(uri_scheme))
-        return rv.map { AppInfoRef(cast($0)) }
+    @inlinable static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>!) -> AppInfoRef! {
+        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uri_scheme))) else { return nil }
+        return rv
     }
 }
 
@@ -1713,95 +1976,141 @@ public extension AppInfoRef {
 open class AppInfo: AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppInfo` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAppInfo>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GAppInfo>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAppInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAppInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAppInfo>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GAppInfo` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `AppInfo` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAppInfo>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAppInfo>) {
         ptr = UnsafeMutableRawPointer(op)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Reference intialiser for a related type that implements `AppInfoProtocol`
     /// `GAppInfo` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `AppInfoProtocol`
-    public init<T: AppInfoProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.app_info_ptr)
-	g_object_ref(cast(ptr))
+    @inlinable public init<T: AppInfoProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_object_ref(ptr)
     }
 
     /// Do-nothing destructor for `GAppInfo`.
     deinit {
-	g_object_unref(cast(ptr))
+        g_object_unref(ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
 
@@ -1812,26 +2121,27 @@ open class AppInfo: AppInfoProtocol {
     /// are applied. For example, if the `commandline` contains
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
-    public static func createFrom(commandline: UnsafePointer<CChar>, applicationName application_name: UnsafePointer<CChar>, flags: AppInfoCreateFlags) throws -> AppInfo! {
+    @inlinable public static func createFrom(commandline: UnsafePointer<CChar>!, applicationName application_name: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfo! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { AppInfo(cast($0)) }
+        let maybeRV = AppInfo(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Gets the default `GAppInfo` for a given content type.
-    public static func getDefaultFor(type content_type: UnsafePointer<CChar>, mustSupportURIs must_support_uris: Bool) -> AppInfo! {
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_type(content_type, gboolean(must_support_uris ? 1 : 0)))
-        return rv.map { AppInfo(cast($0)) }
+    @inlinable public static func getDefaultFor(type content_type: UnsafePointer<CChar>!, mustSupportURIs must_support_uris: Bool) -> AppInfo! {
+        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_type(content_type, gboolean((must_support_uris) ? 1 : 0)))) else { return nil }
+        return rv
     }
 
     /// Gets the default application for handling URIs with
     /// the given URI scheme. A URI scheme is the initial part
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
-    public static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>) -> AppInfo! {
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_get_default_for_uri_scheme(uri_scheme))
-        return rv.map { AppInfo(cast($0)) }
+    @inlinable public static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>!) -> AppInfo! {
+        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uri_scheme))) else { return nil }
+        return rv
     }
 
 }
@@ -1844,28 +2154,28 @@ open class AppInfo: AppInfoProtocol {
 // MARK: AppInfo Interface: AppInfoProtocol extension (methods and fields)
 public extension AppInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAppInfo` instance.
-    var app_info_ptr: UnsafeMutablePointer<GAppInfo> { return ptr.assumingMemoryBound(to: GAppInfo.self) }
+    @inlinable var app_info_ptr: UnsafeMutablePointer<GAppInfo>! { return ptr?.assumingMemoryBound(to: GAppInfo.self) }
 
     /// Adds a content type to the application information to indicate the
     /// application is capable of opening files with the given content type.
-    func addSupportsType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func addSupportsType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_add_supports_type(cast(app_info_ptr), content_type, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_add_supports_type(app_info_ptr, content_type, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtains the information whether the `GAppInfo` can be deleted.
     /// See `g_app_info_delete()`.
-    func canDelete() -> Bool {
-        let rv = g_app_info_can_delete(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func canDelete() -> Bool {
+        let rv = ((g_app_info_can_delete(app_info_ptr)) != 0)
+        return rv
     }
 
     /// Checks if a supported content type can be removed from an application.
-    func canRemoveSupportsType() -> Bool {
-        let rv = g_app_info_can_remove_supports_type(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func canRemoveSupportsType() -> Bool {
+        let rv = ((g_app_info_can_remove_supports_type(app_info_ptr)) != 0)
+        return rv
     }
 
     /// Tries to delete a `GAppInfo`.
@@ -1873,15 +2183,15 @@ public extension AppInfoProtocol {
     /// On some platforms, there may be a difference between user-defined
     /// `GAppInfos` which can be deleted, and system-wide ones which cannot.
     /// See `g_app_info_can_delete()`.
-    func delete() -> Bool {
-        let rv = g_app_info_delete(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func delete() -> Bool {
+        let rv = ((g_app_info_delete(app_info_ptr)) != 0)
+        return rv
     }
 
     /// Creates a duplicate of a `GAppInfo`.
-    func dup() -> UnsafeMutablePointer<GAppInfo>! {
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_app_info_dup(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func dup() -> AppInfoRef! {
+        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_dup(app_info_ptr))) else { return nil }
+        return rv
     }
 
     /// Checks if two `GAppInfos` are equal.
@@ -1889,41 +2199,41 @@ public extension AppInfoProtocol {
     /// Note that the check <emphasis>may not</emphasis> compare each individual
     /// field, and only does an identity check. In case detecting changes in the
     /// contents is needed, program code must additionally compare relevant fields.
-    func equal(appinfo2: AppInfoProtocol) -> Bool {
-        let rv = g_app_info_equal(cast(app_info_ptr), cast(appinfo2.ptr))
-        return Bool(rv != 0)
+    @inlinable func equal<AppInfoT: AppInfoProtocol>(appinfo2: AppInfoT) -> Bool {
+        let rv = ((g_app_info_equal(app_info_ptr, appinfo2.app_info_ptr)) != 0)
+        return rv
     }
 
     /// Gets the commandline with which the application will be
     /// started.
-    func getCommandline() -> String! {
-        let rv: String! = cast(g_app_info_get_commandline(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getCommandline() -> String! {
+        let rv = g_app_info_get_commandline(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets a human-readable description of an installed application.
-    func getDescription() -> String! {
-        let rv: String! = cast(g_app_info_get_description(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getDescription() -> String! {
+        let rv = g_app_info_get_description(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the display name of the application. The display name is often more
     /// descriptive to the user than the name itself.
-    func getDisplayName() -> String! {
-        let rv: String! = cast(g_app_info_get_display_name(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getDisplayName() -> String! {
+        let rv = g_app_info_get_display_name(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the executable's name for the installed application.
-    func getExecutable() -> String! {
-        let rv: String! = cast(g_app_info_get_executable(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getExecutable() -> String! {
+        let rv = g_app_info_get_executable(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the icon for the application.
-    func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_app_info_get_icon(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_app_info_get_icon(app_info_ptr)))
+        return rv
     }
 
     /// Gets the ID of an application. An id is a string that
@@ -1933,15 +2243,15 @@ public extension AppInfoProtocol {
     /// 
     /// Note that the returned ID may be `nil`, depending on how
     /// the `appinfo` has been constructed.
-    func getID() -> String! {
-        let rv: String! = cast(g_app_info_get_id(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getID() -> String! {
+        let rv = g_app_info_get_id(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the installed name of the application.
-    func getName() -> String! {
-        let rv: String! = cast(g_app_info_get_name(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_app_info_get_name(app_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the list of content types that `app_info` claims to support.
@@ -1950,9 +2260,9 @@ public extension AppInfoProtocol {
     /// This function does not take in consideration associations added with
     /// `g_app_info_add_supports_type()`, but only those exported directly by
     /// the application.
-    func getSupportedTypes() -> UnsafePointer<UnsafePointer<CChar>>! {
-        let rv: UnsafePointer<UnsafePointer<CChar>>! = cast(g_app_info_get_supported_types(cast(app_info_ptr)))
-        return cast(rv)
+    @inlinable func getSupportedTypes() -> UnsafeMutablePointer<UnsafePointer<CChar>?>! {
+        let rv = g_app_info_get_supported_types(app_info_ptr)
+        return rv
     }
 
     /// Launches the application. Passes `files` to the launched application
@@ -1982,11 +2292,11 @@ public extension AppInfoProtocol {
     /// should it be inherited by further processes. The `DISPLAY` and
     /// `DESKTOP_STARTUP_ID` environment variables are also set, based
     /// on information provided in `context`.
-    func launch(files: ListProtocol, context: AppLaunchContextProtocol) throws -> Bool {
+    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: ListProtocol>(files: ListT? = nil, context: AppLaunchContextT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_launch(cast(app_info_ptr), cast(files.ptr), cast(context.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_launch(app_info_ptr, files?._ptr, context?.app_launch_context_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Launches the application. This passes the `uris` to the launched application
@@ -1999,11 +2309,11 @@ public extension AppInfoProtocol {
     /// Note that even if the launch is successful the application launched
     /// can fail to start if it runs into problems during startup. There is
     /// no way to detect this.
-    func launch(uris: ListProtocol, context: AppLaunchContextProtocol) throws -> Bool {
+    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: ListProtocol>(uris: ListT? = nil, context: AppLaunchContextT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_launch_uris(cast(app_info_ptr), cast(uris.ptr), cast(context.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_launch_uris(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Async version of `g_app_info_launch_uris()`.
@@ -2012,118 +2322,118 @@ public extension AppInfoProtocol {
     /// waits for activation in case of D-Bus–activated applications and also provides
     /// extended error information for sandboxed applications, see notes for
     /// `g_app_info_launch_default_for_uri_async()`.
-    func launchURIsAsync(uris: ListProtocol, context: AppLaunchContextProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_app_info_launch_uris_async(cast(app_info_ptr), cast(uris.ptr), cast(context.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func launchURIsAsync<AppLaunchContextT: AppLaunchContextProtocol, CancellableT: CancellableProtocol, ListT: ListProtocol>(uris: ListT? = nil, context: AppLaunchContextT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_app_info_launch_uris_async(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes a `g_app_info_launch_uris_async()` operation.
-    func launchURIsFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func launchURIsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_launch_uris_finish(cast(app_info_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_launch_uris_finish(app_info_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes a supported type from an application, if possible.
-    func removeSupportsType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func removeSupportsType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_remove_supports_type(cast(app_info_ptr), content_type, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_remove_supports_type(app_info_ptr, content_type, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the application as the default handler for the given file extension.
-    func setAsDefaultForExtension(extension_: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func setAsDefaultForExtension(`extension`: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_set_as_default_for_extension(cast(app_info_ptr), extension_, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_set_as_default_for_extension(app_info_ptr, `extension`, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the application as the default handler for a given type.
-    func setAsDefaultForType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func setAsDefaultForType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_set_as_default_for_type(cast(app_info_ptr), content_type, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_set_as_default_for_type(app_info_ptr, content_type, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the application as the last used application for a given type.
     /// This will make the application appear as first in the list returned
     /// by `g_app_info_get_recommended_for_type()`, regardless of the default
     /// application for that content type.
-    func setAsLastUsedForType(contentType content_type: UnsafePointer<CChar>) throws -> Bool {
+    @inlinable func setAsLastUsedForType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_set_as_last_used_for_type(cast(app_info_ptr), content_type, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_set_as_last_used_for_type(app_info_ptr, content_type, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks if the application info should be shown in menus that
     /// list available applications.
-    func shouldShow() -> Bool {
-        let rv = g_app_info_should_show(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func shouldShow() -> Bool {
+        let rv = ((g_app_info_should_show(app_info_ptr)) != 0)
+        return rv
     }
 
     /// Checks if the application accepts files as arguments.
-    func supportsFiles() -> Bool {
-        let rv = g_app_info_supports_files(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsFiles() -> Bool {
+        let rv = ((g_app_info_supports_files(app_info_ptr)) != 0)
+        return rv
     }
 
     /// Checks if the application supports reading files and directories from URIs.
-    func supportsURIs() -> Bool {
-        let rv = g_app_info_supports_uris(cast(app_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsURIs() -> Bool {
+        let rv = ((g_app_info_supports_uris(app_info_ptr)) != 0)
+        return rv
     }
     /// Gets the commandline with which the application will be
     /// started.
-    var commandline: String! {
+    @inlinable var commandline: String! {
         /// Gets the commandline with which the application will be
         /// started.
         get {
-            let rv: String! = cast(g_app_info_get_commandline(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_commandline(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets a human-readable description of an installed application.
-    var description: String! {
+    @inlinable var description: String! {
         /// Gets a human-readable description of an installed application.
         get {
-            let rv: String! = cast(g_app_info_get_description(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_description(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the display name of the application. The display name is often more
     /// descriptive to the user than the name itself.
-    var displayName: String! {
+    @inlinable var displayName: String! {
         /// Gets the display name of the application. The display name is often more
         /// descriptive to the user than the name itself.
         get {
-            let rv: String! = cast(g_app_info_get_display_name(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_display_name(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the executable's name for the installed application.
-    var executable: String! {
+    @inlinable var executable: String! {
         /// Gets the executable's name for the installed application.
         get {
-            let rv: String! = cast(g_app_info_get_executable(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_executable(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the icon for the application.
-    var icon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var icon: IconRef! {
         /// Gets the icon for the application.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_app_info_get_icon(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_app_info_get_icon(app_info_ptr)))
+            return rv
         }
     }
 
@@ -2134,7 +2444,7 @@ public extension AppInfoProtocol {
     /// 
     /// Note that the returned ID may be `nil`, depending on how
     /// the `appinfo` has been constructed.
-    var id: String! {
+    @inlinable var id: String! {
         /// Gets the ID of an application. An id is a string that
         /// identifies the application. The exact format of the id is
         /// platform dependent. For instance, on Unix this is the
@@ -2143,17 +2453,17 @@ public extension AppInfoProtocol {
         /// Note that the returned ID may be `nil`, depending on how
         /// the `appinfo` has been constructed.
         get {
-            let rv: String! = cast(g_app_info_get_id(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_id(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the installed name of the application.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the installed name of the application.
         get {
-            let rv: String! = cast(g_app_info_get_name(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_name(app_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -2163,7 +2473,7 @@ public extension AppInfoProtocol {
     /// This function does not take in consideration associations added with
     /// `g_app_info_add_supports_type()`, but only those exported directly by
     /// the application.
-    var supportedTypes: UnsafePointer<UnsafePointer<CChar>>! {
+    @inlinable var supportedTypes: UnsafeMutablePointer<UnsafePointer<CChar>?>! {
         /// Retrieves the list of content types that `app_info` claims to support.
         /// If this information is not provided by the environment, this function
         /// will return `nil`.
@@ -2171,8 +2481,8 @@ public extension AppInfoProtocol {
         /// `g_app_info_add_supports_type()`, but only those exported directly by
         /// the application.
         get {
-            let rv: UnsafePointer<UnsafePointer<CChar>>! = cast(g_app_info_get_supported_types(cast(app_info_ptr)))
-            return cast(rv)
+            let rv = g_app_info_get_supported_types(app_info_ptr)
+            return rv
         }
     }
 
@@ -2290,10 +2600,11 @@ public extension AppInfoProtocol {
 /// 
 public protocol AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAsyncInitable` instance.
-    var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable> { get }
+    var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable>! { get }
+
 }
 
 /// The `AsyncInitableRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitable` instance.
@@ -2403,46 +2714,76 @@ public protocol AsyncInitableProtocol {
 public struct AsyncInitableRef: AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension AsyncInitableRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAsyncInitable>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAsyncInitable>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAsyncInitable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAsyncInitable>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAsyncInitable>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `AsyncInitableProtocol`
-    init<T: AsyncInitableProtocol>(_ other: T) {
+    @inlinable init<T: AsyncInitableProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2555,95 +2896,141 @@ public extension AsyncInitableRef {
 open class AsyncInitable: AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AsyncInitable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAsyncInitable>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GAsyncInitable>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAsyncInitable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAsyncInitable>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncInitable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAsyncInitable>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GAsyncInitable` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `AsyncInitable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAsyncInitable>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAsyncInitable>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
     /// Reference intialiser for a related type that implements `AsyncInitableProtocol`
     /// `GAsyncInitable` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `AsyncInitableProtocol`
-    public init<T: AsyncInitableProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.async_initable_ptr)
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+    @inlinable public init<T: AsyncInitableProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
     /// Do-nothing destructor for `GAsyncInitable`.
     deinit {
-        // no reference counting for GAsyncInitable, cannot unref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot unref(async_initable_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GAsyncInitable, cannot ref(cast(async_initable_ptr))
+        // no reference counting for GAsyncInitable, cannot ref(async_initable_ptr)
     }
 
 
@@ -2658,7 +3045,7 @@ open class AsyncInitable: AsyncInitableProtocol {
 // MARK: AsyncInitable Interface: AsyncInitableProtocol extension (methods and fields)
 public extension AsyncInitableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncInitable` instance.
-    var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable> { return ptr.assumingMemoryBound(to: GAsyncInitable.self) }
+    @inlinable var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable>! { return ptr?.assumingMemoryBound(to: GAsyncInitable.self) }
 
     /// Starts asynchronous initialization of the object implementing the
     /// interface. This must be done before any real use of the object after
@@ -2696,27 +3083,27 @@ public extension AsyncInitableProtocol {
     /// in a thread, so if you want to support asynchronous initialization via
     /// threads, just implement the `GAsyncInitable` interface without overriding
     /// any interface methods.
-    func initAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_async_initable_init_async(cast(async_initable_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func initAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_async_initable_init_async(async_initable_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes asynchronous initialization and returns the result.
     /// See `g_async_initable_init_async()`.
-    func initFinish(res: AsyncResultProtocol) throws -> Bool {
+    @inlinable func initFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_async_initable_init_finish(cast(async_initable_ptr), cast(res.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_async_initable_init_finish(async_initable_ptr, res.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes the async construction for the various g_async_initable_new
     /// calls, returning the created object or `nil` on error.
-    func newFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GObject>! {
+    @inlinable func newFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> ObjectRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GObject>! = cast(g_async_initable_new_finish(cast(async_initable_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = ObjectRef(gconstpointer: gconstpointer(g_async_initable_new_finish(async_initable_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
 
@@ -2818,10 +3205,11 @@ public extension AsyncInitableProtocol {
 /// as a default.
 public protocol AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GAsyncResult` instance.
-    var async_result_ptr: UnsafeMutablePointer<GAsyncResult> { get }
+    var async_result_ptr: UnsafeMutablePointer<GAsyncResult>! { get }
+
 }
 
 /// The `AsyncResultRef` type acts as a lightweight Swift reference to an underlying `GAsyncResult` instance.
@@ -2916,46 +3304,76 @@ public protocol AsyncResultProtocol {
 public struct AsyncResultRef: AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension AsyncResultRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GAsyncResult>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GAsyncResult>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GAsyncResult>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GAsyncResult>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GAsyncResult>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `AsyncResultProtocol`
-    init<T: AsyncResultProtocol>(_ other: T) {
+    @inlinable init<T: AsyncResultProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3053,95 +3471,141 @@ public extension AsyncResultRef {
 open class AsyncResult: AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AsyncResult` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GAsyncResult>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GAsyncResult>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GAsyncResult>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GAsyncResult>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AsyncResult` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GAsyncResult>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GAsyncResult` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `AsyncResult` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GAsyncResult>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GAsyncResult>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
     /// Reference intialiser for a related type that implements `AsyncResultProtocol`
     /// `GAsyncResult` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `AsyncResultProtocol`
-    public init<T: AsyncResultProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.async_result_ptr)
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+    @inlinable public init<T: AsyncResultProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
     /// Do-nothing destructor for `GAsyncResult`.
     deinit {
-        // no reference counting for GAsyncResult, cannot unref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot unref(async_result_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GAsyncResult, cannot ref(cast(async_result_ptr))
+        // no reference counting for GAsyncResult, cannot ref(async_result_ptr)
     }
 
 
@@ -3156,25 +3620,25 @@ open class AsyncResult: AsyncResultProtocol {
 // MARK: AsyncResult Interface: AsyncResultProtocol extension (methods and fields)
 public extension AsyncResultProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncResult` instance.
-    var async_result_ptr: UnsafeMutablePointer<GAsyncResult> { return ptr.assumingMemoryBound(to: GAsyncResult.self) }
+    @inlinable var async_result_ptr: UnsafeMutablePointer<GAsyncResult>! { return ptr?.assumingMemoryBound(to: GAsyncResult.self) }
 
     /// Gets the source object from a `GAsyncResult`.
-    func getSourceObject() -> UnsafeMutablePointer<GObject>! {
-        let rv: UnsafeMutablePointer<GObject>! = cast(g_async_result_get_source_object(cast(async_result_ptr)))
-        return cast(rv)
+    @inlinable func getSourceObject() -> ObjectRef! {
+        let rv = ObjectRef(gconstpointer: gconstpointer(g_async_result_get_source_object(async_result_ptr)))
+        return rv
     }
 
     /// Gets the user data from a `GAsyncResult`.
-    func getUserData() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_async_result_get_user_data(cast(async_result_ptr)))
-        return cast(rv)
+    @inlinable func getUserData() -> gpointer! {
+        let rv = g_async_result_get_user_data(async_result_ptr)
+        return rv
     }
 
     /// Checks if `res` has the given `source_tag` (generally a function
     /// pointer indicating the function `res` was created by).
-    func isTagged(sourceTag source_tag: UnsafeMutableRawPointer) -> Bool {
-        let rv = g_async_result_is_tagged(cast(async_result_ptr), cast(source_tag))
-        return Bool(rv != 0)
+    @inlinable func isTagged(sourceTag source_tag: gpointer! = nil) -> Bool {
+        let rv = ((g_async_result_is_tagged(async_result_ptr, source_tag)) != 0)
+        return rv
     }
 
     /// If `res` is a `GSimpleAsyncResult`, this is equivalent to
@@ -3187,19 +3651,19 @@ public extension AsyncResultProtocol {
     /// This should not be used in new code; `GAsyncResult` errors that are
     /// set by virtual methods should also be extracted by virtual methods,
     /// to enable subclasses to chain up correctly.
-    func legacyPropagateError() throws -> Bool {
+    @inlinable func legacyPropagateError() throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_async_result_legacy_propagate_error(cast(async_result_ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_async_result_legacy_propagate_error(async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes an asynchronous launch-default-for-uri operation.
-    func appInfoLaunchDefaultForURIFinish() throws -> Bool {
+    @inlinable func appInfoLaunchDefaultForURIFinish() throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_app_info_launch_default_for_uri_finish(cast(async_result_ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_app_info_launch_default_for_uri_finish(async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes an operation started with `g_bus_get()`.
@@ -3212,35 +3676,35 @@ public extension AsyncResultProtocol {
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
     /// the `GDBusConnection:exit`-on-close property set to `true`.
-    func busGetFinish() throws -> UnsafeMutablePointer<GDBusConnection>! {
+    @inlinable func busGetFinish() throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GDBusConnection>! = cast(g_bus_get_finish(cast(async_result_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_finish(async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes an operation started with `g_dbus_address_get_stream()`.
-    func dbusAddressGetStreamFinish(outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GIOStream>! {
+    @inlinable func dbusAddressGetStreamFinish(outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_dbus_address_get_stream_finish(cast(async_result_ptr), cast(out_guid), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(async_result_ptr, out_guid, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Gets the source object from a `GAsyncResult`.
-    var sourceObject: UnsafeMutablePointer<GObject>! {
+    @inlinable var sourceObject: ObjectRef! {
         /// Gets the source object from a `GAsyncResult`.
         get {
-            let rv: UnsafeMutablePointer<GObject>! = cast(g_async_result_get_source_object(cast(async_result_ptr)))
-            return cast(rv)
+            let rv = ObjectRef(gconstpointer: gconstpointer(g_async_result_get_source_object(async_result_ptr)))
+            return rv
         }
     }
 
     /// Gets the user data from a `GAsyncResult`.
-    var userData: UnsafeMutableRawPointer! {
+    @inlinable var userData: gpointer! {
         /// Gets the user data from a `GAsyncResult`.
         get {
-            let rv: UnsafeMutableRawPointer! = cast(g_async_result_get_user_data(cast(async_result_ptr)))
-            return cast(rv)
+            let rv = g_async_result_get_user_data(async_result_ptr)
+            return rv
         }
     }
 
@@ -3265,10 +3729,11 @@ public extension AsyncResultProtocol {
 /// replace.
 public protocol ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GConverter` instance.
-    var converter_ptr: UnsafeMutablePointer<GConverter> { get }
+    var converter_ptr: UnsafeMutablePointer<GConverter>! { get }
+
 }
 
 /// The `ConverterRef` type acts as a lightweight Swift reference to an underlying `GConverter` instance.
@@ -3285,46 +3750,76 @@ public protocol ConverterProtocol {
 public struct ConverterRef: ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ConverterRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GConverter>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GConverter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GConverter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GConverter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GConverter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ConverterProtocol`
-    init<T: ConverterProtocol>(_ other: T) {
+    @inlinable init<T: ConverterProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3344,95 +3839,141 @@ public extension ConverterRef {
 open class Converter: ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Converter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GConverter>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GConverter>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GConverter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GConverter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Converter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GConverter>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GConverter` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Converter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GConverter>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GConverter>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ConverterProtocol`
     /// `GConverter` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ConverterProtocol`
-    public init<T: ConverterProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.converter_ptr)
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+    @inlinable public init<T: ConverterProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
     /// Do-nothing destructor for `GConverter`.
     deinit {
-        // no reference counting for GConverter, cannot unref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot unref(converter_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GConverter, cannot ref(cast(converter_ptr))
+        // no reference counting for GConverter, cannot ref(converter_ptr)
     }
 
 
@@ -3447,7 +3988,7 @@ open class Converter: ConverterProtocol {
 // MARK: Converter Interface: ConverterProtocol extension (methods and fields)
 public extension ConverterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverter` instance.
-    var converter_ptr: UnsafeMutablePointer<GConverter> { return ptr.assumingMemoryBound(to: GConverter.self) }
+    @inlinable var converter_ptr: UnsafeMutablePointer<GConverter>! { return ptr?.assumingMemoryBound(to: GConverter.self) }
 
     /// This is the main operation used when converting data. It is to be called
     /// multiple times in a loop, and each time it will do some work, i.e.
@@ -3531,18 +4072,18 @@ public extension ConverterProtocol {
     /// at a partial multibyte sequence). Converters are supposed to try
     /// to produce as much output as possible and then return an error
     /// (typically `G_IO_ERROR_PARTIAL_INPUT`).
-    func convert(inbuf: UnsafeMutableRawPointer, inbufSize inbuf_size: Int, outbuf: UnsafeMutableRawPointer, outbufSize outbuf_size: Int, flags: ConverterFlags, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> GConverterResult {
+    @inlinable func convert(inbuf: UnsafeMutableRawPointer!, inbufSize inbuf_size: Int, outbuf: UnsafeMutableRawPointer!, outbufSize outbuf_size: Int, flags: ConverterFlags, bytesRead bytes_read: UnsafeMutablePointer<gsize>!, bytesWritten bytes_written: UnsafeMutablePointer<gsize>!) throws -> GConverterResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_converter_convert(cast(converter_ptr), cast(inbuf), gsize(inbuf_size), cast(outbuf), gsize(outbuf_size), flags.value, cast(bytes_read), cast(bytes_written), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_converter_convert(converter_ptr, inbuf, gsize(inbuf_size), outbuf, gsize(outbuf_size), flags.value, bytes_read, bytes_written, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Resets all internal state in the converter, making it behave
     /// as if it was just created. If the converter has any internal
     /// state that would produce output then that output is lost.
-    func reset() {
-        g_converter_reset(cast(converter_ptr))
+    @inlinable func reset() {
+        g_converter_reset(converter_ptr)
     
     }
 

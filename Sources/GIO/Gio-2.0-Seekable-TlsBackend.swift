@@ -25,10 +25,11 @@ import GLibObject
 /// usually cause the stream to resize by introducing zero bytes.
 public protocol SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GSeekable` instance.
-    var seekable_ptr: UnsafeMutablePointer<GSeekable> { get }
+    var seekable_ptr: UnsafeMutablePointer<GSeekable>! { get }
+
 }
 
 /// The `SeekableRef` type acts as a lightweight Swift reference to an underlying `GSeekable` instance.
@@ -52,46 +53,76 @@ public protocol SeekableProtocol {
 public struct SeekableRef: SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SeekableRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GSeekable>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GSeekable>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSeekable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSeekable>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSeekable>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SeekableProtocol`
-    init<T: SeekableProtocol>(_ other: T) {
+    @inlinable init<T: SeekableProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -118,95 +149,141 @@ public extension SeekableRef {
 open class Seekable: SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Seekable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GSeekable>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GSeekable>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seekable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSeekable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seekable` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seekable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seekable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSeekable>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seekable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSeekable>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GSeekable` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Seekable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GSeekable>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSeekable>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SeekableProtocol`
     /// `GSeekable` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SeekableProtocol`
-    public init<T: SeekableProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.seekable_ptr)
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+    @inlinable public init<T: SeekableProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
     /// Do-nothing destructor for `GSeekable`.
     deinit {
-        // no reference counting for GSeekable, cannot unref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot unref(seekable_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GSeekable, cannot ref(cast(seekable_ptr))
+        // no reference counting for GSeekable, cannot ref(seekable_ptr)
     }
 
 
@@ -221,19 +298,19 @@ open class Seekable: SeekableProtocol {
 // MARK: Seekable Interface: SeekableProtocol extension (methods and fields)
 public extension SeekableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSeekable` instance.
-    var seekable_ptr: UnsafeMutablePointer<GSeekable> { return ptr.assumingMemoryBound(to: GSeekable.self) }
+    @inlinable var seekable_ptr: UnsafeMutablePointer<GSeekable>! { return ptr?.assumingMemoryBound(to: GSeekable.self) }
 
     /// Tests if the stream supports the `GSeekableIface`.
-    func canSeek() -> Bool {
-        let rv = g_seekable_can_seek(cast(seekable_ptr))
-        return Bool(rv != 0)
+    @inlinable func canSeek() -> Bool {
+        let rv = ((g_seekable_can_seek(seekable_ptr)) != 0)
+        return rv
     }
 
     /// Tests if the length of the stream can be adjusted with
     /// `g_seekable_truncate()`.
-    func canTruncate() -> Bool {
-        let rv = g_seekable_can_truncate(cast(seekable_ptr))
-        return Bool(rv != 0)
+    @inlinable func canTruncate() -> Bool {
+        let rv = ((g_seekable_can_truncate(seekable_ptr)) != 0)
+        return rv
     }
 
     /// Seeks in the stream by the given `offset`, modified by `type`.
@@ -250,17 +327,17 @@ public extension SeekableProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func seek(offset: Int64, type: GLib.SeekType, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func seek<CancellableT: CancellableProtocol>(offset: goffset, type: GSeekType, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_seekable_seek(cast(seekable_ptr), goffset(offset), type, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_seekable_seek(seekable_ptr, offset, type, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Tells the current position within the stream.
-    func tell() -> Int {
-        let rv = g_seekable_tell(cast(seekable_ptr))
-        return Int(rv)
+    @inlinable func tell() -> goffset {
+        let rv = g_seekable_tell(seekable_ptr)
+        return rv
     }
 
     /// Sets the length of the stream to `offset`. If the stream was previously
@@ -272,11 +349,11 @@ public extension SeekableProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
-    func truncate(offset: Int64, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func truncate<CancellableT: CancellableProtocol>(offset: goffset, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_seekable_truncate(cast(seekable_ptr), goffset(offset), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_seekable_truncate(seekable_ptr, offset, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
 
@@ -352,10 +429,11 @@ public extension SeekableProtocol {
 /// 
 public protocol SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GSocketConnectable` instance.
-    var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable> { get }
+    var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable>! { get }
+
 }
 
 /// The `SocketConnectableRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectable` instance.
@@ -424,46 +502,76 @@ public protocol SocketConnectableProtocol {
 public struct SocketConnectableRef: SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SocketConnectableRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GSocketConnectable>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GSocketConnectable>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSocketConnectable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSocketConnectable>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSocketConnectable>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SocketConnectableProtocol`
-    init<T: SocketConnectableProtocol>(_ other: T) {
+    @inlinable init<T: SocketConnectableProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -535,95 +643,141 @@ public extension SocketConnectableRef {
 open class SocketConnectable: SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SocketConnectable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GSocketConnectable>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GSocketConnectable>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnectable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSocketConnectable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnectable` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnectable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnectable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSocketConnectable>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SocketConnectable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSocketConnectable>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GSocketConnectable` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SocketConnectable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GSocketConnectable>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSocketConnectable>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SocketConnectableProtocol`
     /// `GSocketConnectable` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SocketConnectableProtocol`
-    public init<T: SocketConnectableProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.socket_connectable_ptr)
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+    @inlinable public init<T: SocketConnectableProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
     /// Do-nothing destructor for `GSocketConnectable`.
     deinit {
-        // no reference counting for GSocketConnectable, cannot unref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot unref(socket_connectable_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GSocketConnectable, cannot ref(cast(socket_connectable_ptr))
+        // no reference counting for GSocketConnectable, cannot ref(socket_connectable_ptr)
     }
 
 
@@ -638,12 +792,12 @@ open class SocketConnectable: SocketConnectableProtocol {
 // MARK: SocketConnectable Interface: SocketConnectableProtocol extension (methods and fields)
 public extension SocketConnectableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSocketConnectable` instance.
-    var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable> { return ptr.assumingMemoryBound(to: GSocketConnectable.self) }
+    @inlinable var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable>! { return ptr?.assumingMemoryBound(to: GSocketConnectable.self) }
 
     /// Creates a `GSocketAddressEnumerator` for `connectable`.
-    func enumerate() -> UnsafeMutablePointer<GSocketAddressEnumerator>! {
-        let rv: UnsafeMutablePointer<GSocketAddressEnumerator>! = cast(g_socket_connectable_enumerate(cast(socket_connectable_ptr)))
-        return cast(rv)
+    @inlinable func enumerate() -> SocketAddressEnumeratorRef! {
+        let rv = SocketAddressEnumeratorRef(gconstpointer: gconstpointer(g_socket_connectable_enumerate(socket_connectable_ptr)))
+        return rv
     }
 
     /// Creates a `GSocketAddressEnumerator` for `connectable` that will
@@ -653,9 +807,9 @@ public extension SocketConnectableProtocol {
     /// If `connectable` does not implement
     /// `g_socket_connectable_proxy_enumerate()`, this will fall back to
     /// calling `g_socket_connectable_enumerate()`.
-    func proxyEnumerate() -> UnsafeMutablePointer<GSocketAddressEnumerator>! {
-        let rv: UnsafeMutablePointer<GSocketAddressEnumerator>! = cast(g_socket_connectable_proxy_enumerate(cast(socket_connectable_ptr)))
-        return cast(rv)
+    @inlinable func proxyEnumerate() -> SocketAddressEnumeratorRef! {
+        let rv = SocketAddressEnumeratorRef(gconstpointer: gconstpointer(g_socket_connectable_proxy_enumerate(socket_connectable_ptr)))
+        return rv
     }
 
     /// Format a `GSocketConnectable` as a string. This is a human-readable format for
@@ -665,18 +819,18 @@ public extension SocketConnectableProtocol {
     /// 
     /// If the `GSocketConnectable` implementation does not support string formatting,
     /// the implementation’s type name will be returned as a fallback.
-    func toString() -> String! {
-        let rv: String! = cast(g_socket_connectable_to_string(cast(socket_connectable_ptr)))
-        return cast(rv)
+    @inlinable func toString() -> String! {
+        let rv = g_socket_connectable_to_string(socket_connectable_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
     /// assumed to communicate with the server identified by `server_identity`.
-    func dtlsClientConnectionNew(baseSocket base_socket: DatagramBasedProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
+    @inlinable func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket base_socket: DatagramBasedT) throws -> DtlsClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_client_connection_new(cast(base_socket.ptr), cast(socket_connectable_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(base_socket.datagram_based_ptr, socket_connectable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new `GTlsClientConnection` wrapping `base_io_stream` (which
@@ -686,11 +840,11 @@ public extension SocketConnectableProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    func tlsClientConnectionNew(baseIoStream base_io_stream: IOStreamProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
+    @inlinable func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream base_io_stream: IOStreamT) throws -> TLSClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_client_connection_new(cast(base_io_stream.ptr), cast(socket_connectable_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(base_io_stream.io_stream_ptr, socket_connectable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
 
@@ -708,10 +862,11 @@ public extension SocketConnectableProtocol {
 /// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 public protocol TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsBackend` instance.
-    var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend> { get }
+    var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend>! { get }
+
 }
 
 /// The `TLSBackendRef` type acts as a lightweight Swift reference to an underlying `GTlsBackend` instance.
@@ -722,53 +877,83 @@ public protocol TLSBackendProtocol {
 public struct TLSBackendRef: TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSBackendRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsBackend>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsBackend>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsBackend>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsBackend>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsBackend>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSBackendProtocol`
-    init<T: TLSBackendProtocol>(_ other: T) {
+    @inlinable init<T: TLSBackendProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Gets the default `GTlsBackend` for the system.
-    static func getDefault() -> TLSBackendRef! {
-        let rv: UnsafeMutablePointer<GTlsBackend>! = cast(g_tls_backend_get_default())
-        return rv.map { TLSBackendRef(cast($0)) }
+    @inlinable static func getDefault() -> TLSBackendRef! {
+        guard let rv = TLSBackendRef(gconstpointer: gconstpointer(g_tls_backend_get_default())) else { return nil }
+        return rv
     }
 }
 
@@ -780,102 +965,148 @@ public extension TLSBackendRef {
 open class TLSBackend: TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSBackend` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsBackend>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsBackend>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsBackend>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackend` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsBackend>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSBackend` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsBackend>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GTlsBackend` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `TLSBackend` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsBackend>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsBackend>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
     /// Reference intialiser for a related type that implements `TLSBackendProtocol`
     /// `GTlsBackend` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `TLSBackendProtocol`
-    public init<T: TLSBackendProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.tls_backend_ptr)
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+    @inlinable public init<T: TLSBackendProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
     /// Do-nothing destructor for `GTlsBackend`.
     deinit {
-        // no reference counting for GTlsBackend, cannot unref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot unref(tls_backend_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GTlsBackend, cannot ref(cast(tls_backend_ptr))
+        // no reference counting for GTlsBackend, cannot ref(tls_backend_ptr)
     }
 
 
     /// Gets the default `GTlsBackend` for the system.
-    public static func getDefault() -> TLSBackend! {
-        let rv: UnsafeMutablePointer<GTlsBackend>! = cast(g_tls_backend_get_default())
-        return rv.map { TLSBackend(cast($0)) }
+    @inlinable public static func getDefault() -> TLSBackend! {
+        guard let rv = TLSBackend(gconstpointer: gconstpointer(g_tls_backend_get_default())) else { return nil }
+        return rv
     }
 
 }
@@ -888,48 +1119,48 @@ open class TLSBackend: TLSBackendProtocol {
 // MARK: TLSBackend Interface: TLSBackendProtocol extension (methods and fields)
 public extension TLSBackendProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsBackend` instance.
-    var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend> { return ptr.assumingMemoryBound(to: GTlsBackend.self) }
+    @inlinable var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend>! { return ptr?.assumingMemoryBound(to: GTlsBackend.self) }
 
     /// Gets the `GType` of `backend`'s `GTlsCertificate` implementation.
-    func getCertificateType() -> GType {
-        let rv = g_tls_backend_get_certificate_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getCertificateType() -> GType {
+        let rv = g_tls_backend_get_certificate_type(tls_backend_ptr)
+        return rv
     }
 
     /// Gets the `GType` of `backend`'s `GTlsClientConnection` implementation.
-    func getClientConnectionType() -> GType {
-        let rv = g_tls_backend_get_client_connection_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getClientConnectionType() -> GType {
+        let rv = g_tls_backend_get_client_connection_type(tls_backend_ptr)
+        return rv
     }
 
     /// Gets the default `GTlsDatabase` used to verify TLS connections.
-    func getDefaultDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
-        let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_backend_get_default_database(cast(tls_backend_ptr)))
-        return cast(rv)
+    @inlinable func getDefaultDatabase() -> TLSDatabaseRef! {
+        let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_tls_backend_get_default_database(tls_backend_ptr)))
+        return rv
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsClientConnection` implementation.
-    func getDtlsClientConnectionType() -> GType {
-        let rv = g_tls_backend_get_dtls_client_connection_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getDtlsClientConnectionType() -> GType {
+        let rv = g_tls_backend_get_dtls_client_connection_type(tls_backend_ptr)
+        return rv
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsServerConnection` implementation.
-    func getDtlsServerConnectionType() -> GType {
-        let rv = g_tls_backend_get_dtls_server_connection_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getDtlsServerConnectionType() -> GType {
+        let rv = g_tls_backend_get_dtls_server_connection_type(tls_backend_ptr)
+        return rv
     }
 
     /// Gets the `GType` of `backend`'s `GTlsFileDatabase` implementation.
-    func getFileDatabaseType() -> GType {
-        let rv = g_tls_backend_get_file_database_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getFileDatabaseType() -> GType {
+        let rv = g_tls_backend_get_file_database_type(tls_backend_ptr)
+        return rv
     }
 
     /// Gets the `GType` of `backend`'s `GTlsServerConnection` implementation.
-    func getServerConnectionType() -> GType {
-        let rv = g_tls_backend_get_server_connection_type(cast(tls_backend_ptr))
-        return cast(rv)
+    @inlinable func getServerConnectionType() -> GType {
+        let rv = g_tls_backend_get_server_connection_type(tls_backend_ptr)
+        return rv
     }
 
     /// Set the default `GTlsDatabase` used to verify TLS connections
@@ -940,48 +1171,48 @@ public extension TLSBackendProtocol {
     /// 
     /// Setting a `nil` default database will reset to using the system default
     /// database as if `g_tls_backend_set_default_database()` had never been called.
-    func setDefault(database: TLSDatabaseProtocol) {
-        g_tls_backend_set_default_database(cast(tls_backend_ptr), cast(database.ptr))
+    @inlinable func setDefault<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT? = nil) {
+        g_tls_backend_set_default_database(tls_backend_ptr, database?.tls_database_ptr)
     
     }
 
     /// Checks if DTLS is supported. DTLS support may not be available even if TLS
     /// support is available, and vice-versa.
-    func supportsDtls() -> Bool {
-        let rv = g_tls_backend_supports_dtls(cast(tls_backend_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsDtls() -> Bool {
+        let rv = ((g_tls_backend_supports_dtls(tls_backend_ptr)) != 0)
+        return rv
     }
 
     /// Checks if TLS is supported; if this returns `false` for the default
     /// `GTlsBackend`, it means no "real" TLS backend is available.
-    func supportsTLS() -> Bool {
-        let rv = g_tls_backend_supports_tls(cast(tls_backend_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsTLS() -> Bool {
+        let rv = ((g_tls_backend_supports_tls(tls_backend_ptr)) != 0)
+        return rv
     }
     /// Gets the `GType` of `backend`'s `GTlsCertificate` implementation.
-    var certificateType: GType {
+    @inlinable var certificateType: GType {
         /// Gets the `GType` of `backend`'s `GTlsCertificate` implementation.
         get {
-            let rv = g_tls_backend_get_certificate_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_certificate_type(tls_backend_ptr)
+            return rv
         }
     }
 
     /// Gets the `GType` of `backend`'s `GTlsClientConnection` implementation.
-    var clientConnectionType: GType {
+    @inlinable var clientConnectionType: GType {
         /// Gets the `GType` of `backend`'s `GTlsClientConnection` implementation.
         get {
-            let rv = g_tls_backend_get_client_connection_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_client_connection_type(tls_backend_ptr)
+            return rv
         }
     }
 
     /// Gets the default `GTlsDatabase` used to verify TLS connections.
-    var defaultDatabase: UnsafeMutablePointer<GTlsDatabase>! {
+    @inlinable var defaultDatabase: TLSDatabaseRef! {
         /// Gets the default `GTlsDatabase` used to verify TLS connections.
         get {
-            let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_backend_get_default_database(cast(tls_backend_ptr)))
-            return cast(rv)
+            let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_tls_backend_get_default_database(tls_backend_ptr)))
+            return rv
         }
         /// Set the default `GTlsDatabase` used to verify TLS connections
         /// 
@@ -992,43 +1223,43 @@ public extension TLSBackendProtocol {
         /// Setting a `nil` default database will reset to using the system default
         /// database as if `g_tls_backend_set_default_database()` had never been called.
         nonmutating set {
-            g_tls_backend_set_default_database(cast(tls_backend_ptr), cast(newValue))
+            g_tls_backend_set_default_database(tls_backend_ptr, UnsafeMutablePointer<GTlsDatabase>(newValue?.tls_database_ptr))
         }
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsClientConnection` implementation.
-    var dtlsClientConnectionType: GType {
+    @inlinable var dtlsClientConnectionType: GType {
         /// Gets the `GType` of `backend`’s `GDtlsClientConnection` implementation.
         get {
-            let rv = g_tls_backend_get_dtls_client_connection_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_dtls_client_connection_type(tls_backend_ptr)
+            return rv
         }
     }
 
     /// Gets the `GType` of `backend`’s `GDtlsServerConnection` implementation.
-    var dtlsServerConnectionType: GType {
+    @inlinable var dtlsServerConnectionType: GType {
         /// Gets the `GType` of `backend`’s `GDtlsServerConnection` implementation.
         get {
-            let rv = g_tls_backend_get_dtls_server_connection_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_dtls_server_connection_type(tls_backend_ptr)
+            return rv
         }
     }
 
     /// Gets the `GType` of `backend`'s `GTlsFileDatabase` implementation.
-    var fileDatabaseType: GType {
+    @inlinable var fileDatabaseType: GType {
         /// Gets the `GType` of `backend`'s `GTlsFileDatabase` implementation.
         get {
-            let rv = g_tls_backend_get_file_database_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_file_database_type(tls_backend_ptr)
+            return rv
         }
     }
 
     /// Gets the `GType` of `backend`'s `GTlsServerConnection` implementation.
-    var serverConnectionType: GType {
+    @inlinable var serverConnectionType: GType {
         /// Gets the `GType` of `backend`'s `GTlsServerConnection` implementation.
         get {
-            let rv = g_tls_backend_get_server_connection_type(cast(tls_backend_ptr))
-            return cast(rv)
+            let rv = g_tls_backend_get_server_connection_type(tls_backend_ptr)
+            return rv
         }
     }
 

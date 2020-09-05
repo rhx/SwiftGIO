@@ -12,10 +12,11 @@ import GLibObject
 /// Zlib decompression
 public protocol ZlibDecompressorProtocol: ObjectProtocol, ConverterProtocol {
         /// Untyped pointer to the underlying `GZlibDecompressor` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GZlibDecompressor` instance.
-    var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor> { get }
+    var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor>! { get }
+
 }
 
 /// The `ZlibDecompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibDecompressor` instance.
@@ -26,53 +27,83 @@ public protocol ZlibDecompressorProtocol: ObjectProtocol, ConverterProtocol {
 public struct ZlibDecompressorRef: ZlibDecompressorProtocol {
         /// Untyped pointer to the underlying `GZlibDecompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_decompressor_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ZlibDecompressorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GZlibDecompressor>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GZlibDecompressor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GZlibDecompressor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GZlibDecompressor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GZlibDecompressor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ZlibDecompressorProtocol`
-    init<T: ZlibDecompressorProtocol>(_ other: T) {
+    @inlinable init<T: ZlibDecompressorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GZlibDecompressor`.
-    init( format: ZlibCompressorFormat) {
-        let rv: UnsafeMutablePointer<GZlibDecompressor>! = cast(g_zlib_decompressor_new(format))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( format: GZlibCompressorFormat) {
+        let rv = g_zlib_decompressor_new(format)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -86,84 +117,130 @@ open class ZlibDecompressor: Object, ZlibDecompressorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GZlibDecompressor>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GZlibDecompressor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GZlibDecompressor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GZlibDecompressor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GZlibDecompressor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GZlibDecompressor`.
     /// i.e., ownership is transferred to the `ZlibDecompressor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GZlibDecompressor>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GZlibDecompressor>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ZlibDecompressorProtocol`
     /// Will retain `GZlibDecompressor`.
     /// - Parameter other: an instance of a related type that implements `ZlibDecompressorProtocol`
-    public init<T: ZlibDecompressorProtocol>(zlibDecompressor other: T) {
-        super.init(retaining: cast(other.zlib_decompressor_ptr))
+    @inlinable public init<T: ZlibDecompressorProtocol>(zlibDecompressor other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GZlibDecompressor`.
-    public init( format: ZlibCompressorFormat) {
-        let rv: UnsafeMutablePointer<GZlibDecompressor>! = cast(g_zlib_decompressor_new(format))
-        super.init(cast(rv))
+    @inlinable public init( format: GZlibCompressorFormat) {
+        let rv = g_zlib_decompressor_new(format)
+        super.init(gpointer: (rv))
     }
 
 
@@ -187,18 +264,18 @@ public extension ZlibDecompressorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibDecompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibDecompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(zlib_decompressor_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -216,7 +293,7 @@ public extension ZlibDecompressorProtocol {
     /// Get the value of a ZlibDecompressor property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ZlibDecompressorPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ZlibDecompressorPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -226,7 +303,7 @@ public extension ZlibDecompressorProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ZlibDecompressorPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ZlibDecompressorPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -271,11 +348,11 @@ public extension ZlibDecompressorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ZlibDecompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ZlibDecompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(zlib_decompressor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -296,31 +373,31 @@ public extension ZlibDecompressorProtocol {
 // MARK: ZlibDecompressor Class: ZlibDecompressorProtocol extension (methods and fields)
 public extension ZlibDecompressorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibDecompressor` instance.
-    var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor> { return ptr.assumingMemoryBound(to: GZlibDecompressor.self) }
+    @inlinable var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor>! { return ptr?.assumingMemoryBound(to: GZlibDecompressor.self) }
 
     /// Retrieves the `GFileInfo` constructed from the GZIP header data
     /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
     /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
     /// or the header data was not fully processed yet, or it not present in the
     /// data stream at all.
-    func getFileInfo() -> UnsafeMutablePointer<GFileInfo>! {
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr)))
-        return cast(rv)
+    @inlinable func getFileInfo() -> FileInfoRef! {
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_decompressor_get_file_info(zlib_decompressor_ptr)))
+        return rv
     }
     /// Retrieves the `GFileInfo` constructed from the GZIP header data
     /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
     /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
     /// or the header data was not fully processed yet, or it not present in the
     /// data stream at all.
-    var fileInfo: UnsafeMutablePointer<GFileInfo>! {
+    @inlinable var fileInfo: FileInfoRef! {
         /// Retrieves the `GFileInfo` constructed from the GZIP header data
         /// of compressed data processed by `compressor`, or `nil` if `decompressor`'s
         /// `GZlibDecompressor:format` property is not `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
         /// or the header data was not fully processed yet, or it not present in the
         /// data stream at all.
         get {
-            let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_decompressor_get_file_info(cast(zlib_decompressor_ptr)))
-            return cast(rv)
+            let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_decompressor_get_file_info(zlib_decompressor_ptr)))
+            return rv
         }
     }
 

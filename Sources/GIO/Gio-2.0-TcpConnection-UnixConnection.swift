@@ -13,10 +13,11 @@ import GLibObject
 /// for TCP/IP sockets.
 public protocol TcpConnectionProtocol: SocketConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTcpConnection` instance.
-    var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection> { get }
+    var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection>! { get }
+
 }
 
 /// The `TcpConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpConnection` instance.
@@ -28,46 +29,76 @@ public protocol TcpConnectionProtocol: SocketConnectionProtocol {
 public struct TcpConnectionRef: TcpConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tcp_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TcpConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTcpConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTcpConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTcpConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTcpConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTcpConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TcpConnectionProtocol`
-    init<T: TcpConnectionProtocol>(_ other: T) {
+    @inlinable init<T: TcpConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -84,77 +115,123 @@ open class TcpConnection: SocketConnection, TcpConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TcpConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTcpConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTcpConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTcpConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTcpConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTcpConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTcpConnection`.
     /// i.e., ownership is transferred to the `TcpConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTcpConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTcpConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TcpConnectionProtocol`
     /// Will retain `GTcpConnection`.
     /// - Parameter other: an instance of a related type that implements `TcpConnectionProtocol`
-    public init<T: TcpConnectionProtocol>(tcpConnection other: T) {
-        super.init(retaining: cast(other.tcp_connection_ptr))
+    @inlinable public init<T: TcpConnectionProtocol>(tcpConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -179,18 +256,18 @@ public extension TcpConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tcp_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -208,7 +285,7 @@ public extension TcpConnectionProtocol {
     /// Get the value of a TcpConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TcpConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TcpConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -218,7 +295,7 @@ public extension TcpConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TcpConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TcpConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -262,11 +339,11 @@ public extension TcpConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TcpConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TcpConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tcp_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -287,13 +364,13 @@ public extension TcpConnectionProtocol {
 // MARK: TcpConnection Class: TcpConnectionProtocol extension (methods and fields)
 public extension TcpConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpConnection` instance.
-    var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection> { return ptr.assumingMemoryBound(to: GTcpConnection.self) }
+    @inlinable var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection>! { return ptr?.assumingMemoryBound(to: GTcpConnection.self) }
 
     /// Checks if graceful disconnects are used. See
     /// `g_tcp_connection_set_graceful_disconnect()`.
-    func getGracefulDisconnect() -> Bool {
-        let rv = g_tcp_connection_get_graceful_disconnect(cast(tcp_connection_ptr))
-        return Bool(rv != 0)
+    @inlinable func getGracefulDisconnect() -> Bool {
+        let rv = ((g_tcp_connection_get_graceful_disconnect(tcp_connection_ptr)) != 0)
+        return rv
     }
 
     /// This enables graceful disconnects on close. A graceful disconnect
@@ -305,18 +382,18 @@ public extension TcpConnectionProtocol {
     /// However, it also means we have to wait for all the data to reach the
     /// other side and for it to acknowledge this by closing the socket, which may
     /// take a while. For this reason it is disabled by default.
-    func set(gracefulDisconnect graceful_disconnect: Bool) {
-        g_tcp_connection_set_graceful_disconnect(cast(tcp_connection_ptr), gboolean(graceful_disconnect ? 1 : 0))
+    @inlinable func set(gracefulDisconnect graceful_disconnect: Bool) {
+        g_tcp_connection_set_graceful_disconnect(tcp_connection_ptr, gboolean((graceful_disconnect) ? 1 : 0))
     
     }
     /// Checks if graceful disconnects are used. See
     /// `g_tcp_connection_set_graceful_disconnect()`.
-    var gracefulDisconnect: Bool {
+    @inlinable var gracefulDisconnect: Bool {
         /// Checks if graceful disconnects are used. See
         /// `g_tcp_connection_set_graceful_disconnect()`.
         get {
-            let rv = g_tcp_connection_get_graceful_disconnect(cast(tcp_connection_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_tcp_connection_get_graceful_disconnect(tcp_connection_ptr)) != 0)
+            return rv
         }
         /// This enables graceful disconnects on close. A graceful disconnect
         /// means that we signal the receiving end that the connection is terminated
@@ -328,20 +405,20 @@ public extension TcpConnectionProtocol {
         /// other side and for it to acknowledge this by closing the socket, which may
         /// take a while. For this reason it is disabled by default.
         nonmutating set {
-            g_tcp_connection_set_graceful_disconnect(cast(tcp_connection_ptr), gboolean(newValue ? 1 : 0))
+            g_tcp_connection_set_graceful_disconnect(tcp_connection_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    var parentInstance: GSocketConnection {
+    @inlinable var parentInstance: GSocketConnection {
         get {
-            let rv: GSocketConnection = cast(tcp_connection_ptr.pointee.parent_instance)
+            let rv = tcp_connection_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTcpConnectionPrivate> {
+    @inlinable var priv: TcpConnectionPrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GTcpConnectionPrivate> = cast(tcp_connection_ptr.pointee.priv)
+            let rv = TcpConnectionPrivateRef(gconstpointer: gconstpointer(tcp_connection_ptr.pointee.priv))
             return rv
         }
     }
@@ -364,10 +441,11 @@ public extension TcpConnectionProtocol {
 /// actually created is not directly a `GSocketConnection`.
 public protocol TcpWrapperConnectionProtocol: TcpConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpWrapperConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTcpWrapperConnection` instance.
-    var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection> { get }
+    var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection>! { get }
+
 }
 
 /// The `TcpWrapperConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnection` instance.
@@ -382,53 +460,83 @@ public protocol TcpWrapperConnectionProtocol: TcpConnectionProtocol {
 public struct TcpWrapperConnectionRef: TcpWrapperConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpWrapperConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tcp_wrapper_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TcpWrapperConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTcpWrapperConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTcpWrapperConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTcpWrapperConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTcpWrapperConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTcpWrapperConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TcpWrapperConnectionProtocol`
-    init<T: TcpWrapperConnectionProtocol>(_ other: T) {
+    @inlinable init<T: TcpWrapperConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
-    init( base_io_stream: IOStreamProtocol, socket: SocketProtocol) {
-        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_tcp_wrapper_connection_new(cast(base_io_stream.ptr), cast(socket.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( base_io_stream: IOStreamT, socket: SocketT) {
+        let rv = g_tcp_wrapper_connection_new(base_io_stream.io_stream_ptr, socket.socket_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -446,84 +554,130 @@ open class TcpWrapperConnection: TcpConnection, TcpWrapperConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTcpWrapperConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTcpWrapperConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTcpWrapperConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTcpWrapperConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTcpWrapperConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTcpWrapperConnection`.
     /// i.e., ownership is transferred to the `TcpWrapperConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTcpWrapperConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTcpWrapperConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TcpWrapperConnectionProtocol`
     /// Will retain `GTcpWrapperConnection`.
     /// - Parameter other: an instance of a related type that implements `TcpWrapperConnectionProtocol`
-    public init<T: TcpWrapperConnectionProtocol>(tcpWrapperConnection other: T) {
-        super.init(retaining: cast(other.tcp_wrapper_connection_ptr))
+    @inlinable public init<T: TcpWrapperConnectionProtocol>(tcpWrapperConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
-    public init( base_io_stream: IOStreamProtocol, socket: SocketProtocol) {
-        let rv: UnsafeMutablePointer<GSocketConnection>! = cast(g_tcp_wrapper_connection_new(cast(base_io_stream.ptr), cast(socket.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( base_io_stream: IOStreamT, socket: SocketT) {
+        let rv = g_tcp_wrapper_connection_new(base_io_stream.io_stream_ptr, socket.socket_ptr)
+        super.init(gpointer: (rv))
     }
 
 
@@ -547,18 +701,18 @@ public extension TcpWrapperConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpWrapperConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpWrapperConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tcp_wrapper_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -576,7 +730,7 @@ public extension TcpWrapperConnectionProtocol {
     /// Get the value of a TcpWrapperConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TcpWrapperConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TcpWrapperConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -586,7 +740,7 @@ public extension TcpWrapperConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TcpWrapperConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TcpWrapperConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -631,11 +785,11 @@ public extension TcpWrapperConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TcpWrapperConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TcpWrapperConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tcp_wrapper_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -656,32 +810,32 @@ public extension TcpWrapperConnectionProtocol {
 // MARK: TcpWrapperConnection Class: TcpWrapperConnectionProtocol extension (methods and fields)
 public extension TcpWrapperConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpWrapperConnection` instance.
-    var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection> { return ptr.assumingMemoryBound(to: GTcpWrapperConnection.self) }
+    @inlinable var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection>! { return ptr?.assumingMemoryBound(to: GTcpWrapperConnection.self) }
 
     /// Get's `conn`'s base `GIOStream`
-    func getBaseIoStream() -> UnsafeMutablePointer<GIOStream>! {
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tcp_wrapper_connection_get_base_io_stream(cast(tcp_wrapper_connection_ptr)))
-        return cast(rv)
+    @inlinable func getBaseIoStream() -> IOStreamRef! {
+        guard let rv = IOStreamRef(gconstpointer: gconstpointer(g_tcp_wrapper_connection_get_base_io_stream(tcp_wrapper_connection_ptr))) else { return nil }
+        return rv
     }
     /// Get's `conn`'s base `GIOStream`
-    var baseIoStream: UnsafeMutablePointer<GIOStream>! {
+    @inlinable var baseIoStream: IOStreamRef! {
         /// Get's `conn`'s base `GIOStream`
         get {
-            let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tcp_wrapper_connection_get_base_io_stream(cast(tcp_wrapper_connection_ptr)))
-            return cast(rv)
-        }
-    }
-
-    var parentInstance: GTcpConnection {
-        get {
-            let rv: GTcpConnection = cast(tcp_wrapper_connection_ptr.pointee.parent_instance)
+            guard let rv = IOStreamRef(gconstpointer: gconstpointer(g_tcp_wrapper_connection_get_base_io_stream(tcp_wrapper_connection_ptr))) else { return nil }
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTcpWrapperConnectionPrivate> {
+    @inlinable var parentInstance: GTcpConnection {
         get {
-            let rv: UnsafeMutablePointer<GTcpWrapperConnectionPrivate> = cast(tcp_wrapper_connection_ptr.pointee.priv)
+            let rv = tcp_wrapper_connection_ptr.pointee.parent_instance
+            return rv
+        }
+    }
+
+    @inlinable var priv: TcpWrapperConnectionPrivateRef! {
+        get {
+            let rv = TcpWrapperConnectionPrivateRef(gconstpointer: gconstpointer(tcp_wrapper_connection_ptr.pointee.priv))
             return rv
         }
     }
@@ -772,10 +926,11 @@ public extension TcpWrapperConnectionProtocol {
 /// 
 public protocol TestDBusProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GTestDBus` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTestDBus` instance.
-    var test_dbus_ptr: UnsafeMutablePointer<GTestDBus> { get }
+    var test_dbus_ptr: UnsafeMutablePointer<GTestDBus>! { get }
+
 }
 
 /// The `TestDBusRef` type acts as a lightweight Swift reference to an underlying `GTestDBus` instance.
@@ -858,53 +1013,83 @@ public protocol TestDBusProtocol: ObjectProtocol {
 public struct TestDBusRef: TestDBusProtocol {
         /// Untyped pointer to the underlying `GTestDBus` instance.
     /// For type-safe access, use the generated, typed pointer `test_dbus_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TestDBusRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTestDBus>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTestDBus>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTestDBus>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTestDBus>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTestDBus>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TestDBusProtocol`
-    init<T: TestDBusProtocol>(_ other: T) {
+    @inlinable init<T: TestDBusProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Create a new `GTestDBus` object.
-    init( flags: TestDBusFlags) {
-        let rv: UnsafeMutablePointer<GTestDBus>! = cast(g_test_dbus_new(flags.value))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( flags: TestDBusFlags) {
+        let rv = g_test_dbus_new(flags.value)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -990,84 +1175,130 @@ open class TestDBus: Object, TestDBusProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TestDBus` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTestDBus>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTestDBus>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTestDBus>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTestDBus>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestDBus` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTestDBus>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTestDBus`.
     /// i.e., ownership is transferred to the `TestDBus` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTestDBus>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTestDBus>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TestDBusProtocol`
     /// Will retain `GTestDBus`.
     /// - Parameter other: an instance of a related type that implements `TestDBusProtocol`
-    public init<T: TestDBusProtocol>(testDBus other: T) {
-        super.init(retaining: cast(other.test_dbus_ptr))
+    @inlinable public init<T: TestDBusProtocol>(testDBus other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Create a new `GTestDBus` object.
-    public init( flags: TestDBusFlags) {
-        let rv: UnsafeMutablePointer<GTestDBus>! = cast(g_test_dbus_new(flags.value))
-        super.init(cast(rv))
+    @inlinable public init( flags: TestDBusFlags) {
+        let rv = g_test_dbus_new(flags.value)
+        super.init(gpointer: (rv))
     }
 
 
@@ -1087,18 +1318,18 @@ public extension TestDBusProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TestDBusPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TestDBusPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(test_dbus_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1116,7 +1347,7 @@ public extension TestDBusProtocol {
     /// Get the value of a TestDBus property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TestDBusPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TestDBusPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1126,7 +1357,7 @@ public extension TestDBusProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TestDBusPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TestDBusPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1167,11 +1398,11 @@ public extension TestDBusProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TestDBusSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TestDBusSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(test_dbus_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1192,12 +1423,12 @@ public extension TestDBusProtocol {
 // MARK: TestDBus Class: TestDBusProtocol extension (methods and fields)
 public extension TestDBusProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestDBus` instance.
-    var test_dbus_ptr: UnsafeMutablePointer<GTestDBus> { return ptr.assumingMemoryBound(to: GTestDBus.self) }
+    @inlinable var test_dbus_ptr: UnsafeMutablePointer<GTestDBus>! { return ptr?.assumingMemoryBound(to: GTestDBus.self) }
 
     /// Add a path where dbus-daemon will look up .service files. This can't be
     /// called after `g_test_dbus_up()`.
-    func addServiceDir(path: UnsafePointer<gchar>) {
-        g_test_dbus_add_service_dir(cast(test_dbus_ptr), path)
+    @inlinable func addServiceDir(path: UnsafePointer<gchar>!) {
+        g_test_dbus_add_service_dir(test_dbus_ptr, path)
     
     }
 
@@ -1206,23 +1437,23 @@ public extension TestDBusProtocol {
     /// This will wait for the singleton returned by `g_bus_get()` or `g_bus_get_sync()`
     /// to be destroyed. This is done to ensure that the next unit test won't get a
     /// leaked singleton from this test.
-    func down() {
-        g_test_dbus_down(cast(test_dbus_ptr))
+    @inlinable func down() {
+        g_test_dbus_down(test_dbus_ptr)
     
     }
 
     /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
     /// been called yet, `nil` is returned. This can be used with
     /// `g_dbus_connection_new_for_address()`.
-    func getBusAddress() -> String! {
-        let rv: String! = cast(g_test_dbus_get_bus_address(cast(test_dbus_ptr)))
-        return cast(rv)
+    @inlinable func getBusAddress() -> String! {
+        let rv = g_test_dbus_get_bus_address(test_dbus_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Get the flags of the `GTestDBus` object.
-    func getFlags() -> GTestDBusFlags {
-        let rv = g_test_dbus_get_flags(cast(test_dbus_ptr))
-        return cast(rv)
+    @inlinable func getFlags() -> TestDBusFlags {
+        let rv = TestDBusFlags(g_test_dbus_get_flags(test_dbus_ptr))
+        return rv
     }
 
     /// Stop the session bus started by `g_test_dbus_up()`.
@@ -1231,8 +1462,8 @@ public extension TestDBusProtocol {
     /// singleton returned by `g_bus_get()` or `g_bus_get_sync()` is destroyed. Unit
     /// tests wanting to verify behaviour after the session bus has been stopped
     /// can use this function but should still call `g_test_dbus_down()` when done.
-    func stop() {
-        g_test_dbus_stop(cast(test_dbus_ptr))
+    @inlinable func stop() {
+        g_test_dbus_stop(test_dbus_ptr)
     
     }
 
@@ -1244,29 +1475,29 @@ public extension TestDBusProtocol {
     /// 
     /// If this function is called from unit test's `main()`, then `g_test_dbus_down()`
     /// must be called after `g_test_run()`.
-    func up() {
-        g_test_dbus_up(cast(test_dbus_ptr))
+    @inlinable func up() {
+        g_test_dbus_up(test_dbus_ptr)
     
     }
     /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
     /// been called yet, `nil` is returned. This can be used with
     /// `g_dbus_connection_new_for_address()`.
-    var busAddress: String! {
+    @inlinable var busAddress: String! {
         /// Get the address on which dbus-daemon is running. If `g_test_dbus_up()` has not
         /// been called yet, `nil` is returned. This can be used with
         /// `g_dbus_connection_new_for_address()`.
         get {
-            let rv: String! = cast(g_test_dbus_get_bus_address(cast(test_dbus_ptr)))
-            return cast(rv)
+            let rv = g_test_dbus_get_bus_address(test_dbus_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// `GTestDBusFlags` specifying the behaviour of the D-Bus session.
-    var flags: GTestDBusFlags {
+    @inlinable var flags: TestDBusFlags {
         /// Get the flags of the `GTestDBus` object.
         get {
-            let rv = g_test_dbus_get_flags(cast(test_dbus_ptr))
-            return cast(rv)
+            let rv = TestDBusFlags(g_test_dbus_get_flags(test_dbus_ptr))
+            return rv
         }
     }
 
@@ -1291,10 +1522,11 @@ public extension TestDBusProtocol {
 /// themes that inherit other themes.
 public protocol ThemedIconProtocol: ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GThemedIcon` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GThemedIcon` instance.
-    var themed_icon_ptr: UnsafeMutablePointer<GThemedIcon> { get }
+    var themed_icon_ptr: UnsafeMutablePointer<GThemedIcon>! { get }
+
 }
 
 /// The `ThemedIconRef` type acts as a lightweight Swift reference to an underlying `GThemedIcon` instance.
@@ -1311,110 +1543,80 @@ public protocol ThemedIconProtocol: ObjectProtocol, IconProtocol {
 public struct ThemedIconRef: ThemedIconProtocol {
         /// Untyped pointer to the underlying `GThemedIcon` instance.
     /// For type-safe access, use the generated, typed pointer `themed_icon_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ThemedIconRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GThemedIcon>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GThemedIcon>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GThemedIcon>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GThemedIcon>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GThemedIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ThemedIconProtocol`
-    init<T: ThemedIconProtocol>(_ other: T) {
+    @inlinable init<T: ThemedIconProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new themed icon for `iconname`.
-    init( iconname: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new(iconname))
-        ptr = UnsafeMutableRawPointer(cast(rv))
     }
-
-    /// Creates a new themed icon for `iconnames`.
-    init(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_from_names(cast(iconnames), len))
-        ptr = UnsafeMutableRawPointer(cast(rv))
-    }
-
-    /// Creates a new themed icon for `iconname`, and all the names
-    /// that can be created by shortening `iconname` at '-' characters.
-    /// 
-    /// In the following example, `icon1` and `icon2` are equivalent:
-    /// (C Language Example):
-    /// ```C
-    /// const char *names[] = {
-    ///   "gnome-dev-cdrom-audio",
-    ///   "gnome-dev-cdrom",
-    ///   "gnome-dev",
-    ///   "gnome"
-    /// };
-    /// 
-    /// icon1 = g_themed_icon_new_from_names (names, 4);
-    /// icon2 = g_themed_icon_new_with_default_fallbacks ("gnome-dev-cdrom-audio");
-    /// ```
-    /// 
-    init(defaultFallbacks iconname: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_with_default_fallbacks(iconname))
-        ptr = UnsafeMutableRawPointer(cast(rv))
-    }
-    /// Creates a new themed icon for `iconnames`.
-    static func newFrom(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) -> ThemedIconRef! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_from_names(cast(iconnames), len))
-        return rv.map { ThemedIconRef(cast($0)) }
-    }
-
-    /// Creates a new themed icon for `iconname`, and all the names
-    /// that can be created by shortening `iconname` at '-' characters.
-    /// 
-    /// In the following example, `icon1` and `icon2` are equivalent:
-    /// (C Language Example):
-    /// ```C
-    /// const char *names[] = {
-    ///   "gnome-dev-cdrom-audio",
-    ///   "gnome-dev-cdrom",
-    ///   "gnome-dev",
-    ///   "gnome"
-    /// };
-    /// 
-    /// icon1 = g_themed_icon_new_from_names (names, 4);
-    /// icon2 = g_themed_icon_new_with_default_fallbacks ("gnome-dev-cdrom-audio");
-    /// ```
-    /// 
-    static func newWith(defaultFallbacks iconname: UnsafePointer<CChar>) -> ThemedIconRef! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_with_default_fallbacks(iconname))
-        return rv.map { ThemedIconRef(cast($0)) }
-    }
-}
 
 /// The `ThemedIcon` type acts as a reference-counted owner of an underlying `GThemedIcon` instance.
 /// It provides the methods that can operate on this data type through `ThemedIconProtocol` conformance.
@@ -1432,141 +1634,127 @@ open class ThemedIcon: Object, ThemedIconProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ThemedIcon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GThemedIcon>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GThemedIcon>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GThemedIcon>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GThemedIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThemedIcon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GThemedIcon>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThemedIcon`.
     /// i.e., ownership is transferred to the `ThemedIcon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GThemedIcon>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GThemedIcon>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ThemedIconProtocol`
     /// Will retain `GThemedIcon`.
     /// - Parameter other: an instance of a related type that implements `ThemedIconProtocol`
-    public init<T: ThemedIconProtocol>(themedIcon other: T) {
-        super.init(retaining: cast(other.themed_icon_ptr))
+    @inlinable public init<T: ThemedIconProtocol>(themedIcon other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
-    /// Creates a new themed icon for `iconname`.
-    public init( iconname: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new(iconname))
-        super.init(cast(rv))
-    }
 
-    /// Creates a new themed icon for `iconnames`.
-    public init(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_from_names(cast(iconnames), len))
-        super.init(cast(rv))
-    }
-
-    /// Creates a new themed icon for `iconname`, and all the names
-    /// that can be created by shortening `iconname` at '-' characters.
-    /// 
-    /// In the following example, `icon1` and `icon2` are equivalent:
-    /// (C Language Example):
-    /// ```C
-    /// const char *names[] = {
-    ///   "gnome-dev-cdrom-audio",
-    ///   "gnome-dev-cdrom",
-    ///   "gnome-dev",
-    ///   "gnome"
-    /// };
-    /// 
-    /// icon1 = g_themed_icon_new_from_names (names, 4);
-    /// icon2 = g_themed_icon_new_with_default_fallbacks ("gnome-dev-cdrom-audio");
-    /// ```
-    /// 
-    public init(defaultFallbacks iconname: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_with_default_fallbacks(iconname))
-        super.init(cast(rv))
-    }
-
-    /// Creates a new themed icon for `iconnames`.
-    public static func newFrom(names iconnames: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, len: CInt) -> ThemedIcon! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_from_names(cast(iconnames), len))
-        return rv.map { ThemedIcon(cast($0)) }
-    }
-
-    /// Creates a new themed icon for `iconname`, and all the names
-    /// that can be created by shortening `iconname` at '-' characters.
-    /// 
-    /// In the following example, `icon1` and `icon2` are equivalent:
-    /// (C Language Example):
-    /// ```C
-    /// const char *names[] = {
-    ///   "gnome-dev-cdrom-audio",
-    ///   "gnome-dev-cdrom",
-    ///   "gnome-dev",
-    ///   "gnome"
-    /// };
-    /// 
-    /// icon1 = g_themed_icon_new_from_names (names, 4);
-    /// icon2 = g_themed_icon_new_with_default_fallbacks ("gnome-dev-cdrom-audio");
-    /// ```
-    /// 
-    public static func newWith(defaultFallbacks iconname: UnsafePointer<CChar>) -> ThemedIcon! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_themed_icon_new_with_default_fallbacks(iconname))
-        return rv.map { ThemedIcon(cast($0)) }
-    }
 
 }
 
@@ -1604,18 +1792,18 @@ public extension ThemedIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(themed_icon_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1633,7 +1821,7 @@ public extension ThemedIconProtocol {
     /// Get the value of a ThemedIcon property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ThemedIconPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ThemedIconPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1643,7 +1831,7 @@ public extension ThemedIconProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ThemedIconPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ThemedIconPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1704,11 +1892,11 @@ public extension ThemedIconProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ThemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ThemedIconSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(themed_icon_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1729,37 +1917,37 @@ public extension ThemedIconProtocol {
 // MARK: ThemedIcon Class: ThemedIconProtocol extension (methods and fields)
 public extension ThemedIconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThemedIcon` instance.
-    var themed_icon_ptr: UnsafeMutablePointer<GThemedIcon> { return ptr.assumingMemoryBound(to: GThemedIcon.self) }
+    @inlinable var themed_icon_ptr: UnsafeMutablePointer<GThemedIcon>! { return ptr?.assumingMemoryBound(to: GThemedIcon.self) }
 
     /// Append a name to the list of icons from within `icon`.
     /// 
     /// Note that doing so invalidates the hash computed by prior calls
     /// to `g_icon_hash()`.
-    func appendName(iconname: UnsafePointer<CChar>) {
-        g_themed_icon_append_name(cast(themed_icon_ptr), iconname)
+    @inlinable func appendName(iconname: UnsafePointer<CChar>!) {
+        g_themed_icon_append_name(themed_icon_ptr, iconname)
     
     }
 
     /// Gets the names of icons from within `icon`.
-    func getNames() -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_themed_icon_get_names(cast(themed_icon_ptr)))
-        return cast(rv)
+    @inlinable func getNames() -> UnsafePointer<UnsafePointer<gchar>?>! {
+        let rv = g_themed_icon_get_names(themed_icon_ptr)
+        return rv
     }
 
     /// Prepend a name to the list of icons from within `icon`.
     /// 
     /// Note that doing so invalidates the hash computed by prior calls
     /// to `g_icon_hash()`.
-    func prependName(iconname: UnsafePointer<CChar>) {
-        g_themed_icon_prepend_name(cast(themed_icon_ptr), iconname)
+    @inlinable func prependName(iconname: UnsafePointer<CChar>!) {
+        g_themed_icon_prepend_name(themed_icon_ptr, iconname)
     
     }
     /// A `nil`-terminated array of icon names.
-    var names: UnsafePointer<UnsafePointer<gchar>>! {
+    @inlinable var names: UnsafePointer<UnsafePointer<gchar>?>! {
         /// Gets the names of icons from within `icon`.
         get {
-            let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_themed_icon_get_names(cast(themed_icon_ptr)))
-            return cast(rv)
+            let rv = g_themed_icon_get_names(themed_icon_ptr)
+            return rv
         }
     }
 
@@ -1792,10 +1980,11 @@ public extension ThemedIconProtocol {
 /// or subclass and override the default handler.
 public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
         /// Untyped pointer to the underlying `GThreadedSocketService` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GThreadedSocketService` instance.
-    var threaded_socket_service_ptr: UnsafeMutablePointer<GThreadedSocketService> { get }
+    var threaded_socket_service_ptr: UnsafeMutablePointer<GThreadedSocketService>! { get }
+
 }
 
 /// The `ThreadedSocketServiceRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketService` instance.
@@ -1820,54 +2009,84 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
 public struct ThreadedSocketServiceRef: ThreadedSocketServiceProtocol {
         /// Untyped pointer to the underlying `GThreadedSocketService` instance.
     /// For type-safe access, use the generated, typed pointer `threaded_socket_service_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ThreadedSocketServiceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GThreadedSocketService>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GThreadedSocketService>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GThreadedSocketService>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GThreadedSocketService>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GThreadedSocketService>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ThreadedSocketServiceProtocol`
-    init<T: ThreadedSocketServiceProtocol>(_ other: T) {
+    @inlinable init<T: ThreadedSocketServiceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GThreadedSocketService` with no listeners. Listeners
     /// must be added with one of the `GSocketListener` "add" methods.
-    init( max_threads: CInt) {
-        let rv: UnsafeMutablePointer<GSocketService>! = cast(g_threaded_socket_service_new(max_threads))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( max_threads: Int) {
+        let rv = g_threaded_socket_service_new(gint(max_threads))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1895,85 +2114,131 @@ open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GThreadedSocketService>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GThreadedSocketService>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GThreadedSocketService>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GThreadedSocketService>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GThreadedSocketService>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThreadedSocketService`.
     /// i.e., ownership is transferred to the `ThreadedSocketService` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GThreadedSocketService>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GThreadedSocketService>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ThreadedSocketServiceProtocol`
     /// Will retain `GThreadedSocketService`.
     /// - Parameter other: an instance of a related type that implements `ThreadedSocketServiceProtocol`
-    public init<T: ThreadedSocketServiceProtocol>(threadedSocketService other: T) {
-        super.init(retaining: cast(other.threaded_socket_service_ptr))
+    @inlinable public init<T: ThreadedSocketServiceProtocol>(threadedSocketService other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GThreadedSocketService` with no listeners. Listeners
     /// must be added with one of the `GSocketListener` "add" methods.
-    public init( max_threads: CInt) {
-        let rv: UnsafeMutablePointer<GSocketService>! = cast(g_threaded_socket_service_new(max_threads))
-        super.init(cast(rv))
+    @inlinable public init( max_threads: Int) {
+        let rv = g_threaded_socket_service_new(gint(max_threads))
+        super.init(gpointer: (rv))
     }
 
 
@@ -1995,18 +2260,18 @@ public extension ThreadedSocketServiceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThreadedSocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThreadedSocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(threaded_socket_service_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -2024,7 +2289,7 @@ public extension ThreadedSocketServiceProtocol {
     /// Get the value of a ThreadedSocketService property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ThreadedSocketServicePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ThreadedSocketServicePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -2034,7 +2299,7 @@ public extension ThreadedSocketServiceProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ThreadedSocketServicePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ThreadedSocketServicePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2095,11 +2360,11 @@ public extension ThreadedSocketServiceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ThreadedSocketServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ThreadedSocketServiceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(threaded_socket_service_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2120,19 +2385,19 @@ public extension ThreadedSocketServiceProtocol {
 // MARK: ThreadedSocketService Class: ThreadedSocketServiceProtocol extension (methods and fields)
 public extension ThreadedSocketServiceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThreadedSocketService` instance.
-    var threaded_socket_service_ptr: UnsafeMutablePointer<GThreadedSocketService> { return ptr.assumingMemoryBound(to: GThreadedSocketService.self) }
+    @inlinable var threaded_socket_service_ptr: UnsafeMutablePointer<GThreadedSocketService>! { return ptr?.assumingMemoryBound(to: GThreadedSocketService.self) }
 
 
-    var parentInstance: GSocketService {
+    @inlinable var parentInstance: GSocketService {
         get {
-            let rv: GSocketService = cast(threaded_socket_service_ptr.pointee.parent_instance)
+            let rv = threaded_socket_service_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GThreadedSocketServicePrivate> {
+    @inlinable var priv: ThreadedSocketServicePrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GThreadedSocketServicePrivate> = cast(threaded_socket_service_ptr.pointee.priv)
+            let rv = ThreadedSocketServicePrivateRef(gconstpointer: gconstpointer(threaded_socket_service_ptr.pointee.priv))
             return rv
         }
     }
@@ -2155,10 +2420,11 @@ public extension ThreadedSocketServiceProtocol {
 /// `GTlsServerConnection`).
 public protocol TLSCertificateProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsCertificate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsCertificate` instance.
-    var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate> { get }
+    var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate>! { get }
+
 }
 
 /// The `TLSCertificateRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificate` instance.
@@ -2173,46 +2439,76 @@ public protocol TLSCertificateProtocol: ObjectProtocol {
 public struct TLSCertificateRef: TLSCertificateProtocol {
         /// Untyped pointer to the underlying `GTlsCertificate` instance.
     /// For type-safe access, use the generated, typed pointer `tls_certificate_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSCertificateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsCertificate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsCertificate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsCertificate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsCertificate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsCertificate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSCertificateProtocol`
-    init<T: TLSCertificateProtocol>(_ other: T) {
+    @inlinable init<T: TLSCertificateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2229,11 +2525,11 @@ public extension TLSCertificateRef {
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    init(file: UnsafePointer<gchar>) throws {
+    @inlinable init(file: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_file(file, &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_tls_certificate_new_from_file(file, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -2250,11 +2546,11 @@ public extension TLSCertificateRef {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
+    @inlinable init(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_files(cert_file, key_file, &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -2271,11 +2567,11 @@ public extension TLSCertificateRef {
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
-    init(pem data: UnsafePointer<gchar>, length: gssize) throws {
+    @inlinable init(pem data: UnsafePointer<gchar>!, length: gssize) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_pem(data, length, &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_tls_certificate_new_from_pem(data, length, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
     /// returned certificate will be the first certificate found in `file`. As
@@ -2290,11 +2586,12 @@ public extension TLSCertificateRef {
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    static func newFrom(file: UnsafePointer<gchar>) throws -> TLSCertificateRef! {
+    @inlinable static func newFrom(file: UnsafePointer<gchar>!) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_file(file, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificateRef(cast($0)) }
+        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_file(file, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -2311,11 +2608,12 @@ public extension TLSCertificateRef {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    static func newFrom(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws -> TLSCertificateRef! {
+    @inlinable static func newFrom(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_files(cert_file, key_file, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificateRef(cast($0)) }
+        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(cert_file, key_file, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -2332,11 +2630,12 @@ public extension TLSCertificateRef {
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
-    static func newFrom(pem data: UnsafePointer<gchar>, length: gssize) throws -> TLSCertificateRef! {
+    @inlinable static func newFrom(pem data: UnsafePointer<gchar>!, length: gssize) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_pem(data, length, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificateRef(cast($0)) }
+        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_pem(data, length, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 }
 
@@ -2354,77 +2653,123 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSCertificate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsCertificate>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsCertificate>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsCertificate>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsCertificate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSCertificate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsCertificate>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsCertificate`.
     /// i.e., ownership is transferred to the `TLSCertificate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsCertificate>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsCertificate>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TLSCertificateProtocol`
     /// Will retain `GTlsCertificate`.
     /// - Parameter other: an instance of a related type that implements `TLSCertificateProtocol`
-    public init<T: TLSCertificateProtocol>(tlsCertificate other: T) {
-        super.init(retaining: cast(other.tls_certificate_ptr))
+    @inlinable public init<T: TLSCertificateProtocol>(tlsCertificate other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2441,11 +2786,11 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public init(file: UnsafePointer<gchar>) throws {
+    @inlinable public init(file: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_file(file, &error))
-        if let error = error { throw ErrorType(error) }
-        super.init(cast(rv))
+        let rv = g_tls_certificate_new_from_file(file, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -2462,11 +2807,11 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public init(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws {
+    @inlinable public init(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_files(cert_file, key_file, &error))
-        if let error = error { throw ErrorType(error) }
-        super.init(cast(rv))
+        let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -2483,11 +2828,11 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
-    public init(pem data: UnsafePointer<gchar>, length: gssize) throws {
+    @inlinable public init(pem data: UnsafePointer<gchar>!, length: gssize) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_pem(data, length, &error))
-        if let error = error { throw ErrorType(error) }
-        super.init(cast(rv))
+        let rv = g_tls_certificate_new_from_pem(data, length, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
@@ -2503,11 +2848,12 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If `file` cannot be read or parsed, the function will return `nil` and
     /// set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public static func newFrom(file: UnsafePointer<gchar>) throws -> TLSCertificate! {
+    @inlinable public static func newFrom(file: UnsafePointer<gchar>!) throws -> TLSCertificate! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_file(file, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificate(cast($0)) }
+        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_file(file, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `cert_file`
@@ -2524,11 +2870,12 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    public static func newFrom(files cert_file: UnsafePointer<gchar>, keyFile key_file: UnsafePointer<gchar>) throws -> TLSCertificate! {
+    @inlinable public static func newFrom(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws -> TLSCertificate! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_files(cert_file, key_file, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificate(cast($0)) }
+        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(cert_file, key_file, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
@@ -2545,11 +2892,12 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// will be set accordingly if the verification succeeds. If any
     /// certificate in the chain cannot be verified, the first certificate in
     /// the file will still be returned.
-    public static func newFrom(pem data: UnsafePointer<gchar>, length: gssize) throws -> TLSCertificate! {
+    @inlinable public static func newFrom(pem data: UnsafePointer<gchar>!, length: gssize) throws -> TLSCertificate! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_new_from_pem(data, length, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TLSCertificate(cast($0)) }
+        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_pem(data, length, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
 }
@@ -2600,18 +2948,18 @@ public extension TLSCertificateProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSCertificatePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSCertificatePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tls_certificate_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -2629,7 +2977,7 @@ public extension TLSCertificateProtocol {
     /// Get the value of a TLSCertificate property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TLSCertificatePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TLSCertificatePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -2639,7 +2987,7 @@ public extension TLSCertificateProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TLSCertificatePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TLSCertificatePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2712,11 +3060,11 @@ public extension TLSCertificateProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSCertificateSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TLSCertificateSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tls_certificate_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2737,12 +3085,12 @@ public extension TLSCertificateProtocol {
 // MARK: TLSCertificate Class: TLSCertificateProtocol extension (methods and fields)
 public extension TLSCertificateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsCertificate` instance.
-    var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate> { return ptr.assumingMemoryBound(to: GTlsCertificate.self) }
+    @inlinable var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate>! { return ptr?.assumingMemoryBound(to: GTlsCertificate.self) }
 
     /// Gets the `GTlsCertificate` representing `cert`'s issuer, if known
-    func getIssuer() -> UnsafeMutablePointer<GTlsCertificate>! {
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_get_issuer(cast(tls_certificate_ptr)))
-        return cast(rv)
+    @inlinable func getIssuer() -> TLSCertificateRef! {
+        guard let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_get_issuer(tls_certificate_ptr))) else { return nil }
+        return rv
     }
 
     /// Check if two `GTlsCertificate` objects represent the same certificate.
@@ -2750,9 +3098,9 @@ public extension TLSCertificateProtocol {
     /// This has the effect that two certificates may compare equal even if
     /// their `GTlsCertificate:issuer`, `GTlsCertificate:private`-key, or
     /// `GTlsCertificate:private`-key-pem properties differ.
-    func isSame(certTwo cert_two: TLSCertificateProtocol) -> Bool {
-        let rv = g_tls_certificate_is_same(cast(tls_certificate_ptr), cast(cert_two.ptr))
-        return Bool(rv != 0)
+    @inlinable func isSame<TLSCertificateT: TLSCertificateProtocol>(certTwo cert_two: TLSCertificateT) -> Bool {
+        let rv = ((g_tls_certificate_is_same(tls_certificate_ptr, cert_two.tls_certificate_ptr)) != 0)
+        return rv
     }
 
     /// This verifies `cert` and returns a set of `GTlsCertificateFlags`
@@ -2774,17 +3122,17 @@ public extension TLSCertificateProtocol {
     /// 
     /// (All other `GTlsCertificateFlags` values will always be set or unset
     /// as appropriate.)
-    func verify(identity: SocketConnectableProtocol, trustedCa trusted_ca: TLSCertificateProtocol) -> GTlsCertificateFlags {
-        let rv = g_tls_certificate_verify(cast(tls_certificate_ptr), cast(identity.ptr), cast(trusted_ca.ptr))
-        return cast(rv)
+    @inlinable func verify<SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol>(identity: SocketConnectableT? = nil, trustedCa trusted_ca: TLSCertificateT? = nil) -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trusted_ca?.tls_certificate_ptr))
+        return rv
     }
 
     /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
-    func dtlsServerConnectionNew(baseSocket base_socket: DatagramBasedProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
+    @inlinable func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket base_socket: DatagramBasedT) throws -> DtlsServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_server_connection_new(cast(base_socket.ptr), cast(tls_certificate_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(base_socket.datagram_based_ptr, tls_certificate_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
@@ -2793,34 +3141,34 @@ public extension TLSCertificateProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    func tlsServerConnectionNew(baseIoStream base_io_stream: IOStreamProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
+    @inlinable func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream base_io_stream: IOStreamT) throws -> TLSServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_tls_server_connection_new(cast(base_io_stream.ptr), cast(tls_certificate_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(base_io_stream.io_stream_ptr, tls_certificate_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// A `GTlsCertificate` representing the entity that issued this
     /// certificate. If `nil`, this means that the certificate is either
     /// self-signed, or else the certificate of the issuer is not
     /// available.
-    var issuer: UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable var issuer: TLSCertificateRef! {
         /// Gets the `GTlsCertificate` representing `cert`'s issuer, if known
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_certificate_get_issuer(cast(tls_certificate_ptr)))
-            return cast(rv)
-        }
-    }
-
-    var parentInstance: GObject {
-        get {
-            let rv: GObject = cast(tls_certificate_ptr.pointee.parent_instance)
+            guard let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_get_issuer(tls_certificate_ptr))) else { return nil }
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTlsCertificatePrivate> {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificatePrivate> = cast(tls_certificate_ptr.pointee.priv)
+            let rv = tls_certificate_ptr.pointee.parent_instance
+            return rv
+        }
+    }
+
+    @inlinable var priv: TLSCertificatePrivateRef! {
+        get {
+            let rv = TLSCertificatePrivateRef(gconstpointer: gconstpointer(tls_certificate_ptr.pointee.priv))
             return rv
         }
     }
@@ -2844,10 +3192,11 @@ public extension TLSCertificateProtocol {
 /// For DTLS (Datagram TLS) support, see `GDtlsConnection`.
 public protocol TLSConnectionProtocol: IOStreamProtocol {
         /// Untyped pointer to the underlying `GTlsConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsConnection` instance.
-    var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection> { get }
+    var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection>! { get }
+
 }
 
 /// The `TLSConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsConnection` instance.
@@ -2863,46 +3212,76 @@ public protocol TLSConnectionProtocol: IOStreamProtocol {
 public struct TLSConnectionRef: TLSConnectionProtocol {
         /// Untyped pointer to the underlying `GTlsConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSConnectionProtocol`
-    init<T: TLSConnectionProtocol>(_ other: T) {
+    @inlinable init<T: TLSConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2923,77 +3302,123 @@ open class TLSConnection: IOStream, TLSConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsConnection`.
     /// i.e., ownership is transferred to the `TLSConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TLSConnectionProtocol`
     /// Will retain `GTlsConnection`.
     /// - Parameter other: an instance of a related type that implements `TLSConnectionProtocol`
-    public init<T: TLSConnectionProtocol>(tlsConnection other: T) {
-        super.init(retaining: cast(other.tls_connection_ptr))
+    @inlinable public init<T: TLSConnectionProtocol>(tlsConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -3071,18 +3496,18 @@ public extension TLSConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tls_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -3100,7 +3525,7 @@ public extension TLSConnectionProtocol {
     /// Get the value of a TLSConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TLSConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TLSConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -3110,7 +3535,7 @@ public extension TLSConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TLSConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TLSConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -3241,11 +3666,11 @@ public extension TLSConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TLSConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tls_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3266,35 +3691,35 @@ public extension TLSConnectionProtocol {
 // MARK: TLSConnection Class: TLSConnectionProtocol extension (methods and fields)
 public extension TLSConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsConnection` instance.
-    var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection> { return ptr.assumingMemoryBound(to: GTlsConnection.self) }
+    @inlinable var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection>! { return ptr?.assumingMemoryBound(to: GTlsConnection.self) }
 
     /// Used by `GTlsConnection` implementations to emit the
     /// `GTlsConnection::accept`-certificate signal.
-    func emitAcceptCertificate(peerCert peer_cert: TLSCertificateProtocol, errors: TLSCertificateFlags) -> Bool {
-        let rv = g_tls_connection_emit_accept_certificate(cast(tls_connection_ptr), cast(peer_cert.ptr), errors.value)
-        return Bool(rv != 0)
+    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert peer_cert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
+        let rv = ((g_tls_connection_emit_accept_certificate(tls_connection_ptr, peer_cert.tls_certificate_ptr, errors.value)) != 0)
+        return rv
     }
 
     /// Gets `conn`'s certificate, as set by
     /// `g_tls_connection_set_certificate()`.
-    func getCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_connection_get_certificate(cast(tls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getCertificate() -> TLSCertificateRef! {
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_certificate(tls_connection_ptr)))
+        return rv
     }
 
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_tls_connection_set_database()`.
-    func getDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
-        let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_connection_get_database(cast(tls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getDatabase() -> TLSDatabaseRef! {
+        let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_tls_connection_get_database(tls_connection_ptr)))
+        return rv
     }
 
     /// Get the object that will be used to interact with the user. It will be used
     /// for things like prompting the user for passwords. If `nil` is returned, then
     /// no user interaction will occur for this connection.
-    func getInteraction() -> UnsafeMutablePointer<GTlsInteraction>! {
-        let rv: UnsafeMutablePointer<GTlsInteraction>! = cast(g_tls_connection_get_interaction(cast(tls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getInteraction() -> TLSInteractionRef! {
+        let rv = TLSInteractionRef(gconstpointer: gconstpointer(g_tls_connection_get_interaction(tls_connection_ptr)))
+        return rv
     }
 
     /// Gets the name of the application-layer protocol negotiated during
@@ -3304,25 +3729,25 @@ public extension TLSConnectionProtocol {
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
     /// `g_tls_connection_set_advertised_protocols()`.
-    func getNegotiatedProtocol() -> String! {
-        let rv: String! = cast(g_tls_connection_get_negotiated_protocol(cast(tls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getNegotiatedProtocol() -> String! {
+        let rv = g_tls_connection_get_negotiated_protocol(tls_connection_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
     /// `GTlsConnection::accept`-certificate.)
-    func getPeerCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_connection_get_peer_certificate(cast(tls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getPeerCertificate() -> TLSCertificateRef! {
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
+        return rv
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
     /// during the emission of `GTlsConnection::accept`-certificate.)
-    func getPeerCertificateErrors() -> GTlsCertificateFlags {
-        let rv = g_tls_connection_get_peer_certificate_errors(cast(tls_connection_ptr))
-        return cast(rv)
+    @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
+        return rv
     }
 
     /// Gets `conn` rehandshaking mode. See
@@ -3332,17 +3757,17 @@ public extension TLSConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    @available(*, deprecated) func getRehandshakeMode() -> GTlsRehandshakeMode {
-        let rv = g_tls_connection_get_rehandshake_mode(cast(tls_connection_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getRehandshakeMode() -> GTlsRehandshakeMode {
+        let rv = g_tls_connection_get_rehandshake_mode(tls_connection_ptr)
+        return rv
     }
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
     /// `g_tls_connection_set_require_close_notify()` for details.
-    func getRequireCloseNotify() -> Bool {
-        let rv = g_tls_connection_get_require_close_notify(cast(tls_connection_ptr))
-        return Bool(rv != 0)
+    @inlinable func getRequireCloseNotify() -> Bool {
+        let rv = ((g_tls_connection_get_require_close_notify(tls_connection_ptr)) != 0)
+        return rv
     }
 
     /// Gets whether `conn` uses the system certificate database to verify
@@ -3350,9 +3775,9 @@ public extension TLSConnectionProtocol {
     ///
     /// **get_use_system_certdb is deprecated:**
     /// Use g_tls_connection_get_database() instead
-    @available(*, deprecated) func getUseSystemCertdb() -> Bool {
-        let rv = g_tls_connection_get_use_system_certdb(cast(tls_connection_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getUseSystemCertdb() -> Bool {
+        let rv = ((g_tls_connection_get_use_system_certdb(tls_connection_ptr)) != 0)
+        return rv
     }
 
     /// Attempts a TLS handshake on `conn`.
@@ -3386,27 +3811,27 @@ public extension TLSConnectionProtocol {
     /// 
     /// `GTlsConnection::accept_certificate` may be emitted during the
     /// handshake.
-    func handshake(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_connection_handshake(cast(tls_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_tls_connection_handshake(tls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously performs a TLS handshake on `conn`. See
     /// `g_tls_connection_handshake()` for more information.
-    func handshakeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_connection_handshake_async(cast(tls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_connection_handshake_async(tls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous TLS handshake operation. See
     /// `g_tls_connection_handshake()` for more information.
-    func handshakeFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func handshakeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_connection_handshake_finish(cast(tls_connection_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_tls_connection_handshake_finish(tls_connection_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the list of application-layer protocols to advertise that the
@@ -3419,8 +3844,8 @@ public extension TLSConnectionProtocol {
     /// 
     /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn`-protocol-ids)
     /// for a list of registered protocol IDs.
-    func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>>) {
-        g_tls_connection_set_advertised_protocols(cast(tls_connection_ptr), cast(protocols))
+    @inlinable func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>?>! = nil) {
+        g_tls_connection_set_advertised_protocols(tls_connection_ptr, protocols)
     
     }
 
@@ -3442,8 +3867,8 @@ public extension TLSConnectionProtocol {
     /// certificate, you can tell that the server requested one by the fact
     /// that `g_tls_client_connection_get_accepted_cas()` will return
     /// non-`nil`.)
-    func set(certificate: TLSCertificateProtocol) {
-        g_tls_connection_set_certificate(cast(tls_connection_ptr), cast(certificate.ptr))
+    @inlinable func set<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT) {
+        g_tls_connection_set_certificate(tls_connection_ptr, certificate.tls_certificate_ptr)
     
     }
 
@@ -3455,8 +3880,8 @@ public extension TLSConnectionProtocol {
     /// `GTlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
     /// `GTlsClientConnection:validation`-flags).
-    func set(database: TLSDatabaseProtocol) {
-        g_tls_connection_set_database(cast(tls_connection_ptr), cast(database.ptr))
+    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT) {
+        g_tls_connection_set_database(tls_connection_ptr, database.tls_database_ptr)
     
     }
 
@@ -3466,8 +3891,8 @@ public extension TLSConnectionProtocol {
     /// The `interaction` argument will normally be a derived subclass of
     /// `GTlsInteraction`. `nil` can also be provided if no user interaction
     /// should occur for this connection.
-    func set(interaction: TLSInteractionProtocol) {
-        g_tls_connection_set_interaction(cast(tls_connection_ptr), cast(interaction.ptr))
+    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT? = nil) {
+        g_tls_connection_set_interaction(tls_connection_ptr, interaction?.tls_interaction_ptr)
     
     }
 
@@ -3480,8 +3905,8 @@ public extension TLSConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    @available(*, deprecated) func setRehandshake(mode: TLSRehandshakeMode) {
-        g_tls_connection_set_rehandshake_mode(cast(tls_connection_ptr), mode)
+    @available(*, deprecated) @inlinable func setRehandshake(mode: GTlsRehandshakeMode) {
+        g_tls_connection_set_rehandshake_mode(tls_connection_ptr, mode)
     
     }
 
@@ -3512,8 +3937,8 @@ public extension TLSConnectionProtocol {
     /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
     /// than closing `conn` itself, but note that this may only be done when no other
     /// operations are pending on `conn` or the base I/O stream.
-    func set(requireCloseNotify require_close_notify: Bool) {
-        g_tls_connection_set_require_close_notify(cast(tls_connection_ptr), gboolean(require_close_notify ? 1 : 0))
+    @inlinable func set(requireCloseNotify require_close_notify: Bool) {
+        g_tls_connection_set_require_close_notify(tls_connection_ptr, gboolean((require_close_notify) ? 1 : 0))
     
     }
 
@@ -3527,18 +3952,18 @@ public extension TLSConnectionProtocol {
     ///
     /// **set_use_system_certdb is deprecated:**
     /// Use g_tls_connection_set_database() instead
-    @available(*, deprecated) func set(useSystemCertdb use_system_certdb: Bool) {
-        g_tls_connection_set_use_system_certdb(cast(tls_connection_ptr), gboolean(use_system_certdb ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(useSystemCertdb use_system_certdb: Bool) {
+        g_tls_connection_set_use_system_certdb(tls_connection_ptr, gboolean((use_system_certdb) ? 1 : 0))
     
     }
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
-    var certificate: UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable var certificate: TLSCertificateRef! {
         /// Gets `conn`'s certificate, as set by
         /// `g_tls_connection_set_certificate()`.
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_connection_get_certificate(cast(tls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_certificate(tls_connection_ptr)))
+            return rv
         }
         /// This sets the certificate that `conn` will present to its peer
         /// during the TLS handshake. For a `GTlsServerConnection`, it is
@@ -3559,19 +3984,19 @@ public extension TLSConnectionProtocol {
         /// that `g_tls_client_connection_get_accepted_cas()` will return
         /// non-`nil`.)
         nonmutating set {
-            g_tls_connection_set_certificate(cast(tls_connection_ptr), cast(newValue))
+            g_tls_connection_set_certificate(tls_connection_ptr, UnsafeMutablePointer<GTlsCertificate>(newValue?.tls_certificate_ptr))
         }
     }
 
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
-    var database: UnsafeMutablePointer<GTlsDatabase>! {
+    @inlinable var database: TLSDatabaseRef! {
         /// Gets the certificate database that `conn` uses to verify
         /// peer certificates. See `g_tls_connection_set_database()`.
         get {
-            let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_tls_connection_get_database(cast(tls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_tls_connection_get_database(tls_connection_ptr)))
+            return rv
         }
         /// Sets the certificate database that is used to verify peer certificates.
         /// This is set to the default database by default. See
@@ -3582,20 +4007,20 @@ public extension TLSConnectionProtocol {
         /// client-side connections, unless that bit is not set in
         /// `GTlsClientConnection:validation`-flags).
         nonmutating set {
-            g_tls_connection_set_database(cast(tls_connection_ptr), cast(newValue))
+            g_tls_connection_set_database(tls_connection_ptr, UnsafeMutablePointer<GTlsDatabase>(newValue?.tls_database_ptr))
         }
     }
 
     /// A `GTlsInteraction` object to be used when the connection or certificate
     /// database need to interact with the user. This will be used to prompt the
     /// user for passwords where necessary.
-    var interaction: UnsafeMutablePointer<GTlsInteraction>! {
+    @inlinable var interaction: TLSInteractionRef! {
         /// Get the object that will be used to interact with the user. It will be used
         /// for things like prompting the user for passwords. If `nil` is returned, then
         /// no user interaction will occur for this connection.
         get {
-            let rv: UnsafeMutablePointer<GTlsInteraction>! = cast(g_tls_connection_get_interaction(cast(tls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSInteractionRef(gconstpointer: gconstpointer(g_tls_connection_get_interaction(tls_connection_ptr)))
+            return rv
         }
         /// Set the object that will be used to interact with the user. It will be used
         /// for things like prompting the user for passwords.
@@ -3604,7 +4029,7 @@ public extension TLSConnectionProtocol {
         /// `GTlsInteraction`. `nil` can also be provided if no user interaction
         /// should occur for this connection.
         nonmutating set {
-            g_tls_connection_set_interaction(cast(tls_connection_ptr), cast(newValue))
+            g_tls_connection_set_interaction(tls_connection_ptr, UnsafeMutablePointer<GTlsInteraction>(newValue?.tls_interaction_ptr))
         }
     }
 
@@ -3615,7 +4040,7 @@ public extension TLSConnectionProtocol {
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
     /// `g_tls_connection_set_advertised_protocols()`.
-    var negotiatedProtocol: String! {
+    @inlinable var negotiatedProtocol: String! {
         /// Gets the name of the application-layer protocol negotiated during
         /// the handshake.
         /// 
@@ -3624,34 +4049,34 @@ public extension TLSConnectionProtocol {
         /// does not support ALPN, then this will be `nil`. See
         /// `g_tls_connection_set_advertised_protocols()`.
         get {
-            let rv: String! = cast(g_tls_connection_get_negotiated_protocol(cast(tls_connection_ptr)))
-            return cast(rv)
+            let rv = g_tls_connection_get_negotiated_protocol(tls_connection_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
     /// `GTlsConnection::accept`-certificate.)
-    var peerCertificate: UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable var peerCertificate: TLSCertificateRef! {
         /// Gets `conn`'s peer's certificate after the handshake has completed.
         /// (It is not set during the emission of
         /// `GTlsConnection::accept`-certificate.)
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_connection_get_peer_certificate(cast(tls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
+            return rv
         }
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
     /// during the emission of `GTlsConnection::accept`-certificate.)
-    var peerCertificateErrors: GTlsCertificateFlags {
+    @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed. (It is not set
         /// during the emission of `GTlsConnection::accept`-certificate.)
         get {
-            let rv = g_tls_connection_get_peer_certificate_errors(cast(tls_connection_ptr))
-            return cast(rv)
+            let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
+            return rv
         }
     }
 
@@ -3662,7 +4087,7 @@ public extension TLSConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    var rehandshakeMode: GTlsRehandshakeMode {
+    @inlinable var rehandshakeMode: GTlsRehandshakeMode {
         /// Gets `conn` rehandshaking mode. See
         /// `g_tls_connection_set_rehandshake_mode()` for details.
         ///
@@ -3671,8 +4096,8 @@ public extension TLSConnectionProtocol {
         ///   required for compatibility. Also, rehandshaking has been removed
         ///   from the TLS protocol in TLS 1.3.
         @available(*, deprecated) get {
-            let rv = g_tls_connection_get_rehandshake_mode(cast(tls_connection_ptr))
-            return cast(rv)
+            let rv = g_tls_connection_get_rehandshake_mode(tls_connection_ptr)
+            return rv
         }
         /// Since GLib 2.64, changing the rehandshake mode is no longer supported
         /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
@@ -3684,20 +4109,20 @@ public extension TLSConnectionProtocol {
         ///   required for compatibility. Also, rehandshaking has been removed
         ///   from the TLS protocol in TLS 1.3.
         @available(*, deprecated) nonmutating set {
-            g_tls_connection_set_rehandshake_mode(cast(tls_connection_ptr), cast(newValue))
+            g_tls_connection_set_rehandshake_mode(tls_connection_ptr, newValue)
         }
     }
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
     /// `g_tls_connection_set_require_close_notify()` for details.
-    var requireCloseNotify: Bool {
+    @inlinable var requireCloseNotify: Bool {
         /// Tests whether or not `conn` expects a proper TLS close notification
         /// when the connection is closed. See
         /// `g_tls_connection_set_require_close_notify()` for details.
         get {
-            let rv = g_tls_connection_get_require_close_notify(cast(tls_connection_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_tls_connection_get_require_close_notify(tls_connection_ptr)) != 0)
+            return rv
         }
         /// Sets whether or not `conn` expects a proper TLS close notification
         /// before the connection is closed. If this is `true` (the default),
@@ -3727,7 +4152,7 @@ public extension TLSConnectionProtocol {
         /// than closing `conn` itself, but note that this may only be done when no other
         /// operations are pending on `conn` or the base I/O stream.
         nonmutating set {
-            g_tls_connection_set_require_close_notify(cast(tls_connection_ptr), gboolean(newValue ? 1 : 0))
+            g_tls_connection_set_require_close_notify(tls_connection_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -3736,15 +4161,15 @@ public extension TLSConnectionProtocol {
     ///
     /// **get_use_system_certdb is deprecated:**
     /// Use g_tls_connection_get_database() instead
-    var useSystemCertdb: Bool {
+    @inlinable var useSystemCertdb: Bool {
         /// Gets whether `conn` uses the system certificate database to verify
         /// peer certificates. See `g_tls_connection_set_use_system_certdb()`.
         ///
         /// **get_use_system_certdb is deprecated:**
         /// Use g_tls_connection_get_database() instead
         @available(*, deprecated) get {
-            let rv = g_tls_connection_get_use_system_certdb(cast(tls_connection_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_tls_connection_get_use_system_certdb(tls_connection_ptr)) != 0)
+            return rv
         }
         /// Sets whether `conn` uses the system certificate database to verify
         /// peer certificates. This is `true` by default. If set to `false`, then
@@ -3757,20 +4182,20 @@ public extension TLSConnectionProtocol {
         /// **set_use_system_certdb is deprecated:**
         /// Use g_tls_connection_set_database() instead
         @available(*, deprecated) nonmutating set {
-            g_tls_connection_set_use_system_certdb(cast(tls_connection_ptr), gboolean(newValue ? 1 : 0))
+            g_tls_connection_set_use_system_certdb(tls_connection_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
-    var parentInstance: GIOStream {
+    @inlinable var parentInstance: GIOStream {
         get {
-            let rv: GIOStream = cast(tls_connection_ptr.pointee.parent_instance)
+            let rv = tls_connection_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTlsConnectionPrivate> {
+    @inlinable var priv: TLSConnectionPrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GTlsConnectionPrivate> = cast(tls_connection_ptr.pointee.priv)
+            let rv = TLSConnectionPrivateRef(gconstpointer: gconstpointer(tls_connection_ptr.pointee.priv))
             return rv
         }
     }
@@ -3797,10 +4222,11 @@ public extension TLSConnectionProtocol {
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
 public protocol TLSDatabaseProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsDatabase` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsDatabase` instance.
-    var tls_database_ptr: UnsafeMutablePointer<GTlsDatabase> { get }
+    var tls_database_ptr: UnsafeMutablePointer<GTlsDatabase>! { get }
+
 }
 
 /// The `TLSDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabase` instance.
@@ -3819,46 +4245,76 @@ public protocol TLSDatabaseProtocol: ObjectProtocol {
 public struct TLSDatabaseRef: TLSDatabaseProtocol {
         /// Untyped pointer to the underlying `GTlsDatabase` instance.
     /// For type-safe access, use the generated, typed pointer `tls_database_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSDatabaseRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsDatabase>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsDatabase>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsDatabase>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsDatabase>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsDatabase>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSDatabaseProtocol`
-    init<T: TLSDatabaseProtocol>(_ other: T) {
+    @inlinable init<T: TLSDatabaseProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3882,77 +4338,123 @@ open class TLSDatabase: Object, TLSDatabaseProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSDatabase` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsDatabase>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsDatabase>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsDatabase>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsDatabase>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSDatabase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsDatabase>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsDatabase`.
     /// i.e., ownership is transferred to the `TLSDatabase` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsDatabase>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsDatabase>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TLSDatabaseProtocol`
     /// Will retain `GTlsDatabase`.
     /// - Parameter other: an instance of a related type that implements `TLSDatabaseProtocol`
-    public init<T: TLSDatabaseProtocol>(tlsDatabase other: T) {
-        super.init(retaining: cast(other.tls_database_ptr))
+    @inlinable public init<T: TLSDatabaseProtocol>(tlsDatabase other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -3997,11 +4499,11 @@ public extension TLSDatabaseProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSDatabaseSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TLSDatabaseSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tls_database_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -4022,7 +4524,7 @@ public extension TLSDatabaseProtocol {
 // MARK: TLSDatabase Class: TLSDatabaseProtocol extension (methods and fields)
 public extension TLSDatabaseProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsDatabase` instance.
-    var tls_database_ptr: UnsafeMutablePointer<GTlsDatabase> { return ptr.assumingMemoryBound(to: GTlsDatabase.self) }
+    @inlinable var tls_database_ptr: UnsafeMutablePointer<GTlsDatabase>! { return ptr?.assumingMemoryBound(to: GTlsDatabase.self) }
 
     /// Create a handle string for the certificate. The database will only be able
     /// to create a handle for certificates that originate from the database. In
@@ -4032,9 +4534,9 @@ public extension TLSDatabaseProtocol {
     /// This handle should be stable across various instances of the application,
     /// and between applications. If a certificate is modified in the database,
     /// then it is not guaranteed that this handle will continue to point to it.
-    func createCertificateHandle(certificate: TLSCertificateProtocol) -> String! {
-        let rv: String! = cast(g_tls_database_create_certificate_handle(cast(tls_database_ptr), cast(certificate.ptr)))
-        return cast(rv)
+    @inlinable func createCertificateHandle<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT) -> String! {
+        let rv = g_tls_database_create_certificate_handle(tls_database_ptr, certificate.tls_certificate_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Look up a certificate by its handle.
@@ -4049,17 +4551,17 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_lookup_certificate_for_handle_async()` to perform
     /// the lookup operation asynchronously.
-    func lookupCertificateFor(handle: UnsafePointer<gchar>, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable func lookupCertificateFor<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_database_lookup_certificate_for_handle(cast(tls_database_ptr), handle, cast(interaction.ptr), flags, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_for_handle(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously look up a certificate by its handle in the database. See
     /// `g_tls_database_lookup_certificate_for_handle()` for more information.
-    func lookupCertificateForHandleAsync(handle: UnsafePointer<gchar>, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_database_lookup_certificate_for_handle_async(cast(tls_database_ptr), handle, cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func lookupCertificateForHandleAsync<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_database_lookup_certificate_for_handle_async(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4068,11 +4570,11 @@ public extension TLSDatabaseProtocol {
     /// 
     /// If the handle is no longer valid, or does not point to a certificate in
     /// this database, then `nil` will be returned.
-    func lookupCertificateForHandleFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable func lookupCertificateForHandleFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_database_lookup_certificate_for_handle_finish(cast(tls_database_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_for_handle_finish(tls_database_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Look up the issuer of `certificate` in the database.
@@ -4083,38 +4585,38 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
     /// the lookup operation asynchronously.
-    func lookupCertificateIssuer(certificate: TLSCertificateProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable func lookupCertificateIssuer<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_database_lookup_certificate_issuer(cast(tls_database_ptr), cast(certificate.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously look up the issuer of `certificate` in the database. See
     /// `g_tls_database_lookup_certificate_issuer()` for more information.
-    func lookupCertificateIssuerAsync(certificate: TLSCertificateProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_database_lookup_certificate_issuer_async(cast(tls_database_ptr), cast(certificate.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func lookupCertificateIssuerAsync<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_database_lookup_certificate_issuer_async(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous lookup issuer operation. See
     /// `g_tls_database_lookup_certificate_issuer()` for more information.
-    func lookupCertificateIssuerFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable func lookupCertificateIssuerFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_tls_database_lookup_certificate_issuer_finish(cast(tls_database_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer_finish(tls_database_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Look up certificates issued by this issuer in the database.
     /// 
     /// This function can block, use `g_tls_database_lookup_certificates_issued_by_async()` to perform
     /// the lookup operation asynchronously.
-    func lookupCertificatesIssuedBy(issuerRawDn issuer_raw_dn: ByteArrayProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GList>! {
+    @inlinable func lookupCertificatesIssuedBy<ByteArrayT: ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn issuer_raw_dn: ByteArrayT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GList>! = cast(g_tls_database_lookup_certificates_issued_by(cast(tls_database_ptr), cast(issuer_raw_dn.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = ListRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificates_issued_by(tls_database_ptr, issuer_raw_dn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously look up certificates issued by this issuer in the database. See
@@ -4123,18 +4625,18 @@ public extension TLSDatabaseProtocol {
     /// The database may choose to hold a reference to the issuer byte array for the duration
     /// of of this asynchronous operation. The byte array should not be modified during
     /// this time.
-    func lookupCertificatesIssuedByAsync(issuerRawDn issuer_raw_dn: ByteArrayProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseLookupFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_database_lookup_certificates_issued_by_async(cast(tls_database_ptr), cast(issuer_raw_dn.ptr), cast(interaction.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func lookupCertificatesIssuedByAsync<ByteArrayT: ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn issuer_raw_dn: ByteArrayT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_database_lookup_certificates_issued_by_async(tls_database_ptr, issuer_raw_dn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous lookup of certificates. See
     /// `g_tls_database_lookup_certificates_issued_by()` for more information.
-    func lookupCertificatesIssuedByFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GList>! {
+    @inlinable func lookupCertificatesIssuedByFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GList>! = cast(g_tls_database_lookup_certificates_issued_by_finish(cast(tls_database_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = ListRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificates_issued_by_finish(tls_database_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Determines the validity of a certificate chain after looking up and
@@ -4170,18 +4672,18 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_verify_chain_async()` to perform
     /// the verification operation asynchronously.
-    func verify(chain: TLSCertificateProtocol, purpose: UnsafePointer<gchar>, identity: SocketConnectableProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseVerifyFlags, cancellable: CancellableProtocol) throws -> GTlsCertificateFlags {
+    @inlinable func verify<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT? = nil, interaction: TLSInteractionT? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateFlags {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_database_verify_chain(cast(tls_database_ptr), cast(chain.ptr), purpose, cast(identity.ptr), cast(interaction.ptr), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateFlags(g_tls_database_verify_chain(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously determines the validity of a certificate chain after
     /// looking up and adding any missing certificates to the chain. See
     /// `g_tls_database_verify_chain()` for more information.
-    func verifyChainAsync(chain: TLSCertificateProtocol, purpose: UnsafePointer<gchar>, identity: SocketConnectableProtocol, interaction: TLSInteractionProtocol, flags: TLSDatabaseVerifyFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_database_verify_chain_async(cast(tls_database_ptr), cast(chain.ptr), purpose, cast(identity.ptr), cast(interaction.ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func verifyChainAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT? = nil, interaction: TLSInteractionT? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_database_verify_chain_async(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4196,23 +4698,23 @@ public extension TLSDatabaseProtocol {
     /// `G_TLS_CERTIFICATE_GENERIC_ERROR` and `error` will be set
     /// accordingly. `error` is not set when `chain` is successfully analyzed
     /// but found to be invalid.
-    func verifyChainFinish(result: AsyncResultProtocol) throws -> GTlsCertificateFlags {
+    @inlinable func verifyChainFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> TLSCertificateFlags {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_database_verify_chain_finish(cast(tls_database_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = TLSCertificateFlags(g_tls_database_verify_chain_finish(tls_database_ptr, result.async_result_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(tls_database_ptr.pointee.parent_instance)
+            let rv = tls_database_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTlsDatabasePrivate> {
+    @inlinable var priv: TLSDatabasePrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GTlsDatabasePrivate> = cast(tls_database_ptr.pointee.priv)
+            let rv = TLSDatabasePrivateRef(gconstpointer: gconstpointer(tls_database_ptr.pointee.priv))
             return rv
         }
     }
@@ -4250,10 +4752,11 @@ public extension TLSDatabaseProtocol {
 /// it must also implement the corresponding finish method.
 public protocol TLSInteractionProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsInteraction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsInteraction` instance.
-    var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction> { get }
+    var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction>! { get }
+
 }
 
 /// The `TLSInteractionRef` type acts as a lightweight Swift reference to an underlying `GTlsInteraction` instance.
@@ -4283,46 +4786,76 @@ public protocol TLSInteractionProtocol: ObjectProtocol {
 public struct TLSInteractionRef: TLSInteractionProtocol {
         /// Untyped pointer to the underlying `GTlsInteraction` instance.
     /// For type-safe access, use the generated, typed pointer `tls_interaction_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSInteractionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsInteraction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsInteraction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsInteraction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsInteraction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsInteraction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSInteractionProtocol`
-    init<T: TLSInteractionProtocol>(_ other: T) {
+    @inlinable init<T: TLSInteractionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4357,77 +4890,123 @@ open class TLSInteraction: Object, TLSInteractionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSInteraction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsInteraction>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsInteraction>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsInteraction>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsInteraction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSInteraction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsInteraction>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsInteraction`.
     /// i.e., ownership is transferred to the `TLSInteraction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsInteraction>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsInteraction>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TLSInteractionProtocol`
     /// Will retain `GTlsInteraction`.
     /// - Parameter other: an instance of a related type that implements `TLSInteractionProtocol`
-    public init<T: TLSInteractionProtocol>(tlsInteraction other: T) {
-        super.init(retaining: cast(other.tls_interaction_ptr))
+    @inlinable public init<T: TLSInteractionProtocol>(tlsInteraction other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -4472,11 +5051,11 @@ public extension TLSInteractionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSInteractionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TLSInteractionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tls_interaction_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -4497,7 +5076,7 @@ public extension TLSInteractionProtocol {
 // MARK: TLSInteraction Class: TLSInteractionProtocol extension (methods and fields)
 public extension TLSInteractionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsInteraction` instance.
-    var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction> { return ptr.assumingMemoryBound(to: GTlsInteraction.self) }
+    @inlinable var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction>! { return ptr?.assumingMemoryBound(to: GTlsInteraction.self) }
 
     /// Run synchronous interaction to ask the user for a password. In general,
     /// `g_tls_interaction_invoke_ask_password()` should be used instead of this
@@ -4512,11 +5091,11 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    func ask(password: TLSPasswordProtocol, cancellable: CancellableProtocol) throws -> GTlsInteractionResult {
+    @inlinable func ask<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_ask_password(cast(tls_interaction_ptr), cast(password.ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Run asynchronous interaction to ask the user for a password. In general,
@@ -4534,8 +5113,8 @@ public extension TLSInteractionProtocol {
     /// not support immediate cancellation.
     /// 
     /// Certain implementations may not support immediate cancellation.
-    func askPasswordAsync(password: TLSPasswordProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_interaction_ask_password_async(cast(tls_interaction_ptr), cast(password.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func askPasswordAsync<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_interaction_ask_password_async(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4548,11 +5127,11 @@ public extension TLSInteractionProtocol {
     /// If the interaction is cancelled by the cancellation object, or by the
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code.
-    func askPasswordFinish(result: AsyncResultProtocol) throws -> GTlsInteractionResult {
+    @inlinable func askPasswordFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_ask_password_finish(cast(tls_interaction_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_ask_password_finish(tls_interaction_ptr, result.async_result_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Invoke the interaction to ask the user for a password. It invokes this
@@ -4574,11 +5153,11 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    func invokeAsk(password: TLSPasswordProtocol, cancellable: CancellableProtocol) throws -> GTlsInteractionResult {
+    @inlinable func invokeAsk<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_invoke_ask_password(cast(tls_interaction_ptr), cast(password.ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_invoke_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Invoke the interaction to ask the user to choose a certificate to
@@ -4601,11 +5180,11 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    func invokeRequestCertificate(connection: TLSConnectionProtocol, flags: TLSCertificateRequestFlags, cancellable: CancellableProtocol) throws -> GTlsInteractionResult {
+    @inlinable func invokeRequestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_invoke_request_certificate(cast(tls_interaction_ptr), cast(connection.ptr), flags, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_invoke_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Run synchronous interaction to ask the user to choose a certificate to use
@@ -4624,11 +5203,11 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    func requestCertificate(connection: TLSConnectionProtocol, flags: TLSCertificateRequestFlags, cancellable: CancellableProtocol) throws -> GTlsInteractionResult {
+    @inlinable func requestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_request_certificate(cast(tls_interaction_ptr), cast(connection.ptr), flags, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Run asynchronous interaction to ask the user for a certificate to use with
@@ -4639,8 +5218,8 @@ public extension TLSInteractionProtocol {
     /// also choose to provide a certificate from elsewhere. `callback` will be called
     /// when the operation completes. Alternatively the user may abort this certificate
     /// request, which will usually abort the TLS connection.
-    func requestCertificateAsync(connection: TLSConnectionProtocol, flags: TLSCertificateRequestFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_tls_interaction_request_certificate_async(cast(tls_interaction_ptr), cast(connection.ptr), flags, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func requestCertificateAsync<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_tls_interaction_request_certificate_async(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4654,11 +5233,11 @@ public extension TLSInteractionProtocol {
     /// If the interaction is cancelled by the cancellation object, or by the
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code.
-    func requestCertificateFinish(result: AsyncResultProtocol) throws -> GTlsInteractionResult {
+    @inlinable func requestCertificateFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_interaction_request_certificate_finish(cast(tls_interaction_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_tls_interaction_request_certificate_finish(tls_interaction_ptr, result.async_result_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     // var parentInstance is unavailable because parent_instance is private
@@ -4679,10 +5258,11 @@ public extension TLSInteractionProtocol {
 /// Holds a password used in TLS.
 public protocol TLSPasswordProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsPassword` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTlsPassword` instance.
-    var tls_password_ptr: UnsafeMutablePointer<GTlsPassword> { get }
+    var tls_password_ptr: UnsafeMutablePointer<GTlsPassword>! { get }
+
 }
 
 /// The `TLSPasswordRef` type acts as a lightweight Swift reference to an underlying `GTlsPassword` instance.
@@ -4693,53 +5273,83 @@ public protocol TLSPasswordProtocol: ObjectProtocol {
 public struct TLSPasswordRef: TLSPasswordProtocol {
         /// Untyped pointer to the underlying `GTlsPassword` instance.
     /// For type-safe access, use the generated, typed pointer `tls_password_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TLSPasswordRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTlsPassword>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTlsPassword>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTlsPassword>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTlsPassword>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTlsPassword>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TLSPasswordProtocol`
-    init<T: TLSPasswordProtocol>(_ other: T) {
+    @inlinable init<T: TLSPasswordProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Create a new `GTlsPassword` object.
-    init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GTlsPassword>! = cast(g_tls_password_new(flags.value, description))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>!) {
+        let rv = g_tls_password_new(flags.value, description)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -4753,84 +5363,130 @@ open class TLSPassword: Object, TLSPasswordProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSPassword` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTlsPassword>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GTlsPassword>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTlsPassword>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTlsPassword>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TLSPassword` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTlsPassword>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTlsPassword`.
     /// i.e., ownership is transferred to the `TLSPassword` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTlsPassword>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTlsPassword>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TLSPasswordProtocol`
     /// Will retain `GTlsPassword`.
     /// - Parameter other: an instance of a related type that implements `TLSPasswordProtocol`
-    public init<T: TLSPasswordProtocol>(tlsPassword other: T) {
-        super.init(retaining: cast(other.tls_password_ptr))
+    @inlinable public init<T: TLSPasswordProtocol>(tlsPassword other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Create a new `GTlsPassword` object.
-    public init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GTlsPassword>! = cast(g_tls_password_new(flags.value, description))
-        super.init(cast(rv))
+    @inlinable public init( flags: TLSPasswordFlags, description: UnsafePointer<gchar>!) {
+        let rv = g_tls_password_new(flags.value, description)
+        super.init(gpointer: (rv))
     }
 
 
@@ -4851,18 +5507,18 @@ public extension TLSPasswordProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSPasswordPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSPasswordPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tls_password_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -4880,7 +5536,7 @@ public extension TLSPasswordProtocol {
     /// Get the value of a TLSPassword property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TLSPasswordPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TLSPasswordPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -4890,7 +5546,7 @@ public extension TLSPasswordProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TLSPasswordPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TLSPasswordPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -4932,11 +5588,11 @@ public extension TLSPasswordProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TLSPasswordSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TLSPasswordSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tls_password_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -4957,18 +5613,18 @@ public extension TLSPasswordProtocol {
 // MARK: TLSPassword Class: TLSPasswordProtocol extension (methods and fields)
 public extension TLSPasswordProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsPassword` instance.
-    var tls_password_ptr: UnsafeMutablePointer<GTlsPassword> { return ptr.assumingMemoryBound(to: GTlsPassword.self) }
+    @inlinable var tls_password_ptr: UnsafeMutablePointer<GTlsPassword>! { return ptr?.assumingMemoryBound(to: GTlsPassword.self) }
 
     /// Get a description string about what the password will be used for.
-    func getDescription() -> String! {
-        let rv: String! = cast(g_tls_password_get_description(cast(tls_password_ptr)))
-        return cast(rv)
+    @inlinable func getDescription() -> String! {
+        let rv = g_tls_password_get_description(tls_password_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Get flags about the password.
-    func getFlags() -> GTlsPasswordFlags {
-        let rv = g_tls_password_get_flags(cast(tls_password_ptr))
-        return cast(rv)
+    @inlinable func getFlags() -> TLSPasswordFlags {
+        let rv = TLSPasswordFlags(g_tls_password_get_flags(tls_password_ptr))
+        return rv
     }
 
     /// Get the password value. If `length` is not `nil` then it will be
@@ -4976,28 +5632,28 @@ public extension TLSPasswordProtocol {
     /// password value is not nul-terminated, so you can only pass `nil`
     /// for `length` in contexts where you know the password will have a
     /// certain fixed length.)
-    func getValue(length: UnsafeMutablePointer<Int>) -> UnsafePointer<guchar>! {
-        let rv: UnsafePointer<guchar>! = cast(g_tls_password_get_value(cast(tls_password_ptr), cast(length)))
-        return cast(rv)
+    @inlinable func getValue(length: UnsafeMutablePointer<gsize>? = nil) -> String! {
+        let rv = g_tls_password_get_value(tls_password_ptr, length).map({ String(cString: $0) })
+        return rv
     }
 
     /// Get a user readable translated warning. Usually this warning is a
     /// representation of the password flags returned from
     /// `g_tls_password_get_flags()`.
-    func getWarning() -> String! {
-        let rv: String! = cast(g_tls_password_get_warning(cast(tls_password_ptr)))
-        return cast(rv)
+    @inlinable func getWarning() -> String! {
+        let rv = g_tls_password_get_warning(tls_password_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Set a description string about what the password will be used for.
-    func set(description: UnsafePointer<gchar>) {
-        g_tls_password_set_description(cast(tls_password_ptr), description)
+    @inlinable func set(description: UnsafePointer<gchar>!) {
+        g_tls_password_set_description(tls_password_ptr, description)
     
     }
 
     /// Set flags about the password.
-    func set(flags: TLSPasswordFlags) {
-        g_tls_password_set_flags(cast(tls_password_ptr), flags.value)
+    @inlinable func set(flags: TLSPasswordFlags) {
+        g_tls_password_set_flags(tls_password_ptr, flags.value)
     
     }
 
@@ -5008,8 +5664,8 @@ public extension TLSPasswordProtocol {
     /// `length` if using a nul-terminated password, and `length` will be
     /// calculated automatically. (Note that the terminating nul is not
     /// considered part of the password in this case.)
-    func set(value: UnsafePointer<guchar>, length: gssize) {
-        g_tls_password_set_value(cast(tls_password_ptr), cast(value), length)
+    @inlinable func set(value: UnsafePointer<guchar>!, length: gssize) {
+        g_tls_password_set_value(tls_password_ptr, value, length)
     
     }
 
@@ -5022,68 +5678,68 @@ public extension TLSPasswordProtocol {
     /// `length` if using a nul-terminated password, and `length` will be
     /// calculated automatically. (Note that the terminating nul is not
     /// considered part of the password in this case.)
-    func setValueFull(value: UnsafeMutablePointer<guchar>, length: gssize, destroy: @escaping GLib.DestroyNotify) {
-        g_tls_password_set_value_full(cast(tls_password_ptr), cast(value), length, destroy)
+    @inlinable func setValueFull(value: UnsafeMutablePointer<guchar>!, length: gssize, destroy: GDestroyNotify? = nil) {
+        g_tls_password_set_value_full(tls_password_ptr, value, length, destroy)
     
     }
 
     /// Set a user readable translated warning. Usually this warning is a
     /// representation of the password flags returned from
     /// `g_tls_password_get_flags()`.
-    func set(warning: UnsafePointer<gchar>) {
-        g_tls_password_set_warning(cast(tls_password_ptr), warning)
+    @inlinable func set(warning: UnsafePointer<gchar>!) {
+        g_tls_password_set_warning(tls_password_ptr, warning)
     
     }
-    var description: String! {
+    @inlinable var description: String! {
         /// Get a description string about what the password will be used for.
         get {
-            let rv: String! = cast(g_tls_password_get_description(cast(tls_password_ptr)))
-            return cast(rv)
+            let rv = g_tls_password_get_description(tls_password_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Set a description string about what the password will be used for.
         nonmutating set {
-            g_tls_password_set_description(cast(tls_password_ptr), cast(newValue))
+            g_tls_password_set_description(tls_password_ptr, newValue)
         }
     }
 
-    var flags: GTlsPasswordFlags {
+    @inlinable var flags: TLSPasswordFlags {
         /// Get flags about the password.
         get {
-            let rv = g_tls_password_get_flags(cast(tls_password_ptr))
-            return cast(rv)
+            let rv = TLSPasswordFlags(g_tls_password_get_flags(tls_password_ptr))
+            return rv
         }
         /// Set flags about the password.
         nonmutating set {
-            g_tls_password_set_flags(cast(tls_password_ptr), cast(newValue))
+            g_tls_password_set_flags(tls_password_ptr, newValue.value)
         }
     }
 
-    var warning: String! {
+    @inlinable var warning: String! {
         /// Get a user readable translated warning. Usually this warning is a
         /// representation of the password flags returned from
         /// `g_tls_password_get_flags()`.
         get {
-            let rv: String! = cast(g_tls_password_get_warning(cast(tls_password_ptr)))
-            return cast(rv)
+            let rv = g_tls_password_get_warning(tls_password_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Set a user readable translated warning. Usually this warning is a
         /// representation of the password flags returned from
         /// `g_tls_password_get_flags()`.
         nonmutating set {
-            g_tls_password_set_warning(cast(tls_password_ptr), cast(newValue))
+            g_tls_password_set_warning(tls_password_ptr, newValue)
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(tls_password_ptr.pointee.parent_instance)
+            let rv = tls_password_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GTlsPasswordPrivate> {
+    @inlinable var priv: TLSPasswordPrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GTlsPasswordPrivate> = cast(tls_password_ptr.pointee.priv)
+            let rv = TLSPasswordPrivateRef(gconstpointer: gconstpointer(tls_password_ptr.pointee.priv))
             return rv
         }
     }
@@ -5110,10 +5766,11 @@ public extension TLSPasswordProtocol {
 /// pkg-config file when using it.
 public protocol UnixConnectionProtocol: SocketConnectionProtocol {
         /// Untyped pointer to the underlying `GUnixConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GUnixConnection` instance.
-    var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection> { get }
+    var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection>! { get }
+
 }
 
 /// The `UnixConnectionRef` type acts as a lightweight Swift reference to an underlying `GUnixConnection` instance.
@@ -5132,46 +5789,76 @@ public protocol UnixConnectionProtocol: SocketConnectionProtocol {
 public struct UnixConnectionRef: UnixConnectionProtocol {
         /// Untyped pointer to the underlying `GUnixConnection` instance.
     /// For type-safe access, use the generated, typed pointer `unix_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension UnixConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GUnixConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GUnixConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GUnixConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GUnixConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GUnixConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `UnixConnectionProtocol`
-    init<T: UnixConnectionProtocol>(_ other: T) {
+    @inlinable init<T: UnixConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -5195,77 +5882,123 @@ open class UnixConnection: SocketConnection, UnixConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `UnixConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GUnixConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GUnixConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GUnixConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GUnixConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `UnixConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GUnixConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GUnixConnection`.
     /// i.e., ownership is transferred to the `UnixConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GUnixConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GUnixConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `UnixConnectionProtocol`
     /// Will retain `GUnixConnection`.
     /// - Parameter other: an instance of a related type that implements `UnixConnectionProtocol`
-    public init<T: UnixConnectionProtocol>(unixConnection other: T) {
-        super.init(retaining: cast(other.unix_connection_ptr))
+    @inlinable public init<T: UnixConnectionProtocol>(unixConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -5289,18 +6022,18 @@ public extension UnixConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(unix_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -5318,7 +6051,7 @@ public extension UnixConnectionProtocol {
     /// Get the value of a UnixConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: UnixConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: UnixConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -5328,7 +6061,7 @@ public extension UnixConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: UnixConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: UnixConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -5371,11 +6104,11 @@ public extension UnixConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: UnixConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: UnixConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(unix_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -5396,7 +6129,7 @@ public extension UnixConnectionProtocol {
 // MARK: UnixConnection Class: UnixConnectionProtocol extension (methods and fields)
 public extension UnixConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GUnixConnection` instance.
-    var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection> { return ptr.assumingMemoryBound(to: GUnixConnection.self) }
+    @inlinable var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection>! { return ptr?.assumingMemoryBound(to: GUnixConnection.self) }
 
     /// Receives credentials from the sending end of the connection.  The
     /// sending end has to call `g_unix_connection_send_credentials()` (or
@@ -5416,11 +6149,11 @@ public extension UnixConnectionProtocol {
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
     /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
-    func receiveCredentials(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GCredentials>! {
+    @inlinable func receiveCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> CredentialsRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_unix_connection_receive_credentials(cast(unix_connection_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = CredentialsRef(gconstpointer: gconstpointer(g_unix_connection_receive_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously receive credentials.
@@ -5430,18 +6163,18 @@ public extension UnixConnectionProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_unix_connection_receive_credentials_finish()` to get the result of the operation.
-    func receiveCredentialsAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_unix_connection_receive_credentials_async(cast(unix_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func receiveCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_unix_connection_receive_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous receive credentials operation started with
     /// `g_unix_connection_receive_credentials_async()`.
-    func receiveCredentialsFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GCredentials>! {
+    @inlinable func receiveCredentialsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> CredentialsRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_unix_connection_receive_credentials_finish(cast(unix_connection_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = CredentialsRef(gconstpointer: gconstpointer(g_unix_connection_receive_credentials_finish(unix_connection_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Receives a file descriptor from the sending end of the connection.
@@ -5451,11 +6184,11 @@ public extension UnixConnectionProtocol {
     /// As well as reading the fd this also reads a single byte from the
     /// stream, as this is required for fd passing to work on some
     /// implementations.
-    func receiveFd(cancellable: CancellableProtocol) throws -> Int {
+    @inlinable func receiveFd<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_unix_connection_receive_fd(cast(unix_connection_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return Int(rv)
+        let rv = Int(g_unix_connection_receive_fd(unix_connection_ptr, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Passes the credentials of the current user the receiving side
@@ -5477,11 +6210,11 @@ public extension UnixConnectionProtocol {
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
     /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
-    func sendCredentials(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func sendCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_unix_connection_send_credentials(cast(unix_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_unix_connection_send_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously send credentials.
@@ -5491,18 +6224,18 @@ public extension UnixConnectionProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_unix_connection_send_credentials_finish()` to get the result of the operation.
-    func sendCredentialsAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_unix_connection_send_credentials_async(cast(unix_connection_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func sendCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_unix_connection_send_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous send credentials operation started with
     /// `g_unix_connection_send_credentials_async()`.
-    func sendCredentialsFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func sendCredentialsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_unix_connection_send_credentials_finish(cast(unix_connection_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_unix_connection_send_credentials_finish(unix_connection_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Passes a file descriptor to the receiving side of the
@@ -5512,23 +6245,23 @@ public extension UnixConnectionProtocol {
     /// As well as sending the fd this also writes a single byte to the
     /// stream, as this is required for fd passing to work on some
     /// implementations.
-    func send(fd: CInt, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func send<CancellableT: CancellableProtocol>(fd: Int, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_unix_connection_send_fd(cast(unix_connection_ptr), gint(fd), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_unix_connection_send_fd(unix_connection_ptr, gint(fd), cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
-    var parentInstance: GSocketConnection {
+    @inlinable var parentInstance: GSocketConnection {
         get {
-            let rv: GSocketConnection = cast(unix_connection_ptr.pointee.parent_instance)
+            let rv = unix_connection_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GUnixConnectionPrivate> {
+    @inlinable var priv: UnixConnectionPrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GUnixConnectionPrivate> = cast(unix_connection_ptr.pointee.priv)
+            let rv = UnixConnectionPrivateRef(gconstpointer: gconstpointer(unix_connection_ptr.pointee.priv))
             return rv
         }
     }

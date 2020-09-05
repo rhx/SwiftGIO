@@ -12,10 +12,11 @@ import GLibObject
 
 public protocol ResolverClassProtocol {
         /// Untyped pointer to the underlying `GResolverClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GResolverClass` instance.
-    var _ptr: UnsafeMutablePointer<GResolverClass> { get }
+    var _ptr: UnsafeMutablePointer<GResolverClass>! { get }
+
 }
 
 /// The `ResolverClassRef` type acts as a lightweight Swift reference to an underlying `GResolverClass` instance.
@@ -26,46 +27,76 @@ public protocol ResolverClassProtocol {
 public struct ResolverClassRef: ResolverClassProtocol {
         /// Untyped pointer to the underlying `GResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ResolverClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GResolverClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GResolverClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GResolverClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GResolverClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GResolverClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ResolverClassProtocol`
-    init<T: ResolverClassProtocol>(_ other: T) {
+    @inlinable init<T: ResolverClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -79,95 +110,141 @@ public extension ResolverClassRef {
 open class ResolverClass: ResolverClassProtocol {
         /// Untyped pointer to the underlying `GResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ResolverClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GResolverClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GResolverClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GResolverClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GResolverClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GResolverClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GResolverClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ResolverClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GResolverClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GResolverClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ResolverClassProtocol`
     /// `GResolverClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ResolverClassProtocol`
-    public init<T: ResolverClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ResolverClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GResolverClass`.
     deinit {
-        // no reference counting for GResolverClass, cannot unref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GResolverClass, cannot ref(cast(_ptr))
+        // no reference counting for GResolverClass, cannot ref(_ptr)
     }
 
 
@@ -182,12 +259,12 @@ open class ResolverClass: ResolverClassProtocol {
 // MARK: ResolverClass Record: ResolverClassProtocol extension (methods and fields)
 public extension ResolverClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResolverClass` instance.
-    var _ptr: UnsafeMutablePointer<GResolverClass> { return ptr.assumingMemoryBound(to: GResolverClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GResolverClass>! { return ptr?.assumingMemoryBound(to: GResolverClass.self) }
 
 
-    var parentClass: GObjectClass {
+    @inlinable var parentClass: GObjectClass {
         get {
-            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -238,10 +315,11 @@ public extension ResolverClassProtocol {
 
 public protocol ResolverPrivateProtocol {
         /// Untyped pointer to the underlying `GResolverPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GResolverPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GResolverPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GResolverPrivate>! { get }
+
 }
 
 /// The `ResolverPrivateRef` type acts as a lightweight Swift reference to an underlying `GResolverPrivate` instance.
@@ -252,46 +330,76 @@ public protocol ResolverPrivateProtocol {
 public struct ResolverPrivateRef: ResolverPrivateProtocol {
         /// Untyped pointer to the underlying `GResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ResolverPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GResolverPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GResolverPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GResolverPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GResolverPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GResolverPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ResolverPrivateProtocol`
-    init<T: ResolverPrivateProtocol>(_ other: T) {
+    @inlinable init<T: ResolverPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -305,95 +413,141 @@ public extension ResolverPrivateRef {
 open class ResolverPrivate: ResolverPrivateProtocol {
         /// Untyped pointer to the underlying `GResolverPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ResolverPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GResolverPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GResolverPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GResolverPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GResolverPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ResolverPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GResolverPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GResolverPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ResolverPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GResolverPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GResolverPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ResolverPrivateProtocol`
     /// `GResolverPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ResolverPrivateProtocol`
-    public init<T: ResolverPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ResolverPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GResolverPrivate`.
     deinit {
-        // no reference counting for GResolverPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GResolverPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GResolverPrivate, cannot ref(_ptr)
     }
 
 
@@ -408,7 +562,7 @@ open class ResolverPrivate: ResolverPrivateProtocol {
 // MARK: ResolverPrivate Record: ResolverPrivateProtocol extension (methods and fields)
 public extension ResolverPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResolverPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GResolverPrivate> { return ptr.assumingMemoryBound(to: GResolverPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GResolverPrivate>! { return ptr?.assumingMemoryBound(to: GResolverPrivate.self) }
 
 
 
@@ -550,10 +704,11 @@ public extension ResolverPrivateProtocol {
 /// location of a single resource with an individual file.
 public protocol ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GResource` instance.
-    var resource_ptr: UnsafeMutablePointer<GResource> { get }
+    var resource_ptr: UnsafeMutablePointer<GResource>! { get }
+
 }
 
 /// The `ResourceRef` type acts as a lightweight Swift reference to an underlying `GResource` instance.
@@ -688,46 +843,76 @@ public protocol ResourceProtocol {
 public struct ResourceRef: ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ResourceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GResource>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GResource>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GResource>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GResource>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GResource>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ResourceProtocol`
-    init<T: ResourceProtocol>(_ other: T) {
+    @inlinable init<T: ResourceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -743,11 +928,11 @@ public extension ResourceRef {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    init(data: BytesProtocol) throws {
+    @inlinable init<BytesT: BytesProtocol>(data: BytesT) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_resource_new_from_data(data.bytes_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a GResource from a reference to the binary resource bundle.
     /// This will keep a reference to `data` while the resource lives, so
@@ -761,11 +946,12 @@ public extension ResourceRef {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    static func newFrom(data: BytesProtocol) throws -> ResourceRef! {
+    @inlinable static func newFrom<BytesT: BytesProtocol>(data: BytesT) throws -> ResourceRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { ResourceRef(cast($0)) }
+        let maybeRV = ResourceRef(gconstpointer: gconstpointer(g_resource_new_from_data(data.bytes_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Loads a binary resource bundle and creates a `GResource` representation of it, allowing
@@ -778,11 +964,12 @@ public extension ResourceRef {
     /// `G_RESOURCE_ERROR_INTERNAL` will be returned. If `filename` doesn’t exist, or
     /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
-    static func load(String_: UnsafePointer<gchar>) throws -> ResourceRef! {
+    @inlinable static func load(filename: UnsafePointer<gchar>!) throws -> ResourceRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_load(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { ResourceRef(cast($0)) }
+        let maybeRV = ResourceRef(gconstpointer: gconstpointer(g_resource_load(filename, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 }
 
@@ -918,95 +1105,141 @@ public extension ResourceRef {
 open class Resource: ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Resource` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GResource>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GResource>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resource` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GResource>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resource` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resource` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resource` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GResource>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Resource` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GResource>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GResource`.
     /// i.e., ownership is transferred to the `Resource` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GResource>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GResource>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_resource_ref(cast(resource_ptr))
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Reference intialiser for a related type that implements `ResourceProtocol`
     /// Will retain `GResource`.
     /// - Parameter other: an instance of a related type that implements `ResourceProtocol`
-    public init<T: ResourceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.resource_ptr)
-        g_resource_ref(cast(resource_ptr))
+    @inlinable public init<T: ResourceProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Releases the underlying `GResource` instance using `g_resource_unref`.
     deinit {
-        g_resource_unref(cast(resource_ptr))
+        g_resource_unref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_resource_ref(cast(resource_ptr))
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_resource_ref(cast(resource_ptr))
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_resource_ref(cast(resource_ptr))
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_resource_ref(cast(resource_ptr))
+        g_resource_ref(ptr.assumingMemoryBound(to: GResource.self))
     }
 
     /// Creates a GResource from a reference to the binary resource bundle.
@@ -1021,11 +1254,11 @@ open class Resource: ResourceProtocol {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    public init(data: BytesProtocol) throws {
+    @inlinable public init<BytesT: BytesProtocol>(data: BytesT) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_resource_new_from_data(data.bytes_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a GResource from a reference to the binary resource bundle.
@@ -1040,11 +1273,12 @@ open class Resource: ResourceProtocol {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    public static func newFrom(data: BytesProtocol) throws -> Resource! {
+    @inlinable public static func newFrom<BytesT: BytesProtocol>(data: BytesT) throws -> Resource! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_new_from_data(cast(data.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { Resource(cast($0)) }
+        let maybeRV = Resource(gconstpointer: gconstpointer(g_resource_new_from_data(data.bytes_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Loads a binary resource bundle and creates a `GResource` representation of it, allowing
@@ -1057,11 +1291,12 @@ open class Resource: ResourceProtocol {
     /// `G_RESOURCE_ERROR_INTERNAL` will be returned. If `filename` doesn’t exist, or
     /// there is an error in reading it, an error from `g_mapped_file_new()` will be
     /// returned.
-    public static func load(String_: UnsafePointer<gchar>) throws -> Resource! {
+    @inlinable public static func load(filename: UnsafePointer<gchar>!) throws -> Resource! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_load(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { Resource(cast($0)) }
+        let maybeRV = Resource(gconstpointer: gconstpointer(g_resource_load(filename, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
 }
@@ -1074,19 +1309,19 @@ open class Resource: ResourceProtocol {
 // MARK: Resource Record: ResourceProtocol extension (methods and fields)
 public extension ResourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GResource` instance.
-    var resource_ptr: UnsafeMutablePointer<GResource> { return ptr.assumingMemoryBound(to: GResource.self) }
+    @inlinable var resource_ptr: UnsafeMutablePointer<GResource>! { return ptr?.assumingMemoryBound(to: GResource.self) }
 
     /// Registers the resource with the process-global set of resources.
     /// Once a resource is registered the files in it can be accessed
     /// with the global resource lookup functions like `g_resources_lookup_data()`.
-    func Register() {
-        g_resources_register(cast(resource_ptr))
+    @inlinable func Register() {
+        g_resources_register(resource_ptr)
     
     }
 
     /// Unregisters the resource from the process-global set of resources.
-    func Unregister() {
-        g_resources_unregister(cast(resource_ptr))
+    @inlinable func Unregister() {
+        g_resources_unregister(resource_ptr)
     
     }
 
@@ -1098,22 +1333,22 @@ public extension ResourceProtocol {
     /// `G_RESOURCE_ERROR_NOT_FOUND` will be returned.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    func enumerateChildren(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
+    @inlinable func enumerateChildren(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_resource_enumerate_children(cast(resource_ptr), path, lookup_flags.value, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_resource_enumerate_children(resource_ptr, path, lookup_flags.value, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Looks for a file at the specified `path` in the resource and
     /// if found returns information about it.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    func getInfo(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<Int>, flags: UnsafeMutablePointer<UInt32>) throws -> Bool {
+    @inlinable func getInfo(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<gsize>! = nil, flags: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_resource_get_info(cast(resource_ptr), path, lookup_flags.value, cast(size), cast(flags), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_resource_get_info(resource_ptr, path, lookup_flags.value, size, flags, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Looks for a file at the specified `path` in the resource and
@@ -1130,51 +1365,51 @@ public extension ResourceProtocol {
     /// the heap and automatically uncompress the data.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    func lookupData(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GBytes>! {
+    @inlinable func lookupData(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GBytes>! = cast(g_resource_lookup_data(cast(resource_ptr), path, lookup_flags.value, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = BytesRef(gconstpointer: gconstpointer(g_resource_lookup_data(resource_ptr, path, lookup_flags.value, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Looks for a file at the specified `path` in the resource and
     /// returns a `GInputStream` that lets you read the data.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    func openStream(path: UnsafePointer<CChar>, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<GInputStream>! {
+    @inlinable func openStream(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_resource_open_stream(cast(resource_ptr), path, lookup_flags.value, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = InputStreamRef(gconstpointer: gconstpointer(g_resource_open_stream(resource_ptr, path, lookup_flags.value, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Atomically increments the reference count of `resource` by one. This
     /// function is MT-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GResource>! {
-        let rv: UnsafeMutablePointer<GResource>! = cast(g_resource_ref(cast(resource_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> ResourceRef! {
+        guard let rv = ResourceRef(gconstpointer: gconstpointer(g_resource_ref(resource_ptr))) else { return nil }
+        return rv
     }
 
     /// Atomically decrements the reference count of `resource` by one. If the
     /// reference count drops to 0, all memory allocated by the resource is
     /// released. This function is MT-safe and may be called from any
     /// thread.
-    func unref() {
-        g_resource_unref(cast(resource_ptr))
+    @inlinable func unref() {
+        g_resource_unref(resource_ptr)
     
     }
 
     /// Registers the resource with the process-global set of resources.
     /// Once a resource is registered the files in it can be accessed
     /// with the global resource lookup functions like `g_resources_lookup_data()`.
-    func resourcesRegister() {
-        g_resources_register(cast(resource_ptr))
+    @inlinable func resourcesRegister() {
+        g_resources_register(resource_ptr)
     
     }
 
     /// Unregisters the resource from the process-global set of resources.
-    func resourcesUnregister() {
-        g_resources_unregister(cast(resource_ptr))
+    @inlinable func resourcesUnregister() {
+        g_resources_unregister(resource_ptr)
     
     }
 
@@ -1193,10 +1428,11 @@ public extension ResourceProtocol {
 /// Provides an interface for implementing seekable functionality on I/O Streams.
 public protocol SeekableIfaceProtocol {
         /// Untyped pointer to the underlying `GSeekableIface` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GSeekableIface` instance.
-    var _ptr: UnsafeMutablePointer<GSeekableIface> { get }
+    var _ptr: UnsafeMutablePointer<GSeekableIface>! { get }
+
 }
 
 /// The `SeekableIfaceRef` type acts as a lightweight Swift reference to an underlying `GSeekableIface` instance.
@@ -1207,46 +1443,76 @@ public protocol SeekableIfaceProtocol {
 public struct SeekableIfaceRef: SeekableIfaceProtocol {
         /// Untyped pointer to the underlying `GSeekableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SeekableIfaceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GSeekableIface>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GSeekableIface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSeekableIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSeekableIface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSeekableIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SeekableIfaceProtocol`
-    init<T: SeekableIfaceProtocol>(_ other: T) {
+    @inlinable init<T: SeekableIfaceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1260,95 +1526,141 @@ public extension SeekableIfaceRef {
 open class SeekableIface: SeekableIfaceProtocol {
         /// Untyped pointer to the underlying `GSeekableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SeekableIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GSeekableIface>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GSeekableIface>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SeekableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSeekableIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SeekableIface` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SeekableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SeekableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSeekableIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SeekableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSeekableIface>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GSeekableIface` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SeekableIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GSeekableIface>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSeekableIface>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SeekableIfaceProtocol`
     /// `GSeekableIface` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SeekableIfaceProtocol`
-    public init<T: SeekableIfaceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+    @inlinable public init<T: SeekableIfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GSeekableIface`.
     deinit {
-        // no reference counting for GSeekableIface, cannot unref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GSeekableIface, cannot ref(cast(_ptr))
+        // no reference counting for GSeekableIface, cannot ref(_ptr)
     }
 
 
@@ -1363,14 +1675,14 @@ open class SeekableIface: SeekableIfaceProtocol {
 // MARK: SeekableIface Record: SeekableIfaceProtocol extension (methods and fields)
 public extension SeekableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSeekableIface` instance.
-    var _ptr: UnsafeMutablePointer<GSeekableIface> { return ptr.assumingMemoryBound(to: GSeekableIface.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GSeekableIface>! { return ptr?.assumingMemoryBound(to: GSeekableIface.self) }
 
 
     /// The parent interface.
-    var gIface: GTypeInterface {
+    @inlinable var gIface: GTypeInterface {
         /// The parent interface.
         get {
-            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            let rv = _ptr.pointee.g_iface
             return rv
         }
     }

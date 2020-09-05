@@ -13,10 +13,11 @@ import GLibObject
 /// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 public protocol FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileAttributeInfoList` instance.
-    var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList> { get }
+    var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList>! { get }
+
 }
 
 /// The `FileAttributeInfoListRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeInfoList` instance.
@@ -28,53 +29,83 @@ public protocol FileAttributeInfoListProtocol {
 public struct FileAttributeInfoListRef: FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileAttributeInfoListRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileAttributeInfoList>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileAttributeInfoList>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileAttributeInfoList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileAttributeInfoList>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileAttributeInfoList>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileAttributeInfoListProtocol`
-    init<T: FileAttributeInfoListProtocol>(_ other: T) {
+    @inlinable init<T: FileAttributeInfoListProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new file attribute info list.
-    init() {
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_file_attribute_info_list_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -87,101 +118,147 @@ public extension FileAttributeInfoListRef {
 open class FileAttributeInfoList: FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileAttributeInfoList>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileAttributeInfoList>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileAttributeInfoList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileAttributeInfoList>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileAttributeInfoList>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileAttributeInfoList`.
     /// i.e., ownership is transferred to the `FileAttributeInfoList` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileAttributeInfoList>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileAttributeInfoList>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Reference intialiser for a related type that implements `FileAttributeInfoListProtocol`
     /// Will retain `GFileAttributeInfoList`.
     /// - Parameter other: an instance of a related type that implements `FileAttributeInfoListProtocol`
-    public init<T: FileAttributeInfoListProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.file_attribute_info_list_ptr)
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+    @inlinable public init<T: FileAttributeInfoListProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Releases the underlying `GFileAttributeInfoList` instance using `g_file_attribute_info_list_unref`.
     deinit {
-        g_file_attribute_info_list_unref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_unref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr))
+        g_file_attribute_info_list_ref(ptr.assumingMemoryBound(to: GFileAttributeInfoList.self))
     }
 
     /// Creates a new file attribute info list.
-    public init() {
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init() {
+        let rv = g_file_attribute_info_list_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -195,63 +272,63 @@ open class FileAttributeInfoList: FileAttributeInfoListProtocol {
 // MARK: FileAttributeInfoList Record: FileAttributeInfoListProtocol extension (methods and fields)
 public extension FileAttributeInfoListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileAttributeInfoList` instance.
-    var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList> { return ptr.assumingMemoryBound(to: GFileAttributeInfoList.self) }
+    @inlinable var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList>! { return ptr?.assumingMemoryBound(to: GFileAttributeInfoList.self) }
 
     /// Adds a new attribute with `name` to the `list`, setting
     /// its `type` and `flags`.
-    func add(name: UnsafePointer<CChar>, type: FileAttributeType, flags: FileAttributeInfoFlags) {
-        g_file_attribute_info_list_add(cast(file_attribute_info_list_ptr), name, type, flags.value)
+    @inlinable func add(name: UnsafePointer<CChar>!, type: GFileAttributeType, flags: FileAttributeInfoFlags) {
+        g_file_attribute_info_list_add(file_attribute_info_list_ptr, name, type, flags.value)
     
     }
 
     /// Makes a duplicate of a file attribute info list.
-    func dup() -> UnsafeMutablePointer<GFileAttributeInfoList>! {
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_dup(cast(file_attribute_info_list_ptr)))
-        return cast(rv)
+    @inlinable func dup() -> FileAttributeInfoListRef! {
+        guard let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_attribute_info_list_dup(file_attribute_info_list_ptr))) else { return nil }
+        return rv
     }
 
     /// Gets the file attribute with the name `name` from `list`.
-    func lookup(name: UnsafePointer<CChar>) -> UnsafePointer<GFileAttributeInfo>! {
-        let rv: UnsafePointer<GFileAttributeInfo>! = cast(g_file_attribute_info_list_lookup(cast(file_attribute_info_list_ptr), name))
-        return cast(rv)
+    @inlinable func lookup(name: UnsafePointer<CChar>!) -> FileAttributeInfoRef! {
+        let rv = FileAttributeInfoRef(gconstpointer: gconstpointer(g_file_attribute_info_list_lookup(file_attribute_info_list_ptr, name)))
+        return rv
     }
 
     /// References a file attribute info list.
-    func ref() -> UnsafeMutablePointer<GFileAttributeInfoList>! {
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_attribute_info_list_ref(cast(file_attribute_info_list_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> FileAttributeInfoListRef! {
+        guard let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_attribute_info_list_ref(file_attribute_info_list_ptr))) else { return nil }
+        return rv
     }
 
     /// Removes a reference from the given `list`. If the reference count
     /// falls to zero, the `list` is deleted.
-    func unref() {
-        g_file_attribute_info_list_unref(cast(file_attribute_info_list_ptr))
+    @inlinable func unref() {
+        g_file_attribute_info_list_unref(file_attribute_info_list_ptr)
     
     }
 
     /// an array of `GFileAttributeInfos`.
-    var infos: UnsafeMutablePointer<GFileAttributeInfo> {
+    @inlinable var infos: FileAttributeInfoRef! {
         /// an array of `GFileAttributeInfos`.
         get {
-            let rv: UnsafeMutablePointer<GFileAttributeInfo> = cast(file_attribute_info_list_ptr.pointee.infos)
+            let rv = FileAttributeInfoRef(gconstpointer: gconstpointer(file_attribute_info_list_ptr.pointee.infos))
             return rv
         }
         /// an array of `GFileAttributeInfos`.
          set {
-            file_attribute_info_list_ptr.pointee.infos = cast(newValue)
+            file_attribute_info_list_ptr.pointee.infos = UnsafeMutablePointer<GFileAttributeInfo>(newValue._ptr)
         }
     }
 
     /// the number of values in the array.
-    var nInfos: Int {
+    @inlinable var nInfos: gint {
         /// the number of values in the array.
         get {
-            let rv: Int = cast(file_attribute_info_list_ptr.pointee.n_infos)
+            let rv = file_attribute_info_list_ptr.pointee.n_infos
             return rv
         }
         /// the number of values in the array.
          set {
-            file_attribute_info_list_ptr.pointee.n_infos = cast(newValue)
+            file_attribute_info_list_ptr.pointee.n_infos = newValue
         }
     }
 
@@ -269,10 +346,11 @@ public extension FileAttributeInfoListProtocol {
 /// Determines if a string matches a file attribute.
 public protocol FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileAttributeMatcher` instance.
-    var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher> { get }
+    var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher>! { get }
+
 }
 
 /// The `FileAttributeMatcherRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeMatcher` instance.
@@ -283,46 +361,76 @@ public protocol FileAttributeMatcherProtocol {
 public struct FileAttributeMatcherRef: FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileAttributeMatcherRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileAttributeMatcher>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileAttributeMatcher>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileAttributeMatcher>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileAttributeMatcher>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileAttributeMatcher>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileAttributeMatcherProtocol`
-    init<T: FileAttributeMatcherProtocol>(_ other: T) {
+    @inlinable init<T: FileAttributeMatcherProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -345,9 +453,9 @@ public extension FileAttributeMatcherRef {
     ///   standard namespace.
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
-    init( attributes: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_new(attributes))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( attributes: UnsafePointer<CChar>!) {
+        let rv = g_file_attribute_matcher_new(attributes)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -359,95 +467,141 @@ public extension FileAttributeMatcherRef {
 open class FileAttributeMatcher: FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileAttributeMatcher>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileAttributeMatcher>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileAttributeMatcher>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileAttributeMatcher>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileAttributeMatcher>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GFileAttributeMatcher`.
     /// i.e., ownership is transferred to the `FileAttributeMatcher` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileAttributeMatcher>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileAttributeMatcher>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Reference intialiser for a related type that implements `FileAttributeMatcherProtocol`
     /// Will retain `GFileAttributeMatcher`.
     /// - Parameter other: an instance of a related type that implements `FileAttributeMatcherProtocol`
-    public init<T: FileAttributeMatcherProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.file_attribute_matcher_ptr)
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+    @inlinable public init<T: FileAttributeMatcherProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Releases the underlying `GFileAttributeMatcher` instance using `g_file_attribute_matcher_unref`.
     deinit {
-        g_file_attribute_matcher_unref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_unref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr))
+        g_file_attribute_matcher_ref(ptr.assumingMemoryBound(to: GFileAttributeMatcher.self))
     }
 
     /// Creates a new file attribute matcher, which matches attributes
@@ -469,9 +623,9 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     ///   standard namespace.
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
-    public init( attributes: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_new(attributes))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( attributes: UnsafePointer<CChar>!) {
+        let rv = g_file_attribute_matcher_new(attributes)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -485,7 +639,7 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
 // MARK: FileAttributeMatcher Record: FileAttributeMatcherProtocol extension (methods and fields)
 public extension FileAttributeMatcherProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileAttributeMatcher` instance.
-    var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher> { return ptr.assumingMemoryBound(to: GFileAttributeMatcher.self) }
+    @inlinable var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher>! { return ptr?.assumingMemoryBound(to: GFileAttributeMatcher.self) }
 
     /// Checks if the matcher will match all of the keys in a given namespace.
     /// This will always return `true` if a wildcard character is in use (e.g. if
@@ -493,36 +647,36 @@ public extension FileAttributeMatcherProtocol {
     /// using "*" and namespace is anything.)
     /// 
     /// TODO: this is awkwardly worded.
-    func enumerateNamespace(ns: UnsafePointer<CChar>) -> Bool {
-        let rv = g_file_attribute_matcher_enumerate_namespace(cast(file_attribute_matcher_ptr), ns)
-        return Bool(rv != 0)
+    @inlinable func enumerateNamespace(ns: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_attribute_matcher_enumerate_namespace(file_attribute_matcher_ptr, ns)) != 0)
+        return rv
     }
 
     /// Gets the next matched attribute from a `GFileAttributeMatcher`.
-    func enumerateNext() -> String! {
-        let rv: String! = cast(g_file_attribute_matcher_enumerate_next(cast(file_attribute_matcher_ptr)))
-        return cast(rv)
+    @inlinable func enumerateNext() -> String! {
+        let rv = g_file_attribute_matcher_enumerate_next(file_attribute_matcher_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Checks if an attribute will be matched by an attribute matcher. If
     /// the matcher was created with the "*" matching string, this function
     /// will always return `true`.
-    func matches(attribute: UnsafePointer<CChar>) -> Bool {
-        let rv = g_file_attribute_matcher_matches(cast(file_attribute_matcher_ptr), attribute)
-        return Bool(rv != 0)
+    @inlinable func matches(attribute: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_attribute_matcher_matches(file_attribute_matcher_ptr, attribute)) != 0)
+        return rv
     }
 
     /// Checks if a attribute matcher only matches a given attribute. Always
     /// returns `false` if "*" was used when creating the matcher.
-    func matchesOnly(attribute: UnsafePointer<CChar>) -> Bool {
-        let rv = g_file_attribute_matcher_matches_only(cast(file_attribute_matcher_ptr), attribute)
-        return Bool(rv != 0)
+    @inlinable func matchesOnly(attribute: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_attribute_matcher_matches_only(file_attribute_matcher_ptr, attribute)) != 0)
+        return rv
     }
 
     /// References a file attribute matcher.
-    func ref() -> UnsafeMutablePointer<GFileAttributeMatcher>! {
-        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_ref(cast(file_attribute_matcher_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> FileAttributeMatcherRef! {
+        guard let rv = FileAttributeMatcherRef(gconstpointer: gconstpointer(g_file_attribute_matcher_ref(file_attribute_matcher_ptr))) else { return nil }
+        return rv
     }
 
     /// Subtracts all attributes of `subtract` from `matcher` and returns
@@ -533,24 +687,24 @@ public extension FileAttributeMatcherProtocol {
     /// a namespace or attribute when the matcher matches everything. This
     /// is a limitation of the current implementation, but may be fixed
     /// in the future.
-    func subtract(subtract: FileAttributeMatcherProtocol) -> UnsafeMutablePointer<GFileAttributeMatcher>! {
-        let rv: UnsafeMutablePointer<GFileAttributeMatcher>! = cast(g_file_attribute_matcher_subtract(cast(file_attribute_matcher_ptr), cast(subtract.ptr)))
-        return cast(rv)
+    @inlinable func subtract<FileAttributeMatcherT: FileAttributeMatcherProtocol>(subtract: FileAttributeMatcherT) -> FileAttributeMatcherRef! {
+        guard let rv = FileAttributeMatcherRef(gconstpointer: gconstpointer(g_file_attribute_matcher_subtract(file_attribute_matcher_ptr, subtract.file_attribute_matcher_ptr))) else { return nil }
+        return rv
     }
 
     /// Prints what the matcher is matching against. The format will be
     /// equal to the format passed to `g_file_attribute_matcher_new()`.
     /// The output however, might not be identical, as the matcher may
     /// decide to use a different order or omit needless parts.
-    func toString() -> String! {
-        let rv: String! = cast(g_file_attribute_matcher_to_string(cast(file_attribute_matcher_ptr)))
-        return cast(rv)
+    @inlinable func toString() -> String! {
+        let rv = g_file_attribute_matcher_to_string(file_attribute_matcher_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Unreferences `matcher`. If the reference count falls below 1,
     /// the `matcher` is automatically freed.
-    func unref() {
-        g_file_attribute_matcher_unref(cast(file_attribute_matcher_ptr))
+    @inlinable func unref() {
+        g_file_attribute_matcher_unref(file_attribute_matcher_ptr)
     
     }
 
@@ -569,10 +723,11 @@ public extension FileAttributeMatcherProtocol {
 /// An interface for file descriptor based io objects.
 public protocol FileDescriptorBasedIfaceProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileDescriptorBasedIface` instance.
-    var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface> { get }
+    var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface>! { get }
+
 }
 
 /// The `FileDescriptorBasedIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBasedIface` instance.
@@ -583,46 +738,76 @@ public protocol FileDescriptorBasedIfaceProtocol {
 public struct FileDescriptorBasedIfaceRef: FileDescriptorBasedIfaceProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileDescriptorBasedIfaceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileDescriptorBasedIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileDescriptorBasedIface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileDescriptorBasedIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileDescriptorBasedIfaceProtocol`
-    init<T: FileDescriptorBasedIfaceProtocol>(_ other: T) {
+    @inlinable init<T: FileDescriptorBasedIfaceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -636,95 +821,141 @@ public extension FileDescriptorBasedIfaceRef {
 open class FileDescriptorBasedIface: FileDescriptorBasedIfaceProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileDescriptorBasedIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileDescriptorBasedIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileDescriptorBasedIface>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileDescriptorBasedIface` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileDescriptorBasedIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileDescriptorBasedIface>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileDescriptorBasedIfaceProtocol`
     /// `GFileDescriptorBasedIface` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileDescriptorBasedIfaceProtocol`
-    public init<T: FileDescriptorBasedIfaceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileDescriptorBasedIfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileDescriptorBasedIface`.
     deinit {
-        // no reference counting for GFileDescriptorBasedIface, cannot unref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileDescriptorBasedIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileDescriptorBasedIface, cannot ref(_ptr)
     }
 
 
@@ -739,14 +970,14 @@ open class FileDescriptorBasedIface: FileDescriptorBasedIfaceProtocol {
 // MARK: FileDescriptorBasedIface Record: FileDescriptorBasedIfaceProtocol extension (methods and fields)
 public extension FileDescriptorBasedIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileDescriptorBasedIface` instance.
-    var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface> { return ptr.assumingMemoryBound(to: GFileDescriptorBasedIface.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface>! { return ptr?.assumingMemoryBound(to: GFileDescriptorBasedIface.self) }
 
 
     /// The parent interface.
-    var gIface: GTypeInterface {
+    @inlinable var gIface: GTypeInterface {
         /// The parent interface.
         get {
-            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            let rv = _ptr.pointee.g_iface
             return rv
         }
     }
@@ -767,10 +998,11 @@ public extension FileDescriptorBasedIfaceProtocol {
 
 public protocol FileEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileEnumeratorClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileEnumeratorClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileEnumeratorClass>! { get }
+
 }
 
 /// The `FileEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GFileEnumeratorClass` instance.
@@ -781,46 +1013,76 @@ public protocol FileEnumeratorClassProtocol {
 public struct FileEnumeratorClassRef: FileEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileEnumeratorClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileEnumeratorClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileEnumeratorClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileEnumeratorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileEnumeratorClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileEnumeratorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorClassProtocol`
-    init<T: FileEnumeratorClassProtocol>(_ other: T) {
+    @inlinable init<T: FileEnumeratorClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -834,95 +1096,141 @@ public extension FileEnumeratorClassRef {
 open class FileEnumeratorClass: FileEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileEnumeratorClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileEnumeratorClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileEnumeratorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileEnumeratorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileEnumeratorClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileEnumeratorClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileEnumeratorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileEnumeratorClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileEnumeratorClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorClassProtocol`
     /// `GFileEnumeratorClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileEnumeratorClassProtocol`
-    public init<T: FileEnumeratorClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileEnumeratorClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileEnumeratorClass`.
     deinit {
-        // no reference counting for GFileEnumeratorClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileEnumeratorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorClass, cannot ref(_ptr)
     }
 
 
@@ -937,12 +1245,12 @@ open class FileEnumeratorClass: FileEnumeratorClassProtocol {
 // MARK: FileEnumeratorClass Record: FileEnumeratorClassProtocol extension (methods and fields)
 public extension FileEnumeratorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumeratorClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileEnumeratorClass> { return ptr.assumingMemoryBound(to: GFileEnumeratorClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileEnumeratorClass>! { return ptr?.assumingMemoryBound(to: GFileEnumeratorClass.self) }
 
 
-    var parentClass: GObjectClass {
+    @inlinable var parentClass: GObjectClass {
         get {
-            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -987,10 +1295,11 @@ public extension FileEnumeratorClassProtocol {
 
 public protocol FileEnumeratorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileEnumeratorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileEnumeratorPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GFileEnumeratorPrivate>! { get }
+
 }
 
 /// The `FileEnumeratorPrivateRef` type acts as a lightweight Swift reference to an underlying `GFileEnumeratorPrivate` instance.
@@ -1001,46 +1310,76 @@ public protocol FileEnumeratorPrivateProtocol {
 public struct FileEnumeratorPrivateRef: FileEnumeratorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileEnumeratorPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileEnumeratorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileEnumeratorPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileEnumeratorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorPrivateProtocol`
-    init<T: FileEnumeratorPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FileEnumeratorPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1054,95 +1393,141 @@ public extension FileEnumeratorPrivateRef {
 open class FileEnumeratorPrivate: FileEnumeratorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileEnumeratorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileEnumeratorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileEnumeratorPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileEnumeratorPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileEnumeratorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileEnumeratorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileEnumeratorPrivateProtocol`
     /// `GFileEnumeratorPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileEnumeratorPrivateProtocol`
-    public init<T: FileEnumeratorPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileEnumeratorPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileEnumeratorPrivate`.
     deinit {
-        // no reference counting for GFileEnumeratorPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileEnumeratorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileEnumeratorPrivate, cannot ref(_ptr)
     }
 
 
@@ -1157,7 +1542,7 @@ open class FileEnumeratorPrivate: FileEnumeratorPrivateProtocol {
 // MARK: FileEnumeratorPrivate Record: FileEnumeratorPrivateProtocol extension (methods and fields)
 public extension FileEnumeratorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileEnumeratorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileEnumeratorPrivate> { return ptr.assumingMemoryBound(to: GFileEnumeratorPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileEnumeratorPrivate>! { return ptr?.assumingMemoryBound(to: GFileEnumeratorPrivate.self) }
 
 
 
@@ -1175,10 +1560,11 @@ public extension FileEnumeratorPrivateProtocol {
 
 public protocol FileIOStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileIOStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileIOStreamClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileIOStreamClass>! { get }
+
 }
 
 /// The `FileIOStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileIOStreamClass` instance.
@@ -1189,46 +1575,76 @@ public protocol FileIOStreamClassProtocol {
 public struct FileIOStreamClassRef: FileIOStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileIOStreamClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileIOStreamClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileIOStreamClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileIOStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileIOStreamClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileIOStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileIOStreamClassProtocol`
-    init<T: FileIOStreamClassProtocol>(_ other: T) {
+    @inlinable init<T: FileIOStreamClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1242,95 +1658,141 @@ public extension FileIOStreamClassRef {
 open class FileIOStreamClass: FileIOStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileIOStreamClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileIOStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileIOStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileIOStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileIOStreamClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileIOStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileIOStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileIOStreamClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileIOStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileIOStreamClassProtocol`
     /// `GFileIOStreamClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileIOStreamClassProtocol`
-    public init<T: FileIOStreamClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileIOStreamClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileIOStreamClass`.
     deinit {
-        // no reference counting for GFileIOStreamClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileIOStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamClass, cannot ref(_ptr)
     }
 
 
@@ -1345,12 +1807,12 @@ open class FileIOStreamClass: FileIOStreamClassProtocol {
 // MARK: FileIOStreamClass Record: FileIOStreamClassProtocol extension (methods and fields)
 public extension FileIOStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIOStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileIOStreamClass> { return ptr.assumingMemoryBound(to: GFileIOStreamClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileIOStreamClass>! { return ptr?.assumingMemoryBound(to: GFileIOStreamClass.self) }
 
 
-    var parentClass: GIOStreamClass {
+    @inlinable var parentClass: GIOStreamClass {
         get {
-            let rv: GIOStreamClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -1397,10 +1859,11 @@ public extension FileIOStreamClassProtocol {
 
 public protocol FileIOStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileIOStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileIOStreamPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GFileIOStreamPrivate>! { get }
+
 }
 
 /// The `FileIOStreamPrivateRef` type acts as a lightweight Swift reference to an underlying `GFileIOStreamPrivate` instance.
@@ -1411,46 +1874,76 @@ public protocol FileIOStreamPrivateProtocol {
 public struct FileIOStreamPrivateRef: FileIOStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileIOStreamPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileIOStreamPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileIOStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileIOStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileIOStreamPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileIOStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileIOStreamPrivateProtocol`
-    init<T: FileIOStreamPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FileIOStreamPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1464,95 +1957,141 @@ public extension FileIOStreamPrivateRef {
 open class FileIOStreamPrivate: FileIOStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileIOStreamPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileIOStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileIOStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileIOStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileIOStreamPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileIOStreamPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileIOStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileIOStreamPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileIOStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileIOStreamPrivateProtocol`
     /// `GFileIOStreamPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileIOStreamPrivateProtocol`
-    public init<T: FileIOStreamPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileIOStreamPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileIOStreamPrivate`.
     deinit {
-        // no reference counting for GFileIOStreamPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileIOStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileIOStreamPrivate, cannot ref(_ptr)
     }
 
 
@@ -1567,7 +2106,7 @@ open class FileIOStreamPrivate: FileIOStreamPrivateProtocol {
 // MARK: FileIOStreamPrivate Record: FileIOStreamPrivateProtocol extension (methods and fields)
 public extension FileIOStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIOStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileIOStreamPrivate> { return ptr.assumingMemoryBound(to: GFileIOStreamPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileIOStreamPrivate>! { return ptr?.assumingMemoryBound(to: GFileIOStreamPrivate.self) }
 
 
 
@@ -1585,10 +2124,11 @@ public extension FileIOStreamPrivateProtocol {
 
 public protocol FileIconClassProtocol {
         /// Untyped pointer to the underlying `GFileIconClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileIconClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileIconClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileIconClass>! { get }
+
 }
 
 /// The `FileIconClassRef` type acts as a lightweight Swift reference to an underlying `GFileIconClass` instance.
@@ -1599,46 +2139,76 @@ public protocol FileIconClassProtocol {
 public struct FileIconClassRef: FileIconClassProtocol {
         /// Untyped pointer to the underlying `GFileIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileIconClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileIconClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileIconClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileIconClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileIconClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileIconClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileIconClassProtocol`
-    init<T: FileIconClassProtocol>(_ other: T) {
+    @inlinable init<T: FileIconClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1652,95 +2222,141 @@ public extension FileIconClassRef {
 open class FileIconClass: FileIconClassProtocol {
         /// Untyped pointer to the underlying `GFileIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIconClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileIconClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileIconClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileIconClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIconClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileIconClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIconClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileIconClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileIconClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileIconClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileIconClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileIconClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileIconClassProtocol`
     /// `GFileIconClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileIconClassProtocol`
-    public init<T: FileIconClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileIconClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileIconClass`.
     deinit {
-        // no reference counting for GFileIconClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileIconClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileIconClass, cannot ref(_ptr)
     }
 
 
@@ -1755,7 +2371,7 @@ open class FileIconClass: FileIconClassProtocol {
 // MARK: FileIconClass Record: FileIconClassProtocol extension (methods and fields)
 public extension FileIconClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIconClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileIconClass> { return ptr.assumingMemoryBound(to: GFileIconClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileIconClass>! { return ptr?.assumingMemoryBound(to: GFileIconClass.self) }
 
 
 
@@ -1773,10 +2389,11 @@ public extension FileIconClassProtocol {
 /// An interface for writing VFS file handles.
 public protocol FileIfaceProtocol {
         /// Untyped pointer to the underlying `GFileIface` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileIface` instance.
-    var _ptr: UnsafeMutablePointer<GFileIface> { get }
+    var _ptr: UnsafeMutablePointer<GFileIface>! { get }
+
 }
 
 /// The `FileIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileIface` instance.
@@ -1787,46 +2404,76 @@ public protocol FileIfaceProtocol {
 public struct FileIfaceRef: FileIfaceProtocol {
         /// Untyped pointer to the underlying `GFileIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileIfaceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileIface>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileIface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileIface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileIfaceProtocol`
-    init<T: FileIfaceProtocol>(_ other: T) {
+    @inlinable init<T: FileIfaceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1840,95 +2487,141 @@ public extension FileIfaceRef {
 open class FileIface: FileIfaceProtocol {
         /// Untyped pointer to the underlying `GFileIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileIface>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileIface>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIface` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileIface>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileIface` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileIface>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileIface>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileIfaceProtocol`
     /// `GFileIface` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileIfaceProtocol`
-    public init<T: FileIfaceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileIfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileIface`.
     deinit {
-        // no reference counting for GFileIface, cannot unref(cast(_ptr))
+        // no reference counting for GFileIface, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileIface, cannot ref(cast(_ptr))
+        // no reference counting for GFileIface, cannot ref(_ptr)
     }
 
 
@@ -1943,14 +2636,14 @@ open class FileIface: FileIfaceProtocol {
 // MARK: FileIface Record: FileIfaceProtocol extension (methods and fields)
 public extension FileIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileIface` instance.
-    var _ptr: UnsafeMutablePointer<GFileIface> { return ptr.assumingMemoryBound(to: GFileIface.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileIface>! { return ptr?.assumingMemoryBound(to: GFileIface.self) }
 
 
     /// The parent interface.
-    var gIface: GTypeInterface {
+    @inlinable var gIface: GTypeInterface {
         /// The parent interface.
         get {
-            let rv: GTypeInterface = cast(_ptr.pointee.g_iface)
+            let rv = _ptr.pointee.g_iface
             return rv
         }
     }
@@ -2142,10 +2835,10 @@ public extension FileIfaceProtocol {
     // var stopMountableFinish is unavailable because stop_mountable_finish is void
 
     /// a boolean that indicates whether the `GFile` implementation supports thread-default contexts. Since 2.22.
-    var supportsThreadContexts: Bool {
+    @inlinable var supportsThreadContexts: gboolean {
         /// a boolean that indicates whether the `GFile` implementation supports thread-default contexts. Since 2.22.
         get {
-            let rv: Bool = cast(_ptr.pointee.supports_thread_contexts)
+            let rv = _ptr.pointee.supports_thread_contexts
             return rv
         }
     }
@@ -2182,10 +2875,11 @@ public extension FileIfaceProtocol {
 
 public protocol FileInfoClassProtocol {
         /// Untyped pointer to the underlying `GFileInfoClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileInfoClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileInfoClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileInfoClass>! { get }
+
 }
 
 /// The `FileInfoClassRef` type acts as a lightweight Swift reference to an underlying `GFileInfoClass` instance.
@@ -2196,46 +2890,76 @@ public protocol FileInfoClassProtocol {
 public struct FileInfoClassRef: FileInfoClassProtocol {
         /// Untyped pointer to the underlying `GFileInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileInfoClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileInfoClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileInfoClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileInfoClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileInfoClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileInfoClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileInfoClassProtocol`
-    init<T: FileInfoClassProtocol>(_ other: T) {
+    @inlinable init<T: FileInfoClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2249,95 +2973,141 @@ public extension FileInfoClassRef {
 open class FileInfoClass: FileInfoClassProtocol {
         /// Untyped pointer to the underlying `GFileInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInfoClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileInfoClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileInfoClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfoClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileInfoClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfoClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfoClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfoClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileInfoClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInfoClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileInfoClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileInfoClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileInfoClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileInfoClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileInfoClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileInfoClassProtocol`
     /// `GFileInfoClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileInfoClassProtocol`
-    public init<T: FileInfoClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileInfoClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileInfoClass`.
     deinit {
-        // no reference counting for GFileInfoClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileInfoClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInfoClass, cannot ref(_ptr)
     }
 
 
@@ -2352,7 +3122,7 @@ open class FileInfoClass: FileInfoClassProtocol {
 // MARK: FileInfoClass Record: FileInfoClassProtocol extension (methods and fields)
 public extension FileInfoClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInfoClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileInfoClass> { return ptr.assumingMemoryBound(to: GFileInfoClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileInfoClass>! { return ptr?.assumingMemoryBound(to: GFileInfoClass.self) }
 
 
 
@@ -2370,10 +3140,11 @@ public extension FileInfoClassProtocol {
 
 public protocol FileInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileInputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileInputStreamClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileInputStreamClass>! { get }
+
 }
 
 /// The `FileInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileInputStreamClass` instance.
@@ -2384,46 +3155,76 @@ public protocol FileInputStreamClassProtocol {
 public struct FileInputStreamClassRef: FileInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileInputStreamClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileInputStreamClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileInputStreamClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileInputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileInputStreamClassProtocol`
-    init<T: FileInputStreamClassProtocol>(_ other: T) {
+    @inlinable init<T: FileInputStreamClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2437,95 +3238,141 @@ public extension FileInputStreamClassRef {
 open class FileInputStreamClass: FileInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileInputStreamClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileInputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileInputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileInputStreamClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileInputStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileInputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileInputStreamClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileInputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileInputStreamClassProtocol`
     /// `GFileInputStreamClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileInputStreamClassProtocol`
-    public init<T: FileInputStreamClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileInputStreamClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileInputStreamClass`.
     deinit {
-        // no reference counting for GFileInputStreamClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamClass, cannot ref(_ptr)
     }
 
 
@@ -2540,12 +3387,12 @@ open class FileInputStreamClass: FileInputStreamClassProtocol {
 // MARK: FileInputStreamClass Record: FileInputStreamClassProtocol extension (methods and fields)
 public extension FileInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileInputStreamClass> { return ptr.assumingMemoryBound(to: GFileInputStreamClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileInputStreamClass>! { return ptr?.assumingMemoryBound(to: GFileInputStreamClass.self) }
 
 
-    var parentClass: GInputStreamClass {
+    @inlinable var parentClass: GInputStreamClass {
         get {
-            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -2586,10 +3433,11 @@ public extension FileInputStreamClassProtocol {
 
 public protocol FileInputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileInputStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileInputStreamPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GFileInputStreamPrivate>! { get }
+
 }
 
 /// The `FileInputStreamPrivateRef` type acts as a lightweight Swift reference to an underlying `GFileInputStreamPrivate` instance.
@@ -2600,46 +3448,76 @@ public protocol FileInputStreamPrivateProtocol {
 public struct FileInputStreamPrivateRef: FileInputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileInputStreamPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileInputStreamPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileInputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileInputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileInputStreamPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileInputStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileInputStreamPrivateProtocol`
-    init<T: FileInputStreamPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FileInputStreamPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2653,95 +3531,141 @@ public extension FileInputStreamPrivateRef {
 open class FileInputStreamPrivate: FileInputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileInputStreamPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileInputStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileInputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileInputStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileInputStreamPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileInputStreamPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileInputStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileInputStreamPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileInputStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileInputStreamPrivateProtocol`
     /// `GFileInputStreamPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileInputStreamPrivateProtocol`
-    public init<T: FileInputStreamPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileInputStreamPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileInputStreamPrivate`.
     deinit {
-        // no reference counting for GFileInputStreamPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileInputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileInputStreamPrivate, cannot ref(_ptr)
     }
 
 
@@ -2756,7 +3680,7 @@ open class FileInputStreamPrivate: FileInputStreamPrivateProtocol {
 // MARK: FileInputStreamPrivate Record: FileInputStreamPrivateProtocol extension (methods and fields)
 public extension FileInputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileInputStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileInputStreamPrivate> { return ptr.assumingMemoryBound(to: GFileInputStreamPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileInputStreamPrivate>! { return ptr?.assumingMemoryBound(to: GFileInputStreamPrivate.self) }
 
 
 
@@ -2774,10 +3698,11 @@ public extension FileInputStreamPrivateProtocol {
 
 public protocol FileMonitorClassProtocol {
         /// Untyped pointer to the underlying `GFileMonitorClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileMonitorClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileMonitorClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileMonitorClass>! { get }
+
 }
 
 /// The `FileMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GFileMonitorClass` instance.
@@ -2788,46 +3713,76 @@ public protocol FileMonitorClassProtocol {
 public struct FileMonitorClassRef: FileMonitorClassProtocol {
         /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileMonitorClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileMonitorClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileMonitorClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileMonitorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileMonitorClassProtocol`
-    init<T: FileMonitorClassProtocol>(_ other: T) {
+    @inlinable init<T: FileMonitorClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2841,95 +3796,141 @@ public extension FileMonitorClassRef {
 open class FileMonitorClass: FileMonitorClassProtocol {
         /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileMonitorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileMonitorClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileMonitorClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileMonitorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileMonitorClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileMonitorClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileMonitorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileMonitorClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileMonitorClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileMonitorClassProtocol`
     /// `GFileMonitorClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileMonitorClassProtocol`
-    public init<T: FileMonitorClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileMonitorClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileMonitorClass`.
     deinit {
-        // no reference counting for GFileMonitorClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorClass, cannot ref(_ptr)
     }
 
 
@@ -2944,12 +3945,12 @@ open class FileMonitorClass: FileMonitorClassProtocol {
 // MARK: FileMonitorClass Record: FileMonitorClassProtocol extension (methods and fields)
 public extension FileMonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileMonitorClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileMonitorClass> { return ptr.assumingMemoryBound(to: GFileMonitorClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileMonitorClass>! { return ptr?.assumingMemoryBound(to: GFileMonitorClass.self) }
 
 
-    var parentClass: GObjectClass {
+    @inlinable var parentClass: GObjectClass {
         get {
-            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -2982,10 +3983,11 @@ public extension FileMonitorClassProtocol {
 
 public protocol FileMonitorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileMonitorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileMonitorPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GFileMonitorPrivate>! { get }
+
 }
 
 /// The `FileMonitorPrivateRef` type acts as a lightweight Swift reference to an underlying `GFileMonitorPrivate` instance.
@@ -2996,46 +3998,76 @@ public protocol FileMonitorPrivateProtocol {
 public struct FileMonitorPrivateRef: FileMonitorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileMonitorPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileMonitorPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileMonitorPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileMonitorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileMonitorPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileMonitorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileMonitorPrivateProtocol`
-    init<T: FileMonitorPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FileMonitorPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3049,95 +4081,141 @@ public extension FileMonitorPrivateRef {
 open class FileMonitorPrivate: FileMonitorPrivateProtocol {
         /// Untyped pointer to the underlying `GFileMonitorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileMonitorPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileMonitorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileMonitorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileMonitorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileMonitorPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileMonitorPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileMonitorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileMonitorPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileMonitorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileMonitorPrivateProtocol`
     /// `GFileMonitorPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileMonitorPrivateProtocol`
-    public init<T: FileMonitorPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileMonitorPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileMonitorPrivate`.
     deinit {
-        // no reference counting for GFileMonitorPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileMonitorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileMonitorPrivate, cannot ref(_ptr)
     }
 
 
@@ -3152,7 +4230,7 @@ open class FileMonitorPrivate: FileMonitorPrivateProtocol {
 // MARK: FileMonitorPrivate Record: FileMonitorPrivateProtocol extension (methods and fields)
 public extension FileMonitorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileMonitorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileMonitorPrivate> { return ptr.assumingMemoryBound(to: GFileMonitorPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileMonitorPrivate>! { return ptr?.assumingMemoryBound(to: GFileMonitorPrivate.self) }
 
 
 
@@ -3170,10 +4248,11 @@ public extension FileMonitorPrivateProtocol {
 
 public protocol FileOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileOutputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileOutputStreamClass> { get }
+    var _ptr: UnsafeMutablePointer<GFileOutputStreamClass>! { get }
+
 }
 
 /// The `FileOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStreamClass` instance.
@@ -3184,46 +4263,76 @@ public protocol FileOutputStreamClassProtocol {
 public struct FileOutputStreamClassRef: FileOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileOutputStreamClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileOutputStreamClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileOutputStreamClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileOutputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileOutputStreamClassProtocol`
-    init<T: FileOutputStreamClassProtocol>(_ other: T) {
+    @inlinable init<T: FileOutputStreamClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3237,95 +4346,141 @@ public extension FileOutputStreamClassRef {
 open class FileOutputStreamClass: FileOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileOutputStreamClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileOutputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileOutputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileOutputStreamClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileOutputStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileOutputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileOutputStreamClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileOutputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileOutputStreamClassProtocol`
     /// `GFileOutputStreamClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileOutputStreamClassProtocol`
-    public init<T: FileOutputStreamClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileOutputStreamClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileOutputStreamClass`.
     deinit {
-        // no reference counting for GFileOutputStreamClass, cannot unref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamClass, cannot ref(_ptr)
     }
 
 
@@ -3340,12 +4495,12 @@ open class FileOutputStreamClass: FileOutputStreamClassProtocol {
 // MARK: FileOutputStreamClass Record: FileOutputStreamClassProtocol extension (methods and fields)
 public extension FileOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileOutputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFileOutputStreamClass> { return ptr.assumingMemoryBound(to: GFileOutputStreamClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileOutputStreamClass>! { return ptr?.assumingMemoryBound(to: GFileOutputStreamClass.self) }
 
 
-    var parentClass: GOutputStreamClass {
+    @inlinable var parentClass: GOutputStreamClass {
         get {
-            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -3392,10 +4547,11 @@ public extension FileOutputStreamClassProtocol {
 
 public protocol FileOutputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileOutputStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileOutputStreamPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GFileOutputStreamPrivate>! { get }
+
 }
 
 /// The `FileOutputStreamPrivateRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStreamPrivate` instance.
@@ -3406,46 +4562,76 @@ public protocol FileOutputStreamPrivateProtocol {
 public struct FileOutputStreamPrivateRef: FileOutputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileOutputStreamPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileOutputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileOutputStreamPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileOutputStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileOutputStreamPrivateProtocol`
-    init<T: FileOutputStreamPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FileOutputStreamPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3459,95 +4645,141 @@ public extension FileOutputStreamPrivateRef {
 open class FileOutputStreamPrivate: FileOutputStreamPrivateProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileOutputStreamPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileOutputStreamPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileOutputStreamPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileOutputStreamPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileOutputStreamPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileOutputStreamPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileOutputStreamPrivateProtocol`
     /// `GFileOutputStreamPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileOutputStreamPrivateProtocol`
-    public init<T: FileOutputStreamPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FileOutputStreamPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFileOutputStreamPrivate`.
     deinit {
-        // no reference counting for GFileOutputStreamPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileOutputStreamPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GFileOutputStreamPrivate, cannot ref(_ptr)
     }
 
 
@@ -3562,7 +4794,7 @@ open class FileOutputStreamPrivate: FileOutputStreamPrivateProtocol {
 // MARK: FileOutputStreamPrivate Record: FileOutputStreamPrivateProtocol extension (methods and fields)
 public extension FileOutputStreamPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileOutputStreamPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GFileOutputStreamPrivate> { return ptr.assumingMemoryBound(to: GFileOutputStreamPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFileOutputStreamPrivate>! { return ptr?.assumingMemoryBound(to: GFileOutputStreamPrivate.self) }
 
 
 
@@ -3580,10 +4812,11 @@ public extension FileOutputStreamPrivateProtocol {
 
 public protocol FilenameCompleterClassProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFilenameCompleterClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilenameCompleterClass> { get }
+    var _ptr: UnsafeMutablePointer<GFilenameCompleterClass>! { get }
+
 }
 
 /// The `FilenameCompleterClassRef` type acts as a lightweight Swift reference to an underlying `GFilenameCompleterClass` instance.
@@ -3594,46 +4827,76 @@ public protocol FilenameCompleterClassProtocol {
 public struct FilenameCompleterClassRef: FilenameCompleterClassProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FilenameCompleterClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFilenameCompleterClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFilenameCompleterClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFilenameCompleterClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFilenameCompleterClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFilenameCompleterClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FilenameCompleterClassProtocol`
-    init<T: FilenameCompleterClassProtocol>(_ other: T) {
+    @inlinable init<T: FilenameCompleterClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3647,95 +4910,141 @@ public extension FilenameCompleterClassRef {
 open class FilenameCompleterClass: FilenameCompleterClassProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFilenameCompleterClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFilenameCompleterClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFilenameCompleterClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFilenameCompleterClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFilenameCompleterClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFilenameCompleterClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FilenameCompleterClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFilenameCompleterClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFilenameCompleterClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FilenameCompleterClassProtocol`
     /// `GFilenameCompleterClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FilenameCompleterClassProtocol`
-    public init<T: FilenameCompleterClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FilenameCompleterClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFilenameCompleterClass`.
     deinit {
-        // no reference counting for GFilenameCompleterClass, cannot unref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFilenameCompleterClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilenameCompleterClass, cannot ref(_ptr)
     }
 
 
@@ -3750,12 +5059,12 @@ open class FilenameCompleterClass: FilenameCompleterClassProtocol {
 // MARK: FilenameCompleterClass Record: FilenameCompleterClassProtocol extension (methods and fields)
 public extension FilenameCompleterClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilenameCompleterClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilenameCompleterClass> { return ptr.assumingMemoryBound(to: GFilenameCompleterClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFilenameCompleterClass>! { return ptr?.assumingMemoryBound(to: GFilenameCompleterClass.self) }
 
 
-    var parentClass: GObjectClass {
+    @inlinable var parentClass: GObjectClass {
         get {
-            let rv: GObjectClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -3782,10 +5091,11 @@ public extension FilenameCompleterClassProtocol {
 
 public protocol FilterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFilterInputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilterInputStreamClass> { get }
+    var _ptr: UnsafeMutablePointer<GFilterInputStreamClass>! { get }
+
 }
 
 /// The `FilterInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStreamClass` instance.
@@ -3796,46 +5106,76 @@ public protocol FilterInputStreamClassProtocol {
 public struct FilterInputStreamClassRef: FilterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FilterInputStreamClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFilterInputStreamClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFilterInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFilterInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFilterInputStreamClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFilterInputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FilterInputStreamClassProtocol`
-    init<T: FilterInputStreamClassProtocol>(_ other: T) {
+    @inlinable init<T: FilterInputStreamClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3849,95 +5189,141 @@ public extension FilterInputStreamClassRef {
 open class FilterInputStreamClass: FilterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFilterInputStreamClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFilterInputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFilterInputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFilterInputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFilterInputStreamClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFilterInputStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FilterInputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFilterInputStreamClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFilterInputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FilterInputStreamClassProtocol`
     /// `GFilterInputStreamClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FilterInputStreamClassProtocol`
-    public init<T: FilterInputStreamClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FilterInputStreamClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFilterInputStreamClass`.
     deinit {
-        // no reference counting for GFilterInputStreamClass, cannot unref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFilterInputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterInputStreamClass, cannot ref(_ptr)
     }
 
 
@@ -3952,12 +5338,12 @@ open class FilterInputStreamClass: FilterInputStreamClassProtocol {
 // MARK: FilterInputStreamClass Record: FilterInputStreamClassProtocol extension (methods and fields)
 public extension FilterInputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterInputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilterInputStreamClass> { return ptr.assumingMemoryBound(to: GFilterInputStreamClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFilterInputStreamClass>! { return ptr?.assumingMemoryBound(to: GFilterInputStreamClass.self) }
 
 
-    var parentClass: GInputStreamClass {
+    @inlinable var parentClass: GInputStreamClass {
         get {
-            let rv: GInputStreamClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -3982,10 +5368,11 @@ public extension FilterInputStreamClassProtocol {
 
 public protocol FilterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFilterOutputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass> { get }
+    var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass>! { get }
+
 }
 
 /// The `FilterOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStreamClass` instance.
@@ -3996,46 +5383,76 @@ public protocol FilterOutputStreamClassProtocol {
 public struct FilterOutputStreamClassRef: FilterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FilterOutputStreamClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFilterOutputStreamClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFilterOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFilterOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFilterOutputStreamClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFilterOutputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FilterOutputStreamClassProtocol`
-    init<T: FilterOutputStreamClassProtocol>(_ other: T) {
+    @inlinable init<T: FilterOutputStreamClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4049,95 +5466,141 @@ public extension FilterOutputStreamClassRef {
 open class FilterOutputStreamClass: FilterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFilterOutputStreamClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFilterOutputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFilterOutputStreamClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFilterOutputStreamClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFilterOutputStreamClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFilterOutputStreamClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FilterOutputStreamClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFilterOutputStreamClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFilterOutputStreamClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FilterOutputStreamClassProtocol`
     /// `GFilterOutputStreamClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FilterOutputStreamClassProtocol`
-    public init<T: FilterOutputStreamClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: FilterOutputStreamClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GFilterOutputStreamClass`.
     deinit {
-        // no reference counting for GFilterOutputStreamClass, cannot unref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFilterOutputStreamClass, cannot ref(cast(_ptr))
+        // no reference counting for GFilterOutputStreamClass, cannot ref(_ptr)
     }
 
 
@@ -4152,12 +5615,12 @@ open class FilterOutputStreamClass: FilterOutputStreamClassProtocol {
 // MARK: FilterOutputStreamClass Record: FilterOutputStreamClassProtocol extension (methods and fields)
 public extension FilterOutputStreamClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFilterOutputStreamClass` instance.
-    var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass> { return ptr.assumingMemoryBound(to: GFilterOutputStreamClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass>! { return ptr?.assumingMemoryBound(to: GFilterOutputStreamClass.self) }
 
 
-    var parentClass: GOutputStreamClass {
+    @inlinable var parentClass: GOutputStreamClass {
         get {
-            let rv: GOutputStreamClass = cast(_ptr.pointee.parent_class)
+            let rv = _ptr.pointee.parent_class
             return rv
         }
     }
@@ -4183,10 +5646,11 @@ public extension FilterOutputStreamClassProtocol {
 /// using the following functions.
 public protocol IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GIOExtension` instance.
-    var _ptr: UnsafeMutablePointer<GIOExtension> { get }
+    var _ptr: UnsafeMutablePointer<GIOExtension>! { get }
+
 }
 
 /// The `IOExtensionRef` type acts as a lightweight Swift reference to an underlying `GIOExtension` instance.
@@ -4198,46 +5662,76 @@ public protocol IOExtensionProtocol {
 public struct IOExtensionRef: IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension IOExtensionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GIOExtension>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GIOExtension>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GIOExtension>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GIOExtension>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GIOExtension>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `IOExtensionProtocol`
-    init<T: IOExtensionProtocol>(_ other: T) {
+    @inlinable init<T: IOExtensionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4252,95 +5746,141 @@ public extension IOExtensionRef {
 open class IOExtension: IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `IOExtension` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GIOExtension>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GIOExtension>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOExtension` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GIOExtension>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOExtension` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOExtension` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOExtension` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GIOExtension>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOExtension` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GIOExtension>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GIOExtension` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `IOExtension` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GIOExtension>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GIOExtension>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `IOExtensionProtocol`
     /// `GIOExtension` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `IOExtensionProtocol`
-    public init<T: IOExtensionProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+    @inlinable public init<T: IOExtensionProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GIOExtension`.
     deinit {
-        // no reference counting for GIOExtension, cannot unref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GIOExtension, cannot ref(cast(_ptr))
+        // no reference counting for GIOExtension, cannot ref(_ptr)
     }
 
 
@@ -4355,65 +5895,65 @@ open class IOExtension: IOExtensionProtocol {
 // MARK: IOExtension Record: IOExtensionProtocol extension (methods and fields)
 public extension IOExtensionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOExtension` instance.
-    var _ptr: UnsafeMutablePointer<GIOExtension> { return ptr.assumingMemoryBound(to: GIOExtension.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GIOExtension>! { return ptr?.assumingMemoryBound(to: GIOExtension.self) }
 
     /// Gets the name under which `extension` was registered.
     /// 
     /// Note that the same type may be registered as extension
     /// for multiple extension points, under different names.
-    func getName() -> String! {
-        let rv: String! = cast(g_io_extension_get_name(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_io_extension_get_name(_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the priority with which `extension` was registered.
-    func getPriority() -> Int {
-        let rv: Int = cast(g_io_extension_get_priority(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getPriority() -> Int {
+        let rv = Int(g_io_extension_get_priority(_ptr))
+        return rv
     }
 
     /// Gets the type associated with `extension`.
-    func getType() -> GType {
-        let rv = g_io_extension_get_type(cast(_ptr))
-        return cast(rv)
+    @inlinable func getType() -> GType {
+        let rv = g_io_extension_get_type(_ptr)
+        return rv
     }
 
     /// Gets a reference to the class for the type that is
     /// associated with `extension`.
-    func refClass() -> UnsafeMutablePointer<GTypeClass>! {
-        let rv: UnsafeMutablePointer<GTypeClass>! = cast(g_io_extension_ref_class(cast(_ptr)))
-        return cast(rv)
+    @inlinable func refClass() -> TypeClassRef! {
+        let rv = TypeClassRef(gconstpointer: gconstpointer(g_io_extension_ref_class(_ptr)))
+        return rv
     }
     /// Gets the name under which `extension` was registered.
     /// 
     /// Note that the same type may be registered as extension
     /// for multiple extension points, under different names.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the name under which `extension` was registered.
         /// 
         /// Note that the same type may be registered as extension
         /// for multiple extension points, under different names.
         get {
-            let rv: String! = cast(g_io_extension_get_name(cast(_ptr)))
-            return cast(rv)
+            let rv = g_io_extension_get_name(_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the priority with which `extension` was registered.
-    var priority: Int {
+    @inlinable var priority: Int {
         /// Gets the priority with which `extension` was registered.
         get {
-            let rv: Int = cast(g_io_extension_get_priority(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_io_extension_get_priority(_ptr))
+            return rv
         }
     }
 
     /// Gets the type associated with `extension`.
-    var type: GType {
+    @inlinable var type: GType {
         /// Gets the type associated with `extension`.
         get {
-            let rv = g_io_extension_get_type(cast(_ptr))
-            return cast(rv)
+            let rv = g_io_extension_get_type(_ptr)
+            return rv
         }
     }
 

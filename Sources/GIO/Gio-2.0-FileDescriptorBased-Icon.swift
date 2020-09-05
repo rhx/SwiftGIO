@@ -17,10 +17,11 @@ import GLibObject
 /// file when using it.
 public protocol FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFileDescriptorBased` instance.
-    var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased> { get }
+    var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased>! { get }
+
 }
 
 /// The `FileDescriptorBasedRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBased` instance.
@@ -36,46 +37,76 @@ public protocol FileDescriptorBasedProtocol {
 public struct FileDescriptorBasedRef: FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileDescriptorBasedRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFileDescriptorBased>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFileDescriptorBased>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFileDescriptorBased>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFileDescriptorBased>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFileDescriptorBased>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileDescriptorBasedProtocol`
-    init<T: FileDescriptorBasedProtocol>(_ other: T) {
+    @inlinable init<T: FileDescriptorBasedProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -94,95 +125,141 @@ public extension FileDescriptorBasedRef {
 open class FileDescriptorBased: FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFileDescriptorBased>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFileDescriptorBased>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFileDescriptorBased>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFileDescriptorBased>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFileDescriptorBased>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFileDescriptorBased` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FileDescriptorBased` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFileDescriptorBased>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFileDescriptorBased>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileDescriptorBasedProtocol`
     /// `GFileDescriptorBased` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileDescriptorBasedProtocol`
-    public init<T: FileDescriptorBasedProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.file_descriptor_based_ptr)
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+    @inlinable public init<T: FileDescriptorBasedProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
     /// Do-nothing destructor for `GFileDescriptorBased`.
     deinit {
-        // no reference counting for GFileDescriptorBased, cannot unref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot unref(file_descriptor_based_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GFileDescriptorBased, cannot ref(cast(file_descriptor_based_ptr))
+        // no reference counting for GFileDescriptorBased, cannot ref(file_descriptor_based_ptr)
     }
 
 
@@ -197,19 +274,19 @@ open class FileDescriptorBased: FileDescriptorBasedProtocol {
 // MARK: FileDescriptorBased Interface: FileDescriptorBasedProtocol extension (methods and fields)
 public extension FileDescriptorBasedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFileDescriptorBased` instance.
-    var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased> { return ptr.assumingMemoryBound(to: GFileDescriptorBased.self) }
+    @inlinable var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased>! { return ptr?.assumingMemoryBound(to: GFileDescriptorBased.self) }
 
     /// Gets the underlying file descriptor.
-    func getFd() -> Int {
-        let rv: Int = cast(g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr)))
-        return cast(rv)
+    @inlinable func getFd() -> Int {
+        let rv = Int(g_file_descriptor_based_get_fd(file_descriptor_based_ptr))
+        return rv
     }
     /// Gets the underlying file descriptor.
-    var fd: Int {
+    @inlinable var fd: Int {
         /// Gets the underlying file descriptor.
         get {
-            let rv: Int = cast(g_file_descriptor_based_get_fd(cast(file_descriptor_based_ptr)))
-            return cast(rv)
+            let rv = Int(g_file_descriptor_based_get_fd(file_descriptor_based_ptr))
+            return rv
         }
     }
 
@@ -255,10 +332,11 @@ public extension FileDescriptorBasedProtocol {
 /// types.
 public protocol IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GIcon` instance.
-    var icon_ptr: UnsafeMutablePointer<GIcon> { get }
+    var icon_ptr: UnsafeMutablePointer<GIcon>! { get }
+
 }
 
 /// The `IconRef` type acts as a lightweight Swift reference to an underlying `GIcon` instance.
@@ -296,53 +374,83 @@ public protocol IconProtocol {
 public struct IconRef: IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension IconRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GIcon>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GIcon>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GIcon>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GIcon>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `IconProtocol`
-    init<T: IconProtocol>(_ other: T) {
+    @inlinable init<T: IconProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
-    static func deserialize(value: VariantProtocol) -> IconRef! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_deserialize(cast(value.ptr)))
-        return rv.map { IconRef(cast($0)) }
+    @inlinable static func deserialize<VariantT: VariantProtocol>(value: VariantT) -> IconRef! {
+        guard let rv = IconRef(gconstpointer: gconstpointer(g_icon_deserialize(value.variant_ptr))) else { return nil }
+        return rv
     }
 
     /// Generate a `GIcon` instance from `str`. This function can fail if
@@ -351,11 +459,12 @@ public extension IconRef {
     /// If your application or library provides one or more `GIcon`
     /// implementations you need to ensure that each `GType` is registered
     /// with the type system prior to calling `g_icon_new_for_string()`.
-    static func newFor(string str: UnsafePointer<gchar>) throws -> IconRef! {
+    @inlinable static func newFor(string str: UnsafePointer<gchar>!) throws -> IconRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_new_for_string(str, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { IconRef(cast($0)) }
+        let maybeRV = IconRef(gconstpointer: gconstpointer(g_icon_new_for_string(str, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 }
 
@@ -394,102 +503,148 @@ public extension IconRef {
 open class Icon: IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Icon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GIcon>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GIcon>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Icon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GIcon>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Icon` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Icon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Icon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GIcon>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Icon` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GIcon>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GIcon` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Icon` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GIcon>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GIcon>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
     /// Reference intialiser for a related type that implements `IconProtocol`
     /// `GIcon` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `IconProtocol`
-    public init<T: IconProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.icon_ptr)
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+    @inlinable public init<T: IconProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
     /// Do-nothing destructor for `GIcon`.
     deinit {
-        // no reference counting for GIcon, cannot unref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot unref(icon_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GIcon, cannot ref(cast(icon_ptr))
+        // no reference counting for GIcon, cannot ref(icon_ptr)
     }
 
 
     /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
-    public static func deserialize(value: VariantProtocol) -> Icon! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_deserialize(cast(value.ptr)))
-        return rv.map { Icon(cast($0)) }
+    @inlinable public static func deserialize<VariantT: VariantProtocol>(value: VariantT) -> Icon! {
+        guard let rv = Icon(gconstpointer: gconstpointer(g_icon_deserialize(value.variant_ptr))) else { return nil }
+        return rv
     }
 
     /// Generate a `GIcon` instance from `str`. This function can fail if
@@ -498,11 +653,12 @@ open class Icon: IconProtocol {
     /// If your application or library provides one or more `GIcon`
     /// implementations you need to ensure that each `GType` is registered
     /// with the type system prior to calling `g_icon_new_for_string()`.
-    public static func newFor(string str: UnsafePointer<gchar>) throws -> Icon! {
+    @inlinable public static func newFor(string str: UnsafePointer<gchar>!) throws -> Icon! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_icon_new_for_string(str, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { Icon(cast($0)) }
+        let maybeRV = Icon(gconstpointer: gconstpointer(g_icon_new_for_string(str, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
 }
@@ -515,12 +671,12 @@ open class Icon: IconProtocol {
 // MARK: Icon Interface: IconProtocol extension (methods and fields)
 public extension IconProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIcon` instance.
-    var icon_ptr: UnsafeMutablePointer<GIcon> { return ptr.assumingMemoryBound(to: GIcon.self) }
+    @inlinable var icon_ptr: UnsafeMutablePointer<GIcon>! { return ptr?.assumingMemoryBound(to: GIcon.self) }
 
     /// Checks if two icons are equal.
-    func equal(icon2: IconProtocol) -> Bool {
-        let rv = g_icon_equal(cast(icon_ptr), cast(icon2.ptr))
-        return Bool(rv != 0)
+    @inlinable func equal<IconT: IconProtocol>(icon2: IconT? = nil) -> Bool {
+        let rv = ((g_icon_equal(icon_ptr, icon2?.icon_ptr)) != 0)
+        return rv
     }
 
     /// Serializes a `GIcon` into a `GVariant`. An equivalent `GIcon` can be retrieved
@@ -528,9 +684,9 @@ public extension IconProtocol {
     /// As serialization will avoid using raw icon data when possible, it only
     /// makes sense to transfer the `GVariant` between processes on the same machine,
     /// (as opposed to over the network), and within the same file system namespace.
-    func serialize() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_icon_serialize(cast(icon_ptr)))
-        return cast(rv)
+    @inlinable func serialize() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_icon_serialize(icon_ptr)))
+        return rv
     }
 
     /// Generates a textual representation of `icon` that can be used for
@@ -549,9 +705,9 @@ public extension IconProtocol {
     /// 
     /// - If `icon` is a `GThemedIcon` with exactly one name and no fallbacks,
     ///   the encoding is simply the name (such as `network-server`).
-    func toString() -> String! {
-        let rv: String! = cast(g_icon_to_string(cast(icon_ptr)))
-        return cast(rv)
+    @inlinable func toString() -> String! {
+        let rv = g_icon_to_string(icon_ptr).map({ String(cString: $0) })
+        return rv
     }
 
 

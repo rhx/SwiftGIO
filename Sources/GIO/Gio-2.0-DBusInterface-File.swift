@@ -14,10 +14,11 @@ import GLibObject
 /// (see `GDBusProxy`).
 public protocol DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDBusInterface` instance.
-    var dbus_interface_ptr: UnsafeMutablePointer<GDBusInterface> { get }
+    var dbus_interface_ptr: UnsafeMutablePointer<GDBusInterface>! { get }
+
 }
 
 /// The `DBusInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusInterface` instance.
@@ -30,46 +31,76 @@ public protocol DBusInterfaceProtocol {
 public struct DBusInterfaceRef: DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DBusInterfaceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDBusInterface>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDBusInterface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDBusInterface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDBusInterface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDBusInterface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DBusInterfaceProtocol`
-    init<T: DBusInterfaceProtocol>(_ other: T) {
+    @inlinable init<T: DBusInterfaceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -85,95 +116,141 @@ public extension DBusInterfaceRef {
 open class DBusInterface: DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusInterface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDBusInterface>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GDBusInterface>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDBusInterface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDBusInterface>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusInterface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDBusInterface>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDBusInterface` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DBusInterface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDBusInterface>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDBusInterface>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DBusInterfaceProtocol`
     /// `GDBusInterface` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DBusInterfaceProtocol`
-    public init<T: DBusInterfaceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.dbus_interface_ptr)
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+    @inlinable public init<T: DBusInterfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
     /// Do-nothing destructor for `GDBusInterface`.
     deinit {
-        // no reference counting for GDBusInterface, cannot unref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot unref(dbus_interface_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GDBusInterface, cannot ref(cast(dbus_interface_ptr))
+        // no reference counting for GDBusInterface, cannot ref(dbus_interface_ptr)
     }
 
 
@@ -188,19 +265,19 @@ open class DBusInterface: DBusInterfaceProtocol {
 // MARK: DBusInterface Interface: DBusInterfaceProtocol extension (methods and fields)
 public extension DBusInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusInterface` instance.
-    var dbus_interface_ptr: UnsafeMutablePointer<GDBusInterface> { return ptr.assumingMemoryBound(to: GDBusInterface.self) }
+    @inlinable var dbus_interface_ptr: UnsafeMutablePointer<GDBusInterface>! { return ptr?.assumingMemoryBound(to: GDBusInterface.self) }
 
     /// Gets the `GDBusObject` that `interface_` belongs to, if any.
-    func dupObject() -> UnsafeMutablePointer<GDBusObject>! {
-        let rv: UnsafeMutablePointer<GDBusObject>! = cast(g_dbus_interface_dup_object(cast(dbus_interface_ptr)))
-        return cast(rv)
+    @inlinable func dupObject() -> DBusObjectRef! {
+        let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_interface_dup_object(dbus_interface_ptr)))
+        return rv
     }
 
     /// Gets D-Bus introspection information for the D-Bus interface
     /// implemented by `interface_`.
-    func getInfo() -> UnsafeMutablePointer<GDBusInterfaceInfo>! {
-        let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_interface_get_info(cast(dbus_interface_ptr)))
-        return cast(rv)
+    @inlinable func getInfo() -> DBusInterfaceInfoRef! {
+        let rv = DBusInterfaceInfoRef(gconstpointer: gconstpointer(g_dbus_interface_get_info(dbus_interface_ptr)))
+        return rv
     }
 
     /// Gets the `GDBusObject` that `interface_` belongs to, if any.
@@ -208,26 +285,26 @@ public extension DBusInterfaceProtocol {
     /// It is not safe to use the returned object if `interface_` or
     /// the returned object is being used from other threads. See
     /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
-    func getObject() -> UnsafeMutablePointer<GDBusObject>! {
-        let rv: UnsafeMutablePointer<GDBusObject>! = cast(g_dbus_interface_get_object(cast(dbus_interface_ptr)))
-        return cast(rv)
+    @inlinable func getObject() -> DBusObjectRef! {
+        let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_interface_get_object(dbus_interface_ptr)))
+        return rv
     }
 
     /// Sets the `GDBusObject` for `interface_` to `object`.
     /// 
     /// Note that `interface_` will hold a weak reference to `object`.
-    func set(object: DBusObjectProtocol) {
-        g_dbus_interface_set_object(cast(dbus_interface_ptr), cast(object.ptr))
+    @inlinable func set<DBusObjectT: DBusObjectProtocol>(object: DBusObjectT? = nil) {
+        g_dbus_interface_set_object(dbus_interface_ptr, object?.dbus_object_ptr)
     
     }
     /// Gets D-Bus introspection information for the D-Bus interface
     /// implemented by `interface_`.
-    var info: UnsafeMutablePointer<GDBusInterfaceInfo>! {
+    @inlinable var info: DBusInterfaceInfoRef! {
         /// Gets D-Bus introspection information for the D-Bus interface
         /// implemented by `interface_`.
         get {
-            let rv: UnsafeMutablePointer<GDBusInterfaceInfo>! = cast(g_dbus_interface_get_info(cast(dbus_interface_ptr)))
-            return cast(rv)
+            let rv = DBusInterfaceInfoRef(gconstpointer: gconstpointer(g_dbus_interface_get_info(dbus_interface_ptr)))
+            return rv
         }
     }
 
@@ -236,21 +313,21 @@ public extension DBusInterfaceProtocol {
     /// It is not safe to use the returned object if `interface_` or
     /// the returned object is being used from other threads. See
     /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
-    var object: UnsafeMutablePointer<GDBusObject>! {
+    @inlinable var object: DBusObjectRef! {
         /// Gets the `GDBusObject` that `interface_` belongs to, if any.
         /// 
         /// It is not safe to use the returned object if `interface_` or
         /// the returned object is being used from other threads. See
         /// `g_dbus_interface_dup_object()` for a thread-safe alternative.
         get {
-            let rv: UnsafeMutablePointer<GDBusObject>! = cast(g_dbus_interface_get_object(cast(dbus_interface_ptr)))
-            return cast(rv)
+            let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_interface_get_object(dbus_interface_ptr)))
+            return rv
         }
         /// Sets the `GDBusObject` for `interface_` to `object`.
         /// 
         /// Note that `interface_` will hold a weak reference to `object`.
         nonmutating set {
-            g_dbus_interface_set_object(cast(dbus_interface_ptr), cast(newValue))
+            g_dbus_interface_set_object(dbus_interface_ptr, UnsafeMutablePointer<GDBusObject>(newValue?.dbus_object_ptr))
         }
     }
 
@@ -272,10 +349,11 @@ public extension DBusInterfaceProtocol {
 /// interfaces.
 public protocol DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDBusObject` instance.
-    var dbus_object_ptr: UnsafeMutablePointer<GDBusObject> { get }
+    var dbus_object_ptr: UnsafeMutablePointer<GDBusObject>! { get }
+
 }
 
 /// The `DBusObjectRef` type acts as a lightweight Swift reference to an underlying `GDBusObject` instance.
@@ -289,46 +367,76 @@ public protocol DBusObjectProtocol {
 public struct DBusObjectRef: DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DBusObjectRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDBusObject>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDBusObject>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDBusObject>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDBusObject>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDBusObject>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DBusObjectProtocol`
-    init<T: DBusObjectProtocol>(_ other: T) {
+    @inlinable init<T: DBusObjectProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -345,95 +453,141 @@ public extension DBusObjectRef {
 open class DBusObject: DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObject` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDBusObject>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GDBusObject>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDBusObject>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDBusObject>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObject` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDBusObject>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDBusObject` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DBusObject` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDBusObject>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDBusObject>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DBusObjectProtocol`
     /// `GDBusObject` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DBusObjectProtocol`
-    public init<T: DBusObjectProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.dbus_object_ptr)
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+    @inlinable public init<T: DBusObjectProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
     /// Do-nothing destructor for `GDBusObject`.
     deinit {
-        // no reference counting for GDBusObject, cannot unref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot unref(dbus_object_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GDBusObject, cannot ref(cast(dbus_object_ptr))
+        // no reference counting for GDBusObject, cannot ref(dbus_object_ptr)
     }
 
 
@@ -456,11 +610,11 @@ public extension DBusObjectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DBusObjectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dbus_object_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -481,41 +635,41 @@ public extension DBusObjectProtocol {
 // MARK: DBusObject Interface: DBusObjectProtocol extension (methods and fields)
 public extension DBusObjectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObject` instance.
-    var dbus_object_ptr: UnsafeMutablePointer<GDBusObject> { return ptr.assumingMemoryBound(to: GDBusObject.self) }
+    @inlinable var dbus_object_ptr: UnsafeMutablePointer<GDBusObject>! { return ptr?.assumingMemoryBound(to: GDBusObject.self) }
 
     /// Gets the D-Bus interface with name `interface_name` associated with
     /// `object`, if any.
-    func getInterface(interfaceName interface_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusInterface>! {
-        let rv: UnsafeMutablePointer<GDBusInterface>! = cast(g_dbus_object_get_interface(cast(dbus_object_ptr), interface_name))
-        return cast(rv)
+    @inlinable func getInterface(interfaceName interface_name: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
+        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_get_interface(dbus_object_ptr, interface_name)))
+        return rv
     }
 
     /// Gets the D-Bus interfaces associated with `object`.
-    func getInterfaces() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_object_get_interfaces(cast(dbus_object_ptr)))
-        return cast(rv)
+    @inlinable func getInterfaces() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_get_interfaces(dbus_object_ptr)))
+        return rv
     }
 
     /// Gets the object path for `object`.
-    func getObjectPath() -> String! {
-        let rv: String! = cast(g_dbus_object_get_object_path(cast(dbus_object_ptr)))
-        return cast(rv)
+    @inlinable func getObjectPath() -> String! {
+        let rv = g_dbus_object_get_object_path(dbus_object_ptr).map({ String(cString: $0) })
+        return rv
     }
     /// Gets the D-Bus interfaces associated with `object`.
-    var interfaces: UnsafeMutablePointer<GList>! {
+    @inlinable var interfaces: ListRef! {
         /// Gets the D-Bus interfaces associated with `object`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_object_get_interfaces(cast(dbus_object_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_get_interfaces(dbus_object_ptr)))
+            return rv
         }
     }
 
     /// Gets the object path for `object`.
-    var objectPath: String! {
+    @inlinable var objectPath: String! {
         /// Gets the object path for `object`.
         get {
-            let rv: String! = cast(g_dbus_object_get_object_path(cast(dbus_object_ptr)))
-            return cast(rv)
+            let rv = g_dbus_object_get_object_path(dbus_object_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -540,10 +694,11 @@ public extension DBusObjectProtocol {
 /// and `GDBusObjectManagerServer` for the service-side implementation.
 public protocol DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDBusObjectManager` instance.
-    var dbus_object_manager_ptr: UnsafeMutablePointer<GDBusObjectManager> { get }
+    var dbus_object_manager_ptr: UnsafeMutablePointer<GDBusObjectManager>! { get }
+
 }
 
 /// The `DBusObjectManagerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManager` instance.
@@ -560,46 +715,76 @@ public protocol DBusObjectManagerProtocol {
 public struct DBusObjectManagerRef: DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DBusObjectManagerRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDBusObjectManager>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDBusObjectManager>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDBusObjectManager>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDBusObjectManager>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDBusObjectManager>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DBusObjectManagerProtocol`
-    init<T: DBusObjectManagerProtocol>(_ other: T) {
+    @inlinable init<T: DBusObjectManagerProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -619,95 +804,141 @@ public extension DBusObjectManagerRef {
 open class DBusObjectManager: DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectManager` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDBusObjectManager>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GDBusObjectManager>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDBusObjectManager>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDBusObjectManager>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusObjectManager` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDBusObjectManager>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDBusObjectManager` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DBusObjectManager` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDBusObjectManager>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDBusObjectManager>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DBusObjectManagerProtocol`
     /// `GDBusObjectManager` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DBusObjectManagerProtocol`
-    public init<T: DBusObjectManagerProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.dbus_object_manager_ptr)
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+    @inlinable public init<T: DBusObjectManagerProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
     /// Do-nothing destructor for `GDBusObjectManager`.
     deinit {
-        // no reference counting for GDBusObjectManager, cannot unref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot unref(dbus_object_manager_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GDBusObjectManager, cannot ref(cast(dbus_object_manager_ptr))
+        // no reference counting for GDBusObjectManager, cannot ref(dbus_object_manager_ptr)
     }
 
 
@@ -740,11 +971,11 @@ public extension DBusObjectManagerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusObjectManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DBusObjectManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dbus_object_manager_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -765,47 +996,47 @@ public extension DBusObjectManagerProtocol {
 // MARK: DBusObjectManager Interface: DBusObjectManagerProtocol extension (methods and fields)
 public extension DBusObjectManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusObjectManager` instance.
-    var dbus_object_manager_ptr: UnsafeMutablePointer<GDBusObjectManager> { return ptr.assumingMemoryBound(to: GDBusObjectManager.self) }
+    @inlinable var dbus_object_manager_ptr: UnsafeMutablePointer<GDBusObjectManager>! { return ptr?.assumingMemoryBound(to: GDBusObjectManager.self) }
 
     /// Gets the interface proxy for `interface_name` at `object_path`, if
     /// any.
-    func getInterface(objectPath object_path: UnsafePointer<gchar>, interfaceName interface_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusInterface>! {
-        let rv: UnsafeMutablePointer<GDBusInterface>! = cast(g_dbus_object_manager_get_interface(cast(dbus_object_manager_ptr), object_path, interface_name))
-        return cast(rv)
+    @inlinable func getInterface(objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
+        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_interface(dbus_object_manager_ptr, object_path, interface_name)))
+        return rv
     }
 
     /// Gets the `GDBusObjectProxy` at `object_path`, if any.
-    func getObject(objectPath object_path: UnsafePointer<gchar>) -> UnsafeMutablePointer<GDBusObject>! {
-        let rv: UnsafeMutablePointer<GDBusObject>! = cast(g_dbus_object_manager_get_object(cast(dbus_object_manager_ptr), object_path))
-        return cast(rv)
+    @inlinable func getObject(objectPath object_path: UnsafePointer<gchar>!) -> DBusObjectRef! {
+        let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_object(dbus_object_manager_ptr, object_path)))
+        return rv
     }
 
     /// Gets the object path that `manager` is for.
-    func getObjectPath() -> String! {
-        let rv: String! = cast(g_dbus_object_manager_get_object_path(cast(dbus_object_manager_ptr)))
-        return cast(rv)
+    @inlinable func getObjectPath() -> String! {
+        let rv = g_dbus_object_manager_get_object_path(dbus_object_manager_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets all `GDBusObject` objects known to `manager`.
-    func getObjects() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_object_manager_get_objects(cast(dbus_object_manager_ptr)))
-        return cast(rv)
+    @inlinable func getObjects() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_objects(dbus_object_manager_ptr)))
+        return rv
     }
     /// Gets the object path that `manager` is for.
-    var objectPath: String! {
+    @inlinable var objectPath: String! {
         /// Gets the object path that `manager` is for.
         get {
-            let rv: String! = cast(g_dbus_object_manager_get_object_path(cast(dbus_object_manager_ptr)))
-            return cast(rv)
+            let rv = g_dbus_object_manager_get_object_path(dbus_object_manager_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets all `GDBusObject` objects known to `manager`.
-    var objects: UnsafeMutablePointer<GList>! {
+    @inlinable var objects: ListRef! {
         /// Gets all `GDBusObject` objects known to `manager`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_dbus_object_manager_get_objects(cast(dbus_object_manager_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_objects(dbus_object_manager_ptr)))
+            return rv
         }
     }
 
@@ -870,10 +1101,11 @@ public extension DBusObjectManagerProtocol {
 /// implement your own locking.
 public protocol DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDatagramBased` instance.
-    var datagram_based_ptr: UnsafeMutablePointer<GDatagramBased> { get }
+    var datagram_based_ptr: UnsafeMutablePointer<GDatagramBased>! { get }
+
 }
 
 /// The `DatagramBasedRef` type acts as a lightweight Swift reference to an underlying `GDatagramBased` instance.
@@ -930,46 +1162,76 @@ public protocol DatagramBasedProtocol {
 public struct DatagramBasedRef: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
     /// For type-safe access, use the generated, typed pointer `datagram_based_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DatagramBasedRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDatagramBased>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDatagramBased>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDatagramBased>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDatagramBased>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDatagramBased>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DatagramBasedProtocol`
-    init<T: DatagramBasedProtocol>(_ other: T) {
+    @inlinable init<T: DatagramBasedProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1029,95 +1291,141 @@ public extension DatagramBasedRef {
 open class DatagramBased: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
     /// For type-safe access, use the generated, typed pointer `datagram_based_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DatagramBased` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDatagramBased>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GDatagramBased>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDatagramBased>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDatagramBased>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DatagramBased` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDatagramBased>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDatagramBased` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DatagramBased` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDatagramBased>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDatagramBased>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DatagramBasedProtocol`
     /// `GDatagramBased` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DatagramBasedProtocol`
-    public init<T: DatagramBasedProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.datagram_based_ptr)
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+    @inlinable public init<T: DatagramBasedProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
     /// Do-nothing destructor for `GDatagramBased`.
     deinit {
-        // no reference counting for GDatagramBased, cannot unref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot unref(datagram_based_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GDatagramBased, cannot ref(cast(datagram_based_ptr))
+        // no reference counting for GDatagramBased, cannot ref(datagram_based_ptr)
     }
 
 
@@ -1132,7 +1440,7 @@ open class DatagramBased: DatagramBasedProtocol {
 // MARK: DatagramBased Interface: DatagramBasedProtocol extension (methods and fields)
 public extension DatagramBasedProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDatagramBased` instance.
-    var datagram_based_ptr: UnsafeMutablePointer<GDatagramBased> { return ptr.assumingMemoryBound(to: GDatagramBased.self) }
+    @inlinable var datagram_based_ptr: UnsafeMutablePointer<GDatagramBased>! { return ptr?.assumingMemoryBound(to: GDatagramBased.self) }
 
     /// Checks on the readiness of `datagram_based` to perform operations. The
     /// operations specified in `condition` are checked for and masked against the
@@ -1170,9 +1478,9 @@ public extension DatagramBasedProtocol {
     /// these flags, the output is guaranteed to be masked by `condition`.
     /// 
     /// This call never blocks.
-    func conditionCheck(condition: GLib.IOCondition) -> GIOCondition {
-        let rv = g_datagram_based_condition_check(cast(datagram_based_ptr), condition.value)
-        return cast(rv)
+    @inlinable func conditionCheck(condition: IOCondition) -> IOCondition {
+        let rv = IOCondition(g_datagram_based_condition_check(datagram_based_ptr, condition.value))
+        return rv
     }
 
     /// Waits for up to `timeout` microseconds for condition to become true on
@@ -1181,11 +1489,11 @@ public extension DatagramBasedProtocol {
     /// If `cancellable` is cancelled before the condition is met, or if `timeout` is
     /// reached before the condition is met, then `false` is returned and `error` is
     /// set appropriately (`G_IO_ERROR_CANCELLED` or `G_IO_ERROR_TIMED_OUT`).
-    func conditionWait(condition: GLib.IOCondition, timeout: Int64, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func conditionWait<CancellableT: CancellableProtocol>(condition: IOCondition, timeout: gint64, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_datagram_based_condition_wait(cast(datagram_based_ptr), condition.value, gint64(timeout), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_datagram_based_condition_wait(datagram_based_ptr, condition.value, timeout, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a `GSource` that can be attached to a `GMainContext` to monitor for
@@ -1202,9 +1510,9 @@ public extension DatagramBasedProtocol {
     /// likely 0 unless cancellation happened at the same time as a condition
     /// change). You can check for this in the callback using
     /// `g_cancellable_is_cancelled()`.
-    func createSource(condition: GLib.IOCondition, cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_datagram_based_create_source(cast(datagram_based_ptr), condition.value, cast(cancellable.ptr)))
-        return cast(rv)
+    @inlinable func createSource<CancellableT: CancellableProtocol>(condition: IOCondition, cancellable: CancellableT? = nil) -> SourceRef! {
+        let rv = SourceRef(gconstpointer: gconstpointer(g_datagram_based_create_source(datagram_based_ptr, condition.value, cancellable?.cancellable_ptr)))
+        return rv
     }
 
     /// Receive one or more data messages from `datagram_based` in one go.
@@ -1257,11 +1565,11 @@ public extension DatagramBasedProtocol {
     /// messages successfully received before the error will be returned. If
     /// `cancellable` is cancelled, `G_IO_ERROR_CANCELLED` is returned as with any
     /// other error.
-    func receive(messages: UnsafeMutablePointer<GInputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, timeout: Int64, cancellable: CancellableProtocol) throws -> Int {
+    @inlinable func receive<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GInputMessage>!, numMessages num_messages: Int, flags: Int, timeout: gint64, cancellable: CancellableT? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_datagram_based_receive_messages(cast(datagram_based_ptr), cast(messages), guint(num_messages), gint(flags), gint64(timeout), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return Int(rv)
+        let rv = Int(g_datagram_based_receive_messages(datagram_based_ptr, messages, guint(num_messages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Send one or more data messages from `datagram_based` in one go.
@@ -1305,28 +1613,28 @@ public extension DatagramBasedProtocol {
     /// be returned if zero messages could be sent; otherwise the number of messages
     /// successfully sent before the error will be returned. If `cancellable` is
     /// cancelled, `G_IO_ERROR_CANCELLED` is returned as with any other error.
-    func send(messages: UnsafeMutablePointer<GOutputMessage>, numMessages num_messages: CUnsignedInt, flags: CInt, timeout: Int64, cancellable: CancellableProtocol) throws -> Int {
+    @inlinable func send<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GOutputMessage>!, numMessages num_messages: Int, flags: Int, timeout: gint64, cancellable: CancellableT? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_datagram_based_send_messages(cast(datagram_based_ptr), cast(messages), guint(num_messages), gint(flags), gint64(timeout), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return Int(rv)
+        let rv = Int(g_datagram_based_send_messages(datagram_based_ptr, messages, guint(num_messages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
     /// assumed to communicate with the server identified by `server_identity`.
-    func dtlsClientConnectionNew(serverIdentity server_identity: SocketConnectableProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
+    @inlinable func dtlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity server_identity: SocketConnectableT? = nil) throws -> DtlsClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_client_connection_new(cast(datagram_based_ptr), cast(server_identity.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(datagram_based_ptr, server_identity?.socket_connectable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
-    func dtlsServerConnectionNew(certificate: TLSCertificateProtocol) throws -> UnsafeMutablePointer<GDatagramBased>! {
+    @inlinable func dtlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT? = nil) throws -> DtlsServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GDatagramBased>! = cast(g_dtls_server_connection_new(cast(datagram_based_ptr), cast(certificate.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
 
@@ -1369,10 +1677,11 @@ public extension DatagramBasedProtocol {
 /// `GDrive` in that API.
 public protocol DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDrive` instance.
-    var drive_ptr: UnsafeMutablePointer<GDrive> { get }
+    var drive_ptr: UnsafeMutablePointer<GDrive>! { get }
+
 }
 
 /// The `DriveRef` type acts as a lightweight Swift reference to an underlying `GDrive` instance.
@@ -1408,46 +1717,76 @@ public protocol DriveProtocol {
 public struct DriveRef: DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
     /// For type-safe access, use the generated, typed pointer `drive_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DriveRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDrive>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDrive>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDrive>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDrive>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDrive>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DriveProtocol`
-    init<T: DriveProtocol>(_ other: T) {
+    @inlinable init<T: DriveProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1486,95 +1825,141 @@ public extension DriveRef {
 open class Drive: DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
     /// For type-safe access, use the generated, typed pointer `drive_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Drive` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDrive>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GDrive>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDrive>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDrive>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Drive` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDrive>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDrive` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Drive` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDrive>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDrive>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DriveProtocol`
     /// `GDrive` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DriveProtocol`
-    public init<T: DriveProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.drive_ptr)
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+    @inlinable public init<T: DriveProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
     /// Do-nothing destructor for `GDrive`.
     deinit {
-        // no reference counting for GDrive, cannot unref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot unref(drive_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GDrive, cannot ref(cast(drive_ptr))
+        // no reference counting for GDrive, cannot ref(drive_ptr)
     }
 
 
@@ -1606,11 +1991,11 @@ public extension DriveProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DriveSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DriveSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(drive_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1631,36 +2016,36 @@ public extension DriveProtocol {
 // MARK: Drive Interface: DriveProtocol extension (methods and fields)
 public extension DriveProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDrive` instance.
-    var drive_ptr: UnsafeMutablePointer<GDrive> { return ptr.assumingMemoryBound(to: GDrive.self) }
+    @inlinable var drive_ptr: UnsafeMutablePointer<GDrive>! { return ptr?.assumingMemoryBound(to: GDrive.self) }
 
     /// Checks if a drive can be ejected.
-    func canEject() -> Bool {
-        let rv = g_drive_can_eject(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func canEject() -> Bool {
+        let rv = ((g_drive_can_eject(drive_ptr)) != 0)
+        return rv
     }
 
     /// Checks if a drive can be polled for media changes.
-    func canPollForMedia() -> Bool {
-        let rv = g_drive_can_poll_for_media(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func canPollForMedia() -> Bool {
+        let rv = ((g_drive_can_poll_for_media(drive_ptr)) != 0)
+        return rv
     }
 
     /// Checks if a drive can be started.
-    func canStart() -> Bool {
-        let rv = g_drive_can_start(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func canStart() -> Bool {
+        let rv = ((g_drive_can_start(drive_ptr)) != 0)
+        return rv
     }
 
     /// Checks if a drive can be started degraded.
-    func canStartDegraded() -> Bool {
-        let rv = g_drive_can_start_degraded(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func canStartDegraded() -> Bool {
+        let rv = ((g_drive_can_start_degraded(drive_ptr)) != 0)
+        return rv
     }
 
     /// Checks if a drive can be stopped.
-    func canStop() -> Bool {
-        let rv = g_drive_can_stop(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func canStop() -> Bool {
+        let rv = ((g_drive_can_stop(drive_ptr)) != 0)
+        return rv
     }
 
     /// Asynchronously ejects a drive.
@@ -1671,8 +2056,8 @@ public extension DriveProtocol {
     ///
     /// **eject is deprecated:**
     /// Use g_drive_eject_with_operation() instead.
-    @available(*, deprecated) func eject(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_drive_eject(cast(drive_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_drive_eject(drive_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -1680,97 +2065,97 @@ public extension DriveProtocol {
     ///
     /// **eject_finish is deprecated:**
     /// Use g_drive_eject_with_operation_finish() instead.
-    @available(*, deprecated) func ejectFinish(result: AsyncResultProtocol) throws -> Bool {
+    @available(*, deprecated) @inlinable func ejectFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_drive_eject_finish(cast(drive_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_drive_eject_finish(drive_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Ejects a drive. This is an asynchronous operation, and is
     /// finished by calling `g_drive_eject_with_operation_finish()` with the `drive`
     /// and `GAsyncResult` data returned in the `callback`.
-    func ejectWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_drive_eject_with_operation(cast(drive_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_drive_eject_with_operation(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes ejecting a drive. If any errors occurred during the operation,
     /// `error` will be set to contain the errors and `false` will be returned.
-    func ejectWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func ejectWithOperationFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_drive_eject_with_operation_finish(cast(drive_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_drive_eject_with_operation_finish(drive_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the kinds of identifiers that `drive` has.
     /// Use `g_drive_get_identifier()` to obtain the identifiers
     /// themselves.
-    func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>! = cast(g_drive_enumerate_identifiers(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func enumerateIdentifiers() -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+        let rv = g_drive_enumerate_identifiers(drive_ptr)
+        return rv
     }
 
     /// Gets the icon for `drive`.
-    func getIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_drive_get_icon(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func getIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_drive_get_icon(drive_ptr)))
+        return rv
     }
 
     /// Gets the identifier of the given kind for `drive`. The only
     /// identifier currently available is
     /// `G_DRIVE_IDENTIFIER_KIND_UNIX_DEVICE`.
-    func getIdentifier(kind: UnsafePointer<CChar>) -> String! {
-        let rv: String! = cast(g_drive_get_identifier(cast(drive_ptr), kind))
-        return cast(rv)
+    @inlinable func getIdentifier(kind: UnsafePointer<CChar>!) -> String! {
+        let rv = g_drive_get_identifier(drive_ptr, kind).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the name of `drive`.
-    func getName() -> String! {
-        let rv: String! = cast(g_drive_get_name(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_drive_get_name(drive_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the sort key for `drive`, if any.
-    func getSortKey() -> String! {
-        let rv: String! = cast(g_drive_get_sort_key(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func getSortKey() -> String! {
+        let rv = g_drive_get_sort_key(drive_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets a hint about how a drive can be started/stopped.
-    func getStartStopType() -> GDriveStartStopType {
-        let rv = g_drive_get_start_stop_type(cast(drive_ptr))
-        return cast(rv)
+    @inlinable func getStartStopType() -> GDriveStartStopType {
+        let rv = g_drive_get_start_stop_type(drive_ptr)
+        return rv
     }
 
     /// Gets the icon for `drive`.
-    func getSymbolicIcon() -> UnsafeMutablePointer<GIcon>! {
-        let rv: UnsafeMutablePointer<GIcon>! = cast(g_drive_get_symbolic_icon(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func getSymbolicIcon() -> IconRef! {
+        let rv = IconRef(gconstpointer: gconstpointer(g_drive_get_symbolic_icon(drive_ptr)))
+        return rv
     }
 
     /// Get a list of mountable volumes for `drive`.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    func getVolumes() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_drive_get_volumes(cast(drive_ptr)))
-        return cast(rv)
+    @inlinable func getVolumes() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_drive_get_volumes(drive_ptr)))
+        return rv
     }
 
     /// Checks if the `drive` has media. Note that the OS may not be polling
     /// the drive for media changes; see `g_drive_is_media_check_automatic()`
     /// for more details.
-    func hasMedia() -> Bool {
-        let rv = g_drive_has_media(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasMedia() -> Bool {
+        let rv = ((g_drive_has_media(drive_ptr)) != 0)
+        return rv
     }
 
     /// Check if `drive` has any mountable volumes.
-    func hasVolumes() -> Bool {
-        let rv = g_drive_has_volumes(cast(drive_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasVolumes() -> Bool {
+        let rv = ((g_drive_has_volumes(drive_ptr)) != 0)
+        return rv
     }
 
     /// Asynchronously polls `drive` to see if media has been inserted or removed.
@@ -1778,17 +2163,17 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_poll_for_media_finish()` to obtain the
     /// result of the operation.
-    func pollForMedia(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_drive_poll_for_media(cast(drive_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func pollForMedia<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_drive_poll_for_media(drive_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an operation started with `g_drive_poll_for_media()` on a drive.
-    func pollForMediaFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func pollForMediaFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_drive_poll_for_media_finish(cast(drive_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_drive_poll_for_media_finish(drive_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously starts a drive.
@@ -1796,17 +2181,17 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_start_finish()` to obtain the
     /// result of the operation.
-    func start(flags: DriveStartFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_drive_start(cast(drive_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func start<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_drive_start(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes starting a drive.
-    func startFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func startFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_drive_start_finish(cast(drive_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_drive_start_finish(drive_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously stops a drive.
@@ -1814,89 +2199,89 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_stop_finish()` to obtain the
     /// result of the operation.
-    func stop(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_drive_stop(cast(drive_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func stop<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_drive_stop(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes stopping a drive.
-    func stopFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func stopFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_drive_stop_finish(cast(drive_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_drive_stop_finish(drive_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Gets the icon for `drive`.
-    var icon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var icon: IconRef! {
         /// Gets the icon for `drive`.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_drive_get_icon(cast(drive_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_drive_get_icon(drive_ptr)))
+            return rv
         }
     }
 
     /// Checks if `drive` is capabable of automatically detecting media changes.
-    var isMediaCheckAutomatic: Bool {
+    @inlinable var isMediaCheckAutomatic: Bool {
         /// Checks if `drive` is capabable of automatically detecting media changes.
         get {
-            let rv = g_drive_is_media_check_automatic(cast(drive_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_drive_is_media_check_automatic(drive_ptr)) != 0)
+            return rv
         }
     }
 
     /// Checks if the `drive` supports removable media.
-    var isMediaRemovable: Bool {
+    @inlinable var isMediaRemovable: Bool {
         /// Checks if the `drive` supports removable media.
         get {
-            let rv = g_drive_is_media_removable(cast(drive_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_drive_is_media_removable(drive_ptr)) != 0)
+            return rv
         }
     }
 
     /// Checks if the `GDrive` and/or its media is considered removable by the user.
     /// See `g_drive_is_media_removable()`.
-    var isRemovable: Bool {
+    @inlinable var isRemovable: Bool {
         /// Checks if the `GDrive` and/or its media is considered removable by the user.
         /// See `g_drive_is_media_removable()`.
         get {
-            let rv = g_drive_is_removable(cast(drive_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_drive_is_removable(drive_ptr)) != 0)
+            return rv
         }
     }
 
     /// Gets the name of `drive`.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the name of `drive`.
         get {
-            let rv: String! = cast(g_drive_get_name(cast(drive_ptr)))
-            return cast(rv)
+            let rv = g_drive_get_name(drive_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the sort key for `drive`, if any.
-    var sortKey: String! {
+    @inlinable var sortKey: String! {
         /// Gets the sort key for `drive`, if any.
         get {
-            let rv: String! = cast(g_drive_get_sort_key(cast(drive_ptr)))
-            return cast(rv)
+            let rv = g_drive_get_sort_key(drive_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets a hint about how a drive can be started/stopped.
-    var startStopType: GDriveStartStopType {
+    @inlinable var startStopType: GDriveStartStopType {
         /// Gets a hint about how a drive can be started/stopped.
         get {
-            let rv = g_drive_get_start_stop_type(cast(drive_ptr))
-            return cast(rv)
+            let rv = g_drive_get_start_stop_type(drive_ptr)
+            return rv
         }
     }
 
     /// Gets the icon for `drive`.
-    var symbolicIcon: UnsafeMutablePointer<GIcon>! {
+    @inlinable var symbolicIcon: IconRef! {
         /// Gets the icon for `drive`.
         get {
-            let rv: UnsafeMutablePointer<GIcon>! = cast(g_drive_get_symbolic_icon(cast(drive_ptr)))
-            return cast(rv)
+            let rv = IconRef(gconstpointer: gconstpointer(g_drive_get_symbolic_icon(drive_ptr)))
+            return rv
         }
     }
 
@@ -1904,14 +2289,14 @@ public extension DriveProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    var volumes: UnsafeMutablePointer<GList>! {
+    @inlinable var volumes: ListRef! {
         /// Get a list of mountable volumes for `drive`.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_drive_get_volumes(cast(drive_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_drive_get_volumes(drive_ptr)))
+            return rv
         }
     }
 
@@ -1931,10 +2316,11 @@ public extension DriveProtocol {
 /// `GDtlsConnection`, representing a client-side DTLS connection.
 public protocol DtlsClientConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDtlsClientConnection` instance.
-    var dtls_client_connection_ptr: UnsafeMutablePointer<GDtlsClientConnection> { get }
+    var dtls_client_connection_ptr: UnsafeMutablePointer<GDtlsClientConnection>! { get }
+
 }
 
 /// The `DtlsClientConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsClientConnection` instance.
@@ -1946,46 +2332,76 @@ public protocol DtlsClientConnectionProtocol: DatagramBasedProtocol {
 public struct DtlsClientConnectionRef: DtlsClientConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_client_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DtlsClientConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDtlsClientConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDtlsClientConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDtlsClientConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDtlsClientConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDtlsClientConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DtlsClientConnectionProtocol`
-    init<T: DtlsClientConnectionProtocol>(_ other: T) {
+    @inlinable init<T: DtlsClientConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2002,77 +2418,123 @@ open class DtlsClientConnection: DatagramBased, DtlsClientConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDtlsClientConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GDtlsClientConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDtlsClientConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDtlsClientConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDtlsClientConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDtlsClientConnection` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DtlsClientConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDtlsClientConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDtlsClientConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `DtlsClientConnectionProtocol`
     /// `GDtlsClientConnection` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DtlsClientConnectionProtocol`
-    public init<T: DtlsClientConnectionProtocol>(dtlsClientConnection other: T) {
-        super.init(retaining: cast(other.dtls_client_connection_ptr))
+    @inlinable public init<T: DtlsClientConnectionProtocol>(dtlsClientConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2120,18 +2582,18 @@ public extension DtlsClientConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_client_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -2149,7 +2611,7 @@ public extension DtlsClientConnectionProtocol {
     /// Get the value of a DtlsClientConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: DtlsClientConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: DtlsClientConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -2159,7 +2621,7 @@ public extension DtlsClientConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: DtlsClientConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: DtlsClientConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2202,11 +2664,11 @@ public extension DtlsClientConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DtlsClientConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DtlsClientConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_client_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2227,7 +2689,7 @@ public extension DtlsClientConnectionProtocol {
 // MARK: DtlsClientConnection Interface: DtlsClientConnectionProtocol extension (methods and fields)
 public extension DtlsClientConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsClientConnection` instance.
-    var dtls_client_connection_ptr: UnsafeMutablePointer<GDtlsClientConnection> { return ptr.assumingMemoryBound(to: GDtlsClientConnection.self) }
+    @inlinable var dtls_client_connection_ptr: UnsafeMutablePointer<GDtlsClientConnection>! { return ptr?.assumingMemoryBound(to: GDtlsClientConnection.self) }
 
     /// Gets the list of distinguished names of the Certificate Authorities
     /// that the server will accept certificates from. This will be set
@@ -2236,37 +2698,37 @@ public extension DtlsClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    func getAcceptedCas() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_dtls_client_connection_get_accepted_cas(cast(dtls_client_connection_ptr)))
-        return cast(rv)
+    @inlinable func getAcceptedCas() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr)))
+        return rv
     }
 
     /// Gets `conn`'s expected server identity
-    func getServerIdentity() -> UnsafeMutablePointer<GSocketConnectable>! {
-        let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_dtls_client_connection_get_server_identity(cast(dtls_client_connection_ptr)))
-        return cast(rv)
+    @inlinable func getServerIdentity() -> SocketConnectableRef! {
+        let rv = SocketConnectableRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_server_identity(dtls_client_connection_ptr)))
+        return rv
     }
 
     /// Gets `conn`'s validation flags
-    func getValidationFlags() -> GTlsCertificateFlags {
-        let rv = g_dtls_client_connection_get_validation_flags(cast(dtls_client_connection_ptr))
-        return cast(rv)
+    @inlinable func getValidationFlags() -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_dtls_client_connection_get_validation_flags(dtls_client_connection_ptr))
+        return rv
     }
 
     /// Sets `conn`'s expected server identity, which is used both to tell
     /// servers on virtual hosts which certificate to present, and also
     /// to let `conn` know what name to look for in the certificate when
     /// performing `G_TLS_CERTIFICATE_BAD_IDENTITY` validation, if enabled.
-    func setServer(identity: SocketConnectableProtocol) {
-        g_dtls_client_connection_set_server_identity(cast(dtls_client_connection_ptr), cast(identity.ptr))
+    @inlinable func setServer<SocketConnectableT: SocketConnectableProtocol>(identity: SocketConnectableT) {
+        g_dtls_client_connection_set_server_identity(dtls_client_connection_ptr, identity.socket_connectable_ptr)
     
     }
 
     /// Sets `conn`'s validation flags, to override the default set of
     /// checks performed when validating a server certificate. By default,
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL` is used.
-    func setValidation(flags: TLSCertificateFlags) {
-        g_dtls_client_connection_set_validation_flags(cast(dtls_client_connection_ptr), flags.value)
+    @inlinable func setValidation(flags: TLSCertificateFlags) {
+        g_dtls_client_connection_set_validation_flags(dtls_client_connection_ptr, flags.value)
     
     }
     /// Gets the list of distinguished names of the Certificate Authorities
@@ -2276,7 +2738,7 @@ public extension DtlsClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    var acceptedCas: UnsafeMutablePointer<GList>! {
+    @inlinable var acceptedCas: ListRef! {
         /// Gets the list of distinguished names of the Certificate Authorities
         /// that the server will accept certificates from. This will be set
         /// during the TLS handshake if the server requests a certificate.
@@ -2285,39 +2747,39 @@ public extension DtlsClientConnectionProtocol {
         /// Each item in the list is a `GByteArray` which contains the complete
         /// subject DN of the certificate authority.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_dtls_client_connection_get_accepted_cas(cast(dtls_client_connection_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr)))
+            return rv
         }
     }
 
     /// Gets `conn`'s expected server identity
-    var serverIdentity: UnsafeMutablePointer<GSocketConnectable>! {
+    @inlinable var serverIdentity: SocketConnectableRef! {
         /// Gets `conn`'s expected server identity
         get {
-            let rv: UnsafeMutablePointer<GSocketConnectable>! = cast(g_dtls_client_connection_get_server_identity(cast(dtls_client_connection_ptr)))
-            return cast(rv)
+            let rv = SocketConnectableRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_server_identity(dtls_client_connection_ptr)))
+            return rv
         }
         /// Sets `conn`'s expected server identity, which is used both to tell
         /// servers on virtual hosts which certificate to present, and also
         /// to let `conn` know what name to look for in the certificate when
         /// performing `G_TLS_CERTIFICATE_BAD_IDENTITY` validation, if enabled.
         nonmutating set {
-            g_dtls_client_connection_set_server_identity(cast(dtls_client_connection_ptr), cast(newValue))
+            g_dtls_client_connection_set_server_identity(dtls_client_connection_ptr, UnsafeMutablePointer<GSocketConnectable>(newValue?.socket_connectable_ptr))
         }
     }
 
     /// Gets `conn`'s validation flags
-    var validationFlags: GTlsCertificateFlags {
+    @inlinable var validationFlags: TLSCertificateFlags {
         /// Gets `conn`'s validation flags
         get {
-            let rv = g_dtls_client_connection_get_validation_flags(cast(dtls_client_connection_ptr))
-            return cast(rv)
+            let rv = TLSCertificateFlags(g_dtls_client_connection_get_validation_flags(dtls_client_connection_ptr))
+            return rv
         }
         /// Sets `conn`'s validation flags, to override the default set of
         /// checks performed when validating a server certificate. By default,
         /// `G_TLS_CERTIFICATE_VALIDATE_ALL` is used.
         nonmutating set {
-            g_dtls_client_connection_set_validation_flags(cast(dtls_client_connection_ptr), cast(newValue))
+            g_dtls_client_connection_set_validation_flags(dtls_client_connection_ptr, newValue.value)
         }
     }
 
@@ -2354,10 +2816,11 @@ public extension DtlsClientConnectionProtocol {
 /// error on further I/O.
 public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDtlsConnection` instance.
-    var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection> { get }
+    var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection>! { get }
+
 }
 
 /// The `DtlsConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnection` instance.
@@ -2386,46 +2849,76 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
 public struct DtlsConnectionRef: DtlsConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DtlsConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDtlsConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDtlsConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDtlsConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDtlsConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDtlsConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DtlsConnectionProtocol`
-    init<T: DtlsConnectionProtocol>(_ other: T) {
+    @inlinable init<T: DtlsConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2459,77 +2952,123 @@ open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DtlsConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDtlsConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GDtlsConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDtlsConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDtlsConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDtlsConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDtlsConnection` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DtlsConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDtlsConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDtlsConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `DtlsConnectionProtocol`
     /// `GDtlsConnection` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DtlsConnectionProtocol`
-    public init<T: DtlsConnectionProtocol>(dtlsConnection other: T) {
-        super.init(retaining: cast(other.dtls_connection_ptr))
+    @inlinable public init<T: DtlsConnectionProtocol>(dtlsConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2594,18 +3133,18 @@ public extension DtlsConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -2623,7 +3162,7 @@ public extension DtlsConnectionProtocol {
     /// Get the value of a DtlsConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: DtlsConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: DtlsConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -2633,7 +3172,7 @@ public extension DtlsConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: DtlsConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: DtlsConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2726,11 +3265,11 @@ public extension DtlsConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DtlsConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DtlsConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2751,7 +3290,7 @@ public extension DtlsConnectionProtocol {
 // MARK: DtlsConnection Interface: DtlsConnectionProtocol extension (methods and fields)
 public extension DtlsConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsConnection` instance.
-    var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection> { return ptr.assumingMemoryBound(to: GDtlsConnection.self) }
+    @inlinable var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection>! { return ptr?.assumingMemoryBound(to: GDtlsConnection.self) }
 
     /// Close the DTLS connection. This is equivalent to calling
     /// `g_dtls_connection_shutdown()` to shut down both sides of the connection.
@@ -2772,56 +3311,56 @@ public extension DtlsConnectionProtocol {
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
     /// `g_dtls_connection_close()` again to complete closing the `GDtlsConnection`.
-    func close(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_close(cast(dtls_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_close(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously close the DTLS connection. See `g_dtls_connection_close()` for
     /// more information.
-    func closeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dtls_connection_close_async(cast(dtls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_dtls_connection_close_async(dtls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous TLS close operation. See `g_dtls_connection_close()`
     /// for more information.
-    func closeFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func closeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_close_finish(cast(dtls_connection_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_close_finish(dtls_connection_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Used by `GDtlsConnection` implementations to emit the
     /// `GDtlsConnection::accept`-certificate signal.
-    func emitAcceptCertificate(peerCert peer_cert: TLSCertificateProtocol, errors: TLSCertificateFlags) -> Bool {
-        let rv = g_dtls_connection_emit_accept_certificate(cast(dtls_connection_ptr), cast(peer_cert.ptr), errors.value)
-        return Bool(rv != 0)
+    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert peer_cert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
+        let rv = ((g_dtls_connection_emit_accept_certificate(dtls_connection_ptr, peer_cert.tls_certificate_ptr, errors.value)) != 0)
+        return rv
     }
 
     /// Gets `conn`'s certificate, as set by
     /// `g_dtls_connection_set_certificate()`.
-    func getCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_dtls_connection_get_certificate(cast(dtls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getCertificate() -> TLSCertificateRef! {
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_certificate(dtls_connection_ptr)))
+        return rv
     }
 
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_dtls_connection_set_database()`.
-    func getDatabase() -> UnsafeMutablePointer<GTlsDatabase>! {
-        let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_dtls_connection_get_database(cast(dtls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getDatabase() -> TLSDatabaseRef! {
+        let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_dtls_connection_get_database(dtls_connection_ptr)))
+        return rv
     }
 
     /// Get the object that will be used to interact with the user. It will be used
     /// for things like prompting the user for passwords. If `nil` is returned, then
     /// no user interaction will occur for this connection.
-    func getInteraction() -> UnsafeMutablePointer<GTlsInteraction>! {
-        let rv: UnsafeMutablePointer<GTlsInteraction>! = cast(g_dtls_connection_get_interaction(cast(dtls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getInteraction() -> TLSInteractionRef! {
+        let rv = TLSInteractionRef(gconstpointer: gconstpointer(g_dtls_connection_get_interaction(dtls_connection_ptr)))
+        return rv
     }
 
     /// Gets the name of the application-layer protocol negotiated during
@@ -2831,25 +3370,25 @@ public extension DtlsConnectionProtocol {
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
     /// `g_dtls_connection_set_advertised_protocols()`.
-    func getNegotiatedProtocol() -> String! {
-        let rv: String! = cast(g_dtls_connection_get_negotiated_protocol(cast(dtls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getNegotiatedProtocol() -> String! {
+        let rv = g_dtls_connection_get_negotiated_protocol(dtls_connection_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
     /// `GDtlsConnection::accept`-certificate.)
-    func getPeerCertificate() -> UnsafeMutablePointer<GTlsCertificate>! {
-        let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_dtls_connection_get_peer_certificate(cast(dtls_connection_ptr)))
-        return cast(rv)
+    @inlinable func getPeerCertificate() -> TLSCertificateRef! {
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
+        return rv
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
     /// during the emission of `GDtlsConnection::accept`-certificate.)
-    func getPeerCertificateErrors() -> GTlsCertificateFlags {
-        let rv = g_dtls_connection_get_peer_certificate_errors(cast(dtls_connection_ptr))
-        return cast(rv)
+    @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
+        return rv
     }
 
     /// Gets `conn` rehandshaking mode. See
@@ -2859,17 +3398,17 @@ public extension DtlsConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    @available(*, deprecated) func getRehandshakeMode() -> GTlsRehandshakeMode {
-        let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getRehandshakeMode() -> GTlsRehandshakeMode {
+        let rv = g_dtls_connection_get_rehandshake_mode(dtls_connection_ptr)
+        return rv
     }
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
     /// `g_dtls_connection_set_require_close_notify()` for details.
-    func getRequireCloseNotify() -> Bool {
-        let rv = g_dtls_connection_get_require_close_notify(cast(dtls_connection_ptr))
-        return Bool(rv != 0)
+    @inlinable func getRequireCloseNotify() -> Bool {
+        let rv = ((g_dtls_connection_get_require_close_notify(dtls_connection_ptr)) != 0)
+        return rv
     }
 
     /// Attempts a TLS handshake on `conn`.
@@ -2898,27 +3437,27 @@ public extension DtlsConnectionProtocol {
     /// 
     /// `GDtlsConnection::accept_certificate` may be emitted during the
     /// handshake.
-    func handshake(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_handshake(cast(dtls_connection_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_handshake(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously performs a TLS handshake on `conn`. See
     /// `g_dtls_connection_handshake()` for more information.
-    func handshakeAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dtls_connection_handshake_async(cast(dtls_connection_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_dtls_connection_handshake_async(dtls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous TLS handshake operation. See
     /// `g_dtls_connection_handshake()` for more information.
-    func handshakeFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func handshakeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_handshake_finish(cast(dtls_connection_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_handshake_finish(dtls_connection_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the list of application-layer protocols to advertise that the
@@ -2931,8 +3470,8 @@ public extension DtlsConnectionProtocol {
     /// 
     /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn`-protocol-ids)
     /// for a list of registered protocol IDs.
-    func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>>) {
-        g_dtls_connection_set_advertised_protocols(cast(dtls_connection_ptr), cast(protocols))
+    @inlinable func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>?>! = nil) {
+        g_dtls_connection_set_advertised_protocols(dtls_connection_ptr, protocols)
     
     }
 
@@ -2954,8 +3493,8 @@ public extension DtlsConnectionProtocol {
     /// certificate, you can tell that the server requested one by the fact
     /// that `g_dtls_client_connection_get_accepted_cas()` will return
     /// non-`nil`.)
-    func set(certificate: TLSCertificateProtocol) {
-        g_dtls_connection_set_certificate(cast(dtls_connection_ptr), cast(certificate.ptr))
+    @inlinable func set<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT) {
+        g_dtls_connection_set_certificate(dtls_connection_ptr, certificate.tls_certificate_ptr)
     
     }
 
@@ -2967,8 +3506,8 @@ public extension DtlsConnectionProtocol {
     /// `GDtlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
     /// `GDtlsClientConnection:validation`-flags).
-    func set(database: TLSDatabaseProtocol) {
-        g_dtls_connection_set_database(cast(dtls_connection_ptr), cast(database.ptr))
+    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT) {
+        g_dtls_connection_set_database(dtls_connection_ptr, database.tls_database_ptr)
     
     }
 
@@ -2978,8 +3517,8 @@ public extension DtlsConnectionProtocol {
     /// The `interaction` argument will normally be a derived subclass of
     /// `GTlsInteraction`. `nil` can also be provided if no user interaction
     /// should occur for this connection.
-    func set(interaction: TLSInteractionProtocol) {
-        g_dtls_connection_set_interaction(cast(dtls_connection_ptr), cast(interaction.ptr))
+    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT? = nil) {
+        g_dtls_connection_set_interaction(dtls_connection_ptr, interaction?.tls_interaction_ptr)
     
     }
 
@@ -2992,8 +3531,8 @@ public extension DtlsConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    @available(*, deprecated) func setRehandshake(mode: TLSRehandshakeMode) {
-        g_dtls_connection_set_rehandshake_mode(cast(dtls_connection_ptr), mode)
+    @available(*, deprecated) @inlinable func setRehandshake(mode: GTlsRehandshakeMode) {
+        g_dtls_connection_set_rehandshake_mode(dtls_connection_ptr, mode)
     
     }
 
@@ -3022,8 +3561,8 @@ public extension DtlsConnectionProtocol {
     /// setting of this property. If you explicitly want to do an unclean
     /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
     /// than closing `conn` itself.
-    func set(requireCloseNotify require_close_notify: Bool) {
-        g_dtls_connection_set_require_close_notify(cast(dtls_connection_ptr), gboolean(require_close_notify ? 1 : 0))
+    @inlinable func set(requireCloseNotify require_close_notify: Bool) {
+        g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((require_close_notify) ? 1 : 0))
     
     }
 
@@ -3043,36 +3582,36 @@ public extension DtlsConnectionProtocol {
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
     /// `g_dtls_connection_shutdown()` again to complete closing the `GDtlsConnection`.
-    func shutdown(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func shutdown<CancellableT: CancellableProtocol>(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_shutdown(cast(dtls_connection_ptr), gboolean(shutdown_read ? 1 : 0), gboolean(shutdown_write ? 1 : 0), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_shutdown(dtls_connection_ptr, gboolean((shutdown_read) ? 1 : 0), gboolean((shutdown_write) ? 1 : 0), cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously shut down part or all of the DTLS connection. See
     /// `g_dtls_connection_shutdown()` for more information.
-    func shutdownAsync(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_dtls_connection_shutdown_async(cast(dtls_connection_ptr), gboolean(shutdown_read ? 1 : 0), gboolean(shutdown_write ? 1 : 0), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func shutdownAsync<CancellableT: CancellableProtocol>(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_dtls_connection_shutdown_async(dtls_connection_ptr, gboolean((shutdown_read) ? 1 : 0), gboolean((shutdown_write) ? 1 : 0), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finish an asynchronous TLS shutdown operation. See
     /// `g_dtls_connection_shutdown()` for more information.
-    func shutdownFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func shutdownFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dtls_connection_shutdown_finish(cast(dtls_connection_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_dtls_connection_shutdown_finish(dtls_connection_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// The connection's certificate; see
     /// `g_dtls_connection_set_certificate()`.
-    var certificate: UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable var certificate: TLSCertificateRef! {
         /// Gets `conn`'s certificate, as set by
         /// `g_dtls_connection_set_certificate()`.
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_dtls_connection_get_certificate(cast(dtls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_certificate(dtls_connection_ptr)))
+            return rv
         }
         /// This sets the certificate that `conn` will present to its peer
         /// during the TLS handshake. For a `GDtlsServerConnection`, it is
@@ -3093,19 +3632,19 @@ public extension DtlsConnectionProtocol {
         /// that `g_dtls_client_connection_get_accepted_cas()` will return
         /// non-`nil`.)
         nonmutating set {
-            g_dtls_connection_set_certificate(cast(dtls_connection_ptr), cast(newValue))
+            g_dtls_connection_set_certificate(dtls_connection_ptr, UnsafeMutablePointer<GTlsCertificate>(newValue?.tls_certificate_ptr))
         }
     }
 
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
-    var database: UnsafeMutablePointer<GTlsDatabase>! {
+    @inlinable var database: TLSDatabaseRef! {
         /// Gets the certificate database that `conn` uses to verify
         /// peer certificates. See `g_dtls_connection_set_database()`.
         get {
-            let rv: UnsafeMutablePointer<GTlsDatabase>! = cast(g_dtls_connection_get_database(cast(dtls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSDatabaseRef(gconstpointer: gconstpointer(g_dtls_connection_get_database(dtls_connection_ptr)))
+            return rv
         }
         /// Sets the certificate database that is used to verify peer certificates.
         /// This is set to the default database by default. See
@@ -3116,20 +3655,20 @@ public extension DtlsConnectionProtocol {
         /// client-side connections, unless that bit is not set in
         /// `GDtlsClientConnection:validation`-flags).
         nonmutating set {
-            g_dtls_connection_set_database(cast(dtls_connection_ptr), cast(newValue))
+            g_dtls_connection_set_database(dtls_connection_ptr, UnsafeMutablePointer<GTlsDatabase>(newValue?.tls_database_ptr))
         }
     }
 
     /// A `GTlsInteraction` object to be used when the connection or certificate
     /// database need to interact with the user. This will be used to prompt the
     /// user for passwords where necessary.
-    var interaction: UnsafeMutablePointer<GTlsInteraction>! {
+    @inlinable var interaction: TLSInteractionRef! {
         /// Get the object that will be used to interact with the user. It will be used
         /// for things like prompting the user for passwords. If `nil` is returned, then
         /// no user interaction will occur for this connection.
         get {
-            let rv: UnsafeMutablePointer<GTlsInteraction>! = cast(g_dtls_connection_get_interaction(cast(dtls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSInteractionRef(gconstpointer: gconstpointer(g_dtls_connection_get_interaction(dtls_connection_ptr)))
+            return rv
         }
         /// Set the object that will be used to interact with the user. It will be used
         /// for things like prompting the user for passwords.
@@ -3138,7 +3677,7 @@ public extension DtlsConnectionProtocol {
         /// `GTlsInteraction`. `nil` can also be provided if no user interaction
         /// should occur for this connection.
         nonmutating set {
-            g_dtls_connection_set_interaction(cast(dtls_connection_ptr), cast(newValue))
+            g_dtls_connection_set_interaction(dtls_connection_ptr, UnsafeMutablePointer<GTlsInteraction>(newValue?.tls_interaction_ptr))
         }
     }
 
@@ -3149,7 +3688,7 @@ public extension DtlsConnectionProtocol {
     /// protocol that matched one of `conn`'s protocols, or the TLS backend
     /// does not support ALPN, then this will be `nil`. See
     /// `g_dtls_connection_set_advertised_protocols()`.
-    var negotiatedProtocol: String! {
+    @inlinable var negotiatedProtocol: String! {
         /// Gets the name of the application-layer protocol negotiated during
         /// the handshake.
         /// 
@@ -3158,34 +3697,34 @@ public extension DtlsConnectionProtocol {
         /// does not support ALPN, then this will be `nil`. See
         /// `g_dtls_connection_set_advertised_protocols()`.
         get {
-            let rv: String! = cast(g_dtls_connection_get_negotiated_protocol(cast(dtls_connection_ptr)))
-            return cast(rv)
+            let rv = g_dtls_connection_get_negotiated_protocol(dtls_connection_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets `conn`'s peer's certificate after the handshake has completed.
     /// (It is not set during the emission of
     /// `GDtlsConnection::accept`-certificate.)
-    var peerCertificate: UnsafeMutablePointer<GTlsCertificate>! {
+    @inlinable var peerCertificate: TLSCertificateRef! {
         /// Gets `conn`'s peer's certificate after the handshake has completed.
         /// (It is not set during the emission of
         /// `GDtlsConnection::accept`-certificate.)
         get {
-            let rv: UnsafeMutablePointer<GTlsCertificate>! = cast(g_dtls_connection_get_peer_certificate(cast(dtls_connection_ptr)))
-            return cast(rv)
+            let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
+            return rv
         }
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed. (It is not set
     /// during the emission of `GDtlsConnection::accept`-certificate.)
-    var peerCertificateErrors: GTlsCertificateFlags {
+    @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed. (It is not set
         /// during the emission of `GDtlsConnection::accept`-certificate.)
         get {
-            let rv = g_dtls_connection_get_peer_certificate_errors(cast(dtls_connection_ptr))
-            return cast(rv)
+            let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
+            return rv
         }
     }
 
@@ -3196,7 +3735,7 @@ public extension DtlsConnectionProtocol {
     /// Changing the rehandshake mode is no longer
     ///   required for compatibility. Also, rehandshaking has been removed
     ///   from the TLS protocol in TLS 1.3.
-    var rehandshakeMode: GTlsRehandshakeMode {
+    @inlinable var rehandshakeMode: GTlsRehandshakeMode {
         /// Gets `conn` rehandshaking mode. See
         /// `g_dtls_connection_set_rehandshake_mode()` for details.
         ///
@@ -3205,8 +3744,8 @@ public extension DtlsConnectionProtocol {
         ///   required for compatibility. Also, rehandshaking has been removed
         ///   from the TLS protocol in TLS 1.3.
         @available(*, deprecated) get {
-            let rv = g_dtls_connection_get_rehandshake_mode(cast(dtls_connection_ptr))
-            return cast(rv)
+            let rv = g_dtls_connection_get_rehandshake_mode(dtls_connection_ptr)
+            return rv
         }
         /// Since GLib 2.64, changing the rehandshake mode is no longer supported
         /// and will have no effect. With TLS 1.3, rehandshaking has been removed from
@@ -3218,20 +3757,20 @@ public extension DtlsConnectionProtocol {
         ///   required for compatibility. Also, rehandshaking has been removed
         ///   from the TLS protocol in TLS 1.3.
         @available(*, deprecated) nonmutating set {
-            g_dtls_connection_set_rehandshake_mode(cast(dtls_connection_ptr), cast(newValue))
+            g_dtls_connection_set_rehandshake_mode(dtls_connection_ptr, newValue)
         }
     }
 
     /// Tests whether or not `conn` expects a proper TLS close notification
     /// when the connection is closed. See
     /// `g_dtls_connection_set_require_close_notify()` for details.
-    var requireCloseNotify: Bool {
+    @inlinable var requireCloseNotify: Bool {
         /// Tests whether or not `conn` expects a proper TLS close notification
         /// when the connection is closed. See
         /// `g_dtls_connection_set_require_close_notify()` for details.
         get {
-            let rv = g_dtls_connection_get_require_close_notify(cast(dtls_connection_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_dtls_connection_get_require_close_notify(dtls_connection_ptr)) != 0)
+            return rv
         }
         /// Sets whether or not `conn` expects a proper TLS close notification
         /// before the connection is closed. If this is `true` (the default),
@@ -3259,7 +3798,7 @@ public extension DtlsConnectionProtocol {
         /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
         /// than closing `conn` itself.
         nonmutating set {
-            g_dtls_connection_set_require_close_notify(cast(dtls_connection_ptr), gboolean(newValue ? 1 : 0))
+            g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -3279,10 +3818,11 @@ public extension DtlsConnectionProtocol {
 /// representing a server-side DTLS connection.
 public protocol DtlsServerConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnection` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDtlsServerConnection` instance.
-    var dtls_server_connection_ptr: UnsafeMutablePointer<GDtlsServerConnection> { get }
+    var dtls_server_connection_ptr: UnsafeMutablePointer<GDtlsServerConnection>! { get }
+
 }
 
 /// The `DtlsServerConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsServerConnection` instance.
@@ -3294,46 +3834,76 @@ public protocol DtlsServerConnectionProtocol: DatagramBasedProtocol {
 public struct DtlsServerConnectionRef: DtlsServerConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_server_connection_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DtlsServerConnectionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDtlsServerConnection>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDtlsServerConnection>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDtlsServerConnection>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDtlsServerConnection>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDtlsServerConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DtlsServerConnectionProtocol`
-    init<T: DtlsServerConnectionProtocol>(_ other: T) {
+    @inlinable init<T: DtlsServerConnectionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3350,77 +3920,123 @@ open class DtlsServerConnection: DatagramBased, DtlsServerConnectionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDtlsServerConnection>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GDtlsServerConnection>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDtlsServerConnection>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDtlsServerConnection>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDtlsServerConnection>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GDtlsServerConnection` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `DtlsServerConnection` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDtlsServerConnection>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDtlsServerConnection>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `DtlsServerConnectionProtocol`
     /// `GDtlsServerConnection` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DtlsServerConnectionProtocol`
-    public init<T: DtlsServerConnectionProtocol>(dtlsServerConnection other: T) {
-        super.init(retaining: cast(other.dtls_server_connection_ptr))
+    @inlinable public init<T: DtlsServerConnectionProtocol>(dtlsServerConnection other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -3444,18 +4060,18 @@ public extension DtlsServerConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_server_connection_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -3473,7 +4089,7 @@ public extension DtlsServerConnectionProtocol {
     /// Get the value of a DtlsServerConnection property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: DtlsServerConnectionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: DtlsServerConnectionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -3483,7 +4099,7 @@ public extension DtlsServerConnectionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: DtlsServerConnectionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: DtlsServerConnectionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -3502,11 +4118,11 @@ public extension DtlsServerConnectionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DtlsServerConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DtlsServerConnectionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dtls_server_connection_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3527,7 +4143,7 @@ public extension DtlsServerConnectionProtocol {
 // MARK: DtlsServerConnection Interface: DtlsServerConnectionProtocol extension (methods and fields)
 public extension DtlsServerConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDtlsServerConnection` instance.
-    var dtls_server_connection_ptr: UnsafeMutablePointer<GDtlsServerConnection> { return ptr.assumingMemoryBound(to: GDtlsServerConnection.self) }
+    @inlinable var dtls_server_connection_ptr: UnsafeMutablePointer<GDtlsServerConnection>! { return ptr?.assumingMemoryBound(to: GDtlsServerConnection.self) }
 
 
 
@@ -3625,10 +4241,11 @@ public extension DtlsServerConnectionProtocol {
 /// for HTTP Etag headers, which are a very similar concept.
 public protocol FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GFile` instance.
-    var file_ptr: UnsafeMutablePointer<GFile> { get }
+    var file_ptr: UnsafeMutablePointer<GFile>! { get }
+
 }
 
 /// The `FileRef` type acts as a lightweight Swift reference to an underlying `GFile` instance.
@@ -3719,46 +4336,76 @@ public protocol FileProtocol {
 public struct FileRef: FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
     /// For type-safe access, use the generated, typed pointer `file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FileRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GFile>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GFile>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GFile>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FileProtocol`
-    init<T: FileProtocol>(_ other: T) {
+    @inlinable init<T: FileProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3780,9 +4427,9 @@ public extension FileRef {
     /// `g_application_command_line_create_file_for_arg()` may be more useful
     /// for you there.  It is also always possible to use this function with
     /// `GOptionContext` arguments of type `G_OPTION_ARG_FILENAME`.
-    static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>) -> FileRef! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg(arg))
-        return rv.map { FileRef(cast($0)) }
+    @inlinable static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_new_for_commandline_arg(arg))) else { return nil }
+        return rv
     }
 
     /// Creates a `GFile` with the given argument from the command line.
@@ -3796,26 +4443,26 @@ public extension FileRef {
     /// other than the invocation of the current process.
     /// 
     /// See also `g_application_command_line_create_file_for_arg()`.
-    static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>, cwd: UnsafePointer<gchar>) -> FileRef! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg_and_cwd(arg, cwd))
-        return rv.map { FileRef(cast($0)) }
+    @inlinable static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>!, cwd: UnsafePointer<gchar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_new_for_commandline_arg_and_cwd(arg, cwd))) else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` for a given path. This operation never
     /// fails, but the returned object might not support any I/O
     /// operation if `path` is malformed.
-    static func newFor(path: UnsafePointer<CChar>) -> FileRef! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_path(path))
-        return rv.map { FileRef(cast($0)) }
+    @inlinable static func newFor(path: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_new_for_path(path))) else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` for a given URI. This operation never
     /// fails, but the returned object might not support any I/O
     /// operation if `uri` is malformed or if the uri type is
     /// not supported.
-    static func newFor(uri: UnsafePointer<CChar>) -> FileRef! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_uri(uri))
-        return rv.map { FileRef(cast($0)) }
+    @inlinable static func newFor(uri: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_new_for_uri(uri))) else { return nil }
+        return rv
     }
 
     /// Opens a file in the preferred directory for temporary files (as
@@ -3828,20 +4475,21 @@ public extension FileRef {
     /// 
     /// Unlike the other `GFile` constructors, this will return `nil` if
     /// a temporary file could not be created.
-    static func new(tmp tmpl: UnsafePointer<CChar>, iostream: FileIOStreamProtocol) throws -> FileRef! {
+    @inlinable static func new(tmp tmpl: UnsafePointer<CChar>? = nil, iostream: UnsafeMutablePointer<UnsafeMutablePointer<GFileIOStream>?>!) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_tmp(tmpl, cast(iostream.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { FileRef(cast($0)) }
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_new_tmp(tmpl, iostream, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` with the given `parse_name` (i.e. something
     /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
-    static func parseName(parseName parse_name: UnsafePointer<CChar>) -> FileRef! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_parse_name(parse_name))
-        return rv.map { FileRef(cast($0)) }
+    @inlinable static func parseName(parseName parse_name: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_parse_name(parse_name))) else { return nil }
+        return rv
     }
 }
 
@@ -3933,95 +4581,141 @@ public extension FileRef {
 open class File: FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
     /// For type-safe access, use the generated, typed pointer `file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `File` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GFile>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GFile>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `File` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GFile>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GFile` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `File` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GFile>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GFile>) {
         ptr = UnsafeMutableRawPointer(op)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Reference intialiser for a related type that implements `FileProtocol`
     /// `GFile` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FileProtocol`
-    public init<T: FileProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.file_ptr)
-	g_object_ref(cast(ptr))
+    @inlinable public init<T: FileProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_object_ref(ptr)
     }
 
     /// Do-nothing destructor for `GFile`.
     deinit {
-	g_object_unref(cast(ptr))
+        g_object_unref(ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-	g_object_ref(cast(ptr))
+        g_object_ref(ptr)
     }
 
 
@@ -4043,9 +4737,9 @@ open class File: FileProtocol {
     /// `g_application_command_line_create_file_for_arg()` may be more useful
     /// for you there.  It is also always possible to use this function with
     /// `GOptionContext` arguments of type `G_OPTION_ARG_FILENAME`.
-    public static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>) -> File! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg(arg))
-        return rv.map { File(cast($0)) }
+    @inlinable public static func newForCommandline(commandlineArg arg: UnsafePointer<CChar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_new_for_commandline_arg(arg))) else { return nil }
+        return rv
     }
 
     /// Creates a `GFile` with the given argument from the command line.
@@ -4059,26 +4753,26 @@ open class File: FileProtocol {
     /// other than the invocation of the current process.
     /// 
     /// See also `g_application_command_line_create_file_for_arg()`.
-    public static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>, cwd: UnsafePointer<gchar>) -> File! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_commandline_arg_and_cwd(arg, cwd))
-        return rv.map { File(cast($0)) }
+    @inlinable public static func newFor(commandlineArgAndCwd arg: UnsafePointer<gchar>!, cwd: UnsafePointer<gchar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_new_for_commandline_arg_and_cwd(arg, cwd))) else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` for a given path. This operation never
     /// fails, but the returned object might not support any I/O
     /// operation if `path` is malformed.
-    public static func newFor(path: UnsafePointer<CChar>) -> File! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_path(path))
-        return rv.map { File(cast($0)) }
+    @inlinable public static func newFor(path: UnsafePointer<CChar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_new_for_path(path))) else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` for a given URI. This operation never
     /// fails, but the returned object might not support any I/O
     /// operation if `uri` is malformed or if the uri type is
     /// not supported.
-    public static func newFor(uri: UnsafePointer<CChar>) -> File! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_for_uri(uri))
-        return rv.map { File(cast($0)) }
+    @inlinable public static func newFor(uri: UnsafePointer<CChar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_new_for_uri(uri))) else { return nil }
+        return rv
     }
 
     /// Opens a file in the preferred directory for temporary files (as
@@ -4091,20 +4785,21 @@ open class File: FileProtocol {
     /// 
     /// Unlike the other `GFile` constructors, this will return `nil` if
     /// a temporary file could not be created.
-    public static func new(tmp tmpl: UnsafePointer<CChar>, iostream: FileIOStreamProtocol) throws -> File! {
+    @inlinable public static func new(tmp tmpl: UnsafePointer<CChar>? = nil, iostream: UnsafeMutablePointer<UnsafeMutablePointer<GFileIOStream>?>!) throws -> File! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_new_tmp(tmpl, cast(iostream.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { File(cast($0)) }
+        let maybeRV = File(gconstpointer: gconstpointer(g_file_new_tmp(tmpl, iostream, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Constructs a `GFile` with the given `parse_name` (i.e. something
     /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
-    public static func parseName(parseName parse_name: UnsafePointer<CChar>) -> File! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_parse_name(parse_name))
-        return rv.map { File(cast($0)) }
+    @inlinable public static func parseName(parseName parse_name: UnsafePointer<CChar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_parse_name(parse_name))) else { return nil }
+        return rv
     }
 
 }
@@ -4117,7 +4812,7 @@ open class File: FileProtocol {
 // MARK: File Interface: FileProtocol extension (methods and fields)
 public extension FileProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GFile` instance.
-    var file_ptr: UnsafeMutablePointer<GFile> { return ptr.assumingMemoryBound(to: GFile.self) }
+    @inlinable var file_ptr: UnsafeMutablePointer<GFile>! { return ptr?.assumingMemoryBound(to: GFile.self) }
 
     /// Gets an output stream for appending data to the file.
     /// If the file doesn't already exist it is created.
@@ -4136,11 +4831,11 @@ public extension FileProtocol {
     /// `G_IO_ERROR_INVALID_FILENAME` error. If the file is a directory the
     /// `G_IO_ERROR_IS_DIRECTORY` error will be returned. Other errors are
     /// possible too, and depend on what kind of filesystem the file is on.
-    func appendTo(flags: FileCreateFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func appendTo<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_append_to(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_append_to(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously opens `file` for appending.
@@ -4151,18 +4846,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_append_to_finish()` to get the result
     /// of the operation.
-    func appendToAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_append_to_async(cast(file_ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func appendToAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_append_to_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file append operation started with
     /// `g_file_append_to_async()`.
-    func appendToFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func appendToFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_append_to_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_append_to_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Copies the file `source` to the location specified by `destination`.
@@ -4205,11 +4900,11 @@ public extension FileProtocol {
     /// 
     /// If you are interested in copying the `GFile` object itself (not the on-disk
     /// file), see `g_file_dup()`.
-    func copy(destination: FileProtocol, flags: FileCopyFlags, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileProgressCallback, progressCallbackData progress_callback_data: UnsafeMutableRawPointer) throws -> Bool {
+    @inlinable func copy<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_copy(cast(file_ptr), cast(destination.ptr), flags.value, cast(cancellable.ptr), progress_callback, cast(progress_callback_data), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_copy(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_callback_data, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Copies the file `source` to the location specified by `destination`
@@ -4222,8 +4917,8 @@ public extension FileProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_file_copy_finish()` to get the result of the operation.
-    func copyAsync(destination: FileProtocol, flags: FileCopyFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileProgressCallback, progressCallbackData progress_callback_data: UnsafeMutableRawPointer, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_copy_async(cast(file_ptr), cast(destination.ptr), flags.value, io_priority, cast(cancellable.ptr), progress_callback, cast(progress_callback_data), callback, cast(user_data))
+    @inlinable func copyAsync<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_copy_async(file_ptr, destination.file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, progress_callback, progress_callback_data, callback, user_data)
     
     }
 
@@ -4235,19 +4930,19 @@ public extension FileProtocol {
     /// if `G_FILE_COPY_ALL_METADATA` is specified in `flags`, then
     /// all the metadata that is possible to copy is copied. This
     /// is useful when implementing move by copy + delete source.
-    func copyAttributes(destination: FileProtocol, flags: FileCopyFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func copyAttributes<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_copy_attributes(cast(file_ptr), cast(destination.ptr), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_copy_attributes(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes copying the file started with `g_file_copy_async()`.
-    func copyFinish(res: AsyncResultProtocol) throws -> Bool {
+    @inlinable func copyFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_copy_finish(cast(file_ptr), cast(res.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_copy_finish(file_ptr, res.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new file and returns an output stream for writing to it.
@@ -4269,11 +4964,11 @@ public extension FileProtocol {
     /// error, and if the name is to long `G_IO_ERROR_FILENAME_TOO_LONG` will
     /// be returned. Other errors are possible too, and depend on what kind
     /// of filesystem the file is on.
-    func create(flags: FileCreateFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func create<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_create(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_create(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously creates a new file and returns an output stream
@@ -4285,18 +4980,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_create_finish()` to get the result
     /// of the operation.
-    func createAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_create_async(cast(file_ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func createAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_create_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file create operation started with
     /// `g_file_create_async()`.
-    func createFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func createFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_create_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_create_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a new file and returns a stream for reading and
@@ -4322,11 +5017,11 @@ public extension FileProtocol {
     /// Note that in many non-local file cases read and write streams are
     /// not supported, so make sure you really need to do read and write
     /// streaming, rather than just opening for reading or writing.
-    func createReadwrite(flags: FileCreateFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func createReadwrite<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_create_readwrite(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_create_readwrite(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously creates a new file and returns a stream
@@ -4338,18 +5033,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_create_readwrite_finish()` to get
     /// the result of the operation.
-    func createReadwriteAsync(flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_create_readwrite_async(cast(file_ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func createReadwriteAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_create_readwrite_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file create operation started with
     /// `g_file_create_readwrite_async()`.
-    func createReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func createReadwriteFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_create_readwrite_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_create_readwrite_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Deletes a file. If the `file` is a directory, it will only be
@@ -4358,27 +5053,27 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func delete(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func delete<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_delete(cast(file_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_delete(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously delete a file. If the `file` is a directory, it will
     /// only be deleted if it is empty.  This has the same semantics as
     /// `g_unlink()`.
-    func deleteAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_delete_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func deleteAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_delete_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes deleting a file started with `g_file_delete_async()`.
-    func deleteFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func deleteFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_delete_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_delete_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Duplicates a `GFile` handle. This operation does not duplicate
@@ -4391,9 +5086,9 @@ public extension FileProtocol {
     /// reference count.
     /// 
     /// This call does no blocking I/O.
-    func dup() -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_dup(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func dup() -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_dup(file_ptr))) else { return nil }
+        return rv
     }
 
     /// Starts an asynchronous eject on a mountable.
@@ -4407,8 +5102,8 @@ public extension FileProtocol {
     ///
     /// **eject_mountable is deprecated:**
     /// Use g_file_eject_mountable_with_operation() instead.
-    @available(*, deprecated) func ejectMountable(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_eject_mountable(cast(file_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @available(*, deprecated) @inlinable func ejectMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_eject_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4418,11 +5113,11 @@ public extension FileProtocol {
     /// **eject_mountable_finish is deprecated:**
     /// Use g_file_eject_mountable_with_operation_finish()
     ///     instead.
-    @available(*, deprecated) func ejectMountableFinish(result: AsyncResultProtocol) throws -> Bool {
+    @available(*, deprecated) @inlinable func ejectMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_eject_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_eject_mountable_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Starts an asynchronous eject on a mountable.
@@ -4433,18 +5128,18 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func ejectMountableWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_eject_mountable_with_operation(cast(file_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func ejectMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_eject_mountable_with_operation(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous eject operation started by
     /// `g_file_eject_mountable_with_operation()`.
-    func ejectMountableWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func ejectMountableWithOperationFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_eject_mountable_with_operation_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_eject_mountable_with_operation_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the requested information about the files in a directory.
@@ -4470,11 +5165,11 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
     /// be returned. If the file is not a directory, the `G_IO_ERROR_NOT_DIRECTORY`
     /// error will be returned. Other errors are possible too.
-    func enumerateChildren(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileEnumerator>! {
+    @inlinable func enumerateChildren<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> FileEnumeratorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileEnumerator>! = cast(g_file_enumerate_children(cast(file_ptr), attributes, flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileEnumeratorRef(gconstpointer: gconstpointer(g_file_enumerate_children(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously gets the requested information about the files
@@ -4487,18 +5182,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_enumerate_children_finish()` to get the result of
     /// the operation.
-    func enumerateChildrenAsync(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_enumerate_children_async(cast(file_ptr), attributes, flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func enumerateChildrenAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_enumerate_children_async(file_ptr, attributes, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an async enumerate children operation.
     /// See `g_file_enumerate_children_async()`.
-    func enumerateChildrenFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileEnumerator>! {
+    @inlinable func enumerateChildrenFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileEnumeratorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileEnumerator>! = cast(g_file_enumerate_children_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileEnumeratorRef(gconstpointer: gconstpointer(g_file_enumerate_children_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks if the two given `GFiles` refer to the same file.
@@ -4508,9 +5203,9 @@ public extension FileProtocol {
     /// aliasing.
     /// 
     /// This call does no blocking I/O.
-    func equal(file2: FileProtocol) -> Bool {
-        let rv = g_file_equal(cast(file_ptr), cast(file2.ptr))
-        return Bool(rv != 0)
+    @inlinable func equal<FileT: FileProtocol>(file2: FileT) -> Bool {
+        let rv = ((g_file_equal(file_ptr, file2.file_ptr)) != 0)
+        return rv
     }
 
     /// Gets a `GMount` for the `GFile`.
@@ -4522,11 +5217,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func findEnclosingMount(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GMount>! {
+    @inlinable func findEnclosingMount<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> MountRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GMount>! = cast(g_file_find_enclosing_mount(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = MountRef(gconstpointer: gconstpointer(g_file_find_enclosing_mount(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously gets the mount for the file.
@@ -4537,18 +5232,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_find_enclosing_mount_finish()` to
     /// get the result of the operation.
-    func findEnclosingMountAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_find_enclosing_mount_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func findEnclosingMountAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_find_enclosing_mount_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous find mount request.
     /// See `g_file_find_enclosing_mount_async()`.
-    func findEnclosingMountFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GMount>! {
+    @inlinable func findEnclosingMountFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> MountRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GMount>! = cast(g_file_find_enclosing_mount_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = MountRef(gconstpointer: gconstpointer(g_file_find_enclosing_mount_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the base name (the last component of the path) for a given `GFile`.
@@ -4564,9 +5259,9 @@ public extension FileProtocol {
     /// attribute with `g_file_query_info()`.
     /// 
     /// This call does no blocking I/O.
-    func getBasename() -> String! {
-        let rv: String! = cast(g_file_get_basename(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getBasename() -> String! {
+        let rv = g_file_get_basename(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets a child of `file` with basename equal to `name`.
@@ -4576,9 +5271,9 @@ public extension FileProtocol {
     /// for instance to create that file.
     /// 
     /// This call does no blocking I/O.
-    func getChild(name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_get_child(cast(file_ptr), name))
-        return cast(rv)
+    @inlinable func getChild(name: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_get_child(file_ptr, name))) else { return nil }
+        return rv
     }
 
     /// Gets the child of `file` for a given `display_name` (i.e. a UTF-8
@@ -4589,11 +5284,12 @@ public extension FileProtocol {
     /// type a filename in the file selector.
     /// 
     /// This call does no blocking I/O.
-    func getChildFor(displayName display_name: UnsafePointer<CChar>) throws -> UnsafeMutablePointer<GFile>! {
+    @inlinable func getChildFor(displayName display_name: UnsafePointer<CChar>!) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_get_child_for_display_name(cast(file_ptr), display_name, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_get_child_for_display_name(file_ptr, display_name, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Gets the parent directory for the `file`.
@@ -4601,9 +5297,9 @@ public extension FileProtocol {
     /// file system, then `nil` will be returned.
     /// 
     /// This call does no blocking I/O.
-    func getParent() -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_get_parent(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getParent() -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_get_parent(file_ptr))) else { return nil }
+        return rv
     }
 
     /// Gets the parse name of the `file`.
@@ -4620,34 +5316,34 @@ public extension FileProtocol {
     /// (a form of URI that allows UTF-8 characters unescaped).
     /// 
     /// This call does no blocking I/O.
-    func getParseName() -> String! {
-        let rv: String! = cast(g_file_get_parse_name(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getParseName() -> String! {
+        let rv = g_file_get_parse_name(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the local pathname for `GFile`, if one exists. If non-`nil`, this is
     /// guaranteed to be an absolute, canonical path. It might contain symlinks.
     /// 
     /// This call does no blocking I/O.
-    func getPath() -> String! {
-        let rv: String! = cast(g_file_get_path(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getPath() -> String! {
+        let rv = g_file_get_path(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the path for `descendant` relative to `parent`.
     /// 
     /// This call does no blocking I/O.
-    func getRelativePath(descendant: FileProtocol) -> String! {
-        let rv: String! = cast(g_file_get_relative_path(cast(file_ptr), cast(descendant.ptr)))
-        return cast(rv)
+    @inlinable func getRelativePath<FileT: FileProtocol>(descendant: FileT) -> String! {
+        let rv = g_file_get_relative_path(file_ptr, descendant.file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the URI for the `file`.
     /// 
     /// This call does no blocking I/O.
-    func getURI() -> String! {
-        let rv: String! = cast(g_file_get_uri(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getURI() -> String! {
+        let rv = g_file_get_uri(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the URI scheme for a `GFile`.
@@ -4658,9 +5354,9 @@ public extension FileProtocol {
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
     /// This call does no blocking I/O.
-    func getURIScheme() -> String! {
-        let rv: String! = cast(g_file_get_uri_scheme(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func getURIScheme() -> String! {
+        let rv = g_file_get_uri_scheme(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Checks if `file` has a parent, and optionally, if it is `parent`.
@@ -4668,9 +5364,9 @@ public extension FileProtocol {
     /// If `parent` is `nil` then this function returns `true` if `file` has any
     /// parent at all.  If `parent` is non-`nil` then `true` is only returned
     /// if `file` is an immediate child of `parent`.
-    func has(parent: FileProtocol) -> Bool {
-        let rv = g_file_has_parent(cast(file_ptr), cast(parent.ptr))
-        return Bool(rv != 0)
+    @inlinable func has<FileT: FileProtocol>(parent: FileT? = nil) -> Bool {
+        let rv = ((g_file_has_parent(file_ptr, parent?.file_ptr)) != 0)
+        return rv
     }
 
     /// Checks whether `file` has the prefix specified by `prefix`.
@@ -4687,25 +5383,25 @@ public extension FileProtocol {
     /// sometimes return `false` even if `file` is inside a `prefix` (from a
     /// filesystem point of view), because the prefix of `file` is an alias
     /// of `prefix`.
-    func hasPrefix(prefix_: FileProtocol) -> Bool {
-        let rv = g_file_has_prefix(cast(file_ptr), cast(prefix_.ptr))
-        return Bool(rv != 0)
+    @inlinable func hasPrefix<FileT: FileProtocol>(`prefix`: FileT) -> Bool {
+        let rv = ((g_file_has_prefix(file_ptr, `prefix`.file_ptr)) != 0)
+        return rv
     }
 
     /// Checks to see if a `GFile` has a given URI scheme.
     /// 
     /// This call does no blocking I/O.
-    func has(uriScheme uri_scheme: UnsafePointer<CChar>) -> Bool {
-        let rv = g_file_has_uri_scheme(cast(file_ptr), uri_scheme)
-        return Bool(rv != 0)
+    @inlinable func has(uriScheme uri_scheme: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_has_uri_scheme(file_ptr, uri_scheme)) != 0)
+        return rv
     }
 
     /// Creates a hash value for a `GFile`.
     /// 
     /// This call does no blocking I/O.
-    func hash() -> Int {
-        let rv: Int = cast(g_file_hash(cast(file_ptr)))
-        return Int(rv)
+    @inlinable func hash() -> Int {
+        let rv = Int(g_file_hash(file_ptr))
+        return rv
     }
 
     /// Loads the contents of `file` and returns it as `GBytes`.
@@ -4719,11 +5415,11 @@ public extension FileProtocol {
     /// The data contained in the resulting `GBytes` is always zero-terminated, but
     /// this is not included in the `GBytes` length. The resulting `GBytes` should be
     /// freed with `g_bytes_unref()` when no longer in use.
-    func loadBytes(cancellable: CancellableProtocol, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GBytes>! {
+    @inlinable func loadBytes<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GBytes>! = cast(g_file_load_bytes(cast(file_ptr), cast(cancellable.ptr), cast(etag_out), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = BytesRef(gconstpointer: gconstpointer(g_file_load_bytes(file_ptr, cancellable?.cancellable_ptr, etag_out, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously loads the contents of `file` as `GBytes`.
@@ -4736,8 +5432,8 @@ public extension FileProtocol {
     /// asynchronous operation.
     /// 
     /// See `g_file_load_bytes()` for more information.
-    func loadBytesAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_load_bytes_async(cast(file_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func loadBytesAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_load_bytes_async(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4750,11 +5446,11 @@ public extension FileProtocol {
     /// freed with `g_bytes_unref()` when no longer in use.
     /// 
     /// See `g_file_load_bytes()` for more information.
-    func loadBytesFinish(result: AsyncResultProtocol, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> UnsafeMutablePointer<GBytes>! {
+    @inlinable func loadBytesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GBytes>! = cast(g_file_load_bytes_finish(cast(file_ptr), cast(result.ptr), cast(etag_out), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = BytesRef(gconstpointer: gconstpointer(g_file_load_bytes_finish(file_ptr, result.async_result_ptr, etag_out, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Loads the content of the file into memory. The data is always
@@ -4765,11 +5461,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func loadContents(cancellable: CancellableProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
+    @inlinable func loadContents<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_load_contents(cast(file_ptr), cast(cancellable.ptr), cast(contents), cast(length), cast(etag_out), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etag_out, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Starts an asynchronous load of the `file`'s contents.
@@ -4785,8 +5481,8 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func loadContentsAsync(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_load_contents_async(cast(file_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func loadContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_load_contents_async(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -4795,11 +5491,11 @@ public extension FileProtocol {
     /// size of the `contents` string. The `contents` should be freed with
     /// `g_free()` when no longer needed. If `etag_out` is present, it will be
     /// set to the new entity tag for the `file`.
-    func loadContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
+    @inlinable func loadContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_load_contents_finish(cast(file_ptr), cast(res.ptr), cast(contents), cast(length), cast(etag_out), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_load_contents_finish(file_ptr, res.async_result_ptr, contents, length, etag_out, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Reads the partial contents of a file. A `GFileReadMoreCallback` should
@@ -4813,8 +5509,8 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func loadPartialContentsAsync(cancellable: CancellableProtocol, readMoreCallback read_more_callback: @escaping FileReadMoreCallback, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_load_partial_contents_async(cast(file_ptr), cast(cancellable.ptr), read_more_callback, callback, cast(user_data))
+    @inlinable func loadPartialContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, readMoreCallback read_more_callback: GFileReadMoreCallback?, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_load_partial_contents_async(file_ptr, cancellable?.cancellable_ptr, read_more_callback, callback, user_data)
     
     }
 
@@ -4823,11 +5519,11 @@ public extension FileProtocol {
     /// zero-terminated, but this is not included in the resultant `length`.
     /// The returned `contents` should be freed with `g_free()` when no longer
     /// needed.
-    func loadPartialContentsFinish(res: AsyncResultProtocol, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, length: UnsafeMutablePointer<Int>, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
+    @inlinable func loadPartialContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_load_partial_contents_finish(cast(file_ptr), cast(res.ptr), cast(contents), cast(length), cast(etag_out), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_load_partial_contents_finish(file_ptr, res.async_result_ptr, contents, length, etag_out, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a directory. Note that this will only create a child directory
@@ -4844,26 +5540,26 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func makeDirectory(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func makeDirectory<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_make_directory(cast(file_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_make_directory(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously creates a directory.
-    func makeDirectoryAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_make_directory_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func makeDirectoryAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_make_directory_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous directory creation, started with
     /// `g_file_make_directory_async()`.
-    func makeDirectoryFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func makeDirectoryFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_make_directory_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_make_directory_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a directory and any parent directories that may not
@@ -4879,11 +5575,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func makeDirectoryWithParents(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func makeDirectoryWithParents<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_make_directory_with_parents(cast(file_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_make_directory_with_parents(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a symbolic link named `file` which contains the string
@@ -4892,11 +5588,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func makeSymbolicLink(symlinkValue symlink_value: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func makeSymbolicLink<CancellableT: CancellableProtocol>(symlinkValue symlink_value: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_make_symbolic_link(cast(file_ptr), symlink_value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_make_symbolic_link(file_ptr, symlink_value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Recursively measures the disk usage of `file`.
@@ -4917,30 +5613,30 @@ public extension FileProtocol {
     /// periodic progress updates while scanning.  See the documentation for
     /// `GFileMeasureProgressCallback` for information about when and how the
     /// callback will be invoked.
-    func measureDiskUsage(flags: FileMeasureFlags, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileMeasureProgressCallback, progressData progress_data: UnsafeMutableRawPointer, diskUsage disk_usage: UnsafeMutablePointer<UInt64>, numDirs num_dirs: UnsafeMutablePointer<UInt64>, numFiles num_files: UnsafeMutablePointer<UInt64>) throws -> Bool {
+    @inlinable func measureDiskUsage<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileMeasureProgressCallback? = nil, progressData progress_data: gpointer! = nil, diskUsage disk_usage: UnsafeMutablePointer<guint64>! = nil, numDirs num_dirs: UnsafeMutablePointer<guint64>! = nil, numFiles num_files: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_measure_disk_usage(cast(file_ptr), flags.value, cast(cancellable.ptr), progress_callback, cast(progress_data), cast(disk_usage), cast(num_dirs), cast(num_files), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_measure_disk_usage(file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_data, disk_usage, num_dirs, num_files, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Recursively measures the disk usage of `file`.
     /// 
     /// This is the asynchronous version of `g_file_measure_disk_usage()`.  See
     /// there for more information.
-    func measureDiskUsageAsync(flags: FileMeasureFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileMeasureProgressCallback, progressData progress_data: UnsafeMutableRawPointer, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_measure_disk_usage_async(cast(file_ptr), flags.value, gint(io_priority), cast(cancellable.ptr), progress_callback, cast(progress_data), callback, cast(user_data))
+    @inlinable func measureDiskUsageAsync<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileMeasureProgressCallback? = nil, progressData progress_data: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_measure_disk_usage_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, progress_callback, progress_data, callback, user_data)
     
     }
 
     /// Collects the results from an earlier call to
     /// `g_file_measure_disk_usage_async()`.  See `g_file_measure_disk_usage()` for
     /// more information.
-    func measureDiskUsageFinish(result: AsyncResultProtocol, diskUsage disk_usage: UnsafeMutablePointer<UInt64>, numDirs num_dirs: UnsafeMutablePointer<UInt64>, numFiles num_files: UnsafeMutablePointer<UInt64>) throws -> Bool {
+    @inlinable func measureDiskUsageFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, diskUsage disk_usage: UnsafeMutablePointer<guint64>! = nil, numDirs num_dirs: UnsafeMutablePointer<guint64>! = nil, numFiles num_files: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_measure_disk_usage_finish(cast(file_ptr), cast(result.ptr), cast(disk_usage), cast(num_dirs), cast(num_files), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_measure_disk_usage_finish(file_ptr, result.async_result_ptr, disk_usage, num_dirs, num_files, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtains a file or directory monitor for the given file,
@@ -4949,11 +5645,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func monitor(flags: FileMonitorFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileMonitor>! {
+    @inlinable func monitor<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileMonitor>! = cast(g_file_monitor(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtains a directory monitor for the given file.
@@ -4968,11 +5664,11 @@ public extension FileProtocol {
     /// directories.  It is not possible to monitor all the files in a
     /// directory for changes made via hard links; if you want to do this then
     /// you must register individual watches with `g_file_monitor()`.
-    func monitorDirectory(flags: FileMonitorFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileMonitor>! {
+    @inlinable func monitorDirectory<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileMonitor>! = cast(g_file_monitor_directory(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_directory(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtains a file monitor for the given file. If no file notification
@@ -4989,11 +5685,11 @@ public extension FileProtocol {
     /// reported. Using this flag may result in an increase in resource
     /// usage, and may not have any effect depending on the `GFileMonitor`
     /// backend and/or filesystem type.
-    func monitorFile(flags: FileMonitorFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileMonitor>! {
+    @inlinable func monitorFile<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileMonitor>! = cast(g_file_monitor_file(cast(file_ptr), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_file(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Starts a `mount_operation`, mounting the volume that contains
@@ -5006,17 +5702,17 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func mountEnclosingVolume(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_mount_enclosing_volume(cast(file_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func mountEnclosingVolume<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_mount_enclosing_volume(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes a mount operation started by `g_file_mount_enclosing_volume()`.
-    func mountEnclosingVolumeFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func mountEnclosingVolumeFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_mount_enclosing_volume_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_mount_enclosing_volume_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Mounts a file of type G_FILE_TYPE_MOUNTABLE.
@@ -5030,8 +5726,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    func mountMountable(flags: MountMountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_mount_mountable(cast(file_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func mountMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_mount_mountable(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5039,11 +5735,12 @@ public extension FileProtocol {
     /// 
     /// Finish an asynchronous mount operation that was started
     /// with `g_file_mount_mountable()`.
-    func mountMountableFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFile>! {
+    @inlinable func mountMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_mount_mountable_finish(cast(file_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_mount_mountable_finish(file_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Tries to move the file or directory `source` to the location specified
@@ -5079,11 +5776,11 @@ public extension FileProtocol {
     /// `G_FILE_COPY_OVERWRITE` is specified and the target is a file, then
     /// the `G_IO_ERROR_WOULD_RECURSE` error may be returned (if the native
     /// move operation isn't available).
-    func move(destination: FileProtocol, flags: FileCopyFlags, cancellable: CancellableProtocol, progressCallback progress_callback: @escaping FileProgressCallback, progressCallbackData progress_callback_data: UnsafeMutableRawPointer) throws -> Bool {
+    @inlinable func move<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_move(cast(file_ptr), cast(destination.ptr), flags.value, cast(cancellable.ptr), progress_callback, cast(progress_callback_data), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_move(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_callback_data, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Opens an existing file for reading and writing. The result is
@@ -5102,11 +5799,11 @@ public extension FileProtocol {
     /// file cases read and write streams are not supported, so make sure you
     /// really need to do read and write streaming, rather than just opening
     /// for reading or writing.
-    func openReadwrite(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func openReadwrite<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_open_readwrite(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_open_readwrite(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously opens `file` for reading and writing.
@@ -5117,18 +5814,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_open_readwrite_finish()` to get
     /// the result of the operation.
-    func openReadwriteAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_open_readwrite_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func openReadwriteAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_open_readwrite_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file read operation started with
     /// `g_file_open_readwrite_async()`.
-    func openReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func openReadwriteFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_open_readwrite_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_open_readwrite_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Exactly like `g_file_get_path()`, but caches the result via
@@ -5138,9 +5835,9 @@ public extension FileProtocol {
     /// generally more efficient.
     /// 
     /// This call does no blocking I/O.
-    func peekPath() -> String! {
-        let rv: String! = cast(g_file_peek_path(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func peekPath() -> String! {
+        let rv = g_file_peek_path(file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Polls a file of type `G_FILE_TYPE_MOUNTABLE`.
@@ -5152,8 +5849,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    func pollMountable(cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_poll_mountable(cast(file_ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func pollMountable<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_poll_mountable(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5161,11 +5858,11 @@ public extension FileProtocol {
     /// 
     /// Finish an asynchronous poll operation that was polled
     /// with `g_file_poll_mountable()`.
-    func pollMountableFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func pollMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_poll_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_poll_mountable_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the `GAppInfo` that is registered as the default
@@ -5174,25 +5871,25 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func queryDefaultHandler(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GAppInfo>! {
+    @inlinable func queryDefaultHandler<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_file_query_default_handler(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = AppInfoRef(gconstpointer: gconstpointer(g_file_query_default_handler(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Async version of `g_file_query_default_handler()`.
-    func queryDefaultHandlerAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_query_default_handler_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func queryDefaultHandlerAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_query_default_handler_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes a `g_file_query_default_handler_async()` operation.
-    func queryDefaultHandlerFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GAppInfo>! {
+    @inlinable func queryDefaultHandlerFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GAppInfo>! = cast(g_file_query_default_handler_finish(cast(file_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = AppInfoRef(gconstpointer: gconstpointer(g_file_query_default_handler_finish(file_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Utility function to check if a particular file exists. This is
@@ -5217,9 +5914,9 @@ public extension FileProtocol {
     /// have to fool users that something is possible and then just show an error
     /// dialog. If you do this, you should make sure to also handle the errors
     /// that can happen due to races when you execute the operation.
-    func queryExists(cancellable: CancellableProtocol) -> Bool {
-        let rv = g_file_query_exists(cast(file_ptr), cast(cancellable.ptr))
-        return Bool(rv != 0)
+    @inlinable func queryExists<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> Bool {
+        let rv = ((g_file_query_exists(file_ptr, cancellable?.cancellable_ptr)) != 0)
+        return rv
     }
 
     /// Utility function to inspect the `GFileType` of a file. This is
@@ -5227,9 +5924,9 @@ public extension FileProtocol {
     /// 
     /// The primary use case of this method is to check if a file is
     /// a regular file, directory, or symlink.
-    func queryFileType(flags: FileQueryInfoFlags, cancellable: CancellableProtocol) -> GFileType {
-        let rv = g_file_query_file_type(cast(file_ptr), flags.value, cast(cancellable.ptr))
-        return cast(rv)
+    @inlinable func queryFileType<CancellableT: CancellableProtocol>(flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) -> GFileType {
+        let rv = g_file_query_file_type(file_ptr, flags.value, cancellable?.cancellable_ptr)
+        return rv
     }
 
     /// Similar to `g_file_query_info()`, but obtains information
@@ -5257,11 +5954,11 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
     /// be returned. Other errors are possible too, and depend on what
     /// kind of filesystem the file is on.
-    func queryFilesystemInfo(attributes: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
+    @inlinable func queryFilesystemInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_query_filesystem_info(cast(file_ptr), attributes, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_filesystem_info(file_ptr, attributes, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously gets the requested information about the filesystem
@@ -5275,18 +5972,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_query_info_finish()` to get the result of the
     /// operation.
-    func queryFilesystemInfoAsync(attributes: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_query_filesystem_info_async(cast(file_ptr), attributes, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func queryFilesystemInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_query_filesystem_info_async(file_ptr, attributes, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous filesystem info query.
     /// See `g_file_query_filesystem_info_async()`.
-    func queryFilesystemInfoFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
+    @inlinable func queryFilesystemInfoFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_query_filesystem_info_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_filesystem_info_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the requested information about specified `file`.
@@ -5319,11 +6016,11 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will be
     /// returned. Other errors are possible too, and depend on what kind of
     /// filesystem the file is on.
-    func queryInfo(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
+    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_query_info(cast(file_ptr), attributes, flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_info(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously gets the requested information about specified `file`.
@@ -5335,18 +6032,18 @@ public extension FileProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_query_info_finish()` to get the result of the operation.
-    func queryInfoAsync(attributes: UnsafePointer<CChar>, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_query_info_async(cast(file_ptr), attributes, flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_query_info_async(file_ptr, attributes, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file info query.
     /// See `g_file_query_info_async()`.
-    func queryInfoFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInfo>! {
+    @inlinable func queryInfoFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_file_query_info_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_info_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtain the list of settable attributes for the file.
@@ -5359,11 +6056,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func querySettableAttributes(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileAttributeInfoList>! {
+    @inlinable func querySettableAttributes<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileAttributeInfoListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_query_settable_attributes(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_settable_attributes(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Obtain the list of attribute namespaces where new attributes
@@ -5373,11 +6070,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func queryWritableNamespaces(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileAttributeInfoList>! {
+    @inlinable func queryWritableNamespaces<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileAttributeInfoListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileAttributeInfoList>! = cast(g_file_query_writable_namespaces(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_writable_namespaces(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Opens a file for reading. The result is a `GFileInputStream` that
@@ -5391,11 +6088,11 @@ public extension FileProtocol {
     /// returned. If the file is a directory, the `G_IO_ERROR_IS_DIRECTORY`
     /// error will be returned. Other errors are possible too, and depend
     /// on what kind of filesystem the file is on.
-    func read(cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileInputStream>! {
+    @inlinable func read<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileInputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInputStream>! = cast(g_file_read(cast(file_ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInputStreamRef(gconstpointer: gconstpointer(g_file_read(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously opens `file` for reading.
@@ -5406,18 +6103,18 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_read_finish()` to get the result
     /// of the operation.
-    func readAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_read_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func readAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_read_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file read operation started with
     /// `g_file_read_async()`.
-    func readFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileInputStream>! {
+    @inlinable func readFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileInputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileInputStream>! = cast(g_file_read_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileInputStreamRef(gconstpointer: gconstpointer(g_file_read_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns an output stream for overwriting the file, possibly
@@ -5461,11 +6158,11 @@ public extension FileProtocol {
     /// `G_IO_ERROR_INVALID_FILENAME` error, and if the name is to long
     /// `G_IO_ERROR_FILENAME_TOO_LONG` will be returned. Other errors are
     /// possible too, and depend on what kind of filesystem the file is on.
-    func replace(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func replace<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_replace(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_replace(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously overwrites the file, replacing the contents,
@@ -5477,8 +6174,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_replace_finish()` to get the result
     /// of the operation.
-    func replaceAsync(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_replace_async(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func replaceAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_replace_async(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5498,11 +6195,11 @@ public extension FileProtocol {
     /// 
     /// The returned `new_etag` can be used to verify that the file hasn't
     /// changed the next time it is saved over.
-    func replace(contents: UnsafePointer<CChar>, length: Int, etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func replace<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_replace_contents(cast(file_ptr), cast(contents), gsize(length), etag, gboolean(make_backup ? 1 : 0), flags.value, cast(new_etag), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((make_backup) ? 1 : 0), flags.value, new_etag, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Starts an asynchronous replacement of `file` with the given
@@ -5524,8 +6221,8 @@ public extension FileProtocol {
     /// until `callback` is called. See `g_file_replace_contents_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to the
     /// contents (without copying) for the duration of the call.
-    func replaceContentsAsync(contents: UnsafePointer<CChar>, length: Int, etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_replace_contents_async(cast(file_ptr), cast(contents), gsize(length), etag, gboolean(make_backup ? 1 : 0), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func replaceContentsAsync<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_replace_contents_async(file_ptr, contents, gsize(length), etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5537,28 +6234,28 @@ public extension FileProtocol {
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
     /// `g_file_replace_contents_finish()`.
-    func replaceContentsBytesAsync(contents: BytesProtocol, etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_replace_contents_bytes_async(cast(file_ptr), cast(contents.ptr), etag, gboolean(make_backup ? 1 : 0), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func replaceContentsBytesAsync<BytesT: BytesProtocol, CancellableT: CancellableProtocol>(contents: BytesT, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_replace_contents_bytes_async(file_ptr, contents.bytes_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous replace of the given `file`. See
     /// `g_file_replace_contents_async()`. Sets `new_etag` to the new entity
     /// tag for the document, if present.
-    func replaceContentsFinish(res: AsyncResultProtocol, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>>) throws -> Bool {
+    @inlinable func replaceContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_replace_contents_finish(cast(file_ptr), cast(res.ptr), cast(new_etag), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_replace_contents_finish(file_ptr, res.async_result_ptr, new_etag, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Finishes an asynchronous file replace operation started with
     /// `g_file_replace_async()`.
-    func replaceFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileOutputStream>! {
+    @inlinable func replaceFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileOutputStream>! = cast(g_file_replace_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_replace_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns an output stream for overwriting the file in readwrite mode,
@@ -5571,11 +6268,11 @@ public extension FileProtocol {
     /// Note that in many non-local file cases read and write streams are not
     /// supported, so make sure you really need to do read and write streaming,
     /// rather than just opening for reading or writing.
-    func replaceReadwrite(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func replaceReadwrite<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_replace_readwrite(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags.value, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_replace_readwrite(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously overwrites the file in read-write mode,
@@ -5588,26 +6285,26 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_replace_readwrite_finish()` to get
     /// the result of the operation.
-    func replaceReadwriteAsync(etag: UnsafePointer<CChar>, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_replace_readwrite_async(cast(file_ptr), etag, gboolean(make_backup ? 1 : 0), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func replaceReadwriteAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_replace_readwrite_async(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file replace operation started with
     /// `g_file_replace_readwrite_async()`.
-    func replaceReadwriteFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFileIOStream>! {
+    @inlinable func replaceReadwriteFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFileIOStream>! = cast(g_file_replace_readwrite_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_replace_readwrite_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Resolves a relative path for `file` to an absolute path.
     /// 
     /// This call does no blocking I/O.
-    func resolve(relativePath relative_path: UnsafePointer<CChar>) -> UnsafeMutablePointer<GFile>! {
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_resolve_relative_path(cast(file_ptr), relative_path))
-        return cast(rv)
+    @inlinable func resolve(relativePath relative_path: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_resolve_relative_path(file_ptr, relative_path))) else { return nil }
+        return rv
     }
 
     /// Sets an attribute in the file with attribute name `attribute` to `value_p`.
@@ -5618,11 +6315,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func set(attribute: UnsafePointer<CChar>, type: FileAttributeType, valueP value_p: UnsafeMutableRawPointer, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func set<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP value_p: gpointer! = nil, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute(cast(file_ptr), attribute, type, cast(value_p), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute(file_ptr, attribute, type, value_p, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_BYTE_STRING` to `value`.
@@ -5632,11 +6329,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeByteString(attribute: UnsafePointer<CChar>, value: UnsafePointer<CChar>, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeByteString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_byte_string(cast(file_ptr), attribute, value, flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_byte_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_INT32` to `value`.
@@ -5645,11 +6342,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeInt32(attribute: UnsafePointer<CChar>, value: Int32, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeInt32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint32, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_int32(cast(file_ptr), attribute, gint32(value), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_int32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_INT64` to `value`.
@@ -5658,11 +6355,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeInt64(attribute: UnsafePointer<CChar>, value: Int64, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeInt64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint64, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_int64(cast(file_ptr), attribute, gint64(value), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_int64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_STRING` to `value`.
@@ -5671,11 +6368,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeString(attribute: UnsafePointer<CChar>, value: UnsafePointer<CChar>, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_string(cast(file_ptr), attribute, value, flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_UINT32` to `value`.
@@ -5684,11 +6381,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeUint32(attribute: UnsafePointer<CChar>, value: UInt32, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeUint32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint32, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_uint32(cast(file_ptr), attribute, guint32(value), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_uint32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_UINT64` to `value`.
@@ -5697,11 +6394,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributeUint64(attribute: UnsafePointer<CChar>, value: UInt64, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributeUint64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint64, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attribute_uint64(cast(file_ptr), attribute, guint64(value), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attribute_uint64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously sets the attributes of `file` with `info`.
@@ -5712,17 +6409,17 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_set_attributes_finish()` to get
     /// the result of the operation.
-    func setAttributesAsync(info: FileInfoProtocol, flags: FileQueryInfoFlags, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_set_attributes_async(cast(file_ptr), cast(info.ptr), flags.value, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func setAttributesAsync<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_set_attributes_async(file_ptr, info.file_info_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes setting an attribute started in `g_file_set_attributes_async()`.
-    func setAttributesFinish(result: AsyncResultProtocol, info: FileInfoProtocol) throws -> Bool {
+    @inlinable func setAttributesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, info: UnsafeMutablePointer<UnsafeMutablePointer<GFileInfo>?>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attributes_finish(cast(file_ptr), cast(result.ptr), cast(info.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attributes_finish(file_ptr, result.async_result_ptr, info, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Tries to set all attributes in the `GFileInfo` on the target
@@ -5737,11 +6434,11 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func setAttributesFrom(info: FileInfoProtocol, flags: FileQueryInfoFlags, cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func setAttributesFrom<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_set_attributes_from_info(cast(file_ptr), cast(info.ptr), flags.value, cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_set_attributes_from_info(file_ptr, info.file_info_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Renames `file` to the specified display name.
@@ -5759,11 +6456,12 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func set(displayName display_name: UnsafePointer<CChar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GFile>! {
+    @inlinable func set<CancellableT: CancellableProtocol>(displayName display_name: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_set_display_name(cast(file_ptr), display_name, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_set_display_name(file_ptr, display_name, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Asynchronously sets the display name for a given `GFile`.
@@ -5774,18 +6472,19 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_set_display_name_finish()` to get
     /// the result of the operation.
-    func setDisplayNameAsync(displayName display_name: UnsafePointer<CChar>, ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_set_display_name_async(cast(file_ptr), display_name, io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func setDisplayNameAsync<CancellableT: CancellableProtocol>(displayName display_name: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_set_display_name_async(file_ptr, display_name, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes setting a display name started with
     /// `g_file_set_display_name_async()`.
-    func setDisplayNameFinish(res: AsyncResultProtocol) throws -> UnsafeMutablePointer<GFile>! {
+    @inlinable func setDisplayNameFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GFile>! = cast(g_file_set_display_name_finish(cast(file_ptr), cast(res.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_set_display_name_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// Starts a file of type `G_FILE_TYPE_MOUNTABLE`.
@@ -5799,8 +6498,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    func startMountable(flags: DriveStartFlags, startOperation start_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_start_mountable(cast(file_ptr), flags.value, cast(start_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func startMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, startOperation start_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_start_mountable(file_ptr, flags.value, start_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5808,11 +6507,11 @@ public extension FileProtocol {
     /// 
     /// Finish an asynchronous start operation that was started
     /// with `g_file_start_mountable()`.
-    func startMountableFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func startMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_start_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_start_mountable_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Stops a file of type `G_FILE_TYPE_MOUNTABLE`.
@@ -5824,8 +6523,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_stop_mountable_finish()` to get
     /// the result of the operation.
-    func stopMountable(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_stop_mountable(cast(file_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func stopMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_stop_mountable(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5833,20 +6532,20 @@ public extension FileProtocol {
     /// 
     /// Finish an asynchronous stop operation that was started
     /// with `g_file_stop_mountable()`.
-    func stopMountableFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func stopMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_stop_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_stop_mountable_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks if `file` supports
     /// [thread-default contexts](#g-main-context-push-thread-default-context).
     /// If this returns `false`, you cannot perform asynchronous operations on
     /// `file` in a thread that has a thread-default context.
-    func supportsThreadContexts() -> Bool {
-        let rv = g_file_supports_thread_contexts(cast(file_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsThreadContexts() -> Bool {
+        let rv = ((g_file_supports_thread_contexts(file_ptr)) != 0)
+        return rv
     }
 
     /// Sends `file` to the "Trashcan", if possible. This is similar to
@@ -5857,26 +6556,26 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    func trash(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func trash<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_trash(cast(file_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_trash(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronously sends `file` to the Trash location, if possible.
-    func trashAsync(ioPriority io_priority: CInt, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_trash_async(cast(file_ptr), io_priority, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func trashAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_trash_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Finishes an asynchronous file trashing operation, started with
     /// `g_file_trash_async()`.
-    func trashFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func trashFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_trash_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_trash_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Unmounts a file of type G_FILE_TYPE_MOUNTABLE.
@@ -5891,8 +6590,8 @@ public extension FileProtocol {
     ///
     /// **unmount_mountable is deprecated:**
     /// Use g_file_unmount_mountable_with_operation() instead.
-    @available(*, deprecated) func unmountMountable(flags: MountUnmountFlags, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_unmount_mountable(cast(file_ptr), flags.value, cast(cancellable.ptr), callback, cast(user_data))
+    @available(*, deprecated) @inlinable func unmountMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_unmount_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5904,11 +6603,11 @@ public extension FileProtocol {
     /// **unmount_mountable_finish is deprecated:**
     /// Use g_file_unmount_mountable_with_operation_finish()
     ///     instead.
-    @available(*, deprecated) func unmountMountableFinish(result: AsyncResultProtocol) throws -> Bool {
+    @available(*, deprecated) @inlinable func unmountMountableFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_unmount_mountable_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_unmount_mountable_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Unmounts a file of type `G_FILE_TYPE_MOUNTABLE`.
@@ -5920,8 +6619,8 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_unmount_mountable_finish()` to get
     /// the result of the operation.
-    func unmountMountableWithOperation(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_file_unmount_mountable_with_operation(cast(file_ptr), flags.value, cast(mount_operation.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func unmountMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_file_unmount_mountable_with_operation(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
@@ -5930,11 +6629,11 @@ public extension FileProtocol {
     /// 
     /// Finish an asynchronous unmount operation that was started
     /// with `g_file_unmount_mountable_with_operation()`.
-    func unmountMountableWithOperationFinish(result: AsyncResultProtocol) throws -> Bool {
+    @inlinable func unmountMountableWithOperationFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_file_unmount_mountable_with_operation_finish(cast(file_ptr), cast(result.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_file_unmount_mountable_with_operation_finish(file_ptr, result.async_result_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Tries to guess the type of the tree with root `root`, by
@@ -5949,9 +6648,9 @@ public extension FileProtocol {
     /// 
     /// This function is useful in the implementation of
     /// `g_mount_guess_content_type()`.
-    func contentTypeGuessForTree() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_content_type_guess_for_tree(cast(file_ptr)))
-        return cast(rv)
+    @inlinable func contentTypeGuessForTree() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_content_type_guess_for_tree(file_ptr)
+        return rv
     }
     /// Gets the base name (the last component of the path) for a given `GFile`.
     /// 
@@ -5966,7 +6665,7 @@ public extension FileProtocol {
     /// attribute with `g_file_query_info()`.
     /// 
     /// This call does no blocking I/O.
-    var basename: String! {
+    @inlinable var basename: String! {
         /// Gets the base name (the last component of the path) for a given `GFile`.
         /// 
         /// If called for the top level of a system (such as the filesystem root
@@ -5981,8 +6680,8 @@ public extension FileProtocol {
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: String! = cast(g_file_get_basename(cast(file_ptr)))
-            return cast(rv)
+            let rv = g_file_get_basename(file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -5997,7 +6696,7 @@ public extension FileProtocol {
     /// will return `false`, but `g_file_get_path()` will still return a native path.
     /// 
     /// This call does no blocking I/O.
-    var isNative: Bool {
+    @inlinable var isNative: Bool {
         /// Checks to see if a file is native to the platform.
         /// 
         /// A native file is one expressed in the platform-native filename format,
@@ -6010,8 +6709,8 @@ public extension FileProtocol {
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv = g_file_is_native(cast(file_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_file_is_native(file_ptr)) != 0)
+            return rv
         }
     }
 
@@ -6020,15 +6719,15 @@ public extension FileProtocol {
     /// file system, then `nil` will be returned.
     /// 
     /// This call does no blocking I/O.
-    var parent: UnsafeMutablePointer<GFile>! {
+    @inlinable var parent: FileRef! {
         /// Gets the parent directory for the `file`.
         /// If the `file` represents the root directory of the
         /// file system, then `nil` will be returned.
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: UnsafeMutablePointer<GFile>! = cast(g_file_get_parent(cast(file_ptr)))
-            return cast(rv)
+            guard let rv = FileRef(gconstpointer: gconstpointer(g_file_get_parent(file_ptr))) else { return nil }
+            return rv
         }
     }
 
@@ -6046,7 +6745,7 @@ public extension FileProtocol {
     /// (a form of URI that allows UTF-8 characters unescaped).
     /// 
     /// This call does no blocking I/O.
-    var parseName: String! {
+    @inlinable var parseName: String! {
         /// Gets the parse name of the `file`.
         /// A parse name is a UTF-8 string that describes the
         /// file such that one can get the `GFile` back using
@@ -6062,8 +6761,8 @@ public extension FileProtocol {
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: String! = cast(g_file_get_parse_name(cast(file_ptr)))
-            return cast(rv)
+            let rv = g_file_get_parse_name(file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -6071,27 +6770,27 @@ public extension FileProtocol {
     /// guaranteed to be an absolute, canonical path. It might contain symlinks.
     /// 
     /// This call does no blocking I/O.
-    var path: String! {
+    @inlinable var path: String! {
         /// Gets the local pathname for `GFile`, if one exists. If non-`nil`, this is
         /// guaranteed to be an absolute, canonical path. It might contain symlinks.
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: String! = cast(g_file_get_path(cast(file_ptr)))
-            return cast(rv)
+            let rv = g_file_get_path(file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the URI for the `file`.
     /// 
     /// This call does no blocking I/O.
-    var uri: String! {
+    @inlinable var uri: String! {
         /// Gets the URI for the `file`.
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: String! = cast(g_file_get_uri(cast(file_ptr)))
-            return cast(rv)
+            let rv = g_file_get_uri(file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -6103,7 +6802,7 @@ public extension FileProtocol {
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
     /// This call does no blocking I/O.
-    var uriScheme: String! {
+    @inlinable var uriScheme: String! {
         /// Gets the URI scheme for a `GFile`.
         /// RFC 3986 decodes the scheme as:
         /// ```
@@ -6113,8 +6812,8 @@ public extension FileProtocol {
         /// 
         /// This call does no blocking I/O.
         get {
-            let rv: String! = cast(g_file_get_uri_scheme(cast(file_ptr)))
-            return cast(rv)
+            let rv = g_file_get_uri_scheme(file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 

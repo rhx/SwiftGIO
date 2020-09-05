@@ -22,10 +22,11 @@ import GLibObject
 /// a main loop must be running.
 public protocol VolumeMonitorProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitor` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GVolumeMonitor` instance.
-    var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor> { get }
+    var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor>! { get }
+
 }
 
 /// The `VolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitor` instance.
@@ -46,53 +47,83 @@ public protocol VolumeMonitorProtocol: ObjectProtocol {
 public struct VolumeMonitorRef: VolumeMonitorProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `volume_monitor_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension VolumeMonitorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GVolumeMonitor>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GVolumeMonitor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GVolumeMonitor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GVolumeMonitor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GVolumeMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `VolumeMonitorProtocol`
-    init<T: VolumeMonitorProtocol>(_ other: T) {
+    @inlinable init<T: VolumeMonitorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Gets the volume monitor used by gio.
-    static func volumeMonitorGet() -> VolumeMonitorRef! {
-        let rv: UnsafeMutablePointer<GVolumeMonitor>! = cast(g_volume_monitor_get())
-        return rv.map { VolumeMonitorRef(cast($0)) }
+    @inlinable static func volumeMonitorGet() -> VolumeMonitorRef! {
+        guard let rv = VolumeMonitorRef(gconstpointer: gconstpointer(g_volume_monitor_get())) else { return nil }
+        return rv
     }
 }
 
@@ -116,85 +147,131 @@ open class VolumeMonitor: Object, VolumeMonitorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `VolumeMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GVolumeMonitor>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GVolumeMonitor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GVolumeMonitor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GVolumeMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VolumeMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GVolumeMonitor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVolumeMonitor`.
     /// i.e., ownership is transferred to the `VolumeMonitor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GVolumeMonitor>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GVolumeMonitor>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `VolumeMonitorProtocol`
     /// Will retain `GVolumeMonitor`.
     /// - Parameter other: an instance of a related type that implements `VolumeMonitorProtocol`
-    public init<T: VolumeMonitorProtocol>(volumeMonitor other: T) {
-        super.init(retaining: cast(other.volume_monitor_ptr))
+    @inlinable public init<T: VolumeMonitorProtocol>(volumeMonitor other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
 
     /// Gets the volume monitor used by gio.
-    public static func volumeMonitorGet() -> VolumeMonitor! {
-        let rv: UnsafeMutablePointer<GVolumeMonitor>! = cast(g_volume_monitor_get())
-        return rv.map { VolumeMonitor(cast($0)) }
+    @inlinable public static func volumeMonitorGet() -> VolumeMonitor! {
+        guard let rv = VolumeMonitor(gconstpointer: gconstpointer(g_volume_monitor_get())) else { return nil }
+        return rv
     }
 
 }
@@ -263,11 +340,11 @@ public extension VolumeMonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: VolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: VolumeMonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(volume_monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -288,58 +365,58 @@ public extension VolumeMonitorProtocol {
 // MARK: VolumeMonitor Class: VolumeMonitorProtocol extension (methods and fields)
 public extension VolumeMonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVolumeMonitor` instance.
-    var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor> { return ptr.assumingMemoryBound(to: GVolumeMonitor.self) }
+    @inlinable var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor>! { return ptr?.assumingMemoryBound(to: GVolumeMonitor.self) }
 
     /// Gets a list of drives connected to the system.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    func getConnectedDrives() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr)))
-        return cast(rv)
+    @inlinable func getConnectedDrives() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_connected_drives(volume_monitor_ptr)))
+        return rv
     }
 
     /// Finds a `GMount` object by its UUID (see `g_mount_get_uuid()`)
-    func getMountFor(uuid: UnsafePointer<CChar>) -> UnsafeMutablePointer<GMount>! {
-        let rv: UnsafeMutablePointer<GMount>! = cast(g_volume_monitor_get_mount_for_uuid(cast(volume_monitor_ptr), uuid))
-        return cast(rv)
+    @inlinable func getMountFor(uuid: UnsafePointer<CChar>!) -> MountRef! {
+        let rv = MountRef(gconstpointer: gconstpointer(g_volume_monitor_get_mount_for_uuid(volume_monitor_ptr, uuid)))
+        return rv
     }
 
     /// Gets a list of the mounts on the system.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    func getMounts() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_mounts(cast(volume_monitor_ptr)))
-        return cast(rv)
+    @inlinable func getMounts() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_mounts(volume_monitor_ptr)))
+        return rv
     }
 
     /// Finds a `GVolume` object by its UUID (see `g_volume_get_uuid()`)
-    func getVolumeFor(uuid: UnsafePointer<CChar>) -> UnsafeMutablePointer<GVolume>! {
-        let rv: UnsafeMutablePointer<GVolume>! = cast(g_volume_monitor_get_volume_for_uuid(cast(volume_monitor_ptr), uuid))
-        return cast(rv)
+    @inlinable func getVolumeFor(uuid: UnsafePointer<CChar>!) -> VolumeRef! {
+        let rv = VolumeRef(gconstpointer: gconstpointer(g_volume_monitor_get_volume_for_uuid(volume_monitor_ptr, uuid)))
+        return rv
     }
 
     /// Gets a list of the volumes on the system.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    func getVolumes() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_volumes(cast(volume_monitor_ptr)))
-        return cast(rv)
+    @inlinable func getVolumes() -> ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_volumes(volume_monitor_ptr)))
+        return rv
     }
     /// Gets a list of drives connected to the system.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    var connectedDrives: UnsafeMutablePointer<GList>! {
+    @inlinable var connectedDrives: ListRef! {
         /// Gets a list of drives connected to the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_connected_drives(cast(volume_monitor_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_connected_drives(volume_monitor_ptr)))
+            return rv
         }
     }
 
@@ -347,14 +424,14 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    var mounts: UnsafeMutablePointer<GList>! {
+    @inlinable var mounts: ListRef! {
         /// Gets a list of the mounts on the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_mounts(cast(volume_monitor_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_mounts(volume_monitor_ptr)))
+            return rv
         }
     }
 
@@ -362,20 +439,20 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    var volumes: UnsafeMutablePointer<GList>! {
+    @inlinable var volumes: ListRef! {
         /// Gets a list of the volumes on the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(g_volume_monitor_get_volumes(cast(volume_monitor_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_volumes(volume_monitor_ptr)))
+            return rv
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(volume_monitor_ptr.pointee.parent_instance)
+            let rv = volume_monitor_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -396,10 +473,11 @@ public extension VolumeMonitorProtocol {
 /// Zlib decompression
 public protocol ZlibCompressorProtocol: ObjectProtocol, ConverterProtocol {
         /// Untyped pointer to the underlying `GZlibCompressor` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GZlibCompressor` instance.
-    var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor> { get }
+    var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor>! { get }
+
 }
 
 /// The `ZlibCompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibCompressor` instance.
@@ -410,53 +488,83 @@ public protocol ZlibCompressorProtocol: ObjectProtocol, ConverterProtocol {
 public struct ZlibCompressorRef: ZlibCompressorProtocol {
         /// Untyped pointer to the underlying `GZlibCompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_compressor_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ZlibCompressorRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GZlibCompressor>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GZlibCompressor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GZlibCompressor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GZlibCompressor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GZlibCompressor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ZlibCompressorProtocol`
-    init<T: ZlibCompressorProtocol>(_ other: T) {
+    @inlinable init<T: ZlibCompressorProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GZlibCompressor`.
-    init( format: ZlibCompressorFormat, level: CInt) {
-        let rv: UnsafeMutablePointer<GZlibCompressor>! = cast(g_zlib_compressor_new(format, level))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( format: GZlibCompressorFormat, level: Int) {
+        let rv = g_zlib_compressor_new(format, gint(level))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -470,84 +578,130 @@ open class ZlibCompressor: Object, ZlibCompressorProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZlibCompressor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GZlibCompressor>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GZlibCompressor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GZlibCompressor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GZlibCompressor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZlibCompressor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GZlibCompressor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GZlibCompressor`.
     /// i.e., ownership is transferred to the `ZlibCompressor` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GZlibCompressor>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GZlibCompressor>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ZlibCompressorProtocol`
     /// Will retain `GZlibCompressor`.
     /// - Parameter other: an instance of a related type that implements `ZlibCompressorProtocol`
-    public init<T: ZlibCompressorProtocol>(zlibCompressor other: T) {
-        super.init(retaining: cast(other.zlib_compressor_ptr))
+    @inlinable public init<T: ZlibCompressorProtocol>(zlibCompressor other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GZlibCompressor`.
-    public init( format: ZlibCompressorFormat, level: CInt) {
-        let rv: UnsafeMutablePointer<GZlibCompressor>! = cast(g_zlib_compressor_new(format, level))
-        super.init(cast(rv))
+    @inlinable public init( format: GZlibCompressorFormat, level: Int) {
+        let rv = g_zlib_compressor_new(format, gint(level))
+        super.init(gpointer: (rv))
     }
 
 
@@ -571,18 +725,18 @@ public extension ZlibCompressorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(zlib_compressor_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -600,7 +754,7 @@ public extension ZlibCompressorProtocol {
     /// Get the value of a ZlibCompressor property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ZlibCompressorPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ZlibCompressorPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -610,7 +764,7 @@ public extension ZlibCompressorProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ZlibCompressorPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ZlibCompressorPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -655,11 +809,11 @@ public extension ZlibCompressorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ZlibCompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ZlibCompressorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(zlib_compressor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -680,12 +834,12 @@ public extension ZlibCompressorProtocol {
 // MARK: ZlibCompressor Class: ZlibCompressorProtocol extension (methods and fields)
 public extension ZlibCompressorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibCompressor` instance.
-    var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor> { return ptr.assumingMemoryBound(to: GZlibCompressor.self) }
+    @inlinable var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor>! { return ptr?.assumingMemoryBound(to: GZlibCompressor.self) }
 
     /// Returns the `GZlibCompressor:file`-info property.
-    func getFileInfo() -> UnsafeMutablePointer<GFileInfo>! {
-        let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr)))
-        return cast(rv)
+    @inlinable func getFileInfo() -> FileInfoRef! {
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_compressor_get_file_info(zlib_compressor_ptr)))
+        return rv
     }
 
     /// Sets `file_info` in `compressor`. If non-`nil`, and `compressor`'s
@@ -696,16 +850,16 @@ public extension ZlibCompressorProtocol {
     /// Note: it is an error to call this function while a compression is in
     /// progress; it may only be called immediately after creation of `compressor`,
     /// or after resetting it with `g_converter_reset()`.
-    func set(fileInfo file_info: FileInfoProtocol) {
-        g_zlib_compressor_set_file_info(cast(zlib_compressor_ptr), cast(file_info.ptr))
+    @inlinable func set<FileInfoT: FileInfoProtocol>(fileInfo file_info: FileInfoT? = nil) {
+        g_zlib_compressor_set_file_info(zlib_compressor_ptr, file_info?.file_info_ptr)
     
     }
     /// Returns the `GZlibCompressor:file`-info property.
-    var fileInfo: UnsafeMutablePointer<GFileInfo>! {
+    @inlinable var fileInfo: FileInfoRef! {
         /// Returns the `GZlibCompressor:file`-info property.
         get {
-            let rv: UnsafeMutablePointer<GFileInfo>! = cast(g_zlib_compressor_get_file_info(cast(zlib_compressor_ptr)))
-            return cast(rv)
+            let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_compressor_get_file_info(zlib_compressor_ptr)))
+            return rv
         }
         /// Sets `file_info` in `compressor`. If non-`nil`, and `compressor`'s
         /// `GZlibCompressor:format` property is `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
@@ -716,7 +870,7 @@ public extension ZlibCompressorProtocol {
         /// progress; it may only be called immediately after creation of `compressor`,
         /// or after resetting it with `g_converter_reset()`.
         nonmutating set {
-            g_zlib_compressor_set_file_info(cast(zlib_compressor_ptr), cast(newValue))
+            g_zlib_compressor_set_file_info(zlib_compressor_ptr, UnsafeMutablePointer<GFileInfo>(newValue?.file_info_ptr))
         }
     }
 

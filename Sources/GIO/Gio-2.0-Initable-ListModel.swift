@@ -35,10 +35,11 @@ import GLibObject
 /// an exception on failure.
 public protocol InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GInitable` instance.
-    var initable_ptr: UnsafeMutablePointer<GInitable> { get }
+    var initable_ptr: UnsafeMutablePointer<GInitable>! { get }
+
 }
 
 /// The `InitableRef` type acts as a lightweight Swift reference to an underlying `GInitable` instance.
@@ -72,46 +73,76 @@ public protocol InitableProtocol {
 public struct InitableRef: InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension InitableRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GInitable>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GInitable>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GInitable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GInitable>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GInitable>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `InitableProtocol`
-    init<T: InitableProtocol>(_ other: T) {
+    @inlinable init<T: InitableProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -148,95 +179,141 @@ public extension InitableRef {
 open class Initable: InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Initable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GInitable>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GInitable>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Initable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GInitable>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Initable` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Initable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Initable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GInitable>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Initable` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GInitable>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GInitable` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Initable` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GInitable>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GInitable>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
     /// Reference intialiser for a related type that implements `InitableProtocol`
     /// `GInitable` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `InitableProtocol`
-    public init<T: InitableProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.initable_ptr)
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+    @inlinable public init<T: InitableProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
     /// Do-nothing destructor for `GInitable`.
     deinit {
-        // no reference counting for GInitable, cannot unref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot unref(initable_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GInitable, cannot ref(cast(initable_ptr))
+        // no reference counting for GInitable, cannot ref(initable_ptr)
     }
 
 
@@ -251,7 +328,7 @@ open class Initable: InitableProtocol {
 // MARK: Initable Interface: InitableProtocol extension (methods and fields)
 public extension InitableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GInitable` instance.
-    var initable_ptr: UnsafeMutablePointer<GInitable> { return ptr.assumingMemoryBound(to: GInitable.self) }
+    @inlinable var initable_ptr: UnsafeMutablePointer<GInitable>! { return ptr?.assumingMemoryBound(to: GInitable.self) }
 
     /// Initializes the object implementing the interface.
     /// 
@@ -291,11 +368,11 @@ public extension InitableProtocol {
     /// In this pattern, a caller would expect to be able to call `g_initable_init()`
     /// on the result of `g_object_new()`, regardless of whether it is in fact a new
     /// instance.
-    func init_(cancellable: CancellableProtocol) throws -> Bool {
+    @inlinable func init_<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_initable_init(cast(initable_ptr), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_initable_init(initable_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
 
@@ -359,10 +436,11 @@ public extension InitableProtocol {
 /// in effect at the time that the model was created.
 public protocol ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GListModel` instance.
-    var list_model_ptr: UnsafeMutablePointer<GListModel> { get }
+    var list_model_ptr: UnsafeMutablePointer<GListModel>! { get }
+
 }
 
 /// The `ListModelRef` type acts as a lightweight Swift reference to an underlying `GListModel` instance.
@@ -419,46 +497,76 @@ public protocol ListModelProtocol {
 public struct ListModelRef: ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ListModelRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GListModel>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GListModel>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GListModel>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GListModel>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GListModel>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ListModelProtocol`
-    init<T: ListModelProtocol>(_ other: T) {
+    @inlinable init<T: ListModelProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -518,95 +626,141 @@ public extension ListModelRef {
 open class ListModel: ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ListModel` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GListModel>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GListModel>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GListModel>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListModel` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GListModel>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ListModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GListModel>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GListModel` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ListModel` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GListModel>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GListModel>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ListModelProtocol`
     /// `GListModel` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ListModelProtocol`
-    public init<T: ListModelProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.list_model_ptr)
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+    @inlinable public init<T: ListModelProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
     /// Do-nothing destructor for `GListModel`.
     deinit {
-        // no reference counting for GListModel, cannot unref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot unref(list_model_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GListModel, cannot ref(cast(list_model_ptr))
+        // no reference counting for GListModel, cannot ref(list_model_ptr)
     }
 
 
@@ -632,11 +786,11 @@ public extension ListModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(list_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -657,16 +811,16 @@ public extension ListModelProtocol {
 // MARK: ListModel Interface: ListModelProtocol extension (methods and fields)
 public extension ListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListModel` instance.
-    var list_model_ptr: UnsafeMutablePointer<GListModel> { return ptr.assumingMemoryBound(to: GListModel.self) }
+    @inlinable var list_model_ptr: UnsafeMutablePointer<GListModel>! { return ptr?.assumingMemoryBound(to: GListModel.self) }
 
     /// Get the item at `position`. If `position` is greater than the number of
     /// items in `list`, `nil` is returned.
     /// 
     /// `nil` is never returned for an index that is smaller than the length
     /// of the list.  See `g_list_model_get_n_items()`.
-    func getItem(position: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_list_model_get_item(cast(list_model_ptr), guint(position)))
-        return cast(rv)
+    @inlinable func getItem(position: Int) -> gpointer! {
+        let rv = g_list_model_get_item(list_model_ptr, guint(position))
+        return rv
     }
 
     /// Gets the type of the items in `list`. All items returned from
@@ -675,9 +829,9 @@ public extension ListModelProtocol {
     /// 
     /// The item type of a `GListModel` can not change during the life of the
     /// model.
-    func getItemType() -> GType {
-        let rv = g_list_model_get_item_type(cast(list_model_ptr))
-        return cast(rv)
+    @inlinable func getItemType() -> GType {
+        let rv = g_list_model_get_item_type(list_model_ptr)
+        return rv
     }
 
     /// Gets the number of items in `list`.
@@ -685,9 +839,9 @@ public extension ListModelProtocol {
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
     /// `position` until `g_list_model_get_item()` returns `nil`.
-    func getNItems() -> Int {
-        let rv: Int = cast(g_list_model_get_n_items(cast(list_model_ptr)))
-        return Int(rv)
+    @inlinable func getNItems() -> Int {
+        let rv = Int(g_list_model_get_n_items(list_model_ptr))
+        return rv
     }
 
     /// Get the item at `position`. If `position` is greater than the number of
@@ -695,9 +849,9 @@ public extension ListModelProtocol {
     /// 
     /// `nil` is never returned for an index that is smaller than the length
     /// of the list.  See `g_list_model_get_n_items()`.
-    func getObject(position: CUnsignedInt) -> UnsafeMutablePointer<GObject>! {
-        let rv: UnsafeMutablePointer<GObject>! = cast(g_list_model_get_object(cast(list_model_ptr), guint(position)))
-        return cast(rv)
+    @inlinable func getObject(position: Int) -> ObjectRef! {
+        let rv = ObjectRef(gconstpointer: gconstpointer(g_list_model_get_object(list_model_ptr, guint(position))))
+        return rv
     }
 
     /// Emits the `GListModel::items`-changed signal on `list`.
@@ -720,8 +874,8 @@ public extension ListModelProtocol {
     /// series of accesses to the model via the API, without returning to the
     /// mainloop, and without calling other code, will continue to view the
     /// same contents of the model.
-    func itemsChanged(position: CUnsignedInt, removed: CUnsignedInt, added: CUnsignedInt) {
-        g_list_model_items_changed(cast(list_model_ptr), guint(position), guint(removed), guint(added))
+    @inlinable func itemsChanged(position: Int, removed: Int, added: Int) {
+        g_list_model_items_changed(list_model_ptr, guint(position), guint(removed), guint(added))
     
     }
     /// Gets the type of the items in `list`. All items returned from
@@ -730,7 +884,7 @@ public extension ListModelProtocol {
     /// 
     /// The item type of a `GListModel` can not change during the life of the
     /// model.
-    var itemType: GType {
+    @inlinable var itemType: GType {
         /// Gets the type of the items in `list`. All items returned from
         /// `g_list_model_get_type()` are of that type or a subtype, or are an
         /// implementation of that interface.
@@ -738,8 +892,8 @@ public extension ListModelProtocol {
         /// The item type of a `GListModel` can not change during the life of the
         /// model.
         get {
-            let rv = g_list_model_get_item_type(cast(list_model_ptr))
-            return cast(rv)
+            let rv = g_list_model_get_item_type(list_model_ptr)
+            return rv
         }
     }
 
@@ -748,15 +902,15 @@ public extension ListModelProtocol {
     /// Depending on the model implementation, calling this function may be
     /// less efficient than iterating the list with increasing values for
     /// `position` until `g_list_model_get_item()` returns `nil`.
-    var nItems: Int {
+    @inlinable var nItems: Int {
         /// Gets the number of items in `list`.
         /// 
         /// Depending on the model implementation, calling this function may be
         /// less efficient than iterating the list with increasing values for
         /// `position` until `g_list_model_get_item()` returns `nil`.
         get {
-            let rv: Int = cast(g_list_model_get_n_items(cast(list_model_ptr)))
-            return Int(rv)
+            let rv = Int(g_list_model_get_n_items(list_model_ptr))
+            return rv
         }
     }
 

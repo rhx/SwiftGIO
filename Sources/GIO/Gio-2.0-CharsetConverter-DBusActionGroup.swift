@@ -13,10 +13,11 @@ import GLibObject
 /// GIConv.
 public protocol CharsetConverterProtocol: ObjectProtocol, ConverterProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GCharsetConverter` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GCharsetConverter` instance.
-    var charset_converter_ptr: UnsafeMutablePointer<GCharsetConverter> { get }
+    var charset_converter_ptr: UnsafeMutablePointer<GCharsetConverter>! { get }
+
 }
 
 /// The `CharsetConverterRef` type acts as a lightweight Swift reference to an underlying `GCharsetConverter` instance.
@@ -28,55 +29,85 @@ public protocol CharsetConverterProtocol: ObjectProtocol, ConverterProtocol, Ini
 public struct CharsetConverterRef: CharsetConverterProtocol {
         /// Untyped pointer to the underlying `GCharsetConverter` instance.
     /// For type-safe access, use the generated, typed pointer `charset_converter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension CharsetConverterRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GCharsetConverter>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GCharsetConverter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GCharsetConverter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GCharsetConverter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GCharsetConverter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `CharsetConverterProtocol`
-    init<T: CharsetConverterProtocol>(_ other: T) {
+    @inlinable init<T: CharsetConverterProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GCharsetConverter`.
-    init( to_charset: UnsafePointer<gchar>, fromCharset from_charset: UnsafePointer<gchar>) throws {
+    @inlinable init( to_charset: UnsafePointer<gchar>!, fromCharset from_charset: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GCharsetConverter>! = cast(g_charset_converter_new(to_charset, from_charset, &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_charset_converter_new(to_charset, from_charset, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -91,86 +122,132 @@ open class CharsetConverter: Object, CharsetConverterProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `CharsetConverter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GCharsetConverter>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GCharsetConverter>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GCharsetConverter>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GCharsetConverter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `CharsetConverter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GCharsetConverter>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GCharsetConverter`.
     /// i.e., ownership is transferred to the `CharsetConverter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GCharsetConverter>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GCharsetConverter>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `CharsetConverterProtocol`
     /// Will retain `GCharsetConverter`.
     /// - Parameter other: an instance of a related type that implements `CharsetConverterProtocol`
-    public init<T: CharsetConverterProtocol>(charsetConverter other: T) {
-        super.init(retaining: cast(other.charset_converter_ptr))
+    @inlinable public init<T: CharsetConverterProtocol>(charsetConverter other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GCharsetConverter`.
-    public init( to_charset: UnsafePointer<gchar>, fromCharset from_charset: UnsafePointer<gchar>) throws {
+    @inlinable public init( to_charset: UnsafePointer<gchar>!, fromCharset from_charset: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GCharsetConverter>! = cast(g_charset_converter_new(to_charset, from_charset, &error))
-        if let error = error { throw ErrorType(error) }
-        super.init(cast(rv))
+        let rv = g_charset_converter_new(to_charset, from_charset, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
     }
 
 
@@ -191,18 +268,18 @@ public extension CharsetConverterProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: CharsetConverterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: CharsetConverterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(charset_converter_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -220,7 +297,7 @@ public extension CharsetConverterProtocol {
     /// Get the value of a CharsetConverter property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: CharsetConverterPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: CharsetConverterPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -230,7 +307,7 @@ public extension CharsetConverterProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: CharsetConverterPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: CharsetConverterPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -272,11 +349,11 @@ public extension CharsetConverterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: CharsetConverterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: CharsetConverterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(charset_converter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -297,44 +374,44 @@ public extension CharsetConverterProtocol {
 // MARK: CharsetConverter Class: CharsetConverterProtocol extension (methods and fields)
 public extension CharsetConverterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCharsetConverter` instance.
-    var charset_converter_ptr: UnsafeMutablePointer<GCharsetConverter> { return ptr.assumingMemoryBound(to: GCharsetConverter.self) }
+    @inlinable var charset_converter_ptr: UnsafeMutablePointer<GCharsetConverter>! { return ptr?.assumingMemoryBound(to: GCharsetConverter.self) }
 
     /// Gets the number of fallbacks that `converter` has applied so far.
-    func getNumFallbacks() -> Int {
-        let rv: Int = cast(g_charset_converter_get_num_fallbacks(cast(charset_converter_ptr)))
-        return Int(rv)
+    @inlinable func getNumFallbacks() -> Int {
+        let rv = Int(g_charset_converter_get_num_fallbacks(charset_converter_ptr))
+        return rv
     }
 
     /// Gets the `GCharsetConverter:use`-fallback property.
-    func getUseFallback() -> Bool {
-        let rv = g_charset_converter_get_use_fallback(cast(charset_converter_ptr))
-        return Bool(rv != 0)
+    @inlinable func getUseFallback() -> Bool {
+        let rv = ((g_charset_converter_get_use_fallback(charset_converter_ptr)) != 0)
+        return rv
     }
 
     /// Sets the `GCharsetConverter:use`-fallback property.
-    func set(useFallback use_fallback: Bool) {
-        g_charset_converter_set_use_fallback(cast(charset_converter_ptr), gboolean(use_fallback ? 1 : 0))
+    @inlinable func set(useFallback use_fallback: Bool) {
+        g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((use_fallback) ? 1 : 0))
     
     }
     /// Gets the number of fallbacks that `converter` has applied so far.
-    var numFallbacks: Int {
+    @inlinable var numFallbacks: Int {
         /// Gets the number of fallbacks that `converter` has applied so far.
         get {
-            let rv: Int = cast(g_charset_converter_get_num_fallbacks(cast(charset_converter_ptr)))
-            return Int(rv)
+            let rv = Int(g_charset_converter_get_num_fallbacks(charset_converter_ptr))
+            return rv
         }
     }
 
     /// Gets the `GCharsetConverter:use`-fallback property.
-    var useFallback: Bool {
+    @inlinable var useFallback: Bool {
         /// Gets the `GCharsetConverter:use`-fallback property.
         get {
-            let rv = g_charset_converter_get_use_fallback(cast(charset_converter_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_charset_converter_get_use_fallback(charset_converter_ptr)) != 0)
+            return rv
         }
         /// Sets the `GCharsetConverter:use`-fallback property.
         nonmutating set {
-            g_charset_converter_set_use_fallback(cast(charset_converter_ptr), gboolean(newValue ? 1 : 0))
+            g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -357,10 +434,11 @@ public extension CharsetConverterProtocol {
 /// `GPollableInputStream`.
 public protocol ConverterInputStreamProtocol: FilterInputStreamProtocol, PollableInputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterInputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GConverterInputStream` instance.
-    var converter_input_stream_ptr: UnsafeMutablePointer<GConverterInputStream> { get }
+    var converter_input_stream_ptr: UnsafeMutablePointer<GConverterInputStream>! { get }
+
 }
 
 /// The `ConverterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStream` instance.
@@ -375,53 +453,83 @@ public protocol ConverterInputStreamProtocol: FilterInputStreamProtocol, Pollabl
 public struct ConverterInputStreamRef: ConverterInputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `converter_input_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ConverterInputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GConverterInputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GConverterInputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GConverterInputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GConverterInputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GConverterInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ConverterInputStreamProtocol`
-    init<T: ConverterInputStreamProtocol>(_ other: T) {
+    @inlinable init<T: ConverterInputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new converter input stream for the `base_stream`.
-    init( base_stream: InputStreamProtocol, converter: ConverterProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_converter_input_stream_new(cast(base_stream.ptr), cast(converter.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( base_stream: InputStreamT, converter: ConverterT) {
+        let rv = g_converter_input_stream_new(base_stream.input_stream_ptr, converter.converter_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -439,84 +547,130 @@ open class ConverterInputStream: FilterInputStream, ConverterInputStreamProtocol
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ConverterInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GConverterInputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GConverterInputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GConverterInputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GConverterInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GConverterInputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GConverterInputStream`.
     /// i.e., ownership is transferred to the `ConverterInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GConverterInputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GConverterInputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ConverterInputStreamProtocol`
     /// Will retain `GConverterInputStream`.
     /// - Parameter other: an instance of a related type that implements `ConverterInputStreamProtocol`
-    public init<T: ConverterInputStreamProtocol>(converterInputStream other: T) {
-        super.init(retaining: cast(other.converter_input_stream_ptr))
+    @inlinable public init<T: ConverterInputStreamProtocol>(converterInputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new converter input stream for the `base_stream`.
-    public init( base_stream: InputStreamProtocol, converter: ConverterProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_converter_input_stream_new(cast(base_stream.ptr), cast(converter.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( base_stream: InputStreamT, converter: ConverterT) {
+        let rv = g_converter_input_stream_new(base_stream.input_stream_ptr, converter.converter_ptr)
+        super.init(gpointer: (rv))
     }
 
 
@@ -537,18 +691,18 @@ public extension ConverterInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(converter_input_stream_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -566,7 +720,7 @@ public extension ConverterInputStreamProtocol {
     /// Get the value of a ConverterInputStream property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ConverterInputStreamPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ConverterInputStreamPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -576,7 +730,7 @@ public extension ConverterInputStreamProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ConverterInputStreamPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ConverterInputStreamPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -618,11 +772,11 @@ public extension ConverterInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ConverterInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ConverterInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(converter_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -643,24 +797,24 @@ public extension ConverterInputStreamProtocol {
 // MARK: ConverterInputStream Class: ConverterInputStreamProtocol extension (methods and fields)
 public extension ConverterInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterInputStream` instance.
-    var converter_input_stream_ptr: UnsafeMutablePointer<GConverterInputStream> { return ptr.assumingMemoryBound(to: GConverterInputStream.self) }
+    @inlinable var converter_input_stream_ptr: UnsafeMutablePointer<GConverterInputStream>! { return ptr?.assumingMemoryBound(to: GConverterInputStream.self) }
 
     /// Gets the `GConverter` that is used by `converter_stream`.
-    func getConverter() -> UnsafeMutablePointer<GConverter>! {
-        let rv: UnsafeMutablePointer<GConverter>! = cast(g_converter_input_stream_get_converter(cast(converter_input_stream_ptr)))
-        return cast(rv)
+    @inlinable func getConverter() -> ConverterRef! {
+        let rv = ConverterRef(gconstpointer: gconstpointer(g_converter_input_stream_get_converter(converter_input_stream_ptr)))
+        return rv
     }
-    var converter: UnsafeMutablePointer<GConverter>! {
+    @inlinable var converter: ConverterRef! {
         /// Gets the `GConverter` that is used by `converter_stream`.
         get {
-            let rv: UnsafeMutablePointer<GConverter>! = cast(g_converter_input_stream_get_converter(cast(converter_input_stream_ptr)))
-            return cast(rv)
+            let rv = ConverterRef(gconstpointer: gconstpointer(g_converter_input_stream_get_converter(converter_input_stream_ptr)))
+            return rv
         }
     }
 
-    var parentInstance: GFilterInputStream {
+    @inlinable var parentInstance: GFilterInputStream {
         get {
-            let rv: GFilterInputStream = cast(converter_input_stream_ptr.pointee.parent_instance)
+            let rv = converter_input_stream_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -685,10 +839,11 @@ public extension ConverterInputStreamProtocol {
 /// `GPollableOutputStream`.
 public protocol ConverterOutputStreamProtocol: FilterOutputStreamProtocol, PollableOutputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterOutputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GConverterOutputStream` instance.
-    var converter_output_stream_ptr: UnsafeMutablePointer<GConverterOutputStream> { get }
+    var converter_output_stream_ptr: UnsafeMutablePointer<GConverterOutputStream>! { get }
+
 }
 
 /// The `ConverterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStream` instance.
@@ -703,53 +858,83 @@ public protocol ConverterOutputStreamProtocol: FilterOutputStreamProtocol, Polla
 public struct ConverterOutputStreamRef: ConverterOutputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `converter_output_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ConverterOutputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GConverterOutputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GConverterOutputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GConverterOutputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GConverterOutputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GConverterOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ConverterOutputStreamProtocol`
-    init<T: ConverterOutputStreamProtocol>(_ other: T) {
+    @inlinable init<T: ConverterOutputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new converter output stream for the `base_stream`.
-    init( base_stream: OutputStreamProtocol, converter: ConverterProtocol) {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_converter_output_stream_new(cast(base_stream.ptr), cast(converter.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT, converter: ConverterT) {
+        let rv = g_converter_output_stream_new(base_stream.output_stream_ptr, converter.converter_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -767,84 +952,130 @@ open class ConverterOutputStream: FilterOutputStream, ConverterOutputStreamProto
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GConverterOutputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GConverterOutputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GConverterOutputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GConverterOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GConverterOutputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GConverterOutputStream`.
     /// i.e., ownership is transferred to the `ConverterOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GConverterOutputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GConverterOutputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ConverterOutputStreamProtocol`
     /// Will retain `GConverterOutputStream`.
     /// - Parameter other: an instance of a related type that implements `ConverterOutputStreamProtocol`
-    public init<T: ConverterOutputStreamProtocol>(converterOutputStream other: T) {
-        super.init(retaining: cast(other.converter_output_stream_ptr))
+    @inlinable public init<T: ConverterOutputStreamProtocol>(converterOutputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new converter output stream for the `base_stream`.
-    public init( base_stream: OutputStreamProtocol, converter: ConverterProtocol) {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_converter_output_stream_new(cast(base_stream.ptr), cast(converter.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT, converter: ConverterT) {
+        let rv = g_converter_output_stream_new(base_stream.output_stream_ptr, converter.converter_ptr)
+        super.init(gpointer: (rv))
     }
 
 
@@ -865,18 +1096,18 @@ public extension ConverterOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(converter_output_stream_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -894,7 +1125,7 @@ public extension ConverterOutputStreamProtocol {
     /// Get the value of a ConverterOutputStream property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ConverterOutputStreamPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ConverterOutputStreamPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -904,7 +1135,7 @@ public extension ConverterOutputStreamProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ConverterOutputStreamPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ConverterOutputStreamPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -946,11 +1177,11 @@ public extension ConverterOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ConverterOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ConverterOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(converter_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -971,24 +1202,24 @@ public extension ConverterOutputStreamProtocol {
 // MARK: ConverterOutputStream Class: ConverterOutputStreamProtocol extension (methods and fields)
 public extension ConverterOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GConverterOutputStream` instance.
-    var converter_output_stream_ptr: UnsafeMutablePointer<GConverterOutputStream> { return ptr.assumingMemoryBound(to: GConverterOutputStream.self) }
+    @inlinable var converter_output_stream_ptr: UnsafeMutablePointer<GConverterOutputStream>! { return ptr?.assumingMemoryBound(to: GConverterOutputStream.self) }
 
     /// Gets the `GConverter` that is used by `converter_stream`.
-    func getConverter() -> UnsafeMutablePointer<GConverter>! {
-        let rv: UnsafeMutablePointer<GConverter>! = cast(g_converter_output_stream_get_converter(cast(converter_output_stream_ptr)))
-        return cast(rv)
+    @inlinable func getConverter() -> ConverterRef! {
+        let rv = ConverterRef(gconstpointer: gconstpointer(g_converter_output_stream_get_converter(converter_output_stream_ptr)))
+        return rv
     }
-    var converter: UnsafeMutablePointer<GConverter>! {
+    @inlinable var converter: ConverterRef! {
         /// Gets the `GConverter` that is used by `converter_stream`.
         get {
-            let rv: UnsafeMutablePointer<GConverter>! = cast(g_converter_output_stream_get_converter(cast(converter_output_stream_ptr)))
-            return cast(rv)
+            let rv = ConverterRef(gconstpointer: gconstpointer(g_converter_output_stream_get_converter(converter_output_stream_ptr)))
+            return rv
         }
     }
 
-    var parentInstance: GFilterOutputStream {
+    @inlinable var parentInstance: GFilterOutputStream {
         get {
-            let rv: GFilterOutputStream = cast(converter_output_stream_ptr.pointee.parent_instance)
+            let rv = converter_output_stream_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -1038,10 +1269,11 @@ public extension ConverterOutputStreamProtocol {
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
 public protocol CredentialsProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GCredentials` instance.
-    var credentials_ptr: UnsafeMutablePointer<GCredentials> { get }
+    var credentials_ptr: UnsafeMutablePointer<GCredentials>! { get }
+
 }
 
 /// The `CredentialsRef` type acts as a lightweight Swift reference to an underlying `GCredentials` instance.
@@ -1081,54 +1313,84 @@ public protocol CredentialsProtocol: ObjectProtocol {
 public struct CredentialsRef: CredentialsProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
     /// For type-safe access, use the generated, typed pointer `credentials_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension CredentialsRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GCredentials>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GCredentials>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GCredentials>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GCredentials>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GCredentials>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `CredentialsProtocol`
-    init<T: CredentialsProtocol>(_ other: T) {
+    @inlinable init<T: CredentialsProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GCredentials` object with credentials matching the
     /// the current process.
-    init() {
-        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_credentials_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_credentials_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1171,85 +1433,131 @@ open class Credentials: Object, CredentialsProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Credentials` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GCredentials>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GCredentials>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GCredentials>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GCredentials>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Credentials` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GCredentials>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GCredentials`.
     /// i.e., ownership is transferred to the `Credentials` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GCredentials>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GCredentials>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `CredentialsProtocol`
     /// Will retain `GCredentials`.
     /// - Parameter other: an instance of a related type that implements `CredentialsProtocol`
-    public init<T: CredentialsProtocol>(credentials other: T) {
-        super.init(retaining: cast(other.credentials_ptr))
+    @inlinable public init<T: CredentialsProtocol>(credentials other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GCredentials` object with credentials matching the
     /// the current process.
-    public init() {
-        let rv: UnsafeMutablePointer<GCredentials>! = cast(g_credentials_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = g_credentials_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -1292,11 +1600,11 @@ public extension CredentialsProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: CredentialsSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: CredentialsSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(credentials_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1317,7 +1625,7 @@ public extension CredentialsProtocol {
 // MARK: Credentials Class: CredentialsProtocol extension (methods and fields)
 public extension CredentialsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCredentials` instance.
-    var credentials_ptr: UnsafeMutablePointer<GCredentials> { return ptr.assumingMemoryBound(to: GCredentials.self) }
+    @inlinable var credentials_ptr: UnsafeMutablePointer<GCredentials>! { return ptr?.assumingMemoryBound(to: GCredentials.self) }
 
     /// Gets a pointer to native credentials of type `native_type` from
     /// `credentials`.
@@ -1325,9 +1633,9 @@ public extension CredentialsProtocol {
     /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
-    func getNative(nativeType native_type: CredentialsType) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_credentials_get_native(cast(credentials_ptr), native_type))
-        return cast(rv)
+    @inlinable func getNative(nativeType native_type: GCredentialsType) -> gpointer! {
+        let rv = g_credentials_get_native(credentials_ptr, native_type)
+        return rv
     }
 
     /// Tries to get the UNIX process identifier from `credentials`. This
@@ -1336,11 +1644,11 @@ public extension CredentialsProtocol {
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
     /// about the UNIX process ID.
-    func getUnixPid() throws -> pid_t {
+    @inlinable func getUnixPid() throws -> pid_t {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_credentials_get_unix_pid(cast(credentials_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_credentials_get_unix_pid(credentials_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Tries to get the UNIX user identifier from `credentials`. This
@@ -1349,22 +1657,22 @@ public extension CredentialsProtocol {
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
     /// about the UNIX user.
-    func getUnixUser() throws -> uid_t {
+    @inlinable func getUnixUser() throws -> uid_t {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_credentials_get_unix_user(cast(credentials_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_credentials_get_unix_user(credentials_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks if `credentials` and `other_credentials` is the same user.
     /// 
     /// This operation can fail if `GCredentials` is not supported on the
     /// the OS.
-    func isSameUser(otherCredentials other_credentials: CredentialsProtocol) throws -> Bool {
+    @inlinable func isSameUser<CredentialsT: CredentialsProtocol>(otherCredentials other_credentials: CredentialsT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_credentials_is_same_user(cast(credentials_ptr), cast(other_credentials.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_credentials_is_same_user(credentials_ptr, other_credentials.credentials_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Copies the native credentials of type `native_type` from `native`
@@ -1373,8 +1681,8 @@ public extension CredentialsProtocol {
     /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
-    func setNative(nativeType native_type: CredentialsType, native: UnsafeMutableRawPointer) {
-        g_credentials_set_native(cast(credentials_ptr), native_type, cast(native))
+    @inlinable func setNative(nativeType native_type: GCredentialsType, native: gpointer!) {
+        g_credentials_set_native(credentials_ptr, native_type, native)
     
     }
 
@@ -1385,19 +1693,19 @@ public extension CredentialsProtocol {
     /// OS or if the native credentials type does not contain information
     /// about the UNIX user. It can also fail if the OS does not allow the
     /// use of "spoofed" credentials.
-    func setUnixUser(uid: CUnsignedInt) throws -> Bool {
+    @inlinable func setUnixUser(uid: uid_t) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_credentials_set_unix_user(cast(credentials_ptr), uid, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_credentials_set_unix_user(credentials_ptr, uid, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Creates a human-readable textual representation of `credentials`
     /// that can be used in logging and debug messages. The format of the
     /// returned string may change in future GLib release.
-    func toString() -> String! {
-        let rv: String! = cast(g_credentials_to_string(cast(credentials_ptr)))
-        return cast(rv)
+    @inlinable func toString() -> String! {
+        let rv = g_credentials_to_string(credentials_ptr).map({ String(cString: $0) })
+        return rv
     }
     /// Tries to get the UNIX process identifier from `credentials`. This
     /// method is only available on UNIX platforms.
@@ -1405,7 +1713,7 @@ public extension CredentialsProtocol {
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
     /// about the UNIX process ID.
-    var unixPid: pid_t {
+    @inlinable var unixPid: pid_t {
         /// Tries to get the UNIX process identifier from `credentials`. This
         /// method is only available on UNIX platforms.
         /// 
@@ -1414,9 +1722,9 @@ public extension CredentialsProtocol {
         /// about the UNIX process ID.
         get {
             var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_credentials_get_unix_pid(cast(credentials_ptr), &error))
+        let rv = g_credentials_get_unix_pid(credentials_ptr, &error)
         g_log(messagePtr: error?.pointee.message, level: .error)
-            return cast(rv)
+            return rv
         }
     }
 
@@ -1426,7 +1734,7 @@ public extension CredentialsProtocol {
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
     /// about the UNIX user.
-    var unixUser: uid_t {
+    @inlinable var unixUser: uid_t {
         /// Tries to get the UNIX user identifier from `credentials`. This
         /// method is only available on UNIX platforms.
         /// 
@@ -1435,9 +1743,9 @@ public extension CredentialsProtocol {
         /// about the UNIX user.
         get {
             var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_credentials_get_unix_user(cast(credentials_ptr), &error))
+        let rv = g_credentials_get_unix_user(credentials_ptr, &error)
         g_log(messagePtr: error?.pointee.message, level: .error)
-            return cast(rv)
+            return rv
         }
         /// Tries to set the UNIX user identifier on `credentials`. This method
         /// is only available on UNIX platforms.
@@ -1447,9 +1755,9 @@ public extension CredentialsProtocol {
         /// about the UNIX user. It can also fail if the OS does not allow the
         /// use of "spoofed" credentials.
         nonmutating set {
-            var err: UnsafeMutablePointer<GError>?
-            _ = g_credentials_set_unix_user(cast(credentials_ptr), cast(newValue), &err)
-            g_log(messagePtr: err?.pointee.message, level: .error)
+            var error: UnsafeMutablePointer<GError>?
+            _ = g_credentials_set_unix_user(credentials_ptr, newValue, &error)
+            g_log(messagePtr: error?.pointee.message, level: .error)
         }
     }
 
@@ -1470,10 +1778,11 @@ public extension CredentialsProtocol {
 /// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 public protocol DBusActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, RemoteActionGroupProtocol {
         /// Untyped pointer to the underlying `GDBusActionGroup` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GDBusActionGroup` instance.
-    var dbus_action_group_ptr: UnsafeMutablePointer<GDBusActionGroup> { get }
+    var dbus_action_group_ptr: UnsafeMutablePointer<GDBusActionGroup>! { get }
+
 }
 
 /// The `DBusActionGroupRef` type acts as a lightweight Swift reference to an underlying `GDBusActionGroup` instance.
@@ -1486,46 +1795,76 @@ public protocol DBusActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, Re
 public struct DBusActionGroupRef: DBusActionGroupProtocol {
         /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_action_group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DBusActionGroupRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GDBusActionGroup>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GDBusActionGroup>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GDBusActionGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GDBusActionGroup>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GDBusActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DBusActionGroupProtocol`
-    init<T: DBusActionGroupProtocol>(_ other: T) {
+    @inlinable init<T: DBusActionGroupProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1542,9 +1881,9 @@ public extension DBusActionGroupRef {
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
     /// `g_action_group_list_actions()` to get the initial list.
-    static func dbusActionGroupGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusActionGroupRef! {
-        let rv: UnsafeMutablePointer<GDBusActionGroup>! = cast(g_dbus_action_group_get(cast(connection.ptr), bus_name, object_path))
-        return rv.map { DBusActionGroupRef(cast($0)) }
+    @inlinable static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusActionGroupRef! {
+        guard let rv = DBusActionGroupRef(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+        return rv
     }
 }
 
@@ -1560,77 +1899,123 @@ open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GDBusActionGroup>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GDBusActionGroup>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GDBusActionGroup>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GDBusActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DBusActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GDBusActionGroup>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDBusActionGroup`.
     /// i.e., ownership is transferred to the `DBusActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GDBusActionGroup>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GDBusActionGroup>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `DBusActionGroupProtocol`
     /// Will retain `GDBusActionGroup`.
     /// - Parameter other: an instance of a related type that implements `DBusActionGroupProtocol`
-    public init<T: DBusActionGroupProtocol>(dBusActionGroup other: T) {
-        super.init(retaining: cast(other.dbus_action_group_ptr))
+    @inlinable public init<T: DBusActionGroupProtocol>(dBusActionGroup other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -1648,9 +2033,9 @@ open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
     /// `g_action_group_list_actions()` to get the initial list.
-    public static func dbusActionGroupGet(connection: DBusConnectionProtocol, busName bus_name: UnsafePointer<gchar>, objectPath object_path: UnsafePointer<gchar>) -> DBusActionGroup! {
-        let rv: UnsafeMutablePointer<GDBusActionGroup>! = cast(g_dbus_action_group_get(cast(connection.ptr), bus_name, object_path))
-        return rv.map { DBusActionGroup(cast($0)) }
+    @inlinable public static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusActionGroup! {
+        guard let rv = DBusActionGroup(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+        return rv
     }
 
 }
@@ -1692,11 +2077,11 @@ public extension DBusActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DBusActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: DBusActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(dbus_action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1717,7 +2102,7 @@ public extension DBusActionGroupProtocol {
 // MARK: DBusActionGroup Class: DBusActionGroupProtocol extension (methods and fields)
 public extension DBusActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDBusActionGroup` instance.
-    var dbus_action_group_ptr: UnsafeMutablePointer<GDBusActionGroup> { return ptr.assumingMemoryBound(to: GDBusActionGroup.self) }
+    @inlinable var dbus_action_group_ptr: UnsafeMutablePointer<GDBusActionGroup>! { return ptr?.assumingMemoryBound(to: GDBusActionGroup.self) }
 
 
 

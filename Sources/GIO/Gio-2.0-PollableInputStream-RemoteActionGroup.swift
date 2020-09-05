@@ -15,10 +15,11 @@ import GLibObject
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableInputStreamProtocol: InputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableInputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GPollableInputStream` instance.
-    var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream> { get }
+    var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream>! { get }
+
 }
 
 /// The `PollableInputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStream` instance.
@@ -32,46 +33,76 @@ public protocol PollableInputStreamProtocol: InputStreamProtocol {
 public struct PollableInputStreamRef: PollableInputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_input_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension PollableInputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GPollableInputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GPollableInputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GPollableInputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPollableInputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GPollableInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `PollableInputStreamProtocol`
-    init<T: PollableInputStreamProtocol>(_ other: T) {
+    @inlinable init<T: PollableInputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -90,77 +121,123 @@ open class PollableInputStream: InputStream, PollableInputStreamProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PollableInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GPollableInputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GPollableInputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GPollableInputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableInputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GPollableInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GPollableInputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GPollableInputStream`.
     /// i.e., ownership is transferred to the `PollableInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GPollableInputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GPollableInputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `PollableInputStreamProtocol`
     /// Will retain `GPollableInputStream`.
     /// - Parameter other: an instance of a related type that implements `PollableInputStreamProtocol`
-    public init<T: PollableInputStreamProtocol>(pollableInputStream other: T) {
-        super.init(retaining: cast(other.pollable_input_stream_ptr))
+    @inlinable public init<T: PollableInputStreamProtocol>(pollableInputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -205,11 +282,11 @@ public extension PollableInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PollableInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: PollableInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(pollable_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -230,7 +307,7 @@ public extension PollableInputStreamProtocol {
 // MARK: PollableInputStream Interface: PollableInputStreamProtocol extension (methods and fields)
 public extension PollableInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableInputStream` instance.
-    var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream> { return ptr.assumingMemoryBound(to: GPollableInputStream.self) }
+    @inlinable var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream>! { return ptr?.assumingMemoryBound(to: GPollableInputStream.self) }
 
     /// Checks if `stream` is actually pollable. Some classes may implement
     /// `GPollableInputStream` but have only certain instances of that class
@@ -239,9 +316,9 @@ public extension PollableInputStreamProtocol {
     /// 
     /// For any given stream, the value returned by this method is constant;
     /// a stream cannot switch from pollable to non-pollable or vice versa.
-    func canPoll() -> Bool {
-        let rv = g_pollable_input_stream_can_poll(cast(pollable_input_stream_ptr))
-        return Bool(rv != 0)
+    @inlinable func canPoll() -> Bool {
+        let rv = ((g_pollable_input_stream_can_poll(pollable_input_stream_ptr)) != 0)
+        return rv
     }
 
     /// Creates a `GSource` that triggers when `stream` can be read, or
@@ -252,9 +329,9 @@ public extension PollableInputStreamProtocol {
     /// the stream may not actually be readable even after the source
     /// triggers, so you should use `g_pollable_input_stream_read_nonblocking()`
     /// rather than `g_input_stream_read()` from the callback.
-    func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_input_stream_create_source(cast(pollable_input_stream_ptr), cast(cancellable.ptr)))
-        return cast(rv)
+    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> SourceRef! {
+        let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_input_stream_create_source(pollable_input_stream_ptr, cancellable?.cancellable_ptr)))
+        return rv
     }
 
     /// Attempts to read up to `count` bytes from `stream` into `buffer`, as
@@ -268,11 +345,11 @@ public extension PollableInputStreamProtocol {
     /// if `cancellable` has already been cancelled when you call, which
     /// may happen if you call this method after a source triggers due
     /// to having been cancelled.
-    func readNonblocking(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
+    @inlinable func readNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_pollable_input_stream_read_nonblocking(cast(pollable_input_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_pollable_input_stream_read_nonblocking(pollable_input_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Checks if `stream` can be read.
     /// 
@@ -282,7 +359,7 @@ public extension PollableInputStreamProtocol {
     /// non-blocking behavior, you should always use
     /// `g_pollable_input_stream_read_nonblocking()`, which will return a
     /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
-    var isReadable: Bool {
+    @inlinable var isReadable: Bool {
         /// Checks if `stream` can be read.
         /// 
         /// Note that some stream types may not be able to implement this 100%
@@ -292,8 +369,8 @@ public extension PollableInputStreamProtocol {
         /// `g_pollable_input_stream_read_nonblocking()`, which will return a
         /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
         get {
-            let rv = g_pollable_input_stream_is_readable(cast(pollable_input_stream_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_pollable_input_stream_is_readable(pollable_input_stream_ptr)) != 0)
+            return rv
         }
     }
 
@@ -315,10 +392,11 @@ public extension PollableInputStreamProtocol {
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableOutputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GPollableOutputStream` instance.
-    var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream> { get }
+    var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream>! { get }
+
 }
 
 /// The `PollableOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStream` instance.
@@ -332,46 +410,76 @@ public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
 public struct PollableOutputStreamRef: PollableOutputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_output_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension PollableOutputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GPollableOutputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GPollableOutputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GPollableOutputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPollableOutputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GPollableOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `PollableOutputStreamProtocol`
-    init<T: PollableOutputStreamProtocol>(_ other: T) {
+    @inlinable init<T: PollableOutputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -390,77 +498,123 @@ open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PollableOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GPollableOutputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GPollableOutputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GPollableOutputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableOutputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GPollableOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollableOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GPollableOutputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GPollableOutputStream`.
     /// i.e., ownership is transferred to the `PollableOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GPollableOutputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GPollableOutputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `PollableOutputStreamProtocol`
     /// Will retain `GPollableOutputStream`.
     /// - Parameter other: an instance of a related type that implements `PollableOutputStreamProtocol`
-    public init<T: PollableOutputStreamProtocol>(pollableOutputStream other: T) {
-        super.init(retaining: cast(other.pollable_output_stream_ptr))
+    @inlinable public init<T: PollableOutputStreamProtocol>(pollableOutputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -505,11 +659,11 @@ public extension PollableOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: PollableOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: PollableOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(pollable_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -530,7 +684,7 @@ public extension PollableOutputStreamProtocol {
 // MARK: PollableOutputStream Interface: PollableOutputStreamProtocol extension (methods and fields)
 public extension PollableOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollableOutputStream` instance.
-    var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream> { return ptr.assumingMemoryBound(to: GPollableOutputStream.self) }
+    @inlinable var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream>! { return ptr?.assumingMemoryBound(to: GPollableOutputStream.self) }
 
     /// Checks if `stream` is actually pollable. Some classes may implement
     /// `GPollableOutputStream` but have only certain instances of that
@@ -539,9 +693,9 @@ public extension PollableOutputStreamProtocol {
     /// 
     /// For any given stream, the value returned by this method is constant;
     /// a stream cannot switch from pollable to non-pollable or vice versa.
-    func canPoll() -> Bool {
-        let rv = g_pollable_output_stream_can_poll(cast(pollable_output_stream_ptr))
-        return Bool(rv != 0)
+    @inlinable func canPoll() -> Bool {
+        let rv = ((g_pollable_output_stream_can_poll(pollable_output_stream_ptr)) != 0)
+        return rv
     }
 
     /// Creates a `GSource` that triggers when `stream` can be written, or
@@ -552,9 +706,9 @@ public extension PollableOutputStreamProtocol {
     /// the stream may not actually be writable even after the source
     /// triggers, so you should use `g_pollable_output_stream_write_nonblocking()`
     /// rather than `g_output_stream_write()` from the callback.
-    func createSource(cancellable: CancellableProtocol) -> UnsafeMutablePointer<GSource>! {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_pollable_output_stream_create_source(cast(pollable_output_stream_ptr), cast(cancellable.ptr)))
-        return cast(rv)
+    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> SourceRef! {
+        let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_output_stream_create_source(pollable_output_stream_ptr, cancellable?.cancellable_ptr)))
+        return rv
     }
 
     /// Attempts to write up to `count` bytes from `buffer` to `stream`, as
@@ -572,11 +726,11 @@ public extension PollableOutputStreamProtocol {
     /// Also note that if `G_IO_ERROR_WOULD_BLOCK` is returned some underlying
     /// transports like D/TLS require that you re-send the same `buffer` and
     /// `count` in the next write call.
-    func writeNonblocking(buffer: UnsafeMutableRawPointer, count: Int, cancellable: CancellableProtocol) throws -> gssize {
+    @inlinable func writeNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_pollable_output_stream_write_nonblocking(cast(pollable_output_stream_ptr), cast(buffer), gsize(count), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_pollable_output_stream_write_nonblocking(pollable_output_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Attempts to write the bytes contained in the `n_vectors` `vectors` to `stream`,
@@ -595,11 +749,11 @@ public extension PollableOutputStreamProtocol {
     /// Also note that if `G_POLLABLE_RETURN_WOULD_BLOCK` is returned some underlying
     /// transports like D/TLS require that you re-send the same `vectors` and
     /// `n_vectors` in the next write call.
-    func writevNonblocking(vectors: UnsafePointer<GOutputVector>, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>, cancellable: CancellableProtocol) throws -> GPollableReturn {
+    @inlinable func writevNonblocking<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> GPollableReturn {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_pollable_output_stream_writev_nonblocking(cast(pollable_output_stream_ptr), cast(vectors), gsize(n_vectors), cast(bytes_written), cast(cancellable.ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_pollable_output_stream_writev_nonblocking(pollable_output_stream_ptr, vectors, gsize(n_vectors), bytes_written, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Checks if `stream` can be written.
     /// 
@@ -609,7 +763,7 @@ public extension PollableOutputStreamProtocol {
     /// non-blocking behavior, you should always use
     /// `g_pollable_output_stream_write_nonblocking()`, which will return a
     /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
-    var isWritable: Bool {
+    @inlinable var isWritable: Bool {
         /// Checks if `stream` can be written.
         /// 
         /// Note that some stream types may not be able to implement this 100%
@@ -619,8 +773,8 @@ public extension PollableOutputStreamProtocol {
         /// `g_pollable_output_stream_write_nonblocking()`, which will return a
         /// `G_IO_ERROR_WOULD_BLOCK` error rather than blocking.
         get {
-            let rv = g_pollable_output_stream_is_writable(cast(pollable_output_stream_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_pollable_output_stream_is_writable(pollable_output_stream_ptr)) != 0)
+            return rv
         }
     }
 
@@ -644,10 +798,11 @@ public extension PollableOutputStreamProtocol {
 /// `g_io_extension_point_get_extension_by_name()`.
 public protocol ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GProxy` instance.
-    var proxy_ptr: UnsafeMutablePointer<GProxy> { get }
+    var proxy_ptr: UnsafeMutablePointer<GProxy>! { get }
+
 }
 
 /// The `ProxyRef` type acts as a lightweight Swift reference to an underlying `GProxy` instance.
@@ -663,54 +818,84 @@ public protocol ProxyProtocol {
 public struct ProxyRef: ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ProxyRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GProxy>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GProxy>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GProxy>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GProxy>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GProxy>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ProxyProtocol`
-    init<T: ProxyProtocol>(_ other: T) {
+    @inlinable init<T: ProxyProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Find the `gio-proxy` extension point for a proxy implementation that supports
     /// the specified protocol.
-    static func getDefaultFor(protocol_: UnsafePointer<gchar>) -> ProxyRef! {
-        let rv: UnsafeMutablePointer<GProxy>! = cast(g_proxy_get_default_for_protocol(protocol_))
-        return rv.map { ProxyRef(cast($0)) }
+    @inlinable static func getDefaultFor(`protocol`: UnsafePointer<gchar>!) -> ProxyRef! {
+        guard let rv = ProxyRef(gconstpointer: gconstpointer(g_proxy_get_default_for_protocol(`protocol`))) else { return nil }
+        return rv
     }
 }
 
@@ -727,103 +912,149 @@ public extension ProxyRef {
 open class Proxy: ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Proxy` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GProxy>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GProxy>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Proxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GProxy>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Proxy` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Proxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Proxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GProxy>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Proxy` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GProxy>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GProxy` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Proxy` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GProxy>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GProxy>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ProxyProtocol`
     /// `GProxy` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ProxyProtocol`
-    public init<T: ProxyProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.proxy_ptr)
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+    @inlinable public init<T: ProxyProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
     /// Do-nothing destructor for `GProxy`.
     deinit {
-        // no reference counting for GProxy, cannot unref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot unref(proxy_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GProxy, cannot ref(cast(proxy_ptr))
+        // no reference counting for GProxy, cannot ref(proxy_ptr)
     }
 
 
     /// Find the `gio-proxy` extension point for a proxy implementation that supports
     /// the specified protocol.
-    public static func getDefaultFor(protocol_: UnsafePointer<gchar>) -> Proxy! {
-        let rv: UnsafeMutablePointer<GProxy>! = cast(g_proxy_get_default_for_protocol(protocol_))
-        return rv.map { Proxy(cast($0)) }
+    @inlinable public static func getDefaultFor(`protocol`: UnsafePointer<gchar>!) -> Proxy! {
+        guard let rv = Proxy(gconstpointer: gconstpointer(g_proxy_get_default_for_protocol(`protocol`))) else { return nil }
+        return rv
     }
 
 }
@@ -836,31 +1067,31 @@ open class Proxy: ProxyProtocol {
 // MARK: Proxy Interface: ProxyProtocol extension (methods and fields)
 public extension ProxyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxy` instance.
-    var proxy_ptr: UnsafeMutablePointer<GProxy> { return ptr.assumingMemoryBound(to: GProxy.self) }
+    @inlinable var proxy_ptr: UnsafeMutablePointer<GProxy>! { return ptr?.assumingMemoryBound(to: GProxy.self) }
 
     /// Given `connection` to communicate with a proxy (eg, a
     /// `GSocketConnection` that is connected to the proxy server), this
     /// does the necessary handshake to connect to `proxy_address`, and if
     /// required, wraps the `GIOStream` to handle proxy payload.
-    func connect(connection: IOStreamProtocol, proxyAddress proxy_address: ProxyAddressProtocol, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
+    @inlinable func connect<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress proxy_address: ProxyAddressT, cancellable: CancellableT? = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_proxy_connect(cast(proxy_ptr), cast(connection.ptr), cast(proxy_address.ptr), cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_proxy_connect(proxy_ptr, connection.io_stream_ptr, proxy_address.proxy_address_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronous version of `g_proxy_connect()`.
-    func connectAsync(connection: IOStreamProtocol, proxyAddress proxy_address: ProxyAddressProtocol, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_proxy_connect_async(cast(proxy_ptr), cast(connection.ptr), cast(proxy_address.ptr), cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func connectAsync<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress proxy_address: ProxyAddressT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_proxy_connect_async(proxy_ptr, connection.io_stream_ptr, proxy_address.proxy_address_ptr, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// See `g_proxy_connect()`.
-    func connectFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<GIOStream>! {
+    @inlinable func connectFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GIOStream>! = cast(g_proxy_connect_finish(cast(proxy_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_proxy_connect_finish(proxy_ptr, result.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Some proxy protocols expect to be passed a hostname, which they
@@ -870,9 +1101,9 @@ public extension ProxyProtocol {
     /// should resolve the destination hostname first, and then pass a
     /// `GProxyAddress` containing the stringified IP address to
     /// `g_proxy_connect()` or `g_proxy_connect_async()`.
-    func supportsHostname() -> Bool {
-        let rv = g_proxy_supports_hostname(cast(proxy_ptr))
-        return Bool(rv != 0)
+    @inlinable func supportsHostname() -> Bool {
+        let rv = ((g_proxy_supports_hostname(proxy_ptr)) != 0)
+        return rv
     }
 
 
@@ -896,10 +1127,11 @@ public extension ProxyProtocol {
 /// Flatpak portals.
 public protocol ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GProxyResolver` instance.
-    var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver> { get }
+    var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver>! { get }
+
 }
 
 /// The `ProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GProxyResolver` instance.
@@ -916,53 +1148,83 @@ public protocol ProxyResolverProtocol {
 public struct ProxyResolverRef: ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ProxyResolverRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GProxyResolver>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GProxyResolver>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GProxyResolver>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GProxyResolver>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GProxyResolver>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ProxyResolverProtocol`
-    init<T: ProxyResolverProtocol>(_ other: T) {
+    @inlinable init<T: ProxyResolverProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Gets the default `GProxyResolver` for the system.
-    static func getDefault() -> ProxyResolverRef! {
-        let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_proxy_resolver_get_default())
-        return rv.map { ProxyResolverRef(cast($0)) }
+    @inlinable static func getDefault() -> ProxyResolverRef! {
+        guard let rv = ProxyResolverRef(gconstpointer: gconstpointer(g_proxy_resolver_get_default())) else { return nil }
+        return rv
     }
 }
 
@@ -980,102 +1242,148 @@ public extension ProxyResolverRef {
 open class ProxyResolver: ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ProxyResolver` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GProxyResolver>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GProxyResolver>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GProxyResolver>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyResolver` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GProxyResolver>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ProxyResolver` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GProxyResolver>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GProxyResolver` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ProxyResolver` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GProxyResolver>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GProxyResolver>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ProxyResolverProtocol`
     /// `GProxyResolver` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ProxyResolverProtocol`
-    public init<T: ProxyResolverProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.proxy_resolver_ptr)
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+    @inlinable public init<T: ProxyResolverProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
     /// Do-nothing destructor for `GProxyResolver`.
     deinit {
-        // no reference counting for GProxyResolver, cannot unref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot unref(proxy_resolver_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GProxyResolver, cannot ref(cast(proxy_resolver_ptr))
+        // no reference counting for GProxyResolver, cannot ref(proxy_resolver_ptr)
     }
 
 
     /// Gets the default `GProxyResolver` for the system.
-    public static func getDefault() -> ProxyResolver! {
-        let rv: UnsafeMutablePointer<GProxyResolver>! = cast(g_proxy_resolver_get_default())
-        return rv.map { ProxyResolver(cast($0)) }
+    @inlinable public static func getDefault() -> ProxyResolver! {
+        guard let rv = ProxyResolver(gconstpointer: gconstpointer(g_proxy_resolver_get_default())) else { return nil }
+        return rv
     }
 
 }
@@ -1088,7 +1396,7 @@ open class ProxyResolver: ProxyResolverProtocol {
 // MARK: ProxyResolver Interface: ProxyResolverProtocol extension (methods and fields)
 public extension ProxyResolverProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GProxyResolver` instance.
-    var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver> { return ptr.assumingMemoryBound(to: GProxyResolver.self) }
+    @inlinable var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver>! { return ptr?.assumingMemoryBound(to: GProxyResolver.self) }
 
     /// Looks into the system proxy configuration to determine what proxy,
     /// if any, to use to connect to `uri`. The returned proxy URIs are of
@@ -1105,39 +1413,39 @@ public extension ProxyResolverProtocol {
     /// `direct://` is used when no proxy is needed.
     /// Direct connection should not be attempted unless it is part of the
     /// returned array of proxies.
-    func lookup(uri: UnsafePointer<gchar>, cancellable: CancellableProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func lookup<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_proxy_resolver_lookup(cast(proxy_resolver_ptr), uri, cast(cancellable.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_proxy_resolver_lookup(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Asynchronous lookup of proxy. See `g_proxy_resolver_lookup()` for more
     /// details.
-    func lookupAsync(uri: UnsafePointer<gchar>, cancellable: CancellableProtocol, callback: @escaping AsyncReadyCallback, userData user_data: UnsafeMutableRawPointer) {
-        g_proxy_resolver_lookup_async(cast(proxy_resolver_ptr), uri, cast(cancellable.ptr), callback, cast(user_data))
+    @inlinable func lookupAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
+        g_proxy_resolver_lookup_async(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, callback, user_data)
     
     }
 
     /// Call this function to obtain the array of proxy URIs when
     /// `g_proxy_resolver_lookup_async()` is complete. See
     /// `g_proxy_resolver_lookup()` for more details.
-    func lookupFinish(result: AsyncResultProtocol) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func lookupFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_proxy_resolver_lookup_finish(cast(proxy_resolver_ptr), cast(result.ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_proxy_resolver_lookup_finish(proxy_resolver_ptr, result.async_result_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Checks if `resolver` can be used on this system. (This is used
     /// internally; `g_proxy_resolver_get_default()` will only return a proxy
     /// resolver that returns `true` for this method.)
-    var isSupported: Bool {
+    @inlinable var isSupported: Bool {
         /// Checks if `resolver` can be used on this system. (This is used
         /// internally; `g_proxy_resolver_get_default()` will only return a proxy
         /// resolver that returns `true` for this method.)
         get {
-            let rv = g_proxy_resolver_is_supported(cast(proxy_resolver_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_proxy_resolver_is_supported(proxy_resolver_ptr)) != 0)
+            return rv
         }
     }
 
@@ -1176,10 +1484,11 @@ public extension ProxyResolverProtocol {
 /// invocations that arrive by way of D-Bus.
 public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GRemoteActionGroup` instance.
-    var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup> { get }
+    var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup>! { get }
+
 }
 
 /// The `RemoteActionGroupRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroup` instance.
@@ -1210,46 +1519,76 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
 public struct RemoteActionGroupRef: RemoteActionGroupProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `remote_action_group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension RemoteActionGroupRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GRemoteActionGroup>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GRemoteActionGroup>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GRemoteActionGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GRemoteActionGroup>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GRemoteActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `RemoteActionGroupProtocol`
-    init<T: RemoteActionGroupProtocol>(_ other: T) {
+    @inlinable init<T: RemoteActionGroupProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1285,77 +1624,123 @@ open class RemoteActionGroup: ActionGroup, RemoteActionGroupProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GRemoteActionGroup>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GRemoteActionGroup>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GRemoteActionGroup>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GRemoteActionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GRemoteActionGroup>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GRemoteActionGroup` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `RemoteActionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GRemoteActionGroup>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GRemoteActionGroup>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `RemoteActionGroupProtocol`
     /// `GRemoteActionGroup` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `RemoteActionGroupProtocol`
-    public init<T: RemoteActionGroupProtocol>(remoteActionGroup other: T) {
-        super.init(retaining: cast(other.remote_action_group_ptr))
+    @inlinable public init<T: RemoteActionGroupProtocol>(remoteActionGroup other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -1387,11 +1772,11 @@ public extension RemoteActionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: RemoteActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: RemoteActionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(remote_action_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1412,7 +1797,7 @@ public extension RemoteActionGroupProtocol {
 // MARK: RemoteActionGroup Interface: RemoteActionGroupProtocol extension (methods and fields)
 public extension RemoteActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRemoteActionGroup` instance.
-    var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup> { return ptr.assumingMemoryBound(to: GRemoteActionGroup.self) }
+    @inlinable var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup>! { return ptr?.assumingMemoryBound(to: GRemoteActionGroup.self) }
 
     /// Activates the remote action.
     /// 
@@ -1423,8 +1808,8 @@ public extension RemoteActionGroupProtocol {
     /// 
     /// `platform_data` must be non-`nil` and must have the type
     /// `G_VARIANT_TYPE_VARDICT`.  If it is floating, it will be consumed.
-    func activateActionFull(actionName action_name: UnsafePointer<gchar>, parameter: VariantProtocol, platformData platform_data: VariantProtocol) {
-        g_remote_action_group_activate_action_full(cast(remote_action_group_ptr), action_name, cast(parameter.ptr), cast(platform_data.ptr))
+    @inlinable func activateActionFull<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, parameter: VariantT? = nil, platformData platform_data: VariantT) {
+        g_remote_action_group_activate_action_full(remote_action_group_ptr, action_name, parameter?.variant_ptr, platform_data.variant_ptr)
     
     }
 
@@ -1437,8 +1822,8 @@ public extension RemoteActionGroupProtocol {
     /// 
     /// `platform_data` must be non-`nil` and must have the type
     /// `G_VARIANT_TYPE_VARDICT`.  If it is floating, it will be consumed.
-    func changeActionStateFull(actionName action_name: UnsafePointer<gchar>, value: VariantProtocol, platformData platform_data: VariantProtocol) {
-        g_remote_action_group_change_action_state_full(cast(remote_action_group_ptr), action_name, cast(value.ptr), cast(platform_data.ptr))
+    @inlinable func changeActionStateFull<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, value: VariantT, platformData platform_data: VariantT) {
+        g_remote_action_group_change_action_state_full(remote_action_group_ptr, action_name, value.variant_ptr, platform_data.variant_ptr)
     
     }
 

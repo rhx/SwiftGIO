@@ -16,10 +16,11 @@ import GLibObject
 /// `GPollableInputStream`.
 public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GMemoryInputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMemoryInputStream` instance.
-    var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream> { get }
+    var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream>! { get }
+
 }
 
 /// The `MemoryInputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStream` instance.
@@ -34,76 +35,106 @@ public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStr
 public struct MemoryInputStreamRef: MemoryInputStreamProtocol {
         /// Untyped pointer to the underlying `GMemoryInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_input_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MemoryInputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMemoryInputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMemoryInputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMemoryInputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMemoryInputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMemoryInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MemoryInputStreamProtocol`
-    init<T: MemoryInputStreamProtocol>(_ other: T) {
+    @inlinable init<T: MemoryInputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new empty `GMemoryInputStream`.
-    init() {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_memory_input_stream_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    init(bytes: BytesProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<BytesT: BytesProtocol>(bytes: BytesT) {
+        let rv = g_memory_input_stream_new_from_bytes(bytes.bytes_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
-    init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init(data: UnsafeMutableRawPointer!, len: gssize, destroy: GDestroyNotify? = nil) {
+        let rv = g_memory_input_stream_new_from_data(data, len, destroy)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    static func newFrom(bytes: BytesProtocol) -> MemoryInputStreamRef! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
-        return rv.map { MemoryInputStreamRef(cast($0)) }
+    @inlinable static func newFrom<BytesT: BytesProtocol>(bytes: BytesT) -> InputStreamRef! {
+        guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_memory_input_stream_new_from_bytes(bytes.bytes_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
-    static func newFrom(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) -> MemoryInputStreamRef! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
-        return rv.map { MemoryInputStreamRef(cast($0)) }
+    @inlinable static func newFrom(data: UnsafeMutableRawPointer!, len: gssize, destroy: GDestroyNotify? = nil) -> InputStreamRef! {
+        guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_memory_input_stream_new_from_data(data, len, destroy))) else { return nil }
+        return rv
     }
 }
 
@@ -121,108 +152,154 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MemoryInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMemoryInputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMemoryInputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMemoryInputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMemoryInputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryInputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMemoryInputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMemoryInputStream`.
     /// i.e., ownership is transferred to the `MemoryInputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMemoryInputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMemoryInputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MemoryInputStreamProtocol`
     /// Will retain `GMemoryInputStream`.
     /// - Parameter other: an instance of a related type that implements `MemoryInputStreamProtocol`
-    public init<T: MemoryInputStreamProtocol>(memoryInputStream other: T) {
-        super.init(retaining: cast(other.memory_input_stream_ptr))
+    @inlinable public init<T: MemoryInputStreamProtocol>(memoryInputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new empty `GMemoryInputStream`.
-    public init() {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = g_memory_input_stream_new()
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    public init(bytes: BytesProtocol) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<BytesT: BytesProtocol>(bytes: BytesT) {
+        let rv = g_memory_input_stream_new_from_bytes(bytes.bytes_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
-    public init(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
-        super.init(cast(rv))
+    @inlinable public init(data: UnsafeMutableRawPointer!, len: gssize, destroy: GDestroyNotify? = nil) {
+        let rv = g_memory_input_stream_new_from_data(data, len, destroy)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    public static func newFrom(bytes: BytesProtocol) -> MemoryInputStream! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_bytes(cast(bytes.ptr)))
-        return rv.map { MemoryInputStream(cast($0)) }
+    @inlinable public static func newFrom<BytesT: BytesProtocol>(bytes: BytesT) -> InputStream! {
+        guard let rv = InputStream(gconstpointer: gconstpointer(g_memory_input_stream_new_from_bytes(bytes.bytes_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMemoryInputStream` with data in memory of a given size.
-    public static func newFrom(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) -> MemoryInputStream! {
-        let rv: UnsafeMutablePointer<GInputStream>! = cast(g_memory_input_stream_new_from_data(cast(data), len, destroy))
-        return rv.map { MemoryInputStream(cast($0)) }
+    @inlinable public static func newFrom(data: UnsafeMutableRawPointer!, len: gssize, destroy: GDestroyNotify? = nil) -> InputStream! {
+        guard let rv = InputStream(gconstpointer: gconstpointer(g_memory_input_stream_new_from_data(data, len, destroy))) else { return nil }
+        return rv
     }
 
 }
@@ -264,11 +341,11 @@ public extension MemoryInputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MemoryInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MemoryInputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(memory_input_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -289,23 +366,23 @@ public extension MemoryInputStreamProtocol {
 // MARK: MemoryInputStream Class: MemoryInputStreamProtocol extension (methods and fields)
 public extension MemoryInputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryInputStream` instance.
-    var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream> { return ptr.assumingMemoryBound(to: GMemoryInputStream.self) }
+    @inlinable var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream>! { return ptr?.assumingMemoryBound(to: GMemoryInputStream.self) }
 
     /// Appends `bytes` to data that can be read from the input stream.
-    func add(bytes: BytesProtocol) {
-        g_memory_input_stream_add_bytes(cast(memory_input_stream_ptr), cast(bytes.ptr))
+    @inlinable func add<BytesT: BytesProtocol>(bytes: BytesT) {
+        g_memory_input_stream_add_bytes(memory_input_stream_ptr, bytes.bytes_ptr)
     
     }
 
     /// Appends `data` to data that can be read from the input stream
-    func add(data: UnsafeMutableRawPointer, len: gssize, destroy: @escaping GLib.DestroyNotify) {
-        g_memory_input_stream_add_data(cast(memory_input_stream_ptr), cast(data), len, destroy)
+    @inlinable func add(data: UnsafeMutableRawPointer!, len: gssize, destroy: GDestroyNotify? = nil) {
+        g_memory_input_stream_add_data(memory_input_stream_ptr, data, len, destroy)
     
     }
 
-    var parentInstance: GInputStream {
+    @inlinable var parentInstance: GInputStream {
         get {
-            let rv: GInputStream = cast(memory_input_stream_ptr.pointee.parent_instance)
+            let rv = memory_input_stream_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -330,10 +407,11 @@ public extension MemoryInputStreamProtocol {
 /// `GPollableOutputStream:` it always polls as ready.
 public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMemoryOutputStream` instance.
-    var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream> { get }
+    var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream>! { get }
+
 }
 
 /// The `MemoryOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStream` instance.
@@ -348,46 +426,76 @@ public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutput
 public struct MemoryOutputStreamRef: MemoryOutputStreamProtocol {
         /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_output_stream_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MemoryOutputStreamRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMemoryOutputStream>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMemoryOutputStream>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMemoryOutputStream>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMemoryOutputStream>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMemoryOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MemoryOutputStreamProtocol`
-    init<T: MemoryOutputStreamProtocol>(_ other: T) {
+    @inlinable init<T: MemoryOutputStreamProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -434,15 +542,15 @@ public extension MemoryOutputStreamRef {
     /// stream3 = g_memory_output_stream_new (data, 200, NULL, free);
     /// ```
     /// 
-    init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( data: gpointer! = nil, size: Int, reallocFunction realloc_function: GReallocFunc? = nil, destroyFunction destroy_function: GDestroyNotify? = nil) {
+        let rv = g_memory_output_stream_new(data, gsize(size), realloc_function, destroy_function)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
-    static func newResizable() -> MemoryOutputStreamRef! {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new_resizable())
-        return rv.map { MemoryOutputStreamRef(cast($0)) }
+    @inlinable static func newResizable() -> OutputStreamRef! {
+        guard let rv = OutputStreamRef(gconstpointer: gconstpointer(g_memory_output_stream_new_resizable())) else { return nil }
+        return rv
     }
 }
 
@@ -460,77 +568,123 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMemoryOutputStream>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMemoryOutputStream>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMemoryOutputStream>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMemoryOutputStream>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMemoryOutputStream>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMemoryOutputStream`.
     /// i.e., ownership is transferred to the `MemoryOutputStream` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMemoryOutputStream>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMemoryOutputStream>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MemoryOutputStreamProtocol`
     /// Will retain `GMemoryOutputStream`.
     /// - Parameter other: an instance of a related type that implements `MemoryOutputStreamProtocol`
-    public init<T: MemoryOutputStreamProtocol>(memoryOutputStream other: T) {
-        super.init(retaining: cast(other.memory_output_stream_ptr))
+    @inlinable public init<T: MemoryOutputStreamProtocol>(memoryOutputStream other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -577,16 +731,16 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// stream3 = g_memory_output_stream_new (data, 200, NULL, free);
     /// ```
     /// 
-    public init( data: UnsafeMutableRawPointer, size: Int, reallocFunction realloc_function: @escaping ReallocFunc, destroyFunction destroy_function: @escaping GLib.DestroyNotify) {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new(cast(data), gsize(size), realloc_function, destroy_function))
-        super.init(cast(rv))
+    @inlinable public init( data: gpointer! = nil, size: Int, reallocFunction realloc_function: GReallocFunc? = nil, destroyFunction destroy_function: GDestroyNotify? = nil) {
+        let rv = g_memory_output_stream_new(data, gsize(size), realloc_function, destroy_function)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
     /// for memory allocation.
-    public static func newResizable() -> MemoryOutputStream! {
-        let rv: UnsafeMutablePointer<GOutputStream>! = cast(g_memory_output_stream_new_resizable())
-        return rv.map { MemoryOutputStream(cast($0)) }
+    @inlinable public static func newResizable() -> OutputStream! {
+        guard let rv = OutputStream(gconstpointer: gconstpointer(g_memory_output_stream_new_resizable())) else { return nil }
+        return rv
     }
 
 }
@@ -613,18 +767,18 @@ public extension MemoryOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(memory_output_stream_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -642,7 +796,7 @@ public extension MemoryOutputStreamProtocol {
     /// Get the value of a MemoryOutputStream property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: MemoryOutputStreamPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: MemoryOutputStreamPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -652,7 +806,7 @@ public extension MemoryOutputStreamProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: MemoryOutputStreamPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: MemoryOutputStreamPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -701,11 +855,11 @@ public extension MemoryOutputStreamProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MemoryOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MemoryOutputStreamSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(memory_output_stream_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -726,22 +880,22 @@ public extension MemoryOutputStreamProtocol {
 // MARK: MemoryOutputStream Class: MemoryOutputStreamProtocol extension (methods and fields)
 public extension MemoryOutputStreamProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemoryOutputStream` instance.
-    var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream> { return ptr.assumingMemoryBound(to: GMemoryOutputStream.self) }
+    @inlinable var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream>! { return ptr?.assumingMemoryBound(to: GMemoryOutputStream.self) }
 
     /// Gets any loaded data from the `ostream`.
     /// 
     /// Note that the returned pointer may become invalid on the next
     /// write or truncate operation on the stream.
-    func getData() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_get_data(cast(memory_output_stream_ptr)))
-        return cast(rv)
+    @inlinable func getData() -> gpointer! {
+        let rv = g_memory_output_stream_get_data(memory_output_stream_ptr)
+        return rv
     }
 
     /// Returns the number of bytes from the start up to including the last
     /// byte written in the stream that has not been truncated away.
-    func getDataSize() -> Int {
-        let rv = g_memory_output_stream_get_data_size(cast(memory_output_stream_ptr))
-        return Int(rv)
+    @inlinable func getDataSize() -> Int {
+        let rv = Int(g_memory_output_stream_get_data_size(memory_output_stream_ptr))
+        return rv
     }
 
     /// Gets the size of the currently allocated data area (available from
@@ -759,16 +913,16 @@ public extension MemoryOutputStreamProtocol {
     /// 
     /// In any case, if you want the number of bytes currently written to the
     /// stream, use `g_memory_output_stream_get_data_size()`.
-    func getSize() -> Int {
-        let rv = g_memory_output_stream_get_size(cast(memory_output_stream_ptr))
-        return Int(rv)
+    @inlinable func getSize() -> Int {
+        let rv = Int(g_memory_output_stream_get_size(memory_output_stream_ptr))
+        return rv
     }
 
     /// Returns data from the `ostream` as a `GBytes`. `ostream` must be
     /// closed before calling this function.
-    func stealAsBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv: UnsafeMutablePointer<GBytes>! = cast(g_memory_output_stream_steal_as_bytes(cast(memory_output_stream_ptr)))
-        return cast(rv)
+    @inlinable func stealAsBytes() -> BytesRef! {
+        let rv = BytesRef(gconstpointer: gconstpointer(g_memory_output_stream_steal_as_bytes(memory_output_stream_ptr)))
+        return rv
     }
 
     /// Gets any loaded data from the `ostream`. Ownership of the data
@@ -777,35 +931,35 @@ public extension MemoryOutputStreamProtocol {
     /// `GMemoryOutputStream:destroy`-function property.
     /// 
     /// `ostream` must be closed before calling this function.
-    func stealData() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_steal_data(cast(memory_output_stream_ptr)))
-        return cast(rv)
+    @inlinable func stealData() -> gpointer! {
+        let rv = g_memory_output_stream_steal_data(memory_output_stream_ptr)
+        return rv
     }
     /// Pointer to buffer where data will be written.
-    var data: UnsafeMutableRawPointer! {
+    @inlinable var data: gpointer! {
         /// Gets any loaded data from the `ostream`.
         /// 
         /// Note that the returned pointer may become invalid on the next
         /// write or truncate operation on the stream.
         get {
-            let rv: UnsafeMutableRawPointer! = cast(g_memory_output_stream_get_data(cast(memory_output_stream_ptr)))
-            return cast(rv)
+            let rv = g_memory_output_stream_get_data(memory_output_stream_ptr)
+            return rv
         }
     }
 
     /// Returns the number of bytes from the start up to including the last
     /// byte written in the stream that has not been truncated away.
-    var dataSize: Int {
+    @inlinable var dataSize: Int {
         /// Returns the number of bytes from the start up to including the last
         /// byte written in the stream that has not been truncated away.
         get {
-            let rv = g_memory_output_stream_get_data_size(cast(memory_output_stream_ptr))
-            return Int(rv)
+            let rv = Int(g_memory_output_stream_get_data_size(memory_output_stream_ptr))
+            return rv
         }
     }
 
     /// Current size of the data buffer.
-    var size: Int {
+    @inlinable var size: Int {
         /// Gets the size of the currently allocated data area (available from
         /// `g_memory_output_stream_get_data()`).
         /// 
@@ -822,14 +976,14 @@ public extension MemoryOutputStreamProtocol {
         /// In any case, if you want the number of bytes currently written to the
         /// stream, use `g_memory_output_stream_get_data_size()`.
         get {
-            let rv = g_memory_output_stream_get_size(cast(memory_output_stream_ptr))
-            return Int(rv)
+            let rv = Int(g_memory_output_stream_get_size(memory_output_stream_ptr))
+            return rv
         }
     }
 
-    var parentInstance: GOutputStream {
+    @inlinable var parentInstance: GOutputStream {
         get {
-            let rv: GOutputStream = cast(memory_output_stream_ptr.pointee.parent_instance)
+            let rv = memory_output_stream_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -857,10 +1011,11 @@ public extension MemoryOutputStreamProtocol {
 /// `g_menu_insert_submenu()`.
 public protocol MenuProtocol: MenuModelProtocol {
         /// Untyped pointer to the underlying `GMenu` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMenu` instance.
-    var menu_ptr: UnsafeMutablePointer<GMenu> { get }
+    var menu_ptr: UnsafeMutablePointer<GMenu>! { get }
+
 }
 
 /// The `MenuRef` type acts as a lightweight Swift reference to an underlying `GMenu` instance.
@@ -878,55 +1033,85 @@ public protocol MenuProtocol: MenuModelProtocol {
 public struct MenuRef: MenuProtocol {
         /// Untyped pointer to the underlying `GMenu` instance.
     /// For type-safe access, use the generated, typed pointer `menu_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MenuRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMenu>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMenu>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMenu>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMenu>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMenu>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MenuProtocol`
-    init<T: MenuProtocol>(_ other: T) {
+    @inlinable init<T: MenuProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GMenu`.
     /// 
     /// The new menu has no items.
-    init() {
-        let rv: UnsafeMutablePointer<GMenu>! = cast(g_menu_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_menu_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -947,86 +1132,132 @@ open class Menu: MenuModel, MenuProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Menu` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMenu>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMenu>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMenu>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMenu>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Menu` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMenu>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenu`.
     /// i.e., ownership is transferred to the `Menu` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMenu>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMenu>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MenuProtocol`
     /// Will retain `GMenu`.
     /// - Parameter other: an instance of a related type that implements `MenuProtocol`
-    public init<T: MenuProtocol>(menu other: T) {
-        super.init(retaining: cast(other.menu_ptr))
+    @inlinable public init<T: MenuProtocol>(menu other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GMenu`.
     /// 
     /// The new menu has no items.
-    public init() {
-        let rv: UnsafeMutablePointer<GMenu>! = cast(g_menu_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = g_menu_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -1090,11 +1321,11 @@ public extension MenuProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MenuSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(menu_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1115,37 +1346,37 @@ public extension MenuProtocol {
 // MARK: Menu Class: MenuProtocol extension (methods and fields)
 public extension MenuProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenu` instance.
-    var menu_ptr: UnsafeMutablePointer<GMenu> { return ptr.assumingMemoryBound(to: GMenu.self) }
+    @inlinable var menu_ptr: UnsafeMutablePointer<GMenu>! { return ptr?.assumingMemoryBound(to: GMenu.self) }
 
     /// Convenience function for appending a normal menu item to the end of
     /// `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    func append(label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        g_menu_append(cast(menu_ptr), label, detailed_action)
+    @inlinable func append(label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
+        g_menu_append(menu_ptr, label, detailed_action)
     
     }
 
     /// Appends `item` to the end of `menu`.
     /// 
     /// See `g_menu_insert_item()` for more information.
-    func append(item: MenuItemProtocol) {
-        g_menu_append_item(cast(menu_ptr), cast(item.ptr))
+    @inlinable func append<MenuItemT: MenuItemProtocol>(item: MenuItemT) {
+        g_menu_append_item(menu_ptr, item.menu_item_ptr)
     
     }
 
     /// Convenience function for appending a section menu item to the end of
     /// `menu`.  Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for a
     /// more flexible alternative.
-    func appendSection(label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        g_menu_append_section(cast(menu_ptr), label, cast(section.ptr))
+    @inlinable func appendSection<MenuModelT: MenuModelProtocol>(label: UnsafePointer<gchar>? = nil, section: MenuModelT) {
+        g_menu_append_section(menu_ptr, label, section.menu_model_ptr)
     
     }
 
     /// Convenience function for appending a submenu menu item to the end of
     /// `menu`.  Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for a
     /// more flexible alternative.
-    func appendSubmenu(label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        g_menu_append_submenu(cast(menu_ptr), label, cast(submenu.ptr))
+    @inlinable func appendSubmenu<MenuModelT: MenuModelProtocol>(label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) {
+        g_menu_append_submenu(menu_ptr, label, submenu.menu_model_ptr)
     
     }
 
@@ -1157,16 +1388,16 @@ public extension MenuProtocol {
     /// 
     /// This function causes `g_menu_model_is_mutable()` to begin returning
     /// `false`, which has some positive performance implications.
-    func freeze() {
-        g_menu_freeze(cast(menu_ptr))
+    @inlinable func freeze() {
+        g_menu_freeze(menu_ptr)
     
     }
 
     /// Convenience function for inserting a normal menu item into `menu`.
     /// Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more flexible
     /// alternative.
-    func insert(position: CInt, label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        g_menu_insert(cast(menu_ptr), gint(position), label, detailed_action)
+    @inlinable func insert(position: Int, label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
+        g_menu_insert(menu_ptr, gint(position), label, detailed_action)
     
     }
 
@@ -1187,56 +1418,56 @@ public extension MenuProtocol {
     /// See `g_menu_insert()`, `g_menu_insert_section()` and
     /// `g_menu_insert_submenu()` as well as "prepend" and "append" variants of
     /// each of these functions.
-    func insertItem(position: CInt, item: MenuItemProtocol) {
-        g_menu_insert_item(cast(menu_ptr), gint(position), cast(item.ptr))
+    @inlinable func insertItem<MenuItemT: MenuItemProtocol>(position: Int, item: MenuItemT) {
+        g_menu_insert_item(menu_ptr, gint(position), item.menu_item_ptr)
     
     }
 
     /// Convenience function for inserting a section menu item into `menu`.
     /// Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    func insertSection(position: CInt, label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        g_menu_insert_section(cast(menu_ptr), gint(position), label, cast(section.ptr))
+    @inlinable func insertSection<MenuModelT: MenuModelProtocol>(position: Int, label: UnsafePointer<gchar>? = nil, section: MenuModelT) {
+        g_menu_insert_section(menu_ptr, gint(position), label, section.menu_model_ptr)
     
     }
 
     /// Convenience function for inserting a submenu menu item into `menu`.
     /// Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    func insertSubmenu(position: CInt, label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        g_menu_insert_submenu(cast(menu_ptr), gint(position), label, cast(submenu.ptr))
+    @inlinable func insertSubmenu<MenuModelT: MenuModelProtocol>(position: Int, label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) {
+        g_menu_insert_submenu(menu_ptr, gint(position), label, submenu.menu_model_ptr)
     
     }
 
     /// Convenience function for prepending a normal menu item to the start
     /// of `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    func prepend(label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        g_menu_prepend(cast(menu_ptr), label, detailed_action)
+    @inlinable func prepend(label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
+        g_menu_prepend(menu_ptr, label, detailed_action)
     
     }
 
     /// Prepends `item` to the start of `menu`.
     /// 
     /// See `g_menu_insert_item()` for more information.
-    func prepend(item: MenuItemProtocol) {
-        g_menu_prepend_item(cast(menu_ptr), cast(item.ptr))
+    @inlinable func prepend<MenuItemT: MenuItemProtocol>(item: MenuItemT) {
+        g_menu_prepend_item(menu_ptr, item.menu_item_ptr)
     
     }
 
     /// Convenience function for prepending a section menu item to the start
     /// of `menu`.  Combine `g_menu_item_new_section()` and `g_menu_insert_item()` for
     /// a more flexible alternative.
-    func prependSection(label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        g_menu_prepend_section(cast(menu_ptr), label, cast(section.ptr))
+    @inlinable func prependSection<MenuModelT: MenuModelProtocol>(label: UnsafePointer<gchar>? = nil, section: MenuModelT) {
+        g_menu_prepend_section(menu_ptr, label, section.menu_model_ptr)
     
     }
 
     /// Convenience function for prepending a submenu menu item to the start
     /// of `menu`.  Combine `g_menu_item_new_submenu()` and `g_menu_insert_item()` for
     /// a more flexible alternative.
-    func prependSubmenu(label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        g_menu_prepend_submenu(cast(menu_ptr), label, cast(submenu.ptr))
+    @inlinable func prependSubmenu<MenuModelT: MenuModelProtocol>(label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) {
+        g_menu_prepend_submenu(menu_ptr, label, submenu.menu_model_ptr)
     
     }
 
@@ -1250,14 +1481,14 @@ public extension MenuProtocol {
     /// It is not possible to remove items by identity since items are added
     /// to the menu simply by copying their links and attributes (ie:
     /// identity of the item itself is not preserved).
-    func remove(position: CInt) {
-        g_menu_remove(cast(menu_ptr), gint(position))
+    @inlinable func remove(position: Int) {
+        g_menu_remove(menu_ptr, gint(position))
     
     }
 
     /// Removes all items in the menu.
-    func removeAll() {
-        g_menu_remove_all(cast(menu_ptr))
+    @inlinable func removeAll() {
+        g_menu_remove_all(menu_ptr)
     
     }
 
@@ -1277,10 +1508,11 @@ public extension MenuProtocol {
 /// using the functions below.
 public protocol MenuAttributeIterProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMenuAttributeIter` instance.
-    var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter> { get }
+    var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter>! { get }
+
 }
 
 /// The `MenuAttributeIterRef` type acts as a lightweight Swift reference to an underlying `GMenuAttributeIter` instance.
@@ -1292,46 +1524,76 @@ public protocol MenuAttributeIterProtocol: ObjectProtocol {
 public struct MenuAttributeIterRef: MenuAttributeIterProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_attribute_iter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MenuAttributeIterRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMenuAttributeIter>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMenuAttributeIter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMenuAttributeIter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMenuAttributeIter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMenuAttributeIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MenuAttributeIterProtocol`
-    init<T: MenuAttributeIterProtocol>(_ other: T) {
+    @inlinable init<T: MenuAttributeIterProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1348,77 +1610,123 @@ open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMenuAttributeIter>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMenuAttributeIter>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMenuAttributeIter>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMenuAttributeIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMenuAttributeIter>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuAttributeIter`.
     /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMenuAttributeIter>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMenuAttributeIter>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MenuAttributeIterProtocol`
     /// Will retain `GMenuAttributeIter`.
     /// - Parameter other: an instance of a related type that implements `MenuAttributeIterProtocol`
-    public init<T: MenuAttributeIterProtocol>(menuAttributeIter other: T) {
-        super.init(retaining: cast(other.menu_attribute_iter_ptr))
+    @inlinable public init<T: MenuAttributeIterProtocol>(menuAttributeIter other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -1463,11 +1771,11 @@ public extension MenuAttributeIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuAttributeIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MenuAttributeIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(menu_attribute_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1488,15 +1796,15 @@ public extension MenuAttributeIterProtocol {
 // MARK: MenuAttributeIter Class: MenuAttributeIterProtocol extension (methods and fields)
 public extension MenuAttributeIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuAttributeIter` instance.
-    var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter> { return ptr.assumingMemoryBound(to: GMenuAttributeIter.self) }
+    @inlinable var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter>! { return ptr?.assumingMemoryBound(to: GMenuAttributeIter.self) }
 
     /// Gets the name of the attribute at the current iterator position, as
     /// a string.
     /// 
     /// The iterator is not advanced.
-    func getName() -> String! {
-        let rv: String! = cast(g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_menu_attribute_iter_get_name(menu_attribute_iter_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// This function combines `g_menu_attribute_iter_next()` with
@@ -1514,17 +1822,17 @@ public extension MenuAttributeIterProtocol {
     /// The value returned in `name` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
     /// be unreffed using `g_variant_unref()` when it is no longer in use.
-    func getNext(outName out_name: UnsafePointer<UnsafePointer<gchar>>, value: VariantProtocol) -> Bool {
-        let rv = g_menu_attribute_iter_get_next(cast(menu_attribute_iter_ptr), cast(out_name), cast(value.ptr))
-        return Bool(rv != 0)
+    @inlinable func getNext(outName out_name: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
+        let rv = ((g_menu_attribute_iter_get_next(menu_attribute_iter_ptr, out_name, value)) != 0)
+        return rv
     }
 
     /// Gets the value of the attribute at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    func getValue() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr)))
-        return cast(rv)
+    @inlinable func getValue() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr)))
+        return rv
     }
 
     /// Attempts to advance the iterator to the next (possibly first)
@@ -1536,48 +1844,48 @@ public extension MenuAttributeIterProtocol {
     /// You must call this function when you first acquire the iterator
     /// to advance it to the first attribute (and determine if the first
     /// attribute exists at all).
-    func next() -> Bool {
-        let rv = g_menu_attribute_iter_next(cast(menu_attribute_iter_ptr))
-        return Bool(rv != 0)
+    @inlinable func next() -> Bool {
+        let rv = ((g_menu_attribute_iter_next(menu_attribute_iter_ptr)) != 0)
+        return rv
     }
     /// Gets the name of the attribute at the current iterator position, as
     /// a string.
     /// 
     /// The iterator is not advanced.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the name of the attribute at the current iterator position, as
         /// a string.
         /// 
         /// The iterator is not advanced.
         get {
-            let rv: String! = cast(g_menu_attribute_iter_get_name(cast(menu_attribute_iter_ptr)))
-            return cast(rv)
+            let rv = g_menu_attribute_iter_get_name(menu_attribute_iter_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the value of the attribute at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    var value: UnsafeMutablePointer<GVariant>! {
+    @inlinable var value: VariantRef! {
         /// Gets the value of the attribute at the current iterator position.
         /// 
         /// The iterator is not advanced.
         get {
-            let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_attribute_iter_get_value(cast(menu_attribute_iter_ptr)))
-            return cast(rv)
-        }
-    }
-
-    var parentInstance: GObject {
-        get {
-            let rv: GObject = cast(menu_attribute_iter_ptr.pointee.parent_instance)
+            let rv = VariantRef(gconstpointer: gconstpointer(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr)))
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GMenuAttributeIterPrivate> {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: UnsafeMutablePointer<GMenuAttributeIterPrivate> = cast(menu_attribute_iter_ptr.pointee.priv)
+            let rv = menu_attribute_iter_ptr.pointee.parent_instance
+            return rv
+        }
+    }
+
+    @inlinable var priv: MenuAttributeIterPrivateRef! {
+        get {
+            let rv = MenuAttributeIterPrivateRef(gconstpointer: gconstpointer(menu_attribute_iter_ptr.pointee.priv))
             return rv
         }
     }
@@ -1597,10 +1905,11 @@ public extension MenuAttributeIterProtocol {
 /// functions below.
 public protocol MenuItemProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuItem` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMenuItem` instance.
-    var menu_item_ptr: UnsafeMutablePointer<GMenuItem> { get }
+    var menu_item_ptr: UnsafeMutablePointer<GMenuItem>! { get }
+
 }
 
 /// The `MenuItemRef` type acts as a lightweight Swift reference to an underlying `GMenuItem` instance.
@@ -1612,46 +1921,76 @@ public protocol MenuItemProtocol: ObjectProtocol {
 public struct MenuItemRef: MenuItemProtocol {
         /// Untyped pointer to the underlying `GMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `menu_item_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MenuItemRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMenuItem>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMenuItem>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMenuItem>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMenuItem>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMenuItem>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MenuItemProtocol`
-    init<T: MenuItemProtocol>(_ other: T) {
+    @inlinable init<T: MenuItemProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1663,9 +2002,9 @@ public extension MenuItemRef {
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
-    init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new(label, detailed_action))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
+        let rv = g_menu_item_new(label, detailed_action)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -1673,9 +2012,9 @@ public extension MenuItemRef {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    init(model: MenuModelProtocol, itemIndex item_index: CInt) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) {
+        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -1739,27 +2078,27 @@ public extension MenuItemRef {
     /// </menu>
     /// ```
     /// 
-    init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<MenuModelT: MenuModelProtocol>(section label: UnsafePointer<gchar>? = nil, section: MenuModelT) {
+        let rv = g_menu_item_new_section(label, section.menu_model_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
-    init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<MenuModelT: MenuModelProtocol>(submenu label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) {
+        let rv = g_menu_item_new_submenu(label, submenu.menu_model_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
     /// `GMenuModel`.
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItemRef! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
-        return rv.map { MenuItemRef(cast($0)) }
+    @inlinable static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) -> MenuItemRef! {
+        guard let rv = MenuItemRef(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index)))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -1823,18 +2162,18 @@ public extension MenuItemRef {
     /// </menu>
     /// ```
     /// 
-    static func new(section label: UnsafePointer<gchar>, section: MenuModelProtocol) -> MenuItemRef! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
-        return rv.map { MenuItemRef(cast($0)) }
+    @inlinable static func new<MenuModelT: MenuModelProtocol>(section label: UnsafePointer<gchar>? = nil, section: MenuModelT) -> MenuItemRef! {
+        guard let rv = MenuItemRef(gconstpointer: gconstpointer(g_menu_item_new_section(label, section.menu_model_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
-    static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItemRef! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
-        return rv.map { MenuItemRef(cast($0)) }
+    @inlinable static func new<MenuModelT: MenuModelProtocol>(submenu label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) -> MenuItemRef! {
+        guard let rv = MenuItemRef(gconstpointer: gconstpointer(g_menu_item_new_submenu(label, submenu.menu_model_ptr))) else { return nil }
+        return rv
     }
 }
 
@@ -1849,77 +2188,123 @@ open class MenuItem: Object, MenuItemProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuItem` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMenuItem>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMenuItem>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMenuItem>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMenuItem>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuItem` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMenuItem>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuItem`.
     /// i.e., ownership is transferred to the `MenuItem` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMenuItem>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMenuItem>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MenuItemProtocol`
     /// Will retain `GMenuItem`.
     /// - Parameter other: an instance of a related type that implements `MenuItemProtocol`
-    public init<T: MenuItemProtocol>(menuItem other: T) {
-        super.init(retaining: cast(other.menu_item_ptr))
+    @inlinable public init<T: MenuItemProtocol>(menuItem other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -1931,9 +2316,9 @@ open class MenuItem: Object, MenuItemProtocol {
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
-    public init( label: UnsafePointer<gchar>, detailedAction detailed_action: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new(label, detailed_action))
-        super.init(cast(rv))
+    @inlinable public init( label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
+        let rv = g_menu_item_new(label, detailed_action)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -1941,9 +2326,9 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    public init(model: MenuModelProtocol, itemIndex item_index: CInt) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
-        super.init(cast(rv))
+    @inlinable public init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) {
+        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index))
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -2007,18 +2392,18 @@ open class MenuItem: Object, MenuItemProtocol {
     /// </menu>
     /// ```
     /// 
-    public init(section label: UnsafePointer<gchar>, section: MenuModelProtocol) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<MenuModelT: MenuModelProtocol>(section label: UnsafePointer<gchar>? = nil, section: MenuModelT) {
+        let rv = g_menu_item_new_section(label, section.menu_model_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
-    public init(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<MenuModelT: MenuModelProtocol>(submenu label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) {
+        let rv = g_menu_item_new_submenu(label, submenu.menu_model_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a `GMenuItem` as an exact copy of an existing menu item in a
@@ -2026,9 +2411,9 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    public static func newFrom(model: MenuModelProtocol, itemIndex item_index: CInt) -> MenuItem! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_from_model(cast(model.ptr), gint(item_index)))
-        return rv.map { MenuItem(cast($0)) }
+    @inlinable public static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) -> MenuItem! {
+        guard let rv = MenuItem(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index)))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMenuItem` representing a section.
@@ -2092,18 +2477,18 @@ open class MenuItem: Object, MenuItemProtocol {
     /// </menu>
     /// ```
     /// 
-    public static func new(section label: UnsafePointer<gchar>, section: MenuModelProtocol) -> MenuItem! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_section(label, cast(section.ptr)))
-        return rv.map { MenuItem(cast($0)) }
+    @inlinable public static func new<MenuModelT: MenuModelProtocol>(section label: UnsafePointer<gchar>? = nil, section: MenuModelT) -> MenuItem! {
+        guard let rv = MenuItem(gconstpointer: gconstpointer(g_menu_item_new_section(label, section.menu_model_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `GMenuItem` representing a submenu.
     /// 
     /// This is a convenience API around `g_menu_item_new()` and
     /// `g_menu_item_set_submenu()`.
-    public static func new(submenu label: UnsafePointer<gchar>, submenu: MenuModelProtocol) -> MenuItem! {
-        let rv: UnsafeMutablePointer<GMenuItem>! = cast(g_menu_item_new_submenu(label, cast(submenu.ptr)))
-        return rv.map { MenuItem(cast($0)) }
+    @inlinable public static func new<MenuModelT: MenuModelProtocol>(submenu label: UnsafePointer<gchar>? = nil, submenu: MenuModelT) -> MenuItem! {
+        guard let rv = MenuItem(gconstpointer: gconstpointer(g_menu_item_new_submenu(label, submenu.menu_model_ptr))) else { return nil }
+        return rv
     }
 
 }
@@ -2145,11 +2530,11 @@ public extension MenuItemProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuItemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MenuItemSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(menu_item_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2170,7 +2555,7 @@ public extension MenuItemProtocol {
 // MARK: MenuItem Class: MenuItemProtocol extension (methods and fields)
 public extension MenuItemProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuItem` instance.
-    var menu_item_ptr: UnsafeMutablePointer<GMenuItem> { return ptr.assumingMemoryBound(to: GMenuItem.self) }
+    @inlinable var menu_item_ptr: UnsafeMutablePointer<GMenuItem>! { return ptr?.assumingMemoryBound(to: GMenuItem.self) }
 
 
     // *** getAttribute() is not available because it has a varargs (...) parameter!
@@ -2181,15 +2566,15 @@ public extension MenuItemProtocol {
     /// If `expected_type` is specified and the attribute does not have this
     /// type, `nil` is returned.  `nil` is also returned if the attribute
     /// simply does not exist.
-    func getAttributeValue(attribute: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_item_get_attribute_value(cast(menu_item_ptr), attribute, cast(expected_type.ptr)))
-        return cast(rv)
+    @inlinable func getAttributeValue<VariantTypeT: VariantTypeProtocol>(attribute: UnsafePointer<gchar>!, expectedType expected_type: VariantTypeT? = nil) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_item_get_attribute_value(menu_item_ptr, attribute, expected_type?.variant_type_ptr)))
+        return rv
     }
 
     /// Queries the named `link` on `menu_item`.
-    func get(link: UnsafePointer<gchar>) -> UnsafeMutablePointer<GMenuModel>! {
-        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_item_get_link(cast(menu_item_ptr), link))
-        return cast(rv)
+    @inlinable func get(link: UnsafePointer<gchar>!) -> MenuModelRef! {
+        let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_item_get_link(menu_item_ptr, link)))
+        return rv
     }
 
 
@@ -2232,8 +2617,8 @@ public extension MenuItemProtocol {
     /// See `g_menu_item_set_action_and_target()` or
     /// `g_menu_item_set_detailed_action()` for two equivalent calls that are
     /// probably more convenient for most uses.
-    func setActionAndTargetValue(action: UnsafePointer<gchar>, targetValue target_value: VariantProtocol) {
-        g_menu_item_set_action_and_target_value(cast(menu_item_ptr), action, cast(target_value.ptr))
+    @inlinable func setActionAndTargetValue<VariantT: VariantProtocol>(action: UnsafePointer<gchar>? = nil, targetValue target_value: VariantT? = nil) {
+        g_menu_item_set_action_and_target_value(menu_item_ptr, action, target_value?.variant_ptr)
     
     }
 
@@ -2260,8 +2645,8 @@ public extension MenuItemProtocol {
     /// 
     /// See also `g_menu_item_set_attribute()` for a more convenient way to do
     /// the same.
-    func setAttributeValue(attribute: UnsafePointer<gchar>, value: VariantProtocol) {
-        g_menu_item_set_attribute_value(cast(menu_item_ptr), attribute, cast(value.ptr))
+    @inlinable func setAttributeValue<VariantT: VariantProtocol>(attribute: UnsafePointer<gchar>!, value: VariantT? = nil) {
+        g_menu_item_set_attribute_value(menu_item_ptr, attribute, value?.variant_ptr)
     
     }
 
@@ -2276,8 +2661,8 @@ public extension MenuItemProtocol {
     /// 
     /// See also `g_menu_item_set_action_and_target_value()` for a description of
     /// the semantics of the action and target attributes.
-    func set(detailedAction detailed_action: UnsafePointer<gchar>) {
-        g_menu_item_set_detailed_action(cast(menu_item_ptr), detailed_action)
+    @inlinable func set(detailedAction detailed_action: UnsafePointer<gchar>!) {
+        g_menu_item_set_detailed_action(menu_item_ptr, detailed_action)
     
     }
 
@@ -2293,8 +2678,8 @@ public extension MenuItemProtocol {
     /// 'Quit').
     /// 
     /// If `icon` is `nil` then the icon is unset.
-    func set(icon: IconProtocol) {
-        g_menu_item_set_icon(cast(menu_item_ptr), cast(icon.ptr))
+    @inlinable func set<IconT: IconProtocol>(icon: IconT) {
+        g_menu_item_set_icon(menu_item_ptr, icon.icon_ptr)
     
     }
 
@@ -2302,8 +2687,8 @@ public extension MenuItemProtocol {
     /// 
     /// If `label` is non-`nil` it is used as the label for the menu item.  If
     /// it is `nil` then the label attribute is unset.
-    func set(label: UnsafePointer<gchar>) {
-        g_menu_item_set_label(cast(menu_item_ptr), label)
+    @inlinable func set(label: UnsafePointer<gchar>? = nil) {
+        g_menu_item_set_label(menu_item_ptr, label)
     
     }
 
@@ -2317,8 +2702,8 @@ public extension MenuItemProtocol {
     /// Link types are restricted to lowercase characters, numbers
     /// and '-'. Furthermore, the names must begin with a lowercase character,
     /// must not end with a '-', and must not contain consecutive dashes.
-    func set(link: UnsafePointer<gchar>, model: MenuModelProtocol) {
-        g_menu_item_set_link(cast(menu_item_ptr), link, cast(model.ptr))
+    @inlinable func set<MenuModelT: MenuModelProtocol>(link: UnsafePointer<gchar>!, model: MenuModelT? = nil) {
+        g_menu_item_set_link(menu_item_ptr, link, model?.menu_model_ptr)
     
     }
 
@@ -2329,8 +2714,8 @@ public extension MenuItemProtocol {
     /// the menu that `menu_item` is added to.  See `g_menu_item_new_section()`
     /// for more information about what it means for a menu item to be a
     /// section.
-    func set(section: MenuModelProtocol) {
-        g_menu_item_set_section(cast(menu_item_ptr), cast(section.ptr))
+    @inlinable func set<MenuModelT: MenuModelProtocol>(section: MenuModelT? = nil) {
+        g_menu_item_set_section(menu_item_ptr, section?.menu_model_ptr)
     
     }
 
@@ -2341,8 +2726,8 @@ public extension MenuItemProtocol {
     /// 
     /// The effect of having one menu appear as a submenu of another is
     /// exactly as it sounds.
-    func set(submenu: MenuModelProtocol) {
-        g_menu_item_set_submenu(cast(menu_item_ptr), cast(submenu.ptr))
+    @inlinable func set<MenuModelT: MenuModelProtocol>(submenu: MenuModelT? = nil) {
+        g_menu_item_set_submenu(menu_item_ptr, submenu?.menu_model_ptr)
     
     }
 
@@ -2362,10 +2747,11 @@ public extension MenuItemProtocol {
 /// the functions below.
 public protocol MenuLinkIterProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIter` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMenuLinkIter` instance.
-    var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter> { get }
+    var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter>! { get }
+
 }
 
 /// The `MenuLinkIterRef` type acts as a lightweight Swift reference to an underlying `GMenuLinkIter` instance.
@@ -2377,46 +2763,76 @@ public protocol MenuLinkIterProtocol: ObjectProtocol {
 public struct MenuLinkIterRef: MenuLinkIterProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_link_iter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MenuLinkIterRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMenuLinkIter>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMenuLinkIter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMenuLinkIter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMenuLinkIter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMenuLinkIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MenuLinkIterProtocol`
-    init<T: MenuLinkIterProtocol>(_ other: T) {
+    @inlinable init<T: MenuLinkIterProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2433,77 +2849,123 @@ open class MenuLinkIter: Object, MenuLinkIterProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuLinkIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMenuLinkIter>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMenuLinkIter>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMenuLinkIter>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMenuLinkIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuLinkIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMenuLinkIter>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuLinkIter`.
     /// i.e., ownership is transferred to the `MenuLinkIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMenuLinkIter>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMenuLinkIter>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MenuLinkIterProtocol`
     /// Will retain `GMenuLinkIter`.
     /// - Parameter other: an instance of a related type that implements `MenuLinkIterProtocol`
-    public init<T: MenuLinkIterProtocol>(menuLinkIter other: T) {
-        super.init(retaining: cast(other.menu_link_iter_ptr))
+    @inlinable public init<T: MenuLinkIterProtocol>(menuLinkIter other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2548,11 +3010,11 @@ public extension MenuLinkIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuLinkIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MenuLinkIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(menu_link_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2573,14 +3035,14 @@ public extension MenuLinkIterProtocol {
 // MARK: MenuLinkIter Class: MenuLinkIterProtocol extension (methods and fields)
 public extension MenuLinkIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuLinkIter` instance.
-    var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter> { return ptr.assumingMemoryBound(to: GMenuLinkIter.self) }
+    @inlinable var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter>! { return ptr?.assumingMemoryBound(to: GMenuLinkIter.self) }
 
     /// Gets the name of the link at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    func getName() -> String! {
-        let rv: String! = cast(g_menu_link_iter_get_name(cast(menu_link_iter_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_menu_link_iter_get_name(menu_link_iter_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// This function combines `g_menu_link_iter_next()` with
@@ -2597,17 +3059,17 @@ public extension MenuLinkIterProtocol {
     /// The value returned in `out_link` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
     /// be unreffed using `g_object_unref()` when it is no longer in use.
-    func getNext(outLink out_link: UnsafePointer<UnsafePointer<gchar>>, value: MenuModelProtocol) -> Bool {
-        let rv = g_menu_link_iter_get_next(cast(menu_link_iter_ptr), cast(out_link), cast(value.ptr))
-        return Bool(rv != 0)
+    @inlinable func getNext(outLink out_link: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GMenuModel>?>! = nil) -> Bool {
+        let rv = ((g_menu_link_iter_get_next(menu_link_iter_ptr, out_link, value)) != 0)
+        return rv
     }
 
     /// Gets the linked `GMenuModel` at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    func getValue() -> UnsafeMutablePointer<GMenuModel>! {
-        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_link_iter_get_value(cast(menu_link_iter_ptr)))
-        return cast(rv)
+    @inlinable func getValue() -> MenuModelRef! {
+        let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_link_iter_get_value(menu_link_iter_ptr)))
+        return rv
     }
 
     /// Attempts to advance the iterator to the next (possibly first)
@@ -2618,46 +3080,46 @@ public extension MenuLinkIterProtocol {
     /// You must call this function when you first acquire the iterator to
     /// advance it to the first link (and determine if the first link exists
     /// at all).
-    func next() -> Bool {
-        let rv = g_menu_link_iter_next(cast(menu_link_iter_ptr))
-        return Bool(rv != 0)
+    @inlinable func next() -> Bool {
+        let rv = ((g_menu_link_iter_next(menu_link_iter_ptr)) != 0)
+        return rv
     }
     /// Gets the name of the link at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets the name of the link at the current iterator position.
         /// 
         /// The iterator is not advanced.
         get {
-            let rv: String! = cast(g_menu_link_iter_get_name(cast(menu_link_iter_ptr)))
-            return cast(rv)
+            let rv = g_menu_link_iter_get_name(menu_link_iter_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Gets the linked `GMenuModel` at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    var value: UnsafeMutablePointer<GMenuModel>! {
+    @inlinable var value: MenuModelRef! {
         /// Gets the linked `GMenuModel` at the current iterator position.
         /// 
         /// The iterator is not advanced.
         get {
-            let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_link_iter_get_value(cast(menu_link_iter_ptr)))
-            return cast(rv)
-        }
-    }
-
-    var parentInstance: GObject {
-        get {
-            let rv: GObject = cast(menu_link_iter_ptr.pointee.parent_instance)
+            let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_link_iter_get_value(menu_link_iter_ptr)))
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GMenuLinkIterPrivate> {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: UnsafeMutablePointer<GMenuLinkIterPrivate> = cast(menu_link_iter_ptr.pointee.priv)
+            let rv = menu_link_iter_ptr.pointee.parent_instance
+            return rv
+        }
+    }
+
+    @inlinable var priv: MenuLinkIterPrivateRef! {
+        get {
+            let rv = MenuLinkIterPrivateRef(gconstpointer: gconstpointer(menu_link_iter_ptr.pointee.priv))
             return rv
         }
     }
@@ -2788,10 +3250,11 @@ public extension MenuLinkIterProtocol {
 /// target value of the menu item.
 public protocol MenuModelProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuModel` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMenuModel` instance.
-    var menu_model_ptr: UnsafeMutablePointer<GMenuModel> { get }
+    var menu_model_ptr: UnsafeMutablePointer<GMenuModel>! { get }
+
 }
 
 /// The `MenuModelRef` type acts as a lightweight Swift reference to an underlying `GMenuModel` instance.
@@ -2914,46 +3377,76 @@ public protocol MenuModelProtocol: ObjectProtocol {
 public struct MenuModelRef: MenuModelProtocol {
         /// Untyped pointer to the underlying `GMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `menu_model_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MenuModelRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMenuModel>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMenuModel>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMenuModel>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMenuModel>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMenuModel>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MenuModelProtocol`
-    init<T: MenuModelProtocol>(_ other: T) {
+    @inlinable init<T: MenuModelProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3081,77 +3574,123 @@ open class MenuModel: Object, MenuModelProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuModel` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMenuModel>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMenuModel>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMenuModel>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMenuModel>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MenuModel` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMenuModel>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMenuModel`.
     /// i.e., ownership is transferred to the `MenuModel` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMenuModel>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMenuModel>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MenuModelProtocol`
     /// Will retain `GMenuModel`.
     /// - Parameter other: an instance of a related type that implements `MenuModelProtocol`
-    public init<T: MenuModelProtocol>(menuModel other: T) {
-        super.init(retaining: cast(other.menu_model_ptr))
+    @inlinable public init<T: MenuModelProtocol>(menuModel other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -3217,11 +3756,11 @@ public extension MenuModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MenuModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(menu_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3242,7 +3781,7 @@ public extension MenuModelProtocol {
 // MARK: MenuModel Class: MenuModelProtocol extension (methods and fields)
 public extension MenuModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMenuModel` instance.
-    var menu_model_ptr: UnsafeMutablePointer<GMenuModel> { return ptr.assumingMemoryBound(to: GMenuModel.self) }
+    @inlinable var menu_model_ptr: UnsafeMutablePointer<GMenuModel>! { return ptr?.assumingMemoryBound(to: GMenuModel.self) }
 
 
     // *** getItemAttribute() is not available because it has a varargs (...) parameter!
@@ -3259,9 +3798,9 @@ public extension MenuModelProtocol {
     /// 
     /// If the attribute does not exist, or does not match the expected type
     /// then `nil` is returned.
-    func getItemAttributeValue(itemIndex item_index: CInt, attribute: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_menu_model_get_item_attribute_value(cast(menu_model_ptr), gint(item_index), attribute, cast(expected_type.ptr)))
-        return cast(rv)
+    @inlinable func getItemAttributeValue<VariantTypeT: VariantTypeProtocol>(itemIndex item_index: Int, attribute: UnsafePointer<gchar>!, expectedType expected_type: VariantTypeT? = nil) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_model_get_item_attribute_value(menu_model_ptr, gint(item_index), attribute, expected_type?.variant_type_ptr)))
+        return rv
     }
 
     /// Queries the item at position `item_index` in `model` for the link
@@ -3269,15 +3808,15 @@ public extension MenuModelProtocol {
     /// 
     /// If the link exists, the linked `GMenuModel` is returned.  If the link
     /// does not exist, `nil` is returned.
-    func getItemLink(itemIndex item_index: CInt, link: UnsafePointer<gchar>) -> UnsafeMutablePointer<GMenuModel>! {
-        let rv: UnsafeMutablePointer<GMenuModel>! = cast(g_menu_model_get_item_link(cast(menu_model_ptr), gint(item_index), link))
-        return cast(rv)
+    @inlinable func getItemLink(itemIndex item_index: Int, link: UnsafePointer<gchar>!) -> MenuModelRef! {
+        guard let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_model_get_item_link(menu_model_ptr, gint(item_index), link))) else { return nil }
+        return rv
     }
 
     /// Query the number of items in `model`.
-    func getNItems() -> Int {
-        let rv: Int = cast(g_menu_model_get_n_items(cast(menu_model_ptr)))
-        return Int(rv)
+    @inlinable func getNItems() -> Int {
+        let rv = Int(g_menu_model_get_n_items(menu_model_ptr))
+        return rv
     }
 
     /// Requests emission of the `GMenuModel::items`-changed signal on `model`.
@@ -3295,8 +3834,8 @@ public extension MenuModelProtocol {
     /// entry and not in response to calls -- particularly those from the
     /// `GMenuModel` API.  Said another way: the menu must not change while
     /// user code is running without returning to the mainloop.
-    func itemsChanged(position: CInt, removed: CInt, added: CInt) {
-        g_menu_model_items_changed(cast(menu_model_ptr), gint(position), gint(removed), gint(added))
+    @inlinable func itemsChanged(position: Int, removed: Int, added: Int) {
+        g_menu_model_items_changed(menu_model_ptr, gint(position), gint(removed), gint(added))
     
     }
 
@@ -3304,53 +3843,53 @@ public extension MenuModelProtocol {
     /// the item at position `item_index` in `model`.
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
-    func iterateItemAttributes(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuAttributeIter>! {
-        let rv: UnsafeMutablePointer<GMenuAttributeIter>! = cast(g_menu_model_iterate_item_attributes(cast(menu_model_ptr), gint(item_index)))
-        return cast(rv)
+    @inlinable func iterateItemAttributes(itemIndex item_index: Int) -> MenuAttributeIterRef! {
+        let rv = MenuAttributeIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_attributes(menu_model_ptr, gint(item_index))))
+        return rv
     }
 
     /// Creates a `GMenuLinkIter` to iterate over the links of the item at
     /// position `item_index` in `model`.
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
-    func iterateItemLinks(itemIndex item_index: CInt) -> UnsafeMutablePointer<GMenuLinkIter>! {
-        let rv: UnsafeMutablePointer<GMenuLinkIter>! = cast(g_menu_model_iterate_item_links(cast(menu_model_ptr), gint(item_index)))
-        return cast(rv)
+    @inlinable func iterateItemLinks(itemIndex item_index: Int) -> MenuLinkIterRef! {
+        let rv = MenuLinkIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_links(menu_model_ptr, gint(item_index))))
+        return rv
     }
     /// Queries if `model` is mutable.
     /// 
     /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
     /// signal. Consumers of the model may make optimisations accordingly.
-    var isMutable: Bool {
+    @inlinable var isMutable: Bool {
         /// Queries if `model` is mutable.
         /// 
         /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
         /// signal. Consumers of the model may make optimisations accordingly.
         get {
-            let rv = g_menu_model_is_mutable(cast(menu_model_ptr))
-            return Bool(rv != 0)
-        }
-    }
-
-    /// Query the number of items in `model`.
-    var nItems: Int {
-        /// Query the number of items in `model`.
-        get {
-            let rv: Int = cast(g_menu_model_get_n_items(cast(menu_model_ptr)))
-            return Int(rv)
-        }
-    }
-
-    var parentInstance: GObject {
-        get {
-            let rv: GObject = cast(menu_model_ptr.pointee.parent_instance)
+            let rv = ((g_menu_model_is_mutable(menu_model_ptr)) != 0)
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GMenuModelPrivate> {
+    /// Query the number of items in `model`.
+    @inlinable var nItems: Int {
+        /// Query the number of items in `model`.
         get {
-            let rv: UnsafeMutablePointer<GMenuModelPrivate> = cast(menu_model_ptr.pointee.priv)
+            let rv = Int(g_menu_model_get_n_items(menu_model_ptr))
+            return rv
+        }
+    }
+
+    @inlinable var parentInstance: GObject {
+        get {
+            let rv = menu_model_ptr.pointee.parent_instance
+            return rv
+        }
+    }
+
+    @inlinable var priv: MenuModelPrivateRef! {
+        get {
+            let rv = MenuModelPrivateRef(gconstpointer: gconstpointer(menu_model_ptr.pointee.priv))
             return rv
         }
     }
@@ -3389,10 +3928,11 @@ public extension MenuModelProtocol {
 /// improvements and auditing fixes.
 public protocol MountOperationProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GMountOperation` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMountOperation` instance.
-    var mount_operation_ptr: UnsafeMutablePointer<GMountOperation> { get }
+    var mount_operation_ptr: UnsafeMutablePointer<GMountOperation>! { get }
+
 }
 
 /// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GMountOperation` instance.
@@ -3423,53 +3963,83 @@ public protocol MountOperationProtocol: ObjectProtocol {
 public struct MountOperationRef: MountOperationProtocol {
         /// Untyped pointer to the underlying `GMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MountOperationRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMountOperation>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMountOperation>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMountOperation>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMountOperation>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMountOperation>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MountOperationProtocol`
-    init<T: MountOperationProtocol>(_ other: T) {
+    @inlinable init<T: MountOperationProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new mount operation.
-    init() {
-        let rv: UnsafeMutablePointer<GMountOperation>! = cast(g_mount_operation_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_mount_operation_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -3503,84 +4073,130 @@ open class MountOperation: Object, MountOperationProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MountOperation` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMountOperation>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GMountOperation>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMountOperation>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMountOperation>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MountOperation` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMountOperation>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMountOperation`.
     /// i.e., ownership is transferred to the `MountOperation` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMountOperation>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMountOperation>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `MountOperationProtocol`
     /// Will retain `GMountOperation`.
     /// - Parameter other: an instance of a related type that implements `MountOperationProtocol`
-    public init<T: MountOperationProtocol>(mountOperation other: T) {
-        super.init(retaining: cast(other.mount_operation_ptr))
+    @inlinable public init<T: MountOperationProtocol>(mountOperation other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new mount operation.
-    public init() {
-        let rv: UnsafeMutablePointer<GMountOperation>! = cast(g_mount_operation_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = g_mount_operation_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -3625,18 +4241,18 @@ public extension MountOperationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(mount_operation_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -3654,7 +4270,7 @@ public extension MountOperationProtocol {
     /// Get the value of a MountOperation property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: MountOperationPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: MountOperationPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -3664,7 +4280,7 @@ public extension MountOperationProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: MountOperationPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: MountOperationPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -3781,11 +4397,11 @@ public extension MountOperationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MountOperationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MountOperationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(mount_operation_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3806,260 +4422,260 @@ public extension MountOperationProtocol {
 // MARK: MountOperation Class: MountOperationProtocol extension (methods and fields)
 public extension MountOperationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMountOperation` instance.
-    var mount_operation_ptr: UnsafeMutablePointer<GMountOperation> { return ptr.assumingMemoryBound(to: GMountOperation.self) }
+    @inlinable var mount_operation_ptr: UnsafeMutablePointer<GMountOperation>! { return ptr?.assumingMemoryBound(to: GMountOperation.self) }
 
     /// Check to see whether the mount operation is being used
     /// for an anonymous user.
-    func getAnonymous() -> Bool {
-        let rv = g_mount_operation_get_anonymous(cast(mount_operation_ptr))
-        return Bool(rv != 0)
+    @inlinable func getAnonymous() -> Bool {
+        let rv = ((g_mount_operation_get_anonymous(mount_operation_ptr)) != 0)
+        return rv
     }
 
     /// Gets a choice from the mount operation.
-    func getChoice() -> Int {
-        let rv: Int = cast(g_mount_operation_get_choice(cast(mount_operation_ptr)))
-        return cast(rv)
+    @inlinable func getChoice() -> Int {
+        let rv = Int(g_mount_operation_get_choice(mount_operation_ptr))
+        return rv
     }
 
     /// Gets the domain of the mount operation.
-    func getDomain() -> String! {
-        let rv: String! = cast(g_mount_operation_get_domain(cast(mount_operation_ptr)))
-        return cast(rv)
+    @inlinable func getDomain() -> String! {
+        let rv = g_mount_operation_get_domain(mount_operation_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Check to see whether the mount operation is being used
     /// for a TCRYPT hidden volume.
-    func getIsTcryptHiddenVolume() -> Bool {
-        let rv = g_mount_operation_get_is_tcrypt_hidden_volume(cast(mount_operation_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsTcryptHiddenVolume() -> Bool {
+        let rv = ((g_mount_operation_get_is_tcrypt_hidden_volume(mount_operation_ptr)) != 0)
+        return rv
     }
 
     /// Check to see whether the mount operation is being used
     /// for a TCRYPT system volume.
-    func getIsTcryptSystemVolume() -> Bool {
-        let rv = g_mount_operation_get_is_tcrypt_system_volume(cast(mount_operation_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIsTcryptSystemVolume() -> Bool {
+        let rv = ((g_mount_operation_get_is_tcrypt_system_volume(mount_operation_ptr)) != 0)
+        return rv
     }
 
     /// Gets a password from the mount operation.
-    func getPassword() -> String! {
-        let rv: String! = cast(g_mount_operation_get_password(cast(mount_operation_ptr)))
-        return cast(rv)
+    @inlinable func getPassword() -> String! {
+        let rv = g_mount_operation_get_password(mount_operation_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the state of saving passwords for the mount operation.
-    func getPasswordSave() -> GPasswordSave {
-        let rv = g_mount_operation_get_password_save(cast(mount_operation_ptr))
-        return cast(rv)
+    @inlinable func getPasswordSave() -> GPasswordSave {
+        let rv = g_mount_operation_get_password_save(mount_operation_ptr)
+        return rv
     }
 
     /// Gets a PIM from the mount operation.
-    func getPim() -> Int {
-        let rv: Int = cast(g_mount_operation_get_pim(cast(mount_operation_ptr)))
-        return Int(rv)
+    @inlinable func getPim() -> Int {
+        let rv = Int(g_mount_operation_get_pim(mount_operation_ptr))
+        return rv
     }
 
     /// Get the user name from the mount operation.
-    func getUsername() -> String! {
-        let rv: String! = cast(g_mount_operation_get_username(cast(mount_operation_ptr)))
-        return cast(rv)
+    @inlinable func getUsername() -> String! {
+        let rv = g_mount_operation_get_username(mount_operation_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Emits the `GMountOperation::reply` signal.
-    func reply(result: MountOperationResult) {
-        g_mount_operation_reply(cast(mount_operation_ptr), result)
+    @inlinable func reply(result: GMountOperationResult) {
+        g_mount_operation_reply(mount_operation_ptr, result)
     
     }
 
     /// Sets the mount operation to use an anonymous user if `anonymous` is `true`.
-    func set(anonymous: Bool) {
-        g_mount_operation_set_anonymous(cast(mount_operation_ptr), gboolean(anonymous ? 1 : 0))
+    @inlinable func set(anonymous: Bool) {
+        g_mount_operation_set_anonymous(mount_operation_ptr, gboolean((anonymous) ? 1 : 0))
     
     }
 
     /// Sets a default choice for the mount operation.
-    func set(choice: CInt) {
-        g_mount_operation_set_choice(cast(mount_operation_ptr), choice)
+    @inlinable func set(choice: Int) {
+        g_mount_operation_set_choice(mount_operation_ptr, gint(choice))
     
     }
 
     /// Sets the mount operation's domain.
-    func set(domain: UnsafePointer<CChar>) {
-        g_mount_operation_set_domain(cast(mount_operation_ptr), domain)
+    @inlinable func set(domain: UnsafePointer<CChar>!) {
+        g_mount_operation_set_domain(mount_operation_ptr, domain)
     
     }
 
     /// Sets the mount operation to use a hidden volume if `hidden_volume` is `true`.
-    func setIsTcrypt(hiddenVolume hidden_volume: Bool) {
-        g_mount_operation_set_is_tcrypt_hidden_volume(cast(mount_operation_ptr), gboolean(hidden_volume ? 1 : 0))
+    @inlinable func setIsTcrypt(hiddenVolume hidden_volume: Bool) {
+        g_mount_operation_set_is_tcrypt_hidden_volume(mount_operation_ptr, gboolean((hidden_volume) ? 1 : 0))
     
     }
 
     /// Sets the mount operation to use a system volume if `system_volume` is `true`.
-    func setIsTcrypt(systemVolume system_volume: Bool) {
-        g_mount_operation_set_is_tcrypt_system_volume(cast(mount_operation_ptr), gboolean(system_volume ? 1 : 0))
+    @inlinable func setIsTcrypt(systemVolume system_volume: Bool) {
+        g_mount_operation_set_is_tcrypt_system_volume(mount_operation_ptr, gboolean((system_volume) ? 1 : 0))
     
     }
 
     /// Sets the mount operation's password to `password`.
-    func set(password: UnsafePointer<CChar>) {
-        g_mount_operation_set_password(cast(mount_operation_ptr), password)
+    @inlinable func set(password: UnsafePointer<CChar>!) {
+        g_mount_operation_set_password(mount_operation_ptr, password)
     
     }
 
     /// Sets the state of saving passwords for the mount operation.
-    func setPassword(save: PasswordSave) {
-        g_mount_operation_set_password_save(cast(mount_operation_ptr), save)
+    @inlinable func setPassword(save: GPasswordSave) {
+        g_mount_operation_set_password_save(mount_operation_ptr, save)
     
     }
 
     /// Sets the mount operation's PIM to `pim`.
-    func set(pim: CUnsignedInt) {
-        g_mount_operation_set_pim(cast(mount_operation_ptr), guint(pim))
+    @inlinable func set(pim: Int) {
+        g_mount_operation_set_pim(mount_operation_ptr, guint(pim))
     
     }
 
     /// Sets the user name within `op` to `username`.
-    func set(username: UnsafePointer<CChar>) {
-        g_mount_operation_set_username(cast(mount_operation_ptr), username)
+    @inlinable func set(username: UnsafePointer<CChar>!) {
+        g_mount_operation_set_username(mount_operation_ptr, username)
     
     }
     /// Whether to use an anonymous user when authenticating.
-    var anonymous: Bool {
+    @inlinable var anonymous: Bool {
         /// Check to see whether the mount operation is being used
         /// for an anonymous user.
         get {
-            let rv = g_mount_operation_get_anonymous(cast(mount_operation_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_mount_operation_get_anonymous(mount_operation_ptr)) != 0)
+            return rv
         }
         /// Sets the mount operation to use an anonymous user if `anonymous` is `true`.
         nonmutating set {
-            g_mount_operation_set_anonymous(cast(mount_operation_ptr), gboolean(newValue ? 1 : 0))
+            g_mount_operation_set_anonymous(mount_operation_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// The index of the user's choice when a question is asked during the
     /// mount operation. See the `GMountOperation::ask`-question signal.
-    var choice: Int {
+    @inlinable var choice: Int {
         /// Gets a choice from the mount operation.
         get {
-            let rv: Int = cast(g_mount_operation_get_choice(cast(mount_operation_ptr)))
-            return cast(rv)
+            let rv = Int(g_mount_operation_get_choice(mount_operation_ptr))
+            return rv
         }
         /// Sets a default choice for the mount operation.
         nonmutating set {
-            g_mount_operation_set_choice(cast(mount_operation_ptr), cast(newValue))
+            g_mount_operation_set_choice(mount_operation_ptr, gint(newValue))
         }
     }
 
     /// The domain to use for the mount operation.
-    var domain: String! {
+    @inlinable var domain: String! {
         /// Gets the domain of the mount operation.
         get {
-            let rv: String! = cast(g_mount_operation_get_domain(cast(mount_operation_ptr)))
-            return cast(rv)
+            let rv = g_mount_operation_get_domain(mount_operation_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the mount operation's domain.
         nonmutating set {
-            g_mount_operation_set_domain(cast(mount_operation_ptr), cast(newValue))
+            g_mount_operation_set_domain(mount_operation_ptr, newValue)
         }
     }
 
     /// Check to see whether the mount operation is being used
     /// for a TCRYPT hidden volume.
-    var isTcryptHiddenVolume: Bool {
+    @inlinable var isTcryptHiddenVolume: Bool {
         /// Check to see whether the mount operation is being used
         /// for a TCRYPT hidden volume.
         get {
-            let rv = g_mount_operation_get_is_tcrypt_hidden_volume(cast(mount_operation_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_mount_operation_get_is_tcrypt_hidden_volume(mount_operation_ptr)) != 0)
+            return rv
         }
         /// Sets the mount operation to use a hidden volume if `hidden_volume` is `true`.
         nonmutating set {
-            g_mount_operation_set_is_tcrypt_hidden_volume(cast(mount_operation_ptr), gboolean(newValue ? 1 : 0))
+            g_mount_operation_set_is_tcrypt_hidden_volume(mount_operation_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Check to see whether the mount operation is being used
     /// for a TCRYPT system volume.
-    var isTcryptSystemVolume: Bool {
+    @inlinable var isTcryptSystemVolume: Bool {
         /// Check to see whether the mount operation is being used
         /// for a TCRYPT system volume.
         get {
-            let rv = g_mount_operation_get_is_tcrypt_system_volume(cast(mount_operation_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_mount_operation_get_is_tcrypt_system_volume(mount_operation_ptr)) != 0)
+            return rv
         }
         /// Sets the mount operation to use a system volume if `system_volume` is `true`.
         nonmutating set {
-            g_mount_operation_set_is_tcrypt_system_volume(cast(mount_operation_ptr), gboolean(newValue ? 1 : 0))
+            g_mount_operation_set_is_tcrypt_system_volume(mount_operation_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// The password that is used for authentication when carrying out
     /// the mount operation.
-    var password: String! {
+    @inlinable var password: String! {
         /// Gets a password from the mount operation.
         get {
-            let rv: String! = cast(g_mount_operation_get_password(cast(mount_operation_ptr)))
-            return cast(rv)
+            let rv = g_mount_operation_get_password(mount_operation_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the mount operation's password to `password`.
         nonmutating set {
-            g_mount_operation_set_password(cast(mount_operation_ptr), cast(newValue))
+            g_mount_operation_set_password(mount_operation_ptr, newValue)
         }
     }
 
     /// Gets the state of saving passwords for the mount operation.
-    var passwordSave: GPasswordSave {
+    @inlinable var passwordSave: GPasswordSave {
         /// Gets the state of saving passwords for the mount operation.
         get {
-            let rv = g_mount_operation_get_password_save(cast(mount_operation_ptr))
-            return cast(rv)
+            let rv = g_mount_operation_get_password_save(mount_operation_ptr)
+            return rv
         }
         /// Sets the state of saving passwords for the mount operation.
         nonmutating set {
-            g_mount_operation_set_password_save(cast(mount_operation_ptr), cast(newValue))
+            g_mount_operation_set_password_save(mount_operation_ptr, newValue)
         }
     }
 
     /// The VeraCrypt PIM value, when unlocking a VeraCrypt volume. See
     /// [the VeraCrypt documentation](https://www.veracrypt.fr/en/Personal`20Iterations``20Multiplier``20``(PIM)`.html).
-    var pim: Int {
+    @inlinable var pim: Int {
         /// Gets a PIM from the mount operation.
         get {
-            let rv: Int = cast(g_mount_operation_get_pim(cast(mount_operation_ptr)))
-            return Int(rv)
+            let rv = Int(g_mount_operation_get_pim(mount_operation_ptr))
+            return rv
         }
         /// Sets the mount operation's PIM to `pim`.
         nonmutating set {
-            g_mount_operation_set_pim(cast(mount_operation_ptr), guint(newValue))
+            g_mount_operation_set_pim(mount_operation_ptr, guint(newValue))
         }
     }
 
     /// The user name that is used for authentication when carrying out
     /// the mount operation.
-    var username: String! {
+    @inlinable var username: String! {
         /// Get the user name from the mount operation.
         get {
-            let rv: String! = cast(g_mount_operation_get_username(cast(mount_operation_ptr)))
-            return cast(rv)
+            let rv = g_mount_operation_get_username(mount_operation_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the user name within `op` to `username`.
         nonmutating set {
-            g_mount_operation_set_username(cast(mount_operation_ptr), cast(newValue))
+            g_mount_operation_set_username(mount_operation_ptr, newValue)
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(mount_operation_ptr.pointee.parent_instance)
+            let rv = mount_operation_ptr.pointee.parent_instance
             return rv
         }
     }
 
-    var priv: UnsafeMutablePointer<GMountOperationPrivate> {
+    @inlinable var priv: MountOperationPrivateRef! {
         get {
-            let rv: UnsafeMutablePointer<GMountOperationPrivate> = cast(mount_operation_ptr.pointee.priv)
+            let rv = MountOperationPrivateRef(gconstpointer: gconstpointer(mount_operation_ptr.pointee.priv))
             return rv
         }
     }
@@ -4078,10 +4694,11 @@ public extension MountOperationProtocol {
 /// A socket address of some unknown native type.
 public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
         /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GNativeSocketAddress` instance.
-    var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress> { get }
+    var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress>! { get }
+
 }
 
 /// The `NativeSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GNativeSocketAddress` instance.
@@ -4092,53 +4709,83 @@ public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
 public struct NativeSocketAddressRef: NativeSocketAddressProtocol {
         /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `native_socket_address_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension NativeSocketAddressRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GNativeSocketAddress>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GNativeSocketAddress>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GNativeSocketAddress>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GNativeSocketAddress>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GNativeSocketAddress>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `NativeSocketAddressProtocol`
-    init<T: NativeSocketAddressProtocol>(_ other: T) {
+    @inlinable init<T: NativeSocketAddressProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `GNativeSocketAddress` for `native` and `len`.
-    init( native: UnsafeMutableRawPointer, len: Int) {
-        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_native_socket_address_new(cast(native), gsize(len)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( native: gpointer! = nil, len: Int) {
+        let rv = g_native_socket_address_new(native, gsize(len))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -4152,84 +4799,130 @@ open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GNativeSocketAddress>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GNativeSocketAddress>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GNativeSocketAddress>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GNativeSocketAddress>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GNativeSocketAddress>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GNativeSocketAddress`.
     /// i.e., ownership is transferred to the `NativeSocketAddress` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GNativeSocketAddress>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GNativeSocketAddress>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `NativeSocketAddressProtocol`
     /// Will retain `GNativeSocketAddress`.
     /// - Parameter other: an instance of a related type that implements `NativeSocketAddressProtocol`
-    public init<T: NativeSocketAddressProtocol>(nativeSocketAddress other: T) {
-        super.init(retaining: cast(other.native_socket_address_ptr))
+    @inlinable public init<T: NativeSocketAddressProtocol>(nativeSocketAddress other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GNativeSocketAddress` for `native` and `len`.
-    public override init( native: UnsafeMutableRawPointer, len: Int) {
-        let rv: UnsafeMutablePointer<GSocketAddress>! = cast(g_native_socket_address_new(cast(native), gsize(len)))
-        super.init(cast(rv))
+    @inlinable public override init( native: gpointer! = nil, len: Int) {
+        let rv = g_native_socket_address_new(native, gsize(len))
+        super.init(gpointer: (rv))
     }
 
 
@@ -4248,18 +4941,18 @@ public extension NativeSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(native_socket_address_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -4277,7 +4970,7 @@ public extension NativeSocketAddressProtocol {
     /// Get the value of a NativeSocketAddress property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: NativeSocketAddressPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: NativeSocketAddressPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -4287,7 +4980,7 @@ public extension NativeSocketAddressProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: NativeSocketAddressPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: NativeSocketAddressPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -4327,11 +5020,11 @@ public extension NativeSocketAddressProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: NativeSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: NativeSocketAddressSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(native_socket_address_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -4352,12 +5045,12 @@ public extension NativeSocketAddressProtocol {
 // MARK: NativeSocketAddress Class: NativeSocketAddressProtocol extension (methods and fields)
 public extension NativeSocketAddressProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GNativeSocketAddress` instance.
-    var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress> { return ptr.assumingMemoryBound(to: GNativeSocketAddress.self) }
+    @inlinable var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress>! { return ptr?.assumingMemoryBound(to: GNativeSocketAddress.self) }
 
 
-    var parentInstance: GSocketAddress {
+    @inlinable var parentInstance: GSocketAddress {
         get {
-            let rv: GSocketAddress = cast(native_socket_address_ptr.pointee.parent_instance)
+            let rv = native_socket_address_ptr.pointee.parent_instance
             return rv
         }
     }
