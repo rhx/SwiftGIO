@@ -20,7 +20,7 @@ import GLibObject
 /// 
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
-public protocol VolumeMonitorProtocol: ObjectProtocol {
+public protocol VolumeMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -104,7 +104,7 @@ public extension VolumeMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -142,7 +142,7 @@ public extension VolumeMonitorRef {
 /// 
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
-open class VolumeMonitor: Object, VolumeMonitorProtocol {
+open class VolumeMonitor: GLibObject.Object, VolumeMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `VolumeMonitor` instance.
@@ -371,8 +371,8 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable func getConnectedDrives() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_connected_drives(volume_monitor_ptr)))
+    @inlinable func getConnectedDrives() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_volume_monitor_get_connected_drives(volume_monitor_ptr))
         return rv
     }
 
@@ -386,8 +386,8 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable func getMounts() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_mounts(volume_monitor_ptr)))
+    @inlinable func getMounts() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_volume_monitor_get_mounts(volume_monitor_ptr))
         return rv
     }
 
@@ -401,21 +401,21 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable func getVolumes() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_volumes(volume_monitor_ptr)))
+    @inlinable func getVolumes() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_volume_monitor_get_volumes(volume_monitor_ptr))
         return rv
     }
     /// Gets a list of drives connected to the system.
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable var connectedDrives: ListRef! {
+    @inlinable var connectedDrives: GLib.ListRef! {
         /// Gets a list of drives connected to the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_connected_drives(volume_monitor_ptr)))
+            let rv = GLib.ListRef(g_volume_monitor_get_connected_drives(volume_monitor_ptr))
             return rv
         }
     }
@@ -424,13 +424,13 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable var mounts: ListRef! {
+    @inlinable var mounts: GLib.ListRef! {
         /// Gets a list of the mounts on the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_mounts(volume_monitor_ptr)))
+            let rv = GLib.ListRef(g_volume_monitor_get_mounts(volume_monitor_ptr))
             return rv
         }
     }
@@ -439,13 +439,13 @@ public extension VolumeMonitorProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable var volumes: ListRef! {
+    @inlinable var volumes: GLib.ListRef! {
         /// Gets a list of the volumes on the system.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_volume_monitor_get_volumes(volume_monitor_ptr)))
+            let rv = GLib.ListRef(g_volume_monitor_get_volumes(volume_monitor_ptr))
             return rv
         }
     }
@@ -471,7 +471,7 @@ public extension VolumeMonitorProtocol {
 /// Alternatively, use `ZlibCompressorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Zlib decompression
-public protocol ZlibCompressorProtocol: ObjectProtocol, ConverterProtocol {
+public protocol ZlibCompressorProtocol: GLibObject.ObjectProtocol, ConverterProtocol {
         /// Untyped pointer to the underlying `GZlibCompressor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -545,7 +545,7 @@ public extension ZlibCompressorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -573,7 +573,7 @@ public extension ZlibCompressorRef {
 /// Use `ZlibCompressor` as a strong reference or owner of a `GZlibCompressor` instance.
 ///
 /// Zlib decompression
-open class ZlibCompressor: Object, ZlibCompressorProtocol {
+open class ZlibCompressor: GLibObject.Object, ZlibCompressorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZlibCompressor` instance.
@@ -725,7 +725,7 @@ public extension ZlibCompressorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ZlibCompressorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -850,8 +850,20 @@ public extension ZlibCompressorProtocol {
     /// Note: it is an error to call this function while a compression is in
     /// progress; it may only be called immediately after creation of `compressor`,
     /// or after resetting it with `g_converter_reset()`.
-    @inlinable func set<FileInfoT: FileInfoProtocol>(fileInfo file_info: FileInfoT? = nil) {
-        g_zlib_compressor_set_file_info(zlib_compressor_ptr, file_info?.file_info_ptr)
+    @inlinable func set(fileInfo: FileInfoRef? = nil) {
+        g_zlib_compressor_set_file_info(zlib_compressor_ptr, fileInfo?.file_info_ptr)
+    
+    }
+    /// Sets `file_info` in `compressor`. If non-`nil`, and `compressor`'s
+    /// `GZlibCompressor:format` property is `G_ZLIB_COMPRESSOR_FORMAT_GZIP`,
+    /// it will be used to set the file name and modification time in
+    /// the GZIP header of the compressed data.
+    /// 
+    /// Note: it is an error to call this function while a compression is in
+    /// progress; it may only be called immediately after creation of `compressor`,
+    /// or after resetting it with `g_converter_reset()`.
+    @inlinable func set<FileInfoT: FileInfoProtocol>(fileInfo: FileInfoT?) {
+        g_zlib_compressor_set_file_info(zlib_compressor_ptr, fileInfo?.file_info_ptr)
     
     }
     /// Returns the `GZlibCompressor:file`-info property.

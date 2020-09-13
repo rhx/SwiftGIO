@@ -11,7 +11,7 @@ import GLibObject
 ///
 /// `GCharsetConverter` is an implementation of `GConverter` based on
 /// GIConv.
-public protocol CharsetConverterProtocol: ObjectProtocol, ConverterProtocol, InitableProtocol {
+public protocol CharsetConverterProtocol: GLibObject.ObjectProtocol, ConverterProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GCharsetConverter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -86,7 +86,7 @@ public extension CharsetConverterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -103,9 +103,9 @@ public extension CharsetConverterRef {
     }
 
         /// Creates a new `GCharsetConverter`.
-    @inlinable init( to_charset: UnsafePointer<gchar>!, fromCharset from_charset: UnsafePointer<gchar>!) throws {
+    @inlinable init( toCharset: UnsafePointer<gchar>!, from charset: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_charset_converter_new(to_charset, from_charset, &error)
+        let rv = g_charset_converter_new(toCharset, charset, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -117,7 +117,7 @@ public extension CharsetConverterRef {
 ///
 /// `GCharsetConverter` is an implementation of `GConverter` based on
 /// GIConv.
-open class CharsetConverter: Object, CharsetConverterProtocol {
+open class CharsetConverter: GLibObject.Object, CharsetConverterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `CharsetConverter` instance.
@@ -243,9 +243,9 @@ open class CharsetConverter: Object, CharsetConverterProtocol {
     }
 
     /// Creates a new `GCharsetConverter`.
-    @inlinable public init( to_charset: UnsafePointer<gchar>!, fromCharset from_charset: UnsafePointer<gchar>!) throws {
+    @inlinable public init( toCharset: UnsafePointer<gchar>!, from charset: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_charset_converter_new(to_charset, from_charset, &error)
+        let rv = g_charset_converter_new(toCharset, charset, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -268,7 +268,7 @@ public extension CharsetConverterProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: CharsetConverterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: CharsetConverterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -389,8 +389,8 @@ public extension CharsetConverterProtocol {
     }
 
     /// Sets the `GCharsetConverter:use`-fallback property.
-    @inlinable func set(useFallback use_fallback: Bool) {
-        g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((use_fallback) ? 1 : 0))
+    @inlinable func set(useFallback: Bool) {
+        g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((useFallback) ? 1 : 0))
     
     }
     /// Gets the number of fallbacks that `converter` has applied so far.
@@ -510,7 +510,7 @@ public extension ConverterInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -527,8 +527,8 @@ public extension ConverterInputStreamRef {
     }
 
         /// Creates a new converter input stream for the `base_stream`.
-    @inlinable init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( base_stream: InputStreamT, converter: ConverterT) {
-        let rv = g_converter_input_stream_new(base_stream.input_stream_ptr, converter.converter_ptr)
+    @inlinable init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( baseStream: InputStreamT, converter: ConverterT) {
+        let rv = g_converter_input_stream_new(baseStream.input_stream_ptr, converter.converter_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -668,8 +668,8 @@ open class ConverterInputStream: FilterInputStream, ConverterInputStreamProtocol
     }
 
     /// Creates a new converter input stream for the `base_stream`.
-    @inlinable public init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( base_stream: InputStreamT, converter: ConverterT) {
-        let rv = g_converter_input_stream_new(base_stream.input_stream_ptr, converter.converter_ptr)
+    @inlinable public init<ConverterT: ConverterProtocol, InputStreamT: InputStreamProtocol>( baseStream: InputStreamT, converter: ConverterT) {
+        let rv = g_converter_input_stream_new(baseStream.input_stream_ptr, converter.converter_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -691,7 +691,7 @@ public extension ConverterInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ConverterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -915,7 +915,7 @@ public extension ConverterOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -932,8 +932,8 @@ public extension ConverterOutputStreamRef {
     }
 
         /// Creates a new converter output stream for the `base_stream`.
-    @inlinable init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT, converter: ConverterT) {
-        let rv = g_converter_output_stream_new(base_stream.output_stream_ptr, converter.converter_ptr)
+    @inlinable init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT, converter: ConverterT) {
+        let rv = g_converter_output_stream_new(baseStream.output_stream_ptr, converter.converter_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -1073,8 +1073,8 @@ open class ConverterOutputStream: FilterOutputStream, ConverterOutputStreamProto
     }
 
     /// Creates a new converter output stream for the `base_stream`.
-    @inlinable public init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT, converter: ConverterT) {
-        let rv = g_converter_output_stream_new(base_stream.output_stream_ptr, converter.converter_ptr)
+    @inlinable public init<ConverterT: ConverterProtocol, OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT, converter: ConverterT) {
+        let rv = g_converter_output_stream_new(baseStream.output_stream_ptr, converter.converter_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -1096,7 +1096,7 @@ public extension ConverterOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ConverterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ConverterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1267,7 +1267,7 @@ public extension ConverterOutputStreamProtocol {
 /// On Solaris (including OpenSolaris and its derivatives), the native
 /// credential type is a ucred_t. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
-public protocol CredentialsProtocol: ObjectProtocol {
+public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1370,7 +1370,7 @@ public extension CredentialsRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1428,7 +1428,7 @@ public extension CredentialsRef {
 /// On Solaris (including OpenSolaris and its derivatives), the native
 /// credential type is a ucred_t. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
-open class Credentials: Object, CredentialsProtocol {
+open class Credentials: GLibObject.Object, CredentialsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Credentials` instance.
@@ -1633,8 +1633,8 @@ public extension CredentialsProtocol {
     /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
-    @inlinable func getNative(nativeType native_type: GCredentialsType) -> gpointer! {
-        let rv = g_credentials_get_native(credentials_ptr, native_type)
+    @inlinable func getNative(nativeType: GCredentialsType) -> gpointer! {
+        let rv = g_credentials_get_native(credentials_ptr, nativeType)
         return rv
     }
 
@@ -1668,9 +1668,9 @@ public extension CredentialsProtocol {
     /// 
     /// This operation can fail if `GCredentials` is not supported on the
     /// the OS.
-    @inlinable func isSameUser<CredentialsT: CredentialsProtocol>(otherCredentials other_credentials: CredentialsT) throws -> Bool {
+    @inlinable func isSameUser<CredentialsT: CredentialsProtocol>(otherCredentials: CredentialsT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_credentials_is_same_user(credentials_ptr, other_credentials.credentials_ptr, &error)) != 0)
+        let rv = ((g_credentials_is_same_user(credentials_ptr, otherCredentials.credentials_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1681,8 +1681,8 @@ public extension CredentialsProtocol {
     /// It is a programming error (which will cause a warning to be
     /// logged) to use this method if there is no `GCredentials` support for
     /// the OS or if `native_type` isn't supported by the OS.
-    @inlinable func setNative(nativeType native_type: GCredentialsType, native: gpointer!) {
-        g_credentials_set_native(credentials_ptr, native_type, native)
+    @inlinable func setNative(nativeType: GCredentialsType, native: gpointer!) {
+        g_credentials_set_native(credentials_ptr, nativeType, native)
     
     }
 
@@ -1776,7 +1776,7 @@ public extension CredentialsProtocol {
 /// `GDBusActionGroup` is an implementation of the `GActionGroup`
 /// interface that can be used as a proxy for an action group
 /// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
-public protocol DBusActionGroupProtocol: ObjectProtocol, ActionGroupProtocol, RemoteActionGroupProtocol {
+public protocol DBusActionGroupProtocol: GLibObject.ObjectProtocol, ActionGroupProtocol, RemoteActionGroupProtocol {
         /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1852,7 +1852,7 @@ public extension DBusActionGroupRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1881,8 +1881,8 @@ public extension DBusActionGroupRef {
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
     /// `g_action_group_list_actions()` to get the initial list.
-    @inlinable static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusActionGroupRef! {
-        guard let rv = DBusActionGroupRef(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+    @inlinable static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!) -> DBusActionGroupRef! {
+        guard let rv = DBusActionGroupRef(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, busName, objectPath))) else { return nil }
         return rv
     }
 }
@@ -1894,7 +1894,7 @@ public extension DBusActionGroupRef {
 /// `GDBusActionGroup` is an implementation of the `GActionGroup`
 /// interface that can be used as a proxy for an action group
 /// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
-open class DBusActionGroup: Object, DBusActionGroupProtocol {
+open class DBusActionGroup: GLibObject.Object, DBusActionGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusActionGroup` instance.
@@ -2033,8 +2033,8 @@ open class DBusActionGroup: Object, DBusActionGroupProtocol {
     /// already be filled in.  The correct thing to do is connect the signals
     /// for the action group to monitor for changes and then to call
     /// `g_action_group_list_actions()` to get the initial list.
-    @inlinable public static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusActionGroup! {
-        guard let rv = DBusActionGroup(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+    @inlinable public static func dbusActionGroupGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!) -> DBusActionGroup! {
+        guard let rv = DBusActionGroup(gconstpointer: gconstpointer(g_dbus_action_group_get(connection.dbus_connection_ptr, busName, objectPath))) else { return nil }
         return rv
     }
 

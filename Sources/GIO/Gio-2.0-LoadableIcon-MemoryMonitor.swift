@@ -86,7 +86,7 @@ public extension LoadableIconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LoadableIconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -251,7 +251,15 @@ public extension LoadableIconProtocol {
 
     /// Loads a loadable icon. For the asynchronous version of this function,
     /// see `g_loadable_icon_load_async()`.
-    @inlinable func load<CancellableT: CancellableProtocol>(size: Int, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT? = nil) throws -> InputStreamRef! {
+    @inlinable func load(size: Int, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableRef? = nil) throws -> InputStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = InputStreamRef(gconstpointer: gconstpointer(g_loadable_icon_load(loadable_icon_ptr, gint(size), type, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Loads a loadable icon. For the asynchronous version of this function,
+    /// see `g_loadable_icon_load_async()`.
+    @inlinable func load<CancellableT: CancellableProtocol>(size: Int, type: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT?) throws -> InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = InputStreamRef(gconstpointer: gconstpointer(g_loadable_icon_load(loadable_icon_ptr, gint(size), type, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -261,8 +269,15 @@ public extension LoadableIconProtocol {
     /// Loads an icon asynchronously. To finish this function, see
     /// `g_loadable_icon_load_finish()`. For the synchronous, blocking
     /// version of this function, see `g_loadable_icon_load()`.
-    @inlinable func loadAsync<CancellableT: CancellableProtocol>(size: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_loadable_icon_load_async(loadable_icon_ptr, gint(size), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func loadAsync(size: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_loadable_icon_load_async(loadable_icon_ptr, gint(size), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Loads an icon asynchronously. To finish this function, see
+    /// `g_loadable_icon_load_finish()`. For the synchronous, blocking
+    /// version of this function, see `g_loadable_icon_load()`.
+    @inlinable func loadAsync<CancellableT: CancellableProtocol>(size: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_loadable_icon_load_async(loadable_icon_ptr, gint(size), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -437,7 +452,7 @@ public extension MemoryMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

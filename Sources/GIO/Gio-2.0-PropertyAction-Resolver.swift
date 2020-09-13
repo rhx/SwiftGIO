@@ -60,7 +60,7 @@ import GLibObject
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
-public protocol PropertyActionProtocol: ObjectProtocol, ActionProtocol {
+public protocol PropertyActionProtocol: GLibObject.ObjectProtocol, ActionProtocol {
         /// Untyped pointer to the underlying `GPropertyAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -184,7 +184,7 @@ public extension PropertyActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -208,8 +208,8 @@ public extension PropertyActionRef {
     /// 
     /// This function takes a reference on `object` and doesn't release it
     /// until the action is destroyed.
-    @inlinable init<ObjectT: ObjectProtocol>( name: UnsafePointer<gchar>!, object: ObjectT, propertyName property_name: UnsafePointer<gchar>!) {
-        let rv = g_property_action_new(name, object.object_ptr, property_name)
+    @inlinable init<ObjectT: GLibObject.ObjectProtocol>( name: UnsafePointer<gchar>!, object: ObjectT, propertyName: UnsafePointer<gchar>!) {
+        let rv = g_property_action_new(name, object.object_ptr, propertyName)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -269,7 +269,7 @@ public extension PropertyActionRef {
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
-open class PropertyAction: Object, PropertyActionProtocol {
+open class PropertyAction: GLibObject.Object, PropertyActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PropertyAction` instance.
@@ -402,8 +402,8 @@ open class PropertyAction: Object, PropertyActionProtocol {
     /// 
     /// This function takes a reference on `object` and doesn't release it
     /// until the action is destroyed.
-    @inlinable public init<ObjectT: ObjectProtocol>( name: UnsafePointer<gchar>!, object: ObjectT, propertyName property_name: UnsafePointer<gchar>!) {
-        let rv = g_property_action_new(name, object.object_ptr, property_name)
+    @inlinable public init<ObjectT: GLibObject.ObjectProtocol>( name: UnsafePointer<gchar>!, object: ObjectT, propertyName: UnsafePointer<gchar>!) {
+        let rv = g_property_action_new(name, object.object_ptr, propertyName)
         super.init(gpointer: (rv))
     }
 
@@ -450,7 +450,7 @@ public extension PropertyActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PropertyActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: PropertyActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -671,7 +671,7 @@ public extension ProxyAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -693,8 +693,8 @@ public extension ProxyAddressRef {
     /// (Note that this method doesn't set the `GProxyAddress:uri` or
     /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
-    @inlinable init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname dest_hostname: UnsafePointer<gchar>!, destPort dest_port: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
-        let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, dest_hostname, dest_port, username, password)
+    @inlinable init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname: UnsafePointer<gchar>!, destPort: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
+        let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, destHostname, destPort, username, password)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -835,8 +835,8 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// (Note that this method doesn't set the `GProxyAddress:uri` or
     /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
     /// directly if you want to set those.)
-    @inlinable public init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname dest_hostname: UnsafePointer<gchar>!, destPort dest_port: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
-        let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, dest_hostname, dest_port, username, password)
+    @inlinable public init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname: UnsafePointer<gchar>!, destPort: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
+        let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, destHostname, destPort, username, password)
         super.init(gpointer: (rv))
     }
 
@@ -872,7 +872,7 @@ public extension ProxyAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ProxyAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1222,7 +1222,7 @@ public extension ProxyAddressEnumeratorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1401,7 +1401,7 @@ public extension ProxyAddressEnumeratorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ProxyAddressEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ProxyAddressEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1537,7 +1537,7 @@ public extension ProxyAddressEnumeratorProtocol {
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
-public protocol ResolverProtocol: ObjectProtocol {
+public protocol ResolverProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GResolver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1618,7 +1618,7 @@ public extension ResolverRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1655,7 +1655,7 @@ public extension ResolverRef {
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
-open class Resolver: Object, ResolverProtocol {
+open class Resolver: GLibObject.Object, ResolverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Resolver` instance.
@@ -1867,7 +1867,22 @@ public extension ResolverProtocol {
     /// If `cancellable` is non-`nil`, it can be used to cancel the
     /// operation, in which case `error` (if non-`nil`) will be set to
     /// `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupBy<CancellableT: CancellableProtocol, InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableT? = nil) throws -> String! {
+    @inlinable func lookupBy<InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableRef? = nil) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_resolver_lookup_by_address(resolver_ptr, address.inet_address_ptr, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously reverse-resolves `address` to determine its
+    /// associated hostname.
+    /// 
+    /// If the DNS resolution fails, `error` (if non-`nil`) will be set to
+    /// a value from `GResolverError`.
+    /// 
+    /// If `cancellable` is non-`nil`, it can be used to cancel the
+    /// operation, in which case `error` (if non-`nil`) will be set to
+    /// `G_IO_ERROR_CANCELLED`.
+    @inlinable func lookupBy<CancellableT: CancellableProtocol, InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableT?) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_resolver_lookup_by_address(resolver_ptr, address.inet_address_ptr, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
@@ -1877,8 +1892,15 @@ public extension ResolverProtocol {
     /// Begins asynchronously reverse-resolving `address` to determine its
     /// associated hostname, and eventually calls `callback`, which must
     /// call `g_resolver_lookup_by_address_finish()` to get the final result.
-    @inlinable func lookupByAddressAsync<CancellableT: CancellableProtocol, InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_resolver_lookup_by_address_async(resolver_ptr, address.inet_address_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupByAddressAsync<InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_address_async(resolver_ptr, address.inet_address_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Begins asynchronously reverse-resolving `address` to determine its
+    /// associated hostname, and eventually calls `callback`, which must
+    /// call `g_resolver_lookup_by_address_finish()` to get the final result.
+    @inlinable func lookupByAddressAsync<CancellableT: CancellableProtocol, InetAddressT: InetAddressProtocol>(address: InetAddressT, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_address_async(resolver_ptr, address.inet_address_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1918,9 +1940,38 @@ public extension ResolverProtocol {
     /// If you are planning to connect to a socket on the resolved IP
     /// address, it may be easier to create a `GNetworkAddress` and use its
     /// `GSocketConnectable` interface.
-    @inlinable func lookupByName<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> ListRef! {
+    @inlinable func lookupByName(hostname: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_by_name(resolver_ptr, hostname, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_by_name(resolver_ptr, hostname, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously resolves `hostname` to determine its associated IP
+    /// `address(es)`. `hostname` may be an ASCII-only or UTF-8 hostname, or
+    /// the textual form of an IP address (in which case this just becomes
+    /// a wrapper around `g_inet_address_new_from_string()`).
+    /// 
+    /// On success, `g_resolver_lookup_by_name()` will return a non-empty `GList` of
+    /// `GInetAddress`, sorted in order of preference and guaranteed to not
+    /// contain duplicates. That is, if using the result to connect to
+    /// `hostname`, you should attempt to connect to the first address
+    /// first, then the second if the first fails, etc. If you are using
+    /// the result to listen on a socket, it is appropriate to add each
+    /// result using e.g. `g_socket_listener_add_address()`.
+    /// 
+    /// If the DNS resolution fails, `error` (if non-`nil`) will be set to a
+    /// value from `GResolverError` and `nil` will be returned.
+    /// 
+    /// If `cancellable` is non-`nil`, it can be used to cancel the
+    /// operation, in which case `error` (if non-`nil`) will be set to
+    /// `G_IO_ERROR_CANCELLED`.
+    /// 
+    /// If you are planning to connect to a socket on the resolved IP
+    /// address, it may be easier to create a `GNetworkAddress` and use its
+    /// `GSocketConnectable` interface.
+    @inlinable func lookupByName<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> GLib.ListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.ListRef(g_resolver_lookup_by_name(resolver_ptr, hostname, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1929,8 +1980,16 @@ public extension ResolverProtocol {
     /// associated IP `address(es)`, and eventually calls `callback`, which
     /// must call `g_resolver_lookup_by_name_finish()` to get the result.
     /// See `g_resolver_lookup_by_name()` for more details.
-    @inlinable func lookupByNameAsync<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_resolver_lookup_by_name_async(resolver_ptr, hostname, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupByNameAsync(hostname: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_name_async(resolver_ptr, hostname, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Begins asynchronously resolving `hostname` to determine its
+    /// associated IP `address(es)`, and eventually calls `callback`, which
+    /// must call `g_resolver_lookup_by_name_finish()` to get the result.
+    /// See `g_resolver_lookup_by_name()` for more details.
+    @inlinable func lookupByNameAsync<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_name_async(resolver_ptr, hostname, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1940,9 +1999,9 @@ public extension ResolverProtocol {
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupByNameFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func lookupByNameFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_by_name_finish(resolver_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_by_name_finish(resolver_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1950,9 +2009,18 @@ public extension ResolverProtocol {
     /// This differs from `g_resolver_lookup_by_name()` in that you can modify
     /// the lookup behavior with `flags`. For example this can be used to limit
     /// results with `G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY`.
-    @inlinable func lookupByNameWithFlags<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableT? = nil) throws -> ListRef! {
+    @inlinable func lookupByNameWithFlags(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableRef? = nil) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_by_name_with_flags(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_by_name_with_flags(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// This differs from `g_resolver_lookup_by_name()` in that you can modify
+    /// the lookup behavior with `flags`. For example this can be used to limit
+    /// results with `G_RESOLVER_NAME_LOOKUP_FLAGS_IPV4_ONLY`.
+    @inlinable func lookupByNameWithFlags<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableT?) throws -> GLib.ListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.ListRef(g_resolver_lookup_by_name_with_flags(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1961,8 +2029,16 @@ public extension ResolverProtocol {
     /// associated IP `address(es)`, and eventually calls `callback`, which
     /// must call `g_resolver_lookup_by_name_with_flags_finish()` to get the result.
     /// See `g_resolver_lookup_by_name()` for more details.
-    @inlinable func lookupByNameWithFlagsAsync<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_resolver_lookup_by_name_with_flags_async(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupByNameWithFlagsAsync(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_name_with_flags_async(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Begins asynchronously resolving `hostname` to determine its
+    /// associated IP `address(es)`, and eventually calls `callback`, which
+    /// must call `g_resolver_lookup_by_name_with_flags_finish()` to get the result.
+    /// See `g_resolver_lookup_by_name()` for more details.
+    @inlinable func lookupByNameWithFlagsAsync<CancellableT: CancellableProtocol>(hostname: UnsafePointer<gchar>!, flags: ResolverNameLookupFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_by_name_with_flags_async(resolver_ptr, hostname, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1972,9 +2048,9 @@ public extension ResolverProtocol {
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupByNameWithFlagsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func lookupByNameWithFlagsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_by_name_with_flags_finish(resolver_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_by_name_with_flags_finish(resolver_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1989,9 +2065,25 @@ public extension ResolverProtocol {
     /// If `cancellable` is non-`nil`, it can be used to cancel the
     /// operation, in which case `error` (if non-`nil`) will be set to
     /// `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupRecords<CancellableT: CancellableProtocol>(rrname: UnsafePointer<gchar>!, recordType record_type: GResolverRecordType, cancellable: CancellableT? = nil) throws -> ListRef! {
+    @inlinable func lookupRecords(rrname: UnsafePointer<gchar>!, recordType: GResolverRecordType, cancellable: CancellableRef? = nil) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_records(resolver_ptr, rrname, record_type, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_records(resolver_ptr, rrname, recordType, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously performs a DNS record lookup for the given `rrname` and returns
+    /// a list of records as `GVariant` tuples. See `GResolverRecordType` for
+    /// information on what the records contain for each `record_type`.
+    /// 
+    /// If the DNS resolution fails, `error` (if non-`nil`) will be set to
+    /// a value from `GResolverError` and `nil` will be returned.
+    /// 
+    /// If `cancellable` is non-`nil`, it can be used to cancel the
+    /// operation, in which case `error` (if non-`nil`) will be set to
+    /// `G_IO_ERROR_CANCELLED`.
+    @inlinable func lookupRecords<CancellableT: CancellableProtocol>(rrname: UnsafePointer<gchar>!, recordType: GResolverRecordType, cancellable: CancellableT?) throws -> GLib.ListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.ListRef(g_resolver_lookup_records(resolver_ptr, rrname, recordType, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2000,8 +2092,16 @@ public extension ResolverProtocol {
     /// `rrname`, and eventually calls `callback`, which must call
     /// `g_resolver_lookup_records_finish()` to get the final result. See
     /// `g_resolver_lookup_records()` for more details.
-    @inlinable func lookupRecordsAsync<CancellableT: CancellableProtocol>(rrname: UnsafePointer<gchar>!, recordType record_type: GResolverRecordType, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_resolver_lookup_records_async(resolver_ptr, rrname, record_type, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupRecordsAsync(rrname: UnsafePointer<gchar>!, recordType: GResolverRecordType, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_records_async(resolver_ptr, rrname, recordType, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Begins asynchronously performing a DNS lookup for the given
+    /// `rrname`, and eventually calls `callback`, which must call
+    /// `g_resolver_lookup_records_finish()` to get the final result. See
+    /// `g_resolver_lookup_records()` for more details.
+    @inlinable func lookupRecordsAsync<CancellableT: CancellableProtocol>(rrname: UnsafePointer<gchar>!, recordType: GResolverRecordType, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_records_async(resolver_ptr, rrname, recordType, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2013,9 +2113,9 @@ public extension ResolverProtocol {
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupRecordsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func lookupRecordsFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_records_finish(resolver_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_records_finish(resolver_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2041,9 +2141,36 @@ public extension ResolverProtocol {
     /// If you are planning to connect to the service, it is usually easier
     /// to create a `GNetworkService` and use its `GSocketConnectable`
     /// interface.
-    @inlinable func lookup<CancellableT: CancellableProtocol>(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> ListRef! {
+    @inlinable func lookup(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_service(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_service(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously performs a DNS SRV lookup for the given `service` and
+    /// `protocol` in the given `domain` and returns an array of `GSrvTarget`.
+    /// `domain` may be an ASCII-only or UTF-8 hostname. Note also that the
+    /// `service` and `protocol` arguments do not include the leading underscore
+    /// that appears in the actual DNS entry.
+    /// 
+    /// On success, `g_resolver_lookup_service()` will return a non-empty `GList` of
+    /// `GSrvTarget`, sorted in order of preference. (That is, you should
+    /// attempt to connect to the first target first, then the second if
+    /// the first fails, etc.)
+    /// 
+    /// If the DNS resolution fails, `error` (if non-`nil`) will be set to
+    /// a value from `GResolverError` and `nil` will be returned.
+    /// 
+    /// If `cancellable` is non-`nil`, it can be used to cancel the
+    /// operation, in which case `error` (if non-`nil`) will be set to
+    /// `G_IO_ERROR_CANCELLED`.
+    /// 
+    /// If you are planning to connect to the service, it is usually easier
+    /// to create a `GNetworkService` and use its `GSocketConnectable`
+    /// interface.
+    @inlinable func lookup<CancellableT: CancellableProtocol>(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> GLib.ListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.ListRef(g_resolver_lookup_service(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2053,8 +2180,17 @@ public extension ResolverProtocol {
     /// `callback`, which must call `g_resolver_lookup_service_finish()` to
     /// get the final result. See `g_resolver_lookup_service()` for more
     /// details.
-    @inlinable func lookupServiceAsync<CancellableT: CancellableProtocol>(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_resolver_lookup_service_async(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupServiceAsync(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_service_async(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Begins asynchronously performing a DNS SRV lookup for the given
+    /// `service` and `protocol` in the given `domain`, and eventually calls
+    /// `callback`, which must call `g_resolver_lookup_service_finish()` to
+    /// get the final result. See `g_resolver_lookup_service()` for more
+    /// details.
+    @inlinable func lookupServiceAsync<CancellableT: CancellableProtocol>(service: UnsafePointer<gchar>!, `protocol`: UnsafePointer<gchar>!, domain: UnsafePointer<gchar>!, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_resolver_lookup_service_async(resolver_ptr, service, `protocol`, domain, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2064,9 +2200,9 @@ public extension ResolverProtocol {
     /// If the DNS resolution failed, `error` (if non-`nil`) will be set to
     /// a value from `GResolverError`. If the operation was cancelled,
     /// `error` will be set to `G_IO_ERROR_CANCELLED`.
-    @inlinable func lookupServiceFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func lookupServiceFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_resolver_lookup_service_finish(resolver_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_resolver_lookup_service_finish(resolver_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }

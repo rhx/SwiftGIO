@@ -86,7 +86,7 @@ public extension IOExtensionPointRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionPointProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -294,8 +294,8 @@ public extension IOExtensionPointProtocol {
 
     /// Gets a list of all extensions that implement this extension point.
     /// The list is sorted by priority, beginning with the highest priority.
-    @inlinable func getExtensions() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_io_extension_point_get_extensions(_ptr)))
+    @inlinable func getExtensions() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_io_extension_point_get_extensions(_ptr))
         return rv
     }
 
@@ -313,11 +313,11 @@ public extension IOExtensionPointProtocol {
     }
     /// Gets a list of all extensions that implement this extension point.
     /// The list is sorted by priority, beginning with the highest priority.
-    @inlinable var extensions: ListRef! {
+    @inlinable var extensions: GLib.ListRef! {
         /// Gets a list of all extensions that implement this extension point.
         /// The list is sorted by priority, beginning with the highest priority.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_io_extension_point_get_extensions(_ptr)))
+            let rv = GLib.ListRef(g_io_extension_point_get_extensions(_ptr))
             return rv
         }
     }
@@ -423,7 +423,7 @@ public extension IOModuleClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -696,7 +696,7 @@ public extension IOModuleScopeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleScopeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -896,8 +896,8 @@ public extension IOModuleScopeProtocol {
     /// If don't require all modules to be initialized (and thus registering
     /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
     /// which allows delayed/lazy loading of modules.
-    @inlinable func ioModulesLoadAllInDirectoryWithScope(dirname: UnsafePointer<gchar>!) -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_io_modules_load_all_in_directory_with_scope(dirname, _ptr)))
+    @inlinable func ioModulesLoadAllInDirectoryWithScope(dirname: UnsafePointer<gchar>!) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_io_modules_load_all_in_directory_with_scope(dirname, _ptr))
         return rv
     }
 
@@ -1004,7 +1004,7 @@ public extension IOSchedulerJobRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOSchedulerJobProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1187,8 +1187,8 @@ public extension IOSchedulerJobProtocol {
     ///
     /// **send_to_mainloop is deprecated:**
     /// Use g_main_context_invoke().
-    @available(*, deprecated) @inlinable func sendToMainloop(`func`: GSourceFunc?, userData user_data: gpointer! = nil, notify: GDestroyNotify? = nil) -> Bool {
-        let rv = ((g_io_scheduler_job_send_to_mainloop(_ptr, `func`, user_data, notify)) != 0)
+    @available(*, deprecated) @inlinable func sendToMainloop(`func`: GSourceFunc?, userData: gpointer! = nil, notify: GDestroyNotify? = nil) -> Bool {
+        let rv = ((g_io_scheduler_job_send_to_mainloop(_ptr, `func`, userData, notify)) != 0)
         return rv
     }
 
@@ -1204,8 +1204,8 @@ public extension IOSchedulerJobProtocol {
     ///
     /// **send_to_mainloop_async is deprecated:**
     /// Use g_main_context_invoke().
-    @available(*, deprecated) @inlinable func sendToMainloopAsync(`func`: GSourceFunc?, userData user_data: gpointer! = nil, notify: GDestroyNotify? = nil) {
-        g_io_scheduler_job_send_to_mainloop_async(_ptr, `func`, user_data, notify)
+    @available(*, deprecated) @inlinable func sendToMainloopAsync(`func`: GSourceFunc?, userData: gpointer! = nil, notify: GDestroyNotify? = nil) {
+        g_io_scheduler_job_send_to_mainloop_async(_ptr, `func`, userData, notify)
     
     }
 
@@ -1296,7 +1296,7 @@ public extension IOStreamAdapterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamAdapterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1561,7 +1561,7 @@ public extension IOStreamClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1862,7 +1862,7 @@ public extension IOStreamPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2131,7 +2131,7 @@ public extension IconIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2416,7 +2416,7 @@ public extension InetAddressClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2691,7 +2691,7 @@ public extension InetAddressMaskClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2962,7 +2962,7 @@ public extension InetAddressMaskPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3227,7 +3227,7 @@ public extension InetAddressPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3492,7 +3492,7 @@ public extension InetSocketAddressClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3763,7 +3763,7 @@ public extension InetSocketAddressPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4030,7 +4030,7 @@ public extension InitableIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4342,7 +4342,7 @@ public extension InputMessageRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputMessageProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4733,7 +4733,7 @@ public extension InputStreamClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5032,7 +5032,7 @@ public extension InputStreamPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5303,7 +5303,7 @@ public extension InputVectorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputVectorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5596,7 +5596,7 @@ public extension ListModelInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

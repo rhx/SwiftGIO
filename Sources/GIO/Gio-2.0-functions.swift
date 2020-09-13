@@ -9,8 +9,8 @@ import GLibObject
 /// 
 /// It is an error to call this function with a non-utf8 `action_name`.
 /// `action_name` must not be `nil`.
-@inlinable public func actionNameIsValid(actionName action_name: UnsafePointer<gchar>!) -> Bool {
-    let rv = ((g_action_name_is_valid(action_name)) != 0)
+@inlinable public func actionNameIsValid(actionName: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_action_name_is_valid(actionName)) != 0)
     return rv
 }
 
@@ -41,9 +41,9 @@ import GLibObject
 /// target can be specified this way as well: `"app.action('target')`".
 /// For strings, this third format must be used if * target value is
 /// empty or contains characters other than alphanumerics, '-' and '.'.
-@inlinable public func actionParse(detailedName detailed_name: UnsafePointer<gchar>!, actionName action_name: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, targetValue target_value: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>!) throws -> Bool {
+@inlinable public func actionParse(detailedName: UnsafePointer<gchar>!, actionName: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, targetValue: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>!) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((g_action_parse_detailed_name(detailed_name, action_name, target_value, &error)) != 0)
+    let rv = ((g_action_parse_detailed_name(detailedName, actionName, targetValue, &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -61,8 +61,22 @@ import GLibObject
 /// 
 /// See that function for the types of strings that will be printed by
 /// this function.
-@inlinable public func actionPrintDetailedName<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, targetValue target_value: VariantT? = nil) -> String! {
-    guard let rv = g_action_print_detailed_name(action_name, target_value?.variant_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func actionPrintDetailedName(actionName: UnsafePointer<gchar>!, targetValue: GLib.VariantRef? = nil) -> String! {
+    guard let rv = g_action_print_detailed_name(actionName, targetValue?.variant_ptr).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+/// Formats a detailed action name from `action_name` and `target_value`.
+/// 
+/// It is an error to call this function with an invalid action name.
+/// 
+/// This function is the opposite of `g_action_parse_detailed_name()`.
+/// It will produce a string that can be parsed back to the `action_name`
+/// and `target_value` by that function.
+/// 
+/// See that function for the types of strings that will be printed by
+/// this function.
+@inlinable public func actionPrintDetailedName<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, targetValue: VariantT?) -> String! {
+    guard let rv = g_action_print_detailed_name(actionName, targetValue?.variant_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -76,9 +90,9 @@ import GLibObject
 /// are applied. For example, if the `commandline` contains
 /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
 /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
-@inlinable public func appInfoCreateFrom(commandline: UnsafePointer<CChar>!, applicationName application_name: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
+@inlinable public func appInfoCreateFrom(commandline: UnsafePointer<CChar>!, applicationName: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = AppInfoRef(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error)))
+    let maybeRV = AppInfoRef(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, applicationName, flags.value, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -95,8 +109,8 @@ import GLibObject
 /// of `OnlyShowIn` or `NotShowIn`. See `g_app_info_should_show()`.
 /// The returned list does not include applications which have
 /// the `Hidden` key set.
-@inlinable public func appInfoGetAll() -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_app_info_get_all())) else { return nil }
+@inlinable public func appInfoGetAll() -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_app_info_get_all()) else { return nil }
     return rv
 }
 
@@ -107,8 +121,8 @@ import GLibObject
 /// including the recommended and fallback `GAppInfos`. See
 /// `g_app_info_get_recommended_for_type()` and
 /// `g_app_info_get_fallback_for_type()`.
-@inlinable public func appInfoGetAllForType(contentType content_type: UnsafePointer<CChar>!) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_app_info_get_all_for_type(content_type))) else { return nil }
+@inlinable public func appInfoGetAllForType(contentType: UnsafePointer<CChar>!) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_app_info_get_all_for_type(contentType)) else { return nil }
     return rv
 }
 
@@ -116,8 +130,8 @@ import GLibObject
 
 
 /// Gets the default `GAppInfo` for a given content type.
-@inlinable public func appInfoGetDefaultForType(contentType content_type: UnsafePointer<CChar>!, mustSupportURIs must_support_uris: Bool) -> AppInfoRef! {
-    guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_type(content_type, gboolean((must_support_uris) ? 1 : 0)))) else { return nil }
+@inlinable public func appInfoGetDefaultForType(contentType: UnsafePointer<CChar>!, mustSupportURIs: Bool) -> AppInfoRef! {
+    guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_type(contentType, gboolean((mustSupportURIs) ? 1 : 0)))) else { return nil }
     return rv
 }
 
@@ -128,8 +142,8 @@ import GLibObject
 /// the given URI scheme. A URI scheme is the initial part
 /// of the URI, up to but not including the ':', e.g. "http",
 /// "ftp" or "sip".
-@inlinable public func appInfoGetDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>!) -> AppInfoRef! {
-    guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uri_scheme))) else { return nil }
+@inlinable public func appInfoGetDefaultFor(uriScheme: UnsafePointer<CChar>!) -> AppInfoRef! {
+    guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uriScheme))) else { return nil }
     return rv
 }
 
@@ -139,8 +153,8 @@ import GLibObject
 /// Gets a list of fallback `GAppInfos` for a given content type, i.e.
 /// those applications which claim to support the given content type
 /// by MIME type subclassing and not directly.
-@inlinable public func appInfoGetFallbackForType(contentType content_type: UnsafePointer<gchar>!) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_app_info_get_fallback_for_type(content_type))) else { return nil }
+@inlinable public func appInfoGetFallbackForType(contentType: UnsafePointer<gchar>!) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_app_info_get_fallback_for_type(contentType)) else { return nil }
     return rv
 }
 
@@ -153,8 +167,8 @@ import GLibObject
 /// Note that the first application of the list is the last used one, i.e.
 /// the last one for which `g_app_info_set_as_last_used_for_type()` has been
 /// called.
-@inlinable public func appInfoGetRecommendedForType(contentType content_type: UnsafePointer<gchar>!) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_app_info_get_recommended_for_type(content_type))) else { return nil }
+@inlinable public func appInfoGetRecommendedForType(contentType: UnsafePointer<gchar>!) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_app_info_get_recommended_for_type(contentType)) else { return nil }
     return rv
 }
 
@@ -169,7 +183,21 @@ import GLibObject
 /// The D-Bus–activated applications don't have to be started if your application
 /// terminates too soon after this function. To prevent this, use
 /// `g_app_info_launch_default_for_uri_async()` instead.
-@inlinable public func appInfoLaunchDefaultFor<AppLaunchContextT: AppLaunchContextProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT? = nil) throws -> Bool {
+@inlinable public func appInfoLaunchDefaultFor(uri: UnsafePointer<CChar>!, context: AppLaunchContextRef? = nil) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_app_info_launch_default_for_uri(uri, context?.app_launch_context_ptr, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+/// Utility function that launches the default application
+/// registered to handle the specified uri. Synchronous I/O
+/// is done on the uri to detect the type of the file if
+/// required.
+/// 
+/// The D-Bus–activated applications don't have to be started if your application
+/// terminates too soon after this function. To prevent this, use
+/// `g_app_info_launch_default_for_uri_async()` instead.
+@inlinable public func appInfoLaunchDefaultFor<AppLaunchContextT: AppLaunchContextProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT?) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
     let rv = ((g_app_info_launch_default_for_uri(uri, context?.app_launch_context_ptr, &error)) != 0)
     if let error = error { throw GLibError(error) }
@@ -189,8 +217,22 @@ import GLibObject
 /// This is also useful if you want to be sure that the D-Bus–activated
 /// applications are really started before termination and if you are interested
 /// in receiving error information from their activation.
-@inlinable public func appInfoLaunchDefaultForURIAsync<AppLaunchContextT: AppLaunchContextProtocol, CancellableT: CancellableProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-    g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, user_data)
+@inlinable public func appInfoLaunchDefaultForURIAsync(uri: UnsafePointer<CChar>!, context: AppLaunchContextRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Async version of `g_app_info_launch_default_for_uri()`.
+/// 
+/// This version is useful if you are interested in receiving
+/// error information in the case where the application is
+/// sandboxed and the portal may present an application chooser
+/// dialog to the user.
+/// 
+/// This is also useful if you want to be sure that the D-Bus–activated
+/// applications are really started before termination and if you are interested
+/// in receiving error information from their activation.
+@inlinable public func appInfoLaunchDefaultForURIAsync<AppLaunchContextT: AppLaunchContextProtocol, CancellableT: CancellableProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -213,8 +255,8 @@ import GLibObject
 /// `g_app_info_set_as_default_for_extension()`,
 /// `g_app_info_add_supports_type()` or
 /// `g_app_info_remove_supports_type()`.
-@inlinable public func appInfoResetTypeAssociations(contentType content_type: UnsafePointer<CChar>!) {
-    g_app_info_reset_type_associations(content_type)
+@inlinable public func appInfoResetTypeAssociations(contentType: UnsafePointer<CChar>!) {
+    g_app_info_reset_type_associations(contentType)
 
 }
 
@@ -231,8 +273,22 @@ import GLibObject
 /// **async_initable_newv_async is deprecated:**
 /// Use g_object_new_with_properties() and
 /// g_async_initable_init_async() instead. See #GParameter for more information.
-@available(*, deprecated) @inlinable public func asyncInitableNewvAsync<CancellableT: CancellableProtocol, ParameterT: ParameterProtocol>(objectType object_type: GType, nParameters n_parameters: Int, parameters: ParameterT, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-    g_async_initable_newv_async(object_type, guint(n_parameters), parameters._ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+@available(*, deprecated) @inlinable public func asyncInitableNewvAsync<ParameterT: GLibObject.ParameterProtocol>(objectType: GType, nParameters: Int, parameters: ParameterT, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_async_initable_newv_async(objectType, guint(nParameters), parameters._ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Helper function for constructing `GAsyncInitable` object. This is
+/// similar to `g_object_newv()` but also initializes the object asynchronously.
+/// 
+/// When the initialization is finished, `callback` will be called. You can
+/// then call `g_async_initable_new_finish()` to get the new object and check
+/// for any errors.
+///
+/// **async_initable_newv_async is deprecated:**
+/// Use g_object_new_with_properties() and
+/// g_async_initable_init_async() instead. See #GParameter for more information.
+@available(*, deprecated) @inlinable public func asyncInitableNewvAsync<CancellableT: CancellableProtocol, ParameterT: GLibObject.ParameterProtocol>(objectType: GType, nParameters: Int, parameters: ParameterT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_async_initable_newv_async(objectType, guint(nParameters), parameters._ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -246,8 +302,19 @@ import GLibObject
 /// 
 /// This is an asynchronous failable function. See `g_bus_get_sync()` for
 /// the synchronous version.
-@inlinable public func busGet<CancellableT: CancellableProtocol>(busType bus_type: GBusType, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-    g_bus_get(bus_type, cancellable?.cancellable_ptr, callback, user_data)
+@inlinable public func busGet(busType: GBusType, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_bus_get(busType, cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Asynchronously connects to the message bus specified by `bus_type`.
+/// 
+/// When the operation is finished, `callback` will be invoked. You can
+/// then call `g_bus_get_finish()` to get the result of the operation.
+/// 
+/// This is an asynchronous failable function. See `g_bus_get_sync()` for
+/// the synchronous version.
+@inlinable public func busGet<CancellableT: CancellableProtocol>(busType: GBusType, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_bus_get(busType, cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -291,9 +358,32 @@ import GLibObject
 /// 
 /// Note that the returned `GDBusConnection` object will (usually) have
 /// the `GDBusConnection:exit`-on-close property set to `true`.
-@inlinable public func busGetSync<CancellableT: CancellableProtocol>(busType bus_type: GBusType, cancellable: CancellableT? = nil) throws -> DBusConnectionRef! {
+@inlinable public func busGetSync(busType: GBusType, cancellable: CancellableRef? = nil) throws -> DBusConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(bus_type, cancellable?.cancellable_ptr, &error)))
+    let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable?.cancellable_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Synchronously connects to the message bus specified by `bus_type`.
+/// Note that the returned object may shared with other callers,
+/// e.g. if two separate parts of a process calls this function with
+/// the same `bus_type`, they will share the same object.
+/// 
+/// This is a synchronous failable function. See `g_bus_get()` and
+/// `g_bus_get_finish()` for the asynchronous version.
+/// 
+/// The returned object is a singleton, that is, shared with other
+/// callers of `g_bus_get()` and `g_bus_get_sync()` for `bus_type`. In the
+/// event that you need a private message bus connection, use
+/// `g_dbus_address_get_for_bus_sync()` and
+/// `g_dbus_connection_new_for_address()`.
+/// 
+/// Note that the returned `GDBusConnection` object will (usually) have
+/// the `GDBusConnection:exit`-on-close property set to `true`.
+@inlinable public func busGetSync<CancellableT: CancellableProtocol>(busType: GBusType, cancellable: CancellableT?) throws -> DBusConnectionRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable?.cancellable_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -351,8 +441,8 @@ import GLibObject
 /// to [own names](#gdbus-owning-names) and export objects.
 /// Simply register objects to be exported in `bus_acquired_handler` and
 /// unregister the objects (if any) in `name_lost_handler`.
-@inlinable public func busOwnName(busType bus_type: GBusType, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, busAcquiredHandler bus_acquired_handler: GBusAcquiredCallback? = nil, nameAcquiredHandler name_acquired_handler: GBusNameAcquiredCallback? = nil, nameLostHandler name_lost_handler: GBusNameLostCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-    let rv = Int(g_bus_own_name(bus_type, name, flags.value, bus_acquired_handler, name_acquired_handler, name_lost_handler, user_data, user_data_free_func))
+@inlinable public func busOwnName(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, busAcquiredHandler: GBusAcquiredCallback? = nil, nameAcquiredHandler: GBusNameAcquiredCallback? = nil, nameLostHandler: GBusNameLostCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+    let rv = Int(g_bus_own_name(busType, name, flags.value, busAcquiredHandler, nameAcquiredHandler, nameLostHandler, userData, userDataFreeFunc))
     return rv
 }
 
@@ -361,8 +451,8 @@ import GLibObject
 
 /// Like `g_bus_own_name()` but takes a `GDBusConnection` instead of a
 /// `GBusType`.
-@inlinable public func busOwnNameOn<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: GBusNameAcquiredCallback? = nil, nameLostHandler name_lost_handler: GBusNameLostCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-    let rv = Int(g_bus_own_name_on_connection(connection.dbus_connection_ptr, name, flags.value, name_acquired_handler, name_lost_handler, user_data, user_data_free_func))
+@inlinable public func busOwnNameOn<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredHandler: GBusNameAcquiredCallback? = nil, nameLostHandler: GBusNameLostCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+    let rv = Int(g_bus_own_name_on_connection(connection.dbus_connection_ptr, name, flags.value, nameAcquiredHandler, nameLostHandler, userData, userDataFreeFunc))
     return rv
 }
 
@@ -371,8 +461,14 @@ import GLibObject
 
 /// Version of `g_bus_own_name_on_connection()` using closures instead of
 /// callbacks for easier binding in other languages.
-@inlinable public func busOwnNameOnConnectionWithClosures<ClosureT: ClosureProtocol, DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureT? = nil, nameLostClosure name_lost_closure: ClosureT? = nil) -> Int {
-    let rv = Int(g_bus_own_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, name_acquired_closure?.closure_ptr, name_lost_closure?.closure_ptr))
+@inlinable public func busOwnNameOnConnectionWithClosures<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure: GLibObject.ClosureRef? = nil, nameLostClosure: GLibObject.ClosureRef? = nil) -> Int {
+    let rv = Int(g_bus_own_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
+    return rv
+}
+/// Version of `g_bus_own_name_on_connection()` using closures instead of
+/// callbacks for easier binding in other languages.
+@inlinable public func busOwnNameOnConnectionWithClosures<ClosureT: GLibObject.ClosureProtocol, DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure: ClosureT?, nameLostClosure: ClosureT?) -> Int {
+    let rv = Int(g_bus_own_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
     return rv
 }
 
@@ -381,8 +477,14 @@ import GLibObject
 
 /// Version of `g_bus_own_name()` using closures instead of callbacks for
 /// easier binding in other languages.
-@inlinable public func busOwnNameWithClosures<ClosureT: ClosureProtocol>(busType bus_type: GBusType, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, busAcquiredClosure bus_acquired_closure: ClosureT? = nil, nameAcquiredClosure name_acquired_closure: ClosureT? = nil, nameLostClosure name_lost_closure: ClosureT? = nil) -> Int {
-    let rv = Int(g_bus_own_name_with_closures(bus_type, name, flags.value, bus_acquired_closure?.closure_ptr, name_acquired_closure?.closure_ptr, name_lost_closure?.closure_ptr))
+@inlinable public func busOwnNameWithClosures(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, busAcquiredClosure: GLibObject.ClosureRef? = nil, nameAcquiredClosure: GLibObject.ClosureRef? = nil, nameLostClosure: GLibObject.ClosureRef? = nil) -> Int {
+    let rv = Int(g_bus_own_name_with_closures(busType, name, flags.value, busAcquiredClosure?.closure_ptr, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
+    return rv
+}
+/// Version of `g_bus_own_name()` using closures instead of callbacks for
+/// easier binding in other languages.
+@inlinable public func busOwnNameWithClosures<ClosureT: GLibObject.ClosureProtocol>(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, busAcquiredClosure: ClosureT?, nameAcquiredClosure: ClosureT?, nameLostClosure: ClosureT?) -> Int {
+    let rv = Int(g_bus_own_name_with_closures(busType, name, flags.value, busAcquiredClosure?.closure_ptr, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
     return rv
 }
 
@@ -397,8 +499,8 @@ import GLibObject
 /// until the `GDestroyNotify` function passed to `g_bus_own_name()` is called, in
 /// order to avoid memory leaks through callbacks queued on the `GMainContext`
 /// after it’s stopped being iterated.
-@inlinable public func busUnownName(ownerID owner_id: Int) {
-    g_bus_unown_name(guint(owner_id))
+@inlinable public func busUnownName(ownerID: Int) {
+    g_bus_unown_name(guint(ownerID))
 
 }
 
@@ -413,8 +515,8 @@ import GLibObject
 /// until the `GDestroyNotify` function passed to `g_bus_watch_name()` is called, in
 /// order to avoid memory leaks through callbacks queued on the `GMainContext`
 /// after it’s stopped being iterated.
-@inlinable public func busUnwatchName(watcherID watcher_id: Int) {
-    g_bus_unwatch_name(guint(watcher_id))
+@inlinable public func busUnwatchName(watcherID: Int) {
+    g_bus_unwatch_name(guint(watcherID))
 
 }
 
@@ -450,8 +552,8 @@ import GLibObject
 /// Basically, the application should create object proxies in
 /// `name_appeared_handler` and destroy them again (if any) in
 /// `name_vanished_handler`.
-@inlinable public func busWatchName(busType bus_type: GBusType, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: GBusNameAppearedCallback? = nil, nameVanishedHandler name_vanished_handler: GBusNameVanishedCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-    let rv = Int(g_bus_watch_name(bus_type, name, flags.value, name_appeared_handler, name_vanished_handler, user_data, user_data_free_func))
+@inlinable public func busWatchName(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler: GBusNameAppearedCallback? = nil, nameVanishedHandler: GBusNameVanishedCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+    let rv = Int(g_bus_watch_name(busType, name, flags.value, nameAppearedHandler, nameVanishedHandler, userData, userDataFreeFunc))
     return rv
 }
 
@@ -460,8 +562,8 @@ import GLibObject
 
 /// Like `g_bus_watch_name()` but takes a `GDBusConnection` instead of a
 /// `GBusType`.
-@inlinable public func busWatchNameOn<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: GBusNameAppearedCallback? = nil, nameVanishedHandler name_vanished_handler: GBusNameVanishedCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-    let rv = Int(g_bus_watch_name_on_connection(connection.dbus_connection_ptr, name, flags.value, name_appeared_handler, name_vanished_handler, user_data, user_data_free_func))
+@inlinable public func busWatchNameOn<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler: GBusNameAppearedCallback? = nil, nameVanishedHandler: GBusNameVanishedCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+    let rv = Int(g_bus_watch_name_on_connection(connection.dbus_connection_ptr, name, flags.value, nameAppearedHandler, nameVanishedHandler, userData, userDataFreeFunc))
     return rv
 }
 
@@ -470,8 +572,14 @@ import GLibObject
 
 /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
 /// easier binding in other languages.
-@inlinable public func busWatchNameOnConnectionWithClosures<ClosureT: ClosureProtocol, DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureT? = nil, nameVanishedClosure name_vanished_closure: ClosureT? = nil) -> Int {
-    let rv = Int(g_bus_watch_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, name_appeared_closure?.closure_ptr, name_vanished_closure?.closure_ptr))
+@inlinable public func busWatchNameOnConnectionWithClosures<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: GLibObject.ClosureRef? = nil, nameVanishedClosure: GLibObject.ClosureRef? = nil) -> Int {
+    let rv = Int(g_bus_watch_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
+    return rv
+}
+/// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
+/// easier binding in other languages.
+@inlinable public func busWatchNameOnConnectionWithClosures<ClosureT: GLibObject.ClosureProtocol, DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: ClosureT?, nameVanishedClosure: ClosureT?) -> Int {
+    let rv = Int(g_bus_watch_name_on_connection_with_closures(connection.dbus_connection_ptr, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
     return rv
 }
 
@@ -480,8 +588,14 @@ import GLibObject
 
 /// Version of `g_bus_watch_name()` using closures instead of callbacks for
 /// easier binding in other languages.
-@inlinable public func busWatchNameWithClosures<ClosureT: ClosureProtocol>(busType bus_type: GBusType, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureT? = nil, nameVanishedClosure name_vanished_closure: ClosureT? = nil) -> Int {
-    let rv = Int(g_bus_watch_name_with_closures(bus_type, name, flags.value, name_appeared_closure?.closure_ptr, name_vanished_closure?.closure_ptr))
+@inlinable public func busWatchNameWithClosures(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: GLibObject.ClosureRef? = nil, nameVanishedClosure: GLibObject.ClosureRef? = nil) -> Int {
+    let rv = Int(g_bus_watch_name_with_closures(busType, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
+    return rv
+}
+/// Version of `g_bus_watch_name()` using closures instead of callbacks for
+/// easier binding in other languages.
+@inlinable public func busWatchNameWithClosures<ClosureT: GLibObject.ClosureProtocol>(busType: GBusType, name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: ClosureT?, nameVanishedClosure: ClosureT?) -> Int {
+    let rv = Int(g_bus_watch_name_with_closures(busType, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
     return rv
 }
 
@@ -508,8 +622,8 @@ import GLibObject
 
 
 /// Tries to find a content type based on the mime type name.
-@inlinable public func contentTypeFrom(mimeType mime_type: UnsafePointer<gchar>!) -> String! {
-    guard let rv = g_content_type_from_mime_type(mime_type).map({ String(cString: $0) }) else { return nil }
+@inlinable public func contentTypeFrom(mimeType: UnsafePointer<gchar>!) -> String! {
+    guard let rv = g_content_type_from_mime_type(mimeType).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -576,8 +690,8 @@ import GLibObject
 /// uncertain, `result_uncertain` will be set to `true`. Either `filename`
 /// or `data` may be `nil`, in which case the guess will be based solely
 /// on the other argument.
-@inlinable public func contentTypeGuess(filename: UnsafePointer<gchar>? = nil, data: UnsafePointer<guchar>! = nil, dataSize data_size: Int, resultUncertain result_uncertain: UnsafeMutablePointer<gboolean>! = nil) -> String! {
-    guard let rv = g_content_type_guess(filename, data, gsize(data_size), result_uncertain).map({ String(cString: $0) }) else { return nil }
+@inlinable public func contentTypeGuess(filename: UnsafePointer<gchar>? = nil, data: UnsafePointer<guchar>! = nil, dataSize: Int, resultUncertain: UnsafeMutablePointer<gboolean>! = nil) -> String! {
+    guard let rv = g_content_type_guess(filename, data, gsize(dataSize), resultUncertain).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -615,8 +729,8 @@ import GLibObject
 
 /// Determines if `type` is a subset of `mime_type`.
 /// Convenience wrapper around `g_content_type_is_a()`.
-@inlinable public func contentTypeIsMime(type: UnsafePointer<gchar>!, mimeType mime_type: UnsafePointer<gchar>!) -> Bool {
-    let rv = ((g_content_type_is_mime_type(type, mime_type)) != 0)
+@inlinable public func contentTypeIsMime(type: UnsafePointer<gchar>!, mimeType: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_content_type_is_mime_type(type, mimeType)) != 0)
     return rv
 }
 
@@ -645,8 +759,8 @@ import GLibObject
 /// Gets a list of strings containing all the registered content types
 /// known to the system. The list and its data should be freed using
 /// `g_list_free_full (list, g_free)`.
-@inlinable public func contentTypesGetRegistered() -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_content_types_get_registered())) else { return nil }
+@inlinable public func contentTypesGetRegistered() -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_content_types_get_registered()) else { return nil }
     return rv
 }
 
@@ -674,9 +788,22 @@ import GLibObject
 /// 
 /// The returned address will be in the
 /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
-@inlinable public func dbusAddressGetForBusSync<CancellableT: CancellableProtocol>(busType bus_type: GBusType, cancellable: CancellableT? = nil) throws -> String! {
+@inlinable public func dbusAddressGetForBusSync(busType: GBusType, cancellable: CancellableRef? = nil) throws -> String! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = g_dbus_address_get_for_bus_sync(bus_type, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+    let maybeRV = g_dbus_address_get_for_bus_sync(busType, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Synchronously looks up the D-Bus address for the well-known message
+/// bus instance specified by `bus_type`. This may involve using various
+/// platform specific mechanisms.
+/// 
+/// The returned address will be in the
+/// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
+@inlinable public func dbusAddressGetForBusSync<CancellableT: CancellableProtocol>(busType: GBusType, cancellable: CancellableT?) throws -> String! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = g_dbus_address_get_for_bus_sync(busType, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -696,8 +823,23 @@ import GLibObject
 /// 
 /// This is an asynchronous failable function. See
 /// `g_dbus_address_get_stream_sync()` for the synchronous version.
-@inlinable public func dbusAddressGetStream<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-    g_dbus_address_get_stream(address, cancellable?.cancellable_ptr, callback, user_data)
+@inlinable public func dbusAddressGetStream(address: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_dbus_address_get_stream(address, cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Asynchronously connects to an endpoint specified by `address` and
+/// sets up the connection so it is in a state to run the client-side
+/// of the D-Bus authentication conversation. `address` must be in the
+/// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
+/// 
+/// When the operation is finished, `callback` will be invoked. You can
+/// then call `g_dbus_address_get_stream_finish()` to get the result of
+/// the operation.
+/// 
+/// This is an asynchronous failable function. See
+/// `g_dbus_address_get_stream_sync()` for the synchronous version.
+@inlinable public func dbusAddressGetStream<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    g_dbus_address_get_stream(address, cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -705,9 +847,9 @@ import GLibObject
 
 
 /// Finishes an operation started with `g_dbus_address_get_stream()`.
-@inlinable public func dbusAddressGetStreamFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+@inlinable public func dbusAddressGetStreamFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(res.async_result_ptr, out_guid, &error)))
+    let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(res.async_result_ptr, outGuid, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -723,9 +865,23 @@ import GLibObject
 /// 
 /// This is a synchronous failable function. See
 /// `g_dbus_address_get_stream()` for the asynchronous version.
-@inlinable public func dbusAddressGetStreamSync<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, cancellable: CancellableT? = nil) throws -> IOStreamRef! {
+@inlinable public func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, cancellable: CancellableRef? = nil) throws -> IOStreamRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, out_guid, cancellable?.cancellable_ptr, &error)))
+    let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable?.cancellable_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Synchronously connects to an endpoint specified by `address` and
+/// sets up the connection so it is in a state to run the client-side
+/// of the D-Bus authentication conversation. `address` must be in the
+/// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
+/// 
+/// This is a synchronous failable function. See
+/// `g_dbus_address_get_stream()` for the asynchronous version.
+@inlinable public func dbusAddressGetStreamSync<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, cancellable: CancellableT?) throws -> IOStreamRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable?.cancellable_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -814,8 +970,8 @@ import GLibObject
 /// This function is typically only used in object mappings to prepare
 /// `GError` instances for applications. Regular applications should not use
 /// it.
-@inlinable public func dbusErrorNewForDbusError(dbusErrorName dbus_error_name: UnsafePointer<gchar>!, dbusErrorMessage dbus_error_message: UnsafePointer<gchar>!) -> ErrorRef! {
-    guard let rv = ErrorRef(gconstpointer: gconstpointer(g_dbus_error_new_for_dbus_error(dbus_error_name, dbus_error_message))) else { return nil }
+@inlinable public func dbusErrorNewForDbusError(dbusErrorName: UnsafePointer<gchar>!, dbusErrorMessage: UnsafePointer<gchar>!) -> GLib.ErrorRef! {
+    guard let rv = GLib.ErrorRef(g_dbus_error_new_for_dbus_error(dbusErrorName, dbusErrorMessage)) else { return nil }
     return rv
 }
 
@@ -835,8 +991,8 @@ import GLibObject
 /// 
 /// This is typically done in the routine that returns the `GQuark` for
 /// an error domain.
-@inlinable public func dbusErrorRegisterError(errorDomain error_domain: GQuark, errorCode error_code: Int, dbusErrorName dbus_error_name: UnsafePointer<gchar>!) -> Bool {
-    let rv = ((g_dbus_error_register_error(error_domain, gint(error_code), dbus_error_name)) != 0)
+@inlinable public func dbusErrorRegisterError(errorDomain: GQuark, errorCode: Int, dbusErrorName: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_dbus_error_register_error(errorDomain, gint(errorCode), dbusErrorName)) != 0)
     return rv
 }
 
@@ -844,8 +1000,8 @@ import GLibObject
 
 
 /// Helper function for associating a `GError` error domain with D-Bus error names.
-@inlinable public func dbusErrorRegisterErrorDomain(errorDomainQuarkName error_domain_quark_name: UnsafePointer<gchar>!, quarkVolatile quark_volatile: UnsafeMutablePointer<gsize>!, entries: UnsafePointer<GDBusErrorEntry>!, numEntries num_entries: Int) {
-    g_dbus_error_register_error_domain(error_domain_quark_name, quark_volatile, entries, guint(num_entries))
+@inlinable public func dbusErrorRegisterErrorDomain(errorDomainQuarkName: UnsafePointer<gchar>!, quarkVolatile: UnsafeMutablePointer<gsize>!, entries: UnsafePointer<GDBusErrorEntry>!, numEntries: Int) {
+    g_dbus_error_register_error_domain(errorDomainQuarkName, quarkVolatile, entries, guint(numEntries))
 
 }
 
@@ -867,8 +1023,8 @@ import GLibObject
 
 
 /// Destroys an association previously set up with `g_dbus_error_register_error()`.
-@inlinable public func dbusErrorUnregisterError(errorDomain error_domain: GQuark, errorCode error_code: Int, dbusErrorName dbus_error_name: UnsafePointer<gchar>!) -> Bool {
-    let rv = ((g_dbus_error_unregister_error(error_domain, gint(error_code), dbus_error_name)) != 0)
+@inlinable public func dbusErrorUnregisterError(errorDomain: GQuark, errorCode: Int, dbusErrorName: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_dbus_error_unregister_error(errorDomain, gint(errorCode), dbusErrorName)) != 0)
     return rv
 }
 
@@ -916,8 +1072,8 @@ import GLibObject
 /// 
 /// See the `g_dbus_gvariant_to_gvalue()` function for how to convert a
 /// `GVariant` to a `GValue`.
-@inlinable public func dbusGvalueToGvariant<ValueT: ValueProtocol, VariantTypeT: VariantTypeProtocol>(gvalue: ValueT, type: VariantTypeT) -> VariantRef! {
-    guard let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_gvalue_to_gvariant(gvalue.value_ptr, type.variant_type_ptr))) else { return nil }
+@inlinable public func dbusGvalueToGvariant<ValueT: GLibObject.ValueProtocol, VariantTypeT: GLib.VariantTypeProtocol>(gvalue: ValueT, type: VariantTypeT) -> GLib.VariantRef! {
+    guard let rv = GLib.VariantRef(g_dbus_gvalue_to_gvariant(gvalue.value_ptr, type.variant_type_ptr)) else { return nil }
     return rv
 }
 
@@ -935,8 +1091,8 @@ import GLibObject
 /// 
 /// The conversion never fails - a valid `GValue` is always returned in
 /// `out_gvalue`.
-@inlinable public func dbusGvariantToGvalue<ValueT: ValueProtocol, VariantT: VariantProtocol>(value: VariantT, outGvalue out_gvalue: ValueT) {
-    g_dbus_gvariant_to_gvalue(value.variant_ptr, out_gvalue.value_ptr)
+@inlinable public func dbusGvariantToGvalue<ValueT: GLibObject.ValueProtocol, VariantT: GLib.VariantProtocol>(value: VariantT, outGvalue: ValueT) {
+    g_dbus_gvariant_to_gvalue(value.variant_ptr, outGvalue.value_ptr)
 
 }
 
@@ -1021,9 +1177,18 @@ import GLibObject
 
 /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
 /// assumed to communicate with the server identified by `server_identity`.
-@inlinable public func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol, SocketConnectableT: SocketConnectableProtocol>(baseSocket base_socket: DatagramBasedT, serverIdentity server_identity: SocketConnectableT? = nil) throws -> DtlsClientConnectionRef! {
+@inlinable public func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket: DatagramBasedT, serverIdentity: SocketConnectableRef? = nil) throws -> DtlsClientConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(base_socket.datagram_based_ptr, server_identity?.socket_connectable_ptr, &error)))
+    let maybeRV = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(baseSocket.datagram_based_ptr, serverIdentity?.socket_connectable_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
+/// assumed to communicate with the server identified by `server_identity`.
+@inlinable public func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol, SocketConnectableT: SocketConnectableProtocol>(baseSocket: DatagramBasedT, serverIdentity: SocketConnectableT?) throws -> DtlsClientConnectionRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(baseSocket.datagram_based_ptr, serverIdentity?.socket_connectable_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1033,9 +1198,17 @@ import GLibObject
 
 
 /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
-@inlinable public func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol, TLSCertificateT: TLSCertificateProtocol>(baseSocket base_socket: DatagramBasedT, certificate: TLSCertificateT? = nil) throws -> DtlsServerConnectionRef! {
+@inlinable public func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket: DatagramBasedT, certificate: TLSCertificateRef? = nil) throws -> DtlsServerConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(base_socket.datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
+    let maybeRV = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(baseSocket.datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
+@inlinable public func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol, TLSCertificateT: TLSCertificateProtocol>(baseSocket: DatagramBasedT, certificate: TLSCertificateT?) throws -> DtlsServerConnectionRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(baseSocket.datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1133,8 +1306,8 @@ import GLibObject
 /// given by `g_file_get_parse_name()`). This operation never fails,
 /// but the returned object might not support any I/O operation if
 /// the `parse_name` cannot be parsed.
-@inlinable public func file(parseName parse_name: UnsafePointer<CChar>!) -> FileRef! {
-    guard let rv = FileRef(gconstpointer: gconstpointer(g_file_parse_name(parse_name))) else { return nil }
+@inlinable public func file(parseName: UnsafePointer<CChar>!) -> FileRef! {
+    guard let rv = FileRef(gconstpointer: gconstpointer(g_file_parse_name(parseName))) else { return nil }
     return rv
 }
 
@@ -1142,7 +1315,7 @@ import GLibObject
 
 
 /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
-@inlinable public func iconDeserialize<VariantT: VariantProtocol>(value: VariantT) -> IconRef! {
+@inlinable public func iconDeserialize<VariantT: GLib.VariantProtocol>(value: VariantT) -> IconRef! {
     guard let rv = IconRef(gconstpointer: gconstpointer(g_icon_deserialize(value.variant_ptr))) else { return nil }
     return rv
 }
@@ -1183,9 +1356,23 @@ import GLibObject
 /// **initable_newv is deprecated:**
 /// Use g_object_new_with_properties() and
 /// g_initable_init() instead. See #GParameter for more information.
-@available(*, deprecated) @inlinable public func initableNewv<CancellableT: CancellableProtocol>(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!, cancellable: CancellableT? = nil) throws -> ObjectRef! {
+@available(*, deprecated) @inlinable public func initableNewv(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!, cancellable: CancellableRef? = nil) throws -> GLibObject.ObjectRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = ObjectRef(gpointer: g_initable_newv(object_type, guint(n_parameters), parameters, cancellable?.cancellable_ptr, &error))
+    let maybeRV = GLibObject.ObjectRef(gpointer: g_initable_newv(objectType, guint(nParameters), parameters, cancellable?.cancellable_ptr, &error))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Helper function for constructing `GInitable` object. This is
+/// similar to `g_object_newv()` but also initializes the object
+/// and returns `nil`, setting an error on failure.
+///
+/// **initable_newv is deprecated:**
+/// Use g_object_new_with_properties() and
+/// g_initable_init() instead. See #GParameter for more information.
+@available(*, deprecated) @inlinable public func initableNewv<CancellableT: CancellableProtocol>(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!, cancellable: CancellableT?) throws -> GLibObject.ObjectRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = GLibObject.ObjectRef(gpointer: g_initable_newv(objectType, guint(nParameters), parameters, cancellable?.cancellable_ptr, &error))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1201,8 +1388,8 @@ import GLibObject
 /// 
 /// As `errno` is global and may be modified by intermediate function
 /// calls, you should save its value as soon as the call which sets it
-@inlinable public func ioErrorFromErrno(errNo err_no: Int) -> GIOErrorEnum {
-    let rv = g_io_error_from_errno(gint(err_no))
+@inlinable public func ioErrorFromErrno(errNo: Int) -> GIOErrorEnum {
+    let rv = g_io_error_from_errno(gint(errNo))
     return rv
 }
 
@@ -1223,8 +1410,8 @@ import GLibObject
 /// 
 /// If `type` has already been registered as an extension for this
 /// extension point, the existing `GIOExtension` object is returned.
-@inlinable public func ioExtensionPointImplement(extensionPointName extension_point_name: UnsafePointer<CChar>!, type: GType, extensionName extension_name: UnsafePointer<CChar>!, priority: Int) -> IOExtensionRef! {
-    guard let rv = IOExtensionRef(gconstpointer: gconstpointer(g_io_extension_point_implement(extension_point_name, type, extension_name, gint(priority)))) else { return nil }
+@inlinable public func ioExtensionPointImplement(extensionPointName: UnsafePointer<CChar>!, type: GType, extensionName: UnsafePointer<CChar>!, priority: Int) -> IOExtensionRef! {
+    guard let rv = IOExtensionRef(gconstpointer: gconstpointer(g_io_extension_point_implement(extensionPointName, type, extensionName, gint(priority)))) else { return nil }
     return rv
 }
 
@@ -1254,8 +1441,8 @@ import GLibObject
 /// If don't require all modules to be initialized (and thus registering
 /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
 /// which allows delayed/lazy loading of modules.
-@inlinable public func ioModulesLoadAllInDirectory(dirname: UnsafePointer<gchar>!) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_io_modules_load_all_in_directory(dirname))) else { return nil }
+@inlinable public func ioModulesLoadAllInDirectory(dirname: UnsafePointer<gchar>!) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_io_modules_load_all_in_directory(dirname)) else { return nil }
     return rv
 }
 
@@ -1267,8 +1454,8 @@ import GLibObject
 /// If don't require all modules to be initialized (and thus registering
 /// all gtypes) then you can use `g_io_modules_scan_all_in_directory()`
 /// which allows delayed/lazy loading of modules.
-@inlinable public func ioModulesLoadAllInDirectoryWithScope<IOModuleScopeT: IOModuleScopeProtocol>(dirname: UnsafePointer<gchar>!, scope: IOModuleScopeT) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_io_modules_load_all_in_directory_with_scope(dirname, scope._ptr))) else { return nil }
+@inlinable public func ioModulesLoadAllInDirectoryWithScope<IOModuleScopeT: IOModuleScopeProtocol>(dirname: UnsafePointer<gchar>!, scope: IOModuleScopeT) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_io_modules_load_all_in_directory_with_scope(dirname, scope._ptr)) else { return nil }
     return rv
 }
 
@@ -1341,8 +1528,23 @@ import GLibObject
 ///
 /// **io_scheduler_push_job is deprecated:**
 /// use #GThreadPool or g_task_run_in_thread()
-@available(*, deprecated) @inlinable public func ioSchedulerPushJob<CancellableT: CancellableProtocol>(jobFunc job_func: GIOSchedulerJobFunc?, userData user_data: gpointer! = nil, notify: GDestroyNotify? = nil, ioPriority io_priority: Int, cancellable: CancellableT? = nil) {
-    g_io_scheduler_push_job(job_func, user_data, notify, gint(io_priority), cancellable?.cancellable_ptr)
+@available(*, deprecated) @inlinable public func ioSchedulerPushJob(jobFunc: GIOSchedulerJobFunc?, userData: gpointer! = nil, notify: GDestroyNotify? = nil, ioPriority: Int, cancellable: CancellableRef? = nil) {
+    g_io_scheduler_push_job(jobFunc, userData, notify, gint(ioPriority), cancellable?.cancellable_ptr)
+
+}
+/// Schedules the I/O job to run in another thread.
+/// 
+/// `notify` will be called on `user_data` after `job_func` has returned,
+/// regardless whether the job was cancelled or has run to completion.
+/// 
+/// If `cancellable` is not `nil`, it can be used to cancel the I/O job
+/// by calling `g_cancellable_cancel()` or by calling
+/// `g_io_scheduler_cancel_all_jobs()`.
+///
+/// **io_scheduler_push_job is deprecated:**
+/// use #GThreadPool or g_task_run_in_thread()
+@available(*, deprecated) @inlinable public func ioSchedulerPushJob<CancellableT: CancellableProtocol>(jobFunc: GIOSchedulerJobFunc?, userData: gpointer! = nil, notify: GDestroyNotify? = nil, ioPriority: Int, cancellable: CancellableT?) {
+    g_io_scheduler_push_job(jobFunc, userData, notify, gint(ioPriority), cancellable?.cancellable_ptr)
 
 }
 
@@ -1398,8 +1600,8 @@ import GLibObject
 /// the directory specified by the `GKeyfileSettingsBackend:defaults`-dir property,
 /// and a list of locked keys from a text file with the name `locks` in
 /// the same location.
-@inlinable public func keyfileSettingsBackendNew(filename: UnsafePointer<gchar>!, rootPath root_path: UnsafePointer<gchar>!, rootGroup root_group: UnsafePointer<gchar>? = nil) -> SettingsBackendRef! {
-    guard let rv = SettingsBackendRef(gconstpointer: gconstpointer(g_keyfile_settings_backend_new(filename, root_path, root_group))) else { return nil }
+@inlinable public func keyfileSettingsBackendNew(filename: UnsafePointer<gchar>!, rootPath: UnsafePointer<gchar>!, rootGroup: UnsafePointer<gchar>? = nil) -> SettingsBackendRef! {
+    guard let rv = SettingsBackendRef(gconstpointer: gconstpointer(g_keyfile_settings_backend_new(filename, rootPath, rootGroup))) else { return nil }
     return rv
 }
 
@@ -1466,8 +1668,8 @@ import GLibObject
 /// type `GPollableSourceFunc`. The new source does not actually do
 /// anything on its own; use `g_source_add_child_source()` to add other
 /// sources to it to cause it to trigger.
-@inlinable public func pollableSourceNew<ObjectT: ObjectProtocol>(pollableStream pollable_stream: ObjectT) -> SourceRef! {
-    guard let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_source_new(pollable_stream.object_ptr))) else { return nil }
+@inlinable public func pollableSourceNew<ObjectT: GLibObject.ObjectProtocol>(pollableStream: ObjectT) -> GLib.SourceRef! {
+    guard let rv = GLib.SourceRef(g_pollable_source_new(pollableStream.object_ptr)) else { return nil }
     return rv
 }
 
@@ -1478,8 +1680,16 @@ import GLibObject
 /// implementations. Creates a new `GSource`, as with
 /// `g_pollable_source_new()`, but also attaching `child_source` (with a
 /// dummy callback), and `cancellable`, if they are non-`nil`.
-@inlinable public func pollableSourceNewFull<CancellableT: CancellableProtocol, ObjectT: ObjectProtocol, SourceT: SourceProtocol>(pollableStream pollable_stream: ObjectT, childSource child_source: SourceT? = nil, cancellable: CancellableT? = nil) -> SourceRef! {
-    guard let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_source_new_full(pollable_stream.object_ptr, child_source?.source_ptr, cancellable?.cancellable_ptr))) else { return nil }
+@inlinable public func pollableSourceNewFull<ObjectT: GLibObject.ObjectProtocol>(pollableStream: ObjectT, childSource: GLib.SourceRef? = nil, cancellable: CancellableRef? = nil) -> GLib.SourceRef! {
+    guard let rv = GLib.SourceRef(g_pollable_source_new_full(pollableStream.object_ptr, childSource?.source_ptr, cancellable?.cancellable_ptr)) else { return nil }
+    return rv
+}
+/// Utility method for `GPollableInputStream` and `GPollableOutputStream`
+/// implementations. Creates a new `GSource`, as with
+/// `g_pollable_source_new()`, but also attaching `child_source` (with a
+/// dummy callback), and `cancellable`, if they are non-`nil`.
+@inlinable public func pollableSourceNewFull<CancellableT: CancellableProtocol, ObjectT: GLibObject.ObjectProtocol, SourceT: GLib.SourceProtocol>(pollableStream: ObjectT, childSource: SourceT?, cancellable: CancellableT?) -> GLib.SourceRef! {
+    guard let rv = GLib.SourceRef(g_pollable_source_new_full(pollableStream.object_ptr, childSource?.source_ptr, cancellable?.cancellable_ptr)) else { return nil }
     return rv
 }
 
@@ -1495,7 +1705,22 @@ import GLibObject
 /// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
 /// returns `true`, or else the behavior is undefined. If `blocking` is
 /// `true`, then `stream` does not need to be a `GPollableInputStream`.
-@inlinable public func pollableStreamRead<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(stream: InputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT? = nil) throws -> gssize {
+@inlinable public func pollableStreamRead<InputStreamT: InputStreamProtocol>(stream: InputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableRef? = nil) throws -> gssize {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_pollable_stream_read(stream.input_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+/// Tries to read from `stream`, as with `g_input_stream_read()` (if
+/// `blocking` is `true`) or `g_pollable_input_stream_read_nonblocking()`
+/// (if `blocking` is `false`). This can be used to more easily share
+/// code between blocking and non-blocking implementations of a method.
+/// 
+/// If `blocking` is `false`, then `stream` must be a
+/// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
+/// returns `true`, or else the behavior is undefined. If `blocking` is
+/// `true`, then `stream` does not need to be a `GPollableInputStream`.
+@inlinable public func pollableStreamRead<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(stream: InputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT?) throws -> gssize {
     var error: UnsafeMutablePointer<GError>?
     let rv = g_pollable_stream_read(stream.input_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
     if let error = error { throw GLibError(error) }
@@ -1515,7 +1740,23 @@ import GLibObject
 /// `g_pollable_output_stream_can_poll()` returns `true` or else the
 /// behavior is undefined. If `blocking` is `true`, then `stream` does not
 /// need to be a `GPollableOutputStream`.
-@inlinable public func pollableStreamWrite<CancellableT: CancellableProtocol, OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT? = nil) throws -> gssize {
+@inlinable public func pollableStreamWrite<OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableRef? = nil) throws -> gssize {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_pollable_stream_write(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+/// Tries to write to `stream`, as with `g_output_stream_write()` (if
+/// `blocking` is `true`) or `g_pollable_output_stream_write_nonblocking()`
+/// (if `blocking` is `false`). This can be used to more easily share
+/// code between blocking and non-blocking implementations of a method.
+/// 
+/// If `blocking` is `false`, then `stream` must be a
+/// `GPollableOutputStream` for which
+/// `g_pollable_output_stream_can_poll()` returns `true` or else the
+/// behavior is undefined. If `blocking` is `true`, then `stream` does not
+/// need to be a `GPollableOutputStream`.
+@inlinable public func pollableStreamWrite<CancellableT: CancellableProtocol, OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT?) throws -> gssize {
     var error: UnsafeMutablePointer<GError>?
     let rv = g_pollable_stream_write(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
     if let error = error { throw GLibError(error) }
@@ -1543,9 +1784,33 @@ import GLibObject
 /// `g_pollable_output_stream_can_poll()` returns `true` or else the
 /// behavior is undefined. If `blocking` is `true`, then `stream` does not
 /// need to be a `GPollableOutputStream`.
-@inlinable public func pollableStreamWriteAll<CancellableT: CancellableProtocol, OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<gsize>!, cancellable: CancellableT? = nil) throws -> Bool {
+@inlinable public func pollableStreamWriteAll<OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten: UnsafeMutablePointer<gsize>!, cancellable: CancellableRef? = nil) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((g_pollable_stream_write_all(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytes_written, cancellable?.cancellable_ptr, &error)) != 0)
+    let rv = ((g_pollable_stream_write_all(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+/// Tries to write `count` bytes to `stream`, as with
+/// `g_output_stream_write_all()`, but using `g_pollable_stream_write()`
+/// rather than `g_output_stream_write()`.
+/// 
+/// On a successful write of `count` bytes, `true` is returned, and
+/// `bytes_written` is set to `count`.
+/// 
+/// If there is an error during the operation (including
+/// `G_IO_ERROR_WOULD_BLOCK` in the non-blocking case), `false` is
+/// returned and `error` is set to indicate the error status,
+/// `bytes_written` is updated to contain the number of bytes written
+/// into the stream before the error occurred.
+/// 
+/// As with `g_pollable_stream_write()`, if `blocking` is `false`, then
+/// `stream` must be a `GPollableOutputStream` for which
+/// `g_pollable_output_stream_can_poll()` returns `true` or else the
+/// behavior is undefined. If `blocking` is `true`, then `stream` does not
+/// need to be a `GPollableOutputStream`.
+@inlinable public func pollableStreamWriteAll<CancellableT: CancellableProtocol, OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten: UnsafeMutablePointer<gsize>!, cancellable: CancellableT?) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_pollable_stream_write_all(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -1617,9 +1882,9 @@ import GLibObject
 /// be released with `g_strfreev()`.
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
-@inlinable public func resourcesEnumerateChildren(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+@inlinable public func resourcesEnumerateChildren(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = g_resources_enumerate_children(path, lookup_flags.value, &error)
+    let maybeRV = g_resources_enumerate_children(path, lookupFlags.value, &error)
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1632,9 +1897,9 @@ import GLibObject
 /// globally registered resources and if found returns information about it.
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
-@inlinable public func resourcesGetInfo(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<gsize>! = nil, flags: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
+@inlinable public func resourcesGetInfo(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags, size: UnsafeMutablePointer<gsize>! = nil, flags: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((g_resources_get_info(path, lookup_flags.value, size, flags, &error)) != 0)
+    let rv = ((g_resources_get_info(path, lookupFlags.value, size, flags, &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -1656,9 +1921,9 @@ import GLibObject
 /// the heap and automatically uncompress the data.
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
-@inlinable public func resourcesLookupData(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> BytesRef! {
+@inlinable public func resourcesLookupData(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> GLib.BytesRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = BytesRef(gconstpointer: gconstpointer(g_resources_lookup_data(path, lookup_flags.value, &error)))
+    let maybeRV = GLib.BytesRef(g_resources_lookup_data(path, lookupFlags.value, &error))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1672,9 +1937,9 @@ import GLibObject
 /// that lets you read the data.
 /// 
 /// `lookup_flags` controls the behaviour of the lookup.
-@inlinable public func resourcesOpenStream(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> InputStreamRef! {
+@inlinable public func resourcesOpenStream(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> InputStreamRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = InputStreamRef(gconstpointer: gconstpointer(g_resources_open_stream(path, lookup_flags.value, &error)))
+    let maybeRV = InputStreamRef(gconstpointer: gconstpointer(g_resources_open_stream(path, lookupFlags.value, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1737,8 +2002,18 @@ import GLibObject
 ///
 /// **simple_async_report_gerror_in_idle is deprecated:**
 /// Use g_task_report_error().
-@available(*, deprecated) @inlinable public func simpleAsyncReportGerrorInIdle<GLibErrorT: ErrorProtocol, ObjectT: ObjectProtocol>(object: ObjectT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil, error: GLibErrorT) {
-    g_simple_async_report_gerror_in_idle(object?.object_ptr, callback, user_data, error.error_ptr)
+@available(*, deprecated) @inlinable public func simpleAsyncReportGerrorInIdle<GLibErrorT: ErrorProtocol>(object: GLibObject.ObjectRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil, error: GLibErrorT) {
+    g_simple_async_report_gerror_in_idle(object?.object_ptr, callback, userData, error.error_ptr)
+
+}
+/// Reports an error in an idle function. Similar to
+/// `g_simple_async_report_error_in_idle()`, but takes a `GError` rather
+/// than building a new one.
+///
+/// **simple_async_report_gerror_in_idle is deprecated:**
+/// Use g_task_report_error().
+@available(*, deprecated) @inlinable public func simpleAsyncReportGerrorInIdle<GLibErrorT: ErrorProtocol, ObjectT: GLibObject.ObjectProtocol>(object: ObjectT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil, error: GLibErrorT) {
+    g_simple_async_report_gerror_in_idle(object?.object_ptr, callback, userData, error.error_ptr)
 
 }
 
@@ -1751,8 +2026,18 @@ import GLibObject
 ///
 /// **simple_async_report_take_gerror_in_idle is deprecated:**
 /// Use g_task_report_error().
-@available(*, deprecated) @inlinable public func simpleAsyncReportTakeGerrorInIdle<GLibErrorT: ErrorProtocol, ObjectT: ObjectProtocol>(object: ObjectT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil, error: GLibErrorT) {
-    g_simple_async_report_take_gerror_in_idle(object?.object_ptr, callback, user_data, error.error_ptr)
+@available(*, deprecated) @inlinable public func simpleAsyncReportTakeGerrorInIdle<GLibErrorT: ErrorProtocol>(object: GLibObject.ObjectRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil, error: GLibErrorT) {
+    g_simple_async_report_take_gerror_in_idle(object?.object_ptr, callback, userData, error.error_ptr)
+
+}
+/// Reports an error in an idle function. Similar to
+/// `g_simple_async_report_gerror_in_idle()`, but takes over the caller's
+/// ownership of `error`, so the caller does not have to free it any more.
+///
+/// **simple_async_report_take_gerror_in_idle is deprecated:**
+/// Use g_task_report_error().
+@available(*, deprecated) @inlinable public func simpleAsyncReportTakeGerrorInIdle<GLibErrorT: ErrorProtocol, ObjectT: GLibObject.ObjectProtocol>(object: ObjectT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil, error: GLibErrorT) {
+    g_simple_async_report_take_gerror_in_idle(object?.object_ptr, callback, userData, error.error_ptr)
 
 }
 
@@ -1760,8 +2045,8 @@ import GLibObject
 
 
 /// Sorts `targets` in place according to the algorithm in RFC 2782.
-@inlinable public func srvTargetListSort<ListT: ListProtocol>(targets: ListT) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_srv_target_list_sort(targets._ptr))) else { return nil }
+@inlinable public func srvTargetListSort<ListT: GLib.ListProtocol>(targets: ListT) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_srv_target_list_sort(targets._ptr)) else { return nil }
     return rv
 }
 
@@ -1784,9 +2069,23 @@ import GLibObject
 /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
-@inlinable public func tlsClientConnectionNew<IOStreamT: IOStreamProtocol, SocketConnectableT: SocketConnectableProtocol>(baseIoStream base_io_stream: IOStreamT, serverIdentity server_identity: SocketConnectableT? = nil) throws -> TLSClientConnectionRef! {
+@inlinable public func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT, serverIdentity: SocketConnectableRef? = nil) throws -> TLSClientConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(base_io_stream.io_stream_ptr, server_identity?.socket_connectable_ptr, &error)))
+    let maybeRV = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(baseIoStream.io_stream_ptr, serverIdentity?.socket_connectable_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Creates a new `GTlsClientConnection` wrapping `base_io_stream` (which
+/// must have pollable input and output streams) which is assumed to
+/// communicate with the server identified by `server_identity`.
+/// 
+/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// on when application code can run operations on the `base_io_stream` after
+/// this function has returned.
+@inlinable public func tlsClientConnectionNew<IOStreamT: IOStreamProtocol, SocketConnectableT: SocketConnectableProtocol>(baseIoStream: IOStreamT, serverIdentity: SocketConnectableT?) throws -> TLSClientConnectionRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(baseIoStream.io_stream_ptr, serverIdentity?.socket_connectable_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1825,9 +2124,22 @@ import GLibObject
 /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
-@inlinable public func tlsServerConnectionNew<IOStreamT: IOStreamProtocol, TLSCertificateT: TLSCertificateProtocol>(baseIoStream base_io_stream: IOStreamT, certificate: TLSCertificateT? = nil) throws -> TLSServerConnectionRef! {
+@inlinable public func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT, certificate: TLSCertificateRef? = nil) throws -> TLSServerConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
-    let maybeRV = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(base_io_stream.io_stream_ptr, certificate?.tls_certificate_ptr, &error)))
+    let maybeRV = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(baseIoStream.io_stream_ptr, certificate?.tls_certificate_ptr, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+/// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
+/// must have pollable input and output streams).
+/// 
+/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// on when application code can run operations on the `base_io_stream` after
+/// this function has returned.
+@inlinable public func tlsServerConnectionNew<IOStreamT: IOStreamProtocol, TLSCertificateT: TLSCertificateProtocol>(baseIoStream: IOStreamT, certificate: TLSCertificateT?) throws -> TLSServerConnectionRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(baseIoStream.io_stream_ptr, certificate?.tls_certificate_ptr, &error)))
     if let error = error { throw GLibError(error) }
     guard let rv = maybeRV else { return nil }
     return rv
@@ -1840,8 +2152,8 @@ import GLibObject
 /// OS. This is primarily used for hiding mountable and mounted volumes
 /// that only are used in the OS and has little to no relevance to the
 /// casual user.
-@inlinable public func unixIsMountPathSystemInternal(mountPath mount_path: UnsafePointer<CChar>!) -> Bool {
-    let rv = ((g_unix_is_mount_path_system_internal(mount_path)) != 0)
+@inlinable public func unixIsMountPathSystemInternal(mountPath: UnsafePointer<CChar>!) -> Bool {
+    let rv = ((g_unix_is_mount_path_system_internal(mountPath)) != 0)
     return rv
 }
 
@@ -1855,8 +2167,8 @@ import GLibObject
 /// appear in a GUI. For example, the Linux `/proc` filesystem.
 /// 
 /// The list of device paths considered ‘system’ ones may change over time.
-@inlinable public func unixIsSystem(devicePath device_path: UnsafePointer<CChar>!) -> Bool {
-    let rv = ((g_unix_is_system_device_path(device_path)) != 0)
+@inlinable public func unixIsSystem(devicePath: UnsafePointer<CChar>!) -> Bool {
+    let rv = ((g_unix_is_system_device_path(devicePath)) != 0)
     return rv
 }
 
@@ -1870,8 +2182,8 @@ import GLibObject
 /// appear in a GUI. For example, the Linux `/proc` filesystem.
 /// 
 /// The list of file system types considered ‘system’ ones may change over time.
-@inlinable public func unixIsSystem(fsType fs_type: UnsafePointer<CChar>!) -> Bool {
-    let rv = ((g_unix_is_system_fs_type(fs_type)) != 0)
+@inlinable public func unixIsSystem(fsType: UnsafePointer<CChar>!) -> Bool {
+    let rv = ((g_unix_is_system_fs_type(fsType)) != 0)
     return rv
 }
 
@@ -1884,8 +2196,8 @@ import GLibObject
 /// 
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
-@inlinable public func unixMountAt(mountPath mount_path: UnsafePointer<CChar>!, timeRead time_read: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
-    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_at(mount_path, time_read))) else { return nil }
+@inlinable public func unixMountAt(mountPath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
+    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_at(mountPath, timeRead))) else { return nil }
     return rv
 }
 
@@ -1902,8 +2214,8 @@ import GLibObject
 
 
 /// Makes a copy of `mount_entry`.
-@inlinable public func unixMountCopy<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> UnixMountEntryRef! {
-    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_copy(mount_entry.unix_mount_entry_ptr))) else { return nil }
+@inlinable public func unixMountCopy<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> UnixMountEntryRef! {
+    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_copy(mountEntry.unix_mount_entry_ptr))) else { return nil }
     return rv
 }
 
@@ -1916,8 +2228,8 @@ import GLibObject
 /// 
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
-@inlinable public func unixMountFor(filePath file_path: UnsafePointer<CChar>!, timeRead time_read: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
-    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_for(file_path, time_read))) else { return nil }
+@inlinable public func unixMountFor(filePath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
+    guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_for(filePath, timeRead))) else { return nil }
     return rv
 }
 
@@ -1925,8 +2237,8 @@ import GLibObject
 
 
 /// Frees a unix mount.
-@inlinable public func unixMountFree<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) {
-    g_unix_mount_free(mount_entry.unix_mount_entry_ptr)
+@inlinable public func unixMountFree<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) {
+    g_unix_mount_free(mountEntry.unix_mount_entry_ptr)
 
 }
 
@@ -1934,8 +2246,8 @@ import GLibObject
 
 
 /// Gets the device path for a unix mount.
-@inlinable public func unixMountGetDevicePath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_get_device_path(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGetDevicePath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_get_device_path(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1943,8 +2255,8 @@ import GLibObject
 
 
 /// Gets the filesystem type for the unix mount.
-@inlinable public func unixMountGetFsType<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_get_fs_type(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGetFsType<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_get_fs_type(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1952,8 +2264,8 @@ import GLibObject
 
 
 /// Gets the mount path for a unix mount.
-@inlinable public func unixMountGetMountPath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_get_mount_path(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGetMountPath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_get_mount_path(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1965,8 +2277,8 @@ import GLibObject
 /// 
 /// This is similar to `g_unix_mount_point_get_options()`, but it takes
 /// a `GUnixMountEntry` as an argument.
-@inlinable public func unixMountGetOptions<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_get_options(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGetOptions<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_get_options(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1979,8 +2291,8 @@ import GLibObject
 /// For example, the root path is equal to "/" for mount created by
 /// "mount /dev/sda1 /mnt/foo" and "/bar" for
 /// "mount --bind /mnt/foo/bar /mnt/bar".
-@inlinable public func unixMountGetRootPath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_get_root_path(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGetRootPath<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_get_root_path(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -1988,8 +2300,8 @@ import GLibObject
 
 
 /// Guesses whether a Unix mount can be ejected.
-@inlinable public func unixMountGuessCanEject<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> Bool {
-    let rv = ((g_unix_mount_guess_can_eject(mount_entry.unix_mount_entry_ptr)) != 0)
+@inlinable public func unixMountGuessCanEject<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> Bool {
+    let rv = ((g_unix_mount_guess_can_eject(mountEntry.unix_mount_entry_ptr)) != 0)
     return rv
 }
 
@@ -1997,8 +2309,8 @@ import GLibObject
 
 
 /// Guesses the icon of a Unix mount.
-@inlinable public func unixMountGuessIcon<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> IconRef! {
-    guard let rv = IconRef(gconstpointer: gconstpointer(g_unix_mount_guess_icon(mount_entry.unix_mount_entry_ptr))) else { return nil }
+@inlinable public func unixMountGuessIcon<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> IconRef! {
+    guard let rv = IconRef(gconstpointer: gconstpointer(g_unix_mount_guess_icon(mountEntry.unix_mount_entry_ptr))) else { return nil }
     return rv
 }
 
@@ -2007,8 +2319,8 @@ import GLibObject
 
 /// Guesses the name of a Unix mount.
 /// The result is a translated string.
-@inlinable public func unixMountGuessName<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> String! {
-    guard let rv = g_unix_mount_guess_name(mount_entry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
+@inlinable public func unixMountGuessName<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> String! {
+    guard let rv = g_unix_mount_guess_name(mountEntry.unix_mount_entry_ptr).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -2016,8 +2328,8 @@ import GLibObject
 
 
 /// Guesses whether a Unix mount should be displayed in the UI.
-@inlinable public func unixMountGuessShouldDisplay<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> Bool {
-    let rv = ((g_unix_mount_guess_should_display(mount_entry.unix_mount_entry_ptr)) != 0)
+@inlinable public func unixMountGuessShouldDisplay<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> Bool {
+    let rv = ((g_unix_mount_guess_should_display(mountEntry.unix_mount_entry_ptr)) != 0)
     return rv
 }
 
@@ -2025,8 +2337,8 @@ import GLibObject
 
 
 /// Guesses the symbolic icon of a Unix mount.
-@inlinable public func unixMountGuessSymbolicIcon<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> IconRef! {
-    guard let rv = IconRef(gconstpointer: gconstpointer(g_unix_mount_guess_symbolic_icon(mount_entry.unix_mount_entry_ptr))) else { return nil }
+@inlinable public func unixMountGuessSymbolicIcon<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> IconRef! {
+    guard let rv = IconRef(gconstpointer: gconstpointer(g_unix_mount_guess_symbolic_icon(mountEntry.unix_mount_entry_ptr))) else { return nil }
     return rv
 }
 
@@ -2034,8 +2346,8 @@ import GLibObject
 
 
 /// Checks if a unix mount is mounted read only.
-@inlinable public func unixMountIsReadonly<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> Bool {
-    let rv = ((g_unix_mount_is_readonly(mount_entry.unix_mount_entry_ptr)) != 0)
+@inlinable public func unixMountIsReadonly<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> Bool {
+    let rv = ((g_unix_mount_is_readonly(mountEntry.unix_mount_entry_ptr)) != 0)
     return rv
 }
 
@@ -2048,8 +2360,8 @@ import GLibObject
 /// 
 /// The definition of what a ‘system’ mount entry is may change over time as new
 /// file system types and device paths are ignored.
-@inlinable public func unixMountIsSystemInternal<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry mount_entry: UnixMountEntryT) -> Bool {
-    let rv = ((g_unix_mount_is_system_internal(mount_entry.unix_mount_entry_ptr)) != 0)
+@inlinable public func unixMountIsSystemInternal<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> Bool {
+    let rv = ((g_unix_mount_is_system_internal(mountEntry.unix_mount_entry_ptr)) != 0)
     return rv
 }
 
@@ -2069,8 +2381,8 @@ import GLibObject
 /// If `time_read` is set, it will be filled with the mount timestamp,
 /// allowing for checking if the mounts have changed with
 /// `g_unix_mount_points_changed_since()`.
-@inlinable public func unixMountPointsGet(timeRead time_read: UnsafeMutablePointer<guint64>! = nil) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_unix_mount_points_get(time_read))) else { return nil }
+@inlinable public func unixMountPointsGet(timeRead: UnsafeMutablePointer<guint64>! = nil) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_unix_mount_points_get(timeRead)) else { return nil }
     return rv
 }
 
@@ -2090,8 +2402,8 @@ import GLibObject
 /// If `time_read` is set, it will be filled with the mount
 /// timestamp, allowing for checking if the mounts have changed
 /// with `g_unix_mounts_changed_since()`.
-@inlinable public func unixMountsGet(timeRead time_read: UnsafeMutablePointer<guint64>! = nil) -> ListRef! {
-    guard let rv = ListRef(gconstpointer: gconstpointer(g_unix_mounts_get(time_read))) else { return nil }
+@inlinable public func unixMountsGet(timeRead: UnsafeMutablePointer<guint64>! = nil) -> GLib.ListRef! {
+    guard let rv = GLib.ListRef(g_unix_mounts_get(timeRead)) else { return nil }
     return rv
 }
 

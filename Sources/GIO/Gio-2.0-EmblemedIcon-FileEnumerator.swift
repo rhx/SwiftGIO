@@ -15,7 +15,7 @@ import GLibObject
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
-public protocol EmblemedIconProtocol: ObjectProtocol, IconProtocol {
+public protocol EmblemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -94,7 +94,7 @@ public extension EmblemedIconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -122,7 +122,7 @@ public extension EmblemedIconRef {
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
-open class EmblemedIcon: Object, EmblemedIconProtocol {
+open class EmblemedIcon: GLibObject.Object, EmblemedIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `EmblemedIcon` instance.
@@ -264,7 +264,7 @@ public extension EmblemedIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: EmblemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -383,8 +383,8 @@ public extension EmblemedIconProtocol {
     }
 
     /// Gets the list of emblems for the `icon`.
-    @inlinable func getEmblems() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_emblemed_icon_get_emblems(emblemed_icon_ptr)))
+    @inlinable func getEmblems() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_emblemed_icon_get_emblems(emblemed_icon_ptr))
         return rv
     }
 
@@ -394,10 +394,10 @@ public extension EmblemedIconProtocol {
         return rv
     }
     /// Gets the list of emblems for the `icon`.
-    @inlinable var emblems: ListRef! {
+    @inlinable var emblems: GLib.ListRef! {
         /// Gets the list of emblems for the `icon`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_emblemed_icon_get_emblems(emblemed_icon_ptr)))
+            let rv = GLib.ListRef(g_emblemed_icon_get_emblems(emblemed_icon_ptr))
             return rv
         }
     }
@@ -457,7 +457,7 @@ public extension EmblemedIconProtocol {
 /// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
-public protocol FileEnumeratorProtocol: ObjectProtocol {
+public protocol FileEnumeratorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileEnumerator` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -556,7 +556,7 @@ public extension FileEnumeratorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -604,7 +604,7 @@ public extension FileEnumeratorRef {
 /// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
-open class FileEnumerator: Object, FileEnumeratorProtocol {
+open class FileEnumerator: GLibObject.Object, FileEnumeratorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileEnumerator` instance.
@@ -746,7 +746,7 @@ public extension FileEnumeratorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FileEnumeratorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -858,7 +858,19 @@ public extension FileEnumeratorProtocol {
     /// This will be automatically called when the last reference
     /// is dropped, but you might want to call this function to make
     /// sure resources are released as early as possible.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func close(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_enumerator_close(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Releases all resources used by this enumerator, making the
+    /// enumerator return `G_IO_ERROR_CLOSED` on all calls.
+    /// 
+    /// This will be automatically called when the last reference
+    /// is dropped, but you might want to call this function to make
+    /// sure resources are released as early as possible.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_enumerator_close(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -871,8 +883,18 @@ public extension FileEnumeratorProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned in
     /// `g_file_enumerator_close_finish()`.
-    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_enumerator_close_async(file_enumerator_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func closeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerator_close_async(file_enumerator_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously closes the file enumerator.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned in
+    /// `g_file_enumerator_close_finish()`.
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerator_close_async(file_enumerator_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -961,9 +983,54 @@ public extension FileEnumeratorProtocol {
     ///   g_object_unref (direnum); // Note: frees the last @info
     /// ```
     /// 
-    @inlinable func iterate<CancellableT: CancellableProtocol>(outInfo out_info: UnsafeMutablePointer<UnsafeMutablePointer<GFileInfo>?>! = nil, outChild out_child: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func iterate(outInfo: UnsafeMutablePointer<UnsafeMutablePointer<GFileInfo>?>! = nil, outChild: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_enumerator_iterate(file_enumerator_ptr, out_info, out_child, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_file_enumerator_iterate(file_enumerator_ptr, outInfo, outChild, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// This is a version of `g_file_enumerator_next_file()` that's easier to
+    /// use correctly from C programs.  With `g_file_enumerator_next_file()`,
+    /// the gboolean return value signifies "end of iteration or error", which
+    /// requires allocation of a temporary `GError`.
+    /// 
+    /// In contrast, with this function, a `false` return from
+    /// `g_file_enumerator_iterate()` *always* means
+    /// "error".  End of iteration is signaled by `out_info` or `out_child` being `nil`.
+    /// 
+    /// Another crucial difference is that the references for `out_info` and
+    /// `out_child` are owned by `direnum` (they are cached as hidden
+    /// properties).  You must not unref them in your own code.  This makes
+    /// memory management significantly easier for C code in combination
+    /// with loops.
+    /// 
+    /// Finally, this function optionally allows retrieving a `GFile` as
+    /// well.
+    /// 
+    /// You must specify at least one of `out_info` or `out_child`.
+    /// 
+    /// The code pattern for correctly using `g_file_enumerator_iterate()` from C
+    /// is:
+    /// 
+    /// ```
+    /// direnum = g_file_enumerate_children (file, ...);
+    /// while (TRUE)
+    ///   {
+    ///     GFileInfo *info;
+    ///     if (!g_file_enumerator_iterate (direnum, &info, NULL, cancellable, error))
+    ///       goto out;
+    ///     if (!info)
+    ///       break;
+    ///     ... do stuff with "info"; do not unref it! ...
+    ///   }
+    /// 
+    /// out:
+    ///   g_object_unref (direnum); // Note: frees the last @info
+    /// ```
+    /// 
+    @inlinable func iterate<CancellableT: CancellableProtocol>(outInfo: UnsafeMutablePointer<UnsafeMutablePointer<GFileInfo>?>! = nil, outChild: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>! = nil, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_enumerator_iterate(file_enumerator_ptr, outInfo, outChild, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -979,7 +1046,24 @@ public extension FileEnumeratorProtocol {
     /// On error, returns `nil` and sets `error` to the error. If the
     /// enumerator is at the end, `nil` will be returned and `error` will
     /// be unset.
-    @inlinable func nextFile<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func nextFile(cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_enumerator_next_file(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Returns information for the next file in the enumerated object.
+    /// Will block until the information is available. The `GFileInfo`
+    /// returned from this function will contain attributes that match the
+    /// attribute string that was passed when the `GFileEnumerator` was created.
+    /// 
+    /// See the documentation of `GFileEnumerator` for information about the
+    /// order of returned files.
+    /// 
+    /// On error, returns `nil` and sets `error` to the error. If the
+    /// enumerator is at the end, `nil` will be returned and `error` will
+    /// be unset.
+    @inlinable func nextFile<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_enumerator_next_file(file_enumerator_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1005,15 +1089,38 @@ public extension FileEnumeratorProtocol {
     /// Any outstanding i/o request with higher priority (lower numerical value) will
     /// be executed before an outstanding request with lower priority. Default
     /// priority is `G_PRIORITY_DEFAULT`.
-    @inlinable func nextFilesAsync<CancellableT: CancellableProtocol>(numFiles num_files: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_enumerator_next_files_async(file_enumerator_ptr, gint(num_files), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func nextFilesAsync(numFiles: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerator_next_files_async(file_enumerator_ptr, gint(numFiles), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request information for a number of files from the enumerator asynchronously.
+    /// When all i/o for the operation is finished the `callback` will be called with
+    /// the requested information.
+    /// 
+    /// See the documentation of `GFileEnumerator` for information about the
+    /// order of returned files.
+    /// 
+    /// The callback can be called with less than `num_files` files in case of error
+    /// or at the end of the enumerator. In case of a partial error the callback will
+    /// be called with any succeeding items and no error, and on the next request the
+    /// error will be reported. If a request is cancelled the callback will be called
+    /// with `G_IO_ERROR_CANCELLED`.
+    /// 
+    /// During an async request no other sync and async calls are allowed, and will
+    /// result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// Any outstanding i/o request with higher priority (lower numerical value) will
+    /// be executed before an outstanding request with lower priority. Default
+    /// priority is `G_PRIORITY_DEFAULT`.
+    @inlinable func nextFilesAsync<CancellableT: CancellableProtocol>(numFiles: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerator_next_files_async(file_enumerator_ptr, gint(numFiles), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes the asynchronous operation started with `g_file_enumerator_next_files_async()`.
-    @inlinable func nextFilesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func nextFilesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_file_enumerator_next_files_finish(file_enumerator_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_file_enumerator_next_files_finish(file_enumerator_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }

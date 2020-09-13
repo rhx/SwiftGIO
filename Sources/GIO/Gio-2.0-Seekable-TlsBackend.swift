@@ -110,7 +110,7 @@ public extension SeekableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -327,7 +327,27 @@ public extension SeekableProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func seek<CancellableT: CancellableProtocol>(offset: goffset, type: GSeekType, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func seek(offset: goffset, type: GSeekType, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_seekable_seek(seekable_ptr, offset, type, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Seeks in the stream by the given `offset`, modified by `type`.
+    /// 
+    /// Attempting to seek past the end of the stream will have different
+    /// results depending on if the stream is fixed-sized or resizable.  If
+    /// the stream is resizable then seeking past the end and then writing
+    /// will result in zeros filling the empty space.  Seeking past the end
+    /// of a resizable stream and reading will result in EOF.  Seeking past
+    /// the end of a fixed-sized stream will fail.
+    /// 
+    /// Any operation that would result in a negative offset will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func seek<CancellableT: CancellableProtocol>(offset: goffset, type: GSeekType, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_seekable_seek(seekable_ptr, offset, type, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -349,7 +369,22 @@ public extension SeekableProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
-    @inlinable func truncate<CancellableT: CancellableProtocol>(offset: goffset, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func truncate(offset: goffset, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_seekable_truncate(seekable_ptr, offset, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets the length of the stream to `offset`. If the stream was previously
+    /// larger than `offset`, the extra data is discarded. If the stream was
+    /// previouly shorter than `offset`, it is extended with NUL ('\0') bytes.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    @inlinable func truncate<CancellableT: CancellableProtocol>(offset: goffset, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_seekable_truncate(seekable_ptr, offset, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -559,7 +594,7 @@ public extension SocketConnectableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -826,9 +861,9 @@ public extension SocketConnectableProtocol {
 
     /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
     /// assumed to communicate with the server identified by `server_identity`.
-    @inlinable func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket base_socket: DatagramBasedT) throws -> DtlsClientConnectionRef! {
+    @inlinable func dtlsClientConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket: DatagramBasedT) throws -> DtlsClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(base_socket.datagram_based_ptr, socket_connectable_ptr, &error)))
+        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(baseSocket.datagram_based_ptr, socket_connectable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -840,9 +875,9 @@ public extension SocketConnectableProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    @inlinable func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream base_io_stream: IOStreamT) throws -> TLSClientConnectionRef! {
+    @inlinable func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT) throws -> TLSClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(base_io_stream.io_stream_ptr, socket_connectable_ptr, &error)))
+        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(baseIoStream.io_stream_ptr, socket_connectable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -934,7 +969,7 @@ public extension TLSBackendRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1171,7 +1206,19 @@ public extension TLSBackendProtocol {
     /// 
     /// Setting a `nil` default database will reset to using the system default
     /// database as if `g_tls_backend_set_default_database()` had never been called.
-    @inlinable func setDefault<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT? = nil) {
+    @inlinable func setDefault(database: TLSDatabaseRef? = nil) {
+        g_tls_backend_set_default_database(tls_backend_ptr, database?.tls_database_ptr)
+    
+    }
+    /// Set the default `GTlsDatabase` used to verify TLS connections
+    /// 
+    /// Any subsequent call to `g_tls_backend_get_default_database()` will return
+    /// the database set in this call.  Existing databases and connections are not
+    /// modified.
+    /// 
+    /// Setting a `nil` default database will reset to using the system default
+    /// database as if `g_tls_backend_set_default_database()` had never been called.
+    @inlinable func setDefault<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT?) {
         g_tls_backend_set_default_database(tls_backend_ptr, database?.tls_database_ptr)
     
     }

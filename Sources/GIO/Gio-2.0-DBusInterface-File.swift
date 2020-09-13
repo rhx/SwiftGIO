@@ -88,7 +88,7 @@ public extension DBusInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -293,7 +293,14 @@ public extension DBusInterfaceProtocol {
     /// Sets the `GDBusObject` for `interface_` to `object`.
     /// 
     /// Note that `interface_` will hold a weak reference to `object`.
-    @inlinable func set<DBusObjectT: DBusObjectProtocol>(object: DBusObjectT? = nil) {
+    @inlinable func set(object: DBusObjectRef? = nil) {
+        g_dbus_interface_set_object(dbus_interface_ptr, object?.dbus_object_ptr)
+    
+    }
+    /// Sets the `GDBusObject` for `interface_` to `object`.
+    /// 
+    /// Note that `interface_` will hold a weak reference to `object`.
+    @inlinable func set<DBusObjectT: DBusObjectProtocol>(object: DBusObjectT?) {
         g_dbus_interface_set_object(dbus_interface_ptr, object?.dbus_object_ptr)
     
     }
@@ -424,7 +431,7 @@ public extension DBusObjectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -639,14 +646,14 @@ public extension DBusObjectProtocol {
 
     /// Gets the D-Bus interface with name `interface_name` associated with
     /// `object`, if any.
-    @inlinable func getInterface(interfaceName interface_name: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
-        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_get_interface(dbus_object_ptr, interface_name)))
+    @inlinable func getInterface(interfaceName: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
+        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_get_interface(dbus_object_ptr, interfaceName)))
         return rv
     }
 
     /// Gets the D-Bus interfaces associated with `object`.
-    @inlinable func getInterfaces() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_get_interfaces(dbus_object_ptr)))
+    @inlinable func getInterfaces() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_dbus_object_get_interfaces(dbus_object_ptr))
         return rv
     }
 
@@ -656,10 +663,10 @@ public extension DBusObjectProtocol {
         return rv
     }
     /// Gets the D-Bus interfaces associated with `object`.
-    @inlinable var interfaces: ListRef! {
+    @inlinable var interfaces: GLib.ListRef! {
         /// Gets the D-Bus interfaces associated with `object`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_get_interfaces(dbus_object_ptr)))
+            let rv = GLib.ListRef(g_dbus_object_get_interfaces(dbus_object_ptr))
             return rv
         }
     }
@@ -772,7 +779,7 @@ public extension DBusObjectManagerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1000,14 +1007,14 @@ public extension DBusObjectManagerProtocol {
 
     /// Gets the interface proxy for `interface_name` at `object_path`, if
     /// any.
-    @inlinable func getInterface(objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
-        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_interface(dbus_object_manager_ptr, object_path, interface_name)))
+    @inlinable func getInterface(objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!) -> DBusInterfaceRef! {
+        let rv = DBusInterfaceRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_interface(dbus_object_manager_ptr, objectPath, interfaceName)))
         return rv
     }
 
     /// Gets the `GDBusObjectProxy` at `object_path`, if any.
-    @inlinable func getObject(objectPath object_path: UnsafePointer<gchar>!) -> DBusObjectRef! {
-        let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_object(dbus_object_manager_ptr, object_path)))
+    @inlinable func getObject(objectPath: UnsafePointer<gchar>!) -> DBusObjectRef! {
+        let rv = DBusObjectRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_object(dbus_object_manager_ptr, objectPath)))
         return rv
     }
 
@@ -1018,8 +1025,8 @@ public extension DBusObjectManagerProtocol {
     }
 
     /// Gets all `GDBusObject` objects known to `manager`.
-    @inlinable func getObjects() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_objects(dbus_object_manager_ptr)))
+    @inlinable func getObjects() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_dbus_object_manager_get_objects(dbus_object_manager_ptr))
         return rv
     }
     /// Gets the object path that `manager` is for.
@@ -1032,10 +1039,10 @@ public extension DBusObjectManagerProtocol {
     }
 
     /// Gets all `GDBusObject` objects known to `manager`.
-    @inlinable var objects: ListRef! {
+    @inlinable var objects: GLib.ListRef! {
         /// Gets all `GDBusObject` objects known to `manager`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_dbus_object_manager_get_objects(dbus_object_manager_ptr)))
+            let rv = GLib.ListRef(g_dbus_object_manager_get_objects(dbus_object_manager_ptr))
             return rv
         }
     }
@@ -1219,7 +1226,7 @@ public extension DatagramBasedRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1478,8 +1485,8 @@ public extension DatagramBasedProtocol {
     /// these flags, the output is guaranteed to be masked by `condition`.
     /// 
     /// This call never blocks.
-    @inlinable func conditionCheck(condition: IOCondition) -> IOCondition {
-        let rv = IOCondition(g_datagram_based_condition_check(datagram_based_ptr, condition.value))
+    @inlinable func conditionCheck(condition: GLib.IOCondition) -> GLib.IOCondition {
+        let rv = GLib.IOCondition(g_datagram_based_condition_check(datagram_based_ptr, condition.value))
         return rv
     }
 
@@ -1489,7 +1496,19 @@ public extension DatagramBasedProtocol {
     /// If `cancellable` is cancelled before the condition is met, or if `timeout` is
     /// reached before the condition is met, then `false` is returned and `error` is
     /// set appropriately (`G_IO_ERROR_CANCELLED` or `G_IO_ERROR_TIMED_OUT`).
-    @inlinable func conditionWait<CancellableT: CancellableProtocol>(condition: IOCondition, timeout: gint64, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func conditionWait(condition: GLib.IOCondition, timeout: gint64, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_datagram_based_condition_wait(datagram_based_ptr, condition.value, timeout, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Waits for up to `timeout` microseconds for condition to become true on
+    /// `datagram_based`. If the condition is met, `true` is returned.
+    /// 
+    /// If `cancellable` is cancelled before the condition is met, or if `timeout` is
+    /// reached before the condition is met, then `false` is returned and `error` is
+    /// set appropriately (`G_IO_ERROR_CANCELLED` or `G_IO_ERROR_TIMED_OUT`).
+    @inlinable func conditionWait<CancellableT: CancellableProtocol>(condition: GLib.IOCondition, timeout: gint64, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_datagram_based_condition_wait(datagram_based_ptr, condition.value, timeout, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1510,8 +1529,26 @@ public extension DatagramBasedProtocol {
     /// likely 0 unless cancellation happened at the same time as a condition
     /// change). You can check for this in the callback using
     /// `g_cancellable_is_cancelled()`.
-    @inlinable func createSource<CancellableT: CancellableProtocol>(condition: IOCondition, cancellable: CancellableT? = nil) -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_datagram_based_create_source(datagram_based_ptr, condition.value, cancellable?.cancellable_ptr)))
+    @inlinable func createSource(condition: GLib.IOCondition, cancellable: CancellableRef? = nil) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_datagram_based_create_source(datagram_based_ptr, condition.value, cancellable?.cancellable_ptr))
+        return rv
+    }
+    /// Creates a `GSource` that can be attached to a `GMainContext` to monitor for
+    /// the availability of the specified `condition` on the `GDatagramBased`. The
+    /// `GSource` keeps a reference to the `datagram_based`.
+    /// 
+    /// The callback on the source is of the `GDatagramBasedSourceFunc` type.
+    /// 
+    /// It is meaningless to specify `G_IO_ERR` or `G_IO_HUP` in `condition`; these
+    /// conditions will always be reported in the callback if they are true.
+    /// 
+    /// If non-`nil`, `cancellable` can be used to cancel the source, which will
+    /// cause the source to trigger, reporting the current condition (which is
+    /// likely 0 unless cancellation happened at the same time as a condition
+    /// change). You can check for this in the callback using
+    /// `g_cancellable_is_cancelled()`.
+    @inlinable func createSource<CancellableT: CancellableProtocol>(condition: GLib.IOCondition, cancellable: CancellableT?) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_datagram_based_create_source(datagram_based_ptr, condition.value, cancellable?.cancellable_ptr))
         return rv
     }
 
@@ -1565,9 +1602,65 @@ public extension DatagramBasedProtocol {
     /// messages successfully received before the error will be returned. If
     /// `cancellable` is cancelled, `G_IO_ERROR_CANCELLED` is returned as with any
     /// other error.
-    @inlinable func receive<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GInputMessage>!, numMessages num_messages: Int, flags: Int, timeout: gint64, cancellable: CancellableT? = nil) throws -> Int {
+    @inlinable func receive(messages: UnsafeMutablePointer<GInputMessage>!, numMessages: Int, flags: Int, timeout: gint64, cancellable: CancellableRef? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_datagram_based_receive_messages(datagram_based_ptr, messages, guint(num_messages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        let rv = Int(g_datagram_based_receive_messages(datagram_based_ptr, messages, guint(numMessages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Receive one or more data messages from `datagram_based` in one go.
+    /// 
+    /// `messages` must point to an array of `GInputMessage` structs and
+    /// `num_messages` must be the length of this array. Each `GInputMessage`
+    /// contains a pointer to an array of `GInputVector` structs describing the
+    /// buffers that the data received in each message will be written to.
+    /// 
+    /// `flags` modify how all messages are received. The commonly available
+    /// arguments for this are available in the `GSocketMsgFlags` enum, but the
+    /// values there are the same as the system values, and the flags
+    /// are passed in as-is, so you can pass in system-specific flags too. These
+    /// flags affect the overall receive operation. Flags affecting individual
+    /// messages are returned in `GInputMessage.flags`.
+    /// 
+    /// The other members of `GInputMessage` are treated as described in its
+    /// documentation.
+    /// 
+    /// If `timeout` is negative the call will block until `num_messages` have been
+    /// received, the connection is closed remotely (EOS), `cancellable` is cancelled,
+    /// or an error occurs.
+    /// 
+    /// If `timeout` is 0 the call will return up to `num_messages` without blocking,
+    /// or `G_IO_ERROR_WOULD_BLOCK` if no messages are queued in the operating system
+    /// to be received.
+    /// 
+    /// If `timeout` is positive the call will block on the same conditions as if
+    /// `timeout` were negative. If the timeout is reached
+    /// before any messages are received, `G_IO_ERROR_TIMED_OUT` is returned,
+    /// otherwise it will return the number of messages received before timing out.
+    /// (Note: This is effectively the behaviour of `MSG_WAITFORONE` with
+    /// `recvmmsg()`.)
+    /// 
+    /// To be notified when messages are available, wait for the `G_IO_IN` condition.
+    /// Note though that you may still receive `G_IO_ERROR_WOULD_BLOCK` from
+    /// `g_datagram_based_receive_messages()` even if you were previously notified of a
+    /// `G_IO_IN` condition.
+    /// 
+    /// If the remote peer closes the connection, any messages queued in the
+    /// underlying receive buffer will be returned, and subsequent calls to
+    /// `g_datagram_based_receive_messages()` will return 0 (with no error set).
+    /// 
+    /// If the connection is shut down or closed (by calling `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_read` set, if it’s a `GSocket`, for
+    /// example), all calls to this function will return `G_IO_ERROR_CLOSED`.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly. An error will only
+    /// be returned if zero messages could be received; otherwise the number of
+    /// messages successfully received before the error will be returned. If
+    /// `cancellable` is cancelled, `G_IO_ERROR_CANCELLED` is returned as with any
+    /// other error.
+    @inlinable func receive<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GInputMessage>!, numMessages: Int, flags: Int, timeout: gint64, cancellable: CancellableT?) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_datagram_based_receive_messages(datagram_based_ptr, messages, guint(numMessages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1613,24 +1706,86 @@ public extension DatagramBasedProtocol {
     /// be returned if zero messages could be sent; otherwise the number of messages
     /// successfully sent before the error will be returned. If `cancellable` is
     /// cancelled, `G_IO_ERROR_CANCELLED` is returned as with any other error.
-    @inlinable func send<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GOutputMessage>!, numMessages num_messages: Int, flags: Int, timeout: gint64, cancellable: CancellableT? = nil) throws -> Int {
+    @inlinable func send(messages: UnsafeMutablePointer<GOutputMessage>!, numMessages: Int, flags: Int, timeout: gint64, cancellable: CancellableRef? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_datagram_based_send_messages(datagram_based_ptr, messages, guint(num_messages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        let rv = Int(g_datagram_based_send_messages(datagram_based_ptr, messages, guint(numMessages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Send one or more data messages from `datagram_based` in one go.
+    /// 
+    /// `messages` must point to an array of `GOutputMessage` structs and
+    /// `num_messages` must be the length of this array. Each `GOutputMessage`
+    /// contains an address to send the data to, and a pointer to an array of
+    /// `GOutputVector` structs to describe the buffers that the data to be sent
+    /// for each message will be gathered from.
+    /// 
+    /// `flags` modify how the message is sent. The commonly available arguments
+    /// for this are available in the `GSocketMsgFlags` enum, but the
+    /// values there are the same as the system values, and the flags
+    /// are passed in as-is, so you can pass in system-specific flags too.
+    /// 
+    /// The other members of `GOutputMessage` are treated as described in its
+    /// documentation.
+    /// 
+    /// If `timeout` is negative the call will block until `num_messages` have been
+    /// sent, `cancellable` is cancelled, or an error occurs.
+    /// 
+    /// If `timeout` is 0 the call will send up to `num_messages` without blocking,
+    /// or will return `G_IO_ERROR_WOULD_BLOCK` if there is no space to send messages.
+    /// 
+    /// If `timeout` is positive the call will block on the same conditions as if
+    /// `timeout` were negative. If the timeout is reached before any messages are
+    /// sent, `G_IO_ERROR_TIMED_OUT` is returned, otherwise it will return the number
+    /// of messages sent before timing out.
+    /// 
+    /// To be notified when messages can be sent, wait for the `G_IO_OUT` condition.
+    /// Note though that you may still receive `G_IO_ERROR_WOULD_BLOCK` from
+    /// `g_datagram_based_send_messages()` even if you were previously notified of a
+    /// `G_IO_OUT` condition. (On Windows in particular, this is very common due to
+    /// the way the underlying APIs work.)
+    /// 
+    /// If the connection is shut down or closed (by calling `g_socket_close()` or
+    /// `g_socket_shutdown()` with `shutdown_write` set, if it’s a `GSocket`, for
+    /// example), all calls to this function will return `G_IO_ERROR_CLOSED`.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly. An error will only
+    /// be returned if zero messages could be sent; otherwise the number of messages
+    /// successfully sent before the error will be returned. If `cancellable` is
+    /// cancelled, `G_IO_ERROR_CANCELLED` is returned as with any other error.
+    @inlinable func send<CancellableT: CancellableProtocol>(messages: UnsafeMutablePointer<GOutputMessage>!, numMessages: Int, flags: Int, timeout: gint64, cancellable: CancellableT?) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_datagram_based_send_messages(datagram_based_ptr, messages, guint(numMessages), gint(flags), timeout, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
 
     /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
     /// assumed to communicate with the server identified by `server_identity`.
-    @inlinable func dtlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity server_identity: SocketConnectableT? = nil) throws -> DtlsClientConnectionRef! {
+    @inlinable func dtlsClientConnectionNew(serverIdentity: SocketConnectableRef? = nil) throws -> DtlsClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(datagram_based_ptr, server_identity?.socket_connectable_ptr, &error)))
+        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(datagram_based_ptr, serverIdentity?.socket_connectable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new `GDtlsClientConnection` wrapping `base_socket` which is
+    /// assumed to communicate with the server identified by `server_identity`.
+    @inlinable func dtlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity: SocketConnectableT?) throws -> DtlsClientConnectionRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DtlsClientConnectionRef(gconstpointer: gconstpointer(g_dtls_client_connection_new(datagram_based_ptr, serverIdentity?.socket_connectable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
 
     /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
-    @inlinable func dtlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT? = nil) throws -> DtlsServerConnectionRef! {
+    @inlinable func dtlsServerConnectionNew(certificate: TLSCertificateRef? = nil) throws -> DtlsServerConnectionRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
+    @inlinable func dtlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT?) throws -> DtlsServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(datagram_based_ptr, certificate?.tls_certificate_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1774,7 +1929,7 @@ public extension DriveRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2056,8 +2211,20 @@ public extension DriveProtocol {
     ///
     /// **eject is deprecated:**
     /// Use g_drive_eject_with_operation() instead.
-    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_drive_eject(drive_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func eject(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_eject(drive_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously ejects a drive.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_drive_eject_finish()` to obtain the
+    /// result of the operation.
+    ///
+    /// **eject is deprecated:**
+    /// Use g_drive_eject_with_operation() instead.
+    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_eject(drive_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2075,8 +2242,15 @@ public extension DriveProtocol {
     /// Ejects a drive. This is an asynchronous operation, and is
     /// finished by calling `g_drive_eject_with_operation_finish()` with the `drive`
     /// and `GAsyncResult` data returned in the `callback`.
-    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_drive_eject_with_operation(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func ejectWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_eject_with_operation(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Ejects a drive. This is an asynchronous operation, and is
+    /// finished by calling `g_drive_eject_with_operation_finish()` with the `drive`
+    /// and `GAsyncResult` data returned in the `callback`.
+    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_eject_with_operation(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2139,8 +2313,8 @@ public extension DriveProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable func getVolumes() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_drive_get_volumes(drive_ptr)))
+    @inlinable func getVolumes() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_drive_get_volumes(drive_ptr))
         return rv
     }
 
@@ -2163,8 +2337,17 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_poll_for_media_finish()` to obtain the
     /// result of the operation.
-    @inlinable func pollForMedia<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_drive_poll_for_media(drive_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func pollForMedia(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_poll_for_media(drive_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously polls `drive` to see if media has been inserted or removed.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_drive_poll_for_media_finish()` to obtain the
+    /// result of the operation.
+    @inlinable func pollForMedia<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_poll_for_media(drive_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2181,8 +2364,17 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_start_finish()` to obtain the
     /// result of the operation.
-    @inlinable func start<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_drive_start(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func start(flags: DriveStartFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_start(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously starts a drive.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_drive_start_finish()` to obtain the
+    /// result of the operation.
+    @inlinable func start<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_start(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2199,8 +2391,17 @@ public extension DriveProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_drive_stop_finish()` to obtain the
     /// result of the operation.
-    @inlinable func stop<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_drive_stop(drive_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func stop(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_stop(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously stops a drive.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_drive_stop_finish()` to obtain the
+    /// result of the operation.
+    @inlinable func stop<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_drive_stop(drive_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2289,13 +2490,13 @@ public extension DriveProtocol {
     /// 
     /// The returned list should be freed with `g_list_free()`, after
     /// its elements have been unreffed with `g_object_unref()`.
-    @inlinable var volumes: ListRef! {
+    @inlinable var volumes: GLib.ListRef! {
         /// Get a list of mountable volumes for `drive`.
         /// 
         /// The returned list should be freed with `g_list_free()`, after
         /// its elements have been unreffed with `g_object_unref()`.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_drive_get_volumes(drive_ptr)))
+            let rv = GLib.ListRef(g_drive_get_volumes(drive_ptr))
             return rv
         }
     }
@@ -2389,7 +2590,7 @@ public extension DtlsClientConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2582,7 +2783,7 @@ public extension DtlsClientConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DtlsClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2698,8 +2899,8 @@ public extension DtlsClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    @inlinable func getAcceptedCas() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr)))
+    @inlinable func getAcceptedCas() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr))
         return rv
     }
 
@@ -2738,7 +2939,7 @@ public extension DtlsClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    @inlinable var acceptedCas: ListRef! {
+    @inlinable var acceptedCas: GLib.ListRef! {
         /// Gets the list of distinguished names of the Certificate Authorities
         /// that the server will accept certificates from. This will be set
         /// during the TLS handshake if the server requests a certificate.
@@ -2747,7 +2948,7 @@ public extension DtlsClientConnectionProtocol {
         /// Each item in the list is a `GByteArray` which contains the complete
         /// subject DN of the certificate authority.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr)))
+            let rv = GLib.ListRef(g_dtls_client_connection_get_accepted_cas(dtls_client_connection_ptr))
             return rv
         }
     }
@@ -2906,7 +3107,7 @@ public extension DtlsConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3133,7 +3334,7 @@ public extension DtlsConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DtlsConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3311,7 +3512,32 @@ public extension DtlsConnectionProtocol {
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
     /// `g_dtls_connection_close()` again to complete closing the `GDtlsConnection`.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func close(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dtls_connection_close(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Close the DTLS connection. This is equivalent to calling
+    /// `g_dtls_connection_shutdown()` to shut down both sides of the connection.
+    /// 
+    /// Closing a `GDtlsConnection` waits for all buffered but untransmitted data to
+    /// be sent before it completes. It then sends a `close_notify` DTLS alert to the
+    /// peer and may wait for a `close_notify` to be received from the peer. It does
+    /// not close the underlying `GDtlsConnection:base`-socket; that must be closed
+    /// separately.
+    /// 
+    /// Once `conn` is closed, all other operations will return `G_IO_ERROR_CLOSED`.
+    /// Closing a `GDtlsConnection` multiple times will not return an error.
+    /// 
+    /// `GDtlsConnections` will be automatically closed when the last reference is
+    /// dropped, but you might want to call this function to make sure resources are
+    /// released as early as possible.
+    /// 
+    /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
+    /// partially-closed and any pending untransmitted data may be lost. Call
+    /// `g_dtls_connection_close()` again to complete closing the `GDtlsConnection`.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_dtls_connection_close(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -3320,8 +3546,14 @@ public extension DtlsConnectionProtocol {
 
     /// Asynchronously close the DTLS connection. See `g_dtls_connection_close()` for
     /// more information.
-    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dtls_connection_close_async(dtls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func closeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_close_async(dtls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously close the DTLS connection. See `g_dtls_connection_close()` for
+    /// more information.
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_close_async(dtls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3336,8 +3568,8 @@ public extension DtlsConnectionProtocol {
 
     /// Used by `GDtlsConnection` implementations to emit the
     /// `GDtlsConnection::accept`-certificate signal.
-    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert peer_cert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
-        let rv = ((g_dtls_connection_emit_accept_certificate(dtls_connection_ptr, peer_cert.tls_certificate_ptr, errors.value)) != 0)
+    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
+        let rv = ((g_dtls_connection_emit_accept_certificate(dtls_connection_ptr, peerCert.tls_certificate_ptr, errors.value)) != 0)
         return rv
     }
 
@@ -3437,7 +3669,39 @@ public extension DtlsConnectionProtocol {
     /// 
     /// `GDtlsConnection::accept_certificate` may be emitted during the
     /// handshake.
-    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func handshake(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dtls_connection_handshake(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts a TLS handshake on `conn`.
+    /// 
+    /// On the client side, it is never necessary to call this method;
+    /// although the connection needs to perform a handshake after
+    /// connecting, `GDtlsConnection` will handle this for you automatically
+    /// when you try to send or receive data on the connection. You can call
+    /// `g_dtls_connection_handshake()` manually if you want to know whether
+    /// the initial handshake succeeded or failed (as opposed to just
+    /// immediately trying to use `conn` to read or write, in which case,
+    /// if it fails, it may not be possible to tell if it failed before
+    /// or after completing the handshake), but beware that servers may reject
+    /// client authentication after the handshake has completed, so a
+    /// successful handshake does not indicate the connection will be usable.
+    /// 
+    /// Likewise, on the server side, although a handshake is necessary at
+    /// the beginning of the communication, you do not need to call this
+    /// function explicitly unless you want clearer error reporting.
+    /// 
+    /// Previously, calling `g_dtls_connection_handshake()` after the initial
+    /// handshake would trigger a rehandshake; however, this usage was
+    /// deprecated in GLib 2.60 because rehandshaking was removed from the
+    /// TLS protocol in TLS 1.3. Since GLib 2.64, calling this function after
+    /// the initial handshake will no longer do anything.
+    /// 
+    /// `GDtlsConnection::accept_certificate` may be emitted during the
+    /// handshake.
+    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_dtls_connection_handshake(dtls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -3446,8 +3710,14 @@ public extension DtlsConnectionProtocol {
 
     /// Asynchronously performs a TLS handshake on `conn`. See
     /// `g_dtls_connection_handshake()` for more information.
-    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dtls_connection_handshake_async(dtls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func handshakeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_handshake_async(dtls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously performs a TLS handshake on `conn`. See
+    /// `g_dtls_connection_handshake()` for more information.
+    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_handshake_async(dtls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3517,7 +3787,17 @@ public extension DtlsConnectionProtocol {
     /// The `interaction` argument will normally be a derived subclass of
     /// `GTlsInteraction`. `nil` can also be provided if no user interaction
     /// should occur for this connection.
-    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT? = nil) {
+    @inlinable func set(interaction: TLSInteractionRef? = nil) {
+        g_dtls_connection_set_interaction(dtls_connection_ptr, interaction?.tls_interaction_ptr)
+    
+    }
+    /// Set the object that will be used to interact with the user. It will be used
+    /// for things like prompting the user for passwords.
+    /// 
+    /// The `interaction` argument will normally be a derived subclass of
+    /// `GTlsInteraction`. `nil` can also be provided if no user interaction
+    /// should occur for this connection.
+    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT?) {
         g_dtls_connection_set_interaction(dtls_connection_ptr, interaction?.tls_interaction_ptr)
     
     }
@@ -3561,8 +3841,8 @@ public extension DtlsConnectionProtocol {
     /// setting of this property. If you explicitly want to do an unclean
     /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
     /// than closing `conn` itself.
-    @inlinable func set(requireCloseNotify require_close_notify: Bool) {
-        g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((require_close_notify) ? 1 : 0))
+    @inlinable func set(requireCloseNotify: Bool) {
+        g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((requireCloseNotify) ? 1 : 0))
     
     }
 
@@ -3582,17 +3862,45 @@ public extension DtlsConnectionProtocol {
     /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
     /// partially-closed and any pending untransmitted data may be lost. Call
     /// `g_dtls_connection_shutdown()` again to complete closing the `GDtlsConnection`.
-    @inlinable func shutdown<CancellableT: CancellableProtocol>(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func shutdown(shutdownRead: Bool, shutdownWrite: Bool, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_dtls_connection_shutdown(dtls_connection_ptr, gboolean((shutdown_read) ? 1 : 0), gboolean((shutdown_write) ? 1 : 0), cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_dtls_connection_shutdown(dtls_connection_ptr, gboolean((shutdownRead) ? 1 : 0), gboolean((shutdownWrite) ? 1 : 0), cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Shut down part or all of a DTLS connection.
+    /// 
+    /// If `shutdown_read` is `true` then the receiving side of the connection is shut
+    /// down, and further reading is disallowed. Subsequent calls to
+    /// `g_datagram_based_receive_messages()` will return `G_IO_ERROR_CLOSED`.
+    /// 
+    /// If `shutdown_write` is `true` then the sending side of the connection is shut
+    /// down, and further writing is disallowed. Subsequent calls to
+    /// `g_datagram_based_send_messages()` will return `G_IO_ERROR_CLOSED`.
+    /// 
+    /// It is allowed for both `shutdown_read` and `shutdown_write` to be TRUE — this
+    /// is equivalent to calling `g_dtls_connection_close()`.
+    /// 
+    /// If `cancellable` is cancelled, the `GDtlsConnection` may be left
+    /// partially-closed and any pending untransmitted data may be lost. Call
+    /// `g_dtls_connection_shutdown()` again to complete closing the `GDtlsConnection`.
+    @inlinable func shutdown<CancellableT: CancellableProtocol>(shutdownRead: Bool, shutdownWrite: Bool, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dtls_connection_shutdown(dtls_connection_ptr, gboolean((shutdownRead) ? 1 : 0), gboolean((shutdownWrite) ? 1 : 0), cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
 
     /// Asynchronously shut down part or all of the DTLS connection. See
     /// `g_dtls_connection_shutdown()` for more information.
-    @inlinable func shutdownAsync<CancellableT: CancellableProtocol>(shutdownRead shutdown_read: Bool, shutdownWrite shutdown_write: Bool, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dtls_connection_shutdown_async(dtls_connection_ptr, gboolean((shutdown_read) ? 1 : 0), gboolean((shutdown_write) ? 1 : 0), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func shutdownAsync(shutdownRead: Bool, shutdownWrite: Bool, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_shutdown_async(dtls_connection_ptr, gboolean((shutdownRead) ? 1 : 0), gboolean((shutdownWrite) ? 1 : 0), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously shut down part or all of the DTLS connection. See
+    /// `g_dtls_connection_shutdown()` for more information.
+    @inlinable func shutdownAsync<CancellableT: CancellableProtocol>(shutdownRead: Bool, shutdownWrite: Bool, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dtls_connection_shutdown_async(dtls_connection_ptr, gboolean((shutdownRead) ? 1 : 0), gboolean((shutdownWrite) ? 1 : 0), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3891,7 +4199,7 @@ public extension DtlsServerConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4060,7 +4368,7 @@ public extension DtlsServerConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DtlsServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DtlsServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -4393,7 +4701,7 @@ public extension FileRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4487,8 +4795,8 @@ public extension FileRef {
     /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
-    @inlinable static func parseName(parseName parse_name: UnsafePointer<CChar>!) -> FileRef! {
-        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_parse_name(parse_name))) else { return nil }
+    @inlinable static func parseName(parseName: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_parse_name(parseName))) else { return nil }
         return rv
     }
 }
@@ -4797,8 +5105,8 @@ open class File: FileProtocol {
     /// given by `g_file_get_parse_name()`). This operation never fails,
     /// but the returned object might not support any I/O operation if
     /// the `parse_name` cannot be parsed.
-    @inlinable public static func parseName(parseName parse_name: UnsafePointer<CChar>!) -> File! {
-        guard let rv = File(gconstpointer: gconstpointer(g_file_parse_name(parse_name))) else { return nil }
+    @inlinable public static func parseName(parseName: UnsafePointer<CChar>!) -> File! {
+        guard let rv = File(gconstpointer: gconstpointer(g_file_parse_name(parseName))) else { return nil }
         return rv
     }
 
@@ -4831,7 +5139,30 @@ public extension FileProtocol {
     /// `G_IO_ERROR_INVALID_FILENAME` error. If the file is a directory the
     /// `G_IO_ERROR_IS_DIRECTORY` error will be returned. Other errors are
     /// possible too, and depend on what kind of filesystem the file is on.
-    @inlinable func appendTo<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
+    @inlinable func appendTo(flags: FileCreateFlags, cancellable: CancellableRef? = nil) throws -> FileOutputStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_append_to(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Gets an output stream for appending data to the file.
+    /// If the file doesn't already exist it is created.
+    /// 
+    /// By default files created are generally readable by everyone,
+    /// but if you pass `G_FILE_CREATE_PRIVATE` in `flags` the file
+    /// will be made readable only to the current user, to the level that
+    /// is supported on the target filesystem.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// Some file systems don't allow all file names, and may return an
+    /// `G_IO_ERROR_INVALID_FILENAME` error. If the file is a directory the
+    /// `G_IO_ERROR_IS_DIRECTORY` error will be returned. Other errors are
+    /// possible too, and depend on what kind of filesystem the file is on.
+    @inlinable func appendTo<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT?) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_append_to(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -4846,8 +5177,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_append_to_finish()` to get the result
     /// of the operation.
-    @inlinable func appendToAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_append_to_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func appendToAsync(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_append_to_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously opens `file` for appending.
+    /// 
+    /// For more details, see `g_file_append_to()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_append_to_finish()` to get the result
+    /// of the operation.
+    @inlinable func appendToAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_append_to_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -4900,9 +5243,55 @@ public extension FileProtocol {
     /// 
     /// If you are interested in copying the `GFile` object itself (not the on-disk
     /// file), see `g_file_dup()`.
-    @inlinable func copy<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil) throws -> Bool {
+    @inlinable func copy<FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableRef? = nil, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_copy(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_callback_data, &error)) != 0)
+        let rv = ((g_file_copy(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressCallbackData, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Copies the file `source` to the location specified by `destination`.
+    /// Can not handle recursive copies of directories.
+    /// 
+    /// If the flag `G_FILE_COPY_OVERWRITE` is specified an already
+    /// existing `destination` file is overwritten.
+    /// 
+    /// If the flag `G_FILE_COPY_NOFOLLOW_SYMLINKS` is specified then symlinks
+    /// will be copied as symlinks, otherwise the target of the
+    /// `source` symlink will be copied.
+    /// 
+    /// If the flag `G_FILE_COPY_ALL_METADATA` is specified then all the metadata
+    /// that is possible to copy is copied, not just the default subset (which,
+    /// for instance, does not include the owner, see `GFileInfo`).
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// If `progress_callback` is not `nil`, then the operation can be monitored
+    /// by setting this to a `GFileProgressCallback` function.
+    /// `progress_callback_data` will be passed to this function. It is guaranteed
+    /// that this callback will be called after all data has been transferred with
+    /// the total number of bytes copied during the operation.
+    /// 
+    /// If the `source` file does not exist, then the `G_IO_ERROR_NOT_FOUND` error
+    /// is returned, independent on the status of the `destination`.
+    /// 
+    /// If `G_FILE_COPY_OVERWRITE` is not specified and the target exists, then
+    /// the error `G_IO_ERROR_EXISTS` is returned.
+    /// 
+    /// If trying to overwrite a file over a directory, the `G_IO_ERROR_IS_DIRECTORY`
+    /// error is returned. If trying to overwrite a directory with a directory the
+    /// `G_IO_ERROR_WOULD_MERGE` error is returned.
+    /// 
+    /// If the source is a directory and the target does not exist, or
+    /// `G_FILE_COPY_OVERWRITE` is specified and the target is a file, then the
+    /// `G_IO_ERROR_WOULD_RECURSE` error is returned.
+    /// 
+    /// If you are interested in copying the `GFile` object itself (not the on-disk
+    /// file), see `g_file_dup()`.
+    @inlinable func copy<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT?, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_copy(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressCallbackData, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -4917,8 +5306,22 @@ public extension FileProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_file_copy_finish()` to get the result of the operation.
-    @inlinable func copyAsync<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_copy_async(file_ptr, destination.file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, progress_callback, progress_callback_data, callback, user_data)
+    @inlinable func copyAsync<FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, ioPriority: Int, cancellable: CancellableRef? = nil, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_copy_async(file_ptr, destination.file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, progressCallback, progressCallbackData, callback, userData)
+    
+    }
+    /// Copies the file `source` to the location specified by `destination`
+    /// asynchronously. For details of the behaviour, see `g_file_copy()`.
+    /// 
+    /// If `progress_callback` is not `nil`, then that function that will be called
+    /// just like in `g_file_copy()`. The callback will run in the default main context
+    /// of the thread calling `g_file_copy_async()` — the same context as `callback` is
+    /// run in.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can then call
+    /// `g_file_copy_finish()` to get the result of the operation.
+    @inlinable func copyAsync<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, ioPriority: Int, cancellable: CancellableT?, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_copy_async(file_ptr, destination.file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, progressCallback, progressCallbackData, callback, userData)
     
     }
 
@@ -4930,7 +5333,21 @@ public extension FileProtocol {
     /// if `G_FILE_COPY_ALL_METADATA` is specified in `flags`, then
     /// all the metadata that is possible to copy is copied. This
     /// is useful when implementing move by copy + delete source.
-    @inlinable func copyAttributes<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func copyAttributes<FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_copy_attributes(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Copies the file attributes from `source` to `destination`.
+    /// 
+    /// Normally only a subset of the file attributes are copied,
+    /// those that are copies in a normal file copy operation
+    /// (which for instance does not include e.g. owner). However
+    /// if `G_FILE_COPY_ALL_METADATA` is specified in `flags`, then
+    /// all the metadata that is possible to copy is copied. This
+    /// is useful when implementing move by copy + delete source.
+    @inlinable func copyAttributes<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_copy_attributes(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -4964,7 +5381,32 @@ public extension FileProtocol {
     /// error, and if the name is to long `G_IO_ERROR_FILENAME_TOO_LONG` will
     /// be returned. Other errors are possible too, and depend on what kind
     /// of filesystem the file is on.
-    @inlinable func create<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
+    @inlinable func create(flags: FileCreateFlags, cancellable: CancellableRef? = nil) throws -> FileOutputStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_create(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new file and returns an output stream for writing to it.
+    /// The file must not already exist.
+    /// 
+    /// By default files created are generally readable by everyone,
+    /// but if you pass `G_FILE_CREATE_PRIVATE` in `flags` the file
+    /// will be made readable only to the current user, to the level
+    /// that is supported on the target filesystem.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If a file or directory with this name already exists the
+    /// `G_IO_ERROR_EXISTS` error will be returned. Some file systems don't
+    /// allow all file names, and may return an `G_IO_ERROR_INVALID_FILENAME`
+    /// error, and if the name is to long `G_IO_ERROR_FILENAME_TOO_LONG` will
+    /// be returned. Other errors are possible too, and depend on what kind
+    /// of filesystem the file is on.
+    @inlinable func create<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT?) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_create(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -4980,8 +5422,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_create_finish()` to get the result
     /// of the operation.
-    @inlinable func createAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_create_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func createAsync(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_create_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously creates a new file and returns an output stream
+    /// for writing to it. The file must not already exist.
+    /// 
+    /// For more details, see `g_file_create()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_create_finish()` to get the result
+    /// of the operation.
+    @inlinable func createAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_create_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5017,7 +5472,36 @@ public extension FileProtocol {
     /// Note that in many non-local file cases read and write streams are
     /// not supported, so make sure you really need to do read and write
     /// streaming, rather than just opening for reading or writing.
-    @inlinable func createReadwrite<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
+    @inlinable func createReadwrite(flags: FileCreateFlags, cancellable: CancellableRef? = nil) throws -> FileIOStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_create_readwrite(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new file and returns a stream for reading and
+    /// writing to it. The file must not already exist.
+    /// 
+    /// By default files created are generally readable by everyone,
+    /// but if you pass `G_FILE_CREATE_PRIVATE` in `flags` the file
+    /// will be made readable only to the current user, to the level
+    /// that is supported on the target filesystem.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If a file or directory with this name already exists, the
+    /// `G_IO_ERROR_EXISTS` error will be returned. Some file systems don't
+    /// allow all file names, and may return an `G_IO_ERROR_INVALID_FILENAME`
+    /// error, and if the name is too long, `G_IO_ERROR_FILENAME_TOO_LONG`
+    /// will be returned. Other errors are possible too, and depend on what
+    /// kind of filesystem the file is on.
+    /// 
+    /// Note that in many non-local file cases read and write streams are
+    /// not supported, so make sure you really need to do read and write
+    /// streaming, rather than just opening for reading or writing.
+    @inlinable func createReadwrite<CancellableT: CancellableProtocol>(flags: FileCreateFlags, cancellable: CancellableT?) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_create_readwrite(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5033,8 +5517,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_create_readwrite_finish()` to get
     /// the result of the operation.
-    @inlinable func createReadwriteAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_create_readwrite_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func createReadwriteAsync(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_create_readwrite_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously creates a new file and returns a stream
+    /// for reading and writing to it. The file must not already exist.
+    /// 
+    /// For more details, see `g_file_create_readwrite()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_create_readwrite_finish()` to get
+    /// the result of the operation.
+    @inlinable func createReadwriteAsync<CancellableT: CancellableProtocol>(flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_create_readwrite_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5053,7 +5550,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func delete<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func delete(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_delete(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Deletes a file. If the `file` is a directory, it will only be
+    /// deleted if it is empty. This has the same semantics as `g_unlink()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func delete<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_delete(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -5063,8 +5572,15 @@ public extension FileProtocol {
     /// Asynchronously delete a file. If the `file` is a directory, it will
     /// only be deleted if it is empty.  This has the same semantics as
     /// `g_unlink()`.
-    @inlinable func deleteAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_delete_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func deleteAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_delete_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously delete a file. If the `file` is a directory, it will
+    /// only be deleted if it is empty.  This has the same semantics as
+    /// `g_unlink()`.
+    @inlinable func deleteAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_delete_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5102,8 +5618,23 @@ public extension FileProtocol {
     ///
     /// **eject_mountable is deprecated:**
     /// Use g_file_eject_mountable_with_operation() instead.
-    @available(*, deprecated) @inlinable func ejectMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_eject_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func ejectMountable(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_eject_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts an asynchronous eject on a mountable.
+    /// When this operation has completed, `callback` will be called with
+    /// `user_user` data, and the operation can be finalized with
+    /// `g_file_eject_mountable_finish()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    ///
+    /// **eject_mountable is deprecated:**
+    /// Use g_file_eject_mountable_with_operation() instead.
+    @available(*, deprecated) @inlinable func ejectMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_eject_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5128,8 +5659,20 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func ejectMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_eject_mountable_with_operation(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func ejectMountableWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_eject_mountable_with_operation(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts an asynchronous eject on a mountable.
+    /// When this operation has completed, `callback` will be called with
+    /// `user_user` data, and the operation can be finalized with
+    /// `g_file_eject_mountable_with_operation_finish()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func ejectMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_eject_mountable_with_operation(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5165,7 +5708,36 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
     /// be returned. If the file is not a directory, the `G_IO_ERROR_NOT_DIRECTORY`
     /// error will be returned. Other errors are possible too.
-    @inlinable func enumerateChildren<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> FileEnumeratorRef! {
+    @inlinable func enumerateChildren(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> FileEnumeratorRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileEnumeratorRef(gconstpointer: gconstpointer(g_file_enumerate_children(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Gets the requested information about the files in a directory.
+    /// The result is a `GFileEnumerator` object that will give out
+    /// `GFileInfo` objects for all the files in the directory.
+    /// 
+    /// The `attributes` value is a string that specifies the file
+    /// attributes that should be gathered. It is not an error if
+    /// it's not possible to read a particular requested attribute
+    /// from a file - it just won't be set. `attributes` should
+    /// be a comma-separated list of attributes or attribute wildcards.
+    /// The wildcard "*" means all attributes, and a wildcard like
+    /// "standard``*" means all attributes in the standard namespace.
+    /// An example attribute query be "standard``*,owner`user`".
+    /// The standard attributes are available as defines, like
+    /// `G_FILE_ATTRIBUTE_STANDARD_NAME`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
+    /// be returned. If the file is not a directory, the `G_IO_ERROR_NOT_DIRECTORY`
+    /// error will be returned. Other errors are possible too.
+    @inlinable func enumerateChildren<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> FileEnumeratorRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileEnumeratorRef(gconstpointer: gconstpointer(g_file_enumerate_children(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5182,8 +5754,22 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_enumerate_children_finish()` to get the result of
     /// the operation.
-    @inlinable func enumerateChildrenAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_enumerate_children_async(file_ptr, attributes, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func enumerateChildrenAsync(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerate_children_async(file_ptr, attributes, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously gets the requested information about the files
+    /// in a directory. The result is a `GFileEnumerator` object that will
+    /// give out `GFileInfo` objects for all the files in the directory.
+    /// 
+    /// For more details, see `g_file_enumerate_children()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can
+    /// then call `g_file_enumerate_children_finish()` to get the result of
+    /// the operation.
+    @inlinable func enumerateChildrenAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_enumerate_children_async(file_ptr, attributes, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5217,7 +5803,22 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func findEnclosingMount<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> MountRef! {
+    @inlinable func findEnclosingMount(cancellable: CancellableRef? = nil) throws -> MountRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = MountRef(gconstpointer: gconstpointer(g_file_find_enclosing_mount(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Gets a `GMount` for the `GFile`.
+    /// 
+    /// `GMount` is returned only for user interesting locations, see
+    /// `GVolumeMonitor`. If the `GFileIface` for `file` does not have a `mount`,
+    /// `error` will be set to `G_IO_ERROR_NOT_FOUND` and `nil` `will` be returned.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func findEnclosingMount<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> MountRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = MountRef(gconstpointer: gconstpointer(g_file_find_enclosing_mount(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5232,8 +5833,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_find_enclosing_mount_finish()` to
     /// get the result of the operation.
-    @inlinable func findEnclosingMountAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_find_enclosing_mount_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func findEnclosingMountAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_find_enclosing_mount_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously gets the mount for the file.
+    /// 
+    /// For more details, see `g_file_find_enclosing_mount()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_find_enclosing_mount_finish()` to
+    /// get the result of the operation.
+    @inlinable func findEnclosingMountAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_find_enclosing_mount_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5284,9 +5897,9 @@ public extension FileProtocol {
     /// type a filename in the file selector.
     /// 
     /// This call does no blocking I/O.
-    @inlinable func getChildFor(displayName display_name: UnsafePointer<CChar>!) throws -> FileRef! {
+    @inlinable func getChildFor(displayName: UnsafePointer<CChar>!) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_get_child_for_display_name(file_ptr, display_name, &error)))
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_get_child_for_display_name(file_ptr, displayName, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -5364,7 +5977,16 @@ public extension FileProtocol {
     /// If `parent` is `nil` then this function returns `true` if `file` has any
     /// parent at all.  If `parent` is non-`nil` then `true` is only returned
     /// if `file` is an immediate child of `parent`.
-    @inlinable func has<FileT: FileProtocol>(parent: FileT? = nil) -> Bool {
+    @inlinable func has(parent: FileRef? = nil) -> Bool {
+        let rv = ((g_file_has_parent(file_ptr, parent?.file_ptr)) != 0)
+        return rv
+    }
+    /// Checks if `file` has a parent, and optionally, if it is `parent`.
+    /// 
+    /// If `parent` is `nil` then this function returns `true` if `file` has any
+    /// parent at all.  If `parent` is non-`nil` then `true` is only returned
+    /// if `file` is an immediate child of `parent`.
+    @inlinable func has<FileT: FileProtocol>(parent: FileT?) -> Bool {
         let rv = ((g_file_has_parent(file_ptr, parent?.file_ptr)) != 0)
         return rv
     }
@@ -5391,8 +6013,8 @@ public extension FileProtocol {
     /// Checks to see if a `GFile` has a given URI scheme.
     /// 
     /// This call does no blocking I/O.
-    @inlinable func has(uriScheme uri_scheme: UnsafePointer<CChar>!) -> Bool {
-        let rv = ((g_file_has_uri_scheme(file_ptr, uri_scheme)) != 0)
+    @inlinable func has(uriScheme: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_has_uri_scheme(file_ptr, uriScheme)) != 0)
         return rv
     }
 
@@ -5415,9 +6037,26 @@ public extension FileProtocol {
     /// The data contained in the resulting `GBytes` is always zero-terminated, but
     /// this is not included in the `GBytes` length. The resulting `GBytes` should be
     /// freed with `g_bytes_unref()` when no longer in use.
-    @inlinable func loadBytes<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> BytesRef! {
+    @inlinable func loadBytes(cancellable: CancellableRef? = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> GLib.BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = BytesRef(gconstpointer: gconstpointer(g_file_load_bytes(file_ptr, cancellable?.cancellable_ptr, etag_out, &error)))
+        let rv = GLib.BytesRef(g_file_load_bytes(file_ptr, cancellable?.cancellable_ptr, etagOut, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Loads the contents of `file` and returns it as `GBytes`.
+    /// 
+    /// If `file` is a resource:// based URI, the resulting bytes will reference the
+    /// embedded resource instead of a copy. Otherwise, this is equivalent to calling
+    /// `g_file_load_contents()` and `g_bytes_new_take()`.
+    /// 
+    /// For resources, `etag_out` will be set to `nil`.
+    /// 
+    /// The data contained in the resulting `GBytes` is always zero-terminated, but
+    /// this is not included in the `GBytes` length. The resulting `GBytes` should be
+    /// freed with `g_bytes_unref()` when no longer in use.
+    @inlinable func loadBytes<CancellableT: CancellableProtocol>(cancellable: CancellableT?, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> GLib.BytesRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.BytesRef(g_file_load_bytes(file_ptr, cancellable?.cancellable_ptr, etagOut, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5432,8 +6071,22 @@ public extension FileProtocol {
     /// asynchronous operation.
     /// 
     /// See `g_file_load_bytes()` for more information.
-    @inlinable func loadBytesAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_load_bytes_async(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func loadBytesAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_bytes_async(file_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously loads the contents of `file` as `GBytes`.
+    /// 
+    /// If `file` is a resource:// based URI, the resulting bytes will reference the
+    /// embedded resource instead of a copy. Otherwise, this is equivalent to calling
+    /// `g_file_load_contents_async()` and `g_bytes_new_take()`.
+    /// 
+    /// `callback` should call `g_file_load_bytes_finish()` to get the result of this
+    /// asynchronous operation.
+    /// 
+    /// See `g_file_load_bytes()` for more information.
+    @inlinable func loadBytesAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_bytes_async(file_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5446,9 +6099,9 @@ public extension FileProtocol {
     /// freed with `g_bytes_unref()` when no longer in use.
     /// 
     /// See `g_file_load_bytes()` for more information.
-    @inlinable func loadBytesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> BytesRef! {
+    @inlinable func loadBytesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> GLib.BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = BytesRef(gconstpointer: gconstpointer(g_file_load_bytes_finish(file_ptr, result.async_result_ptr, etag_out, &error)))
+        let rv = GLib.BytesRef(g_file_load_bytes_finish(file_ptr, result.async_result_ptr, etagOut, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5461,9 +6114,23 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func loadContents<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadContents(cancellable: CancellableRef? = nil, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etag_out, &error)) != 0)
+        let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etagOut, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Loads the content of the file into memory. The data is always
+    /// zero-terminated, but this is not included in the resultant `length`.
+    /// The returned `contents` should be freed with `g_free()` when no longer
+    /// needed.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func loadContents<CancellableT: CancellableProtocol>(cancellable: CancellableT?, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5481,8 +6148,25 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func loadContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_load_contents_async(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func loadContentsAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_contents_async(file_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts an asynchronous load of the `file`'s contents.
+    /// 
+    /// For more details, see `g_file_load_contents()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the load operation has completed, `callback` will be called
+    /// with `user` data. To finish the operation, call
+    /// `g_file_load_contents_finish()` with the `GAsyncResult` returned by
+    /// the `callback`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func loadContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_contents_async(file_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5491,9 +6175,9 @@ public extension FileProtocol {
     /// size of the `contents` string. The `contents` should be freed with
     /// `g_free()` when no longer needed. If `etag_out` is present, it will be
     /// set to the new entity tag for the `file`.
-    @inlinable func loadContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_load_contents_finish(file_ptr, res.async_result_ptr, contents, length, etag_out, &error)) != 0)
+        let rv = ((g_file_load_contents_finish(file_ptr, res.async_result_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5509,8 +6193,23 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func loadPartialContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, readMoreCallback read_more_callback: GFileReadMoreCallback?, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_load_partial_contents_async(file_ptr, cancellable?.cancellable_ptr, read_more_callback, callback, user_data)
+    @inlinable func loadPartialContentsAsync(cancellable: CancellableRef? = nil, readMoreCallback: GFileReadMoreCallback?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_partial_contents_async(file_ptr, cancellable?.cancellable_ptr, readMoreCallback, callback, userData)
+    
+    }
+    /// Reads the partial contents of a file. A `GFileReadMoreCallback` should
+    /// be used to stop reading from the file when appropriate, else this
+    /// function will behave exactly as `g_file_load_contents_async()`. This
+    /// operation can be finished by `g_file_load_partial_contents_finish()`.
+    /// 
+    /// Users of this function should be aware that `user_data` is passed to
+    /// both the `read_more_callback` and the `callback`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func loadPartialContentsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, readMoreCallback: GFileReadMoreCallback?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_load_partial_contents_async(file_ptr, cancellable?.cancellable_ptr, readMoreCallback, callback, userData)
     
     }
 
@@ -5519,9 +6218,9 @@ public extension FileProtocol {
     /// zero-terminated, but this is not included in the resultant `length`.
     /// The returned `contents` should be freed with `g_free()` when no longer
     /// needed.
-    @inlinable func loadPartialContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut etag_out: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadPartialContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_load_partial_contents_finish(file_ptr, res.async_result_ptr, contents, length, etag_out, &error)) != 0)
+        let rv = ((g_file_load_partial_contents_finish(file_ptr, res.async_result_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5540,7 +6239,27 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func makeDirectory<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func makeDirectory(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_make_directory(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a directory. Note that this will only create a child directory
+    /// of the immediate parent directory of the path or URI given by the `GFile`.
+    /// To recursively create directories, see `g_file_make_directory_with_parents()`.
+    /// This function will fail if the parent directory does not exist, setting
+    /// `error` to `G_IO_ERROR_NOT_FOUND`. If the file system doesn't support
+    /// creating directories, this function will fail, setting `error` to
+    /// `G_IO_ERROR_NOT_SUPPORTED`.
+    /// 
+    /// For a local `GFile` the newly created directory will have the default
+    /// (current) ownership and permissions of the current process.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func makeDirectory<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_make_directory(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -5548,8 +6267,13 @@ public extension FileProtocol {
     }
 
     /// Asynchronously creates a directory.
-    @inlinable func makeDirectoryAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_make_directory_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func makeDirectoryAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_make_directory_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously creates a directory.
+    @inlinable func makeDirectoryAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_make_directory_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5575,7 +6299,26 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func makeDirectoryWithParents<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func makeDirectoryWithParents(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_make_directory_with_parents(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a directory and any parent directories that may not
+    /// exist similar to 'mkdir -p'. If the file system does not support
+    /// creating directories, this function will fail, setting `error` to
+    /// `G_IO_ERROR_NOT_SUPPORTED`. If the directory itself already exists,
+    /// this function will fail setting `error` to `G_IO_ERROR_EXISTS`, unlike
+    /// the similar `g_mkdir_with_parents()`.
+    /// 
+    /// For a local `GFile` the newly created directories will have the default
+    /// (current) ownership and permissions of the current process.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func makeDirectoryWithParents<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_make_directory_with_parents(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -5588,9 +6331,21 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func makeSymbolicLink<CancellableT: CancellableProtocol>(symlinkValue symlink_value: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func makeSymbolicLink(symlinkValue: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_make_symbolic_link(file_ptr, symlink_value, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_file_make_symbolic_link(file_ptr, symlinkValue, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a symbolic link named `file` which contains the string
+    /// `symlink_value`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func makeSymbolicLink<CancellableT: CancellableProtocol>(symlinkValue: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_make_symbolic_link(file_ptr, symlinkValue, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5613,9 +6368,33 @@ public extension FileProtocol {
     /// periodic progress updates while scanning.  See the documentation for
     /// `GFileMeasureProgressCallback` for information about when and how the
     /// callback will be invoked.
-    @inlinable func measureDiskUsage<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileMeasureProgressCallback? = nil, progressData progress_data: gpointer! = nil, diskUsage disk_usage: UnsafeMutablePointer<guint64>! = nil, numDirs num_dirs: UnsafeMutablePointer<guint64>! = nil, numFiles num_files: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
+    @inlinable func measureDiskUsage(flags: FileMeasureFlags, cancellable: CancellableRef? = nil, progressCallback: GFileMeasureProgressCallback? = nil, progressData: gpointer! = nil, diskUsage: UnsafeMutablePointer<guint64>! = nil, numDirs: UnsafeMutablePointer<guint64>! = nil, numFiles: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_measure_disk_usage(file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_data, disk_usage, num_dirs, num_files, &error)) != 0)
+        let rv = ((g_file_measure_disk_usage(file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressData, diskUsage, numDirs, numFiles, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Recursively measures the disk usage of `file`.
+    /// 
+    /// This is essentially an analog of the 'du' command, but it also
+    /// reports the number of directories and non-directory files encountered
+    /// (including things like symbolic links).
+    /// 
+    /// By default, errors are only reported against the toplevel file
+    /// itself.  Errors found while recursing are silently ignored, unless
+    /// `G_FILE_MEASURE_REPORT_ANY_ERROR` is given in `flags`.
+    /// 
+    /// The returned size, `disk_usage`, is in bytes and should be formatted
+    /// with `g_format_size()` in order to get something reasonable for showing
+    /// in a user interface.
+    /// 
+    /// `progress_callback` and `progress_data` can be given to request
+    /// periodic progress updates while scanning.  See the documentation for
+    /// `GFileMeasureProgressCallback` for information about when and how the
+    /// callback will be invoked.
+    @inlinable func measureDiskUsage<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, cancellable: CancellableT?, progressCallback: GFileMeasureProgressCallback? = nil, progressData: gpointer! = nil, diskUsage: UnsafeMutablePointer<guint64>! = nil, numDirs: UnsafeMutablePointer<guint64>! = nil, numFiles: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_measure_disk_usage(file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressData, diskUsage, numDirs, numFiles, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5624,17 +6403,25 @@ public extension FileProtocol {
     /// 
     /// This is the asynchronous version of `g_file_measure_disk_usage()`.  See
     /// there for more information.
-    @inlinable func measureDiskUsageAsync<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileMeasureProgressCallback? = nil, progressData progress_data: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_measure_disk_usage_async(file_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, progress_callback, progress_data, callback, user_data)
+    @inlinable func measureDiskUsageAsync(flags: FileMeasureFlags, ioPriority: Int, cancellable: CancellableRef? = nil, progressCallback: GFileMeasureProgressCallback? = nil, progressData: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_measure_disk_usage_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, progressCallback, progressData, callback, userData)
+    
+    }
+    /// Recursively measures the disk usage of `file`.
+    /// 
+    /// This is the asynchronous version of `g_file_measure_disk_usage()`.  See
+    /// there for more information.
+    @inlinable func measureDiskUsageAsync<CancellableT: CancellableProtocol>(flags: FileMeasureFlags, ioPriority: Int, cancellable: CancellableT?, progressCallback: GFileMeasureProgressCallback? = nil, progressData: gpointer! = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_measure_disk_usage_async(file_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, progressCallback, progressData, callback, userData)
     
     }
 
     /// Collects the results from an earlier call to
     /// `g_file_measure_disk_usage_async()`.  See `g_file_measure_disk_usage()` for
     /// more information.
-    @inlinable func measureDiskUsageFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, diskUsage disk_usage: UnsafeMutablePointer<guint64>! = nil, numDirs num_dirs: UnsafeMutablePointer<guint64>! = nil, numFiles num_files: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
+    @inlinable func measureDiskUsageFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, diskUsage: UnsafeMutablePointer<guint64>! = nil, numDirs: UnsafeMutablePointer<guint64>! = nil, numFiles: UnsafeMutablePointer<guint64>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_measure_disk_usage_finish(file_ptr, result.async_result_ptr, disk_usage, num_dirs, num_files, &error)) != 0)
+        let rv = ((g_file_measure_disk_usage_finish(file_ptr, result.async_result_ptr, diskUsage, numDirs, numFiles, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5645,7 +6432,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func monitor<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
+    @inlinable func monitor(flags: FileMonitorFlags, cancellable: CancellableRef? = nil) throws -> FileMonitorRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Obtains a file or directory monitor for the given file,
+    /// depending on the type of the file.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func monitor<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT?) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5664,7 +6463,25 @@ public extension FileProtocol {
     /// directories.  It is not possible to monitor all the files in a
     /// directory for changes made via hard links; if you want to do this then
     /// you must register individual watches with `g_file_monitor()`.
-    @inlinable func monitorDirectory<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
+    @inlinable func monitorDirectory(flags: FileMonitorFlags, cancellable: CancellableRef? = nil) throws -> FileMonitorRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_directory(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Obtains a directory monitor for the given file.
+    /// This may fail if directory monitoring is not supported.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// It does not make sense for `flags` to contain
+    /// `G_FILE_MONITOR_WATCH_HARD_LINKS`, since hard links can not be made to
+    /// directories.  It is not possible to monitor all the files in a
+    /// directory for changes made via hard links; if you want to do this then
+    /// you must register individual watches with `g_file_monitor()`.
+    @inlinable func monitorDirectory<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT?) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_directory(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5685,7 +6502,27 @@ public extension FileProtocol {
     /// reported. Using this flag may result in an increase in resource
     /// usage, and may not have any effect depending on the `GFileMonitor`
     /// backend and/or filesystem type.
-    @inlinable func monitorFile<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT? = nil) throws -> FileMonitorRef! {
+    @inlinable func monitorFile(flags: FileMonitorFlags, cancellable: CancellableRef? = nil) throws -> FileMonitorRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_file(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Obtains a file monitor for the given file. If no file notification
+    /// mechanism exists, then regular polling of the file is used.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// If `flags` contains `G_FILE_MONITOR_WATCH_HARD_LINKS` then the monitor
+    /// will also attempt to report changes made to the file via another
+    /// filename (ie, a hard link). Without this flag, you can only rely on
+    /// changes made through the filename contained in `file` to be
+    /// reported. Using this flag may result in an increase in resource
+    /// usage, and may not have any effect depending on the `GFileMonitor`
+    /// backend and/or filesystem type.
+    @inlinable func monitorFile<CancellableT: CancellableProtocol>(flags: FileMonitorFlags, cancellable: CancellableT?) throws -> FileMonitorRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileMonitorRef(gconstpointer: gconstpointer(g_file_monitor_file(file_ptr, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5702,8 +6539,22 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func mountEnclosingVolume<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_mount_enclosing_volume(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func mountEnclosingVolume(flags: MountMountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_mount_enclosing_volume(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts a `mount_operation`, mounting the volume that contains
+    /// the file `location`.
+    /// 
+    /// When this operation has completed, `callback` will be called with
+    /// `user_user` data, and the operation can be finalized with
+    /// `g_file_mount_enclosing_volume_finish()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func mountEnclosingVolume<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_mount_enclosing_volume(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5726,8 +6577,23 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    @inlinable func mountMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_mount_mountable(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func mountMountable(flags: MountMountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_mount_mountable(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Mounts a file of type G_FILE_TYPE_MOUNTABLE.
+    /// Using `mount_operation`, you can request callbacks when, for instance,
+    /// passwords are needed during authentication.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_mount_mountable_finish()` to get
+    /// the result of the operation.
+    @inlinable func mountMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_mount_mountable(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5776,9 +6642,48 @@ public extension FileProtocol {
     /// `G_FILE_COPY_OVERWRITE` is specified and the target is a file, then
     /// the `G_IO_ERROR_WOULD_RECURSE` error may be returned (if the native
     /// move operation isn't available).
-    @inlinable func move<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT? = nil, progressCallback progress_callback: GFileProgressCallback? = nil, progressCallbackData progress_callback_data: gpointer! = nil) throws -> Bool {
+    @inlinable func move<FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableRef? = nil, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_move(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progress_callback, progress_callback_data, &error)) != 0)
+        let rv = ((g_file_move(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressCallbackData, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to move the file or directory `source` to the location specified
+    /// by `destination`. If native move operations are supported then this is
+    /// used, otherwise a copy + delete fallback is used. The native
+    /// implementation may support moving directories (for instance on moves
+    /// inside the same filesystem), but the fallback code does not.
+    /// 
+    /// If the flag `G_FILE_COPY_OVERWRITE` is specified an already
+    /// existing `destination` file is overwritten.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// If `progress_callback` is not `nil`, then the operation can be monitored
+    /// by setting this to a `GFileProgressCallback` function.
+    /// `progress_callback_data` will be passed to this function. It is
+    /// guaranteed that this callback will be called after all data has been
+    /// transferred with the total number of bytes copied during the operation.
+    /// 
+    /// If the `source` file does not exist, then the `G_IO_ERROR_NOT_FOUND`
+    /// error is returned, independent on the status of the `destination`.
+    /// 
+    /// If `G_FILE_COPY_OVERWRITE` is not specified and the target exists,
+    /// then the error `G_IO_ERROR_EXISTS` is returned.
+    /// 
+    /// If trying to overwrite a file over a directory, the `G_IO_ERROR_IS_DIRECTORY`
+    /// error is returned. If trying to overwrite a directory with a directory the
+    /// `G_IO_ERROR_WOULD_MERGE` error is returned.
+    /// 
+    /// If the source is a directory and the target does not exist, or
+    /// `G_FILE_COPY_OVERWRITE` is specified and the target is a file, then
+    /// the `G_IO_ERROR_WOULD_RECURSE` error may be returned (if the native
+    /// move operation isn't available).
+    @inlinable func move<CancellableT: CancellableProtocol, FileT: FileProtocol>(destination: FileT, flags: FileCopyFlags, cancellable: CancellableT?, progressCallback: GFileProgressCallback? = nil, progressCallbackData: gpointer! = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_move(file_ptr, destination.file_ptr, flags.value, cancellable?.cancellable_ptr, progressCallback, progressCallbackData, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -5799,7 +6704,29 @@ public extension FileProtocol {
     /// file cases read and write streams are not supported, so make sure you
     /// really need to do read and write streaming, rather than just opening
     /// for reading or writing.
-    @inlinable func openReadwrite<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
+    @inlinable func openReadwrite(cancellable: CancellableRef? = nil) throws -> FileIOStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_open_readwrite(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Opens an existing file for reading and writing. The result is
+    /// a `GFileIOStream` that can be used to read and write the contents
+    /// of the file.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
+    /// be returned. If the file is a directory, the `G_IO_ERROR_IS_DIRECTORY`
+    /// error will be returned. Other errors are possible too, and depend on
+    /// what kind of filesystem the file is on. Note that in many non-local
+    /// file cases read and write streams are not supported, so make sure you
+    /// really need to do read and write streaming, rather than just opening
+    /// for reading or writing.
+    @inlinable func openReadwrite<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_open_readwrite(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5814,8 +6741,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_open_readwrite_finish()` to get
     /// the result of the operation.
-    @inlinable func openReadwriteAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_open_readwrite_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func openReadwriteAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_open_readwrite_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously opens `file` for reading and writing.
+    /// 
+    /// For more details, see `g_file_open_readwrite()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_open_readwrite_finish()` to get
+    /// the result of the operation.
+    @inlinable func openReadwriteAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_open_readwrite_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5849,8 +6788,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    @inlinable func pollMountable<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_poll_mountable(file_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func pollMountable(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_poll_mountable(file_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Polls a file of type `G_FILE_TYPE_MOUNTABLE`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_mount_mountable_finish()` to get
+    /// the result of the operation.
+    @inlinable func pollMountable<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_poll_mountable(file_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5871,7 +6823,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func queryDefaultHandler<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> AppInfoRef! {
+    @inlinable func queryDefaultHandler(cancellable: CancellableRef? = nil) throws -> AppInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = AppInfoRef(gconstpointer: gconstpointer(g_file_query_default_handler(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Returns the `GAppInfo` that is registered as the default
+    /// application to handle the file specified by `file`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func queryDefaultHandler<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = AppInfoRef(gconstpointer: gconstpointer(g_file_query_default_handler(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5879,8 +6843,13 @@ public extension FileProtocol {
     }
 
     /// Async version of `g_file_query_default_handler()`.
-    @inlinable func queryDefaultHandlerAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_query_default_handler_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryDefaultHandlerAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_default_handler_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Async version of `g_file_query_default_handler()`.
+    @inlinable func queryDefaultHandlerAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_default_handler_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5914,7 +6883,33 @@ public extension FileProtocol {
     /// have to fool users that something is possible and then just show an error
     /// dialog. If you do this, you should make sure to also handle the errors
     /// that can happen due to races when you execute the operation.
-    @inlinable func queryExists<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> Bool {
+    @inlinable func queryExists(cancellable: CancellableRef? = nil) -> Bool {
+        let rv = ((g_file_query_exists(file_ptr, cancellable?.cancellable_ptr)) != 0)
+        return rv
+    }
+    /// Utility function to check if a particular file exists. This is
+    /// implemented using `g_file_query_info()` and as such does blocking I/O.
+    /// 
+    /// Note that in many cases it is [racy to first check for file existence](https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use)
+    /// and then execute something based on the outcome of that, because the
+    /// file might have been created or removed in between the operations. The
+    /// general approach to handling that is to not check, but just do the
+    /// operation and handle the errors as they come.
+    /// 
+    /// As an example of race-free checking, take the case of reading a file,
+    /// and if it doesn't exist, creating it. There are two racy versions: read
+    /// it, and on error create it; and: check if it exists, if not create it.
+    /// These can both result in two processes creating the file (with perhaps
+    /// a partially written file as the result). The correct approach is to
+    /// always try to create the file with `g_file_create()` which will either
+    /// atomically create the file or fail with a `G_IO_ERROR_EXISTS` error.
+    /// 
+    /// However, in many cases an existence check is useful in a user interface,
+    /// for instance to make a menu item sensitive/insensitive, so that you don't
+    /// have to fool users that something is possible and then just show an error
+    /// dialog. If you do this, you should make sure to also handle the errors
+    /// that can happen due to races when you execute the operation.
+    @inlinable func queryExists<CancellableT: CancellableProtocol>(cancellable: CancellableT?) -> Bool {
         let rv = ((g_file_query_exists(file_ptr, cancellable?.cancellable_ptr)) != 0)
         return rv
     }
@@ -5924,7 +6919,16 @@ public extension FileProtocol {
     /// 
     /// The primary use case of this method is to check if a file is
     /// a regular file, directory, or symlink.
-    @inlinable func queryFileType<CancellableT: CancellableProtocol>(flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) -> GFileType {
+    @inlinable func queryFileType(flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) -> GFileType {
+        let rv = g_file_query_file_type(file_ptr, flags.value, cancellable?.cancellable_ptr)
+        return rv
+    }
+    /// Utility function to inspect the `GFileType` of a file. This is
+    /// implemented using `g_file_query_info()` and as such does blocking I/O.
+    /// 
+    /// The primary use case of this method is to check if a file is
+    /// a regular file, directory, or symlink.
+    @inlinable func queryFileType<CancellableT: CancellableProtocol>(flags: FileQueryInfoFlags, cancellable: CancellableT?) -> GFileType {
         let rv = g_file_query_file_type(file_ptr, flags.value, cancellable?.cancellable_ptr)
         return rv
     }
@@ -5954,7 +6958,38 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
     /// be returned. Other errors are possible too, and depend on what
     /// kind of filesystem the file is on.
-    @inlinable func queryFilesystemInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func queryFilesystemInfo(attributes: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_filesystem_info(file_ptr, attributes, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Similar to `g_file_query_info()`, but obtains information
+    /// about the filesystem the `file` is on, rather than the file itself.
+    /// For instance the amount of space available and the type of
+    /// the filesystem.
+    /// 
+    /// The `attributes` value is a string that specifies the attributes
+    /// that should be gathered. It is not an error if it's not possible
+    /// to read a particular requested attribute from a file - it just
+    /// won't be set. `attributes` should be a comma-separated list of
+    /// attributes or attribute wildcards. The wildcard "*" means all
+    /// attributes, and a wildcard like "filesystem``*" means all attributes
+    /// in the filesystem namespace. The standard namespace for filesystem
+    /// attributes is "filesystem". Common attributes of interest are
+    /// `G_FILE_ATTRIBUTE_FILESYSTEM_SIZE` (the total size of the filesystem
+    /// in bytes), `G_FILE_ATTRIBUTE_FILESYSTEM_FREE` (number of bytes available),
+    /// and `G_FILE_ATTRIBUTE_FILESYSTEM_TYPE` (type of the filesystem).
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will
+    /// be returned. Other errors are possible too, and depend on what
+    /// kind of filesystem the file is on.
+    @inlinable func queryFilesystemInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_filesystem_info(file_ptr, attributes, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -5972,8 +7007,23 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_query_info_finish()` to get the result of the
     /// operation.
-    @inlinable func queryFilesystemInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_query_filesystem_info_async(file_ptr, attributes, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryFilesystemInfoAsync(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_filesystem_info_async(file_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously gets the requested information about the filesystem
+    /// that the specified `file` is on. The result is a `GFileInfo` object
+    /// that contains key-value attributes (such as type or size for the
+    /// file).
+    /// 
+    /// For more details, see `g_file_query_filesystem_info()` which is the
+    /// synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can
+    /// then call `g_file_query_info_finish()` to get the result of the
+    /// operation.
+    @inlinable func queryFilesystemInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_filesystem_info_async(file_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6016,7 +7066,43 @@ public extension FileProtocol {
     /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will be
     /// returned. Other errors are possible too, and depend on what kind of
     /// filesystem the file is on.
-    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func queryInfo(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_info(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Gets the requested information about specified `file`.
+    /// The result is a `GFileInfo` object that contains key-value
+    /// attributes (such as the type or size of the file).
+    /// 
+    /// The `attributes` value is a string that specifies the file
+    /// attributes that should be gathered. It is not an error if
+    /// it's not possible to read a particular requested attribute
+    /// from a file - it just won't be set. `attributes` should be a
+    /// comma-separated list of attributes or attribute wildcards.
+    /// The wildcard "*" means all attributes, and a wildcard like
+    /// "standard``*" means all attributes in the standard namespace.
+    /// An example attribute query be "standard``*,owner`user`".
+    /// The standard attributes are available as defines, like
+    /// `G_FILE_ATTRIBUTE_STANDARD_NAME`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// For symlinks, normally the information about the target of the
+    /// symlink is returned, rather than information about the symlink
+    /// itself. However if you pass `G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS`
+    /// in `flags` the information about the symlink itself will be returned.
+    /// Also, for symlinks that point to non-existing files the information
+    /// about the symlink itself will be returned.
+    /// 
+    /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will be
+    /// returned. Other errors are possible too, and depend on what kind of
+    /// filesystem the file is on.
+    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_query_info(file_ptr, attributes, flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -6032,8 +7118,21 @@ public extension FileProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can
     /// then call `g_file_query_info_finish()` to get the result of the operation.
-    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_query_info_async(file_ptr, attributes, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryInfoAsync(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_info_async(file_ptr, attributes, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously gets the requested information about specified `file`.
+    /// The result is a `GFileInfo` object that contains key-value attributes
+    /// (such as type or size for the file).
+    /// 
+    /// For more details, see `g_file_query_info()` which is the synchronous
+    /// version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can
+    /// then call `g_file_query_info_finish()` to get the result of the operation.
+    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_query_info_async(file_ptr, attributes, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6056,7 +7155,23 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func querySettableAttributes<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileAttributeInfoListRef! {
+    @inlinable func querySettableAttributes(cancellable: CancellableRef? = nil) throws -> FileAttributeInfoListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_settable_attributes(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Obtain the list of settable attributes for the file.
+    /// 
+    /// Returns the type and full attribute name of all the attributes
+    /// that can be set on this file. This doesn't mean setting it will
+    /// always succeed though, you might get an access failure, or some
+    /// specific file may not support a specific attribute.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func querySettableAttributes<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> FileAttributeInfoListRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_settable_attributes(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -6070,7 +7185,20 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func queryWritableNamespaces<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileAttributeInfoListRef! {
+    @inlinable func queryWritableNamespaces(cancellable: CancellableRef? = nil) throws -> FileAttributeInfoListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_writable_namespaces(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Obtain the list of attribute namespaces where new attributes
+    /// can be created by a user. An example of this is extended
+    /// attributes (in the "xattr" namespace).
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func queryWritableNamespaces<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> FileAttributeInfoListRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileAttributeInfoListRef(gconstpointer: gconstpointer(g_file_query_writable_namespaces(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -6088,7 +7216,24 @@ public extension FileProtocol {
     /// returned. If the file is a directory, the `G_IO_ERROR_IS_DIRECTORY`
     /// error will be returned. Other errors are possible too, and depend
     /// on what kind of filesystem the file is on.
-    @inlinable func read<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> FileInputStreamRef! {
+    @inlinable func read(cancellable: CancellableRef? = nil) throws -> FileInputStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInputStreamRef(gconstpointer: gconstpointer(g_file_read(file_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Opens a file for reading. The result is a `GFileInputStream` that
+    /// can be used to read the contents of the file.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// If the file does not exist, the `G_IO_ERROR_NOT_FOUND` error will be
+    /// returned. If the file is a directory, the `G_IO_ERROR_IS_DIRECTORY`
+    /// error will be returned. Other errors are possible too, and depend
+    /// on what kind of filesystem the file is on.
+    @inlinable func read<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> FileInputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInputStreamRef(gconstpointer: gconstpointer(g_file_read(file_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -6103,8 +7248,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_read_finish()` to get the result
     /// of the operation.
-    @inlinable func readAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_read_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_read_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously opens `file` for reading.
+    /// 
+    /// For more details, see `g_file_read()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_read_finish()` to get the result
+    /// of the operation.
+    @inlinable func readAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_read_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6158,9 +7315,56 @@ public extension FileProtocol {
     /// `G_IO_ERROR_INVALID_FILENAME` error, and if the name is to long
     /// `G_IO_ERROR_FILENAME_TOO_LONG` will be returned. Other errors are
     /// possible too, and depend on what kind of filesystem the file is on.
-    @inlinable func replace<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileOutputStreamRef! {
+    @inlinable func replace(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableRef? = nil) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_replace(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_replace(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Returns an output stream for overwriting the file, possibly
+    /// creating a backup copy of the file first. If the file doesn't exist,
+    /// it will be created.
+    /// 
+    /// This will try to replace the file in the safest way possible so
+    /// that any errors during the writing will not affect an already
+    /// existing copy of the file. For instance, for local files it
+    /// may write to a temporary file and then atomically rename over
+    /// the destination when the stream is closed.
+    /// 
+    /// By default files created are generally readable by everyone,
+    /// but if you pass `G_FILE_CREATE_PRIVATE` in `flags` the file
+    /// will be made readable only to the current user, to the level that
+    /// is supported on the target filesystem.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled
+    /// by triggering the cancellable object from another thread. If the
+    /// operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+    /// returned.
+    /// 
+    /// If you pass in a non-`nil` `etag` value and `file` already exists, then
+    /// this value is compared to the current entity tag of the file, and if
+    /// they differ an `G_IO_ERROR_WRONG_ETAG` error is returned. This
+    /// generally means that the file has been changed since you last read
+    /// it. You can get the new etag from `g_file_output_stream_get_etag()`
+    /// after you've finished writing and closed the `GFileOutputStream`. When
+    /// you load a new file you can use `g_file_input_stream_query_info()` to
+    /// get the etag of the file.
+    /// 
+    /// If `make_backup` is `true`, this function will attempt to make a
+    /// backup of the current file before overwriting it. If this fails
+    /// a `G_IO_ERROR_CANT_CREATE_BACKUP` error will be returned. If you
+    /// want to replace anyway, try again with `make_backup` set to `false`.
+    /// 
+    /// If the file is a directory the `G_IO_ERROR_IS_DIRECTORY` error will
+    /// be returned, and if the file is some other form of non-regular file
+    /// then a `G_IO_ERROR_NOT_REGULAR_FILE` error will be returned. Some
+    /// file systems don't allow all file names, and may return an
+    /// `G_IO_ERROR_INVALID_FILENAME` error, and if the name is to long
+    /// `G_IO_ERROR_FILENAME_TOO_LONG` will be returned. Other errors are
+    /// possible too, and depend on what kind of filesystem the file is on.
+    @inlinable func replace<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableT?) throws -> FileOutputStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_replace(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6174,8 +7378,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_replace_finish()` to get the result
     /// of the operation.
-    @inlinable func replaceAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_replace_async(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func replaceAsync(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_async(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously overwrites the file, replacing the contents,
+    /// possibly creating a backup copy of the file first.
+    /// 
+    /// For more details, see `g_file_replace()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_replace_finish()` to get the result
+    /// of the operation.
+    @inlinable func replaceAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_async(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6195,9 +7412,31 @@ public extension FileProtocol {
     /// 
     /// The returned `new_etag` can be used to verify that the file hasn't
     /// changed the next time it is saved over.
-    @inlinable func replace<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func replace(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((make_backup) ? 1 : 0), flags.value, new_etag, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, newEtag, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Replaces the contents of `file` with `contents` of `length` bytes.
+    /// 
+    /// If `etag` is specified (not `nil`), any existing file must have that etag,
+    /// or the error `G_IO_ERROR_WRONG_ETAG` will be returned.
+    /// 
+    /// If `make_backup` is `true`, this function will attempt to make a backup
+    /// of `file`. Internally, it uses `g_file_replace()`, so will try to replace the
+    /// file contents in the safest way possible. For example, atomic renames are
+    /// used when replacing local files’ contents.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// The returned `new_etag` can be used to verify that the file hasn't
+    /// changed the next time it is saved over.
+    @inlinable func replace<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, newEtag, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6221,8 +7460,31 @@ public extension FileProtocol {
     /// until `callback` is called. See `g_file_replace_contents_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to the
     /// contents (without copying) for the duration of the call.
-    @inlinable func replaceContentsAsync<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_replace_contents_async(file_ptr, contents, gsize(length), etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func replaceContentsAsync(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_contents_async(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts an asynchronous replacement of `file` with the given
+    /// `contents` of `length` bytes. `etag` will replace the document's
+    /// current entity tag.
+    /// 
+    /// When this operation has completed, `callback` will be called with
+    /// `user_user` data, and the operation can be finalized with
+    /// `g_file_replace_contents_finish()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// If `make_backup` is `true`, this function will attempt to
+    /// make a backup of `file`.
+    /// 
+    /// Note that no copy of `contents` will be made, so it must stay valid
+    /// until `callback` is called. See `g_file_replace_contents_bytes_async()`
+    /// for a `GBytes` version that will automatically hold a reference to the
+    /// contents (without copying) for the duration of the call.
+    @inlinable func replaceContentsAsync<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_contents_async(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6234,17 +7496,29 @@ public extension FileProtocol {
     /// When this operation has completed, `callback` will be called with
     /// `user_user` data, and the operation can be finalized with
     /// `g_file_replace_contents_finish()`.
-    @inlinable func replaceContentsBytesAsync<BytesT: BytesProtocol, CancellableT: CancellableProtocol>(contents: BytesT, etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_replace_contents_bytes_async(file_ptr, contents.bytes_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func replaceContentsBytesAsync<BytesT: GLib.BytesProtocol>(contents: BytesT, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_contents_bytes_async(file_ptr, contents.bytes_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Same as `g_file_replace_contents_async()` but takes a `GBytes` input instead.
+    /// This function will keep a ref on `contents` until the operation is done.
+    /// Unlike `g_file_replace_contents_async()` this allows forgetting about the
+    /// content without waiting for the callback.
+    /// 
+    /// When this operation has completed, `callback` will be called with
+    /// `user_user` data, and the operation can be finalized with
+    /// `g_file_replace_contents_finish()`.
+    @inlinable func replaceContentsBytesAsync<BytesT: GLib.BytesProtocol, CancellableT: CancellableProtocol>(contents: BytesT, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_contents_bytes_async(file_ptr, contents.bytes_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous replace of the given `file`. See
     /// `g_file_replace_contents_async()`. Sets `new_etag` to the new entity
     /// tag for the document, if present.
-    @inlinable func replaceContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, newEtag new_etag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func replaceContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_replace_contents_finish(file_ptr, res.async_result_ptr, new_etag, &error)) != 0)
+        let rv = ((g_file_replace_contents_finish(file_ptr, res.async_result_ptr, newEtag, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6268,9 +7542,25 @@ public extension FileProtocol {
     /// Note that in many non-local file cases read and write streams are not
     /// supported, so make sure you really need to do read and write streaming,
     /// rather than just opening for reading or writing.
-    @inlinable func replaceReadwrite<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, cancellable: CancellableT? = nil) throws -> FileIOStreamRef! {
+    @inlinable func replaceReadwrite(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableRef? = nil) throws -> FileIOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_replace_readwrite(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_replace_readwrite(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Returns an output stream for overwriting the file in readwrite mode,
+    /// possibly creating a backup copy of the file first. If the file doesn't
+    /// exist, it will be created.
+    /// 
+    /// For details about the behaviour, see `g_file_replace()` which does the
+    /// same thing but returns an output stream only.
+    /// 
+    /// Note that in many non-local file cases read and write streams are not
+    /// supported, so make sure you really need to do read and write streaming,
+    /// rather than just opening for reading or writing.
+    @inlinable func replaceReadwrite<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, cancellable: CancellableT?) throws -> FileIOStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileIOStreamRef(gconstpointer: gconstpointer(g_file_replace_readwrite(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6285,8 +7575,22 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_replace_readwrite_finish()` to get
     /// the result of the operation.
-    @inlinable func replaceReadwriteAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup make_backup: Bool, flags: FileCreateFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_replace_readwrite_async(file_ptr, etag, gboolean((make_backup) ? 1 : 0), flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func replaceReadwriteAsync(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_readwrite_async(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously overwrites the file in read-write mode,
+    /// replacing the contents, possibly creating a backup copy
+    /// of the file first.
+    /// 
+    /// For more details, see `g_file_replace_readwrite()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_replace_readwrite_finish()` to get
+    /// the result of the operation.
+    @inlinable func replaceReadwriteAsync<CancellableT: CancellableProtocol>(etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_replace_readwrite_async(file_ptr, etag, gboolean((makeBackup) ? 1 : 0), flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6302,8 +7606,8 @@ public extension FileProtocol {
     /// Resolves a relative path for `file` to an absolute path.
     /// 
     /// This call does no blocking I/O.
-    @inlinable func resolve(relativePath relative_path: UnsafePointer<CChar>!) -> FileRef! {
-        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_resolve_relative_path(file_ptr, relative_path))) else { return nil }
+    @inlinable func resolve(relativePath: UnsafePointer<CChar>!) -> FileRef! {
+        guard let rv = FileRef(gconstpointer: gconstpointer(g_file_resolve_relative_path(file_ptr, relativePath))) else { return nil }
         return rv
     }
 
@@ -6315,9 +7619,23 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func set<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP value_p: gpointer! = nil, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func set(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP: gpointer! = nil, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_file_set_attribute(file_ptr, attribute, type, value_p, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_file_set_attribute(file_ptr, attribute, type, valueP, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets an attribute in the file with attribute name `attribute` to `value_p`.
+    /// 
+    /// Some attributes can be unset by setting `type` to
+    /// `G_FILE_ATTRIBUTE_TYPE_INVALID` and `value_p` to `nil`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func set<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP: gpointer! = nil, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute(file_ptr, attribute, type, valueP, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6329,7 +7647,20 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeByteString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeByteString(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_byte_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_BYTE_STRING` to `value`.
+    /// If `attribute` is of a different type, this operation will fail,
+    /// returning `false`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeByteString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_byte_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6342,7 +7673,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeInt32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint32, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeInt32(attribute: UnsafePointer<CChar>!, value: gint32, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_int32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_INT32` to `value`.
+    /// If `attribute` is of a different type, this operation will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeInt32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint32, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_int32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6355,7 +7698,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeInt64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint64, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeInt64(attribute: UnsafePointer<CChar>!, value: gint64, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_int64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_INT64` to `value`.
+    /// If `attribute` is of a different type, this operation will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeInt64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: gint64, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_int64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6368,7 +7723,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeString(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_STRING` to `value`.
+    /// If `attribute` is of a different type, this operation will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeString<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: UnsafePointer<CChar>!, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_string(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6381,7 +7748,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeUint32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint32, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeUint32(attribute: UnsafePointer<CChar>!, value: guint32, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_uint32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_UINT32` to `value`.
+    /// If `attribute` is of a different type, this operation will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeUint32<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint32, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_uint32(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6394,7 +7773,19 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributeUint64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint64, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributeUint64(attribute: UnsafePointer<CChar>!, value: guint64, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attribute_uint64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets `attribute` of type `G_FILE_ATTRIBUTE_TYPE_UINT64` to `value`.
+    /// If `attribute` is of a different type, this operation will fail.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributeUint64<CancellableT: CancellableProtocol>(attribute: UnsafePointer<CChar>!, value: guint64, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attribute_uint64(file_ptr, attribute, value, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6409,8 +7800,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_set_attributes_finish()` to get
     /// the result of the operation.
-    @inlinable func setAttributesAsync<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_set_attributes_async(file_ptr, info.file_info_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func setAttributesAsync<FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_set_attributes_async(file_ptr, info.file_info_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously sets the attributes of `file` with `info`.
+    /// 
+    /// For more details, see `g_file_set_attributes_from_info()`,
+    /// which is the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_set_attributes_finish()` to get
+    /// the result of the operation.
+    @inlinable func setAttributesAsync<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_set_attributes_async(file_ptr, info.file_info_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6434,7 +7837,25 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func setAttributesFrom<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func setAttributesFrom<FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_set_attributes_from_info(file_ptr, info.file_info_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to set all attributes in the `GFileInfo` on the target
+    /// values, not stopping on the first error.
+    /// 
+    /// If there is any error during this operation then `error` will
+    /// be set to the first error. Error on particular fields are flagged
+    /// by setting the "status" field in the attribute value to
+    /// `G_FILE_ATTRIBUTE_STATUS_ERROR_SETTING`, which means you can
+    /// also detect further errors.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func setAttributesFrom<CancellableT: CancellableProtocol, FileInfoT: FileInfoProtocol>(info: FileInfoT, flags: FileQueryInfoFlags, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_set_attributes_from_info(file_ptr, info.file_info_ptr, flags.value, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6456,9 +7877,31 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func set<CancellableT: CancellableProtocol>(displayName display_name: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileRef! {
+    @inlinable func set(displayName: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> FileRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_set_display_name(file_ptr, display_name, cancellable?.cancellable_ptr, &error)))
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_set_display_name(file_ptr, displayName, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
+    }
+    /// Renames `file` to the specified display name.
+    /// 
+    /// The display name is converted from UTF-8 to the correct encoding
+    /// for the target filesystem if possible and the `file` is renamed to this.
+    /// 
+    /// If you want to implement a rename operation in the user interface the
+    /// edit name (`G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME`) should be used as the
+    /// initial value in the rename widget, and then the result after editing
+    /// should be passed to `g_file_set_display_name()`.
+    /// 
+    /// On success the resulting converted filename is returned.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func set<CancellableT: CancellableProtocol>(displayName: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> FileRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let maybeRV = FileRef(gconstpointer: gconstpointer(g_file_set_display_name(file_ptr, displayName, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -6472,8 +7915,20 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_set_display_name_finish()` to get
     /// the result of the operation.
-    @inlinable func setDisplayNameAsync<CancellableT: CancellableProtocol>(displayName display_name: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_set_display_name_async(file_ptr, display_name, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func setDisplayNameAsync(displayName: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_set_display_name_async(file_ptr, displayName, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously sets the display name for a given `GFile`.
+    /// 
+    /// For more details, see `g_file_set_display_name()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_set_display_name_finish()` to get
+    /// the result of the operation.
+    @inlinable func setDisplayNameAsync<CancellableT: CancellableProtocol>(displayName: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_set_display_name_async(file_ptr, displayName, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6498,8 +7953,23 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_mount_mountable_finish()` to get
     /// the result of the operation.
-    @inlinable func startMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, startOperation start_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_start_mountable(file_ptr, flags.value, start_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func startMountable(flags: DriveStartFlags, startOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_start_mountable(file_ptr, flags.value, startOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts a file of type `G_FILE_TYPE_MOUNTABLE`.
+    /// Using `start_operation`, you can request callbacks when, for instance,
+    /// passwords are needed during authentication.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_mount_mountable_finish()` to get
+    /// the result of the operation.
+    @inlinable func startMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: DriveStartFlags, startOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_start_mountable(file_ptr, flags.value, startOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6523,8 +7993,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_stop_mountable_finish()` to get
     /// the result of the operation.
-    @inlinable func stopMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_stop_mountable(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func stopMountable(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_stop_mountable(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Stops a file of type `G_FILE_TYPE_MOUNTABLE`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_stop_mountable_finish()` to get
+    /// the result of the operation.
+    @inlinable func stopMountable<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_stop_mountable(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6556,7 +8039,21 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func trash<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func trash(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_file_trash(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sends `file` to the "Trashcan", if possible. This is similar to
+    /// deleting it, but the user can recover it before emptying the trashcan.
+    /// Not all file systems support trashing, so this call can return the
+    /// `G_IO_ERROR_NOT_SUPPORTED` error.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func trash<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_trash(file_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6564,8 +8061,13 @@ public extension FileProtocol {
     }
 
     /// Asynchronously sends `file` to the Trash location, if possible.
-    @inlinable func trashAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_trash_async(file_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func trashAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_trash_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously sends `file` to the Trash location, if possible.
+    @inlinable func trashAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_trash_async(file_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6590,8 +8092,24 @@ public extension FileProtocol {
     ///
     /// **unmount_mountable is deprecated:**
     /// Use g_file_unmount_mountable_with_operation() instead.
-    @available(*, deprecated) @inlinable func unmountMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_unmount_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func unmountMountable(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_unmount_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Unmounts a file of type G_FILE_TYPE_MOUNTABLE.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_unmount_mountable_finish()` to get
+    /// the result of the operation.
+    ///
+    /// **unmount_mountable is deprecated:**
+    /// Use g_file_unmount_mountable_with_operation() instead.
+    @available(*, deprecated) @inlinable func unmountMountable<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_unmount_mountable(file_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6619,8 +8137,21 @@ public extension FileProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_file_unmount_mountable_finish()` to get
     /// the result of the operation.
-    @inlinable func unmountMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_unmount_mountable_with_operation(file_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func unmountMountableWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_unmount_mountable_with_operation(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Unmounts a file of type `G_FILE_TYPE_MOUNTABLE`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_file_unmount_mountable_finish()` to get
+    /// the result of the operation.
+    @inlinable func unmountMountableWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_unmount_mountable_with_operation(file_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 

@@ -122,7 +122,7 @@ public extension FileIOStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -308,7 +308,7 @@ public extension FileIOStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FileIOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -441,7 +441,30 @@ public extension FileIOStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
     /// be returned.
-    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func queryInfo(attributes: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_io_stream_query_info(file_io_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Queries a file io stream for the given `attributes`.
+    /// This function blocks while querying the stream. For the asynchronous
+    /// version of this function, see `g_file_io_stream_query_info_async()`.
+    /// While the stream is blocked, the stream will set the pending flag
+    /// internally, and any other operations on the stream will fail with
+    /// `G_IO_ERROR_PENDING`.
+    /// 
+    /// Can fail if the stream was already closed (with `error` being set to
+    /// `G_IO_ERROR_CLOSED`), the stream has pending operations (with `error` being
+    /// set to `G_IO_ERROR_PENDING`), or if querying info is not supported for
+    /// the stream's interface (with `error` being set to `G_IO_ERROR_NOT_SUPPORTED`). I
+    /// all cases of failure, `nil` will be returned.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
+    /// be returned.
+    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_io_stream_query_info(file_io_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -454,8 +477,18 @@ public extension FileIOStreamProtocol {
     /// 
     /// For the synchronous version of this function, see
     /// `g_file_io_stream_query_info()`.
-    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_io_stream_query_info_async(file_io_stream_ptr, attributes, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryInfoAsync(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_io_stream_query_info_async(file_io_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously queries the `stream` for a `GFileInfo`. When completed,
+    /// `callback` will be called with a `GAsyncResult` which can be used to
+    /// finish the operation with `g_file_io_stream_query_info_finish()`.
+    /// 
+    /// For the synchronous version of this function, see
+    /// `g_file_io_stream_query_info()`.
+    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_io_stream_query_info_async(file_io_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -502,7 +535,7 @@ public extension FileIOStreamProtocol {
 ///
 /// `GFileIcon` specifies an icon by pointing to an image file
 /// to be used as icon.
-public protocol FileIconProtocol: ObjectProtocol, IconProtocol, LoadableIconProtocol {
+public protocol FileIconProtocol: GLibObject.ObjectProtocol, IconProtocol, LoadableIconProtocol {
         /// Untyped pointer to the underlying `GFileIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -577,7 +610,7 @@ public extension FileIconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -601,7 +634,7 @@ public extension FileIconRef {
 ///
 /// `GFileIcon` specifies an icon by pointing to an image file
 /// to be used as icon.
-open class FileIcon: Object, FileIconProtocol {
+open class FileIcon: GLibObject.Object, FileIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileIcon` instance.
@@ -744,7 +777,7 @@ public extension FileIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FileIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -901,7 +934,7 @@ public extension FileIconProtocol {
 /// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
-public protocol FileInfoProtocol: ObjectProtocol {
+public protocol FileInfoProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -998,7 +1031,7 @@ public extension FileInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1049,7 +1082,7 @@ public extension FileInfoRef {
 /// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
-open class FileInfo: Object, FileInfoProtocol {
+open class FileInfo: GLibObject.Object, FileInfoProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileInfo` instance.
@@ -1255,8 +1288,8 @@ public extension FileInfoProtocol {
 
     /// First clears all of the [GFileAttribute](#gio-GFileAttribute) of `dest_info`,
     /// and then copies all of the file attributes from `src_info` to `dest_info`.
-    @inlinable func copyInto<FileInfoT: FileInfoProtocol>(destInfo dest_info: FileInfoT) {
-        g_file_info_copy_into(file_info_ptr, dest_info.file_info_ptr)
+    @inlinable func copyInto<FileInfoT: FileInfoProtocol>(destInfo: FileInfoT) {
+        g_file_info_copy_into(file_info_ptr, destInfo.file_info_ptr)
     
     }
 
@@ -1289,8 +1322,8 @@ public extension FileInfoProtocol {
     }
 
     /// Gets the attribute type, value and status for an attribute key.
-    @inlinable func getAttributeData(attribute: UnsafePointer<CChar>!, type: UnsafeMutablePointer<GFileAttributeType>! = nil, valuePp value_pp: UnsafeMutablePointer<gpointer?>! = nil, status: UnsafeMutablePointer<GFileAttributeStatus>! = nil) -> Bool {
-        let rv = ((g_file_info_get_attribute_data(file_info_ptr, attribute, type, value_pp, status)) != 0)
+    @inlinable func getAttributeData(attribute: UnsafePointer<CChar>!, type: UnsafeMutablePointer<GFileAttributeType>! = nil, valuePp: UnsafeMutablePointer<gpointer?>! = nil, status: UnsafeMutablePointer<GFileAttributeStatus>! = nil) -> Bool {
+        let rv = ((g_file_info_get_attribute_data(file_info_ptr, attribute, type, valuePp, status)) != 0)
         return rv
     }
 
@@ -1312,8 +1345,8 @@ public extension FileInfoProtocol {
 
     /// Gets the value of a `GObject` attribute. If the attribute does
     /// not contain a `GObject`, `nil` will be returned.
-    @inlinable func getAttributeObject(attribute: UnsafePointer<CChar>!) -> ObjectRef! {
-        guard let rv = ObjectRef(gconstpointer: gconstpointer(g_file_info_get_attribute_object(file_info_ptr, attribute))) else { return nil }
+    @inlinable func getAttributeObject(attribute: UnsafePointer<CChar>!) -> GLibObject.ObjectRef! {
+        let rv = GLibObject.ObjectRef(g_file_info_get_attribute_object(file_info_ptr, attribute))
         return rv
     }
 
@@ -1368,8 +1401,8 @@ public extension FileInfoProtocol {
     /// Returns the `GDateTime` representing the deletion date of the file, as
     /// available in G_FILE_ATTRIBUTE_TRASH_DELETION_DATE. If the
     /// G_FILE_ATTRIBUTE_TRASH_DELETION_DATE attribute is unset, `nil` is returned.
-    @inlinable func getDeletionDate() -> DateTimeRef! {
-        let rv = DateTimeRef(gconstpointer: gconstpointer(g_file_info_get_deletion_date(file_info_ptr)))
+    @inlinable func getDeletionDate() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_file_info_get_deletion_date(file_info_ptr))
         return rv
     }
 
@@ -1429,8 +1462,8 @@ public extension FileInfoProtocol {
     /// This requires the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute. If
     /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
     /// will have microsecond precision.
-    @inlinable func getModificationDateTime() -> DateTimeRef! {
-        let rv = DateTimeRef(gconstpointer: gconstpointer(g_file_info_get_modification_date_time(file_info_ptr)))
+    @inlinable func getModificationDateTime() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_file_info_get_modification_date_time(file_info_ptr))
         return rv
     }
 
@@ -1440,7 +1473,7 @@ public extension FileInfoProtocol {
     /// **get_modification_time is deprecated:**
     /// Use g_file_info_get_modification_date_time() instead, as
     ///    #GTimeVal is deprecated due to the year 2038 problem.
-    @available(*, deprecated) @inlinable func getModificationTime<TimeValT: TimeValProtocol>(result: TimeValT) {
+    @available(*, deprecated) @inlinable func getModificationTime<TimeValT: GLib.TimeValProtocol>(result: TimeValT) {
         g_file_info_get_modification_time(file_info_ptr, result._ptr)
     
     }
@@ -1484,14 +1517,14 @@ public extension FileInfoProtocol {
 
     /// Checks if a file info structure has an attribute in the
     /// specified `name_space`.
-    @inlinable func hasNamespace(nameSpace name_space: UnsafePointer<CChar>!) -> Bool {
-        let rv = ((g_file_info_has_namespace(file_info_ptr, name_space)) != 0)
+    @inlinable func hasNamespace(nameSpace: UnsafePointer<CChar>!) -> Bool {
+        let rv = ((g_file_info_has_namespace(file_info_ptr, nameSpace)) != 0)
         return rv
     }
 
     /// Lists the file info structure's attributes.
-    @inlinable func listAttributes(nameSpace name_space: UnsafePointer<CChar>? = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
-        let rv = g_file_info_list_attributes(file_info_ptr, name_space)
+    @inlinable func listAttributes(nameSpace: UnsafePointer<CChar>? = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+        let rv = g_file_info_list_attributes(file_info_ptr, nameSpace)
         return rv
     }
 
@@ -1503,36 +1536,36 @@ public extension FileInfoProtocol {
 
     /// Sets the `attribute` to contain the given value, if possible. To unset the
     /// attribute, use `G_FILE_ATTRIBUTE_TYPE_INVALID` for `type`.
-    @inlinable func set(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP value_p: gpointer!) {
-        g_file_info_set_attribute(file_info_ptr, attribute, type, value_p)
+    @inlinable func set(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP: gpointer!) {
+        g_file_info_set_attribute(file_info_ptr, attribute, type, valueP)
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeBoolean(attribute: UnsafePointer<CChar>!, attrValue attr_value: Bool) {
-        g_file_info_set_attribute_boolean(file_info_ptr, attribute, gboolean((attr_value) ? 1 : 0))
+    @inlinable func setAttributeBoolean(attribute: UnsafePointer<CChar>!, attrValue: Bool) {
+        g_file_info_set_attribute_boolean(file_info_ptr, attribute, gboolean((attrValue) ? 1 : 0))
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeByteString(attribute: UnsafePointer<CChar>!, attrValue attr_value: UnsafePointer<CChar>!) {
-        g_file_info_set_attribute_byte_string(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeByteString(attribute: UnsafePointer<CChar>!, attrValue: UnsafePointer<CChar>!) {
+        g_file_info_set_attribute_byte_string(file_info_ptr, attribute, attrValue)
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeInt32(attribute: UnsafePointer<CChar>!, attrValue attr_value: gint32) {
-        g_file_info_set_attribute_int32(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeInt32(attribute: UnsafePointer<CChar>!, attrValue: gint32) {
+        g_file_info_set_attribute_int32(file_info_ptr, attribute, attrValue)
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeInt64(attribute: UnsafePointer<CChar>!, attrValue attr_value: gint64) {
-        g_file_info_set_attribute_int64(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeInt64(attribute: UnsafePointer<CChar>!, attrValue: gint64) {
+        g_file_info_set_attribute_int64(file_info_ptr, attribute, attrValue)
     
     }
 
@@ -1544,8 +1577,8 @@ public extension FileInfoProtocol {
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeObject<ObjectT: ObjectProtocol>(attribute: UnsafePointer<CChar>!, attrValue attr_value: ObjectT) {
-        g_file_info_set_attribute_object(file_info_ptr, attribute, attr_value.object_ptr)
+    @inlinable func setAttributeObject<ObjectT: GLibObject.ObjectProtocol>(attribute: UnsafePointer<CChar>!, attrValue: ObjectT) {
+        g_file_info_set_attribute_object(file_info_ptr, attribute, attrValue.object_ptr)
     
     }
 
@@ -1562,8 +1595,8 @@ public extension FileInfoProtocol {
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeString(attribute: UnsafePointer<CChar>!, attrValue attr_value: UnsafePointer<CChar>!) {
-        g_file_info_set_attribute_string(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeString(attribute: UnsafePointer<CChar>!, attrValue: UnsafePointer<CChar>!) {
+        g_file_info_set_attribute_string(file_info_ptr, attribute, attrValue)
     
     }
 
@@ -1571,43 +1604,43 @@ public extension FileInfoProtocol {
     /// if possible.
     /// 
     /// Sinze: 2.22
-    @inlinable func setAttributeStringv(attribute: UnsafePointer<CChar>!, attrValue attr_value: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!) {
-        g_file_info_set_attribute_stringv(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeStringv(attribute: UnsafePointer<CChar>!, attrValue: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!) {
+        g_file_info_set_attribute_stringv(file_info_ptr, attribute, attrValue)
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeUint32(attribute: UnsafePointer<CChar>!, attrValue attr_value: guint32) {
-        g_file_info_set_attribute_uint32(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeUint32(attribute: UnsafePointer<CChar>!, attrValue: guint32) {
+        g_file_info_set_attribute_uint32(file_info_ptr, attribute, attrValue)
     
     }
 
     /// Sets the `attribute` to contain the given `attr_value`,
     /// if possible.
-    @inlinable func setAttributeUint64(attribute: UnsafePointer<CChar>!, attrValue attr_value: guint64) {
-        g_file_info_set_attribute_uint64(file_info_ptr, attribute, attr_value)
+    @inlinable func setAttributeUint64(attribute: UnsafePointer<CChar>!, attrValue: guint64) {
+        g_file_info_set_attribute_uint64(file_info_ptr, attribute, attrValue)
     
     }
 
     /// Sets the content type attribute for a given `GFileInfo`.
     /// See `G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`.
-    @inlinable func set(contentType content_type: UnsafePointer<CChar>!) {
-        g_file_info_set_content_type(file_info_ptr, content_type)
+    @inlinable func set(contentType: UnsafePointer<CChar>!) {
+        g_file_info_set_content_type(file_info_ptr, contentType)
     
     }
 
     /// Sets the display name for the current `GFileInfo`.
     /// See `G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME`.
-    @inlinable func set(displayName display_name: UnsafePointer<CChar>!) {
-        g_file_info_set_display_name(file_info_ptr, display_name)
+    @inlinable func set(displayName: UnsafePointer<CChar>!) {
+        g_file_info_set_display_name(file_info_ptr, displayName)
     
     }
 
     /// Sets the edit name for the current file.
     /// See `G_FILE_ATTRIBUTE_STANDARD_EDIT_NAME`.
-    @inlinable func set(editName edit_name: UnsafePointer<CChar>!) {
-        g_file_info_set_edit_name(file_info_ptr, edit_name)
+    @inlinable func set(editName: UnsafePointer<CChar>!) {
+        g_file_info_set_edit_name(file_info_ptr, editName)
     
     }
 
@@ -1627,22 +1660,22 @@ public extension FileInfoProtocol {
 
     /// Sets the "is_hidden" attribute in a `GFileInfo` according to `is_hidden`.
     /// See `G_FILE_ATTRIBUTE_STANDARD_IS_HIDDEN`.
-    @inlinable func set(isHidden is_hidden: Bool) {
-        g_file_info_set_is_hidden(file_info_ptr, gboolean((is_hidden) ? 1 : 0))
+    @inlinable func set(isHidden: Bool) {
+        g_file_info_set_is_hidden(file_info_ptr, gboolean((isHidden) ? 1 : 0))
     
     }
 
     /// Sets the "is_symlink" attribute in a `GFileInfo` according to `is_symlink`.
     /// See `G_FILE_ATTRIBUTE_STANDARD_IS_SYMLINK`.
-    @inlinable func set(isSymlink is_symlink: Bool) {
-        g_file_info_set_is_symlink(file_info_ptr, gboolean((is_symlink) ? 1 : 0))
+    @inlinable func set(isSymlink: Bool) {
+        g_file_info_set_is_symlink(file_info_ptr, gboolean((isSymlink) ? 1 : 0))
     
     }
 
     /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
     /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` attributes in the file info to the
     /// given date/time value.
-    @inlinable func setModificationDateTime<DateTimeT: DateTimeProtocol>(mtime: DateTimeT) {
+    @inlinable func setModificationDateTime<DateTimeT: GLib.DateTimeProtocol>(mtime: DateTimeT) {
         g_file_info_set_modification_date_time(file_info_ptr, mtime.date_time_ptr)
     
     }
@@ -1654,7 +1687,7 @@ public extension FileInfoProtocol {
     /// **set_modification_time is deprecated:**
     /// Use g_file_info_set_modification_date_time() instead, as
     ///    #GTimeVal is deprecated due to the year 2038 problem.
-    @available(*, deprecated) @inlinable func setModificationTime<TimeValT: TimeValProtocol>(mtime: TimeValT) {
+    @available(*, deprecated) @inlinable func setModificationTime<TimeValT: GLib.TimeValProtocol>(mtime: TimeValT) {
         g_file_info_set_modification_time(file_info_ptr, mtime._ptr)
     
     }
@@ -1675,8 +1708,8 @@ public extension FileInfoProtocol {
 
     /// Sets the sort order attribute in the file info structure. See
     /// `G_FILE_ATTRIBUTE_STANDARD_SORT_ORDER`.
-    @inlinable func set(sortOrder sort_order: gint32) {
-        g_file_info_set_sort_order(file_info_ptr, sort_order)
+    @inlinable func set(sortOrder: gint32) {
+        g_file_info_set_sort_order(file_info_ptr, sortOrder)
     
     }
 
@@ -1689,8 +1722,8 @@ public extension FileInfoProtocol {
 
     /// Sets the `G_FILE_ATTRIBUTE_STANDARD_SYMLINK_TARGET` attribute in the file info
     /// to the given symlink target.
-    @inlinable func set(symlinkTarget symlink_target: UnsafePointer<CChar>!) {
-        g_file_info_set_symlink_target(file_info_ptr, symlink_target)
+    @inlinable func set(symlinkTarget: UnsafePointer<CChar>!) {
+        g_file_info_set_symlink_target(file_info_ptr, symlinkTarget)
     
     }
 
@@ -1717,12 +1750,12 @@ public extension FileInfoProtocol {
     /// Returns the `GDateTime` representing the deletion date of the file, as
     /// available in G_FILE_ATTRIBUTE_TRASH_DELETION_DATE. If the
     /// G_FILE_ATTRIBUTE_TRASH_DELETION_DATE attribute is unset, `nil` is returned.
-    @inlinable var deletionDate: DateTimeRef! {
+    @inlinable var deletionDate: GLib.DateTimeRef! {
         /// Returns the `GDateTime` representing the deletion date of the file, as
         /// available in G_FILE_ATTRIBUTE_TRASH_DELETION_DATE. If the
         /// G_FILE_ATTRIBUTE_TRASH_DELETION_DATE attribute is unset, `nil` is returned.
         get {
-            let rv = DateTimeRef(gconstpointer: gconstpointer(g_file_info_get_deletion_date(file_info_ptr)))
+            let rv = GLib.DateTimeRef(g_file_info_get_deletion_date(file_info_ptr))
             return rv
         }
     }
@@ -1839,7 +1872,7 @@ public extension FileInfoProtocol {
     /// This requires the `G_FILE_ATTRIBUTE_TIME_MODIFIED` attribute. If
     /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
     /// will have microsecond precision.
-    @inlinable var modificationDateTime: DateTimeRef! {
+    @inlinable var modificationDateTime: GLib.DateTimeRef! {
         /// Gets the modification time of the current `info` and returns it as a
         /// `GDateTime`.
         /// 
@@ -1847,7 +1880,7 @@ public extension FileInfoProtocol {
         /// `G_FILE_ATTRIBUTE_TIME_MODIFIED_USEC` is provided, the resulting `GDateTime`
         /// will have microsecond precision.
         get {
-            let rv = DateTimeRef(gconstpointer: gconstpointer(g_file_info_get_modification_date_time(file_info_ptr)))
+            let rv = GLib.DateTimeRef(g_file_info_get_modification_date_time(file_info_ptr))
             return rv
         }
         /// Sets the `G_FILE_ATTRIBUTE_TIME_MODIFIED` and
@@ -2033,7 +2066,7 @@ public extension FileInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2262,7 +2295,18 @@ public extension FileInputStreamProtocol {
     /// of this function, see `g_file_input_stream_query_info_async()`. While the
     /// stream is blocked, the stream will set the pending flag internally, and
     /// any other operations on the stream will fail with `G_IO_ERROR_PENDING`.
-    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func queryInfo(attributes: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_input_stream_query_info(file_input_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Queries a file input stream the given `attributes`. This function blocks
+    /// while querying the stream. For the asynchronous (non-blocking) version
+    /// of this function, see `g_file_input_stream_query_info_async()`. While the
+    /// stream is blocked, the stream will set the pending flag internally, and
+    /// any other operations on the stream will fail with `G_IO_ERROR_PENDING`.
+    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_input_stream_query_info(file_input_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -2280,8 +2324,23 @@ public extension FileInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set
-    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_input_stream_query_info_async(file_input_stream_ptr, attributes, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryInfoAsync(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_input_stream_query_info_async(file_input_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Queries the stream information asynchronously.
+    /// When the operation is finished `callback` will be called.
+    /// You can then call `g_file_input_stream_query_info_finish()`
+    /// to get the result of the operation.
+    /// 
+    /// For the synchronous version of this function,
+    /// see `g_file_input_stream_query_info()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set
+    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_input_stream_query_info_async(file_input_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2327,7 +2386,7 @@ public extension FileInputStreamProtocol {
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
-public protocol FileMonitorProtocol: ObjectProtocol {
+public protocol FileMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2414,7 +2473,7 @@ public extension FileMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2450,7 +2509,7 @@ public extension FileMonitorRef {
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
-open class FileMonitor: Object, FileMonitorProtocol {
+open class FileMonitor: GLibObject.Object, FileMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FileMonitor` instance.
@@ -2593,7 +2652,7 @@ public extension FileMonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FileMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FileMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2742,15 +2801,15 @@ public extension FileMonitorProtocol {
     /// Implementations are responsible to call this method from the
     /// [thread-default main context](#g-main-context-push-thread-default) of the
     /// thread that the monitor was created in.
-    @inlinable func emitEvent<FileT: FileProtocol>(child: FileT, otherFile other_file: FileT, eventType event_type: GFileMonitorEvent) {
-        g_file_monitor_emit_event(file_monitor_ptr, child.file_ptr, other_file.file_ptr, event_type)
+    @inlinable func emitEvent<FileT: FileProtocol>(child: FileT, otherFile: FileT, eventType: GFileMonitorEvent) {
+        g_file_monitor_emit_event(file_monitor_ptr, child.file_ptr, otherFile.file_ptr, eventType)
     
     }
 
     /// Sets the rate limit to which the `monitor` will report
     /// consecutive change events to the same file.
-    @inlinable func setRateLimit(limitMsecs limit_msecs: Int) {
-        g_file_monitor_set_rate_limit(file_monitor_ptr, gint(limit_msecs))
+    @inlinable func setRateLimit(limitMsecs: Int) {
+        g_file_monitor_set_rate_limit(file_monitor_ptr, gint(limitMsecs))
     
     }
     /// Returns whether the monitor is canceled.
@@ -2883,7 +2942,7 @@ public extension FileOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3137,7 +3196,30 @@ public extension FileOutputStreamProtocol {
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
     /// be returned.
-    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> FileInfoRef! {
+    @inlinable func queryInfo(attributes: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> FileInfoRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_output_stream_query_info(file_output_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Queries a file output stream for the given `attributes`.
+    /// This function blocks while querying the stream. For the asynchronous
+    /// version of this function, see `g_file_output_stream_query_info_async()`.
+    /// While the stream is blocked, the stream will set the pending flag
+    /// internally, and any other operations on the stream will fail with
+    /// `G_IO_ERROR_PENDING`.
+    /// 
+    /// Can fail if the stream was already closed (with `error` being set to
+    /// `G_IO_ERROR_CLOSED`), the stream has pending operations (with `error` being
+    /// set to `G_IO_ERROR_PENDING`), or if querying info is not supported for
+    /// the stream's interface (with `error` being set to `G_IO_ERROR_NOT_SUPPORTED`). In
+    /// all cases of failure, `nil` will be returned.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be set, and `nil` will
+    /// be returned.
+    @inlinable func queryInfo<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> FileInfoRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_output_stream_query_info(file_output_stream_ptr, attributes, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -3150,8 +3232,18 @@ public extension FileOutputStreamProtocol {
     /// 
     /// For the synchronous version of this function, see
     /// `g_file_output_stream_query_info()`.
-    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_file_output_stream_query_info_async(file_output_stream_ptr, attributes, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func queryInfoAsync(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_output_stream_query_info_async(file_output_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously queries the `stream` for a `GFileInfo`. When completed,
+    /// `callback` will be called with a `GAsyncResult` which can be used to
+    /// finish the operation with `g_file_output_stream_query_info_finish()`.
+    /// 
+    /// For the synchronous version of this function, see
+    /// `g_file_output_stream_query_info()`.
+    @inlinable func queryInfoAsync<CancellableT: CancellableProtocol>(attributes: UnsafePointer<CChar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_file_output_stream_query_info_async(file_output_stream_ptr, attributes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3199,7 +3291,7 @@ public extension FileOutputStreamProtocol {
 /// Completes partial file and directory names given a partial string by
 /// looking in the file system for clues. Can return a list of possible
 /// completion strings for widget implementations.
-public protocol FilenameCompleterProtocol: ObjectProtocol {
+public protocol FilenameCompleterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3275,7 +3367,7 @@ public extension FilenameCompleterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3305,7 +3397,7 @@ public extension FilenameCompleterRef {
 /// Completes partial file and directory names given a partial string by
 /// looking in the file system for clues. Can return a list of possible
 /// completion strings for widget implementations.
-open class FilenameCompleter: Object, FilenameCompleterProtocol {
+open class FilenameCompleter: GLibObject.Object, FilenameCompleterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FilenameCompleter` instance.
@@ -3506,21 +3598,21 @@ public extension FilenameCompleterProtocol {
     @inlinable var filename_completer_ptr: UnsafeMutablePointer<GFilenameCompleter>! { return ptr?.assumingMemoryBound(to: GFilenameCompleter.self) }
 
     /// Obtains a completion for `initial_text` from `completer`.
-    @inlinable func getCompletionSuffix(initialText initial_text: UnsafePointer<CChar>!) -> String! {
-        let rv = g_filename_completer_get_completion_suffix(filename_completer_ptr, initial_text).map({ String(cString: $0) })
+    @inlinable func getCompletionSuffix(initialText: UnsafePointer<CChar>!) -> String! {
+        let rv = g_filename_completer_get_completion_suffix(filename_completer_ptr, initialText).map({ String(cString: $0) })
         return rv
     }
 
     /// Gets an array of completion strings for a given initial text.
-    @inlinable func getCompletions(initialText initial_text: UnsafePointer<CChar>!) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
-        let rv = g_filename_completer_get_completions(filename_completer_ptr, initial_text)
+    @inlinable func getCompletions(initialText: UnsafePointer<CChar>!) -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+        let rv = g_filename_completer_get_completions(filename_completer_ptr, initialText)
         return rv
     }
 
     /// If `dirs_only` is `true`, `completer` will only
     /// complete directory names, and not file names.
-    @inlinable func set(dirsOnly dirs_only: Bool) {
-        g_filename_completer_set_dirs_only(filename_completer_ptr, gboolean((dirs_only) ? 1 : 0))
+    @inlinable func set(dirsOnly: Bool) {
+        g_filename_completer_set_dirs_only(filename_completer_ptr, gboolean((dirsOnly) ? 1 : 0))
     
     }
 
@@ -3617,7 +3709,7 @@ public extension FilterInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3786,7 +3878,7 @@ public extension FilterInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FilterInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3907,8 +3999,8 @@ public extension FilterInputStreamProtocol {
     }
 
     /// Sets whether the base stream will be closed when `stream` is closed.
-    @inlinable func setCloseBaseStream(closeBase close_base: Bool) {
-        g_filter_input_stream_set_close_base_stream(filter_input_stream_ptr, gboolean((close_base) ? 1 : 0))
+    @inlinable func setCloseBaseStream(closeBase: Bool) {
+        g_filter_input_stream_set_close_base_stream(filter_input_stream_ptr, gboolean((closeBase) ? 1 : 0))
     
     }
     /// Gets the base stream for the filter stream.
@@ -4041,7 +4133,7 @@ public extension FilterOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4210,7 +4302,7 @@ public extension FilterOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: FilterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FilterOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -4331,8 +4423,8 @@ public extension FilterOutputStreamProtocol {
     }
 
     /// Sets whether the base stream will be closed when `stream` is closed.
-    @inlinable func setCloseBaseStream(closeBase close_base: Bool) {
-        g_filter_output_stream_set_close_base_stream(filter_output_stream_ptr, gboolean((close_base) ? 1 : 0))
+    @inlinable func setCloseBaseStream(closeBase: Bool) {
+        g_filter_output_stream_set_close_base_stream(filter_output_stream_ptr, gboolean((closeBase) ? 1 : 0))
     
     }
     /// Gets the base stream for the filter stream.
@@ -4387,7 +4479,7 @@ public extension FilterOutputStreamProtocol {
 /// Provides an interface and default functions for loading and unloading
 /// modules. This is used internally to make GIO extensible, but can also
 /// be used by others to implement module loading.
-public protocol IOModuleProtocol: TypeModuleProtocol {
+public protocol IOModuleProtocol: GLibObject.TypeModuleProtocol, GLibObject.TypePluginProtocol {
         /// Untyped pointer to the underlying `GIOModule` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4463,7 +4555,7 @@ public extension IOModuleRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4494,7 +4586,7 @@ public extension IOModuleRef {
 /// Provides an interface and default functions for loading and unloading
 /// modules. This is used internally to make GIO extensible, but can also
 /// be used by others to implement module loading.
-open class IOModule: TypeModule, IOModuleProtocol {
+open class IOModule: GLibObject.TypeModule, IOModuleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `IOModule` instance.

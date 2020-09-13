@@ -84,7 +84,7 @@ public extension NativeVolumeMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeVolumeMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -356,7 +356,7 @@ public extension NativeVolumeMonitorProtocol {
 /// 
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
-public protocol NetworkAddressProtocol: ObjectProtocol, SocketConnectableProtocol {
+public protocol NetworkAddressProtocol: GLibObject.ObjectProtocol, SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GNetworkAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -439,7 +439,7 @@ public extension NetworkAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -471,7 +471,7 @@ public extension NetworkAddressRef {
 /// 
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
-open class NetworkAddress: Object, NetworkAddressProtocol {
+open class NetworkAddress: GLibObject.Object, NetworkAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkAddress` instance.
@@ -615,7 +615,7 @@ public extension NetworkAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: NetworkAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -795,7 +795,7 @@ public extension NetworkAddressProtocol {
 /// See `GSrvTarget` for more information about SRV records, and see
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
-public protocol NetworkServiceProtocol: ObjectProtocol, SocketConnectableProtocol {
+public protocol NetworkServiceProtocol: GLibObject.ObjectProtocol, SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GNetworkService` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -877,7 +877,7 @@ public extension NetworkServiceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkServiceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -908,7 +908,7 @@ public extension NetworkServiceRef {
 /// See `GSrvTarget` for more information about SRV records, and see
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
-open class NetworkService: Object, NetworkServiceProtocol {
+open class NetworkService: GLibObject.Object, NetworkServiceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `NetworkService` instance.
@@ -1053,7 +1053,7 @@ public extension NetworkServiceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: NetworkServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1274,7 +1274,7 @@ public extension NetworkServiceProtocol {
 /// clicked.
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
-public protocol NotificationProtocol: ObjectProtocol {
+public protocol NotificationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GNotification` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1368,7 +1368,7 @@ public extension NotificationRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotificationProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1421,7 +1421,7 @@ public extension NotificationRef {
 /// clicked.
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
-open class Notification: Object, NotificationProtocol {
+open class Notification: GLibObject.Object, NotificationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Notification` instance.
@@ -1632,8 +1632,8 @@ public extension NotificationProtocol {
     /// 
     /// See `g_action_parse_detailed_name()` for a description of the format
     /// for `detailed_action`.
-    @inlinable func addButton(label: UnsafePointer<gchar>!, detailedAction detailed_action: UnsafePointer<gchar>!) {
-        g_notification_add_button(notification_ptr, label, detailed_action)
+    @inlinable func addButton(label: UnsafePointer<gchar>!, detailedAction: UnsafePointer<gchar>!) {
+        g_notification_add_button(notification_ptr, label, detailedAction)
     
     }
 
@@ -1646,7 +1646,16 @@ public extension NotificationProtocol {
     /// 
     /// If `target` is non-`nil`, `action` will be activated with `target` as
     /// its parameter.
-    @inlinable func addButtonWithTargetValue<VariantT: VariantProtocol>(label: UnsafePointer<gchar>!, action: UnsafePointer<gchar>!, target: VariantT? = nil) {
+    @inlinable func addButtonWithTargetValue(label: UnsafePointer<gchar>!, action: UnsafePointer<gchar>!, target: GLib.VariantRef? = nil) {
+        g_notification_add_button_with_target_value(notification_ptr, label, action, target?.variant_ptr)
+    
+    }
+    /// Adds a button to `notification` that activates `action` when clicked.
+    /// `action` must be an application-wide action (it must start with "app.").
+    /// 
+    /// If `target` is non-`nil`, `action` will be activated with `target` as
+    /// its parameter.
+    @inlinable func addButtonWithTargetValue<VariantT: GLib.VariantProtocol>(label: UnsafePointer<gchar>!, action: UnsafePointer<gchar>!, target: VariantT?) {
         g_notification_add_button_with_target_value(notification_ptr, label, action, target?.variant_ptr)
     
     }
@@ -1668,8 +1677,8 @@ public extension NotificationProtocol {
     /// 
     /// When no default action is set, the application that the notification
     /// was sent on is activated.
-    @inlinable func setDefaultAction(detailedAction detailed_action: UnsafePointer<gchar>!) {
-        g_notification_set_default_action(notification_ptr, detailed_action)
+    @inlinable func setDefaultAction(detailedAction: UnsafePointer<gchar>!) {
+        g_notification_set_default_action(notification_ptr, detailedAction)
     
     }
 
@@ -1686,7 +1695,20 @@ public extension NotificationProtocol {
     /// 
     /// When no default action is set, the application that the notification
     /// was sent on is activated.
-    @inlinable func setDefaultActionAndTargetValue<VariantT: VariantProtocol>(action: UnsafePointer<gchar>!, target: VariantT? = nil) {
+    @inlinable func setDefaultActionAndTargetValue(action: UnsafePointer<gchar>!, target: GLib.VariantRef? = nil) {
+        g_notification_set_default_action_and_target_value(notification_ptr, action, target?.variant_ptr)
+    
+    }
+    /// Sets the default action of `notification` to `action`. This action is
+    /// activated when the notification is clicked on. It must be an
+    /// application-wide action (start with "app.").
+    /// 
+    /// If `target` is non-`nil`, `action` will be activated with `target` as
+    /// its parameter.
+    /// 
+    /// When no default action is set, the application that the notification
+    /// was sent on is activated.
+    @inlinable func setDefaultActionAndTargetValue<VariantT: GLib.VariantProtocol>(action: UnsafePointer<gchar>!, target: VariantT?) {
         g_notification_set_default_action_and_target_value(notification_ptr, action, target?.variant_ptr)
     
     }
@@ -1733,7 +1755,7 @@ public extension NotificationProtocol {
 /// Alternatively, use `OsxAppInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 
-public protocol OsxAppInfoProtocol: ObjectProtocol, AppInfoProtocol {
+public protocol OsxAppInfoProtocol: GLibObject.ObjectProtocol, AppInfoProtocol {
         /// Untyped pointer to the underlying `GOsxAppInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1807,7 +1829,7 @@ public extension OsxAppInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OsxAppInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1830,7 +1852,7 @@ public extension OsxAppInfoRef {
 /// Use `OsxAppInfo` as a strong reference or owner of a `GOsxAppInfo` instance.
 ///
 
-open class OsxAppInfo: Object, OsxAppInfoProtocol {
+open class OsxAppInfo: GLibObject.Object, OsxAppInfoProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OsxAppInfo` instance.

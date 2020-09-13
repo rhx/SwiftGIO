@@ -92,7 +92,7 @@ public extension MemoryInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -115,7 +115,7 @@ public extension MemoryInputStreamRef {
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    @inlinable init<BytesT: BytesProtocol>(bytes: BytesT) {
+    @inlinable init<BytesT: GLib.BytesProtocol>(bytes: BytesT) {
         let rv = g_memory_input_stream_new_from_bytes(bytes.bytes_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -126,7 +126,7 @@ public extension MemoryInputStreamRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    @inlinable static func newFrom<BytesT: BytesProtocol>(bytes: BytesT) -> InputStreamRef! {
+    @inlinable static func newFrom<BytesT: GLib.BytesProtocol>(bytes: BytesT) -> InputStreamRef! {
         guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_memory_input_stream_new_from_bytes(bytes.bytes_ptr))) else { return nil }
         return rv
     }
@@ -279,7 +279,7 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    @inlinable public init<BytesT: BytesProtocol>(bytes: BytesT) {
+    @inlinable public init<BytesT: GLib.BytesProtocol>(bytes: BytesT) {
         let rv = g_memory_input_stream_new_from_bytes(bytes.bytes_ptr)
         super.init(gpointer: (rv))
     }
@@ -291,7 +291,7 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
     }
 
     /// Creates a new `GMemoryInputStream` with data from the given `bytes`.
-    @inlinable public static func newFrom<BytesT: BytesProtocol>(bytes: BytesT) -> InputStream! {
+    @inlinable public static func newFrom<BytesT: GLib.BytesProtocol>(bytes: BytesT) -> InputStream! {
         guard let rv = InputStream(gconstpointer: gconstpointer(g_memory_input_stream_new_from_bytes(bytes.bytes_ptr))) else { return nil }
         return rv
     }
@@ -369,7 +369,7 @@ public extension MemoryInputStreamProtocol {
     @inlinable var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream>! { return ptr?.assumingMemoryBound(to: GMemoryInputStream.self) }
 
     /// Appends `bytes` to data that can be read from the input stream.
-    @inlinable func add<BytesT: BytesProtocol>(bytes: BytesT) {
+    @inlinable func add<BytesT: GLib.BytesProtocol>(bytes: BytesT) {
         g_memory_input_stream_add_bytes(memory_input_stream_ptr, bytes.bytes_ptr)
     
     }
@@ -483,7 +483,7 @@ public extension MemoryOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -542,8 +542,8 @@ public extension MemoryOutputStreamRef {
     /// stream3 = g_memory_output_stream_new (data, 200, NULL, free);
     /// ```
     /// 
-    @inlinable init( data: gpointer! = nil, size: Int, reallocFunction realloc_function: GReallocFunc? = nil, destroyFunction destroy_function: GDestroyNotify? = nil) {
-        let rv = g_memory_output_stream_new(data, gsize(size), realloc_function, destroy_function)
+    @inlinable init( data: gpointer! = nil, size: Int, reallocFunction: GReallocFunc? = nil, destroyFunction: GDestroyNotify? = nil) {
+        let rv = g_memory_output_stream_new(data, gsize(size), reallocFunction, destroyFunction)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GMemoryOutputStream`, using `g_realloc()` and `g_free()`
@@ -731,8 +731,8 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// stream3 = g_memory_output_stream_new (data, 200, NULL, free);
     /// ```
     /// 
-    @inlinable public init( data: gpointer! = nil, size: Int, reallocFunction realloc_function: GReallocFunc? = nil, destroyFunction destroy_function: GDestroyNotify? = nil) {
-        let rv = g_memory_output_stream_new(data, gsize(size), realloc_function, destroy_function)
+    @inlinable public init( data: gpointer! = nil, size: Int, reallocFunction: GReallocFunc? = nil, destroyFunction: GDestroyNotify? = nil) {
+        let rv = g_memory_output_stream_new(data, gsize(size), reallocFunction, destroyFunction)
         super.init(gpointer: (rv))
     }
 
@@ -767,7 +767,7 @@ public extension MemoryOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MemoryOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -920,8 +920,8 @@ public extension MemoryOutputStreamProtocol {
 
     /// Returns data from the `ostream` as a `GBytes`. `ostream` must be
     /// closed before calling this function.
-    @inlinable func stealAsBytes() -> BytesRef! {
-        let rv = BytesRef(gconstpointer: gconstpointer(g_memory_output_stream_steal_as_bytes(memory_output_stream_ptr)))
+    @inlinable func stealAsBytes() -> GLib.BytesRef! {
+        let rv = GLib.BytesRef(g_memory_output_stream_steal_as_bytes(memory_output_stream_ptr))
         return rv
     }
 
@@ -1090,7 +1090,7 @@ public extension MenuRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1351,8 +1351,8 @@ public extension MenuProtocol {
     /// Convenience function for appending a normal menu item to the end of
     /// `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    @inlinable func append(label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
-        g_menu_append(menu_ptr, label, detailed_action)
+    @inlinable func append(label: UnsafePointer<gchar>? = nil, detailedAction: UnsafePointer<gchar>? = nil) {
+        g_menu_append(menu_ptr, label, detailedAction)
     
     }
 
@@ -1396,8 +1396,8 @@ public extension MenuProtocol {
     /// Convenience function for inserting a normal menu item into `menu`.
     /// Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more flexible
     /// alternative.
-    @inlinable func insert(position: Int, label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
-        g_menu_insert(menu_ptr, gint(position), label, detailed_action)
+    @inlinable func insert(position: Int, label: UnsafePointer<gchar>? = nil, detailedAction: UnsafePointer<gchar>? = nil) {
+        g_menu_insert(menu_ptr, gint(position), label, detailedAction)
     
     }
 
@@ -1442,8 +1442,8 @@ public extension MenuProtocol {
     /// Convenience function for prepending a normal menu item to the start
     /// of `menu`.  Combine `g_menu_item_new()` and `g_menu_insert_item()` for a more
     /// flexible alternative.
-    @inlinable func prepend(label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
-        g_menu_prepend(menu_ptr, label, detailed_action)
+    @inlinable func prepend(label: UnsafePointer<gchar>? = nil, detailedAction: UnsafePointer<gchar>? = nil) {
+        g_menu_prepend(menu_ptr, label, detailedAction)
     
     }
 
@@ -1506,7 +1506,7 @@ public extension MenuProtocol {
 ///
 /// `GMenuAttributeIter` is an opaque structure type.  You must access it
 /// using the functions below.
-public protocol MenuAttributeIterProtocol: ObjectProtocol {
+public protocol MenuAttributeIterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1581,7 +1581,7 @@ public extension MenuAttributeIterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1605,7 +1605,7 @@ public extension MenuAttributeIterRef {
 ///
 /// `GMenuAttributeIter` is an opaque structure type.  You must access it
 /// using the functions below.
-open class MenuAttributeIter: Object, MenuAttributeIterProtocol {
+open class MenuAttributeIter: GLibObject.Object, MenuAttributeIterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuAttributeIter` instance.
@@ -1822,16 +1822,16 @@ public extension MenuAttributeIterProtocol {
     /// The value returned in `name` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
     /// be unreffed using `g_variant_unref()` when it is no longer in use.
-    @inlinable func getNext(outName out_name: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
-        let rv = ((g_menu_attribute_iter_get_next(menu_attribute_iter_ptr, out_name, value)) != 0)
+    @inlinable func getNext(outName: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
+        let rv = ((g_menu_attribute_iter_get_next(menu_attribute_iter_ptr, outName, value)) != 0)
         return rv
     }
 
     /// Gets the value of the attribute at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    @inlinable func getValue() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr)))
+    @inlinable func getValue() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr))
         return rv
     }
 
@@ -1866,12 +1866,12 @@ public extension MenuAttributeIterProtocol {
     /// Gets the value of the attribute at the current iterator position.
     /// 
     /// The iterator is not advanced.
-    @inlinable var value: VariantRef! {
+    @inlinable var value: GLib.VariantRef! {
         /// Gets the value of the attribute at the current iterator position.
         /// 
         /// The iterator is not advanced.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr)))
+            let rv = GLib.VariantRef(g_menu_attribute_iter_get_value(menu_attribute_iter_ptr))
             return rv
         }
     }
@@ -1903,7 +1903,7 @@ public extension MenuAttributeIterProtocol {
 ///
 /// `GMenuItem` is an opaque structure type.  You must access it using the
 /// functions below.
-public protocol MenuItemProtocol: ObjectProtocol {
+public protocol MenuItemProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1978,7 +1978,7 @@ public extension MenuItemRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2002,8 +2002,8 @@ public extension MenuItemRef {
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
-    @inlinable init( label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
-        let rv = g_menu_item_new(label, detailed_action)
+    @inlinable init( label: UnsafePointer<gchar>? = nil, detailedAction: UnsafePointer<gchar>? = nil) {
+        let rv = g_menu_item_new(label, detailedAction)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -2012,8 +2012,8 @@ public extension MenuItemRef {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    @inlinable init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) {
-        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index))
+    @inlinable init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex: Int) {
+        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(itemIndex))
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -2096,8 +2096,8 @@ public extension MenuItemRef {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    @inlinable static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) -> MenuItemRef! {
-        guard let rv = MenuItemRef(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index)))) else { return nil }
+    @inlinable static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex: Int) -> MenuItemRef! {
+        guard let rv = MenuItemRef(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(itemIndex)))) else { return nil }
         return rv
     }
 
@@ -2183,7 +2183,7 @@ public extension MenuItemRef {
 ///
 /// `GMenuItem` is an opaque structure type.  You must access it using the
 /// functions below.
-open class MenuItem: Object, MenuItemProtocol {
+open class MenuItem: GLibObject.Object, MenuItemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuItem` instance.
@@ -2316,8 +2316,8 @@ open class MenuItem: Object, MenuItemProtocol {
     /// If `detailed_action` is non-`nil` it is used to set the "action" and
     /// possibly the "target" attribute of the new item.  See
     /// `g_menu_item_set_detailed_action()` for more information.
-    @inlinable public init( label: UnsafePointer<gchar>? = nil, detailedAction detailed_action: UnsafePointer<gchar>? = nil) {
-        let rv = g_menu_item_new(label, detailed_action)
+    @inlinable public init( label: UnsafePointer<gchar>? = nil, detailedAction: UnsafePointer<gchar>? = nil) {
+        let rv = g_menu_item_new(label, detailedAction)
         super.init(gpointer: (rv))
     }
 
@@ -2326,8 +2326,8 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    @inlinable public init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) {
-        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index))
+    @inlinable public init<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex: Int) {
+        let rv = g_menu_item_new_from_model(model.menu_model_ptr, gint(itemIndex))
         super.init(gpointer: (rv))
     }
 
@@ -2411,8 +2411,8 @@ open class MenuItem: Object, MenuItemProtocol {
     /// 
     /// `item_index` must be valid (ie: be sure to call
     /// `g_menu_model_get_n_items()` first).
-    @inlinable public static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex item_index: Int) -> MenuItem! {
-        guard let rv = MenuItem(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(item_index)))) else { return nil }
+    @inlinable public static func newFrom<MenuModelT: MenuModelProtocol>(model: MenuModelT, itemIndex: Int) -> MenuItem! {
+        guard let rv = MenuItem(gconstpointer: gconstpointer(g_menu_item_new_from_model(model.menu_model_ptr, gint(itemIndex)))) else { return nil }
         return rv
     }
 
@@ -2566,8 +2566,17 @@ public extension MenuItemProtocol {
     /// If `expected_type` is specified and the attribute does not have this
     /// type, `nil` is returned.  `nil` is also returned if the attribute
     /// simply does not exist.
-    @inlinable func getAttributeValue<VariantTypeT: VariantTypeProtocol>(attribute: UnsafePointer<gchar>!, expectedType expected_type: VariantTypeT? = nil) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_item_get_attribute_value(menu_item_ptr, attribute, expected_type?.variant_type_ptr)))
+    @inlinable func getAttributeValue(attribute: UnsafePointer<gchar>!, expectedType: GLib.VariantTypeRef? = nil) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_menu_item_get_attribute_value(menu_item_ptr, attribute, expectedType?.variant_type_ptr))
+        return rv
+    }
+    /// Queries the named `attribute` on `menu_item`.
+    /// 
+    /// If `expected_type` is specified and the attribute does not have this
+    /// type, `nil` is returned.  `nil` is also returned if the attribute
+    /// simply does not exist.
+    @inlinable func getAttributeValue<VariantTypeT: GLib.VariantTypeProtocol>(attribute: UnsafePointer<gchar>!, expectedType: VariantTypeT?) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_menu_item_get_attribute_value(menu_item_ptr, attribute, expectedType?.variant_type_ptr))
         return rv
     }
 
@@ -2617,8 +2626,48 @@ public extension MenuItemProtocol {
     /// See `g_menu_item_set_action_and_target()` or
     /// `g_menu_item_set_detailed_action()` for two equivalent calls that are
     /// probably more convenient for most uses.
-    @inlinable func setActionAndTargetValue<VariantT: VariantProtocol>(action: UnsafePointer<gchar>? = nil, targetValue target_value: VariantT? = nil) {
-        g_menu_item_set_action_and_target_value(menu_item_ptr, action, target_value?.variant_ptr)
+    @inlinable func setActionAndTargetValue(action: UnsafePointer<gchar>? = nil, targetValue: GLib.VariantRef? = nil) {
+        g_menu_item_set_action_and_target_value(menu_item_ptr, action, targetValue?.variant_ptr)
+    
+    }
+    /// Sets or unsets the "action" and "target" attributes of `menu_item`.
+    /// 
+    /// If `action` is `nil` then both the "action" and "target" attributes
+    /// are unset (and `target_value` is ignored).
+    /// 
+    /// If `action` is non-`nil` then the "action" attribute is set.  The
+    /// "target" attribute is then set to the value of `target_value` if it is
+    /// non-`nil` or unset otherwise.
+    /// 
+    /// Normal menu items (ie: not submenu, section or other custom item
+    /// types) are expected to have the "action" attribute set to identify
+    /// the action that they are associated with.  The state type of the
+    /// action help to determine the disposition of the menu item.  See
+    /// `GAction` and `GActionGroup` for an overview of actions.
+    /// 
+    /// In general, clicking on the menu item will result in activation of
+    /// the named action with the "target" attribute given as the parameter
+    /// to the action invocation.  If the "target" attribute is not set then
+    /// the action is invoked with no parameter.
+    /// 
+    /// If the action has no state then the menu item is usually drawn as a
+    /// plain menu item (ie: with no additional decoration).
+    /// 
+    /// If the action has a boolean state then the menu item is usually drawn
+    /// as a toggle menu item (ie: with a checkmark or equivalent
+    /// indication).  The item should be marked as 'toggled' or 'checked'
+    /// when the boolean state is `true`.
+    /// 
+    /// If the action has a string state then the menu item is usually drawn
+    /// as a radio menu item (ie: with a radio bullet or equivalent
+    /// indication).  The item should be marked as 'selected' when the string
+    /// state is equal to the value of the `target` property.
+    /// 
+    /// See `g_menu_item_set_action_and_target()` or
+    /// `g_menu_item_set_detailed_action()` for two equivalent calls that are
+    /// probably more convenient for most uses.
+    @inlinable func setActionAndTargetValue<VariantT: GLib.VariantProtocol>(action: UnsafePointer<gchar>? = nil, targetValue: VariantT?) {
+        g_menu_item_set_action_and_target_value(menu_item_ptr, action, targetValue?.variant_ptr)
     
     }
 
@@ -2645,7 +2694,30 @@ public extension MenuItemProtocol {
     /// 
     /// See also `g_menu_item_set_attribute()` for a more convenient way to do
     /// the same.
-    @inlinable func setAttributeValue<VariantT: VariantProtocol>(attribute: UnsafePointer<gchar>!, value: VariantT? = nil) {
+    @inlinable func setAttributeValue(attribute: UnsafePointer<gchar>!, value: GLib.VariantRef? = nil) {
+        g_menu_item_set_attribute_value(menu_item_ptr, attribute, value?.variant_ptr)
+    
+    }
+    /// Sets or unsets an attribute on `menu_item`.
+    /// 
+    /// The attribute to set or unset is specified by `attribute`. This
+    /// can be one of the standard attribute names `G_MENU_ATTRIBUTE_LABEL`,
+    /// `G_MENU_ATTRIBUTE_ACTION`, `G_MENU_ATTRIBUTE_TARGET`, or a custom
+    /// attribute name.
+    /// Attribute names are restricted to lowercase characters, numbers
+    /// and '-'. Furthermore, the names must begin with a lowercase character,
+    /// must not end with a '-', and must not contain consecutive dashes.
+    /// 
+    /// must consist only of lowercase
+    /// ASCII characters, digits and '-'.
+    /// 
+    /// If `value` is non-`nil` then it is used as the new value for the
+    /// attribute.  If `value` is `nil` then the attribute is unset. If
+    /// the `value` `GVariant` is floating, it is consumed.
+    /// 
+    /// See also `g_menu_item_set_attribute()` for a more convenient way to do
+    /// the same.
+    @inlinable func setAttributeValue<VariantT: GLib.VariantProtocol>(attribute: UnsafePointer<gchar>!, value: VariantT?) {
         g_menu_item_set_attribute_value(menu_item_ptr, attribute, value?.variant_ptr)
     
     }
@@ -2661,8 +2733,8 @@ public extension MenuItemProtocol {
     /// 
     /// See also `g_menu_item_set_action_and_target_value()` for a description of
     /// the semantics of the action and target attributes.
-    @inlinable func set(detailedAction detailed_action: UnsafePointer<gchar>!) {
-        g_menu_item_set_detailed_action(menu_item_ptr, detailed_action)
+    @inlinable func set(detailedAction: UnsafePointer<gchar>!) {
+        g_menu_item_set_detailed_action(menu_item_ptr, detailedAction)
     
     }
 
@@ -2702,7 +2774,21 @@ public extension MenuItemProtocol {
     /// Link types are restricted to lowercase characters, numbers
     /// and '-'. Furthermore, the names must begin with a lowercase character,
     /// must not end with a '-', and must not contain consecutive dashes.
-    @inlinable func set<MenuModelT: MenuModelProtocol>(link: UnsafePointer<gchar>!, model: MenuModelT? = nil) {
+    @inlinable func set(link: UnsafePointer<gchar>!, model: MenuModelRef? = nil) {
+        g_menu_item_set_link(menu_item_ptr, link, model?.menu_model_ptr)
+    
+    }
+    /// Creates a link from `menu_item` to `model` if non-`nil`, or unsets it.
+    /// 
+    /// Links are used to establish a relationship between a particular menu
+    /// item and another menu.  For example, `G_MENU_LINK_SUBMENU` is used to
+    /// associate a submenu with a particular menu item, and `G_MENU_LINK_SECTION`
+    /// is used to create a section. Other types of link can be used, but there
+    /// is no guarantee that clients will be able to make sense of them.
+    /// Link types are restricted to lowercase characters, numbers
+    /// and '-'. Furthermore, the names must begin with a lowercase character,
+    /// must not end with a '-', and must not contain consecutive dashes.
+    @inlinable func set<MenuModelT: MenuModelProtocol>(link: UnsafePointer<gchar>!, model: MenuModelT?) {
         g_menu_item_set_link(menu_item_ptr, link, model?.menu_model_ptr)
     
     }
@@ -2714,7 +2800,18 @@ public extension MenuItemProtocol {
     /// the menu that `menu_item` is added to.  See `g_menu_item_new_section()`
     /// for more information about what it means for a menu item to be a
     /// section.
-    @inlinable func set<MenuModelT: MenuModelProtocol>(section: MenuModelT? = nil) {
+    @inlinable func set(section: MenuModelRef? = nil) {
+        g_menu_item_set_section(menu_item_ptr, section?.menu_model_ptr)
+    
+    }
+    /// Sets or unsets the "section" link of `menu_item` to `section`.
+    /// 
+    /// The effect of having one menu appear as a section of another is
+    /// exactly as it sounds: the items from `section` become a direct part of
+    /// the menu that `menu_item` is added to.  See `g_menu_item_new_section()`
+    /// for more information about what it means for a menu item to be a
+    /// section.
+    @inlinable func set<MenuModelT: MenuModelProtocol>(section: MenuModelT?) {
         g_menu_item_set_section(menu_item_ptr, section?.menu_model_ptr)
     
     }
@@ -2726,7 +2823,18 @@ public extension MenuItemProtocol {
     /// 
     /// The effect of having one menu appear as a submenu of another is
     /// exactly as it sounds.
-    @inlinable func set<MenuModelT: MenuModelProtocol>(submenu: MenuModelT? = nil) {
+    @inlinable func set(submenu: MenuModelRef? = nil) {
+        g_menu_item_set_submenu(menu_item_ptr, submenu?.menu_model_ptr)
+    
+    }
+    /// Sets or unsets the "submenu" link of `menu_item` to `submenu`.
+    /// 
+    /// If `submenu` is non-`nil`, it is linked to.  If it is `nil` then the
+    /// link is unset.
+    /// 
+    /// The effect of having one menu appear as a submenu of another is
+    /// exactly as it sounds.
+    @inlinable func set<MenuModelT: MenuModelProtocol>(submenu: MenuModelT?) {
         g_menu_item_set_submenu(menu_item_ptr, submenu?.menu_model_ptr)
     
     }
@@ -2745,7 +2853,7 @@ public extension MenuItemProtocol {
 ///
 /// `GMenuLinkIter` is an opaque structure type.  You must access it using
 /// the functions below.
-public protocol MenuLinkIterProtocol: ObjectProtocol {
+public protocol MenuLinkIterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2820,7 +2928,7 @@ public extension MenuLinkIterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2844,7 +2952,7 @@ public extension MenuLinkIterRef {
 ///
 /// `GMenuLinkIter` is an opaque structure type.  You must access it using
 /// the functions below.
-open class MenuLinkIter: Object, MenuLinkIterProtocol {
+open class MenuLinkIter: GLibObject.Object, MenuLinkIterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuLinkIter` instance.
@@ -3059,8 +3167,8 @@ public extension MenuLinkIterProtocol {
     /// The value returned in `out_link` remains valid for as long as the iterator
     /// remains at the current position.  The value returned in `value` must
     /// be unreffed using `g_object_unref()` when it is no longer in use.
-    @inlinable func getNext(outLink out_link: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GMenuModel>?>! = nil) -> Bool {
-        let rv = ((g_menu_link_iter_get_next(menu_link_iter_ptr, out_link, value)) != 0)
+    @inlinable func getNext(outLink: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, value: UnsafeMutablePointer<UnsafeMutablePointer<GMenuModel>?>! = nil) -> Bool {
+        let rv = ((g_menu_link_iter_get_next(menu_link_iter_ptr, outLink, value)) != 0)
         return rv
     }
 
@@ -3248,7 +3356,7 @@ public extension MenuLinkIterProtocol {
 /// of the action with the target value as the parameter. The menu item should
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
-public protocol MenuModelProtocol: ObjectProtocol {
+public protocol MenuModelProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3434,7 +3542,7 @@ public extension MenuModelRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3569,7 +3677,7 @@ public extension MenuModelRef {
 /// of the action with the target value as the parameter. The menu item should
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
-open class MenuModel: Object, MenuModelProtocol {
+open class MenuModel: GLibObject.Object, MenuModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MenuModel` instance.
@@ -3798,8 +3906,23 @@ public extension MenuModelProtocol {
     /// 
     /// If the attribute does not exist, or does not match the expected type
     /// then `nil` is returned.
-    @inlinable func getItemAttributeValue<VariantTypeT: VariantTypeProtocol>(itemIndex item_index: Int, attribute: UnsafePointer<gchar>!, expectedType expected_type: VariantTypeT? = nil) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_menu_model_get_item_attribute_value(menu_model_ptr, gint(item_index), attribute, expected_type?.variant_type_ptr)))
+    @inlinable func getItemAttributeValue(itemIndex: Int, attribute: UnsafePointer<gchar>!, expectedType: GLib.VariantTypeRef? = nil) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_menu_model_get_item_attribute_value(menu_model_ptr, gint(itemIndex), attribute, expectedType?.variant_type_ptr))
+        return rv
+    }
+    /// Queries the item at position `item_index` in `model` for the attribute
+    /// specified by `attribute`.
+    /// 
+    /// If `expected_type` is non-`nil` then it specifies the expected type of
+    /// the attribute.  If it is `nil` then any type will be accepted.
+    /// 
+    /// If the attribute exists and matches `expected_type` (or if the
+    /// expected type is unspecified) then the value is returned.
+    /// 
+    /// If the attribute does not exist, or does not match the expected type
+    /// then `nil` is returned.
+    @inlinable func getItemAttributeValue<VariantTypeT: GLib.VariantTypeProtocol>(itemIndex: Int, attribute: UnsafePointer<gchar>!, expectedType: VariantTypeT?) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_menu_model_get_item_attribute_value(menu_model_ptr, gint(itemIndex), attribute, expectedType?.variant_type_ptr))
         return rv
     }
 
@@ -3808,8 +3931,8 @@ public extension MenuModelProtocol {
     /// 
     /// If the link exists, the linked `GMenuModel` is returned.  If the link
     /// does not exist, `nil` is returned.
-    @inlinable func getItemLink(itemIndex item_index: Int, link: UnsafePointer<gchar>!) -> MenuModelRef! {
-        guard let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_model_get_item_link(menu_model_ptr, gint(item_index), link))) else { return nil }
+    @inlinable func getItemLink(itemIndex: Int, link: UnsafePointer<gchar>!) -> MenuModelRef! {
+        guard let rv = MenuModelRef(gconstpointer: gconstpointer(g_menu_model_get_item_link(menu_model_ptr, gint(itemIndex), link))) else { return nil }
         return rv
     }
 
@@ -3843,8 +3966,8 @@ public extension MenuModelProtocol {
     /// the item at position `item_index` in `model`.
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
-    @inlinable func iterateItemAttributes(itemIndex item_index: Int) -> MenuAttributeIterRef! {
-        let rv = MenuAttributeIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_attributes(menu_model_ptr, gint(item_index))))
+    @inlinable func iterateItemAttributes(itemIndex: Int) -> MenuAttributeIterRef! {
+        let rv = MenuAttributeIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_attributes(menu_model_ptr, gint(itemIndex))))
         return rv
     }
 
@@ -3852,8 +3975,8 @@ public extension MenuModelProtocol {
     /// position `item_index` in `model`.
     /// 
     /// You must free the iterator with `g_object_unref()` when you are done.
-    @inlinable func iterateItemLinks(itemIndex item_index: Int) -> MenuLinkIterRef! {
-        let rv = MenuLinkIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_links(menu_model_ptr, gint(item_index))))
+    @inlinable func iterateItemLinks(itemIndex: Int) -> MenuLinkIterRef! {
+        let rv = MenuLinkIterRef(gconstpointer: gconstpointer(g_menu_model_iterate_item_links(menu_model_ptr, gint(itemIndex))))
         return rv
     }
     /// Queries if `model` is mutable.
@@ -3926,7 +4049,7 @@ public extension MenuModelProtocol {
 /// encrypting file containers, partitions or whole disks, typically used with Windows.
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
-public protocol MountOperationProtocol: ObjectProtocol {
+public protocol MountOperationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMountOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4020,7 +4143,7 @@ public extension MountOperationRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4068,7 +4191,7 @@ public extension MountOperationRef {
 /// encrypting file containers, partitions or whole disks, typically used with Windows.
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
-open class MountOperation: Object, MountOperationProtocol {
+open class MountOperation: GLibObject.Object, MountOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MountOperation` instance.
@@ -4241,7 +4364,7 @@ public extension MountOperationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MountOperationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -4506,14 +4629,14 @@ public extension MountOperationProtocol {
     }
 
     /// Sets the mount operation to use a hidden volume if `hidden_volume` is `true`.
-    @inlinable func setIsTcrypt(hiddenVolume hidden_volume: Bool) {
-        g_mount_operation_set_is_tcrypt_hidden_volume(mount_operation_ptr, gboolean((hidden_volume) ? 1 : 0))
+    @inlinable func setIsTcrypt(hiddenVolume: Bool) {
+        g_mount_operation_set_is_tcrypt_hidden_volume(mount_operation_ptr, gboolean((hiddenVolume) ? 1 : 0))
     
     }
 
     /// Sets the mount operation to use a system volume if `system_volume` is `true`.
-    @inlinable func setIsTcrypt(systemVolume system_volume: Bool) {
-        g_mount_operation_set_is_tcrypt_system_volume(mount_operation_ptr, gboolean((system_volume) ? 1 : 0))
+    @inlinable func setIsTcrypt(systemVolume: Bool) {
+        g_mount_operation_set_is_tcrypt_system_volume(mount_operation_ptr, gboolean((systemVolume) ? 1 : 0))
     
     }
 
@@ -4766,7 +4889,7 @@ public extension NativeSocketAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4941,7 +5064,7 @@ public extension NativeSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: NativeSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)

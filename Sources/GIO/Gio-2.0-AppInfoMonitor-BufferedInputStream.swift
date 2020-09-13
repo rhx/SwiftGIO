@@ -26,7 +26,7 @@ import GLibObject
 /// The reason for this is that changes to the list of installed
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
-public protocol AppInfoMonitorProtocol: ObjectProtocol {
+public protocol AppInfoMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -116,7 +116,7 @@ public extension AppInfoMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -168,7 +168,7 @@ public extension AppInfoMonitorRef {
 /// The reason for this is that changes to the list of installed
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
-open class AppInfoMonitor: Object, AppInfoMonitorProtocol {
+open class AppInfoMonitor: GLibObject.Object, AppInfoMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppInfoMonitor` instance.
@@ -393,7 +393,7 @@ public extension AppInfoMonitorProtocol {
 /// Integrating the launch with the launching application. This is used to
 /// handle for instance startup notification and launching the new application
 /// on the same screen as the launching window.
-public protocol AppLaunchContextProtocol: ObjectProtocol {
+public protocol AppLaunchContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -469,7 +469,7 @@ public extension AppLaunchContextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -500,7 +500,7 @@ public extension AppLaunchContextRef {
 /// Integrating the launch with the launching application. This is used to
 /// handle for instance startup notification and launching the new application
 /// on the same screen as the launching window.
-open class AppLaunchContext: Object, AppLaunchContextProtocol {
+open class AppLaunchContext: GLibObject.Object, AppLaunchContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
@@ -712,7 +712,7 @@ public extension AppLaunchContextProtocol {
     /// Gets the display string for the `context`. This is used to ensure new
     /// applications are started on the same display as the launching
     /// application, by setting the `DISPLAY` environment variable.
-    @inlinable func getDisplay<AppInfoT: AppInfoProtocol, ListT: ListProtocol>(info: AppInfoT, files: ListT) -> String! {
+    @inlinable func getDisplay<AppInfoT: AppInfoProtocol, ListT: GLib.ListProtocol>(info: AppInfoT, files: ListT) -> String! {
         let rv = g_app_launch_context_get_display(app_launch_context_ptr, info.app_info_ptr, files._ptr).map({ String(cString: $0) })
         return rv
     }
@@ -731,15 +731,15 @@ public extension AppLaunchContextProtocol {
     /// 
     /// Startup notification IDs are defined in the
     /// [FreeDesktop.Org Startup Notifications standard](http://standards.freedesktop.org/startup-notification-spec/startup-notification-latest.txt).
-    @inlinable func getStartupNotifyID<AppInfoT: AppInfoProtocol, ListT: ListProtocol>(info: AppInfoT, files: ListT) -> String! {
+    @inlinable func getStartupNotifyID<AppInfoT: AppInfoProtocol, ListT: GLib.ListProtocol>(info: AppInfoT, files: ListT) -> String! {
         let rv = g_app_launch_context_get_startup_notify_id(app_launch_context_ptr, info.app_info_ptr, files._ptr).map({ String(cString: $0) })
         return rv
     }
 
     /// Called when an application has failed to launch, so that it can cancel
     /// the application startup notification started in `g_app_launch_context_get_startup_notify_id()`.
-    @inlinable func launchFailed(startupNotifyID startup_notify_id: UnsafePointer<CChar>!) {
-        g_app_launch_context_launch_failed(app_launch_context_ptr, startup_notify_id)
+    @inlinable func launchFailed(startupNotifyID: UnsafePointer<CChar>!) {
+        g_app_launch_context_launch_failed(app_launch_context_ptr, startupNotifyID)
     
     }
 
@@ -782,8 +782,22 @@ public extension AppLaunchContextProtocol {
     /// This is also useful if you want to be sure that the D-Bus–activated
     /// applications are really started before termination and if you are interested
     /// in receiving error information from their activation.
-    @inlinable func appInfoLaunchDefaultForURIAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<CChar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_app_info_launch_default_for_uri_async(uri, app_launch_context_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func appInfoLaunchDefaultForURIAsync(uri: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_default_for_uri_async(uri, app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Async version of `g_app_info_launch_default_for_uri()`.
+    /// 
+    /// This version is useful if you are interested in receiving
+    /// error information in the case where the application is
+    /// sandboxed and the portal may present an application chooser
+    /// dialog to the user.
+    /// 
+    /// This is also useful if you want to be sure that the D-Bus–activated
+    /// applications are really started before termination and if you are interested
+    /// in receiving error information from their activation.
+    @inlinable func appInfoLaunchDefaultForURIAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<CChar>!, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_default_for_uri_async(uri, app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
     /// Gets the complete environment variable list to be passed to
@@ -935,7 +949,7 @@ public extension AppLaunchContextProtocol {
 /// 
 /// For an example of using extra D-Bus hooks with GApplication, see
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
-public protocol ApplicationProtocol: ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
+public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
         /// Untyped pointer to the underlying `GApplication` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1122,7 +1136,7 @@ public extension ApplicationRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1145,8 +1159,8 @@ public extension ApplicationRef {
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
-    @inlinable init( application_id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
-        let rv = g_application_new(application_id, flags.value)
+    @inlinable init( applicationID: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
+        let rv = g_application_new(applicationID, flags.value)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Returns the default `GApplication` instance for this process.
@@ -1280,7 +1294,7 @@ public extension ApplicationRef {
 /// 
 /// For an example of using extra D-Bus hooks with GApplication, see
 /// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
-open class Application: Object, ApplicationProtocol {
+open class Application: GLibObject.Object, ApplicationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Application` instance.
@@ -1412,8 +1426,8 @@ open class Application: Object, ApplicationProtocol {
     /// 
     /// If no application ID is given then some features of `GApplication`
     /// (most notably application uniqueness) will be disabled.
-    @inlinable public init( application_id: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
-        let rv = g_application_new(application_id, flags.value)
+    @inlinable public init( applicationID: UnsafePointer<gchar>? = nil, flags: ApplicationFlags) {
+        let rv = g_application_new(applicationID, flags.value)
         super.init(gpointer: (rv))
     }
 
@@ -1453,7 +1467,7 @@ public extension ApplicationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ApplicationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1656,8 +1670,8 @@ public extension ApplicationProtocol {
     /// `g_application_add_main_option_entries()` for more details.
     /// 
     /// See `GOptionEntry` for more documentation of the arguments.
-    @inlinable func addMainOption(longName long_name: UnsafePointer<CChar>!, shortName short_name: CChar, flags: OptionFlags, arg: GOptionArg, description: UnsafePointer<CChar>!, argDescription arg_description: UnsafePointer<CChar>? = nil) {
-        g_application_add_main_option(application_ptr, long_name, short_name, flags.value, arg, description, arg_description)
+    @inlinable func addMainOption(longName: UnsafePointer<CChar>!, shortName: CChar, flags: GLib.OptionFlags, arg: GOptionArg, description: UnsafePointer<CChar>!, argDescription: UnsafePointer<CChar>? = nil) {
+        g_application_add_main_option(application_ptr, longName, shortName, flags.value, arg, description, argDescription)
     
     }
 
@@ -1745,7 +1759,7 @@ public extension ApplicationProtocol {
     /// group to be parsed, but it does not cause you to be "opted in" to the
     /// new functionality whereby unrecognised options are rejected even if
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` was given.
-    @inlinable func addOption<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+    @inlinable func addOption<OptionGroupT: GLib.OptionGroupProtocol>(group: OptionGroupT) {
         g_application_add_option_group(application_ptr, group.option_group_ptr)
     
     }
@@ -1756,7 +1770,7 @@ public extension ApplicationProtocol {
     /// The binding holds a reference to `application` while it is active, but
     /// not to `object`. Instead, the binding is destroyed when `object` is
     /// finalized.
-    @inlinable func bindBusyProperty<ObjectT: ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
+    @inlinable func bindBusyProperty<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
         g_application_bind_busy_property(application_ptr, object.object_ptr, property)
     
     }
@@ -1901,8 +1915,8 @@ public extension ApplicationProtocol {
     /// 
     /// The application must be registered before calling this function
     /// and it must have the `G_APPLICATION_HANDLES_OPEN` flag set.
-    @inlinable func open(files: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>!, nFiles n_files: Int, hint: UnsafePointer<gchar>!) {
-        g_application_open(application_ptr, files, gint(n_files), hint)
+    @inlinable func open(files: UnsafeMutablePointer<UnsafeMutablePointer<GFile>?>!, nFiles: Int, hint: UnsafePointer<gchar>!) {
+        g_application_open(application_ptr, files, gint(nFiles), hint)
     
     }
 
@@ -1954,7 +1968,43 @@ public extension ApplicationProtocol {
     /// Note: the return value of this function is not an indicator that this
     /// instance is or is not the primary instance of the application.  See
     /// `g_application_get_is_remote()` for that.
-    @inlinable func register<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func register(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_application_register(application_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts registration of the application.
+    /// 
+    /// This is the point at which the application discovers if it is the
+    /// primary instance or merely acting as a remote for an already-existing
+    /// primary instance.  This is implemented by attempting to acquire the
+    /// application identifier as a unique bus name on the session bus using
+    /// GDBus.
+    /// 
+    /// If there is no application ID or if `G_APPLICATION_NON_UNIQUE` was
+    /// given, then this process will always become the primary instance.
+    /// 
+    /// Due to the internal architecture of GDBus, method calls can be
+    /// dispatched at any time (even if a main loop is not running).  For
+    /// this reason, you must ensure that any object paths that you wish to
+    /// register are registered before calling this function.
+    /// 
+    /// If the application has already been registered then `true` is
+    /// returned with no work performed.
+    /// 
+    /// The `GApplication::startup` signal is emitted if registration succeeds
+    /// and `application` is the primary instance (including the non-unique
+    /// case).
+    /// 
+    /// In the event of an error (such as `cancellable` being cancelled, or a
+    /// failure to connect to the session bus), `false` is returned and `error`
+    /// is set appropriately.
+    /// 
+    /// Note: the return value of this function is not an indicator that this
+    /// instance is or is not the primary instance of the application.  See
+    /// `g_application_get_is_remote()` for that.
+    @inlinable func register<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_application_register(application_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -2092,8 +2142,21 @@ public extension ApplicationProtocol {
     /// or things will go very badly wrong.  This function is known to
     /// introduce buggy behaviour (ie: signals not emitted on changes to the
     /// action group), so you should really use #GActionMap instead.
-    @available(*, deprecated) @inlinable func set<ActionGroupT: ActionGroupProtocol>(actionGroup action_group: ActionGroupT? = nil) {
-        g_application_set_action_group(application_ptr, action_group?.action_group_ptr)
+    @available(*, deprecated) @inlinable func set(actionGroup: ActionGroupRef? = nil) {
+        g_application_set_action_group(application_ptr, actionGroup?.action_group_ptr)
+    
+    }
+    /// This used to be how actions were associated with a `GApplication`.
+    /// Now there is `GActionMap` for that.
+    ///
+    /// **set_action_group is deprecated:**
+    /// Use the #GActionMap interface instead.  Never ever
+    /// mix use of this API with use of #GActionMap on the same @application
+    /// or things will go very badly wrong.  This function is known to
+    /// introduce buggy behaviour (ie: signals not emitted on changes to the
+    /// action group), so you should really use #GActionMap instead.
+    @available(*, deprecated) @inlinable func set<ActionGroupT: ActionGroupProtocol>(actionGroup: ActionGroupT?) {
+        g_application_set_action_group(application_ptr, actionGroup?.action_group_ptr)
     
     }
 
@@ -2104,8 +2167,8 @@ public extension ApplicationProtocol {
     /// 
     /// If non-`nil`, the application id must be valid.  See
     /// `g_application_id_is_valid()`.
-    @inlinable func set(applicationID application_id: UnsafePointer<gchar>? = nil) {
-        g_application_set_application_id(application_ptr, application_id)
+    @inlinable func set(applicationID: UnsafePointer<gchar>? = nil) {
+        g_application_set_application_id(application_ptr, applicationID)
     
     }
 
@@ -2139,8 +2202,8 @@ public extension ApplicationProtocol {
     /// This call has no side effects of its own.  The value set here is only
     /// used for next time `g_application_release()` drops the use count to
     /// zero.  Any timeouts currently in progress are not impacted.
-    @inlinable func set(inactivityTimeout inactivity_timeout: Int) {
-        g_application_set_inactivity_timeout(application_ptr, guint(inactivity_timeout))
+    @inlinable func set(inactivityTimeout: Int) {
+        g_application_set_inactivity_timeout(application_ptr, guint(inactivityTimeout))
     
     }
 
@@ -2158,8 +2221,8 @@ public extension ApplicationProtocol {
     /// when the internal `GOptionContext` of `application` is created.
     /// 
     /// See `g_option_context_new()` for more information about `parameter_string`.
-    @inlinable func setOptionContext(parameterString parameter_string: UnsafePointer<gchar>? = nil) {
-        g_application_set_option_context_parameter_string(application_ptr, parameter_string)
+    @inlinable func setOptionContext(parameterString: UnsafePointer<gchar>? = nil) {
+        g_application_set_option_context_parameter_string(application_ptr, parameterString)
     
     }
 
@@ -2204,15 +2267,15 @@ public extension ApplicationProtocol {
     /// this function during the instance initialization. Alternatively, you
     /// can call this function in the `GApplicationClass.startup` virtual function,
     /// before chaining up to the parent implementation.
-    @inlinable func setResourceBasePath(resourcePath resource_path: UnsafePointer<gchar>? = nil) {
-        g_application_set_resource_base_path(application_ptr, resource_path)
+    @inlinable func setResourceBasePath(resourcePath: UnsafePointer<gchar>? = nil) {
+        g_application_set_resource_base_path(application_ptr, resourcePath)
     
     }
 
     /// Destroys a binding between `property` and the busy state of
     /// `application` that was previously created with
     /// `g_application_bind_busy_property()`.
-    @inlinable func unbindBusyProperty<ObjectT: ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
+    @inlinable func unbindBusyProperty<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, property: UnsafePointer<gchar>!) {
         g_application_unbind_busy_property(application_ptr, object.object_ptr, property)
     
     }
@@ -2652,7 +2715,7 @@ public extension ApplicationProtocol {
 /// 
 /// The complete example can be found here:
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
-public protocol ApplicationCommandLineProtocol: ObjectProtocol {
+public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2882,7 +2945,7 @@ public extension ApplicationCommandLineRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3061,7 +3124,7 @@ public extension ApplicationCommandLineRef {
 /// 
 /// The complete example can be found here:
 /// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
-open class ApplicationCommandLine: Object, ApplicationCommandLineProtocol {
+open class ApplicationCommandLine: GLibObject.Object, ApplicationCommandLineProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ApplicationCommandLine` instance.
@@ -3206,7 +3269,7 @@ public extension ApplicationCommandLineProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ApplicationCommandLinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3397,8 +3460,8 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
-    @inlinable func getOptionsDict() -> VariantDictRef! {
-        let rv = VariantDictRef(gconstpointer: gconstpointer(g_application_command_line_get_options_dict(application_command_line_ptr)))
+    @inlinable func getOptionsDict() -> GLib.VariantDictRef! {
+        let rv = GLib.VariantDictRef(g_application_command_line_get_options_dict(application_command_line_ptr))
         return rv
     }
 
@@ -3410,8 +3473,8 @@ public extension ApplicationCommandLineProtocol {
     /// notification ID.
     /// 
     /// For local invocation, it will be `nil`.
-    @inlinable func getPlatformData() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_application_command_line_get_platform_data(application_command_line_ptr)))
+    @inlinable func getPlatformData() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_application_command_line_get_platform_data(application_command_line_ptr))
         return rv
     }
 
@@ -3475,8 +3538,8 @@ public extension ApplicationCommandLineProtocol {
     /// have been 'successful' in a certain sense, and the exit status is
     /// always zero.  If the application use count is zero, though, the exit
     /// status of the local `GApplicationCommandLine` is used.
-    @inlinable func set(exitStatus exit_status: Int) {
-        g_application_command_line_set_exit_status(application_command_line_ptr, gint(exit_status))
+    @inlinable func set(exitStatus: Int) {
+        g_application_command_line_set_exit_status(application_command_line_ptr, gint(exitStatus))
     
     }
     /// Gets the working directory of the command line invocation.
@@ -3592,7 +3655,7 @@ public extension ApplicationCommandLineProtocol {
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
-    @inlinable var optionsDict: VariantDictRef! {
+    @inlinable var optionsDict: GLib.VariantDictRef! {
         /// Gets the options there were passed to `g_application_command_line()`.
         /// 
         /// If you did not override `local_command_line()` then these are the same
@@ -3603,7 +3666,7 @@ public extension ApplicationCommandLineProtocol {
         /// If no options were sent then an empty dictionary is returned so that
         /// you don't need to check for `nil`.
         get {
-            let rv = VariantDictRef(gconstpointer: gconstpointer(g_application_command_line_get_options_dict(application_command_line_ptr)))
+            let rv = GLib.VariantDictRef(g_application_command_line_get_options_dict(application_command_line_ptr))
             return rv
         }
     }
@@ -3616,7 +3679,7 @@ public extension ApplicationCommandLineProtocol {
     /// notification ID.
     /// 
     /// For local invocation, it will be `nil`.
-    @inlinable var platformData: VariantRef! {
+    @inlinable var platformData: GLib.VariantRef! {
         /// Gets the platform data associated with the invocation of `cmdline`.
         /// 
         /// This is a `GVariant` dictionary containing information about the
@@ -3626,7 +3689,7 @@ public extension ApplicationCommandLineProtocol {
         /// 
         /// For local invocation, it will be `nil`.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_application_command_line_get_platform_data(application_command_line_ptr)))
+            let rv = GLib.VariantRef(g_application_command_line_get_platform_data(application_command_line_ptr))
             return rv
         }
     }
@@ -3774,7 +3837,7 @@ public extension BufferedInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3792,21 +3855,21 @@ public extension BufferedInputStreamRef {
 
         /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
-    @inlinable init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
-        let rv = g_buffered_input_stream_new(base_stream.input_stream_ptr)
+    @inlinable init<InputStreamT: InputStreamProtocol>( baseStream: InputStreamT) {
+        let rv = g_buffered_input_stream_new(baseStream.input_stream_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    @inlinable init<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) {
-        let rv = g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size))
+    @inlinable init<InputStreamT: InputStreamProtocol>(sized baseStream: InputStreamT, size: Int) {
+        let rv = g_buffered_input_stream_new_sized(baseStream.input_stream_ptr, gsize(size))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    @inlinable static func new<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) -> InputStreamRef! {
-        guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size)))) else { return nil }
+    @inlinable static func new<InputStreamT: InputStreamProtocol>(sized baseStream: InputStreamT, size: Int) -> InputStreamRef! {
+        guard let rv = InputStreamRef(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(baseStream.input_stream_ptr, gsize(size)))) else { return nil }
         return rv
     }
 }
@@ -3956,22 +4019,22 @@ open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
 
     /// Creates a new `GInputStream` from the given `base_stream`, with
     /// a buffer set to the default size (4 kilobytes).
-    @inlinable public init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
-        let rv = g_buffered_input_stream_new(base_stream.input_stream_ptr)
+    @inlinable public init<InputStreamT: InputStreamProtocol>( baseStream: InputStreamT) {
+        let rv = g_buffered_input_stream_new(baseStream.input_stream_ptr)
         super.init(gpointer: (rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    @inlinable public init<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) {
-        let rv = g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size))
+    @inlinable public init<InputStreamT: InputStreamProtocol>(sized baseStream: InputStreamT, size: Int) {
+        let rv = g_buffered_input_stream_new_sized(baseStream.input_stream_ptr, gsize(size))
         super.init(gpointer: (rv))
     }
 
     /// Creates a new `GBufferedInputStream` from the given `base_stream`,
     /// with a buffer set to `size`.
-    @inlinable public static func new<InputStreamT: InputStreamProtocol>(sized base_stream: InputStreamT, size: Int) -> InputStream! {
-        guard let rv = InputStream(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(base_stream.input_stream_ptr, gsize(size)))) else { return nil }
+    @inlinable public static func new<InputStreamT: InputStreamProtocol>(sized baseStream: InputStreamT, size: Int) -> InputStream! {
+        guard let rv = InputStream(gconstpointer: gconstpointer(g_buffered_input_stream_new_sized(baseStream.input_stream_ptr, gsize(size)))) else { return nil }
         return rv
     }
 
@@ -3992,7 +4055,7 @@ public extension BufferedInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: BufferedInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -4124,7 +4187,37 @@ public extension BufferedInputStreamProtocol {
     /// 
     /// For the asynchronous, non-blocking, version of this function, see
     /// `g_buffered_input_stream_fill_async()`.
-    @inlinable func fill<CancellableT: CancellableProtocol>(count: gssize, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func fill(count: gssize, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_buffered_input_stream_fill(buffered_input_stream_ptr, count, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to read `count` bytes from the stream into the buffer.
+    /// Will block during this read.
+    /// 
+    /// If `count` is zero, returns zero and does nothing. A value of `count`
+    /// larger than `G_MAXSSIZE` will cause a `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes read into the buffer is returned.
+    /// It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. near the end of a file. Zero is returned on end of file
+    /// (or if `count` is zero),  but never otherwise.
+    /// 
+    /// If `count` is -1 then the attempted read size is equal to the number of
+    /// bytes that are required to fill the buffer.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly.
+    /// 
+    /// For the asynchronous, non-blocking, version of this function, see
+    /// `g_buffered_input_stream_fill_async()`.
+    @inlinable func fill<CancellableT: CancellableProtocol>(count: gssize, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_buffered_input_stream_fill(buffered_input_stream_ptr, count, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -4137,8 +4230,18 @@ public extension BufferedInputStreamProtocol {
     /// 
     /// If `count` is -1 then the attempted read size is equal to the number
     /// of bytes that are required to fill the buffer.
-    @inlinable func fillAsync<CancellableT: CancellableProtocol>(count: gssize, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_buffered_input_stream_fill_async(buffered_input_stream_ptr, count, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func fillAsync(count: gssize, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_buffered_input_stream_fill_async(buffered_input_stream_ptr, count, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Reads data into `stream`'s buffer asynchronously, up to `count` size.
+    /// `io_priority` can be used to prioritize reads. For the synchronous
+    /// version of this function, see `g_buffered_input_stream_fill()`.
+    /// 
+    /// If `count` is -1 then the attempted read size is equal to the number
+    /// of bytes that are required to fill the buffer.
+    @inlinable func fillAsync<CancellableT: CancellableProtocol>(count: gssize, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_buffered_input_stream_fill_async(buffered_input_stream_ptr, count, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -4190,7 +4293,26 @@ public extension BufferedInputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
-    @inlinable func readByte<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Int {
+    @inlinable func readByte(cancellable: CancellableRef? = nil) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_buffered_input_stream_read_byte(buffered_input_stream_ptr, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to read a single byte from the stream or the buffer. Will block
+    /// during this read.
+    /// 
+    /// On success, the byte read from the stream is returned. On end of stream
+    /// -1 is returned but it's not an exceptional error and `error` is not set.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly.
+    @inlinable func readByte<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
         let rv = Int(g_buffered_input_stream_read_byte(buffered_input_stream_ptr, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }

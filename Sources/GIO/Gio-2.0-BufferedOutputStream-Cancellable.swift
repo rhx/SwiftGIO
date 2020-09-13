@@ -110,7 +110,7 @@ public extension BufferedOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -127,19 +127,19 @@ public extension BufferedOutputStreamRef {
     }
 
         /// Creates a new buffered output stream for a base stream.
-    @inlinable init<OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT) {
-        let rv = g_buffered_output_stream_new(base_stream.output_stream_ptr)
+    @inlinable init<OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT) {
+        let rv = g_buffered_output_stream_new(baseStream.output_stream_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new buffered output stream with a given buffer size.
-    @inlinable init<OutputStreamT: OutputStreamProtocol>(sized base_stream: OutputStreamT, size: Int) {
-        let rv = g_buffered_output_stream_new_sized(base_stream.output_stream_ptr, gsize(size))
+    @inlinable init<OutputStreamT: OutputStreamProtocol>(sized baseStream: OutputStreamT, size: Int) {
+        let rv = g_buffered_output_stream_new_sized(baseStream.output_stream_ptr, gsize(size))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new buffered output stream with a given buffer size.
-    @inlinable static func new<OutputStreamT: OutputStreamProtocol>(sized base_stream: OutputStreamT, size: Int) -> OutputStreamRef! {
-        guard let rv = OutputStreamRef(gconstpointer: gconstpointer(g_buffered_output_stream_new_sized(base_stream.output_stream_ptr, gsize(size)))) else { return nil }
+    @inlinable static func new<OutputStreamT: OutputStreamProtocol>(sized baseStream: OutputStreamT, size: Int) -> OutputStreamRef! {
+        guard let rv = OutputStreamRef(gconstpointer: gconstpointer(g_buffered_output_stream_new_sized(baseStream.output_stream_ptr, gsize(size)))) else { return nil }
         return rv
     }
 }
@@ -288,20 +288,20 @@ open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtoco
     }
 
     /// Creates a new buffered output stream for a base stream.
-    @inlinable public init<OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT) {
-        let rv = g_buffered_output_stream_new(base_stream.output_stream_ptr)
+    @inlinable public init<OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT) {
+        let rv = g_buffered_output_stream_new(baseStream.output_stream_ptr)
         super.init(gpointer: (rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
-    @inlinable public init<OutputStreamT: OutputStreamProtocol>(sized base_stream: OutputStreamT, size: Int) {
-        let rv = g_buffered_output_stream_new_sized(base_stream.output_stream_ptr, gsize(size))
+    @inlinable public init<OutputStreamT: OutputStreamProtocol>(sized baseStream: OutputStreamT, size: Int) {
+        let rv = g_buffered_output_stream_new_sized(baseStream.output_stream_ptr, gsize(size))
         super.init(gpointer: (rv))
     }
 
     /// Creates a new buffered output stream with a given buffer size.
-    @inlinable public static func new<OutputStreamT: OutputStreamProtocol>(sized base_stream: OutputStreamT, size: Int) -> OutputStream! {
-        guard let rv = OutputStream(gconstpointer: gconstpointer(g_buffered_output_stream_new_sized(base_stream.output_stream_ptr, gsize(size)))) else { return nil }
+    @inlinable public static func new<OutputStreamT: OutputStreamProtocol>(sized baseStream: OutputStreamT, size: Int) -> OutputStream! {
+        guard let rv = OutputStream(gconstpointer: gconstpointer(g_buffered_output_stream_new_sized(baseStream.output_stream_ptr, gsize(size)))) else { return nil }
         return rv
     }
 
@@ -323,7 +323,7 @@ public extension BufferedOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BufferedOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: BufferedOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -448,8 +448,8 @@ public extension BufferedOutputStreamProtocol {
     /// If `auto_grow` is true, then each write will just make the buffer
     /// larger, and you must manually flush the buffer to actually write out
     /// the data to the underlying stream.
-    @inlinable func set(autoGrow auto_grow: Bool) {
-        g_buffered_output_stream_set_auto_grow(buffered_output_stream_ptr, gboolean((auto_grow) ? 1 : 0))
+    @inlinable func set(autoGrow: Bool) {
+        g_buffered_output_stream_set_auto_grow(buffered_output_stream_ptr, gboolean((autoGrow) ? 1 : 0))
     
     }
 
@@ -514,7 +514,7 @@ public extension BufferedOutputStreamProtocol {
 ///
 /// `GBytesIcon` specifies an image held in memory in a common format (usually
 /// png) to be used as icon.
-public protocol BytesIconProtocol: ObjectProtocol, IconProtocol, LoadableIconProtocol {
+public protocol BytesIconProtocol: GLibObject.ObjectProtocol, IconProtocol, LoadableIconProtocol {
         /// Untyped pointer to the underlying `GBytesIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -589,7 +589,7 @@ public extension BytesIconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -613,7 +613,7 @@ public extension BytesIconRef {
 ///
 /// `GBytesIcon` specifies an image held in memory in a common format (usually
 /// png) to be used as icon.
-open class BytesIcon: Object, BytesIconProtocol {
+open class BytesIcon: GLibObject.Object, BytesIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BytesIcon` instance.
@@ -756,7 +756,7 @@ public extension BytesIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: BytesIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: BytesIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -864,15 +864,15 @@ public extension BytesIconProtocol {
     @inlinable var bytes_icon_ptr: UnsafeMutablePointer<GBytesIcon>! { return ptr?.assumingMemoryBound(to: GBytesIcon.self) }
 
     /// Gets the `GBytes` associated with the given `icon`.
-    @inlinable func getBytes() -> BytesRef! {
-        let rv = BytesRef(gconstpointer: gconstpointer(g_bytes_icon_get_bytes(bytes_icon_ptr)))
+    @inlinable func getBytes() -> GLib.BytesRef! {
+        let rv = GLib.BytesRef(g_bytes_icon_get_bytes(bytes_icon_ptr))
         return rv
     }
     /// The bytes containing the icon.
-    @inlinable var bytes: BytesRef! {
+    @inlinable var bytes: GLib.BytesRef! {
         /// Gets the `GBytes` associated with the given `icon`.
         get {
-            let rv = BytesRef(gconstpointer: gconstpointer(g_bytes_icon_get_bytes(bytes_icon_ptr)))
+            let rv = GLib.BytesRef(g_bytes_icon_get_bytes(bytes_icon_ptr))
             return rv
         }
     }
@@ -892,7 +892,7 @@ public extension BytesIconProtocol {
 /// GCancellable is a thread-safe operation cancellation stack used
 /// throughout GIO to allow for cancellation of synchronous and
 /// asynchronous operations.
-public protocol CancellableProtocol: ObjectProtocol {
+public protocol CancellableProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GCancellable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -968,7 +968,7 @@ public extension CancellableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1010,7 +1010,7 @@ public extension CancellableRef {
 /// GCancellable is a thread-safe operation cancellation stack used
 /// throughout GIO to allow for cancellation of synchronous and
 /// asynchronous operations.
-open class Cancellable: Object, CancellableProtocol {
+open class Cancellable: GLibObject.Object, CancellableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Cancellable` instance.
@@ -1312,8 +1312,8 @@ public extension CancellableProtocol {
     /// `callback` is invoked.  This lifts a restriction in place for
     /// earlier GLib versions which now makes it easier to write cleanup
     /// code that unconditionally invokes e.g. `g_cancellable_cancel()`.
-    @inlinable func connect(callback: GCallback?, data: gpointer! = nil, dataDestroyFunc data_destroy_func: GDestroyNotify? = nil) -> Int {
-        let rv = Int(g_cancellable_connect(cancellable_ptr, callback, data, data_destroy_func))
+    @inlinable func connect(callback: GCallback?, data: gpointer! = nil, dataDestroyFunc: GDestroyNotify? = nil) -> Int {
+        let rv = Int(g_cancellable_connect(cancellable_ptr, callback, data, dataDestroyFunc))
         return rv
     }
 
@@ -1331,8 +1331,8 @@ public extension CancellableProtocol {
     /// 
     /// If `cancellable` is `nil` or `handler_id` is `0` this function does
     /// nothing.
-    @inlinable func disconnect(handlerID handler_id: Int) {
-        g_cancellable_disconnect(cancellable_ptr, gulong(handler_id))
+    @inlinable func disconnect(handlerID: Int) {
+        g_cancellable_disconnect(cancellable_ptr, gulong(handlerID))
     
     }
 
@@ -1372,7 +1372,7 @@ public extension CancellableProtocol {
     /// You are not supposed to read from the fd yourself, just check for
     /// readable status. Reading to unset the readable status is done
     /// with `g_cancellable_reset()`.
-    @inlinable func make<PollFDT: PollFDProtocol>(pollfd: PollFDT) -> Bool {
+    @inlinable func make<PollFDT: GLib.PollFDProtocol>(pollfd: PollFDT) -> Bool {
         let rv = ((g_cancellable_make_pollfd(cancellable_ptr, pollfd.pollfd_ptr)) != 0)
         return rv
     }
@@ -1445,8 +1445,8 @@ public extension CancellableProtocol {
     /// in which case the source will never trigger.
     /// 
     /// The new `GSource` will hold a reference to the `GCancellable`.
-    @inlinable func sourceNew() -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_cancellable_source_new(cancellable_ptr)))
+    @inlinable func sourceNew() -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_cancellable_source_new(cancellable_ptr))
         return rv
     }
 
@@ -1460,8 +1460,22 @@ public extension CancellableProtocol {
     /// This is also useful if you want to be sure that the D-Bus–activated
     /// applications are really started before termination and if you are interested
     /// in receiving error information from their activation.
-    @inlinable func appInfoLaunchDefaultForURIAsync<AppLaunchContextT: AppLaunchContextProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable_ptr, callback, user_data)
+    @inlinable func appInfoLaunchDefaultForURIAsync(uri: UnsafePointer<CChar>!, context: AppLaunchContextRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable_ptr, callback, userData)
+    
+    }
+    /// Async version of `g_app_info_launch_default_for_uri()`.
+    /// 
+    /// This version is useful if you are interested in receiving
+    /// error information in the case where the application is
+    /// sandboxed and the portal may present an application chooser
+    /// dialog to the user.
+    /// 
+    /// This is also useful if you want to be sure that the D-Bus–activated
+    /// applications are really started before termination and if you are interested
+    /// in receiving error information from their activation.
+    @inlinable func appInfoLaunchDefaultForURIAsync<AppLaunchContextT: AppLaunchContextProtocol>(uri: UnsafePointer<CChar>!, context: AppLaunchContextT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_default_for_uri_async(uri, context?.app_launch_context_ptr, cancellable_ptr, callback, userData)
     
     }
 
@@ -1475,8 +1489,8 @@ public extension CancellableProtocol {
     /// **async_initable_newv_async is deprecated:**
     /// Use g_object_new_with_properties() and
     /// g_async_initable_init_async() instead. See #GParameter for more information.
-    @available(*, deprecated) @inlinable func asyncInitableNewvAsync<ParameterT: ParameterProtocol>(objectType object_type: GType, nParameters n_parameters: Int, parameters: ParameterT, ioPriority io_priority: Int, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_async_initable_newv_async(object_type, guint(n_parameters), parameters._ptr, gint(io_priority), cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func asyncInitableNewvAsync<ParameterT: GLibObject.ParameterProtocol>(objectType: GType, nParameters: Int, parameters: ParameterT, ioPriority: Int, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_async_initable_newv_async(objectType, guint(nParameters), parameters._ptr, gint(ioPriority), cancellable_ptr, callback, userData)
     
     }
 
@@ -1487,8 +1501,8 @@ public extension CancellableProtocol {
     /// 
     /// This is an asynchronous failable function. See `g_bus_get_sync()` for
     /// the synchronous version.
-    @inlinable func busGet(busType bus_type: GBusType, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_bus_get(bus_type, cancellable_ptr, callback, user_data)
+    @inlinable func busGet(busType: GBusType, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_bus_get(busType, cancellable_ptr, callback, userData)
     
     }
 
@@ -1508,9 +1522,9 @@ public extension CancellableProtocol {
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
     /// the `GDBusConnection:exit`-on-close property set to `true`.
-    @inlinable func busGetSync(busType bus_type: GBusType) throws -> DBusConnectionRef! {
+    @inlinable func busGetSync(busType: GBusType) throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(bus_type, cancellable_ptr, &error)))
+        let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1521,9 +1535,9 @@ public extension CancellableProtocol {
     /// 
     /// The returned address will be in the
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
-    @inlinable func dbusAddressGetForBusSync(busType bus_type: GBusType) throws -> String! {
+    @inlinable func dbusAddressGetForBusSync(busType: GBusType) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_address_get_for_bus_sync(bus_type, cancellable_ptr, &error).map({ String(cString: $0) })
+        let rv = g_dbus_address_get_for_bus_sync(busType, cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1539,8 +1553,8 @@ public extension CancellableProtocol {
     /// 
     /// This is an asynchronous failable function. See
     /// `g_dbus_address_get_stream_sync()` for the synchronous version.
-    @inlinable func dbusAddressGetStream(address: UnsafePointer<gchar>!, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_address_get_stream(address, cancellable_ptr, callback, user_data)
+    @inlinable func dbusAddressGetStream(address: UnsafePointer<gchar>!, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_address_get_stream(address, cancellable_ptr, callback, userData)
     
     }
 
@@ -1551,9 +1565,9 @@ public extension CancellableProtocol {
     /// 
     /// This is a synchronous failable function. See
     /// `g_dbus_address_get_stream()` for the asynchronous version.
-    @inlinable func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+    @inlinable func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, out_guid, cancellable_ptr, &error)))
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1565,11 +1579,10 @@ public extension CancellableProtocol {
     /// **initable_newv is deprecated:**
     /// Use g_object_new_with_properties() and
     /// g_initable_init() instead. See #GParameter for more information.
-    @available(*, deprecated) @inlinable func initableNewv(objectType object_type: GType, nParameters n_parameters: Int, parameters: UnsafeMutablePointer<GParameter>!) throws -> ObjectRef! {
+    @available(*, deprecated) @inlinable func initableNewv(objectType: GType, nParameters: Int, parameters: UnsafeMutablePointer<GParameter>!) throws -> GLibObject.ObjectRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = ObjectRef(gpointer: g_initable_newv(object_type, guint(n_parameters), parameters, cancellable_ptr, &error))
+        let rv = GLibObject.ObjectRef(gpointer: g_initable_newv(objectType, guint(nParameters), parameters, cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
-        guard let rv = maybeRV else { return nil }
         return rv
     }
 
@@ -1584,8 +1597,8 @@ public extension CancellableProtocol {
     ///
     /// **io_scheduler_push_job is deprecated:**
     /// use #GThreadPool or g_task_run_in_thread()
-    @available(*, deprecated) @inlinable func ioSchedulerPushJob(jobFunc job_func: GIOSchedulerJobFunc?, userData user_data: gpointer! = nil, notify: GDestroyNotify? = nil, ioPriority io_priority: Int) {
-        g_io_scheduler_push_job(job_func, user_data, notify, gint(io_priority), cancellable_ptr)
+    @available(*, deprecated) @inlinable func ioSchedulerPushJob(jobFunc: GIOSchedulerJobFunc?, userData: gpointer! = nil, notify: GDestroyNotify? = nil, ioPriority: Int) {
+        g_io_scheduler_push_job(jobFunc, userData, notify, gint(ioPriority), cancellable_ptr)
     
     }
 
@@ -1593,8 +1606,16 @@ public extension CancellableProtocol {
     /// implementations. Creates a new `GSource`, as with
     /// `g_pollable_source_new()`, but also attaching `child_source` (with a
     /// dummy callback), and `cancellable`, if they are non-`nil`.
-    @inlinable func pollableSourceNewFull<ObjectT: ObjectProtocol, SourceT: SourceProtocol>(pollableStream pollable_stream: ObjectT, childSource child_source: SourceT? = nil) -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_source_new_full(pollable_stream.object_ptr, child_source?.source_ptr, cancellable_ptr)))
+    @inlinable func pollableSourceNewFull<ObjectT: GLibObject.ObjectProtocol>(pollableStream: ObjectT, childSource: GLib.SourceRef? = nil) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_source_new_full(pollableStream.object_ptr, childSource?.source_ptr, cancellable_ptr))
+        return rv
+    }
+    /// Utility method for `GPollableInputStream` and `GPollableOutputStream`
+    /// implementations. Creates a new `GSource`, as with
+    /// `g_pollable_source_new()`, but also attaching `child_source` (with a
+    /// dummy callback), and `cancellable`, if they are non-`nil`.
+    @inlinable func pollableSourceNewFull<ObjectT: GLibObject.ObjectProtocol, SourceT: GLib.SourceProtocol>(pollableStream: ObjectT, childSource: SourceT?) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_source_new_full(pollableStream.object_ptr, childSource?.source_ptr, cancellable_ptr))
         return rv
     }
 
@@ -1649,9 +1670,9 @@ public extension CancellableProtocol {
     /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
-    @inlinable func pollableStreamWriteAll<OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<gsize>!) throws -> Bool {
+    @inlinable func pollableStreamWriteAll<OutputStreamT: OutputStreamProtocol>(stream: OutputStreamT, buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten: UnsafeMutablePointer<gsize>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_pollable_stream_write_all(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytes_written, cancellable_ptr, &error)) != 0)
+        let rv = ((g_pollable_stream_write_all(stream.output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytesWritten, cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }

@@ -90,7 +90,7 @@ public extension PollableInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -329,8 +329,20 @@ public extension PollableInputStreamProtocol {
     /// the stream may not actually be readable even after the source
     /// triggers, so you should use `g_pollable_input_stream_read_nonblocking()`
     /// rather than `g_input_stream_read()` from the callback.
-    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_input_stream_create_source(pollable_input_stream_ptr, cancellable?.cancellable_ptr)))
+    @inlinable func createSource(cancellable: CancellableRef? = nil) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_input_stream_create_source(pollable_input_stream_ptr, cancellable?.cancellable_ptr))
+        return rv
+    }
+    /// Creates a `GSource` that triggers when `stream` can be read, or
+    /// `cancellable` is triggered or an error occurs. The callback on the
+    /// source is of the `GPollableSourceFunc` type.
+    /// 
+    /// As with `g_pollable_input_stream_is_readable()`, it is possible that
+    /// the stream may not actually be readable even after the source
+    /// triggers, so you should use `g_pollable_input_stream_read_nonblocking()`
+    /// rather than `g_input_stream_read()` from the callback.
+    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT?) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_input_stream_create_source(pollable_input_stream_ptr, cancellable?.cancellable_ptr))
         return rv
     }
 
@@ -345,7 +357,24 @@ public extension PollableInputStreamProtocol {
     /// if `cancellable` has already been cancelled when you call, which
     /// may happen if you call this method after a source triggers due
     /// to having been cancelled.
-    @inlinable func readNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func readNonblocking(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_pollable_input_stream_read_nonblocking(pollable_input_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to read up to `count` bytes from `stream` into `buffer`, as
+    /// with `g_input_stream_read()`. If `stream` is not currently readable,
+    /// this will immediately return `G_IO_ERROR_WOULD_BLOCK`, and you can
+    /// use `g_pollable_input_stream_create_source()` to create a `GSource`
+    /// that will be triggered when `stream` is readable.
+    /// 
+    /// Note that since this method never blocks, you cannot actually
+    /// use `cancellable` to cancel it. However, it will return an error
+    /// if `cancellable` has already been cancelled when you call, which
+    /// may happen if you call this method after a source triggers due
+    /// to having been cancelled.
+    @inlinable func readNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_input_stream_read_nonblocking(pollable_input_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -467,7 +496,7 @@ public extension PollableOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -706,8 +735,20 @@ public extension PollableOutputStreamProtocol {
     /// the stream may not actually be writable even after the source
     /// triggers, so you should use `g_pollable_output_stream_write_nonblocking()`
     /// rather than `g_output_stream_write()` from the callback.
-    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_pollable_output_stream_create_source(pollable_output_stream_ptr, cancellable?.cancellable_ptr)))
+    @inlinable func createSource(cancellable: CancellableRef? = nil) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_output_stream_create_source(pollable_output_stream_ptr, cancellable?.cancellable_ptr))
+        return rv
+    }
+    /// Creates a `GSource` that triggers when `stream` can be written, or
+    /// `cancellable` is triggered or an error occurs. The callback on the
+    /// source is of the `GPollableSourceFunc` type.
+    /// 
+    /// As with `g_pollable_output_stream_is_writable()`, it is possible that
+    /// the stream may not actually be writable even after the source
+    /// triggers, so you should use `g_pollable_output_stream_write_nonblocking()`
+    /// rather than `g_output_stream_write()` from the callback.
+    @inlinable func createSource<CancellableT: CancellableProtocol>(cancellable: CancellableT?) -> GLib.SourceRef! {
+        let rv = GLib.SourceRef(g_pollable_output_stream_create_source(pollable_output_stream_ptr, cancellable?.cancellable_ptr))
         return rv
     }
 
@@ -726,7 +767,28 @@ public extension PollableOutputStreamProtocol {
     /// Also note that if `G_IO_ERROR_WOULD_BLOCK` is returned some underlying
     /// transports like D/TLS require that you re-send the same `buffer` and
     /// `count` in the next write call.
-    @inlinable func writeNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func writeNonblocking(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_pollable_output_stream_write_nonblocking(pollable_output_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to write up to `count` bytes from `buffer` to `stream`, as
+    /// with `g_output_stream_write()`. If `stream` is not currently writable,
+    /// this will immediately return `G_IO_ERROR_WOULD_BLOCK`, and you can
+    /// use `g_pollable_output_stream_create_source()` to create a `GSource`
+    /// that will be triggered when `stream` is writable.
+    /// 
+    /// Note that since this method never blocks, you cannot actually
+    /// use `cancellable` to cancel it. However, it will return an error
+    /// if `cancellable` has already been cancelled when you call, which
+    /// may happen if you call this method after a source triggers due
+    /// to having been cancelled.
+    /// 
+    /// Also note that if `G_IO_ERROR_WOULD_BLOCK` is returned some underlying
+    /// transports like D/TLS require that you re-send the same `buffer` and
+    /// `count` in the next write call.
+    @inlinable func writeNonblocking<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_output_stream_write_nonblocking(pollable_output_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -749,9 +811,31 @@ public extension PollableOutputStreamProtocol {
     /// Also note that if `G_POLLABLE_RETURN_WOULD_BLOCK` is returned some underlying
     /// transports like D/TLS require that you re-send the same `vectors` and
     /// `n_vectors` in the next write call.
-    @inlinable func writevNonblocking<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> GPollableReturn {
+    @inlinable func writevNonblocking(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> GPollableReturn {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_pollable_output_stream_writev_nonblocking(pollable_output_stream_ptr, vectors, gsize(n_vectors), bytes_written, cancellable?.cancellable_ptr, &error)
+        let rv = g_pollable_output_stream_writev_nonblocking(pollable_output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to write the bytes contained in the `n_vectors` `vectors` to `stream`,
+    /// as with `g_output_stream_writev()`. If `stream` is not currently writable,
+    /// this will immediately return ```G_POLLABLE_RETURN_WOULD_BLOCK`, and you can
+    /// use `g_pollable_output_stream_create_source()` to create a `GSource`
+    /// that will be triggered when `stream` is writable. `error` will *not* be
+    /// set in that case.
+    /// 
+    /// Note that since this method never blocks, you cannot actually
+    /// use `cancellable` to cancel it. However, it will return an error
+    /// if `cancellable` has already been cancelled when you call, which
+    /// may happen if you call this method after a source triggers due
+    /// to having been cancelled.
+    /// 
+    /// Also note that if `G_POLLABLE_RETURN_WOULD_BLOCK` is returned some underlying
+    /// transports like D/TLS require that you re-send the same `vectors` and
+    /// `n_vectors` in the next write call.
+    @inlinable func writevNonblocking<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> GPollableReturn {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_pollable_output_stream_writev_nonblocking(pollable_output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -875,7 +959,7 @@ public extension ProxyRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1073,16 +1157,31 @@ public extension ProxyProtocol {
     /// `GSocketConnection` that is connected to the proxy server), this
     /// does the necessary handshake to connect to `proxy_address`, and if
     /// required, wraps the `GIOStream` to handle proxy payload.
-    @inlinable func connect<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress proxy_address: ProxyAddressT, cancellable: CancellableT? = nil) throws -> IOStreamRef! {
+    @inlinable func connect<IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress: ProxyAddressT, cancellable: CancellableRef? = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = IOStreamRef(gconstpointer: gconstpointer(g_proxy_connect(proxy_ptr, connection.io_stream_ptr, proxy_address.proxy_address_ptr, cancellable?.cancellable_ptr, &error)))
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_proxy_connect(proxy_ptr, connection.io_stream_ptr, proxyAddress.proxy_address_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Given `connection` to communicate with a proxy (eg, a
+    /// `GSocketConnection` that is connected to the proxy server), this
+    /// does the necessary handshake to connect to `proxy_address`, and if
+    /// required, wraps the `GIOStream` to handle proxy payload.
+    @inlinable func connect<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress: ProxyAddressT, cancellable: CancellableT?) throws -> IOStreamRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_proxy_connect(proxy_ptr, connection.io_stream_ptr, proxyAddress.proxy_address_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
 
     /// Asynchronous version of `g_proxy_connect()`.
-    @inlinable func connectAsync<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress proxy_address: ProxyAddressT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_proxy_connect_async(proxy_ptr, connection.io_stream_ptr, proxy_address.proxy_address_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func connectAsync<IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress: ProxyAddressT, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_proxy_connect_async(proxy_ptr, connection.io_stream_ptr, proxyAddress.proxy_address_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronous version of `g_proxy_connect()`.
+    @inlinable func connectAsync<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol, ProxyAddressT: ProxyAddressProtocol>(connection: IOStreamT, proxyAddress: ProxyAddressT, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_proxy_connect_async(proxy_ptr, connection.io_stream_ptr, proxyAddress.proxy_address_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1205,7 +1304,7 @@ public extension ProxyResolverRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1413,7 +1512,28 @@ public extension ProxyResolverProtocol {
     /// `direct://` is used when no proxy is needed.
     /// Direct connection should not be attempted unless it is part of the
     /// returned array of proxies.
-    @inlinable func lookup<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+    @inlinable func lookup(uri: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_proxy_resolver_lookup(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Looks into the system proxy configuration to determine what proxy,
+    /// if any, to use to connect to `uri`. The returned proxy URIs are of
+    /// the form `<protocol>://[user[:password]@]host:port` or
+    /// `direct://`, where <protocol> could be http, rtsp, socks
+    /// or other proxying protocol.
+    /// 
+    /// If you don't know what network protocol is being used on the
+    /// socket, you should use `none` as the URI protocol.
+    /// In this case, the resolver might still return a generic proxy type
+    /// (such as SOCKS), but would not return protocol-specific proxy types
+    /// (such as http).
+    /// 
+    /// `direct://` is used when no proxy is needed.
+    /// Direct connection should not be attempted unless it is part of the
+    /// returned array of proxies.
+    @inlinable func lookup<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_proxy_resolver_lookup(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -1422,8 +1542,14 @@ public extension ProxyResolverProtocol {
 
     /// Asynchronous lookup of proxy. See `g_proxy_resolver_lookup()` for more
     /// details.
-    @inlinable func lookupAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_proxy_resolver_lookup_async(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupAsync(uri: UnsafePointer<gchar>!, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_proxy_resolver_lookup_async(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronous lookup of proxy. See `g_proxy_resolver_lookup()` for more
+    /// details.
+    @inlinable func lookupAsync<CancellableT: CancellableProtocol>(uri: UnsafePointer<gchar>!, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_proxy_resolver_lookup_async(proxy_resolver_ptr, uri, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1576,7 +1702,7 @@ public extension RemoteActionGroupRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1808,8 +1934,8 @@ public extension RemoteActionGroupProtocol {
     /// 
     /// `platform_data` must be non-`nil` and must have the type
     /// `G_VARIANT_TYPE_VARDICT`.  If it is floating, it will be consumed.
-    @inlinable func activateActionFull<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, parameter: VariantT? = nil, platformData platform_data: VariantT) {
-        g_remote_action_group_activate_action_full(remote_action_group_ptr, action_name, parameter?.variant_ptr, platform_data.variant_ptr)
+    @inlinable func activateActionFull<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, parameter: VariantT?, platformData: VariantT) {
+        g_remote_action_group_activate_action_full(remote_action_group_ptr, actionName, parameter?.variant_ptr, platformData.variant_ptr)
     
     }
 
@@ -1822,8 +1948,8 @@ public extension RemoteActionGroupProtocol {
     /// 
     /// `platform_data` must be non-`nil` and must have the type
     /// `G_VARIANT_TYPE_VARDICT`.  If it is floating, it will be consumed.
-    @inlinable func changeActionStateFull<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, value: VariantT, platformData platform_data: VariantT) {
-        g_remote_action_group_change_action_state_full(remote_action_group_ptr, action_name, value.variant_ptr, platform_data.variant_ptr)
+    @inlinable func changeActionStateFull<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, value: VariantT, platformData: VariantT) {
+        g_remote_action_group_change_action_state_full(remote_action_group_ptr, actionName, value.variant_ptr, platformData.variant_ptr)
     
     }
 

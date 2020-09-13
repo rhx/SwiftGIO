@@ -120,7 +120,7 @@ public extension MountRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -375,8 +375,18 @@ public extension MountProtocol {
     ///
     /// **eject is deprecated:**
     /// Use g_mount_eject_with_operation() instead.
-    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_eject(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func eject(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_eject(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Ejects a mount. This is an asynchronous operation, and is
+    /// finished by calling `g_mount_eject_finish()` with the `mount`
+    /// and `GAsyncResult` data returned in the `callback`.
+    ///
+    /// **eject is deprecated:**
+    /// Use g_mount_eject_with_operation() instead.
+    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_eject(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -395,8 +405,15 @@ public extension MountProtocol {
     /// Ejects a mount. This is an asynchronous operation, and is
     /// finished by calling `g_mount_eject_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
-    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_eject_with_operation(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func ejectWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_eject_with_operation(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Ejects a mount. This is an asynchronous operation, and is
+    /// finished by calling `g_mount_eject_with_operation_finish()` with the `mount`
+    /// and `GAsyncResult` data returned in the `callback`.
+    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_eject_with_operation(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -482,8 +499,23 @@ public extension MountProtocol {
     /// `g_mount_guess_content_type_sync()` for the synchronous version), and
     /// is finished by calling `g_mount_guess_content_type_finish()` with the
     /// `mount` and `GAsyncResult` data returned in the `callback`.
-    @inlinable func guessContentType<CancellableT: CancellableProtocol>(forceRescan force_rescan: Bool, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_guess_content_type(mount_ptr, gboolean((force_rescan) ? 1 : 0), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func guessContentType(forceRescan: Bool, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_guess_content_type(mount_ptr, gboolean((forceRescan) ? 1 : 0), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Tries to guess the type of content stored on `mount`. Returns one or
+    /// more textual identifiers of well-known content types (typically
+    /// prefixed with "x-content/"), e.g. x-content/image-dcf for camera
+    /// memory cards. See the
+    /// [shared-mime-info](http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec)
+    /// specification for more on x-content types.
+    /// 
+    /// This is an asynchronous operation (see
+    /// `g_mount_guess_content_type_sync()` for the synchronous version), and
+    /// is finished by calling `g_mount_guess_content_type_finish()` with the
+    /// `mount` and `GAsyncResult` data returned in the `callback`.
+    @inlinable func guessContentType<CancellableT: CancellableProtocol>(forceRescan: Bool, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_guess_content_type(mount_ptr, gboolean((forceRescan) ? 1 : 0), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -508,9 +540,24 @@ public extension MountProtocol {
     /// 
     /// This is a synchronous operation and as such may block doing IO;
     /// see `g_mount_guess_content_type()` for the asynchronous version.
-    @inlinable func guessContentTypeSync<CancellableT: CancellableProtocol>(forceRescan force_rescan: Bool, cancellable: CancellableT? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+    @inlinable func guessContentTypeSync(forceRescan: Bool, cancellable: CancellableRef? = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_mount_guess_content_type_sync(mount_ptr, gboolean((force_rescan) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+        let rv = g_mount_guess_content_type_sync(mount_ptr, gboolean((forceRescan) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to guess the type of content stored on `mount`. Returns one or
+    /// more textual identifiers of well-known content types (typically
+    /// prefixed with "x-content/"), e.g. x-content/image-dcf for camera
+    /// memory cards. See the
+    /// [shared-mime-info](http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec)
+    /// specification for more on x-content types.
+    /// 
+    /// This is a synchronous operation and as such may block doing IO;
+    /// see `g_mount_guess_content_type()` for the asynchronous version.
+    @inlinable func guessContentTypeSync<CancellableT: CancellableProtocol>(forceRescan: Bool, cancellable: CancellableT?) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_mount_guess_content_type_sync(mount_ptr, gboolean((forceRescan) ? 1 : 0), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -524,8 +571,21 @@ public extension MountProtocol {
     /// take affect. While this is semantically equivalent with unmounting
     /// and then remounting not all backends might need to actually be
     /// unmounted.
-    @inlinable func remount<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_remount(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func remount(flags: MountMountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_remount(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Remounts a mount. This is an asynchronous operation, and is
+    /// finished by calling `g_mount_remount_finish()` with the `mount`
+    /// and `GAsyncResults` data returned in the `callback`.
+    /// 
+    /// Remounting is useful when some setting affecting the operation
+    /// of the volume has been changed, as these may need a remount to
+    /// take affect. While this is semantically equivalent with unmounting
+    /// and then remounting not all backends might need to actually be
+    /// unmounted.
+    @inlinable func remount<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_remount(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -553,8 +613,18 @@ public extension MountProtocol {
     ///
     /// **unmount is deprecated:**
     /// Use g_mount_unmount_with_operation() instead.
-    @available(*, deprecated) @inlinable func unmount<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_unmount(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func unmount(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_unmount(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Unmounts a mount. This is an asynchronous operation, and is
+    /// finished by calling `g_mount_unmount_finish()` with the `mount`
+    /// and `GAsyncResult` data returned in the `callback`.
+    ///
+    /// **unmount is deprecated:**
+    /// Use g_mount_unmount_with_operation() instead.
+    @available(*, deprecated) @inlinable func unmount<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_unmount(mount_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -573,8 +643,15 @@ public extension MountProtocol {
     /// Unmounts a mount. This is an asynchronous operation, and is
     /// finished by calling `g_mount_unmount_with_operation_finish()` with the `mount`
     /// and `GAsyncResult` data returned in the `callback`.
-    @inlinable func unmountWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_mount_unmount_with_operation(mount_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func unmountWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_unmount_with_operation(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Unmounts a mount. This is an asynchronous operation, and is
+    /// finished by calling `g_mount_unmount_with_operation_finish()` with the `mount`
+    /// and `GAsyncResult` data returned in the `callback`.
+    @inlinable func unmountWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_mount_unmount_with_operation(mount_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -842,7 +919,7 @@ public extension NetworkMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1061,7 +1138,7 @@ public extension NetworkMonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: NetworkMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1200,7 +1277,30 @@ public extension NetworkMonitorProtocol {
     /// `connectable`, it may still block for a brief period of time (eg,
     /// trying to do multicast DNS on the local network), so if you do not
     /// want to block, you should use `g_network_monitor_can_reach_async()`.
-    @inlinable func canReach<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func canReach<SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_network_monitor_can_reach(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to determine whether or not the host pointed to by
+    /// `connectable` can be reached, without actually trying to connect to
+    /// it.
+    /// 
+    /// This may return `true` even when `GNetworkMonitor:network`-available
+    /// is `false`, if, for example, `monitor` can determine that
+    /// `connectable` refers to a host on a local network.
+    /// 
+    /// If `monitor` believes that an attempt to connect to `connectable`
+    /// will succeed, it will return `true`. Otherwise, it will return
+    /// `false` and set `error` to an appropriate error (such as
+    /// `G_IO_ERROR_HOST_UNREACHABLE`).
+    /// 
+    /// Note that although this does not attempt to connect to
+    /// `connectable`, it may still block for a brief period of time (eg,
+    /// trying to do multicast DNS on the local network), so if you do not
+    /// want to block, you should use `g_network_monitor_can_reach_async()`.
+    @inlinable func canReach<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_network_monitor_can_reach(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1216,8 +1316,21 @@ public extension NetworkMonitorProtocol {
     /// When the operation is finished, `callback` will be called.
     /// You can then call `g_network_monitor_can_reach_finish()`
     /// to get the result of the operation.
-    @inlinable func canReachAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_network_monitor_can_reach_async(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func canReachAsync<SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_network_monitor_can_reach_async(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously attempts to determine whether or not the host
+    /// pointed to by `connectable` can be reached, without actually
+    /// trying to connect to it.
+    /// 
+    /// For more details, see `g_network_monitor_can_reach()`.
+    /// 
+    /// When the operation is finished, `callback` will be called.
+    /// You can then call `g_network_monitor_can_reach_finish()`
+    /// to get the result of the operation.
+    @inlinable func canReachAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol>(connectable: SocketConnectableT, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_network_monitor_can_reach_async(network_monitor_ptr, connectable.socket_connectable_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 

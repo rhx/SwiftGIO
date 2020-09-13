@@ -84,7 +84,7 @@ public extension SettingsBackendClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -377,7 +377,7 @@ public extension SettingsBackendPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -642,7 +642,7 @@ public extension SettingsClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -928,7 +928,7 @@ public extension SettingsPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1375,7 +1375,7 @@ public extension SettingsSchemaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1831,7 +1831,7 @@ public extension SettingsSchemaKeyRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaKeyProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2013,8 +2013,8 @@ public extension SettingsSchemaKeyProtocol {
     /// 
     /// Note that this is the default value according to the schema.  System
     /// administrator defaults and lockdown are not visible via this API.
-    @inlinable func getDefaultValue() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_settings_schema_key_get_default_value(settings_schema_key_ptr)))
+    @inlinable func getDefaultValue() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_settings_schema_key_get_default_value(settings_schema_key_ptr))
         return rv
     }
 
@@ -2079,8 +2079,8 @@ public extension SettingsSchemaKeyProtocol {
     /// 
     /// You should free the returned value with `g_variant_unref()` when it is
     /// no longer needed.
-    @inlinable func getRange() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_settings_schema_key_get_range(settings_schema_key_ptr)))
+    @inlinable func getRange() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_settings_schema_key_get_range(settings_schema_key_ptr))
         return rv
     }
 
@@ -2103,8 +2103,8 @@ public extension SettingsSchemaKeyProtocol {
     }
 
     /// Gets the `GVariantType` of `key`.
-    @inlinable func getValueType() -> VariantTypeRef! {
-        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_settings_schema_key_get_value_type(settings_schema_key_ptr)))
+    @inlinable func getValueType() -> GLib.VariantTypeRef! {
+        let rv = GLib.VariantTypeRef(g_settings_schema_key_get_value_type(settings_schema_key_ptr))
         return rv
     }
 
@@ -2113,7 +2113,7 @@ public extension SettingsSchemaKeyProtocol {
     /// 
     /// It is a programmer error if `value` is not of the correct type -- you
     /// must check for this first.
-    @inlinable func rangeCheck<VariantT: VariantProtocol>(value: VariantT) -> Bool {
+    @inlinable func rangeCheck<VariantT: GLib.VariantProtocol>(value: VariantT) -> Bool {
         let rv = ((g_settings_schema_key_range_check(settings_schema_key_ptr, value.variant_ptr)) != 0)
         return rv
     }
@@ -2133,13 +2133,13 @@ public extension SettingsSchemaKeyProtocol {
     /// 
     /// Note that this is the default value according to the schema.  System
     /// administrator defaults and lockdown are not visible via this API.
-    @inlinable var defaultValue: VariantRef! {
+    @inlinable var defaultValue: GLib.VariantRef! {
         /// Gets the default value for `key`.
         /// 
         /// Note that this is the default value according to the schema.  System
         /// administrator defaults and lockdown are not visible via this API.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_settings_schema_key_get_default_value(settings_schema_key_ptr)))
+            let rv = GLib.VariantRef(g_settings_schema_key_get_default_value(settings_schema_key_ptr))
             return rv
         }
     }
@@ -2224,7 +2224,7 @@ public extension SettingsSchemaKeyProtocol {
     /// 
     /// You should free the returned value with `g_variant_unref()` when it is
     /// no longer needed.
-    @inlinable var range: VariantRef! {
+    @inlinable var range: GLib.VariantRef! {
         /// Queries the range of a key.
         /// 
         /// This function will return a `GVariant` that fully describes the range
@@ -2262,7 +2262,7 @@ public extension SettingsSchemaKeyProtocol {
         /// You should free the returned value with `g_variant_unref()` when it is
         /// no longer needed.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_settings_schema_key_get_range(settings_schema_key_ptr)))
+            let rv = GLib.VariantRef(g_settings_schema_key_get_range(settings_schema_key_ptr))
             return rv
         }
     }
@@ -2301,10 +2301,10 @@ public extension SettingsSchemaKeyProtocol {
     }
 
     /// Gets the `GVariantType` of `key`.
-    @inlinable var valueType: VariantTypeRef! {
+    @inlinable var valueType: GLib.VariantTypeRef! {
         /// Gets the `GVariantType` of `key`.
         get {
-            let rv = VariantTypeRef(gconstpointer: gconstpointer(g_settings_schema_key_get_value_type(settings_schema_key_ptr)))
+            let rv = GLib.VariantTypeRef(g_settings_schema_key_get_value_type(settings_schema_key_ptr))
             return rv
         }
     }
@@ -2396,7 +2396,7 @@ public extension SettingsSchemaSourceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaSourceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2443,7 +2443,7 @@ public extension SettingsSchemaSourceRef {
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
-    @inlinable init<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT? = nil, trusted: Bool) throws {
+    @inlinable init<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT?, trusted: Bool) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_settings_schema_source_new_from_directory(directory, parent?.settings_schema_source_ptr, gboolean((trusted) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
@@ -2480,7 +2480,7 @@ public extension SettingsSchemaSourceRef {
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
-    @inlinable static func newFrom<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT? = nil, trusted: Bool) throws -> SettingsSchemaSourceRef! {
+    @inlinable static func newFrom<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT?, trusted: Bool) throws -> SettingsSchemaSourceRef! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = SettingsSchemaSourceRef(gconstpointer: gconstpointer(g_settings_schema_source_new_from_directory(directory, parent?.settings_schema_source_ptr, gboolean((trusted) ? 1 : 0), &error)))
         if let error = error { throw GLibError(error) }
@@ -2683,7 +2683,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
-    @inlinable public init<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT? = nil, trusted: Bool) throws {
+    @inlinable public init<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT?, trusted: Bool) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_settings_schema_source_new_from_directory(directory, parent?.settings_schema_source_ptr, gboolean((trusted) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
@@ -2721,7 +2721,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// For this second reason, except in very unusual situations, the
     /// `parent` should probably be given as the default schema source, as
     /// returned by `g_settings_schema_source_get_default()`.
-    @inlinable public static func newFrom<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT? = nil, trusted: Bool) throws -> SettingsSchemaSource! {
+    @inlinable public static func newFrom<SettingsSchemaSourceT: SettingsSchemaSourceProtocol>(directory: UnsafePointer<gchar>!, parent: SettingsSchemaSourceT?, trusted: Bool) throws -> SettingsSchemaSource! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = SettingsSchemaSource(gconstpointer: gconstpointer(g_settings_schema_source_new_from_directory(directory, parent?.settings_schema_source_ptr, gboolean((trusted) ? 1 : 0), &error)))
         if let error = error { throw GLibError(error) }
@@ -2771,8 +2771,8 @@ public extension SettingsSchemaSourceProtocol {
     /// 
     /// Do not call this function from normal programs.  This is designed for
     /// use by database editors, commandline tools, etc.
-    @inlinable func listSchemas(recursive: Bool, nonRelocatable non_relocatable: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!, relocatable: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) {
-        g_settings_schema_source_list_schemas(settings_schema_source_ptr, gboolean((recursive) ? 1 : 0), non_relocatable, relocatable)
+    @inlinable func listSchemas(recursive: Bool, nonRelocatable: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!, relocatable: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) {
+        g_settings_schema_source_list_schemas(settings_schema_source_ptr, gboolean((recursive) ? 1 : 0), nonRelocatable, relocatable)
     
     }
 
@@ -2786,8 +2786,8 @@ public extension SettingsSchemaSourceProtocol {
     /// then the parent sources will also be checked.
     /// 
     /// If the schema isn't found, `nil` is returned.
-    @inlinable func lookup(schemaID schema_id: UnsafePointer<gchar>!, recursive: Bool) -> SettingsSchemaRef! {
-        let rv = SettingsSchemaRef(gconstpointer: gconstpointer(g_settings_schema_source_lookup(settings_schema_source_ptr, schema_id, gboolean((recursive) ? 1 : 0))))
+    @inlinable func lookup(schemaID: UnsafePointer<gchar>!, recursive: Bool) -> SettingsSchemaRef! {
+        let rv = SettingsSchemaRef(gconstpointer: gconstpointer(g_settings_schema_source_lookup(settings_schema_source_ptr, schemaID, gboolean((recursive) ? 1 : 0))))
         return rv
     }
 
@@ -2890,7 +2890,7 @@ public extension SimpleActionGroupClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3158,7 +3158,7 @@ public extension SimpleActionGroupPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3423,7 +3423,7 @@ public extension SimpleAsyncResultClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3688,7 +3688,7 @@ public extension SimpleProxyResolverClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3969,7 +3969,7 @@ public extension SimpleProxyResolverPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4234,7 +4234,7 @@ public extension SocketAddressClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4511,7 +4511,7 @@ public extension SocketAddressEnumeratorClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4783,7 +4783,7 @@ public extension SocketClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5074,7 +5074,7 @@ public extension SocketClientClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5355,7 +5355,7 @@ public extension SocketClientPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5622,7 +5622,7 @@ public extension SocketConnectableIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5902,7 +5902,7 @@ public extension SocketConnectionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6185,7 +6185,7 @@ public extension SocketConnectionPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6450,7 +6450,7 @@ public extension SocketControlMessageClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6741,7 +6741,7 @@ public extension SocketControlMessagePrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessagePrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7006,7 +7006,7 @@ public extension SocketListenerClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7291,7 +7291,7 @@ public extension SocketListenerPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7556,7 +7556,7 @@ public extension SocketPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7821,7 +7821,7 @@ public extension SocketServiceClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8106,7 +8106,7 @@ public extension SocketServicePrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServicePrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8397,7 +8397,7 @@ public extension SrvTargetRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SrvTargetProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8784,7 +8784,7 @@ public extension StaticResourceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StaticResourceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9105,7 +9105,7 @@ public extension TaskClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

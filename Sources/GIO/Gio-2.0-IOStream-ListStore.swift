@@ -55,7 +55,7 @@ import GLibObject
 /// the wrapper stream is idle. Note that the semantics of such operations may
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
-public protocol IOStreamProtocol: ObjectProtocol {
+public protocol IOStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GIOStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -174,7 +174,7 @@ public extension IOStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -242,7 +242,7 @@ public extension IOStreamRef {
 /// the wrapper stream is idle. Note that the semantics of such operations may
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
-open class IOStream: Object, IOStreamProtocol {
+open class IOStream: GLibObject.Object, IOStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `IOStream` instance.
@@ -386,7 +386,7 @@ public extension IOStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: IOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: IOStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -533,7 +533,46 @@ public extension IOStreamProtocol {
     /// 
     /// The default implementation of this method just calls close on the
     /// individual input/output streams.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func close(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_io_stream_close(io_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Closes the stream, releasing resources related to it. This will also
+    /// close the individual input and output streams, if they are not already
+    /// closed.
+    /// 
+    /// Once the stream is closed, all other operations will return
+    /// `G_IO_ERROR_CLOSED`. Closing a stream multiple times will not
+    /// return an error.
+    /// 
+    /// Closing a stream will automatically flush any outstanding buffers
+    /// in the stream.
+    /// 
+    /// Streams will be automatically closed when the last reference
+    /// is dropped, but you might want to call this function to make sure
+    /// resources are released as early as possible.
+    /// 
+    /// Some streams might keep the backing store of the stream (e.g. a file
+    /// descriptor) open after the stream is closed. See the documentation for
+    /// the individual stream for details.
+    /// 
+    /// On failure the first error that happened will be reported, but the
+    /// close operation will finish as much as possible. A stream that failed
+    /// to close will still return `G_IO_ERROR_CLOSED` for all operations.
+    /// Still, it is important to check and report the error to the user,
+    /// otherwise there might be a loss of data as all data might not be written.
+    /// 
+    /// If `cancellable` is not NULL, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// Cancelling a close will still leave the stream closed, but some streams
+    /// can use a faster close that doesn't block to e.g. check errors.
+    /// 
+    /// The default implementation of this method just calls close on the
+    /// individual input/output streams.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_io_stream_close(io_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -550,8 +589,22 @@ public extension IOStreamProtocol {
     /// The asynchronous methods have a default fallback that uses threads
     /// to implement asynchronicity, so they are optional for inheriting
     /// classes. However, if you override one you must override all.
-    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_io_stream_close_async(io_stream_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func closeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_io_stream_close_async(io_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Requests an asynchronous close of the stream, releasing resources
+    /// related to it. When the operation is finished `callback` will be
+    /// called. You can then call `g_io_stream_close_finish()` to get
+    /// the result of the operation.
+    /// 
+    /// For behaviour details see `g_io_stream_close()`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads
+    /// to implement asynchronicity, so they are optional for inheriting
+    /// classes. However, if you override one you must override all.
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_io_stream_close_async(io_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -600,8 +653,19 @@ public extension IOStreamProtocol {
     /// When the operation is finished `callback` will be called.
     /// You can then call `g_io_stream_splice_finish()` to get the
     /// result of the operation.
-    @inlinable func spliceAsync<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol>(stream2: IOStreamT, flags: IOStreamSpliceFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_io_stream_splice_async(io_stream_ptr, stream2.io_stream_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func spliceAsync<IOStreamT: IOStreamProtocol>(stream2: IOStreamT, flags: IOStreamSpliceFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_io_stream_splice_async(io_stream_ptr, stream2.io_stream_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asyncronously splice the output stream of `stream1` to the input stream of
+    /// `stream2`, and splice the output stream of `stream2` to the input stream of
+    /// `stream1`.
+    /// 
+    /// When the operation is finished `callback` will be called.
+    /// You can then call `g_io_stream_splice_finish()` to get the
+    /// result of the operation.
+    @inlinable func spliceAsync<CancellableT: CancellableProtocol, IOStreamT: IOStreamProtocol>(stream2: IOStreamT, flags: IOStreamSpliceFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_io_stream_splice_async(io_stream_ptr, stream2.io_stream_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -612,9 +676,22 @@ public extension IOStreamProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    @inlinable func tlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity server_identity: SocketConnectableT? = nil) throws -> TLSClientConnectionRef! {
+    @inlinable func tlsClientConnectionNew(serverIdentity: SocketConnectableRef? = nil) throws -> TLSClientConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(io_stream_ptr, server_identity?.socket_connectable_ptr, &error)))
+        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(io_stream_ptr, serverIdentity?.socket_connectable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new `GTlsClientConnection` wrapping `base_io_stream` (which
+    /// must have pollable input and output streams) which is assumed to
+    /// communicate with the server identified by `server_identity`.
+    /// 
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// on when application code can run operations on the `base_io_stream` after
+    /// this function has returned.
+    @inlinable func tlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity: SocketConnectableT?) throws -> TLSClientConnectionRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = TLSClientConnectionRef(gconstpointer: gconstpointer(g_tls_client_connection_new(io_stream_ptr, serverIdentity?.socket_connectable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -625,7 +702,19 @@ public extension IOStreamProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    @inlinable func tlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT? = nil) throws -> TLSServerConnectionRef! {
+    @inlinable func tlsServerConnectionNew(certificate: TLSCertificateRef? = nil) throws -> TLSServerConnectionRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(io_stream_ptr, certificate?.tls_certificate_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
+    /// must have pollable input and output streams).
+    /// 
+    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// on when application code can run operations on the `base_io_stream` after
+    /// this function has returned.
+    @inlinable func tlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT?) throws -> TLSServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(io_stream_ptr, certificate?.tls_certificate_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -692,7 +781,7 @@ public extension IOStreamProtocol {
 /// To actually connect to a remote host, you will need a
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
-public protocol InetAddressProtocol: ObjectProtocol {
+public protocol InetAddressProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GInetAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -775,7 +864,7 @@ public extension InetAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -859,7 +948,7 @@ public extension InetAddressRef {
 /// To actually connect to a remote host, you will need a
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
-open class InetAddress: Object, InetAddressProtocol {
+open class InetAddress: GLibObject.Object, InetAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InetAddress` instance.
@@ -1084,7 +1173,7 @@ public extension InetAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InetAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1222,8 +1311,8 @@ public extension InetAddressProtocol {
     @inlinable var inet_address_ptr: UnsafeMutablePointer<GInetAddress>! { return ptr?.assumingMemoryBound(to: GInetAddress.self) }
 
     /// Checks if two `GInetAddress` instances are equal, e.g. the same address.
-    @inlinable func equal<InetAddressT: InetAddressProtocol>(otherAddress other_address: InetAddressT) -> Bool {
-        let rv = ((g_inet_address_equal(inet_address_ptr, other_address.inet_address_ptr)) != 0)
+    @inlinable func equal<InetAddressT: InetAddressProtocol>(otherAddress: InetAddressT) -> Bool {
+        let rv = ((g_inet_address_equal(inet_address_ptr, otherAddress.inet_address_ptr)) != 0)
         return rv
     }
 
@@ -1459,7 +1548,7 @@ public extension InetAddressProtocol {
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
-public protocol InetAddressMaskProtocol: ObjectProtocol, InitableProtocol {
+public protocol InetAddressMaskProtocol: GLibObject.ObjectProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GInetAddressMask` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1536,7 +1625,7 @@ public extension InetAddressMaskRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1565,9 +1654,9 @@ public extension InetAddressMaskRef {
     /// creates a new `GInetAddressMask`. The length, if present, is
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
-    @inlinable init(string mask_string: UnsafePointer<gchar>!) throws {
+    @inlinable init(string maskString: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
+        let rv = g_inet_address_mask_new_from_string(maskString, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -1575,9 +1664,9 @@ public extension InetAddressMaskRef {
     /// creates a new `GInetAddressMask`. The length, if present, is
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
-    @inlinable static func newFrom(string mask_string: UnsafePointer<gchar>!) throws -> InetAddressMaskRef! {
+    @inlinable static func newFrom(string maskString: UnsafePointer<gchar>!) throws -> InetAddressMaskRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = InetAddressMaskRef(gconstpointer: gconstpointer(g_inet_address_mask_new_from_string(mask_string, &error)))
+        let maybeRV = InetAddressMaskRef(gconstpointer: gconstpointer(g_inet_address_mask_new_from_string(maskString, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -1592,7 +1681,7 @@ public extension InetAddressMaskRef {
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
-open class InetAddressMask: Object, InetAddressMaskProtocol {
+open class InetAddressMask: GLibObject.Object, InetAddressMaskProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InetAddressMask` instance.
@@ -1730,9 +1819,9 @@ open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// creates a new `GInetAddressMask`. The length, if present, is
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
-    @inlinable public init(string mask_string: UnsafePointer<gchar>!) throws {
+    @inlinable public init(string maskString: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_inet_address_mask_new_from_string(mask_string, &error)
+        let rv = g_inet_address_mask_new_from_string(maskString, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -1741,9 +1830,9 @@ open class InetAddressMask: Object, InetAddressMaskProtocol {
     /// creates a new `GInetAddressMask`. The length, if present, is
     /// delimited by a "/". If it is not present, then the length is
     /// assumed to be the full length of the address.
-    @inlinable public static func newFrom(string mask_string: UnsafePointer<gchar>!) throws -> InetAddressMask! {
+    @inlinable public static func newFrom(string maskString: UnsafePointer<gchar>!) throws -> InetAddressMask! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = InetAddressMask(gconstpointer: gconstpointer(g_inet_address_mask_new_from_string(mask_string, &error)))
+        let maybeRV = InetAddressMask(gconstpointer: gconstpointer(g_inet_address_mask_new_from_string(maskString, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -1766,7 +1855,7 @@ public extension InetAddressMaskProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetAddressMaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InetAddressMaskPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2030,7 +2119,7 @@ public extension InetSocketAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2245,7 +2334,7 @@ public extension InetSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: InetSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InetSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2449,7 +2538,7 @@ public extension InetSocketAddressProtocol {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
-public protocol InputStreamProtocol: ObjectProtocol {
+public protocol InputStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2533,7 +2622,7 @@ public extension InputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2566,7 +2655,7 @@ public extension InputStreamRef {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
-open class InputStream: Object, InputStreamProtocol {
+open class InputStream: GLibObject.Object, InputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InputStream` instance.
@@ -2788,7 +2877,36 @@ public extension InputStreamProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
     /// Cancelling a close will still leave the stream closed, but some streams
     /// can use a faster close that doesn't block to e.g. check errors.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func close(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_input_stream_close(input_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Closes the stream, releasing resources related to it.
+    /// 
+    /// Once the stream is closed, all other operations will return `G_IO_ERROR_CLOSED`.
+    /// Closing a stream multiple times will not return an error.
+    /// 
+    /// Streams will be automatically closed when the last reference
+    /// is dropped, but you might want to call this function to make sure
+    /// resources are released as early as possible.
+    /// 
+    /// Some streams might keep the backing store of the stream (e.g. a file descriptor)
+    /// open after the stream is closed. See the documentation for the individual
+    /// stream for details.
+    /// 
+    /// On failure the first error that happened will be reported, but the close
+    /// operation will finish as much as possible. A stream that failed to
+    /// close will still return `G_IO_ERROR_CLOSED` for all operations. Still, it
+    /// is important to check and report the error to the user.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// Cancelling a close will still leave the stream closed, but some streams
+    /// can use a faster close that doesn't block to e.g. check errors.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_input_stream_close(input_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -2805,8 +2923,22 @@ public extension InputStreamProtocol {
     /// The asynchronous methods have a default fallback that uses threads to implement
     /// asynchronicity, so they are optional for inheriting classes. However, if you
     /// override one you must override all.
-    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_input_stream_close_async(input_stream_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func closeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_close_async(input_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Requests an asynchronous closes of the stream, releasing resources related to it.
+    /// When the operation is finished `callback` will be called.
+    /// You can then call `g_input_stream_close_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// For behaviour details see `g_input_stream_close()`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads to implement
+    /// asynchronicity, so they are optional for inheriting classes. However, if you
+    /// override one you must override all.
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_close_async(input_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2845,7 +2977,34 @@ public extension InputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
-    @inlinable func read<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func read(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_input_stream_read(input_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to read `count` bytes from the stream into the buffer starting at
+    /// `buffer`. Will block during this read.
+    /// 
+    /// If count is zero returns zero and does nothing. A value of `count`
+    /// larger than `G_MAXSSIZE` will cause a `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes read into the buffer is returned.
+    /// It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. near the end of a file. Zero is returned on end of file
+    /// (or if `count` is zero),  but never otherwise.
+    /// 
+    /// The returned `buffer` is not a nul-terminated string, it can contain nul bytes
+    /// at any position, and this function doesn't nul-terminate the `buffer`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly.
+    @inlinable func read<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_read(input_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -2871,9 +3030,34 @@ public extension InputStreamProtocol {
     /// read before the error was encountered.  This functionality is only
     /// available from C.  If you need it from another language then you must
     /// write your own loop around `g_input_stream_read()`.
-    @inlinable func readAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, bytesRead bytes_read: UnsafeMutablePointer<gsize>!, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func readAll(buffer: UnsafeMutableRawPointer!, count: Int, bytesRead: UnsafeMutablePointer<gsize>!, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_input_stream_read_all(input_stream_ptr, buffer, gsize(count), bytes_read, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_input_stream_read_all(input_stream_ptr, buffer, gsize(count), bytesRead, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to read `count` bytes from the stream into the buffer starting at
+    /// `buffer`. Will block during this read.
+    /// 
+    /// This function is similar to `g_input_stream_read()`, except it tries to
+    /// read as many bytes as requested, only stopping on an error or end of stream.
+    /// 
+    /// On a successful read of `count` bytes, or if we reached the end of the
+    /// stream,  `true` is returned, and `bytes_read` is set to the number of bytes
+    /// read into `buffer`.
+    /// 
+    /// If there is an error during the operation `false` is returned and `error`
+    /// is set to indicate the error status.
+    /// 
+    /// As a special exception to the normal conventions for functions that
+    /// use `GError`, if this function returns `false` (and sets `error`) then
+    /// `bytes_read` will be set to the number of bytes that were successfully
+    /// read before the error was encountered.  This functionality is only
+    /// available from C.  If you need it from another language then you must
+    /// write your own loop around `g_input_stream_read()`.
+    @inlinable func readAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, bytesRead: UnsafeMutablePointer<gsize>!, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_input_stream_read_all(input_stream_ptr, buffer, gsize(count), bytesRead, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2888,8 +3072,22 @@ public extension InputStreamProtocol {
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
     /// priority. Default priority is `G_PRIORITY_DEFAULT`.
-    @inlinable func readAllAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_input_stream_read_all_async(input_stream_ptr, buffer, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readAllAsync(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_all_async(input_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous read of `count` bytes from the stream into the
+    /// buffer starting at `buffer`.
+    /// 
+    /// This is the asynchronous equivalent of `g_input_stream_read_all()`.
+    /// 
+    /// Call `g_input_stream_read_all_finish()` to collect the result.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    @inlinable func readAllAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_all_async(input_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2902,9 +3100,9 @@ public extension InputStreamProtocol {
     /// read before the error was encountered.  This functionality is only
     /// available from C.  If you need it from another language then you must
     /// write your own loop around `g_input_stream_read_async()`.
-    @inlinable func readAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesRead bytes_read: UnsafeMutablePointer<gsize>!) throws -> Bool {
+    @inlinable func readAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesRead: UnsafeMutablePointer<gsize>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_input_stream_read_all_finish(input_stream_ptr, result.async_result_ptr, bytes_read, &error)) != 0)
+        let rv = ((g_input_stream_read_all_finish(input_stream_ptr, result.async_result_ptr, bytesRead, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2932,8 +3130,35 @@ public extension InputStreamProtocol {
     /// The asynchronous methods have a default fallback that uses threads to implement
     /// asynchronicity, so they are optional for inheriting classes. However, if you
     /// override one you must override all.
-    @inlinable func readAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_input_stream_read_async(input_stream_ptr, buffer, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readAsync(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_async(input_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous read of `count` bytes from the stream into the buffer
+    /// starting at `buffer`. When the operation is finished `callback` will be called.
+    /// You can then call `g_input_stream_read_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// During an async request no other sync and async calls are allowed on `stream`, and will
+    /// result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// A value of `count` larger than `G_MAXSSIZE` will cause a `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes read into the buffer will be passed to the
+    /// callback. It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. near the end of a file, but generally we try to read
+    /// as many bytes as requested. Zero is returned on end of file
+    /// (or if `count` is zero),  but never otherwise.
+    /// 
+    /// Any outstanding i/o request with higher priority (lower numerical value) will
+    /// be executed before an outstanding request with lower priority. Default
+    /// priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads to implement
+    /// asynchronicity, so they are optional for inheriting classes. However, if you
+    /// override one you must override all.
+    @inlinable func readAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_async(input_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2960,9 +3185,38 @@ public extension InputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error `nil` is returned and `error` is set accordingly.
-    @inlinable func readBytes<CancellableT: CancellableProtocol>(count: Int, cancellable: CancellableT? = nil) throws -> BytesRef! {
+    @inlinable func readBytes(count: Int, cancellable: CancellableRef? = nil) throws -> GLib.BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = BytesRef(gconstpointer: gconstpointer(g_input_stream_read_bytes(input_stream_ptr, gsize(count), cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.BytesRef(g_input_stream_read_bytes(input_stream_ptr, gsize(count), cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Like `g_input_stream_read()`, this tries to read `count` bytes from
+    /// the stream in a blocking fashion. However, rather than reading into
+    /// a user-supplied buffer, this will create a new `GBytes` containing
+    /// the data that was read. This may be easier to use from language
+    /// bindings.
+    /// 
+    /// If count is zero, returns a zero-length `GBytes` and does nothing. A
+    /// value of `count` larger than `G_MAXSSIZE` will cause a
+    /// `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, a new `GBytes` is returned. It is not an error if the
+    /// size of this object is not the same as the requested size, as it
+    /// can happen e.g. near the end of a file. A zero-length `GBytes` is
+    /// returned on end of file (or if `count` is zero), but never
+    /// otherwise.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// On error `nil` is returned and `error` is set accordingly.
+    @inlinable func readBytes<CancellableT: CancellableProtocol>(count: Int, cancellable: CancellableT?) throws -> GLib.BytesRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.BytesRef(g_input_stream_read_bytes(input_stream_ptr, gsize(count), cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2987,15 +3241,39 @@ public extension InputStreamProtocol {
     /// Any outstanding I/O request with higher priority (lower numerical
     /// value) will be executed before an outstanding request with lower
     /// priority. Default priority is `G_PRIORITY_DEFAULT`.
-    @inlinable func readBytesAsync<CancellableT: CancellableProtocol>(count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_input_stream_read_bytes_async(input_stream_ptr, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readBytesAsync(count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_bytes_async(input_stream_ptr, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous read of `count` bytes from the stream into a
+    /// new `GBytes`. When the operation is finished `callback` will be
+    /// called. You can then call `g_input_stream_read_bytes_finish()` to get the
+    /// result of the operation.
+    /// 
+    /// During an async request no other sync and async calls are allowed
+    /// on `stream`, and will result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// A value of `count` larger than `G_MAXSSIZE` will cause a
+    /// `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the new `GBytes` will be passed to the callback. It is
+    /// not an error if this is smaller than the requested size, as it can
+    /// happen e.g. near the end of a file, but generally we try to read as
+    /// many bytes as requested. Zero is returned on end of file (or if
+    /// `count` is zero), but never otherwise.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    @inlinable func readBytesAsync<CancellableT: CancellableProtocol>(count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_read_bytes_async(input_stream_ptr, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous stream read-into-`GBytes` operation.
-    @inlinable func readBytesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> BytesRef! {
+    @inlinable func readBytesFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = BytesRef(gconstpointer: gconstpointer(g_input_stream_read_bytes_finish(input_stream_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.BytesRef(g_input_stream_read_bytes_finish(input_stream_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -3032,7 +3310,27 @@ public extension InputStreamProtocol {
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
     /// operation was partially finished when the operation was cancelled the
     /// partial result will be returned, without an error.
-    @inlinable func skip<CancellableT: CancellableProtocol>(count: Int, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func skip(count: Int, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_input_stream_skip(input_stream_ptr, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to skip `count` bytes from the stream. Will block during the operation.
+    /// 
+    /// This is identical to `g_input_stream_read()`, from a behaviour standpoint,
+    /// but the bytes that are skipped are not returned to the user. Some
+    /// streams have an implementation that is more efficient than reading the data.
+    /// 
+    /// This function is optional for inherited classes, as the default implementation
+    /// emulates it using read.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    @inlinable func skip<CancellableT: CancellableProtocol>(count: Int, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_input_stream_skip(input_stream_ptr, gsize(count), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -3062,8 +3360,35 @@ public extension InputStreamProtocol {
     /// The asynchronous methods have a default fallback that uses threads to
     /// implement asynchronicity, so they are optional for inheriting classes.
     /// However, if you override one, you must override all.
-    @inlinable func skipAsync<CancellableT: CancellableProtocol>(count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_input_stream_skip_async(input_stream_ptr, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func skipAsync(count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_skip_async(input_stream_ptr, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous skip of `count` bytes from the stream.
+    /// When the operation is finished `callback` will be called.
+    /// You can then call `g_input_stream_skip_finish()` to get the result
+    /// of the operation.
+    /// 
+    /// During an async request no other sync and async calls are allowed,
+    /// and will result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// A value of `count` larger than `G_MAXSSIZE` will cause a `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes skipped will be passed to the callback.
+    /// It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. near the end of a file, but generally we try to skip
+    /// as many bytes as requested. Zero is returned on end of file
+    /// (or if `count` is zero), but never otherwise.
+    /// 
+    /// Any outstanding i/o request with higher priority (lower numerical value)
+    /// will be executed before an outstanding request with lower priority.
+    /// Default priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads to
+    /// implement asynchronicity, so they are optional for inheriting classes.
+    /// However, if you override one, you must override all.
+    @inlinable func skipAsync<CancellableT: CancellableProtocol>(count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_input_stream_skip_async(input_stream_ptr, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3084,7 +3409,22 @@ public extension InputStreamProtocol {
     /// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
     /// returns `true`, or else the behavior is undefined. If `blocking` is
     /// `true`, then `stream` does not need to be a `GPollableInputStream`.
-    @inlinable func pollableStreamRead<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func pollableStreamRead(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_pollable_stream_read(input_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to read from `stream`, as with `g_input_stream_read()` (if
+    /// `blocking` is `true`) or `g_pollable_input_stream_read_nonblocking()`
+    /// (if `blocking` is `false`). This can be used to more easily share
+    /// code between blocking and non-blocking implementations of a method.
+    /// 
+    /// If `blocking` is `false`, then `stream` must be a
+    /// `GPollableInputStream` for which `g_pollable_input_stream_can_poll()`
+    /// returns `true`, or else the behavior is undefined. If `blocking` is
+    /// `true`, then `stream` does not need to be a `GPollableInputStream`.
+    @inlinable func pollableStreamRead<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_read(input_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -3124,7 +3464,7 @@ public extension InputStreamProtocol {
 /// 
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
-public protocol ListStoreProtocol: ObjectProtocol, ListModelProtocol {
+public protocol ListStoreProtocol: GLibObject.ObjectProtocol, ListModelProtocol {
         /// Untyped pointer to the underlying `GListStore` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3202,7 +3542,7 @@ public extension ListStoreRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3220,8 +3560,8 @@ public extension ListStoreRef {
 
         /// Creates a new `GListStore` with items of type `item_type`. `item_type`
     /// must be a subclass of `GObject`.
-    @inlinable init( item_type: GType) {
-        let rv = g_list_store_new(item_type)
+    @inlinable init( itemType: GType) {
+        let rv = g_list_store_new(itemType)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -3235,7 +3575,7 @@ public extension ListStoreRef {
 /// 
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
-open class ListStore: Object, ListStoreProtocol {
+open class ListStore: GLibObject.Object, ListStoreProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ListStore` instance.
@@ -3362,8 +3702,8 @@ open class ListStore: Object, ListStoreProtocol {
 
     /// Creates a new `GListStore` with items of type `item_type`. `item_type`
     /// must be a subclass of `GObject`.
-    @inlinable public init( item_type: GType) {
-        let rv = g_list_store_new(item_type)
+    @inlinable public init( itemType: GType) {
+        let rv = g_list_store_new(itemType)
         super.init(gpointer: (rv))
     }
 
@@ -3385,7 +3725,7 @@ public extension ListStoreProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ListStorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ListStorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3499,7 +3839,7 @@ public extension ListStoreProtocol {
     /// 
     /// Use `g_list_store_splice()` to append multiple items at the same time
     /// efficiently.
-    @inlinable func append<ObjectT: ObjectProtocol>(item: ObjectT) {
+    @inlinable func append<ObjectT: GLibObject.ObjectProtocol>(item: ObjectT) {
         g_list_store_append(list_store_ptr, item.object_ptr)
     
     }
@@ -3510,7 +3850,7 @@ public extension ListStoreProtocol {
     /// 
     /// If you need to compare the two items with a custom comparison function, use
     /// `g_list_store_find_with_equal_func()` with a custom `GEqualFunc` instead.
-    @inlinable func find<ObjectT: ObjectProtocol>(item: ObjectT, position: UnsafeMutablePointer<guint>! = nil) -> Bool {
+    @inlinable func find<ObjectT: GLibObject.ObjectProtocol>(item: ObjectT, position: UnsafeMutablePointer<guint>! = nil) -> Bool {
         let rv = ((g_list_store_find(list_store_ptr, item.object_ptr, position)) != 0)
         return rv
     }
@@ -3519,8 +3859,8 @@ public extension ListStoreProtocol {
     /// comparing them with `compare_func` until the first occurrence of `item` which
     /// matches. If `item` was not found, then `position` will not be set, and this
     /// method will return `false`.
-    @inlinable func findWithEqualFunc<ObjectT: ObjectProtocol>(item: ObjectT, equalFunc equal_func: GEqualFunc?, position: UnsafeMutablePointer<guint>! = nil) -> Bool {
-        let rv = ((g_list_store_find_with_equal_func(list_store_ptr, item.object_ptr, equal_func, position)) != 0)
+    @inlinable func findWithEqualFunc<ObjectT: GLibObject.ObjectProtocol>(item: ObjectT, equalFunc: GEqualFunc?, position: UnsafeMutablePointer<guint>! = nil) -> Bool {
+        let rv = ((g_list_store_find_with_equal_func(list_store_ptr, item.object_ptr, equalFunc, position)) != 0)
         return rv
     }
 
@@ -3532,7 +3872,7 @@ public extension ListStoreProtocol {
     /// 
     /// Use `g_list_store_splice()` to insert multiple items at the same time
     /// efficiently.
-    @inlinable func insert<ObjectT: ObjectProtocol>(position: Int, item: ObjectT) {
+    @inlinable func insert<ObjectT: GLibObject.ObjectProtocol>(position: Int, item: ObjectT) {
         g_list_store_insert(list_store_ptr, guint(position), item.object_ptr)
     
     }
@@ -3545,8 +3885,8 @@ public extension ListStoreProtocol {
     /// inserting items by way of this function.
     /// 
     /// This function takes a ref on `item`.
-    @inlinable func insertSorted<ObjectT: ObjectProtocol>(item: ObjectT, compareFunc compare_func: GCompareDataFunc?, userData user_data: gpointer! = nil) -> Int {
-        let rv = Int(g_list_store_insert_sorted(list_store_ptr, item.object_ptr, compare_func, user_data))
+    @inlinable func insertSorted<ObjectT: GLibObject.ObjectProtocol>(item: ObjectT, compareFunc: GCompareDataFunc?, userData: gpointer! = nil) -> Int {
+        let rv = Int(g_list_store_insert_sorted(list_store_ptr, item.object_ptr, compareFunc, userData))
         return rv
     }
 
@@ -3567,8 +3907,8 @@ public extension ListStoreProtocol {
     }
 
     /// Sort the items in `store` according to `compare_func`.
-    @inlinable func sort(compareFunc compare_func: GCompareDataFunc?, userData user_data: gpointer! = nil) {
-        g_list_store_sort(list_store_ptr, compare_func, user_data)
+    @inlinable func sort(compareFunc: GCompareDataFunc?, userData: gpointer! = nil) {
+        g_list_store_sort(list_store_ptr, compareFunc, userData)
     
     }
 
@@ -3585,8 +3925,8 @@ public extension ListStoreProtocol {
     /// The parameters `position` and `n_removals` must be correct (ie:
     /// `position` + `n_removals` must be less than or equal to the length of
     /// the list at the time this function is called).
-    @inlinable func splice(position: Int, nRemovals n_removals: Int, additions: UnsafeMutablePointer<gpointer?>!, nAdditions n_additions: Int) {
-        g_list_store_splice(list_store_ptr, guint(position), guint(n_removals), additions, guint(n_additions))
+    @inlinable func splice(position: Int, nRemovals: Int, additions: UnsafeMutablePointer<gpointer?>!, nAdditions: Int) {
+        g_list_store_splice(list_store_ptr, guint(position), guint(nRemovals), additions, guint(nAdditions))
     
     }
 

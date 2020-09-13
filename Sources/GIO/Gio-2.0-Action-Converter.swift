@@ -140,7 +140,7 @@ public extension ActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -364,7 +364,7 @@ public extension ActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -469,7 +469,18 @@ public extension ActionProtocol {
     /// type was `nil` then `parameter` must also be `nil`.
     /// 
     /// If the `parameter` GVariant is floating, it is consumed.
-    @inlinable func activate<VariantT: VariantProtocol>(parameter: VariantT? = nil) {
+    @inlinable func activate(parameter: GLib.VariantRef? = nil) {
+        g_action_activate(action_ptr, parameter?.variant_ptr)
+    
+    }
+    /// Activates the action.
+    /// 
+    /// `parameter` must be the correct type of parameter for the action (ie:
+    /// the parameter type given at construction time).  If the parameter
+    /// type was `nil` then `parameter` must also be `nil`.
+    /// 
+    /// If the `parameter` GVariant is floating, it is consumed.
+    @inlinable func activate<VariantT: GLib.VariantProtocol>(parameter: VariantT?) {
         g_action_activate(action_ptr, parameter?.variant_ptr)
     
     }
@@ -484,7 +495,7 @@ public extension ActionProtocol {
     /// See `g_action_get_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
-    @inlinable func changeState<VariantT: VariantProtocol>(value: VariantT) {
+    @inlinable func changeState<VariantT: GLib.VariantProtocol>(value: VariantT) {
         g_action_change_state(action_ptr, value.variant_ptr)
     
     }
@@ -512,8 +523,8 @@ public extension ActionProtocol {
     /// 
     /// In the case that this function returns `nil`, you must not give any
     /// `GVariant`, but `nil` instead.
-    @inlinable func getParameterType() -> VariantTypeRef! {
-        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_parameter_type(action_ptr)))
+    @inlinable func getParameterType() -> GLib.VariantTypeRef! {
+        let rv = GLib.VariantTypeRef(g_action_get_parameter_type(action_ptr))
         return rv
     }
 
@@ -525,8 +536,8 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    @inlinable func getState() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state(action_ptr)))
+    @inlinable func getState() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_action_get_state(action_ptr))
         return rv
     }
 
@@ -548,8 +559,8 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    @inlinable func getStateHint() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state_hint(action_ptr)))
+    @inlinable func getStateHint() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_action_get_state_hint(action_ptr))
         return rv
     }
 
@@ -565,8 +576,8 @@ public extension ActionProtocol {
     /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
     /// then this function will return `nil`. In that case, `g_action_get_state()`
     /// will return `nil` and you must not call `g_action_change_state()`.
-    @inlinable func getStateType() -> VariantTypeRef! {
-        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_state_type(action_ptr)))
+    @inlinable func getStateType() -> GLib.VariantTypeRef! {
+        let rv = GLib.VariantTypeRef(g_action_get_state_type(action_ptr))
         return rv
     }
     /// If `action` is currently enabled.
@@ -602,7 +613,7 @@ public extension ActionProtocol {
     /// 
     /// In the case that this function returns `nil`, you must not give any
     /// `GVariant`, but `nil` instead.
-    @inlinable var parameterType: VariantTypeRef! {
+    @inlinable var parameterType: GLib.VariantTypeRef! {
         /// Queries the type of the parameter that must be given when activating
         /// `action`.
         /// 
@@ -612,13 +623,13 @@ public extension ActionProtocol {
         /// In the case that this function returns `nil`, you must not give any
         /// `GVariant`, but `nil` instead.
         get {
-            let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_parameter_type(action_ptr)))
+            let rv = GLib.VariantTypeRef(g_action_get_parameter_type(action_ptr))
             return rv
         }
     }
 
     /// The state of the action, or `nil` if the action is stateless.
-    @inlinable var state: VariantRef! {
+    @inlinable var state: GLib.VariantRef! {
         /// Queries the current state of `action`.
         /// 
         /// If the action is not stateful then `nil` will be returned.  If the
@@ -628,7 +639,7 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state(action_ptr)))
+            let rv = GLib.VariantRef(g_action_get_state(action_ptr))
             return rv
         }
     }
@@ -651,7 +662,7 @@ public extension ActionProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    @inlinable var stateHint: VariantRef! {
+    @inlinable var stateHint: GLib.VariantRef! {
         /// Requests a hint about the valid range of values for the state of
         /// `action`.
         /// 
@@ -671,7 +682,7 @@ public extension ActionProtocol {
         /// The return value (if non-`nil`) should be freed with
         /// `g_variant_unref()` when it is no longer required.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_action_get_state_hint(action_ptr)))
+            let rv = GLib.VariantRef(g_action_get_state_hint(action_ptr))
             return rv
         }
     }
@@ -688,7 +699,7 @@ public extension ActionProtocol {
     /// If the action is not stateful (e.g. created with `g_simple_action_new()`)
     /// then this function will return `nil`. In that case, `g_action_get_state()`
     /// will return `nil` and you must not call `g_action_change_state()`.
-    @inlinable var stateType: VariantTypeRef! {
+    @inlinable var stateType: GLib.VariantTypeRef! {
         /// Queries the type of the state of `action`.
         /// 
         /// If the action is stateful (e.g. created with
@@ -702,7 +713,7 @@ public extension ActionProtocol {
         /// then this function will return `nil`. In that case, `g_action_get_state()`
         /// will return `nil` and you must not call `g_action_change_state()`.
         get {
-            let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_get_state_type(action_ptr)))
+            let rv = GLib.VariantTypeRef(g_action_get_state_type(action_ptr))
             return rv
         }
     }
@@ -882,7 +893,7 @@ public extension ActionGroupRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1147,32 +1158,32 @@ public extension ActionGroupProtocol {
     /// Emits the `GActionGroup::action`-added signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    @inlinable func actionAdded(actionName action_name: UnsafePointer<gchar>!) {
-        g_action_group_action_added(action_group_ptr, action_name)
+    @inlinable func actionAdded(actionName: UnsafePointer<gchar>!) {
+        g_action_group_action_added(action_group_ptr, actionName)
     
     }
 
     /// Emits the `GActionGroup::action`-enabled-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    @inlinable func actionEnabledChanged(actionName action_name: UnsafePointer<gchar>!, enabled: Bool) {
-        g_action_group_action_enabled_changed(action_group_ptr, action_name, gboolean((enabled) ? 1 : 0))
+    @inlinable func actionEnabledChanged(actionName: UnsafePointer<gchar>!, enabled: Bool) {
+        g_action_group_action_enabled_changed(action_group_ptr, actionName, gboolean((enabled) ? 1 : 0))
     
     }
 
     /// Emits the `GActionGroup::action`-removed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    @inlinable func actionRemoved(actionName action_name: UnsafePointer<gchar>!) {
-        g_action_group_action_removed(action_group_ptr, action_name)
+    @inlinable func actionRemoved(actionName: UnsafePointer<gchar>!) {
+        g_action_group_action_removed(action_group_ptr, actionName)
     
     }
 
     /// Emits the `GActionGroup::action`-state-changed signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
-    @inlinable func actionStateChanged<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, state: VariantT) {
-        g_action_group_action_state_changed(action_group_ptr, action_name, state.variant_ptr)
+    @inlinable func actionStateChanged<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, state: VariantT) {
+        g_action_group_action_state_changed(action_group_ptr, actionName, state.variant_ptr)
     
     }
 
@@ -1182,8 +1193,18 @@ public extension ActionGroupProtocol {
     /// parameter must be given as `parameter`.  If the action is expecting no
     /// parameters then `parameter` must be `nil`.  See
     /// `g_action_group_get_action_parameter_type()`.
-    @inlinable func activateAction<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, parameter: VariantT? = nil) {
-        g_action_group_activate_action(action_group_ptr, action_name, parameter?.variant_ptr)
+    @inlinable func activateAction(actionName: UnsafePointer<gchar>!, parameter: GLib.VariantRef? = nil) {
+        g_action_group_activate_action(action_group_ptr, actionName, parameter?.variant_ptr)
+    
+    }
+    /// Activate the named action within `action_group`.
+    /// 
+    /// If the action is expecting a parameter, then the correct type of
+    /// parameter must be given as `parameter`.  If the action is expecting no
+    /// parameters then `parameter` must be `nil`.  See
+    /// `g_action_group_get_action_parameter_type()`.
+    @inlinable func activateAction<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, parameter: VariantT?) {
+        g_action_group_activate_action(action_group_ptr, actionName, parameter?.variant_ptr)
     
     }
 
@@ -1198,8 +1219,8 @@ public extension ActionGroupProtocol {
     /// See `g_action_group_get_action_state_hint()`.
     /// 
     /// If the `value` GVariant is floating, it is consumed.
-    @inlinable func changeActionState<VariantT: VariantProtocol>(actionName action_name: UnsafePointer<gchar>!, value: VariantT) {
-        g_action_group_change_action_state(action_group_ptr, action_name, value.variant_ptr)
+    @inlinable func changeActionState<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, value: VariantT) {
+        g_action_group_change_action_state(action_group_ptr, actionName, value.variant_ptr)
     
     }
 
@@ -1207,8 +1228,8 @@ public extension ActionGroupProtocol {
     /// 
     /// An action must be enabled in order to be activated or in order to
     /// have its state changed from outside callers.
-    @inlinable func getActionEnabled(actionName action_name: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_action_group_get_action_enabled(action_group_ptr, action_name)) != 0)
+    @inlinable func getActionEnabled(actionName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_action_group_get_action_enabled(action_group_ptr, actionName)) != 0)
         return rv
     }
 
@@ -1225,8 +1246,8 @@ public extension ActionGroupProtocol {
     /// The parameter type of a particular action will never change but it is
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different parameter type.
-    @inlinable func getActionParameterType(actionName action_name: UnsafePointer<gchar>!) -> VariantTypeRef! {
-        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_group_get_action_parameter_type(action_group_ptr, action_name)))
+    @inlinable func getActionParameterType(actionName: UnsafePointer<gchar>!) -> GLib.VariantTypeRef! {
+        let rv = GLib.VariantTypeRef(g_action_group_get_action_parameter_type(action_group_ptr, actionName))
         return rv
     }
 
@@ -1238,8 +1259,8 @@ public extension ActionGroupProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    @inlinable func getActionState(actionName action_name: UnsafePointer<gchar>!) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_action_group_get_action_state(action_group_ptr, action_name)))
+    @inlinable func getActionState(actionName: UnsafePointer<gchar>!) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_action_group_get_action_state(action_group_ptr, actionName))
         return rv
     }
 
@@ -1261,8 +1282,8 @@ public extension ActionGroupProtocol {
     /// 
     /// The return value (if non-`nil`) should be freed with
     /// `g_variant_unref()` when it is no longer required.
-    @inlinable func getActionStateHint(actionName action_name: UnsafePointer<gchar>!) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_action_group_get_action_state_hint(action_group_ptr, action_name)))
+    @inlinable func getActionStateHint(actionName: UnsafePointer<gchar>!) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_action_group_get_action_state_hint(action_group_ptr, actionName))
         return rv
     }
 
@@ -1282,14 +1303,14 @@ public extension ActionGroupProtocol {
     /// The state type of a particular action will never change but it is
     /// possible for an action to be removed and for a new action to be added
     /// with the same name but a different state type.
-    @inlinable func getActionStateType(actionName action_name: UnsafePointer<gchar>!) -> VariantTypeRef! {
-        let rv = VariantTypeRef(gconstpointer: gconstpointer(g_action_group_get_action_state_type(action_group_ptr, action_name)))
+    @inlinable func getActionStateType(actionName: UnsafePointer<gchar>!) -> GLib.VariantTypeRef! {
+        let rv = GLib.VariantTypeRef(g_action_group_get_action_state_type(action_group_ptr, actionName))
         return rv
     }
 
     /// Checks if the named action exists within `action_group`.
-    @inlinable func hasAction(actionName action_name: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_action_group_has_action(action_group_ptr, action_name)) != 0)
+    @inlinable func hasAction(actionName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_action_group_has_action(action_group_ptr, actionName)) != 0)
         return rv
     }
 
@@ -1329,8 +1350,8 @@ public extension ActionGroupProtocol {
     /// fields (as indicated by having a non-`nil` reference passed in) are
     /// filled.  If the action doesn't exist, `false` is returned and the
     /// fields may or may not have been modified.
-    @inlinable func queryAction(actionName action_name: UnsafePointer<gchar>!, enabled: UnsafeMutablePointer<gboolean>!, parameterType parameter_type: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateType state_type: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateHint state_hint: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil, state: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
-        let rv = ((g_action_group_query_action(action_group_ptr, action_name, enabled, parameter_type, state_type, state_hint, state)) != 0)
+    @inlinable func queryAction(actionName: UnsafePointer<gchar>!, enabled: UnsafeMutablePointer<gboolean>!, parameterType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateType: UnsafeMutablePointer<UnsafePointer<GVariantType>?>! = nil, stateHint: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil, state: UnsafeMutablePointer<UnsafeMutablePointer<GVariant>?>! = nil) -> Bool {
+        let rv = ((g_action_group_query_action(action_group_ptr, actionName, enabled, parameterType, stateType, stateHint, state)) != 0)
         return rv
     }
 
@@ -1437,7 +1458,7 @@ public extension ActionMapRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1672,24 +1693,24 @@ public extension ActionMapProtocol {
     /// }
     /// ```
     /// 
-    @inlinable func addAction(entries: UnsafePointer<GActionEntry>!, nEntries n_entries: Int, userData user_data: gpointer! = nil) {
-        g_action_map_add_action_entries(action_map_ptr, entries, gint(n_entries), user_data)
+    @inlinable func addAction(entries: UnsafePointer<GActionEntry>!, nEntries: Int, userData: gpointer! = nil) {
+        g_action_map_add_action_entries(action_map_ptr, entries, gint(nEntries), userData)
     
     }
 
     /// Looks up the action with the name `action_name` in `action_map`.
     /// 
     /// If no such action exists, returns `nil`.
-    @inlinable func lookupAction(actionName action_name: UnsafePointer<gchar>!) -> ActionRef! {
-        let rv = ActionRef(gconstpointer: gconstpointer(g_action_map_lookup_action(action_map_ptr, action_name)))
+    @inlinable func lookupAction(actionName: UnsafePointer<gchar>!) -> ActionRef! {
+        let rv = ActionRef(gconstpointer: gconstpointer(g_action_map_lookup_action(action_map_ptr, actionName)))
         return rv
     }
 
     /// Removes the named action from the action map.
     /// 
     /// If no action of this name is in the map then nothing happens.
-    @inlinable func removeAction(actionName action_name: UnsafePointer<gchar>!) {
-        g_action_map_remove_action(action_map_ptr, action_name)
+    @inlinable func removeAction(actionName: UnsafePointer<gchar>!) {
+        g_action_map_remove_action(action_map_ptr, actionName)
     
     }
 
@@ -1874,7 +1895,7 @@ public extension AppInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1897,17 +1918,17 @@ public extension AppInfoRef {
     /// are applied. For example, if the `commandline` contains
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
-    @inlinable static func createFrom(commandline: UnsafePointer<CChar>!, applicationName application_name: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
+    @inlinable static func createFrom(commandline: UnsafePointer<CChar>!, applicationName: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = AppInfoRef(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error)))
+        let maybeRV = AppInfoRef(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, applicationName, flags.value, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
     }
 
     /// Gets the default `GAppInfo` for a given content type.
-    @inlinable static func getDefaultFor(type content_type: UnsafePointer<CChar>!, mustSupportURIs must_support_uris: Bool) -> AppInfoRef! {
-        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_type(content_type, gboolean((must_support_uris) ? 1 : 0)))) else { return nil }
+    @inlinable static func getDefaultFor(type contentType: UnsafePointer<CChar>!, mustSupportURIs: Bool) -> AppInfoRef! {
+        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_type(contentType, gboolean((mustSupportURIs) ? 1 : 0)))) else { return nil }
         return rv
     }
 
@@ -1915,8 +1936,8 @@ public extension AppInfoRef {
     /// the given URI scheme. A URI scheme is the initial part
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
-    @inlinable static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>!) -> AppInfoRef! {
-        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uri_scheme))) else { return nil }
+    @inlinable static func getDefaultFor(uriScheme uriScheme: UnsafePointer<CChar>!) -> AppInfoRef! {
+        guard let rv = AppInfoRef(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uriScheme))) else { return nil }
         return rv
     }
 }
@@ -2121,17 +2142,17 @@ open class AppInfo: AppInfoProtocol {
     /// are applied. For example, if the `commandline` contains
     /// percent-encoded URIs, the percent-character must be doubled in order to prevent it from
     /// being swallowed by Exec key unquoting. See the specification for exact quoting rules.
-    @inlinable public static func createFrom(commandline: UnsafePointer<CChar>!, applicationName application_name: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfo! {
+    @inlinable public static func createFrom(commandline: UnsafePointer<CChar>!, applicationName: UnsafePointer<CChar>? = nil, flags: AppInfoCreateFlags) throws -> AppInfo! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = AppInfo(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, application_name, flags.value, &error)))
+        let maybeRV = AppInfo(gconstpointer: gconstpointer(g_app_info_create_from_commandline(commandline, applicationName, flags.value, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
     }
 
     /// Gets the default `GAppInfo` for a given content type.
-    @inlinable public static func getDefaultFor(type content_type: UnsafePointer<CChar>!, mustSupportURIs must_support_uris: Bool) -> AppInfo! {
-        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_type(content_type, gboolean((must_support_uris) ? 1 : 0)))) else { return nil }
+    @inlinable public static func getDefaultFor(type contentType: UnsafePointer<CChar>!, mustSupportURIs: Bool) -> AppInfo! {
+        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_type(contentType, gboolean((mustSupportURIs) ? 1 : 0)))) else { return nil }
         return rv
     }
 
@@ -2139,8 +2160,8 @@ open class AppInfo: AppInfoProtocol {
     /// the given URI scheme. A URI scheme is the initial part
     /// of the URI, up to but not including the ':', e.g. "http",
     /// "ftp" or "sip".
-    @inlinable public static func getDefaultFor(uriScheme uri_scheme: UnsafePointer<CChar>!) -> AppInfo! {
-        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uri_scheme))) else { return nil }
+    @inlinable public static func getDefaultFor(uriScheme uriScheme: UnsafePointer<CChar>!) -> AppInfo! {
+        guard let rv = AppInfo(gconstpointer: gconstpointer(g_app_info_get_default_for_uri_scheme(uriScheme))) else { return nil }
         return rv
     }
 
@@ -2158,9 +2179,9 @@ public extension AppInfoProtocol {
 
     /// Adds a content type to the application information to indicate the
     /// application is capable of opening files with the given content type.
-    @inlinable func addSupportsType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
+    @inlinable func addSupportsType(contentType: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_app_info_add_supports_type(app_info_ptr, content_type, &error)) != 0)
+        let rv = ((g_app_info_add_supports_type(app_info_ptr, contentType, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2292,7 +2313,40 @@ public extension AppInfoProtocol {
     /// should it be inherited by further processes. The `DISPLAY` and
     /// `DESKTOP_STARTUP_ID` environment variables are also set, based
     /// on information provided in `context`.
-    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: ListProtocol>(files: ListT? = nil, context: AppLaunchContextT? = nil) throws -> Bool {
+    @inlinable func launch(files: GLib.ListRef? = nil, context: AppLaunchContextRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_app_info_launch(app_info_ptr, files?._ptr, context?.app_launch_context_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Launches the application. Passes `files` to the launched application
+    /// as arguments, using the optional `context` to get information
+    /// about the details of the launcher (like what screen it is on).
+    /// On error, `error` will be set accordingly.
+    /// 
+    /// To launch the application without arguments pass a `nil` `files` list.
+    /// 
+    /// Note that even if the launch is successful the application launched
+    /// can fail to start if it runs into problems during startup. There is
+    /// no way to detect this.
+    /// 
+    /// Some URIs can be changed when passed through a GFile (for instance
+    /// unsupported URIs with strange formats like mailto:), so if you have
+    /// a textual URI you want to pass in as argument, consider using
+    /// `g_app_info_launch_uris()` instead.
+    /// 
+    /// The launched application inherits the environment of the launching
+    /// process, but it can be modified with `g_app_launch_context_setenv()`
+    /// and `g_app_launch_context_unsetenv()`.
+    /// 
+    /// On UNIX, this function sets the `GIO_LAUNCHED_DESKTOP_FILE`
+    /// environment variable with the path of the launched desktop file and
+    /// `GIO_LAUNCHED_DESKTOP_FILE_PID` to the process id of the launched
+    /// process. This can be used to ignore `GIO_LAUNCHED_DESKTOP_FILE`,
+    /// should it be inherited by further processes. The `DISPLAY` and
+    /// `DESKTOP_STARTUP_ID` environment variables are also set, based
+    /// on information provided in `context`.
+    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: GLib.ListProtocol>(files: ListT?, context: AppLaunchContextT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_app_info_launch(app_info_ptr, files?._ptr, context?.app_launch_context_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -2309,7 +2363,23 @@ public extension AppInfoProtocol {
     /// Note that even if the launch is successful the application launched
     /// can fail to start if it runs into problems during startup. There is
     /// no way to detect this.
-    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: ListProtocol>(uris: ListT? = nil, context: AppLaunchContextT? = nil) throws -> Bool {
+    @inlinable func launch(uris: GLib.ListRef? = nil, context: AppLaunchContextRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_app_info_launch_uris(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Launches the application. This passes the `uris` to the launched application
+    /// as arguments, using the optional `context` to get information
+    /// about the details of the launcher (like what screen it is on).
+    /// On error, `error` will be set accordingly.
+    /// 
+    /// To launch the application without arguments pass a `nil` `uris` list.
+    /// 
+    /// Note that even if the launch is successful the application launched
+    /// can fail to start if it runs into problems during startup. There is
+    /// no way to detect this.
+    @inlinable func launch<AppLaunchContextT: AppLaunchContextProtocol, ListT: GLib.ListProtocol>(uris: ListT?, context: AppLaunchContextT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_app_info_launch_uris(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -2322,8 +2392,18 @@ public extension AppInfoProtocol {
     /// waits for activation in case of D-Bus–activated applications and also provides
     /// extended error information for sandboxed applications, see notes for
     /// `g_app_info_launch_default_for_uri_async()`.
-    @inlinable func launchURIsAsync<AppLaunchContextT: AppLaunchContextProtocol, CancellableT: CancellableProtocol, ListT: ListProtocol>(uris: ListT? = nil, context: AppLaunchContextT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_app_info_launch_uris_async(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func launchURIsAsync(uris: GLib.ListRef? = nil, context: AppLaunchContextRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_uris_async(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Async version of `g_app_info_launch_uris()`.
+    /// 
+    /// The `callback` is invoked immediately after the application launch, but it
+    /// waits for activation in case of D-Bus–activated applications and also provides
+    /// extended error information for sandboxed applications, see notes for
+    /// `g_app_info_launch_default_for_uri_async()`.
+    @inlinable func launchURIsAsync<AppLaunchContextT: AppLaunchContextProtocol, CancellableT: CancellableProtocol, ListT: GLib.ListProtocol>(uris: ListT?, context: AppLaunchContextT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_app_info_launch_uris_async(app_info_ptr, uris?._ptr, context?.app_launch_context_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2336,9 +2416,9 @@ public extension AppInfoProtocol {
     }
 
     /// Removes a supported type from an application, if possible.
-    @inlinable func removeSupportsType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
+    @inlinable func removeSupportsType(contentType: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_app_info_remove_supports_type(app_info_ptr, content_type, &error)) != 0)
+        let rv = ((g_app_info_remove_supports_type(app_info_ptr, contentType, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2352,9 +2432,9 @@ public extension AppInfoProtocol {
     }
 
     /// Sets the application as the default handler for a given type.
-    @inlinable func setAsDefaultForType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
+    @inlinable func setAsDefaultForType(contentType: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_app_info_set_as_default_for_type(app_info_ptr, content_type, &error)) != 0)
+        let rv = ((g_app_info_set_as_default_for_type(app_info_ptr, contentType, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2363,9 +2443,9 @@ public extension AppInfoProtocol {
     /// This will make the application appear as first in the list returned
     /// by `g_app_info_get_recommended_for_type()`, regardless of the default
     /// application for that content type.
-    @inlinable func setAsLastUsedForType(contentType content_type: UnsafePointer<CChar>!) throws -> Bool {
+    @inlinable func setAsLastUsedForType(contentType: UnsafePointer<CChar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_app_info_set_as_last_used_for_type(app_info_ptr, content_type, &error)) != 0)
+        let rv = ((g_app_info_set_as_last_used_for_type(app_info_ptr, contentType, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2771,7 +2851,7 @@ public extension AsyncInitableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3083,8 +3163,48 @@ public extension AsyncInitableProtocol {
     /// in a thread, so if you want to support asynchronous initialization via
     /// threads, just implement the `GAsyncInitable` interface without overriding
     /// any interface methods.
-    @inlinable func initAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_async_initable_init_async(async_initable_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func initAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_async_initable_init_async(async_initable_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Starts asynchronous initialization of the object implementing the
+    /// interface. This must be done before any real use of the object after
+    /// initial construction. If the object also implements `GInitable` you can
+    /// optionally call `g_initable_init()` instead.
+    /// 
+    /// This method is intended for language bindings. If writing in C,
+    /// `g_async_initable_new_async()` should typically be used instead.
+    /// 
+    /// When the initialization is finished, `callback` will be called. You can
+    /// then call `g_async_initable_init_finish()` to get the result of the
+    /// initialization.
+    /// 
+    /// Implementations may also support cancellation. If `cancellable` is not
+    /// `nil`, then initialization can be cancelled by triggering the cancellable
+    /// object from another thread. If the operation was cancelled, the error
+    /// `G_IO_ERROR_CANCELLED` will be returned. If `cancellable` is not `nil`, and
+    /// the object doesn't support cancellable initialization, the error
+    /// `G_IO_ERROR_NOT_SUPPORTED` will be returned.
+    /// 
+    /// As with `GInitable`, if the object is not initialized, or initialization
+    /// returns with an error, then all operations on the object except
+    /// `g_object_ref()` and `g_object_unref()` are considered to be invalid, and
+    /// have undefined behaviour. They will often fail with `g_critical()` or
+    /// `g_warning()`, but this must not be relied on.
+    /// 
+    /// Callers should not assume that a class which implements `GAsyncInitable` can
+    /// be initialized multiple times; for more information, see `g_initable_init()`.
+    /// If a class explicitly supports being initialized multiple times,
+    /// implementation requires yielding all subsequent calls to `init_async()` on the
+    /// results of the first call.
+    /// 
+    /// For classes that also support the `GInitable` interface, the default
+    /// implementation of this method will run the `g_initable_init()` function
+    /// in a thread, so if you want to support asynchronous initialization via
+    /// threads, just implement the `GAsyncInitable` interface without overriding
+    /// any interface methods.
+    @inlinable func initAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_async_initable_init_async(async_initable_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3099,9 +3219,9 @@ public extension AsyncInitableProtocol {
 
     /// Finishes the async construction for the various g_async_initable_new
     /// calls, returning the created object or `nil` on error.
-    @inlinable func newFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> ObjectRef! {
+    @inlinable func newFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> GLibObject.ObjectRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ObjectRef(gconstpointer: gconstpointer(g_async_initable_new_finish(async_initable_ptr, res.async_result_ptr, &error)))
+        let rv = GLibObject.ObjectRef(g_async_initable_new_finish(async_initable_ptr, res.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -3361,7 +3481,7 @@ public extension AsyncResultRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3623,8 +3743,8 @@ public extension AsyncResultProtocol {
     @inlinable var async_result_ptr: UnsafeMutablePointer<GAsyncResult>! { return ptr?.assumingMemoryBound(to: GAsyncResult.self) }
 
     /// Gets the source object from a `GAsyncResult`.
-    @inlinable func getSourceObject() -> ObjectRef! {
-        let rv = ObjectRef(gconstpointer: gconstpointer(g_async_result_get_source_object(async_result_ptr)))
+    @inlinable func getSourceObject() -> GLibObject.ObjectRef! {
+        let rv = GLibObject.ObjectRef(g_async_result_get_source_object(async_result_ptr))
         return rv
     }
 
@@ -3636,8 +3756,8 @@ public extension AsyncResultProtocol {
 
     /// Checks if `res` has the given `source_tag` (generally a function
     /// pointer indicating the function `res` was created by).
-    @inlinable func isTagged(sourceTag source_tag: gpointer! = nil) -> Bool {
-        let rv = ((g_async_result_is_tagged(async_result_ptr, source_tag)) != 0)
+    @inlinable func isTagged(sourceTag: gpointer! = nil) -> Bool {
+        let rv = ((g_async_result_is_tagged(async_result_ptr, sourceTag)) != 0)
         return rv
     }
 
@@ -3684,17 +3804,17 @@ public extension AsyncResultProtocol {
     }
 
     /// Finishes an operation started with `g_dbus_address_get_stream()`.
-    @inlinable func dbusAddressGetStreamFinish(outGuid out_guid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+    @inlinable func dbusAddressGetStreamFinish(outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(async_result_ptr, out_guid, &error)))
+        let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(async_result_ptr, outGuid, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
     /// Gets the source object from a `GAsyncResult`.
-    @inlinable var sourceObject: ObjectRef! {
+    @inlinable var sourceObject: GLibObject.ObjectRef! {
         /// Gets the source object from a `GAsyncResult`.
         get {
-            let rv = ObjectRef(gconstpointer: gconstpointer(g_async_result_get_source_object(async_result_ptr)))
+            let rv = GLibObject.ObjectRef(g_async_result_get_source_object(async_result_ptr))
             return rv
         }
     }
@@ -3807,7 +3927,7 @@ public extension ConverterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4072,9 +4192,9 @@ public extension ConverterProtocol {
     /// at a partial multibyte sequence). Converters are supposed to try
     /// to produce as much output as possible and then return an error
     /// (typically `G_IO_ERROR_PARTIAL_INPUT`).
-    @inlinable func convert(inbuf: UnsafeMutableRawPointer!, inbufSize inbuf_size: Int, outbuf: UnsafeMutableRawPointer!, outbufSize outbuf_size: Int, flags: ConverterFlags, bytesRead bytes_read: UnsafeMutablePointer<gsize>!, bytesWritten bytes_written: UnsafeMutablePointer<gsize>!) throws -> GConverterResult {
+    @inlinable func convert(inbuf: UnsafeMutableRawPointer!, inbufSize: Int, outbuf: UnsafeMutableRawPointer!, outbufSize: Int, flags: ConverterFlags, bytesRead: UnsafeMutablePointer<gsize>!, bytesWritten: UnsafeMutablePointer<gsize>!) throws -> GConverterResult {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_converter_convert(converter_ptr, inbuf, gsize(inbuf_size), outbuf, gsize(outbuf_size), flags.value, bytes_read, bytes_written, &error)
+        let rv = g_converter_convert(converter_ptr, inbuf, gsize(inbufSize), outbuf, gsize(outbufSize), flags.value, bytesRead, bytesWritten, &error)
         if let error = error { throw GLibError(error) }
         return rv
     }

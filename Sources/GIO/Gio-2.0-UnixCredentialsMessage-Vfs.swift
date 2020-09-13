@@ -104,7 +104,7 @@ public extension UnixCredentialsMessageRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -312,7 +312,7 @@ public extension UnixCredentialsMessageProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixCredentialsMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixCredentialsMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -468,7 +468,7 @@ public extension UnixCredentialsMessageProtocol {
 /// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
-public protocol UnixFDListProtocol: ObjectProtocol {
+public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GUnixFDList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -551,7 +551,7 @@ public extension UnixFDListRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -581,8 +581,8 @@ public extension UnixFDListRef {
     /// Each file descriptor in the array should be set to close-on-exec.
     /// 
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
-    @inlinable init(array fds: UnsafePointer<gint>!, nFds n_fds: Int) {
-        let rv = g_unix_fd_list_new_from_array(fds, gint(n_fds))
+    @inlinable init(array fds: UnsafePointer<gint>!, nFds: Int) {
+        let rv = g_unix_fd_list_new_from_array(fds, gint(nFds))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GUnixFDList` containing the file descriptors given in
@@ -593,8 +593,8 @@ public extension UnixFDListRef {
     /// Each file descriptor in the array should be set to close-on-exec.
     /// 
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
-    @inlinable static func newFrom(array fds: UnsafePointer<gint>!, nFds n_fds: Int) -> UnixFDListRef! {
-        guard let rv = UnixFDListRef(gconstpointer: gconstpointer(g_unix_fd_list_new_from_array(fds, gint(n_fds)))) else { return nil }
+    @inlinable static func newFrom(array fds: UnsafePointer<gint>!, nFds: Int) -> UnixFDListRef! {
+        guard let rv = UnixFDListRef(gconstpointer: gconstpointer(g_unix_fd_list_new_from_array(fds, gint(nFds)))) else { return nil }
         return rv
     }
 }
@@ -613,7 +613,7 @@ public extension UnixFDListRef {
 /// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
-open class UnixFDList: Object, UnixFDListProtocol {
+open class UnixFDList: GLibObject.Object, UnixFDListProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `UnixFDList` instance.
@@ -752,8 +752,8 @@ open class UnixFDList: Object, UnixFDListProtocol {
     /// Each file descriptor in the array should be set to close-on-exec.
     /// 
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
-    @inlinable public init(array fds: UnsafePointer<gint>!, nFds n_fds: Int) {
-        let rv = g_unix_fd_list_new_from_array(fds, gint(n_fds))
+    @inlinable public init(array fds: UnsafePointer<gint>!, nFds: Int) {
+        let rv = g_unix_fd_list_new_from_array(fds, gint(nFds))
         super.init(gpointer: (rv))
     }
 
@@ -765,8 +765,8 @@ open class UnixFDList: Object, UnixFDListProtocol {
     /// Each file descriptor in the array should be set to close-on-exec.
     /// 
     /// If `n_fds` is -1 then `fds` must be terminated with -1.
-    @inlinable public static func newFrom(array fds: UnsafePointer<gint>!, nFds n_fds: Int) -> UnixFDList! {
-        guard let rv = UnixFDList(gconstpointer: gconstpointer(g_unix_fd_list_new_from_array(fds, gint(n_fds)))) else { return nil }
+    @inlinable public static func newFrom(array fds: UnsafePointer<gint>!, nFds: Int) -> UnixFDList! {
+        guard let rv = UnixFDList(gconstpointer: gconstpointer(g_unix_fd_list_new_from_array(fds, gint(nFds)))) else { return nil }
         return rv
     }
 
@@ -1056,7 +1056,7 @@ public extension UnixFDMessageRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1080,13 +1080,13 @@ public extension UnixFDMessageRef {
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
-    @inlinable init<UnixFDListT: UnixFDListProtocol>(fdList fd_list: UnixFDListT) {
-        let rv = g_unix_fd_message_new_with_fd_list(fd_list.unix_fd_list_ptr)
+    @inlinable init<UnixFDListT: UnixFDListProtocol>(fdList fdList: UnixFDListT) {
+        let rv = g_unix_fd_message_new_with_fd_list(fdList.unix_fd_list_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GUnixFDMessage` containing `list`.
-    @inlinable static func newWith<UnixFDListT: UnixFDListProtocol>(fdList fd_list: UnixFDListT) -> SocketControlMessageRef! {
-        guard let rv = SocketControlMessageRef(gconstpointer: gconstpointer(g_unix_fd_message_new_with_fd_list(fd_list.unix_fd_list_ptr))) else { return nil }
+    @inlinable static func newWith<UnixFDListT: UnixFDListProtocol>(fdList fdList: UnixFDListT) -> SocketControlMessageRef! {
+        guard let rv = SocketControlMessageRef(gconstpointer: gconstpointer(g_unix_fd_message_new_with_fd_list(fdList.unix_fd_list_ptr))) else { return nil }
         return rv
     }
 }
@@ -1241,14 +1241,14 @@ open class UnixFDMessage: SocketControlMessage, UnixFDMessageProtocol {
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
-    @inlinable public init<UnixFDListT: UnixFDListProtocol>(fdList fd_list: UnixFDListT) {
-        let rv = g_unix_fd_message_new_with_fd_list(fd_list.unix_fd_list_ptr)
+    @inlinable public init<UnixFDListT: UnixFDListProtocol>(fdList fdList: UnixFDListT) {
+        let rv = g_unix_fd_message_new_with_fd_list(fdList.unix_fd_list_ptr)
         super.init(gpointer: (rv))
     }
 
     /// Creates a new `GUnixFDMessage` containing `list`.
-    @inlinable public static func newWith<UnixFDListT: UnixFDListProtocol>(fdList fd_list: UnixFDListT) -> SocketControlMessage! {
-        guard let rv = SocketControlMessage(gconstpointer: gconstpointer(g_unix_fd_message_new_with_fd_list(fd_list.unix_fd_list_ptr))) else { return nil }
+    @inlinable public static func newWith<UnixFDListT: UnixFDListProtocol>(fdList fdList: UnixFDListT) -> SocketControlMessage! {
+        guard let rv = SocketControlMessage(gconstpointer: gconstpointer(g_unix_fd_message_new_with_fd_list(fdList.unix_fd_list_ptr))) else { return nil }
         return rv
     }
 
@@ -1267,7 +1267,7 @@ public extension UnixFDMessageProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixFDMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixFDMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1546,7 +1546,7 @@ public extension UnixInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1566,8 +1566,8 @@ public extension UnixInputStreamRef {
     /// 
     /// If `close_fd` is `true`, the file descriptor will be closed
     /// when the stream is closed.
-    @inlinable init( fd: Int, closeFd close_fd: Bool) {
-        let rv = g_unix_input_stream_new(gint(fd), gboolean((close_fd) ? 1 : 0))
+    @inlinable init( fd: Int, closeFd: Bool) {
+        let rv = g_unix_input_stream_new(gint(fd), gboolean((closeFd) ? 1 : 0))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -1714,8 +1714,8 @@ open class UnixInputStream: InputStream, UnixInputStreamProtocol {
     /// 
     /// If `close_fd` is `true`, the file descriptor will be closed
     /// when the stream is closed.
-    @inlinable public init( fd: Int, closeFd close_fd: Bool) {
-        let rv = g_unix_input_stream_new(gint(fd), gboolean((close_fd) ? 1 : 0))
+    @inlinable public init( fd: Int, closeFd: Bool) {
+        let rv = g_unix_input_stream_new(gint(fd), gboolean((closeFd) ? 1 : 0))
         super.init(gpointer: (rv))
     }
 
@@ -1738,7 +1738,7 @@ public extension UnixInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1862,8 +1862,8 @@ public extension UnixInputStreamProtocol {
 
     /// Sets whether the file descriptor of `stream` shall be closed
     /// when the stream is closed.
-    @inlinable func set(closeFd close_fd: Bool) {
-        g_unix_input_stream_set_close_fd(unix_input_stream_ptr, gboolean((close_fd) ? 1 : 0))
+    @inlinable func set(closeFd: Bool) {
+        g_unix_input_stream_set_close_fd(unix_input_stream_ptr, gboolean((closeFd) ? 1 : 0))
     
     }
     /// Returns whether the file descriptor of `stream` will be
@@ -1912,7 +1912,7 @@ public extension UnixInputStreamProtocol {
 /// Alternatively, use `UnixMountMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Watches `GUnixMounts` for changes.
-public protocol UnixMountMonitorProtocol: ObjectProtocol {
+public protocol UnixMountMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GUnixMountMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1986,7 +1986,7 @@ public extension UnixMountMonitorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2033,7 +2033,7 @@ public extension UnixMountMonitorRef {
 /// Use `UnixMountMonitor` as a strong reference or owner of a `GUnixMountMonitor` instance.
 ///
 /// Watches `GUnixMounts` for changes.
-open class UnixMountMonitor: Object, UnixMountMonitorProtocol {
+open class UnixMountMonitor: GLibObject.Object, UnixMountMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `UnixMountMonitor` instance.
@@ -2264,8 +2264,8 @@ public extension UnixMountMonitorProtocol {
     ///
     /// **set_rate_limit is deprecated:**
     /// This function does nothing.  Don't call it.
-    @available(*, deprecated) @inlinable func setRateLimit(limitMsec limit_msec: Int) {
-        g_unix_mount_monitor_set_rate_limit(unix_mount_monitor_ptr, gint(limit_msec))
+    @available(*, deprecated) @inlinable func setRateLimit(limitMsec: Int) {
+        g_unix_mount_monitor_set_rate_limit(unix_mount_monitor_ptr, gint(limitMsec))
     
     }
 
@@ -2372,7 +2372,7 @@ public extension UnixOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2392,8 +2392,8 @@ public extension UnixOutputStreamRef {
     /// 
     /// If `close_fd`, is `true`, the file descriptor will be closed when
     /// the output stream is destroyed.
-    @inlinable init( fd: Int, closeFd close_fd: Bool) {
-        let rv = g_unix_output_stream_new(gint(fd), gboolean((close_fd) ? 1 : 0))
+    @inlinable init( fd: Int, closeFd: Bool) {
+        let rv = g_unix_output_stream_new(gint(fd), gboolean((closeFd) ? 1 : 0))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -2540,8 +2540,8 @@ open class UnixOutputStream: OutputStream, UnixOutputStreamProtocol {
     /// 
     /// If `close_fd`, is `true`, the file descriptor will be closed when
     /// the output stream is destroyed.
-    @inlinable public init( fd: Int, closeFd close_fd: Bool) {
-        let rv = g_unix_output_stream_new(gint(fd), gboolean((close_fd) ? 1 : 0))
+    @inlinable public init( fd: Int, closeFd: Bool) {
+        let rv = g_unix_output_stream_new(gint(fd), gboolean((closeFd) ? 1 : 0))
         super.init(gpointer: (rv))
     }
 
@@ -2564,7 +2564,7 @@ public extension UnixOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2688,8 +2688,8 @@ public extension UnixOutputStreamProtocol {
 
     /// Sets whether the file descriptor of `stream` shall be closed
     /// when the stream is closed.
-    @inlinable func set(closeFd close_fd: Bool) {
-        g_unix_output_stream_set_close_fd(unix_output_stream_ptr, gboolean((close_fd) ? 1 : 0))
+    @inlinable func set(closeFd: Bool) {
+        g_unix_output_stream_set_close_fd(unix_output_stream_ptr, gboolean((closeFd) ? 1 : 0))
     
     }
     /// Returns whether the file descriptor of `stream` will be
@@ -2838,7 +2838,7 @@ public extension UnixSocketAddressRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2868,8 +2868,8 @@ public extension UnixSocketAddressRef {
     ///
     /// **new_abstract is deprecated:**
     /// Use g_unix_socket_address_new_with_type().
-    @available(*, deprecated) @inlinable init(abstract path: UnsafePointer<gchar>!, pathLen path_len: Int) {
-        let rv = g_unix_socket_address_new_abstract(path, gint(path_len))
+    @available(*, deprecated) @inlinable init(abstract path: UnsafePointer<gchar>!, pathLen: Int) {
+        let rv = g_unix_socket_address_new_abstract(path, gint(pathLen))
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -2904,8 +2904,8 @@ public extension UnixSocketAddressRef {
     /// when connecting to a server created by another process, you must
     /// use the appropriate type corresponding to how that process created
     /// its listening socket.
-    @inlinable init(type path: UnsafePointer<gchar>!, pathLen path_len: Int, type: GUnixSocketAddressType) {
-        let rv = g_unix_socket_address_new_with_type(path, gint(path_len), type)
+    @inlinable init(type path: UnsafePointer<gchar>!, pathLen: Int, type: GUnixSocketAddressType) {
+        let rv = g_unix_socket_address_new_with_type(path, gint(pathLen), type)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `G_UNIX_SOCKET_ADDRESS_ABSTRACT_PADDED`
@@ -2913,8 +2913,8 @@ public extension UnixSocketAddressRef {
     ///
     /// **new_abstract is deprecated:**
     /// Use g_unix_socket_address_new_with_type().
-    @available(*, deprecated) @inlinable static func new(abstract path: UnsafePointer<gchar>!, pathLen path_len: Int) -> SocketAddressRef! {
-        guard let rv = SocketAddressRef(gconstpointer: gconstpointer(g_unix_socket_address_new_abstract(path, gint(path_len)))) else { return nil }
+    @available(*, deprecated) @inlinable static func new(abstract path: UnsafePointer<gchar>!, pathLen: Int) -> SocketAddressRef! {
+        guard let rv = SocketAddressRef(gconstpointer: gconstpointer(g_unix_socket_address_new_abstract(path, gint(pathLen)))) else { return nil }
         return rv
     }
 
@@ -2949,8 +2949,8 @@ public extension UnixSocketAddressRef {
     /// when connecting to a server created by another process, you must
     /// use the appropriate type corresponding to how that process created
     /// its listening socket.
-    @inlinable static func newWith(type path: UnsafePointer<gchar>!, pathLen path_len: Int, type: GUnixSocketAddressType) -> SocketAddressRef! {
-        guard let rv = SocketAddressRef(gconstpointer: gconstpointer(g_unix_socket_address_new_with_type(path, gint(path_len), type))) else { return nil }
+    @inlinable static func newWith(type path: UnsafePointer<gchar>!, pathLen: Int, type: GUnixSocketAddressType) -> SocketAddressRef! {
+        guard let rv = SocketAddressRef(gconstpointer: gconstpointer(g_unix_socket_address_new_with_type(path, gint(pathLen), type))) else { return nil }
         return rv
     }
 }
@@ -3112,8 +3112,8 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     ///
     /// **new_abstract is deprecated:**
     /// Use g_unix_socket_address_new_with_type().
-    @available(*, deprecated) @inlinable public init(abstract path: UnsafePointer<gchar>!, pathLen path_len: Int) {
-        let rv = g_unix_socket_address_new_abstract(path, gint(path_len))
+    @available(*, deprecated) @inlinable public init(abstract path: UnsafePointer<gchar>!, pathLen: Int) {
+        let rv = g_unix_socket_address_new_abstract(path, gint(pathLen))
         super.init(gpointer: (rv))
     }
 
@@ -3148,8 +3148,8 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// when connecting to a server created by another process, you must
     /// use the appropriate type corresponding to how that process created
     /// its listening socket.
-    @inlinable public init(type path: UnsafePointer<gchar>!, pathLen path_len: Int, type: GUnixSocketAddressType) {
-        let rv = g_unix_socket_address_new_with_type(path, gint(path_len), type)
+    @inlinable public init(type path: UnsafePointer<gchar>!, pathLen: Int, type: GUnixSocketAddressType) {
+        let rv = g_unix_socket_address_new_with_type(path, gint(pathLen), type)
         super.init(gpointer: (rv))
     }
 
@@ -3158,8 +3158,8 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     ///
     /// **new_abstract is deprecated:**
     /// Use g_unix_socket_address_new_with_type().
-    @available(*, deprecated) @inlinable public static func new(abstract path: UnsafePointer<gchar>!, pathLen path_len: Int) -> SocketAddress! {
-        guard let rv = SocketAddress(gconstpointer: gconstpointer(g_unix_socket_address_new_abstract(path, gint(path_len)))) else { return nil }
+    @available(*, deprecated) @inlinable public static func new(abstract path: UnsafePointer<gchar>!, pathLen: Int) -> SocketAddress! {
+        guard let rv = SocketAddress(gconstpointer: gconstpointer(g_unix_socket_address_new_abstract(path, gint(pathLen)))) else { return nil }
         return rv
     }
 
@@ -3194,8 +3194,8 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// when connecting to a server created by another process, you must
     /// use the appropriate type corresponding to how that process created
     /// its listening socket.
-    @inlinable public static func newWith(type path: UnsafePointer<gchar>!, pathLen path_len: Int, type: GUnixSocketAddressType) -> SocketAddress! {
-        guard let rv = SocketAddress(gconstpointer: gconstpointer(g_unix_socket_address_new_with_type(path, gint(path_len), type))) else { return nil }
+    @inlinable public static func newWith(type path: UnsafePointer<gchar>!, pathLen: Int, type: GUnixSocketAddressType) -> SocketAddress! {
+        guard let rv = SocketAddress(gconstpointer: gconstpointer(g_unix_socket_address_new_with_type(path, gint(pathLen), type))) else { return nil }
         return rv
     }
 
@@ -3224,7 +3224,7 @@ public extension UnixSocketAddressProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixSocketAddressPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3444,7 +3444,7 @@ public extension UnixSocketAddressProtocol {
 /// Alternatively, use `VfsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Entry point for using GIO functionality.
-public protocol VfsProtocol: ObjectProtocol {
+public protocol VfsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GVfs` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3518,7 +3518,7 @@ public extension VfsRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3552,7 +3552,7 @@ public extension VfsRef {
 /// Use `Vfs` as a strong reference or owner of a `GVfs` instance.
 ///
 /// Entry point for using GIO functionality.
-open class Vfs: Object, VfsProtocol {
+open class Vfs: GLibObject.Object, VfsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Vfs` instance.
@@ -3781,8 +3781,8 @@ public extension VfsProtocol {
     /// This operation never fails, but the returned object might
     /// not support any I/O operations if the `parse_name` cannot
     /// be parsed by the `GVfs` module.
-    @inlinable func parseName(parseName parse_name: UnsafePointer<CChar>!) -> FileRef! {
-        let rv = FileRef(gconstpointer: gconstpointer(g_vfs_parse_name(vfs_ptr, parse_name)))
+    @inlinable func parseName(parseName: UnsafePointer<CChar>!) -> FileRef! {
+        let rv = FileRef(gconstpointer: gconstpointer(g_vfs_parse_name(vfs_ptr, parseName)))
         return rv
     }
 
@@ -3806,8 +3806,8 @@ public extension VfsProtocol {
     /// 
     /// It's an error to call this function twice with the same scheme. To unregister
     /// a custom URI scheme, use `g_vfs_unregister_uri_scheme()`.
-    @inlinable func registerURI(scheme: UnsafePointer<CChar>!, uriFunc uri_func: GVfsFileLookupFunc? = nil, uriData uri_data: gpointer! = nil, uriDestroy uri_destroy: GDestroyNotify? = nil, parseNameFunc parse_name_func: GVfsFileLookupFunc? = nil, parseNameData parse_name_data: gpointer! = nil, parseNameDestroy parse_name_destroy: GDestroyNotify? = nil) -> Bool {
-        let rv = ((g_vfs_register_uri_scheme(vfs_ptr, scheme, uri_func, uri_data, uri_destroy, parse_name_func, parse_name_data, parse_name_destroy)) != 0)
+    @inlinable func registerURI(scheme: UnsafePointer<CChar>!, uriFunc: GVfsFileLookupFunc? = nil, uriData: gpointer! = nil, uriDestroy: GDestroyNotify? = nil, parseNameFunc: GVfsFileLookupFunc? = nil, parseNameData: gpointer! = nil, parseNameDestroy: GDestroyNotify? = nil) -> Bool {
+        let rv = ((g_vfs_register_uri_scheme(vfs_ptr, scheme, uriFunc, uriData, uriDestroy, parseNameFunc, parseNameData, parseNameDestroy)) != 0)
         return rv
     }
 

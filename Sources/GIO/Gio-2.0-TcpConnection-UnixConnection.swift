@@ -86,7 +86,7 @@ public extension TcpConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -256,7 +256,7 @@ public extension TcpConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TcpConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -382,8 +382,8 @@ public extension TcpConnectionProtocol {
     /// However, it also means we have to wait for all the data to reach the
     /// other side and for it to acknowledge this by closing the socket, which may
     /// take a while. For this reason it is disabled by default.
-    @inlinable func set(gracefulDisconnect graceful_disconnect: Bool) {
-        g_tcp_connection_set_graceful_disconnect(tcp_connection_ptr, gboolean((graceful_disconnect) ? 1 : 0))
+    @inlinable func set(gracefulDisconnect: Bool) {
+        g_tcp_connection_set_graceful_disconnect(tcp_connection_ptr, gboolean((gracefulDisconnect) ? 1 : 0))
     
     }
     /// Checks if graceful disconnects are used. See
@@ -517,7 +517,7 @@ public extension TcpWrapperConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -534,8 +534,8 @@ public extension TcpWrapperConnectionRef {
     }
 
         /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
-    @inlinable init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( base_io_stream: IOStreamT, socket: SocketT) {
-        let rv = g_tcp_wrapper_connection_new(base_io_stream.io_stream_ptr, socket.socket_ptr)
+    @inlinable init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( baseIoStream: IOStreamT, socket: SocketT) {
+        let rv = g_tcp_wrapper_connection_new(baseIoStream.io_stream_ptr, socket.socket_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -675,8 +675,8 @@ open class TcpWrapperConnection: TcpConnection, TcpWrapperConnectionProtocol {
     }
 
     /// Wraps `base_io_stream` and `socket` together as a `GSocketConnection`.
-    @inlinable public init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( base_io_stream: IOStreamT, socket: SocketT) {
-        let rv = g_tcp_wrapper_connection_new(base_io_stream.io_stream_ptr, socket.socket_ptr)
+    @inlinable public init<IOStreamT: IOStreamProtocol, SocketT: SocketProtocol>( baseIoStream: IOStreamT, socket: SocketT) {
+        let rv = g_tcp_wrapper_connection_new(baseIoStream.io_stream_ptr, socket.socket_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -701,7 +701,7 @@ public extension TcpWrapperConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TcpWrapperConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TcpWrapperConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -924,7 +924,7 @@ public extension TcpWrapperConnectionProtocol {
 ///     CLEANFILES += gschemas.compiled
 /// ```
 /// 
-public protocol TestDBusProtocol: ObjectProtocol {
+public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTestDBus` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1070,7 +1070,7 @@ public extension TestDBusRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1170,7 +1170,7 @@ public extension TestDBusRef {
 ///     CLEANFILES += gschemas.compiled
 /// ```
 /// 
-open class TestDBus: Object, TestDBusProtocol {
+open class TestDBus: GLibObject.Object, TestDBusProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TestDBus` instance.
@@ -1318,7 +1318,7 @@ public extension TestDBusProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TestDBusPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TestDBusPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1520,7 +1520,7 @@ public extension TestDBusProtocol {
 /// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
-public protocol ThemedIconProtocol: ObjectProtocol, IconProtocol {
+public protocol ThemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GThemedIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1600,7 +1600,7 @@ public extension ThemedIconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1629,7 +1629,7 @@ public extension ThemedIconRef {
 /// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
-open class ThemedIcon: Object, ThemedIconProtocol {
+open class ThemedIcon: GLibObject.Object, ThemedIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ThemedIcon` instance.
@@ -1792,7 +1792,7 @@ public extension ThemedIconProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ThemedIconPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2066,7 +2066,7 @@ public extension ThreadedSocketServiceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2084,8 +2084,8 @@ public extension ThreadedSocketServiceRef {
 
         /// Creates a new `GThreadedSocketService` with no listeners. Listeners
     /// must be added with one of the `GSocketListener` "add" methods.
-    @inlinable init( max_threads: Int) {
-        let rv = g_threaded_socket_service_new(gint(max_threads))
+    @inlinable init( maxThreads: Int) {
+        let rv = g_threaded_socket_service_new(gint(maxThreads))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -2236,8 +2236,8 @@ open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
 
     /// Creates a new `GThreadedSocketService` with no listeners. Listeners
     /// must be added with one of the `GSocketListener` "add" methods.
-    @inlinable public init( max_threads: Int) {
-        let rv = g_threaded_socket_service_new(gint(max_threads))
+    @inlinable public init( maxThreads: Int) {
+        let rv = g_threaded_socket_service_new(gint(maxThreads))
         super.init(gpointer: (rv))
     }
 
@@ -2260,7 +2260,7 @@ public extension ThreadedSocketServiceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ThreadedSocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ThreadedSocketServicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2418,7 +2418,7 @@ public extension ThreadedSocketServiceProtocol {
 /// received by a client from a server), or the combination of
 /// a certificate and a private key (which is needed when acting as a
 /// `GTlsServerConnection`).
-public protocol TLSCertificateProtocol: ObjectProtocol {
+public protocol TLSCertificateProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsCertificate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2496,7 +2496,7 @@ public extension TLSCertificateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2546,9 +2546,9 @@ public extension TLSCertificateRef {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    @inlinable init(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws {
+    @inlinable init(files certFile: UnsafePointer<gchar>!, keyFile: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
+        let rv = g_tls_certificate_new_from_files(certFile, keyFile, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2608,9 +2608,9 @@ public extension TLSCertificateRef {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    @inlinable static func newFrom(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws -> TLSCertificateRef! {
+    @inlinable static func newFrom(files certFile: UnsafePointer<gchar>!, keyFile: UnsafePointer<gchar>!) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(cert_file, key_file, &error)))
+        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(certFile, keyFile, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -2648,7 +2648,7 @@ public extension TLSCertificateRef {
 /// received by a client from a server), or the combination of
 /// a certificate and a private key (which is needed when acting as a
 /// `GTlsServerConnection`).
-open class TLSCertificate: Object, TLSCertificateProtocol {
+open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSCertificate` instance.
@@ -2807,9 +2807,9 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    @inlinable public init(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws {
+    @inlinable public init(files certFile: UnsafePointer<gchar>!, keyFile: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_tls_certificate_new_from_files(cert_file, key_file, &error)
+        let rv = g_tls_certificate_new_from_files(certFile, keyFile, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -2870,9 +2870,9 @@ open class TLSCertificate: Object, TLSCertificateProtocol {
     /// If either file cannot be read or parsed, the function will return
     /// `nil` and set `error`. Otherwise, this behaves like
     /// `g_tls_certificate_new_from_pem()`.
-    @inlinable public static func newFrom(files cert_file: UnsafePointer<gchar>!, keyFile key_file: UnsafePointer<gchar>!) throws -> TLSCertificate! {
+    @inlinable public static func newFrom(files certFile: UnsafePointer<gchar>!, keyFile: UnsafePointer<gchar>!) throws -> TLSCertificate! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(cert_file, key_file, &error)))
+        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_files(certFile, keyFile, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -2948,7 +2948,7 @@ public extension TLSCertificateProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSCertificatePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSCertificatePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3098,8 +3098,8 @@ public extension TLSCertificateProtocol {
     /// This has the effect that two certificates may compare equal even if
     /// their `GTlsCertificate:issuer`, `GTlsCertificate:private`-key, or
     /// `GTlsCertificate:private`-key-pem properties differ.
-    @inlinable func isSame<TLSCertificateT: TLSCertificateProtocol>(certTwo cert_two: TLSCertificateT) -> Bool {
-        let rv = ((g_tls_certificate_is_same(tls_certificate_ptr, cert_two.tls_certificate_ptr)) != 0)
+    @inlinable func isSame<TLSCertificateT: TLSCertificateProtocol>(certTwo: TLSCertificateT) -> Bool {
+        let rv = ((g_tls_certificate_is_same(tls_certificate_ptr, certTwo.tls_certificate_ptr)) != 0)
         return rv
     }
 
@@ -3122,15 +3122,38 @@ public extension TLSCertificateProtocol {
     /// 
     /// (All other `GTlsCertificateFlags` values will always be set or unset
     /// as appropriate.)
-    @inlinable func verify<SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol>(identity: SocketConnectableT? = nil, trustedCa trusted_ca: TLSCertificateT? = nil) -> TLSCertificateFlags {
-        let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trusted_ca?.tls_certificate_ptr))
+    @inlinable func verify(identity: SocketConnectableRef? = nil, trustedCa: TLSCertificateRef? = nil) -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trustedCa?.tls_certificate_ptr))
+        return rv
+    }
+    /// This verifies `cert` and returns a set of `GTlsCertificateFlags`
+    /// indicating any problems found with it. This can be used to verify a
+    /// certificate outside the context of making a connection, or to
+    /// check a certificate against a CA that is not part of the system
+    /// CA database.
+    /// 
+    /// If `identity` is not `nil`, `cert`'s `name(s)` will be compared against
+    /// it, and `G_TLS_CERTIFICATE_BAD_IDENTITY` will be set in the return
+    /// value if it does not match. If `identity` is `nil`, that bit will
+    /// never be set in the return value.
+    /// 
+    /// If `trusted_ca` is not `nil`, then `cert` (or one of the certificates
+    /// in its chain) must be signed by it, or else
+    /// `G_TLS_CERTIFICATE_UNKNOWN_CA` will be set in the return value. If
+    /// `trusted_ca` is `nil`, that bit will never be set in the return
+    /// value.
+    /// 
+    /// (All other `GTlsCertificateFlags` values will always be set or unset
+    /// as appropriate.)
+    @inlinable func verify<SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol>(identity: SocketConnectableT?, trustedCa: TLSCertificateT?) -> TLSCertificateFlags {
+        let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trustedCa?.tls_certificate_ptr))
         return rv
     }
 
     /// Creates a new `GDtlsServerConnection` wrapping `base_socket`.
-    @inlinable func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket base_socket: DatagramBasedT) throws -> DtlsServerConnectionRef! {
+    @inlinable func dtlsServerConnectionNew<DatagramBasedT: DatagramBasedProtocol>(baseSocket: DatagramBasedT) throws -> DtlsServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(base_socket.datagram_based_ptr, tls_certificate_ptr, &error)))
+        let rv = DtlsServerConnectionRef(gconstpointer: gconstpointer(g_dtls_server_connection_new(baseSocket.datagram_based_ptr, tls_certificate_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -3141,9 +3164,9 @@ public extension TLSCertificateProtocol {
     /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
-    @inlinable func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream base_io_stream: IOStreamT) throws -> TLSServerConnectionRef! {
+    @inlinable func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT) throws -> TLSServerConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(base_io_stream.io_stream_ptr, tls_certificate_ptr, &error)))
+        let rv = TLSServerConnectionRef(gconstpointer: gconstpointer(g_tls_server_connection_new(baseIoStream.io_stream_ptr, tls_certificate_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -3269,7 +3292,7 @@ public extension TLSConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3496,7 +3519,7 @@ public extension TLSConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3695,8 +3718,8 @@ public extension TLSConnectionProtocol {
 
     /// Used by `GTlsConnection` implementations to emit the
     /// `GTlsConnection::accept`-certificate signal.
-    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert peer_cert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
-        let rv = ((g_tls_connection_emit_accept_certificate(tls_connection_ptr, peer_cert.tls_certificate_ptr, errors.value)) != 0)
+    @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
+        let rv = ((g_tls_connection_emit_accept_certificate(tls_connection_ptr, peerCert.tls_certificate_ptr, errors.value)) != 0)
         return rv
     }
 
@@ -3811,7 +3834,44 @@ public extension TLSConnectionProtocol {
     /// 
     /// `GTlsConnection::accept_certificate` may be emitted during the
     /// handshake.
-    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func handshake(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_tls_connection_handshake(tls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts a TLS handshake on `conn`.
+    /// 
+    /// On the client side, it is never necessary to call this method;
+    /// although the connection needs to perform a handshake after
+    /// connecting (or after sending a "STARTTLS"-type command),
+    /// `GTlsConnection` will handle this for you automatically when you try
+    /// to send or receive data on the connection. You can call
+    /// `g_tls_connection_handshake()` manually if you want to know whether
+    /// the initial handshake succeeded or failed (as opposed to just
+    /// immediately trying to use `conn` to read or write, in which case,
+    /// if it fails, it may not be possible to tell if it failed before or
+    /// after completing the handshake), but beware that servers may reject
+    /// client authentication after the handshake has completed, so a
+    /// successful handshake does not indicate the connection will be usable.
+    /// 
+    /// Likewise, on the server side, although a handshake is necessary at
+    /// the beginning of the communication, you do not need to call this
+    /// function explicitly unless you want clearer error reporting.
+    /// 
+    /// Previously, calling `g_tls_connection_handshake()` after the initial
+    /// handshake would trigger a rehandshake; however, this usage was
+    /// deprecated in GLib 2.60 because rehandshaking was removed from the
+    /// TLS protocol in TLS 1.3. Since GLib 2.64, calling this function after
+    /// the initial handshake will no longer do anything.
+    /// 
+    /// When using a `GTlsConnection` created by `GSocketClient`, the
+    /// `GSocketClient` performs the initial handshake, so calling this
+    /// function manually is not recommended.
+    /// 
+    /// `GTlsConnection::accept_certificate` may be emitted during the
+    /// handshake.
+    @inlinable func handshake<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_tls_connection_handshake(tls_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -3820,8 +3880,14 @@ public extension TLSConnectionProtocol {
 
     /// Asynchronously performs a TLS handshake on `conn`. See
     /// `g_tls_connection_handshake()` for more information.
-    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_connection_handshake_async(tls_connection_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func handshakeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_connection_handshake_async(tls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously performs a TLS handshake on `conn`. See
+    /// `g_tls_connection_handshake()` for more information.
+    @inlinable func handshakeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_connection_handshake_async(tls_connection_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -3891,7 +3957,17 @@ public extension TLSConnectionProtocol {
     /// The `interaction` argument will normally be a derived subclass of
     /// `GTlsInteraction`. `nil` can also be provided if no user interaction
     /// should occur for this connection.
-    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT? = nil) {
+    @inlinable func set(interaction: TLSInteractionRef? = nil) {
+        g_tls_connection_set_interaction(tls_connection_ptr, interaction?.tls_interaction_ptr)
+    
+    }
+    /// Set the object that will be used to interact with the user. It will be used
+    /// for things like prompting the user for passwords.
+    /// 
+    /// The `interaction` argument will normally be a derived subclass of
+    /// `GTlsInteraction`. `nil` can also be provided if no user interaction
+    /// should occur for this connection.
+    @inlinable func set<TLSInteractionT: TLSInteractionProtocol>(interaction: TLSInteractionT?) {
         g_tls_connection_set_interaction(tls_connection_ptr, interaction?.tls_interaction_ptr)
     
     }
@@ -3937,8 +4013,8 @@ public extension TLSConnectionProtocol {
     /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
     /// than closing `conn` itself, but note that this may only be done when no other
     /// operations are pending on `conn` or the base I/O stream.
-    @inlinable func set(requireCloseNotify require_close_notify: Bool) {
-        g_tls_connection_set_require_close_notify(tls_connection_ptr, gboolean((require_close_notify) ? 1 : 0))
+    @inlinable func set(requireCloseNotify: Bool) {
+        g_tls_connection_set_require_close_notify(tls_connection_ptr, gboolean((requireCloseNotify) ? 1 : 0))
     
     }
 
@@ -3952,8 +4028,8 @@ public extension TLSConnectionProtocol {
     ///
     /// **set_use_system_certdb is deprecated:**
     /// Use g_tls_connection_set_database() instead
-    @available(*, deprecated) @inlinable func set(useSystemCertdb use_system_certdb: Bool) {
-        g_tls_connection_set_use_system_certdb(tls_connection_ptr, gboolean((use_system_certdb) ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(useSystemCertdb: Bool) {
+        g_tls_connection_set_use_system_certdb(tls_connection_ptr, gboolean((useSystemCertdb) ? 1 : 0))
     
     }
     /// The connection's certificate; see
@@ -4220,7 +4296,7 @@ public extension TLSConnectionProtocol {
 /// 
 /// Most common client applications will not directly interact with
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
-public protocol TLSDatabaseProtocol: ObjectProtocol {
+public protocol TLSDatabaseProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsDatabase` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4302,7 +4378,7 @@ public extension TLSDatabaseRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4333,7 +4409,7 @@ public extension TLSDatabaseRef {
 /// 
 /// Most common client applications will not directly interact with
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
-open class TLSDatabase: Object, TLSDatabaseProtocol {
+open class TLSDatabase: GLibObject.Object, TLSDatabaseProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSDatabase` instance.
@@ -4551,7 +4627,25 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_lookup_certificate_for_handle_async()` to perform
     /// the lookup operation asynchronously.
-    @inlinable func lookupCertificateFor<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateRef! {
+    @inlinable func lookupCertificateFor(handle: UnsafePointer<gchar>!, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil) throws -> TLSCertificateRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_for_handle(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Look up a certificate by its handle.
+    /// 
+    /// The handle should have been created by calling
+    /// `g_tls_database_create_certificate_handle()` on a `GTlsDatabase` object of
+    /// the same TLS backend. The handle is designed to remain valid across
+    /// instantiations of the database.
+    /// 
+    /// If the handle is no longer valid, or does not point to a certificate in
+    /// this database, then `nil` will be returned.
+    /// 
+    /// This function can block, use `g_tls_database_lookup_certificate_for_handle_async()` to perform
+    /// the lookup operation asynchronously.
+    @inlinable func lookupCertificateFor<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_for_handle(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -4560,8 +4654,14 @@ public extension TLSDatabaseProtocol {
 
     /// Asynchronously look up a certificate by its handle in the database. See
     /// `g_tls_database_lookup_certificate_for_handle()` for more information.
-    @inlinable func lookupCertificateForHandleAsync<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_database_lookup_certificate_for_handle_async(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupCertificateForHandleAsync(handle: UnsafePointer<gchar>!, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificate_for_handle_async(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously look up a certificate by its handle in the database. See
+    /// `g_tls_database_lookup_certificate_for_handle()` for more information.
+    @inlinable func lookupCertificateForHandleAsync<CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(handle: UnsafePointer<gchar>!, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificate_for_handle_async(tls_database_ptr, handle, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -4585,7 +4685,21 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
     /// the lookup operation asynchronously.
-    @inlinable func lookupCertificateIssuer<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateRef! {
+    @inlinable func lookupCertificateIssuer<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil) throws -> TLSCertificateRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Look up the issuer of `certificate` in the database.
+    /// 
+    /// The `GTlsCertificate:issuer` property
+    /// of `certificate` is not modified, and the two certificates are not hooked
+    /// into a chain.
+    /// 
+    /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
+    /// the lookup operation asynchronously.
+    @inlinable func lookupCertificateIssuer<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -4594,8 +4708,14 @@ public extension TLSDatabaseProtocol {
 
     /// Asynchronously look up the issuer of `certificate` in the database. See
     /// `g_tls_database_lookup_certificate_issuer()` for more information.
-    @inlinable func lookupCertificateIssuerAsync<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_database_lookup_certificate_issuer_async(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupCertificateIssuerAsync<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificate_issuer_async(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously look up the issuer of `certificate` in the database. See
+    /// `g_tls_database_lookup_certificate_issuer()` for more information.
+    @inlinable func lookupCertificateIssuerAsync<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificate_issuer_async(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -4612,9 +4732,19 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_lookup_certificates_issued_by_async()` to perform
     /// the lookup operation asynchronously.
-    @inlinable func lookupCertificatesIssuedBy<ByteArrayT: ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn issuer_raw_dn: ByteArrayT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil) throws -> ListRef! {
+    @inlinable func lookupCertificatesIssuedBy<ByteArrayT: GLib.ByteArrayProtocol>(issuerRawDn: ByteArrayT, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificates_issued_by(tls_database_ptr, issuer_raw_dn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.ListRef(g_tls_database_lookup_certificates_issued_by(tls_database_ptr, issuerRawDn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Look up certificates issued by this issuer in the database.
+    /// 
+    /// This function can block, use `g_tls_database_lookup_certificates_issued_by_async()` to perform
+    /// the lookup operation asynchronously.
+    @inlinable func lookupCertificatesIssuedBy<ByteArrayT: GLib.ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn: ByteArrayT, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?) throws -> GLib.ListRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.ListRef(g_tls_database_lookup_certificates_issued_by(tls_database_ptr, issuerRawDn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -4625,16 +4755,26 @@ public extension TLSDatabaseProtocol {
     /// The database may choose to hold a reference to the issuer byte array for the duration
     /// of of this asynchronous operation. The byte array should not be modified during
     /// this time.
-    @inlinable func lookupCertificatesIssuedByAsync<ByteArrayT: ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn issuer_raw_dn: ByteArrayT, interaction: TLSInteractionT? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_database_lookup_certificates_issued_by_async(tls_database_ptr, issuer_raw_dn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func lookupCertificatesIssuedByAsync<ByteArrayT: GLib.ByteArrayProtocol>(issuerRawDn: ByteArrayT, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificates_issued_by_async(tls_database_ptr, issuerRawDn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously look up certificates issued by this issuer in the database. See
+    /// `g_tls_database_lookup_certificates_issued_by()` for more information.
+    /// 
+    /// The database may choose to hold a reference to the issuer byte array for the duration
+    /// of of this asynchronous operation. The byte array should not be modified during
+    /// this time.
+    @inlinable func lookupCertificatesIssuedByAsync<ByteArrayT: GLib.ByteArrayProtocol, CancellableT: CancellableProtocol, TLSInteractionT: TLSInteractionProtocol>(issuerRawDn: ByteArrayT, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_lookup_certificates_issued_by_async(tls_database_ptr, issuerRawDn.byte_array_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finish an asynchronous lookup of certificates. See
     /// `g_tls_database_lookup_certificates_issued_by()` for more information.
-    @inlinable func lookupCertificatesIssuedByFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> ListRef! {
+    @inlinable func lookupCertificatesIssuedByFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT) throws -> GLib.ListRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ListRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificates_issued_by_finish(tls_database_ptr, result.async_result_ptr, &error)))
+        let rv = GLib.ListRef(g_tls_database_lookup_certificates_issued_by_finish(tls_database_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -4672,7 +4812,46 @@ public extension TLSDatabaseProtocol {
     /// 
     /// This function can block, use `g_tls_database_verify_chain_async()` to perform
     /// the verification operation asynchronously.
-    @inlinable func verify<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT? = nil, interaction: TLSInteractionT? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT? = nil) throws -> TLSCertificateFlags {
+    @inlinable func verify<TLSCertificateT: TLSCertificateProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableRef? = nil, interaction: TLSInteractionRef? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableRef? = nil) throws -> TLSCertificateFlags {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = TLSCertificateFlags(g_tls_database_verify_chain(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Determines the validity of a certificate chain after looking up and
+    /// adding any missing certificates to the chain.
+    /// 
+    /// `chain` is a chain of `GTlsCertificate` objects each pointing to the next
+    /// certificate in the chain by its `GTlsCertificate:issuer` property. The chain may initially
+    /// consist of one or more certificates. After the verification process is
+    /// complete, `chain` may be modified by adding missing certificates, or removing
+    /// extra certificates. If a certificate anchor was found, then it is added to
+    /// the `chain`.
+    /// 
+    /// `purpose` describes the purpose (or usage) for which the certificate
+    /// is being used. Typically `purpose` will be set to `G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER`
+    /// which means that the certificate is being used to authenticate a server
+    /// (and we are acting as the client).
+    /// 
+    /// The `identity` is used to check for pinned certificates (trust exceptions)
+    /// in the database. These will override the normal verification process on a
+    /// host by host basis.
+    /// 
+    /// Currently there are no `flags`, and `G_TLS_DATABASE_VERIFY_NONE` should be
+    /// used.
+    /// 
+    /// If `chain` is found to be valid, then the return value will be 0. If
+    /// `chain` is found to be invalid, then the return value will indicate
+    /// the problems found. If the function is unable to determine whether
+    /// `chain` is valid or not (eg, because `cancellable` is triggered
+    /// before it completes) then the return value will be
+    /// `G_TLS_CERTIFICATE_GENERIC_ERROR` and `error` will be set
+    /// accordingly. `error` is not set when `chain` is successfully analyzed
+    /// but found to be invalid.
+    /// 
+    /// This function can block, use `g_tls_database_verify_chain_async()` to perform
+    /// the verification operation asynchronously.
+    @inlinable func verify<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT?, interaction: TLSInteractionT?, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT?) throws -> TLSCertificateFlags {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateFlags(g_tls_database_verify_chain(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
@@ -4682,8 +4861,15 @@ public extension TLSDatabaseProtocol {
     /// Asynchronously determines the validity of a certificate chain after
     /// looking up and adding any missing certificates to the chain. See
     /// `g_tls_database_verify_chain()` for more information.
-    @inlinable func verifyChainAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT? = nil, interaction: TLSInteractionT? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_database_verify_chain_async(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func verifyChainAsync<TLSCertificateT: TLSCertificateProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableRef? = nil, interaction: TLSInteractionRef? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_verify_chain_async(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously determines the validity of a certificate chain after
+    /// looking up and adding any missing certificates to the chain. See
+    /// `g_tls_database_verify_chain()` for more information.
+    @inlinable func verifyChainAsync<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT?, interaction: TLSInteractionT?, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_database_verify_chain_async(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -4750,7 +4936,7 @@ public extension TLSDatabaseProtocol {
 /// initialization function. Any interactions not implemented will return
 /// `G_TLS_INTERACTION_UNHANDLED`. If a derived class implements an async method,
 /// it must also implement the corresponding finish method.
-public protocol TLSInteractionProtocol: ObjectProtocol {
+public protocol TLSInteractionProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsInteraction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4843,7 +5029,7 @@ public extension TLSInteractionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4885,7 +5071,7 @@ public extension TLSInteractionRef {
 /// initialization function. Any interactions not implemented will return
 /// `G_TLS_INTERACTION_UNHANDLED`. If a derived class implements an async method,
 /// it must also implement the corresponding finish method.
-open class TLSInteraction: Object, TLSInteractionProtocol {
+open class TLSInteraction: GLibObject.Object, TLSInteractionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSInteraction` instance.
@@ -5091,7 +5277,26 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    @inlinable func ask<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
+    @inlinable func ask<TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableRef? = nil) throws -> GTlsInteractionResult {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_interaction_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Run synchronous interaction to ask the user for a password. In general,
+    /// `g_tls_interaction_invoke_ask_password()` should be used instead of this
+    /// function.
+    /// 
+    /// Derived subclasses usually implement a password prompt, although they may
+    /// also choose to provide a password from elsewhere. The `password` value will
+    /// be filled in and then `callback` will be called. Alternatively the user may
+    /// abort this password request, which will usually abort the TLS connection.
+    /// 
+    /// If the interaction is cancelled by the cancellation object, or by the
+    /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
+    /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
+    /// not support immediate cancellation.
+    @inlinable func ask<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT?) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_tls_interaction_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -5113,8 +5318,27 @@ public extension TLSInteractionProtocol {
     /// not support immediate cancellation.
     /// 
     /// Certain implementations may not support immediate cancellation.
-    @inlinable func askPasswordAsync<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_interaction_ask_password_async(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func askPasswordAsync<TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_interaction_ask_password_async(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Run asynchronous interaction to ask the user for a password. In general,
+    /// `g_tls_interaction_invoke_ask_password()` should be used instead of this
+    /// function.
+    /// 
+    /// Derived subclasses usually implement a password prompt, although they may
+    /// also choose to provide a password from elsewhere. The `password` value will
+    /// be filled in and then `callback` will be called. Alternatively the user may
+    /// abort this password request, which will usually abort the TLS connection.
+    /// 
+    /// If the interaction is cancelled by the cancellation object, or by the
+    /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
+    /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
+    /// not support immediate cancellation.
+    /// 
+    /// Certain implementations may not support immediate cancellation.
+    @inlinable func askPasswordAsync<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_interaction_ask_password_async(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5153,7 +5377,32 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    @inlinable func invokeAsk<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
+    @inlinable func invokeAsk<TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableRef? = nil) throws -> GTlsInteractionResult {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_interaction_invoke_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Invoke the interaction to ask the user for a password. It invokes this
+    /// interaction in the main loop, specifically the `GMainContext` returned by
+    /// `g_main_context_get_thread_default()` when the interaction is created. This
+    /// is called by called by `GTlsConnection` or `GTlsDatabase` to ask the user
+    /// for a password.
+    /// 
+    /// Derived subclasses usually implement a password prompt, although they may
+    /// also choose to provide a password from elsewhere. The `password` value will
+    /// be filled in and then `callback` will be called. Alternatively the user may
+    /// abort this password request, which will usually abort the TLS connection.
+    /// 
+    /// The implementation can either be a synchronous (eg: modal dialog) or an
+    /// asynchronous one (eg: modeless dialog). This function will take care of
+    /// calling which ever one correctly.
+    /// 
+    /// If the interaction is cancelled by the cancellation object, or by the
+    /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
+    /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
+    /// not support immediate cancellation.
+    @inlinable func invokeAsk<CancellableT: CancellableProtocol, TLSPasswordT: TLSPasswordProtocol>(password: TLSPasswordT, cancellable: CancellableT?) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_tls_interaction_invoke_ask_password(tls_interaction_ptr, password.tls_password_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -5180,7 +5429,33 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    @inlinable func invokeRequestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
+    @inlinable func invokeRequestCertificate<TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableRef? = nil) throws -> GTlsInteractionResult {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_interaction_invoke_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Invoke the interaction to ask the user to choose a certificate to
+    /// use with the connection. It invokes this interaction in the main
+    /// loop, specifically the `GMainContext` returned by
+    /// `g_main_context_get_thread_default()` when the interaction is
+    /// created. This is called by called by `GTlsConnection` when the peer
+    /// requests a certificate during the handshake.
+    /// 
+    /// Derived subclasses usually implement a certificate selector,
+    /// although they may also choose to provide a certificate from
+    /// elsewhere. Alternatively the user may abort this certificate
+    /// request, which may or may not abort the TLS connection.
+    /// 
+    /// The implementation can either be a synchronous (eg: modal dialog) or an
+    /// asynchronous one (eg: modeless dialog). This function will take care of
+    /// calling which ever one correctly.
+    /// 
+    /// If the interaction is cancelled by the cancellation object, or by the
+    /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
+    /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
+    /// not support immediate cancellation.
+    @inlinable func invokeRequestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT?) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_tls_interaction_invoke_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -5203,7 +5478,29 @@ public extension TLSInteractionProtocol {
     /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
     /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
     /// not support immediate cancellation.
-    @inlinable func requestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil) throws -> GTlsInteractionResult {
+    @inlinable func requestCertificate<TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableRef? = nil) throws -> GTlsInteractionResult {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_interaction_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Run synchronous interaction to ask the user to choose a certificate to use
+    /// with the connection. In general, `g_tls_interaction_invoke_request_certificate()`
+    /// should be used instead of this function.
+    /// 
+    /// Derived subclasses usually implement a certificate selector, although they may
+    /// also choose to provide a certificate from elsewhere. Alternatively the user may
+    /// abort this certificate request, which will usually abort the TLS connection.
+    /// 
+    /// If `G_TLS_INTERACTION_HANDLED` is returned, then the `GTlsConnection`
+    /// passed to `g_tls_interaction_request_certificate()` will have had its
+    /// `GTlsConnection:certificate` filled in.
+    /// 
+    /// If the interaction is cancelled by the cancellation object, or by the
+    /// user then `G_TLS_INTERACTION_FAILED` will be returned with an error that
+    /// contains a `G_IO_ERROR_CANCELLED` error code. Certain implementations may
+    /// not support immediate cancellation.
+    @inlinable func requestCertificate<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT?) throws -> GTlsInteractionResult {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_tls_interaction_request_certificate(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -5218,8 +5515,20 @@ public extension TLSInteractionProtocol {
     /// also choose to provide a certificate from elsewhere. `callback` will be called
     /// when the operation completes. Alternatively the user may abort this certificate
     /// request, which will usually abort the TLS connection.
-    @inlinable func requestCertificateAsync<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_tls_interaction_request_certificate_async(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func requestCertificateAsync<TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_interaction_request_certificate_async(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Run asynchronous interaction to ask the user for a certificate to use with
+    /// the connection. In general, `g_tls_interaction_invoke_request_certificate()` should
+    /// be used instead of this function.
+    /// 
+    /// Derived subclasses usually implement a certificate selector, although they may
+    /// also choose to provide a certificate from elsewhere. `callback` will be called
+    /// when the operation completes. Alternatively the user may abort this certificate
+    /// request, which will usually abort the TLS connection.
+    @inlinable func requestCertificateAsync<CancellableT: CancellableProtocol, TLSConnectionT: TLSConnectionProtocol>(connection: TLSConnectionT, flags: GTlsCertificateRequestFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_tls_interaction_request_certificate_async(tls_interaction_ptr, connection.tls_connection_ptr, flags, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -5256,7 +5565,7 @@ public extension TLSInteractionProtocol {
 /// Alternatively, use `TLSPasswordRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Holds a password used in TLS.
-public protocol TLSPasswordProtocol: ObjectProtocol {
+public protocol TLSPasswordProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsPassword` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -5330,7 +5639,7 @@ public extension TLSPasswordRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5358,7 +5667,7 @@ public extension TLSPasswordRef {
 /// Use `TLSPassword` as a strong reference or owner of a `GTlsPassword` instance.
 ///
 /// Holds a password used in TLS.
-open class TLSPassword: Object, TLSPasswordProtocol {
+open class TLSPassword: GLibObject.Object, TLSPasswordProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TLSPassword` instance.
@@ -5507,7 +5816,7 @@ public extension TLSPasswordProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSPasswordPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSPasswordPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -5846,7 +6155,7 @@ public extension UnixConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6022,7 +6331,7 @@ public extension UnixConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: UnixConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: UnixConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -6149,7 +6458,31 @@ public extension UnixConnectionProtocol {
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
     /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
-    @inlinable func receiveCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> CredentialsRef! {
+    @inlinable func receiveCredentials(cancellable: CancellableRef? = nil) throws -> CredentialsRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = CredentialsRef(gconstpointer: gconstpointer(g_unix_connection_receive_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Receives credentials from the sending end of the connection.  The
+    /// sending end has to call `g_unix_connection_send_credentials()` (or
+    /// similar) for this to work.
+    /// 
+    /// As well as reading the credentials this also reads (and discards) a
+    /// single byte from the stream, as this is required for credentials
+    /// passing to work on some implementations.
+    /// 
+    /// This method can be expected to be available on the following platforms:
+    /// 
+    /// - Linux since GLib 2.26
+    /// - FreeBSD since GLib 2.26
+    /// - GNU/kFreeBSD since GLib 2.36
+    /// - Solaris, Illumos and OpenSolaris since GLib 2.40
+    /// - GNU/Hurd since GLib 2.40
+    /// 
+    /// Other ways to exchange credentials with a foreign peer includes the
+    /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
+    @inlinable func receiveCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> CredentialsRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = CredentialsRef(gconstpointer: gconstpointer(g_unix_connection_receive_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -6163,8 +6496,19 @@ public extension UnixConnectionProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_unix_connection_receive_credentials_finish()` to get the result of the operation.
-    @inlinable func receiveCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_unix_connection_receive_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func receiveCredentialsAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_unix_connection_receive_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously receive credentials.
+    /// 
+    /// For more details, see `g_unix_connection_receive_credentials()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can then call
+    /// `g_unix_connection_receive_credentials_finish()` to get the result of the operation.
+    @inlinable func receiveCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_unix_connection_receive_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6184,7 +6528,20 @@ public extension UnixConnectionProtocol {
     /// As well as reading the fd this also reads a single byte from the
     /// stream, as this is required for fd passing to work on some
     /// implementations.
-    @inlinable func receiveFd<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Int {
+    @inlinable func receiveFd(cancellable: CancellableRef? = nil) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_unix_connection_receive_fd(unix_connection_ptr, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Receives a file descriptor from the sending end of the connection.
+    /// The sending end has to call `g_unix_connection_send_fd()` for this
+    /// to work.
+    /// 
+    /// As well as reading the fd this also reads a single byte from the
+    /// stream, as this is required for fd passing to work on some
+    /// implementations.
+    @inlinable func receiveFd<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
         let rv = Int(g_unix_connection_receive_fd(unix_connection_ptr, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
@@ -6210,7 +6567,32 @@ public extension UnixConnectionProtocol {
     /// 
     /// Other ways to exchange credentials with a foreign peer includes the
     /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
-    @inlinable func sendCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func sendCredentials(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_unix_connection_send_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Passes the credentials of the current user the receiving side
+    /// of the connection. The receiving end has to call
+    /// `g_unix_connection_receive_credentials()` (or similar) to accept the
+    /// credentials.
+    /// 
+    /// As well as sending the credentials this also writes a single NUL
+    /// byte to the stream, as this is required for credentials passing to
+    /// work on some implementations.
+    /// 
+    /// This method can be expected to be available on the following platforms:
+    /// 
+    /// - Linux since GLib 2.26
+    /// - FreeBSD since GLib 2.26
+    /// - GNU/kFreeBSD since GLib 2.36
+    /// - Solaris, Illumos and OpenSolaris since GLib 2.40
+    /// - GNU/Hurd since GLib 2.40
+    /// 
+    /// Other ways to exchange credentials with a foreign peer includes the
+    /// `GUnixCredentialsMessage` type and `g_socket_get_credentials()` function.
+    @inlinable func sendCredentials<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_unix_connection_send_credentials(unix_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6224,8 +6606,19 @@ public extension UnixConnectionProtocol {
     /// 
     /// When the operation is finished, `callback` will be called. You can then call
     /// `g_unix_connection_send_credentials_finish()` to get the result of the operation.
-    @inlinable func sendCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_unix_connection_send_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func sendCredentialsAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_unix_connection_send_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously send credentials.
+    /// 
+    /// For more details, see `g_unix_connection_send_credentials()` which is
+    /// the synchronous version of this call.
+    /// 
+    /// When the operation is finished, `callback` will be called. You can then call
+    /// `g_unix_connection_send_credentials_finish()` to get the result of the operation.
+    @inlinable func sendCredentialsAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_unix_connection_send_credentials_async(unix_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -6245,7 +6638,20 @@ public extension UnixConnectionProtocol {
     /// As well as sending the fd this also writes a single byte to the
     /// stream, as this is required for fd passing to work on some
     /// implementations.
-    @inlinable func send<CancellableT: CancellableProtocol>(fd: Int, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func send(fd: Int, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_unix_connection_send_fd(unix_connection_ptr, gint(fd), cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Passes a file descriptor to the receiving side of the
+    /// connection. The receiving end has to call `g_unix_connection_receive_fd()`
+    /// to accept the file descriptor.
+    /// 
+    /// As well as sending the fd this also writes a single byte to the
+    /// stream, as this is required for fd passing to work on some
+    /// implementations.
+    @inlinable func send<CancellableT: CancellableProtocol>(fd: Int, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_unix_connection_send_fd(unix_connection_ptr, gint(fd), cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }

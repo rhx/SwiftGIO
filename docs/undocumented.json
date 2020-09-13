@@ -16,7 +16,7 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Action-Converter.swift",
-      "line": 1098,
+      "line": 1109,
       "symbol": "ActionGroupSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -72,259 +72,259 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 804,
+      "line": 818,
       "symbol": "AppLaunchContextProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1434,
+      "line": 1448,
       "symbol": "ApplicationPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1435,
+      "line": 1449,
       "symbol": "ApplicationPropertyName.actionGroup",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1436,
+      "line": 1450,
       "symbol": "ApplicationPropertyName.applicationID",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1437,
+      "line": 1451,
       "symbol": "ApplicationPropertyName.flags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1438,
+      "line": 1452,
       "symbol": "ApplicationPropertyName.inactivityTimeout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1442,
+      "line": 1456,
       "symbol": "ApplicationPropertyName.isRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1443,
+      "line": 1457,
       "symbol": "ApplicationPropertyName.isRemote",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1444,
+      "line": 1458,
       "symbol": "ApplicationPropertyName.resourceBasePath",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1500,
+      "line": 1514,
       "symbol": "ApplicationSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1590,
+      "line": 1604,
       "symbol": "ApplicationSignalName.notifyActionGroup",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1591,
+      "line": 1605,
       "symbol": "ApplicationSignalName.notifyApplicationID",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1592,
+      "line": 1606,
       "symbol": "ApplicationSignalName.notifyFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1593,
+      "line": 1607,
       "symbol": "ApplicationSignalName.notifyInactivityTimeout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1597,
+      "line": 1611,
       "symbol": "ApplicationSignalName.notifyIsRegistered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1598,
+      "line": 1612,
       "symbol": "ApplicationSignalName.notifyIsRemote",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 1599,
+      "line": 1613,
       "symbol": "ApplicationSignalName.notifyResourceBasePath",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 2336,
+      "line": 2399,
       "symbol": "ApplicationProtocol.flags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3193,
+      "line": 3256,
       "symbol": "ApplicationCommandLinePropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3194,
+      "line": 3257,
       "symbol": "ApplicationCommandLinePropertyName.arguments",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3195,
+      "line": 3258,
       "symbol": "ApplicationCommandLinePropertyName.isRemote",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3196,
+      "line": 3259,
       "symbol": "ApplicationCommandLinePropertyName.options",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3197,
+      "line": 3260,
       "symbol": "ApplicationCommandLinePropertyName.platformData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3253,
+      "line": 3316,
       "symbol": "ApplicationCommandLineSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3279,
+      "line": 3342,
       "symbol": "ApplicationCommandLineSignalName.notifyArguments",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3280,
+      "line": 3343,
       "symbol": "ApplicationCommandLineSignalName.notifyIsRemote",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3281,
+      "line": 3344,
       "symbol": "ApplicationCommandLineSignalName.notifyOptions",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3282,
+      "line": 3345,
       "symbol": "ApplicationCommandLineSignalName.notifyPlatformData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3980,
+      "line": 4043,
       "symbol": "BufferedInputStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3981,
+      "line": 4044,
       "symbol": "BufferedInputStreamPropertyName.baseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3982,
+      "line": 4045,
       "symbol": "BufferedInputStreamPropertyName.bufferSize",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 3983,
+      "line": 4046,
       "symbol": "BufferedInputStreamPropertyName.closeBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 4039,
+      "line": 4102,
       "symbol": "BufferedInputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 4065,
+      "line": 4128,
       "symbol": "BufferedInputStreamSignalName.notifyBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 4066,
+      "line": 4129,
       "symbol": "BufferedInputStreamSignalName.notifyBufferSize",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 4067,
+      "line": 4130,
       "symbol": "BufferedInputStreamSignalName.notifyCloseBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift",
-      "line": 4231,
+      "line": 4353,
       "symbol": "BufferedInputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -450,7 +450,7 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-BufferedOutputStream-Cancellable.swift",
-      "line": 1700,
+      "line": 1721,
       "symbol": "CancellableProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -709,420 +709,420 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 1147,
+      "line": 1152,
       "symbol": "DBusConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 1248,
+      "line": 1253,
       "symbol": "DBusConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 2509,
+      "line": 2831,
       "symbol": "DBusInterfaceSkeletonPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 2567,
+      "line": 2889,
       "symbol": "DBusInterfaceSkeletonSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 3115,
+      "line": 3437,
       "symbol": "DBusMenuModelSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 3551,
+      "line": 3873,
       "symbol": "DBusMessagePropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 3552,
+      "line": 3874,
       "symbol": "DBusMessagePropertyName.locked",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 3608,
+      "line": 3930,
       "symbol": "DBusMessageSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 3634,
+      "line": 3956,
       "symbol": "DBusMessageSignalName.notifyLocked",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 4100,
+      "line": 4439,
       "symbol": "DBusMessageProtocol.locked",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 4495,
+      "line": 4834,
       "symbol": "DBusMethodInvocationSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 5358,
+      "line": 5745,
       "symbol": "DBusObjectManagerClientPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 5438,
+      "line": 5825,
       "symbol": "DBusObjectManagerClientSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 5941,
+      "line": 6328,
       "symbol": "DBusObjectManagerServerPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 6001,
+      "line": 6388,
       "symbol": "DBusObjectManagerServerSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 6395,
+      "line": 6788,
       "symbol": "DBusObjectProxyPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 6455,
+      "line": 6848,
       "symbol": "DBusObjectProxySignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 6798,
+      "line": 7191,
       "symbol": "DBusObjectSkeletonPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 6856,
+      "line": 7249,
       "symbol": "DBusObjectSkeletonSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 7543,
+      "line": 7936,
       "symbol": "DBusProxyPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 7652,
+      "line": 8045,
       "symbol": "DBusProxySignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 8541,
+      "line": 9083,
       "symbol": "DBusServerPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 8609,
+      "line": 9151,
       "symbol": "DBusServerSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9027,
+      "line": 9569,
       "symbol": "DataInputStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9028,
+      "line": 9570,
       "symbol": "DataInputStreamPropertyName.baseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9029,
+      "line": 9571,
       "symbol": "DataInputStreamPropertyName.bufferSize",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9030,
+      "line": 9572,
       "symbol": "DataInputStreamPropertyName.byteOrder",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9031,
+      "line": 9573,
       "symbol": "DataInputStreamPropertyName.closeBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9032,
+      "line": 9574,
       "symbol": "DataInputStreamPropertyName.newlineType",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9088,
+      "line": 9630,
       "symbol": "DataInputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9114,
+      "line": 9656,
       "symbol": "DataInputStreamSignalName.notifyBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9115,
+      "line": 9657,
       "symbol": "DataInputStreamSignalName.notifyBufferSize",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9116,
+      "line": 9658,
       "symbol": "DataInputStreamSignalName.notifyByteOrder",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9117,
+      "line": 9659,
       "symbol": "DataInputStreamSignalName.notifyCloseBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9118,
+      "line": 9660,
       "symbol": "DataInputStreamSignalName.notifyNewlineType",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9472,
+      "line": 10211,
       "symbol": "DataInputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9732,
+      "line": 10471,
       "symbol": "DataOutputStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9733,
+      "line": 10472,
       "symbol": "DataOutputStreamPropertyName.baseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9737,
+      "line": 10476,
       "symbol": "DataOutputStreamPropertyName.closeBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9793,
+      "line": 10532,
       "symbol": "DataOutputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9819,
+      "line": 10558,
       "symbol": "DataOutputStreamSignalName.notifyBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9823,
+      "line": 10562,
       "symbol": "DataOutputStreamSignalName.notifyCloseBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 9947,
+      "line": 10742,
       "symbol": "DataOutputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10241,
+      "line": 11036,
       "symbol": "EmblemPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10242,
+      "line": 11037,
       "symbol": "EmblemPropertyName.icon",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10243,
+      "line": 11038,
       "symbol": "EmblemPropertyName.origin",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10299,
+      "line": 11094,
       "symbol": "EmblemSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10325,
+      "line": 11120,
       "symbol": "EmblemSignalName.notifyIcon",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10326,
+      "line": 11121,
       "symbol": "EmblemSignalName.notifyOrigin",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10373,
+      "line": 11168,
       "symbol": "EmblemProtocol.icon",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift",
-      "line": 10381,
+      "line": 11176,
       "symbol": "EmblemProtocol.origin",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 599,
+      "line": 606,
       "symbol": "DBusObjectSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 950,
+      "line": 957,
       "symbol": "DBusObjectManagerSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 1971,
+      "line": 2126,
       "symbol": "DriveSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 2545,
+      "line": 2746,
       "symbol": "DtlsClientConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 2629,
+      "line": 2830,
       "symbol": "DtlsClientConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 3079,
+      "line": 3280,
       "symbol": "DtlsConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 3180,
+      "line": 3381,
       "symbol": "DtlsConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 4047,
+      "line": 4355,
       "symbol": "DtlsServerConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-DBusInterface-File.swift",
-      "line": 4107,
+      "line": 4415,
       "symbol": "DtlsServerConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -1192,14 +1192,14 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-EmblemedIcon-FileEnumerator.swift",
-      "line": 1026,
+      "line": 1133,
       "symbol": "FileEnumeratorProtocol.container",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-EmblemedIcon-FileEnumerator.swift",
-      "line": 1043,
+      "line": 1150,
       "symbol": "FileEnumeratorProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1325,231 +1325,231 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 483,
+      "line": 516,
       "symbol": "FileIOStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 733,
+      "line": 766,
       "symbol": "FileIconPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 791,
+      "line": 824,
       "symbol": "FileIconSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 1188,
+      "line": 1221,
       "symbol": "FileInfoSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2198,
+      "line": 2231,
       "symbol": "FileInputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2296,
+      "line": 2355,
       "symbol": "FileInputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2582,
+      "line": 2641,
       "symbol": "FileMonitorPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2583,
+      "line": 2642,
       "symbol": "FileMonitorPropertyName.cancelled",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2584,
+      "line": 2643,
       "symbol": "FileMonitorPropertyName.rateLimit",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2640,
+      "line": 2699,
       "symbol": "FileMonitorSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2695,
+      "line": 2754,
       "symbol": "FileMonitorSignalName.notifyCancelled",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2696,
+      "line": 2755,
       "symbol": "FileMonitorSignalName.notifyRateLimit",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 2765,
+      "line": 2824,
       "symbol": "FileMonitorProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3053,
+      "line": 3112,
       "symbol": "FileOutputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3179,
+      "line": 3271,
       "symbol": "FileOutputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3444,
+      "line": 3536,
       "symbol": "FilenameCompleterSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3775,
+      "line": 3867,
       "symbol": "FilterInputStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3776,
+      "line": 3868,
       "symbol": "FilterInputStreamPropertyName.baseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3777,
+      "line": 3869,
       "symbol": "FilterInputStreamPropertyName.closeBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3833,
+      "line": 3925,
       "symbol": "FilterInputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3859,
+      "line": 3951,
       "symbol": "FilterInputStreamSignalName.notifyBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3860,
+      "line": 3952,
       "symbol": "FilterInputStreamSignalName.notifyCloseBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3938,
+      "line": 4030,
       "symbol": "FilterInputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 3945,
+      "line": 4037,
       "symbol": "FilterInputStreamProtocol._baseStream",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4199,
+      "line": 4291,
       "symbol": "FilterOutputStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4200,
+      "line": 4292,
       "symbol": "FilterOutputStreamPropertyName.baseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4201,
+      "line": 4293,
       "symbol": "FilterOutputStreamPropertyName.closeBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4257,
+      "line": 4349,
       "symbol": "FilterOutputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4283,
+      "line": 4375,
       "symbol": "FilterOutputStreamSignalName.notifyBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4284,
+      "line": 4376,
       "symbol": "FilterOutputStreamSignalName.notifyCloseBaseStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4362,
+      "line": 4454,
       "symbol": "FilterOutputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4369,
+      "line": 4461,
       "symbol": "FilterOutputStreamProtocol._baseStream",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift",
-      "line": 4634,
+      "line": 4726,
       "symbol": "IOModuleSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -1647,273 +1647,273 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 665,
+      "line": 754,
       "symbol": "IOStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1043,
+      "line": 1132,
       "symbol": "InetAddressPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1044,
+      "line": 1133,
       "symbol": "InetAddressPropertyName.bytes",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1045,
+      "line": 1134,
       "symbol": "InetAddressPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1131,
+      "line": 1220,
       "symbol": "InetAddressSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1157,
+      "line": 1246,
       "symbol": "InetAddressSignalName.notifyBytes",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1158,
+      "line": 1247,
       "symbol": "InetAddressSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1319,
+      "line": 1408,
       "symbol": "InetAddressProtocol.family",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1438,
+      "line": 1527,
       "symbol": "InetAddressProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1754,
+      "line": 1843,
       "symbol": "InetAddressMaskPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1755,
+      "line": 1844,
       "symbol": "InetAddressMaskPropertyName.address",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1756,
+      "line": 1845,
       "symbol": "InetAddressMaskPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1757,
+      "line": 1846,
       "symbol": "InetAddressMaskPropertyName.length",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1813,
+      "line": 1902,
       "symbol": "InetAddressMaskSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1839,
+      "line": 1928,
       "symbol": "InetAddressMaskSignalName.notifyAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1840,
+      "line": 1929,
       "symbol": "InetAddressMaskSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1841,
+      "line": 1930,
       "symbol": "InetAddressMaskSignalName.notifyLength",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1912,
+      "line": 2001,
       "symbol": "InetAddressMaskProtocol.address",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1920,
+      "line": 2009,
       "symbol": "InetAddressMaskProtocol.family",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1928,
+      "line": 2017,
       "symbol": "InetAddressMaskProtocol.length",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 1936,
+      "line": 2025,
       "symbol": "InetAddressMaskProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2230,
+      "line": 2319,
       "symbol": "InetSocketAddressPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2231,
+      "line": 2320,
       "symbol": "InetSocketAddressPropertyName.address",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2232,
+      "line": 2321,
       "symbol": "InetSocketAddressPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2235,
+      "line": 2324,
       "symbol": "InetSocketAddressPropertyName.port",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2236,
+      "line": 2325,
       "symbol": "InetSocketAddressPropertyName.scopeID",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2292,
+      "line": 2381,
       "symbol": "InetSocketAddressSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2318,
+      "line": 2407,
       "symbol": "InetSocketAddressSignalName.notifyAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2319,
+      "line": 2408,
       "symbol": "InetSocketAddressSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2322,
+      "line": 2411,
       "symbol": "InetSocketAddressSignalName.notifyPort",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2323,
+      "line": 2412,
       "symbol": "InetSocketAddressSignalName.notifyScopeID",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2384,
+      "line": 2473,
       "symbol": "InetSocketAddressProtocol.address",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2402,
+      "line": 2491,
       "symbol": "InetSocketAddressProtocol.port",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2421,
+      "line": 2510,
       "symbol": "InetSocketAddressProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 2700,
+      "line": 2789,
       "symbol": "InputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 3102,
+      "line": 3442,
       "symbol": "InputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 3373,
+      "line": 3713,
       "symbol": "ListStorePropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-IOStream-ListStore.swift",
-      "line": 3432,
+      "line": 3772,
       "symbol": "ListStoreSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Initable-ListModel.swift",
-      "line": 772,
+      "line": 816,
       "symbol": "ListModelSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -1934,7 +1934,7 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-LoadableIcon-MemoryMonitor.swift",
-      "line": 642,
+      "line": 657,
       "symbol": "MemoryMonitorSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -2011,105 +2011,105 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 2978,
+      "line": 3086,
       "symbol": "MenuLinkIterSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 3113,
+      "line": 3221,
       "symbol": "MenuLinkIterProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 3120,
+      "line": 3228,
       "symbol": "MenuLinkIterProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 3703,
+      "line": 3811,
       "symbol": "MenuModelSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 3883,
+      "line": 4006,
       "symbol": "MenuModelProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 3890,
+      "line": 4013,
       "symbol": "MenuModelProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4205,
+      "line": 4328,
       "symbol": "MountOperationPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4288,
+      "line": 4411,
       "symbol": "MountOperationSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4669,
+      "line": 4792,
       "symbol": "MountOperationProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4676,
+      "line": 4799,
       "symbol": "MountOperationProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4931,
+      "line": 5054,
       "symbol": "NativeSocketAddressPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4932,
+      "line": 5055,
       "symbol": "NativeSocketAddressPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 4988,
+      "line": 5111,
       "symbol": "NativeSocketAddressSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 5014,
+      "line": 5137,
       "symbol": "NativeSocketAddressSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-MemoryInputStream-NativeSocketAddress.swift",
-      "line": 5051,
+      "line": 5174,
       "symbol": "NativeSocketAddressProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -2165,14 +2165,14 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Mount-NetworkMonitor.swift",
-      "line": 1012,
+      "line": 1089,
       "symbol": "NetworkMonitorPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Mount-NetworkMonitor.swift",
-      "line": 1108,
+      "line": 1185,
       "symbol": "NetworkMonitorSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -2417,21 +2417,21 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-NativeVolumeMonitor-OsxAppInfo.swift",
-      "line": 1964,
+      "line": 1986,
       "symbol": "OsxAppInfoSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-NativeVolumeMonitor-OsxAppInfo.swift",
-      "line": 2026,
+      "line": 2048,
       "symbol": "OsxAppInfoProtocol.getFilename()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-NativeVolumeMonitor-OsxAppInfo.swift",
-      "line": 2030,
+      "line": 2052,
       "symbol": "OsxAppInfoProtocol.filename",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -2466,28 +2466,28 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-OutputStream-Permission.swift",
-      "line": 886,
+      "line": 1289,
       "symbol": "OutputStreamProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-OutputStream-Permission.swift",
-      "line": 1175,
+      "line": 1578,
       "symbol": "PermissionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-OutputStream-Permission.swift",
-      "line": 1240,
+      "line": 1643,
       "symbol": "PermissionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-OutputStream-Permission.swift",
-      "line": 1467,
+      "line": 1928,
       "symbol": "PermissionProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -2515,14 +2515,14 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-PollableInputStream-RemoteActionGroup.swift",
-      "line": 627,
+      "line": 656,
       "symbol": "PollableOutputStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-PollableInputStream-RemoteActionGroup.swift",
-      "line": 1753,
+      "line": 1879,
       "symbol": "RemoteActionGroupSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -2760,14 +2760,14 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-PropertyAction-Resolver.swift",
-      "line": 2088,
+      "line": 2224,
       "symbol": "ResolverProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-PropertyAction-Resolver.swift",
-      "line": 2095,
+      "line": 2231,
       "symbol": "ResolverProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -2837,791 +2837,791 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 3497,
+      "line": 3505,
       "symbol": "SimpleActionGroupSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 4471,
+      "line": 4479,
       "symbol": "SimpleAsyncResultSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5072,
+      "line": 5115,
       "symbol": "SimpleIOStreamPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5073,
+      "line": 5116,
       "symbol": "SimpleIOStreamPropertyName.closed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5074,
+      "line": 5117,
       "symbol": "SimpleIOStreamPropertyName.inputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5075,
+      "line": 5118,
       "symbol": "SimpleIOStreamPropertyName.outputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5131,
+      "line": 5174,
       "symbol": "SimpleIOStreamSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5157,
+      "line": 5200,
       "symbol": "SimpleIOStreamSignalName.notifyClosed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5158,
+      "line": 5201,
       "symbol": "SimpleIOStreamSignalName.notifyInputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5159,
+      "line": 5202,
       "symbol": "SimpleIOStreamSignalName.notifyOutputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5459,
+      "line": 5502,
       "symbol": "SimplePermissionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5524,
+      "line": 5567,
       "symbol": "SimplePermissionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5855,
+      "line": 5898,
       "symbol": "SimpleProxyResolverPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 5954,
+      "line": 5997,
       "symbol": "SimpleProxyResolverSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6092,
+      "line": 6135,
       "symbol": "SimpleProxyResolverProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6607,
+      "line": 6650,
       "symbol": "SocketPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6608,
+      "line": 6651,
       "symbol": "SocketPropertyName.blocking",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6611,
+      "line": 6654,
       "symbol": "SocketPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6612,
+      "line": 6655,
       "symbol": "SocketPropertyName.fd",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6613,
+      "line": 6656,
       "symbol": "SocketPropertyName.keepalive",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6614,
+      "line": 6657,
       "symbol": "SocketPropertyName.listenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6615,
+      "line": 6658,
       "symbol": "SocketPropertyName.localAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6620,
+      "line": 6663,
       "symbol": "SocketPropertyName.protocol_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6621,
+      "line": 6664,
       "symbol": "SocketPropertyName.remoteAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6626,
+      "line": 6669,
       "symbol": "SocketPropertyName.type",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6682,
+      "line": 6725,
       "symbol": "SocketSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6708,
+      "line": 6751,
       "symbol": "SocketSignalName.notifyBlocking",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6711,
+      "line": 6754,
       "symbol": "SocketSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6712,
+      "line": 6755,
       "symbol": "SocketSignalName.notifyFd",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6713,
+      "line": 6756,
       "symbol": "SocketSignalName.notifyKeepalive",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6714,
+      "line": 6757,
       "symbol": "SocketSignalName.notifyListenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6715,
+      "line": 6758,
       "symbol": "SocketSignalName.notifyLocalAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6720,
+      "line": 6763,
       "symbol": "SocketSignalName.notifyProtocol_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6721,
+      "line": 6764,
       "symbol": "SocketSignalName.notifyRemoteAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 6726,
+      "line": 6769,
       "symbol": "SocketSignalName.notifyType_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 7728,
+      "line": 8178,
       "symbol": "SocketProtocol.blocking",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 7812,
+      "line": 8262,
       "symbol": "SocketProtocol.family",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 7820,
+      "line": 8270,
       "symbol": "SocketProtocol.fd",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 7862,
+      "line": 8312,
       "symbol": "SocketProtocol.keepalive",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 7961,
+      "line": 8411,
       "symbol": "SocketProtocol.protocol",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8040,
+      "line": 8490,
       "symbol": "SocketProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8047,
+      "line": 8497,
       "symbol": "SocketProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8322,
+      "line": 8772,
       "symbol": "SocketAddressPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8323,
+      "line": 8773,
       "symbol": "SocketAddressPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8379,
+      "line": 8829,
       "symbol": "SocketAddressSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8405,
+      "line": 8855,
       "symbol": "SocketAddressSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8467,
+      "line": 8917,
       "symbol": "SocketAddressProtocol.family",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8488,
+      "line": 8938,
       "symbol": "SocketAddressProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 8774,
+      "line": 9224,
       "symbol": "SocketAddressEnumeratorSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9163,
+      "line": 9641,
       "symbol": "SocketClientPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9164,
+      "line": 9642,
       "symbol": "SocketClientPropertyName.enableProxy",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9165,
+      "line": 9643,
       "symbol": "SocketClientPropertyName.family",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9166,
+      "line": 9644,
       "symbol": "SocketClientPropertyName.localAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9167,
+      "line": 9645,
       "symbol": "SocketClientPropertyName.protocol_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9170,
+      "line": 9648,
       "symbol": "SocketClientPropertyName.timeout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9171,
+      "line": 9649,
       "symbol": "SocketClientPropertyName.tls",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9172,
+      "line": 9650,
       "symbol": "SocketClientPropertyName.tlsValidationFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9173,
+      "line": 9651,
       "symbol": "SocketClientPropertyName.type",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9229,
+      "line": 9707,
       "symbol": "SocketClientSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9305,
+      "line": 9783,
       "symbol": "SocketClientSignalName.notifyEnableProxy",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9306,
+      "line": 9784,
       "symbol": "SocketClientSignalName.notifyFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9307,
+      "line": 9785,
       "symbol": "SocketClientSignalName.notifyLocalAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9308,
+      "line": 9786,
       "symbol": "SocketClientSignalName.notifyProtocol_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9311,
+      "line": 9789,
       "symbol": "SocketClientSignalName.notifyTimeout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9312,
+      "line": 9790,
       "symbol": "SocketClientSignalName.notifyTLS",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9313,
+      "line": 9791,
       "symbol": "SocketClientSignalName.notifyTLSValidationFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9314,
+      "line": 9792,
       "symbol": "SocketClientSignalName.notifyType_",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9750,
+      "line": 10390,
       "symbol": "SocketClientProtocol.family",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9794,
+      "line": 10434,
       "symbol": "SocketClientProtocol.protocol",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9858,
+      "line": 10498,
       "symbol": "SocketClientProtocol.timeout",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9877,
+      "line": 10517,
       "symbol": "SocketClientProtocol.tls",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9923,
+      "line": 10563,
       "symbol": "SocketClientProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 9930,
+      "line": 10570,
       "symbol": "SocketClientProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10220,
+      "line": 10860,
       "symbol": "SocketConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10221,
+      "line": 10861,
       "symbol": "SocketConnectionPropertyName.closed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10222,
+      "line": 10862,
       "symbol": "SocketConnectionPropertyName.inputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10223,
+      "line": 10863,
       "symbol": "SocketConnectionPropertyName.outputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10224,
+      "line": 10864,
       "symbol": "SocketConnectionPropertyName.socket",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10280,
+      "line": 10920,
       "symbol": "SocketConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10306,
+      "line": 10946,
       "symbol": "SocketConnectionSignalName.notifyClosed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10307,
+      "line": 10947,
       "symbol": "SocketConnectionSignalName.notifyInputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10308,
+      "line": 10948,
       "symbol": "SocketConnectionSignalName.notifyOutputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10309,
+      "line": 10949,
       "symbol": "SocketConnectionSignalName.notifySocket",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10449,
+      "line": 11106,
       "symbol": "SocketConnectionProtocol.socket",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10459,
+      "line": 11116,
       "symbol": "SocketConnectionProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10466,
+      "line": 11123,
       "symbol": "SocketConnectionProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10792,
+      "line": 11449,
       "symbol": "SocketControlMessageSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10918,
+      "line": 11575,
       "symbol": "SocketControlMessageProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 10925,
+      "line": 11582,
       "symbol": "SocketControlMessageProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11223,
+      "line": 11880,
       "symbol": "SocketListenerPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11224,
+      "line": 11881,
       "symbol": "SocketListenerPropertyName.listenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11280,
+      "line": 11937,
       "symbol": "SocketListenerSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11311,
+      "line": 11968,
       "symbol": "SocketListenerSignalName.notifyListenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11524,
+      "line": 12318,
       "symbol": "SocketListenerProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11531,
+      "line": 12325,
       "symbol": "SocketListenerProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11873,
+      "line": 12667,
       "symbol": "SocketServicePropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11876,
+      "line": 12670,
       "symbol": "SocketServicePropertyName.listenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11932,
+      "line": 12726,
       "symbol": "SocketServiceSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 11973,
+      "line": 12767,
       "symbol": "SocketServiceSignalName.notifyListenBacklog",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12055,
+      "line": 12849,
       "symbol": "SocketServiceProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12062,
+      "line": 12856,
       "symbol": "SocketServiceProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12512,
+      "line": 13306,
       "symbol": "SubprocessPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12513,
+      "line": 13307,
       "symbol": "SubprocessPropertyName.argv",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12514,
+      "line": 13308,
       "symbol": "SubprocessPropertyName.flags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12570,
+      "line": 13364,
       "symbol": "SubprocessSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12596,
+      "line": 13390,
       "symbol": "SubprocessSignalName.notifyArgv",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 12597,
+      "line": 13391,
       "symbol": "SubprocessSignalName.notifyFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 13393,
+      "line": 14295,
       "symbol": "SubprocessLauncherPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 13394,
+      "line": 14296,
       "symbol": "SubprocessLauncherPropertyName.flags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 13450,
+      "line": 14352,
       "symbol": "SubprocessLauncherSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 13476,
+      "line": 14378,
       "symbol": "SubprocessLauncherSignalName.notifyFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 15539,
+      "line": 16441,
       "symbol": "TaskPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-Settings-Task.swift",
-      "line": 15605,
+      "line": 16507,
       "symbol": "TaskSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
@@ -4013,287 +4013,287 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3162,
+      "line": 3185,
       "symbol": "TLSCertificateProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3169,
+      "line": 3192,
       "symbol": "TLSCertificateProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3429,
+      "line": 3452,
       "symbol": "TLSConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3443,
+      "line": 3466,
       "symbol": "TLSConnectionPropertyName.closed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3448,
+      "line": 3471,
       "symbol": "TLSConnectionPropertyName.inputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3456,
+      "line": 3479,
       "symbol": "TLSConnectionPropertyName.outputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3543,
+      "line": 3566,
       "symbol": "TLSConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3616,
+      "line": 3639,
       "symbol": "TLSConnectionSignalName.notifyClosed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3621,
+      "line": 3644,
       "symbol": "TLSConnectionSignalName.notifyInputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 3629,
+      "line": 3652,
       "symbol": "TLSConnectionSignalName.notifyOutputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 4189,
+      "line": 4265,
       "symbol": "TLSConnectionProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 4196,
+      "line": 4272,
       "symbol": "TLSConnectionProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 4467,
+      "line": 4543,
       "symbol": "TLSDatabaseSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 4708,
+      "line": 4894,
       "symbol": "TLSDatabaseProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 4715,
+      "line": 4901,
       "symbol": "TLSDatabaseProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5019,
+      "line": 5205,
       "symbol": "TLSInteractionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5495,
+      "line": 5804,
       "symbol": "TLSPasswordPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5496,
+      "line": 5805,
       "symbol": "TLSPasswordPropertyName.description",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5497,
+      "line": 5806,
       "symbol": "TLSPasswordPropertyName.flags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5498,
+      "line": 5807,
       "symbol": "TLSPasswordPropertyName.warning",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5554,
+      "line": 5863,
       "symbol": "TLSPasswordSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5580,
+      "line": 5889,
       "symbol": "TLSPasswordSignalName.notifyDescription",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5581,
+      "line": 5890,
       "symbol": "TLSPasswordSignalName.notifyFlags",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5582,
+      "line": 5891,
       "symbol": "TLSPasswordSignalName.notifyWarning",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5693,
+      "line": 6002,
       "symbol": "TLSPasswordProtocol.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5705,
+      "line": 6014,
       "symbol": "TLSPasswordProtocol.flags",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5717,
+      "line": 6026,
       "symbol": "TLSPasswordProtocol.warning",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5733,
+      "line": 6042,
       "symbol": "TLSPasswordProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 5740,
+      "line": 6049,
       "symbol": "TLSPasswordProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6009,
+      "line": 6318,
       "symbol": "UnixConnectionPropertyName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6010,
+      "line": 6319,
       "symbol": "UnixConnectionPropertyName.closed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6011,
+      "line": 6320,
       "symbol": "UnixConnectionPropertyName.inputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6012,
+      "line": 6321,
       "symbol": "UnixConnectionPropertyName.outputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6013,
+      "line": 6322,
       "symbol": "UnixConnectionPropertyName.socket",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6069,
+      "line": 6378,
       "symbol": "UnixConnectionSignalName",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6095,
+      "line": 6404,
       "symbol": "UnixConnectionSignalName.notifyClosed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6096,
+      "line": 6405,
       "symbol": "UnixConnectionSignalName.notifyInputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6097,
+      "line": 6406,
       "symbol": "UnixConnectionSignalName.notifyOutputStream",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6098,
+      "line": 6407,
       "symbol": "UnixConnectionSignalName.notifySocket",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6255,
+      "line": 6661,
       "symbol": "UnixConnectionProtocol.parentInstance",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-TcpConnection-UnixConnection.swift",
-      "line": 6262,
+      "line": 6668,
       "symbol": "UnixConnectionProtocol.priv",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -4888,7 +4888,7 @@
     },
     {
       "file": "/Volumes/Data/Archive/Dropbox/Developer/src/swift/rh/gtk/SwiftGIO/Sources/GIO/Gio-2.0-functions.swift",
-      "line": 825,
+      "line": 981,
       "symbol": "dbusErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"

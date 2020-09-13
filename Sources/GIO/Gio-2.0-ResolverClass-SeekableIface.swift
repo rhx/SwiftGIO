@@ -84,7 +84,7 @@ public extension ResolverClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -387,7 +387,7 @@ public extension ResolverPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -900,7 +900,7 @@ public extension ResourceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -928,7 +928,7 @@ public extension ResourceRef {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    @inlinable init<BytesT: BytesProtocol>(data: BytesT) throws {
+    @inlinable init<BytesT: GLib.BytesProtocol>(data: BytesT) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_resource_new_from_data(data.bytes_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -946,7 +946,7 @@ public extension ResourceRef {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    @inlinable static func newFrom<BytesT: BytesProtocol>(data: BytesT) throws -> ResourceRef! {
+    @inlinable static func newFrom<BytesT: GLib.BytesProtocol>(data: BytesT) throws -> ResourceRef! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = ResourceRef(gconstpointer: gconstpointer(g_resource_new_from_data(data.bytes_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1254,7 +1254,7 @@ open class Resource: ResourceProtocol {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    @inlinable public init<BytesT: BytesProtocol>(data: BytesT) throws {
+    @inlinable public init<BytesT: GLib.BytesProtocol>(data: BytesT) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_resource_new_from_data(data.bytes_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -1273,7 +1273,7 @@ open class Resource: ResourceProtocol {
     /// GLib 2.56, or in older versions fail and exit the process.
     /// 
     /// If `data` is empty or corrupt, `G_RESOURCE_ERROR_INTERNAL` will be returned.
-    @inlinable public static func newFrom<BytesT: BytesProtocol>(data: BytesT) throws -> Resource! {
+    @inlinable public static func newFrom<BytesT: GLib.BytesProtocol>(data: BytesT) throws -> Resource! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = Resource(gconstpointer: gconstpointer(g_resource_new_from_data(data.bytes_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1333,9 +1333,9 @@ public extension ResourceProtocol {
     /// `G_RESOURCE_ERROR_NOT_FOUND` will be returned.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    @inlinable func enumerateChildren(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
+    @inlinable func enumerateChildren(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_resource_enumerate_children(resource_ptr, path, lookup_flags.value, &error)
+        let rv = g_resource_enumerate_children(resource_ptr, path, lookupFlags.value, &error)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1344,9 +1344,9 @@ public extension ResourceProtocol {
     /// if found returns information about it.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    @inlinable func getInfo(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags, size: UnsafeMutablePointer<gsize>! = nil, flags: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
+    @inlinable func getInfo(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags, size: UnsafeMutablePointer<gsize>! = nil, flags: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_resource_get_info(resource_ptr, path, lookup_flags.value, size, flags, &error)) != 0)
+        let rv = ((g_resource_get_info(resource_ptr, path, lookupFlags.value, size, flags, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1365,9 +1365,9 @@ public extension ResourceProtocol {
     /// the heap and automatically uncompress the data.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    @inlinable func lookupData(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> BytesRef! {
+    @inlinable func lookupData(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> GLib.BytesRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = BytesRef(gconstpointer: gconstpointer(g_resource_lookup_data(resource_ptr, path, lookup_flags.value, &error)))
+        let rv = GLib.BytesRef(g_resource_lookup_data(resource_ptr, path, lookupFlags.value, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1376,9 +1376,9 @@ public extension ResourceProtocol {
     /// returns a `GInputStream` that lets you read the data.
     /// 
     /// `lookup_flags` controls the behaviour of the lookup.
-    @inlinable func openStream(path: UnsafePointer<CChar>!, lookupFlags lookup_flags: ResourceLookupFlags) throws -> InputStreamRef! {
+    @inlinable func openStream(path: UnsafePointer<CChar>!, lookupFlags: ResourceLookupFlags) throws -> InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = InputStreamRef(gconstpointer: gconstpointer(g_resource_open_stream(resource_ptr, path, lookup_flags.value, &error)))
+        let rv = InputStreamRef(gconstpointer: gconstpointer(g_resource_open_stream(resource_ptr, path, lookupFlags.value, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1500,7 +1500,7 @@ public extension SeekableIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

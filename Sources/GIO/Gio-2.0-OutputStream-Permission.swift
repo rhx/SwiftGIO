@@ -20,7 +20,7 @@ import GLibObject
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
-public protocol OutputStreamProtocol: ObjectProtocol {
+public protocol OutputStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -104,7 +104,7 @@ public extension OutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -137,7 +137,7 @@ public extension OutputStreamRef {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
-open class OutputStream: Object, OutputStreamProtocol {
+open class OutputStream: GLibObject.Object, OutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OutputStream` instance.
@@ -365,7 +365,42 @@ public extension OutputStreamProtocol {
     /// can use a faster close that doesn't block to e.g. check errors. On
     /// cancellation (as with any error) there is no guarantee that all written
     /// data will reach the target.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func close(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_output_stream_close(output_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Closes the stream, releasing resources related to it.
+    /// 
+    /// Once the stream is closed, all other operations will return `G_IO_ERROR_CLOSED`.
+    /// Closing a stream multiple times will not return an error.
+    /// 
+    /// Closing a stream will automatically flush any outstanding buffers in the
+    /// stream.
+    /// 
+    /// Streams will be automatically closed when the last reference
+    /// is dropped, but you might want to call this function to make sure
+    /// resources are released as early as possible.
+    /// 
+    /// Some streams might keep the backing store of the stream (e.g. a file descriptor)
+    /// open after the stream is closed. See the documentation for the individual
+    /// stream for details.
+    /// 
+    /// On failure the first error that happened will be reported, but the close
+    /// operation will finish as much as possible. A stream that failed to
+    /// close will still return `G_IO_ERROR_CLOSED` for all operations. Still, it
+    /// is important to check and report the error to the user, otherwise
+    /// there might be a loss of data as all data might not be written.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    /// Cancelling a close will still leave the stream closed, but there some streams
+    /// can use a faster close that doesn't block to e.g. check errors. On
+    /// cancellation (as with any error) there is no guarantee that all written
+    /// data will reach the target.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_output_stream_close(output_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -382,8 +417,22 @@ public extension OutputStreamProtocol {
     /// The asynchronous methods have a default fallback that uses threads
     /// to implement asynchronicity, so they are optional for inheriting
     /// classes. However, if you override one you must override all.
-    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_close_async(output_stream_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func closeAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_close_async(output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Requests an asynchronous close of the stream, releasing resources
+    /// related to it. When the operation is finished `callback` will be
+    /// called. You can then call `g_output_stream_close_finish()` to get
+    /// the result of the operation.
+    /// 
+    /// For behaviour details see `g_output_stream_close()`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads
+    /// to implement asynchronicity, so they are optional for inheriting
+    /// classes. However, if you override one you must override all.
+    @inlinable func closeAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_close_async(output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -404,7 +453,22 @@ public extension OutputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func flush<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func flush(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_output_stream_flush(output_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Forces a write of all user-space buffered data for the given
+    /// `stream`. Will block during the operation. Closing the stream will
+    /// implicitly cause a flush.
+    /// 
+    /// This function is optional for inherited classes.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func flush<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_output_stream_flush(output_stream_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -418,8 +482,19 @@ public extension OutputStreamProtocol {
     /// When the operation is finished `callback` will be
     /// called. You can then call `g_output_stream_flush_finish()` to get the
     /// result of the operation.
-    @inlinable func flushAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_flush_async(output_stream_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func flushAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_flush_async(output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Forces an asynchronous write of all user-space buffered data for
+    /// the given `stream`.
+    /// For behaviour details see `g_output_stream_flush()`.
+    /// 
+    /// When the operation is finished `callback` will be
+    /// called. You can then call `g_output_stream_flush_finish()` to get the
+    /// result of the operation.
+    @inlinable func flushAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_flush_async(output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -452,7 +527,14 @@ public extension OutputStreamProtocol {
     }
 
     /// Splices an input stream into an output stream.
-    @inlinable func splice<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func splice<InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_output_stream_splice(output_stream_ptr, source.input_stream_ptr, flags.value, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Splices an input stream into an output stream.
+    @inlinable func splice<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_splice(output_stream_ptr, source.input_stream_ptr, flags.value, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -466,8 +548,19 @@ public extension OutputStreamProtocol {
     /// 
     /// For the synchronous, blocking version of this function, see
     /// `g_output_stream_splice()`.
-    @inlinable func spliceAsync<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_splice_async(output_stream_ptr, source.input_stream_ptr, flags.value, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func spliceAsync<InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_splice_async(output_stream_ptr, source.input_stream_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Splices a stream asynchronously.
+    /// When the operation is finished `callback` will be called.
+    /// You can then call `g_output_stream_splice_finish()` to get the
+    /// result of the operation.
+    /// 
+    /// For the synchronous, blocking version of this function, see
+    /// `g_output_stream_splice()`.
+    @inlinable func spliceAsync<CancellableT: CancellableProtocol, InputStreamT: InputStreamProtocol>(source: InputStreamT, flags: OutputStreamSpliceFlags, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_splice_async(output_stream_ptr, source.input_stream_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -491,8 +584,24 @@ public extension OutputStreamProtocol {
     /// need precise control over partial write failures, you need to
     /// create you own `printf()`-like wrapper around `g_output_stream_write()`
     /// or `g_output_stream_write_all()`.
-    @inlinable func vprintf<CancellableT: CancellableProtocol>(bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil, error: UnsafeMutablePointer<UnsafeMutablePointer<GError>?>!, format: UnsafePointer<gchar>!, args: CVaListPointer) -> Bool {
-        let rv = ((g_output_stream_vprintf(output_stream_ptr, bytes_written, cancellable?.cancellable_ptr, error, format, args)) != 0)
+    @inlinable func vprintf(bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil, error: UnsafeMutablePointer<UnsafeMutablePointer<GError>?>!, format: UnsafePointer<gchar>!, args: CVaListPointer) -> Bool {
+        let rv = ((g_output_stream_vprintf(output_stream_ptr, bytesWritten, cancellable?.cancellable_ptr, error, format, args)) != 0)
+        return rv
+    }
+    /// This is a utility function around `g_output_stream_write_all()`. It
+    /// uses `g_strdup_vprintf()` to turn `format` and `args` into a string that
+    /// is then written to `stream`.
+    /// 
+    /// See the documentation of `g_output_stream_write_all()` about the
+    /// behavior of the actual write operation.
+    /// 
+    /// Note that partial writes cannot be properly checked with this
+    /// function due to the variable length of the written string, if you
+    /// need precise control over partial write failures, you need to
+    /// create you own `printf()`-like wrapper around `g_output_stream_write()`
+    /// or `g_output_stream_write_all()`.
+    @inlinable func vprintf<CancellableT: CancellableProtocol>(bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?, error: UnsafeMutablePointer<UnsafeMutablePointer<GError>?>!, format: UnsafePointer<gchar>!, args: CVaListPointer) -> Bool {
+        let rv = ((g_output_stream_vprintf(output_stream_ptr, bytesWritten, cancellable?.cancellable_ptr, error, format, args)) != 0)
         return rv
     }
 
@@ -516,7 +625,33 @@ public extension OutputStreamProtocol {
     /// partial result will be returned, without an error.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
-    @inlinable func write<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func write(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_output_stream_write(output_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write `count` bytes from `buffer` into the stream. Will block
+    /// during the operation.
+    /// 
+    /// If count is 0, returns 0 and does nothing. A value of `count`
+    /// larger than `G_MAXSSIZE` will cause a `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes written to the stream is returned.
+    /// It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. on a partial I/O error, or if there is not enough
+    /// storage in the stream. All writes block until at least one byte
+    /// is written or an error occurs; 0 is never returned (unless
+    /// `count` is 0).
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// On error -1 is returned and `error` is set accordingly.
+    @inlinable func write<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write(output_stream_ptr, buffer, gsize(count), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -542,9 +677,34 @@ public extension OutputStreamProtocol {
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
     /// `g_output_stream_write()`.
-    @inlinable func writeAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func writeAll(buffer: UnsafeMutableRawPointer!, count: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_write_all(output_stream_ptr, buffer, gsize(count), bytes_written, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_output_stream_write_all(output_stream_ptr, buffer, gsize(count), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write `count` bytes from `buffer` into the stream. Will block
+    /// during the operation.
+    /// 
+    /// This function is similar to `g_output_stream_write()`, except it tries to
+    /// write as many bytes as requested, only stopping on an error.
+    /// 
+    /// On a successful write of `count` bytes, `true` is returned, and `bytes_written`
+    /// is set to `count`.
+    /// 
+    /// If there is an error during the operation `false` is returned and `error`
+    /// is set to indicate the error status.
+    /// 
+    /// As a special exception to the normal conventions for functions that
+    /// use `GError`, if this function returns `false` (and sets `error`) then
+    /// `bytes_written` will be set to the number of bytes that were
+    /// successfully written before the error was encountered.  This
+    /// functionality is only available from C.  If you need it from another
+    /// language then you must write your own loop around
+    /// `g_output_stream_write()`.
+    @inlinable func writeAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_output_stream_write_all(output_stream_ptr, buffer, gsize(count), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -564,8 +724,27 @@ public extension OutputStreamProtocol {
     /// 
     /// Note that no copy of `buffer` will be made, so it must stay valid
     /// until `callback` is called.
-    @inlinable func writeAllAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_write_all_async(output_stream_ptr, buffer, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func writeAllAsync(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_all_async(output_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous write of `count` bytes from `buffer` into
+    /// the stream. When the operation is finished `callback` will be called.
+    /// You can then call `g_output_stream_write_all_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// This is the asynchronous version of `g_output_stream_write_all()`.
+    /// 
+    /// Call `g_output_stream_write_all_finish()` to collect the result.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// Note that no copy of `buffer` will be made, so it must stay valid
+    /// until `callback` is called.
+    @inlinable func writeAllAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_all_async(output_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -579,9 +758,9 @@ public extension OutputStreamProtocol {
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
     /// `g_output_stream_write_async()`.
-    @inlinable func writeAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
+    @inlinable func writeAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_write_all_finish(output_stream_ptr, result.async_result_ptr, bytes_written, &error)) != 0)
+        let rv = ((g_output_stream_write_all_finish(output_stream_ptr, result.async_result_ptr, bytesWritten, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -621,8 +800,47 @@ public extension OutputStreamProtocol {
     /// until `callback` is called. See `g_output_stream_write_bytes_async()`
     /// for a `GBytes` version that will automatically hold a reference to
     /// the contents (without copying) for the duration of the call.
-    @inlinable func writeAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_write_async(output_stream_ptr, buffer, gsize(count), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func writeAsync(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_async(output_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous write of `count` bytes from `buffer` into
+    /// the stream. When the operation is finished `callback` will be called.
+    /// You can then call `g_output_stream_write_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// During an async request no other sync and async calls are allowed,
+    /// and will result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// A value of `count` larger than `G_MAXSSIZE` will cause a
+    /// `G_IO_ERROR_INVALID_ARGUMENT` error.
+    /// 
+    /// On success, the number of bytes written will be passed to the
+    /// `callback`. It is not an error if this is not the same as the
+    /// requested size, as it can happen e.g. on a partial I/O error,
+    /// but generally we try to write as many bytes as requested.
+    /// 
+    /// You are guaranteed that this method will never fail with
+    /// `G_IO_ERROR_WOULD_BLOCK` - if `stream` can't accept more data, the
+    /// method will just wait until this changes.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads
+    /// to implement asynchronicity, so they are optional for inheriting
+    /// classes. However, if you override one you must override all.
+    /// 
+    /// For the synchronous, blocking version of this function, see
+    /// `g_output_stream_write()`.
+    /// 
+    /// Note that no copy of `buffer` will be made, so it must stay valid
+    /// until `callback` is called. See `g_output_stream_write_bytes_async()`
+    /// for a `GBytes` version that will automatically hold a reference to
+    /// the contents (without copying) for the duration of the call.
+    @inlinable func writeAsync<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_async(output_stream_ptr, buffer, gsize(count), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -637,7 +855,24 @@ public extension OutputStreamProtocol {
     /// remaining bytes, using `g_bytes_new_from_bytes()`. Passing the same
     /// `GBytes` instance multiple times potentially can result in duplicated
     /// data in the output stream.
-    @inlinable func write<BytesT: BytesProtocol, CancellableT: CancellableProtocol>(bytes: BytesT, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func write<BytesT: GLib.BytesProtocol>(bytes: BytesT, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_output_stream_write_bytes(output_stream_ptr, bytes.bytes_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// A wrapper function for `g_output_stream_write()` which takes a
+    /// `GBytes` as input.  This can be more convenient for use by language
+    /// bindings or in other cases where the refcounted nature of `GBytes`
+    /// is helpful over a bare pointer interface.
+    /// 
+    /// However, note that this function may still perform partial writes,
+    /// just like `g_output_stream_write()`.  If that occurs, to continue
+    /// writing, you will need to create a new `GBytes` containing just the
+    /// remaining bytes, using `g_bytes_new_from_bytes()`. Passing the same
+    /// `GBytes` instance multiple times potentially can result in duplicated
+    /// data in the output stream.
+    @inlinable func write<BytesT: GLib.BytesProtocol, CancellableT: CancellableProtocol>(bytes: BytesT, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_output_stream_write_bytes(output_stream_ptr, bytes.bytes_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -657,8 +892,25 @@ public extension OutputStreamProtocol {
     /// 
     /// For the synchronous, blocking version of this function, see
     /// `g_output_stream_write_bytes()`.
-    @inlinable func writeBytesAsync<BytesT: BytesProtocol, CancellableT: CancellableProtocol>(bytes: BytesT, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_write_bytes_async(output_stream_ptr, bytes.bytes_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func writeBytesAsync<BytesT: GLib.BytesProtocol>(bytes: BytesT, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_bytes_async(output_stream_ptr, bytes.bytes_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// This function is similar to `g_output_stream_write_async()`, but
+    /// takes a `GBytes` as input.  Due to the refcounted nature of `GBytes`,
+    /// this allows the stream to avoid taking a copy of the data.
+    /// 
+    /// However, note that this function may still perform partial writes,
+    /// just like `g_output_stream_write_async()`. If that occurs, to continue
+    /// writing, you will need to create a new `GBytes` containing just the
+    /// remaining bytes, using `g_bytes_new_from_bytes()`. Passing the same
+    /// `GBytes` instance multiple times potentially can result in duplicated
+    /// data in the output stream.
+    /// 
+    /// For the synchronous, blocking version of this function, see
+    /// `g_output_stream_write_bytes()`.
+    @inlinable func writeBytesAsync<BytesT: GLib.BytesProtocol, CancellableT: CancellableProtocol>(bytes: BytesT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_write_bytes_async(output_stream_ptr, bytes.bytes_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -701,9 +953,38 @@ public extension OutputStreamProtocol {
     /// aggregate buffer size, and will return `G_IO_ERROR_INVALID_ARGUMENT` if these
     /// are exceeded. For example, when writing to a local file on UNIX platforms,
     /// the aggregate buffer size must not exceed `G_MAXSSIZE` bytes.
-    @inlinable func writev<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func writev(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_writev(output_stream_ptr, vectors, gsize(n_vectors), bytes_written, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_output_stream_writev(output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write the bytes contained in the `n_vectors` `vectors` into the
+    /// stream. Will block during the operation.
+    /// 
+    /// If `n_vectors` is 0 or the sum of all bytes in `vectors` is 0, returns 0 and
+    /// does nothing.
+    /// 
+    /// On success, the number of bytes written to the stream is returned.
+    /// It is not an error if this is not the same as the requested size, as it
+    /// can happen e.g. on a partial I/O error, or if there is not enough
+    /// storage in the stream. All writes block until at least one byte
+    /// is written or an error occurs; 0 is never returned (unless
+    /// `n_vectors` is 0 or the sum of all bytes in `vectors` is 0).
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned. If an
+    /// operation was partially finished when the operation was cancelled the
+    /// partial result will be returned, without an error.
+    /// 
+    /// Some implementations of `g_output_stream_writev()` may have limitations on the
+    /// aggregate buffer size, and will return `G_IO_ERROR_INVALID_ARGUMENT` if these
+    /// are exceeded. For example, when writing to a local file on UNIX platforms,
+    /// the aggregate buffer size must not exceed `G_MAXSSIZE` bytes.
+    @inlinable func writev<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_output_stream_writev(output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -730,9 +1011,37 @@ public extension OutputStreamProtocol {
     /// 
     /// The content of the individual elements of `vectors` might be changed by this
     /// function.
-    @inlinable func writevAll<CancellableT: CancellableProtocol>(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors n_vectors: Int, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func writevAll(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_writev_all(output_stream_ptr, vectors, gsize(n_vectors), bytes_written, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_output_stream_writev_all(output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write the bytes contained in the `n_vectors` `vectors` into the
+    /// stream. Will block during the operation.
+    /// 
+    /// This function is similar to `g_output_stream_writev()`, except it tries to
+    /// write as many bytes as requested, only stopping on an error.
+    /// 
+    /// On a successful write of all `n_vectors` vectors, `true` is returned, and
+    /// `bytes_written` is set to the sum of all the sizes of `vectors`.
+    /// 
+    /// If there is an error during the operation `false` is returned and `error`
+    /// is set to indicate the error status.
+    /// 
+    /// As a special exception to the normal conventions for functions that
+    /// use `GError`, if this function returns `false` (and sets `error`) then
+    /// `bytes_written` will be set to the number of bytes that were
+    /// successfully written before the error was encountered.  This
+    /// functionality is only available from C. If you need it from another
+    /// language then you must write your own loop around
+    /// `g_output_stream_write()`.
+    /// 
+    /// The content of the individual elements of `vectors` might be changed by this
+    /// function.
+    @inlinable func writevAll<CancellableT: CancellableProtocol>(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors: Int, bytesWritten: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_output_stream_writev_all(output_stream_ptr, vectors, gsize(nVectors), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -753,8 +1062,28 @@ public extension OutputStreamProtocol {
     /// Note that no copy of `vectors` will be made, so it must stay valid
     /// until `callback` is called. The content of the individual elements
     /// of `vectors` might be changed by this function.
-    @inlinable func writevAllAsync<CancellableT: CancellableProtocol>(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors n_vectors: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_writev_all_async(output_stream_ptr, vectors, gsize(n_vectors), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func writevAllAsync(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_writev_all_async(output_stream_ptr, vectors, gsize(nVectors), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous write of the bytes contained in the `n_vectors` `vectors` into
+    /// the stream. When the operation is finished `callback` will be called.
+    /// You can then call `g_output_stream_writev_all_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// This is the asynchronous version of `g_output_stream_writev_all()`.
+    /// 
+    /// Call `g_output_stream_writev_all_finish()` to collect the result.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// Note that no copy of `vectors` will be made, so it must stay valid
+    /// until `callback` is called. The content of the individual elements
+    /// of `vectors` might be changed by this function.
+    @inlinable func writevAllAsync<CancellableT: CancellableProtocol>(vectors: UnsafeMutablePointer<GOutputVector>!, nVectors: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_writev_all_async(output_stream_ptr, vectors, gsize(nVectors), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -768,9 +1097,9 @@ public extension OutputStreamProtocol {
     /// functionality is only available from C.  If you need it from another
     /// language then you must write your own loop around
     /// `g_output_stream_writev_async()`.
-    @inlinable func writevAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
+    @inlinable func writevAllFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_writev_all_finish(output_stream_ptr, result.async_result_ptr, bytes_written, &error)) != 0)
+        let rv = ((g_output_stream_writev_all_finish(output_stream_ptr, result.async_result_ptr, bytesWritten, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -805,15 +1134,49 @@ public extension OutputStreamProtocol {
     /// 
     /// Note that no copy of `vectors` will be made, so it must stay valid
     /// until `callback` is called.
-    @inlinable func writevAsync<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors n_vectors: Int, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_output_stream_writev_async(output_stream_ptr, vectors, gsize(n_vectors), gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func writevAsync(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_writev_async(output_stream_ptr, vectors, gsize(nVectors), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Request an asynchronous write of the bytes contained in `n_vectors` `vectors` into
+    /// the stream. When the operation is finished `callback` will be called.
+    /// You can then call `g_output_stream_writev_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// During an async request no other sync and async calls are allowed,
+    /// and will result in `G_IO_ERROR_PENDING` errors.
+    /// 
+    /// On success, the number of bytes written will be passed to the
+    /// `callback`. It is not an error if this is not the same as the
+    /// requested size, as it can happen e.g. on a partial I/O error,
+    /// but generally we try to write as many bytes as requested.
+    /// 
+    /// You are guaranteed that this method will never fail with
+    /// `G_IO_ERROR_WOULD_BLOCK` — if `stream` can't accept more data, the
+    /// method will just wait until this changes.
+    /// 
+    /// Any outstanding I/O request with higher priority (lower numerical
+    /// value) will be executed before an outstanding request with lower
+    /// priority. Default priority is `G_PRIORITY_DEFAULT`.
+    /// 
+    /// The asynchronous methods have a default fallback that uses threads
+    /// to implement asynchronicity, so they are optional for inheriting
+    /// classes. However, if you override one you must override all.
+    /// 
+    /// For the synchronous, blocking version of this function, see
+    /// `g_output_stream_writev()`.
+    /// 
+    /// Note that no copy of `vectors` will be made, so it must stay valid
+    /// until `callback` is called.
+    @inlinable func writevAsync<CancellableT: CancellableProtocol>(vectors: UnsafePointer<GOutputVector>!, nVectors: Int, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_output_stream_writev_async(output_stream_ptr, vectors, gsize(nVectors), gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes a stream writev operation.
-    @inlinable func writevFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten bytes_written: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
+    @inlinable func writevFinish<AsyncResultT: AsyncResultProtocol>(result: AsyncResultT, bytesWritten: UnsafeMutablePointer<gsize>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_output_stream_writev_finish(output_stream_ptr, result.async_result_ptr, bytes_written, &error)) != 0)
+        let rv = ((g_output_stream_writev_finish(output_stream_ptr, result.async_result_ptr, bytesWritten, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -828,7 +1191,23 @@ public extension OutputStreamProtocol {
     /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
-    @inlinable func pollableStreamWrite<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT? = nil) throws -> gssize {
+    @inlinable func pollableStreamWrite(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableRef? = nil) throws -> gssize {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_pollable_stream_write(output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write to `stream`, as with `g_output_stream_write()` (if
+    /// `blocking` is `true`) or `g_pollable_output_stream_write_nonblocking()`
+    /// (if `blocking` is `false`). This can be used to more easily share
+    /// code between blocking and non-blocking implementations of a method.
+    /// 
+    /// If `blocking` is `false`, then `stream` must be a
+    /// `GPollableOutputStream` for which
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
+    /// behavior is undefined. If `blocking` is `true`, then `stream` does not
+    /// need to be a `GPollableOutputStream`.
+    @inlinable func pollableStreamWrite<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, cancellable: CancellableT?) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_pollable_stream_write(output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -853,9 +1232,33 @@ public extension OutputStreamProtocol {
     /// `g_pollable_output_stream_can_poll()` returns `true` or else the
     /// behavior is undefined. If `blocking` is `true`, then `stream` does not
     /// need to be a `GPollableOutputStream`.
-    @inlinable func pollableStreamWriteAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten bytes_written: UnsafeMutablePointer<gsize>!, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func pollableStreamWriteAll(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten: UnsafeMutablePointer<gsize>!, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_pollable_stream_write_all(output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytes_written, cancellable?.cancellable_ptr, &error)) != 0)
+        let rv = ((g_pollable_stream_write_all(output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Tries to write `count` bytes to `stream`, as with
+    /// `g_output_stream_write_all()`, but using `g_pollable_stream_write()`
+    /// rather than `g_output_stream_write()`.
+    /// 
+    /// On a successful write of `count` bytes, `true` is returned, and
+    /// `bytes_written` is set to `count`.
+    /// 
+    /// If there is an error during the operation (including
+    /// `G_IO_ERROR_WOULD_BLOCK` in the non-blocking case), `false` is
+    /// returned and `error` is set to indicate the error status,
+    /// `bytes_written` is updated to contain the number of bytes written
+    /// into the stream before the error occurred.
+    /// 
+    /// As with `g_pollable_stream_write()`, if `blocking` is `false`, then
+    /// `stream` must be a `GPollableOutputStream` for which
+    /// `g_pollable_output_stream_can_poll()` returns `true` or else the
+    /// behavior is undefined. If `blocking` is `true`, then `stream` does not
+    /// need to be a `GPollableOutputStream`.
+    @inlinable func pollableStreamWriteAll<CancellableT: CancellableProtocol>(buffer: UnsafeMutableRawPointer!, count: Int, blocking: Bool, bytesWritten: UnsafeMutablePointer<gsize>!, cancellable: CancellableT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_pollable_stream_write_all(output_stream_ptr, buffer, gsize(count), gboolean((blocking) ? 1 : 0), bytesWritten, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -918,7 +1321,7 @@ public extension OutputStreamProtocol {
 /// then be used to decide if it is appropriate to show a "Click here to
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
-public protocol PermissionProtocol: ObjectProtocol {
+public protocol PermissionProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GPermission` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1006,7 +1409,7 @@ public extension PermissionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1043,7 +1446,7 @@ public extension PermissionRef {
 /// then be used to decide if it is appropriate to show a "Click here to
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
-open class Permission: Object, PermissionProtocol {
+open class Permission: GLibObject.Object, PermissionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Permission` instance.
@@ -1193,7 +1596,7 @@ public extension PermissionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: PermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: PermissionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1322,7 +1725,28 @@ public extension PermissionProtocol {
     /// This call is blocking, likely for a very long time (in the case that
     /// user interaction is required).  See `g_permission_acquire_async()` for
     /// the non-blocking version.
-    @inlinable func acquire<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func acquire(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_permission_acquire(permission_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to acquire the permission represented by `permission`.
+    /// 
+    /// The precise method by which this happens depends on the permission
+    /// and the underlying authentication mechanism.  A simple example is
+    /// that a dialog may appear asking the user to enter their password.
+    /// 
+    /// You should check with `g_permission_get_can_acquire()` before calling
+    /// this function.
+    /// 
+    /// If the permission is acquired then `true` is returned.  Otherwise,
+    /// `false` is returned and `error` is set appropriately.
+    /// 
+    /// This call is blocking, likely for a very long time (in the case that
+    /// user interaction is required).  See `g_permission_acquire_async()` for
+    /// the non-blocking version.
+    @inlinable func acquire<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_permission_acquire(permission_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1333,8 +1757,16 @@ public extension PermissionProtocol {
     /// 
     /// This is the first half of the asynchronous version of
     /// `g_permission_acquire()`.
-    @inlinable func acquireAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_permission_acquire_async(permission_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func acquireAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_permission_acquire_async(permission_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Attempts to acquire the permission represented by `permission`.
+    /// 
+    /// This is the first half of the asynchronous version of
+    /// `g_permission_acquire()`.
+    @inlinable func acquireAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_permission_acquire_async(permission_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1379,8 +1811,8 @@ public extension PermissionProtocol {
     /// function except from a `GPermission` implementation.
     /// 
     /// GObject notify signals are generated, as appropriate.
-    @inlinable func implUpdate(allowed: Bool, canAcquire can_acquire: Bool, canRelease can_release: Bool) {
-        g_permission_impl_update(permission_ptr, gboolean((allowed) ? 1 : 0), gboolean((can_acquire) ? 1 : 0), gboolean((can_release) ? 1 : 0))
+    @inlinable func implUpdate(allowed: Bool, canAcquire: Bool, canRelease: Bool) {
+        g_permission_impl_update(permission_ptr, gboolean((allowed) ? 1 : 0), gboolean((canAcquire) ? 1 : 0), gboolean((canRelease) ? 1 : 0))
     
     }
 
@@ -1399,7 +1831,28 @@ public extension PermissionProtocol {
     /// This call is blocking, likely for a very long time (in the case that
     /// user interaction is required).  See `g_permission_release_async()` for
     /// the non-blocking version.
-    @inlinable func release<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func release(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_permission_release(permission_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Attempts to release the permission represented by `permission`.
+    /// 
+    /// The precise method by which this happens depends on the permission
+    /// and the underlying authentication mechanism.  In most cases the
+    /// permission will be dropped immediately without further action.
+    /// 
+    /// You should check with `g_permission_get_can_release()` before calling
+    /// this function.
+    /// 
+    /// If the permission is released then `true` is returned.  Otherwise,
+    /// `false` is returned and `error` is set appropriately.
+    /// 
+    /// This call is blocking, likely for a very long time (in the case that
+    /// user interaction is required).  See `g_permission_release_async()` for
+    /// the non-blocking version.
+    @inlinable func release<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_permission_release(permission_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1410,8 +1863,16 @@ public extension PermissionProtocol {
     /// 
     /// This is the first half of the asynchronous version of
     /// `g_permission_release()`.
-    @inlinable func releaseAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_permission_release_async(permission_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func releaseAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_permission_release_async(permission_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Attempts to release the permission represented by `permission`.
+    /// 
+    /// This is the first half of the asynchronous version of
+    /// `g_permission_release()`.
+    @inlinable func releaseAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_permission_release_async(permission_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 

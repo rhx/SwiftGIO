@@ -72,7 +72,7 @@ import GLibObject
 /// }
 /// ```
 /// 
-public protocol DBusAuthObserverProtocol: ObjectProtocol {
+public protocol DBusAuthObserverProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -208,7 +208,7 @@ public extension DBusAuthObserverRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAuthObserverProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -298,7 +298,7 @@ public extension DBusAuthObserverRef {
 /// }
 /// ```
 /// 
-open class DBusAuthObserver: Object, DBusAuthObserverProtocol {
+open class DBusAuthObserver: GLibObject.Object, DBusAuthObserverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusAuthObserver` instance.
@@ -508,7 +508,12 @@ public extension DBusAuthObserverProtocol {
     }
 
     /// Emits the `GDBusAuthObserver::authorize`-authenticated-peer signal on `observer`.
-    @inlinable func authorizeAuthenticatedPeer<CredentialsT: CredentialsProtocol, IOStreamT: IOStreamProtocol>(stream: IOStreamT, credentials: CredentialsT? = nil) -> Bool {
+    @inlinable func authorizeAuthenticatedPeer<IOStreamT: IOStreamProtocol>(stream: IOStreamT, credentials: CredentialsRef? = nil) -> Bool {
+        let rv = ((g_dbus_auth_observer_authorize_authenticated_peer(dbus_auth_observer_ptr, stream.io_stream_ptr, credentials?.credentials_ptr)) != 0)
+        return rv
+    }
+    /// Emits the `GDBusAuthObserver::authorize`-authenticated-peer signal on `observer`.
+    @inlinable func authorizeAuthenticatedPeer<CredentialsT: CredentialsProtocol, IOStreamT: IOStreamProtocol>(stream: IOStreamT, credentials: CredentialsT?) -> Bool {
         let rv = ((g_dbus_auth_observer_authorize_authenticated_peer(dbus_auth_observer_ptr, stream.io_stream_ptr, credentials?.credentials_ptr)) != 0)
         return rv
     }
@@ -574,7 +579,7 @@ public extension DBusAuthObserverProtocol {
 /// 
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
-public protocol DBusConnectionProtocol: ObjectProtocol, AsyncInitableProtocol, InitableProtocol {
+public protocol DBusConnectionProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -696,7 +701,7 @@ public extension DBusConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -744,7 +749,7 @@ public extension DBusConnectionRef {
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
-    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_new_for_address_sync(address, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -766,7 +771,7 @@ public extension DBusConnectionRef {
     /// 
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
-    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_new_sync(stream.io_stream_ptr, guid, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -806,7 +811,7 @@ public extension DBusConnectionRef {
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
-    @inlinable static func newFor<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusConnectionRef! {
+    @inlinable static func newFor<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_dbus_connection_new_for_address_sync(address, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -829,7 +834,7 @@ public extension DBusConnectionRef {
     /// 
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
-    @inlinable static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusConnectionRef! {
+    @inlinable static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_dbus_connection_new_sync(stream.io_stream_ptr, guid, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -891,7 +896,7 @@ public extension DBusConnectionRef {
 /// 
 /// Here is an example for exporting a `GObject:`
 /// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
-open class DBusConnection: Object, DBusConnectionProtocol {
+open class DBusConnection: GLibObject.Object, DBusConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusConnection` instance.
@@ -1048,7 +1053,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
-    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_new_for_address_sync(address, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -1070,7 +1075,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
-    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_connection_new_sync(stream.io_stream_ptr, guid, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -1111,7 +1116,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// If `observer` is not `nil` it may be used to control the
     /// authentication process.
-    @inlinable public static func newFor<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusConnection! {
+    @inlinable public static func newFor<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(addressSync address: UnsafePointer<gchar>!, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusConnection! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusConnection(gconstpointer: gconstpointer(g_dbus_connection_new_for_address_sync(address, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1134,7 +1139,7 @@ open class DBusConnection: Object, DBusConnectionProtocol {
     /// 
     /// This is a synchronous failable constructor. See
     /// `g_dbus_connection_new()` for the asynchronous version.
-    @inlinable public static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusConnection! {
+    @inlinable public static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol, IOStreamT: IOStreamProtocol>(sync stream: IOStreamT, guid: UnsafePointer<gchar>? = nil, flags: DBusConnectionFlags, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusConnection! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusConnection(gconstpointer: gconstpointer(g_dbus_connection_new_sync(stream.io_stream_ptr, guid, flags.value, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -1201,7 +1206,7 @@ public extension DBusConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1395,8 +1400,8 @@ public extension DBusConnectionProtocol {
     /// needed. (It is not guaranteed to be called synchronously when the
     /// filter is removed, and may be called after `connection` has been
     /// destroyed.)
-    @inlinable func addFilter(filterFunction filter_function: @escaping GDBusMessageFilterFunction, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify?) -> Int {
-        let rv = Int(g_dbus_connection_add_filter(dbus_connection_ptr, filter_function, user_data, user_data_free_func))
+    @inlinable func addFilter(filterFunction: @escaping GDBusMessageFilterFunction, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify?) -> Int {
+        let rv = Int(g_dbus_connection_add_filter(dbus_connection_ptr, filterFunction, userData, userDataFreeFunc))
         return rv
     }
 
@@ -1446,15 +1451,65 @@ public extension DBusConnectionProtocol {
     /// 
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
     /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
-    @inlinable func call<CancellableT: CancellableProtocol, VariantT: VariantProtocol, VariantTypeT: VariantTypeProtocol>(busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, replyType reply_type: VariantTypeT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_connection_call(dbus_connection_ptr, bus_name, object_path, interface_name, method_name, parameters?.variant_ptr, reply_type?.variant_type_ptr, flags.value, gint(timeout_msec), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func call(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, replyType: GLib.VariantTypeRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_call(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously invokes the `method_name` method on the
+    /// `interface_name` D-Bus interface on the remote object at
+    /// `object_path` owned by `bus_name`.
+    /// 
+    /// If `connection` is closed then the operation will fail with
+    /// `G_IO_ERROR_CLOSED`. If `cancellable` is canceled, the operation will
+    /// fail with `G_IO_ERROR_CANCELLED`. If `parameters` contains a value
+    /// not compatible with the D-Bus protocol, the operation fails with
+    /// `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// If `reply_type` is non-`nil` then the reply will be checked for having this type and an
+    /// error will be raised if it does not match.  Said another way, if you give a `reply_type`
+    /// then any non-`nil` return value will be of this type. Unless it’s
+    /// `G_VARIANT_TYPE_UNIT`, the `reply_type` will be a tuple containing one or more
+    /// values.
+    /// 
+    /// If the `parameters` `GVariant` is floating, it is consumed. This allows
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
+    /// (C Language Example):
+    /// ```C
+    ///  g_dbus_connection_call (connection,
+    ///                          "org.freedesktop.StringThings",
+    ///                          "/org/freedesktop/StringThings",
+    ///                          "org.freedesktop.StringThings",
+    ///                          "TwoStrings",
+    ///                          g_variant_new ("(ss)",
+    ///                                         "Thing One",
+    ///                                         "Thing Two"),
+    ///                          NULL,
+    ///                          G_DBUS_CALL_FLAGS_NONE,
+    ///                          -1,
+    ///                          NULL,
+    ///                          (GAsyncReadyCallback) two_strings_done,
+    ///                          NULL);
+    /// ```
+    /// 
+    /// This is an asynchronous method. When the operation is finished,
+    /// `callback` will be invoked in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from. You can then call
+    /// `g_dbus_connection_call_finish()` to get the result of the operation.
+    /// See `g_dbus_connection_call_sync()` for the synchronous version of this
+    /// function.
+    /// 
+    /// If `callback` is `nil` then the D-Bus method call message will be sent with
+    /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
+    @inlinable func call<CancellableT: CancellableProtocol, VariantT: GLib.VariantProtocol, VariantTypeT: GLib.VariantTypeProtocol>(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: VariantT?, replyType: VariantTypeT?, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_call(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an operation started with `g_dbus_connection_call()`.
-    @inlinable func callFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> VariantRef! {
+    @inlinable func callFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_connection_call_finish(dbus_connection_ptr, res.async_result_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_connection_call_finish(dbus_connection_ptr, res.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1496,9 +1551,52 @@ public extension DBusConnectionProtocol {
     /// The calling thread is blocked until a reply is received. See
     /// `g_dbus_connection_call()` for the asynchronous version of
     /// this method.
-    @inlinable func callSync<CancellableT: CancellableProtocol, VariantT: VariantProtocol, VariantTypeT: VariantTypeProtocol>(busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, replyType reply_type: VariantTypeT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, cancellable: CancellableT? = nil) throws -> VariantRef! {
+    @inlinable func callSync(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, replyType: GLib.VariantTypeRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableRef? = nil) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_connection_call_sync(dbus_connection_ptr, bus_name, object_path, interface_name, method_name, parameters?.variant_ptr, reply_type?.variant_type_ptr, flags.value, gint(timeout_msec), cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_connection_call_sync(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously invokes the `method_name` method on the
+    /// `interface_name` D-Bus interface on the remote object at
+    /// `object_path` owned by `bus_name`.
+    /// 
+    /// If `connection` is closed then the operation will fail with
+    /// `G_IO_ERROR_CLOSED`. If `cancellable` is canceled, the
+    /// operation will fail with `G_IO_ERROR_CANCELLED`. If `parameters`
+    /// contains a value not compatible with the D-Bus protocol, the operation
+    /// fails with `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// If `reply_type` is non-`nil` then the reply will be checked for having
+    /// this type and an error will be raised if it does not match.  Said
+    /// another way, if you give a `reply_type` then any non-`nil` return
+    /// value will be of this type.
+    /// 
+    /// If the `parameters` `GVariant` is floating, it is consumed.
+    /// This allows convenient 'inline' use of `g_variant_new()`, e.g.:
+    /// (C Language Example):
+    /// ```C
+    ///  g_dbus_connection_call_sync (connection,
+    ///                               "org.freedesktop.StringThings",
+    ///                               "/org/freedesktop/StringThings",
+    ///                               "org.freedesktop.StringThings",
+    ///                               "TwoStrings",
+    ///                               g_variant_new ("(ss)",
+    ///                                              "Thing One",
+    ///                                              "Thing Two"),
+    ///                               NULL,
+    ///                               G_DBUS_CALL_FLAGS_NONE,
+    ///                               -1,
+    ///                               NULL,
+    ///                               &error);
+    /// ```
+    /// 
+    /// The calling thread is blocked until a reply is received. See
+    /// `g_dbus_connection_call()` for the asynchronous version of
+    /// this method.
+    @inlinable func callSync<CancellableT: CancellableProtocol, VariantT: GLib.VariantProtocol, VariantTypeT: GLib.VariantTypeProtocol>(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: VariantT?, replyType: VariantTypeT?, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableT?) throws -> GLib.VariantRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.VariantRef(g_dbus_connection_call_sync(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1506,15 +1604,22 @@ public extension DBusConnectionProtocol {
     /// Like `g_dbus_connection_call()` but also takes a `GUnixFDList` object.
     /// 
     /// This method is only available on UNIX.
-    @inlinable func callWithUnixFdList<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: VariantProtocol, VariantTypeT: VariantTypeProtocol>(busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, replyType reply_type: VariantTypeT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, fdList fd_list: UnixFDListT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_connection_call_with_unix_fd_list(dbus_connection_ptr, bus_name, object_path, interface_name, method_name, parameters?.variant_ptr, reply_type?.variant_type_ptr, flags.value, gint(timeout_msec), fd_list?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func callWithUnixFdList(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, replyType: GLib.VariantTypeRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_call_with_unix_fd_list(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Like `g_dbus_connection_call()` but also takes a `GUnixFDList` object.
+    /// 
+    /// This method is only available on UNIX.
+    @inlinable func callWithUnixFdList<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: GLib.VariantProtocol, VariantTypeT: GLib.VariantTypeProtocol>(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: VariantT?, replyType: VariantTypeT?, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_call_with_unix_fd_list(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an operation started with `g_dbus_connection_call_with_unix_fd_list()`.
-    @inlinable func callWithUnixFdListFinish<AsyncResultT: AsyncResultProtocol>(outFdList out_fd_list: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, res: AsyncResultT) throws -> VariantRef! {
+    @inlinable func callWithUnixFdListFinish<AsyncResultT: AsyncResultProtocol>(outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, res: AsyncResultT) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_connection_call_with_unix_fd_list_finish(dbus_connection_ptr, out_fd_list, res.async_result_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_connection_call_with_unix_fd_list_finish(dbus_connection_ptr, outFdList, res.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1522,9 +1627,18 @@ public extension DBusConnectionProtocol {
     /// Like `g_dbus_connection_call_sync()` but also takes and returns `GUnixFDList` objects.
     /// 
     /// This method is only available on UNIX.
-    @inlinable func callWithUnixFdListSync<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: VariantProtocol, VariantTypeT: VariantTypeProtocol>(busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, replyType reply_type: VariantTypeT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, fdList fd_list: UnixFDListT? = nil, outFdList out_fd_list: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableT? = nil) throws -> VariantRef! {
+    @inlinable func callWithUnixFdListSync(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, replyType: GLib.VariantTypeRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListRef? = nil, outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableRef? = nil) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_connection_call_with_unix_fd_list_sync(dbus_connection_ptr, bus_name, object_path, interface_name, method_name, parameters?.variant_ptr, reply_type?.variant_type_ptr, flags.value, gint(timeout_msec), fd_list?.unix_fd_list_ptr, out_fd_list, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_connection_call_with_unix_fd_list_sync(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, outFdList, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Like `g_dbus_connection_call_sync()` but also takes and returns `GUnixFDList` objects.
+    /// 
+    /// This method is only available on UNIX.
+    @inlinable func callWithUnixFdListSync<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: GLib.VariantProtocol, VariantTypeT: GLib.VariantTypeProtocol>(busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, methodName: UnsafePointer<gchar>!, parameters: VariantT?, replyType: VariantTypeT?, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListT?, outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableT?) throws -> GLib.VariantRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.VariantRef(g_dbus_connection_call_with_unix_fd_list_sync(dbus_connection_ptr, busName, objectPath, interfaceName, methodName, parameters?.variant_ptr, replyType?.variant_type_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, outFdList, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1553,8 +1667,36 @@ public extension DBusConnectionProtocol {
     /// then call `g_dbus_connection_close_finish()` to get the result of the
     /// operation. See `g_dbus_connection_close_sync()` for the synchronous
     /// version.
-    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_connection_close(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func close(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_close(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Closes `connection`. Note that this never causes the process to
+    /// exit (this might only happen if the other end of a shared message
+    /// bus connection disconnects, see `GDBusConnection:exit`-on-close).
+    /// 
+    /// Once the connection is closed, operations such as sending a message
+    /// will return with the error `G_IO_ERROR_CLOSED`. Closing a connection
+    /// will not automatically flush the connection so queued messages may
+    /// be lost. Use `g_dbus_connection_flush()` if you need such guarantees.
+    /// 
+    /// If `connection` is already closed, this method fails with
+    /// `G_IO_ERROR_CLOSED`.
+    /// 
+    /// When `connection` has been closed, the `GDBusConnection::closed`
+    /// signal is emitted in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread that `connection` was constructed in.
+    /// 
+    /// This is an asynchronous method. When the operation is finished,
+    /// `callback` will be invoked in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from. You can
+    /// then call `g_dbus_connection_close_finish()` to get the result of the
+    /// operation. See `g_dbus_connection_close_sync()` for the synchronous
+    /// version.
+    @inlinable func close<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_close(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1570,7 +1712,17 @@ public extension DBusConnectionProtocol {
     /// until this is done. See `g_dbus_connection_close()` for the
     /// asynchronous version of this method and more details about what it
     /// does.
-    @inlinable func closeSync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func closeSync(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dbus_connection_close_sync(dbus_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously closes `connection`. The calling thread is blocked
+    /// until this is done. See `g_dbus_connection_close()` for the
+    /// asynchronous version of this method and more details about what it
+    /// does.
+    @inlinable func closeSync<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_dbus_connection_close_sync(dbus_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1584,9 +1736,22 @@ public extension DBusConnectionProtocol {
     /// This can only fail if `parameters` is not compatible with the D-Bus protocol
     /// (`G_IO_ERROR_INVALID_ARGUMENT`), or if `connection` has been closed
     /// (`G_IO_ERROR_CLOSED`).
-    @inlinable func emitSignal<VariantT: VariantProtocol>(destinationBusName destination_bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, signalName signal_name: UnsafePointer<gchar>!, parameters: VariantT? = nil) throws -> Bool {
+    @inlinable func emitSignal(destinationBusName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, signalName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_dbus_connection_emit_signal(dbus_connection_ptr, destination_bus_name, object_path, interface_name, signal_name, parameters?.variant_ptr, &error)) != 0)
+        let rv = ((g_dbus_connection_emit_signal(dbus_connection_ptr, destinationBusName, objectPath, interfaceName, signalName, parameters?.variant_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Emits a signal.
+    /// 
+    /// If the parameters GVariant is floating, it is consumed.
+    /// 
+    /// This can only fail if `parameters` is not compatible with the D-Bus protocol
+    /// (`G_IO_ERROR_INVALID_ARGUMENT`), or if `connection` has been closed
+    /// (`G_IO_ERROR_CLOSED`).
+    @inlinable func emitSignal<VariantT: GLib.VariantProtocol>(destinationBusName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, signalName: UnsafePointer<gchar>!, parameters: VariantT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dbus_connection_emit_signal(dbus_connection_ptr, destinationBusName, objectPath, interfaceName, signalName, parameters?.variant_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1612,9 +1777,9 @@ public extension DBusConnectionProtocol {
     /// rather likely to cause changes on the action group, this effectively
     /// limits a given action group to being exported from only one main
     /// context.
-    @inlinable func exportActionGroup<ActionGroupT: ActionGroupProtocol>(objectPath object_path: UnsafePointer<gchar>!, actionGroup action_group: ActionGroupT) throws -> Int {
+    @inlinable func exportActionGroup<ActionGroupT: ActionGroupProtocol>(objectPath: UnsafePointer<gchar>!, actionGroup: ActionGroupT) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_dbus_connection_export_action_group(dbus_connection_ptr, object_path, action_group.action_group_ptr, &error))
+        let rv = Int(g_dbus_connection_export_action_group(dbus_connection_ptr, objectPath, actionGroup.action_group_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1631,9 +1796,9 @@ public extension DBusConnectionProtocol {
     /// You can unexport the menu model using
     /// `g_dbus_connection_unexport_menu_model()` with the return value of
     /// this function.
-    @inlinable func exportMenuModel<MenuModelT: MenuModelProtocol>(objectPath object_path: UnsafePointer<gchar>!, menu: MenuModelT) throws -> Int {
+    @inlinable func exportMenuModel<MenuModelT: MenuModelProtocol>(objectPath: UnsafePointer<gchar>!, menu: MenuModelT) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_dbus_connection_export_menu_model(dbus_connection_ptr, object_path, menu.menu_model_ptr, &error))
+        let rv = Int(g_dbus_connection_export_menu_model(dbus_connection_ptr, objectPath, menu.menu_model_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1652,8 +1817,26 @@ public extension DBusConnectionProtocol {
     /// then call `g_dbus_connection_flush_finish()` to get the result of the
     /// operation. See `g_dbus_connection_flush_sync()` for the synchronous
     /// version.
-    @inlinable func flush<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_connection_flush(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func flush(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_flush(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously flushes `connection`, that is, writes all queued
+    /// outgoing message to the transport and then flushes the transport
+    /// (using `g_output_stream_flush_async()`). This is useful in programs
+    /// that wants to emit a D-Bus signal and then exit immediately. Without
+    /// flushing the connection, there is no guaranteed that the message has
+    /// been sent to the networking buffers in the OS kernel.
+    /// 
+    /// This is an asynchronous method. When the operation is finished,
+    /// `callback` will be invoked in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from. You can
+    /// then call `g_dbus_connection_flush_finish()` to get the result of the
+    /// operation. See `g_dbus_connection_flush_sync()` for the synchronous
+    /// version.
+    @inlinable func flush<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_flush(dbus_connection_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1669,7 +1852,17 @@ public extension DBusConnectionProtocol {
     /// until this is done. See `g_dbus_connection_flush()` for the
     /// asynchronous version of this method and more details about what it
     /// does.
-    @inlinable func flushSync<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func flushSync(cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dbus_connection_flush_sync(dbus_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously flushes `connection`. The calling thread is blocked
+    /// until this is done. See `g_dbus_connection_flush()` for the
+    /// asynchronous version of this method and more details about what it
+    /// does.
+    @inlinable func flushSync<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_dbus_connection_flush_sync(dbus_connection_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -1783,18 +1976,70 @@ public extension DBusConnectionProtocol {
     /// as the object is exported. Also note that `vtable` will be copied.
     /// 
     /// See this [server](#gdbus-server) for an example of how to use this method.
-    @inlinable func registerObject<DBusInterfaceInfoT: DBusInterfaceInfoProtocol, DBusInterfaceVTableT: DBusInterfaceVTableProtocol>(objectPath object_path: UnsafePointer<gchar>!, interfaceInfo interface_info: DBusInterfaceInfoT, vtable: DBusInterfaceVTableT? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify?) throws -> Int {
+    @inlinable func registerObject<DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(objectPath: UnsafePointer<gchar>!, interfaceInfo: DBusInterfaceInfoT, vtable: DBusInterfaceVTableRef? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify?) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_dbus_connection_register_object(dbus_connection_ptr, object_path, interface_info.dbus_interface_info_ptr, vtable?._ptr, user_data, user_data_free_func, &error))
+        let rv = Int(g_dbus_connection_register_object(dbus_connection_ptr, objectPath, interfaceInfo.dbus_interface_info_ptr, vtable?._ptr, userData, userDataFreeFunc, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Registers callbacks for exported objects at `object_path` with the
+    /// D-Bus interface that is described in `interface_info`.
+    /// 
+    /// Calls to functions in `vtable` (and `user_data_free_func`) will happen
+    /// in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from.
+    /// 
+    /// Note that all `GVariant` values passed to functions in `vtable` will match
+    /// the signature given in `interface_info` - if a remote caller passes
+    /// incorrect values, the `org.freedesktop.DBus.Error.InvalidArgs`
+    /// is returned to the remote caller.
+    /// 
+    /// Additionally, if the remote caller attempts to invoke methods or
+    /// access properties not mentioned in `interface_info` the
+    /// `org.freedesktop.DBus.Error.UnknownMethod` resp.
+    /// `org.freedesktop.DBus.Error.InvalidArgs` errors
+    /// are returned to the caller.
+    /// 
+    /// It is considered a programming error if the
+    /// `GDBusInterfaceGetPropertyFunc` function in `vtable` returns a
+    /// `GVariant` of incorrect type.
+    /// 
+    /// If an existing callback is already registered at `object_path` and
+    /// `interface_name`, then `error` is set to `G_IO_ERROR_EXISTS`.
+    /// 
+    /// GDBus automatically implements the standard D-Bus interfaces
+    /// org.freedesktop.DBus.Properties, org.freedesktop.DBus.Introspectable
+    /// and org.freedesktop.Peer, so you don't have to implement those for the
+    /// objects you export. You can implement org.freedesktop.DBus.Properties
+    /// yourself, e.g. to handle getting and setting of properties asynchronously.
+    /// 
+    /// Note that the reference count on `interface_info` will be
+    /// incremented by 1 (unless allocated statically, e.g. if the
+    /// reference count is -1, see `g_dbus_interface_info_ref()`) for as long
+    /// as the object is exported. Also note that `vtable` will be copied.
+    /// 
+    /// See this [server](#gdbus-server) for an example of how to use this method.
+    @inlinable func registerObject<DBusInterfaceInfoT: DBusInterfaceInfoProtocol, DBusInterfaceVTableT: DBusInterfaceVTableProtocol>(objectPath: UnsafePointer<gchar>!, interfaceInfo: DBusInterfaceInfoT, vtable: DBusInterfaceVTableT?, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify?) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_dbus_connection_register_object(dbus_connection_ptr, objectPath, interfaceInfo.dbus_interface_info_ptr, vtable?._ptr, userData, userDataFreeFunc, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
 
     /// Version of `g_dbus_connection_register_object()` using closures instead of a
     /// `GDBusInterfaceVTable` for easier binding in other languages.
-    @inlinable func registerObjectWithClosures<ClosureT: ClosureProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(objectPath object_path: UnsafePointer<gchar>!, interfaceInfo interface_info: DBusInterfaceInfoT, methodCallClosure method_call_closure: ClosureT? = nil, getPropertyClosure get_property_closure: ClosureT? = nil, setPropertyClosure set_property_closure: ClosureT? = nil) throws -> Int {
+    @inlinable func registerObjectWithClosures<DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(objectPath: UnsafePointer<gchar>!, interfaceInfo: DBusInterfaceInfoT, methodCallClosure: GLibObject.ClosureRef? = nil, getPropertyClosure: GLibObject.ClosureRef? = nil, setPropertyClosure: GLibObject.ClosureRef? = nil) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_dbus_connection_register_object_with_closures(dbus_connection_ptr, object_path, interface_info.dbus_interface_info_ptr, method_call_closure?.closure_ptr, get_property_closure?.closure_ptr, set_property_closure?.closure_ptr, &error))
+        let rv = Int(g_dbus_connection_register_object_with_closures(dbus_connection_ptr, objectPath, interfaceInfo.dbus_interface_info_ptr, methodCallClosure?.closure_ptr, getPropertyClosure?.closure_ptr, setPropertyClosure?.closure_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Version of `g_dbus_connection_register_object()` using closures instead of a
+    /// `GDBusInterfaceVTable` for easier binding in other languages.
+    @inlinable func registerObjectWithClosures<ClosureT: GLibObject.ClosureProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(objectPath: UnsafePointer<gchar>!, interfaceInfo: DBusInterfaceInfoT, methodCallClosure: ClosureT?, getPropertyClosure: ClosureT?, setPropertyClosure: ClosureT?) throws -> Int {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = Int(g_dbus_connection_register_object_with_closures(dbus_connection_ptr, objectPath, interfaceInfo.dbus_interface_info_ptr, methodCallClosure?.closure_ptr, getPropertyClosure?.closure_ptr, setPropertyClosure?.closure_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1833,9 +2078,9 @@ public extension DBusConnectionProtocol {
     /// 
     /// See this [server](#gdbus-subtree-server) for an example of how to use
     /// this method.
-    @inlinable func registerSubtree<DBusSubtreeVTableT: DBusSubtreeVTableProtocol>(objectPath object_path: UnsafePointer<gchar>!, vtable: DBusSubtreeVTableT, flags: DBusSubtreeFlags, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify?) throws -> Int {
+    @inlinable func registerSubtree<DBusSubtreeVTableT: DBusSubtreeVTableProtocol>(objectPath: UnsafePointer<gchar>!, vtable: DBusSubtreeVTableT, flags: DBusSubtreeFlags, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify?) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_dbus_connection_register_subtree(dbus_connection_ptr, object_path, vtable._ptr, flags.value, user_data, user_data_free_func, &error))
+        let rv = Int(g_dbus_connection_register_subtree(dbus_connection_ptr, objectPath, vtable._ptr, flags.value, userData, userDataFreeFunc, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1848,8 +2093,8 @@ public extension DBusConnectionProtocol {
     /// free data that the filter might be using. Instead, you should pass
     /// a `GDestroyNotify` to `g_dbus_connection_add_filter()`, which will be
     /// called when it is guaranteed that the data is no longer needed.
-    @inlinable func removeFilter(filterID filter_id: Int) {
-        g_dbus_connection_remove_filter(dbus_connection_ptr, guint(filter_id))
+    @inlinable func removeFilter(filterID: Int) {
+        g_dbus_connection_remove_filter(dbus_connection_ptr, guint(filterID))
     
     }
 
@@ -1872,9 +2117,9 @@ public extension DBusConnectionProtocol {
     /// 
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
-    @inlinable func send<DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, outSerial out_serial: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
+    @inlinable func send<DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, outSerial: UnsafeMutablePointer<guint32>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_dbus_connection_send_message(dbus_connection_ptr, message.dbus_message_ptr, flags.value, out_serial, &error)) != 0)
+        let rv = ((g_dbus_connection_send_message(dbus_connection_ptr, message.dbus_message_ptr, flags.value, outSerial, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1906,8 +2151,39 @@ public extension DBusConnectionProtocol {
     /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
     /// for an example of how to use this low-level API to send and receive
     /// UNIX file descriptors.
-    @inlinable func sendMessageWithReply<CancellableT: CancellableProtocol, DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec timeout_msec: Int, outSerial out_serial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_connection_send_message_with_reply(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeout_msec), out_serial, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func sendMessageWithReply<DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec: Int, outSerial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_send_message_with_reply(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeoutMsec), outSerial, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously sends `message` to the peer represented by `connection`.
+    /// 
+    /// Unless `flags` contain the
+    /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag, the serial number
+    /// will be assigned by `connection` and set on `message` via
+    /// `g_dbus_message_set_serial()`. If `out_serial` is not `nil`, then the
+    /// serial number used will be written to this location prior to
+    /// submitting the message to the underlying transport.
+    /// 
+    /// If `connection` is closed then the operation will fail with
+    /// `G_IO_ERROR_CLOSED`. If `cancellable` is canceled, the operation will
+    /// fail with `G_IO_ERROR_CANCELLED`. If `message` is not well-formed,
+    /// the operation fails with `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// This is an asynchronous method. When the operation is finished, `callback`
+    /// will be invoked in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from. You can then call
+    /// `g_dbus_connection_send_message_with_reply_finish()` to get the result of the operation.
+    /// See `g_dbus_connection_send_message_with_reply_sync()` for the synchronous version.
+    /// 
+    /// Note that `message` must be unlocked, unless `flags` contain the
+    /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
+    /// 
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
+    /// for an example of how to use this low-level API to send and receive
+    /// UNIX file descriptors.
+    @inlinable func sendMessageWithReply<CancellableT: CancellableProtocol, DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec: Int, outSerial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_connection_send_message_with_reply(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeoutMsec), outSerial, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -1956,9 +2232,43 @@ public extension DBusConnectionProtocol {
     /// 
     /// Note that `message` must be unlocked, unless `flags` contain the
     /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
-    @inlinable func sendMessageWithReplySync<CancellableT: CancellableProtocol, DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec timeout_msec: Int, outSerial out_serial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableT? = nil) throws -> DBusMessageRef! {
+    @inlinable func sendMessageWithReplySync<DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec: Int, outSerial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableRef? = nil) throws -> DBusMessageRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_connection_send_message_with_reply_sync(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeout_msec), out_serial, cancellable?.cancellable_ptr, &error)))
+        let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_connection_send_message_with_reply_sync(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeoutMsec), outSerial, cancellable?.cancellable_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously sends `message` to the peer represented by `connection`
+    /// and blocks the calling thread until a reply is received or the
+    /// timeout is reached. See `g_dbus_connection_send_message_with_reply()`
+    /// for the asynchronous version of this method.
+    /// 
+    /// Unless `flags` contain the
+    /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag, the serial number
+    /// will be assigned by `connection` and set on `message` via
+    /// `g_dbus_message_set_serial()`. If `out_serial` is not `nil`, then the
+    /// serial number used will be written to this location prior to
+    /// submitting the message to the underlying transport.
+    /// 
+    /// If `connection` is closed then the operation will fail with
+    /// `G_IO_ERROR_CLOSED`. If `cancellable` is canceled, the operation will
+    /// fail with `G_IO_ERROR_CANCELLED`. If `message` is not well-formed,
+    /// the operation fails with `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// Note that `error` is only set if a local in-process error
+    /// occurred. That is to say that the returned `GDBusMessage` object may
+    /// be of type `G_DBUS_MESSAGE_TYPE_ERROR`. Use
+    /// `g_dbus_message_to_gerror()` to transcode this to a `GError`.
+    /// 
+    /// See this [server](#gdbus-server) and [client](#gdbus-unix-fd-client)
+    /// for an example of how to use this low-level API to send and receive
+    /// UNIX file descriptors.
+    /// 
+    /// Note that `message` must be unlocked, unless `flags` contain the
+    /// `G_DBUS_SEND_MESSAGE_FLAGS_PRESERVE_SERIAL` flag.
+    @inlinable func sendMessageWithReplySync<CancellableT: CancellableProtocol, DBusMessageT: DBusMessageProtocol>(message: DBusMessageT, flags: DBusSendMessageFlags, timeoutMsec: Int, outSerial: UnsafeMutablePointer<guint32>! = nil, cancellable: CancellableT?) throws -> DBusMessageRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_connection_send_message_with_reply_sync(dbus_connection_ptr, message.dbus_message_ptr, flags.value, gint(timeoutMsec), outSerial, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1973,8 +2283,8 @@ public extension DBusConnectionProtocol {
     /// If you are setting `exit_on_close` to `false` for the shared session
     /// bus connection, you should make sure that your application exits
     /// when the user session ends.
-    @inlinable func set(exitOnClose exit_on_close: Bool) {
-        g_dbus_connection_set_exit_on_close(dbus_connection_ptr, gboolean((exit_on_close) ? 1 : 0))
+    @inlinable func set(exitOnClose: Bool) {
+        g_dbus_connection_set_exit_on_close(dbus_connection_ptr, gboolean((exitOnClose) ? 1 : 0))
     
     }
 
@@ -2027,8 +2337,8 @@ public extension DBusConnectionProtocol {
     /// to never be zero.
     /// 
     /// This function can never fail.
-    @inlinable func signalSubscribe(sender: UnsafePointer<gchar>? = nil, interfaceName interface_name: UnsafePointer<gchar>? = nil, member: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>? = nil, arg0: UnsafePointer<gchar>? = nil, flags: DBusSignalFlags, callback: GDBusSignalCallback?, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-        let rv = Int(g_dbus_connection_signal_subscribe(dbus_connection_ptr, sender, interface_name, member, object_path, arg0, flags.value, callback, user_data, user_data_free_func))
+    @inlinable func signalSubscribe(sender: UnsafePointer<gchar>? = nil, interfaceName: UnsafePointer<gchar>? = nil, member: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>? = nil, arg0: UnsafePointer<gchar>? = nil, flags: DBusSignalFlags, callback: GDBusSignalCallback?, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+        let rv = Int(g_dbus_connection_signal_subscribe(dbus_connection_ptr, sender, interfaceName, member, objectPath, arg0, flags.value, callback, userData, userDataFreeFunc))
         return rv
     }
 
@@ -2041,8 +2351,8 @@ public extension DBusConnectionProtocol {
     /// `g_dbus_connection_signal_subscribe()` is called, in order to avoid memory
     /// leaks through callbacks queued on the `GMainContext` after it’s stopped being
     /// iterated.
-    @inlinable func signalUnsubscribe(subscriptionID subscription_id: Int) {
-        g_dbus_connection_signal_unsubscribe(dbus_connection_ptr, guint(subscription_id))
+    @inlinable func signalUnsubscribe(subscriptionID: Int) {
+        g_dbus_connection_signal_unsubscribe(dbus_connection_ptr, guint(subscriptionID))
     
     }
 
@@ -2061,8 +2371,8 @@ public extension DBusConnectionProtocol {
     /// It is an error to call this function with an ID that wasn't returned
     /// from `g_dbus_connection_export_action_group()` or to call it with the
     /// same ID more than once.
-    @inlinable func unexportActionGroup(exportID export_id: Int) {
-        g_dbus_connection_unexport_action_group(dbus_connection_ptr, guint(export_id))
+    @inlinable func unexportActionGroup(exportID: Int) {
+        g_dbus_connection_unexport_action_group(dbus_connection_ptr, guint(exportID))
     
     }
 
@@ -2072,48 +2382,60 @@ public extension DBusConnectionProtocol {
     /// It is an error to call this function with an ID that wasn't returned
     /// from `g_dbus_connection_export_menu_model()` or to call it with the
     /// same ID more than once.
-    @inlinable func unexportMenuModel(exportID export_id: Int) {
-        g_dbus_connection_unexport_menu_model(dbus_connection_ptr, guint(export_id))
+    @inlinable func unexportMenuModel(exportID: Int) {
+        g_dbus_connection_unexport_menu_model(dbus_connection_ptr, guint(exportID))
     
     }
 
     /// Unregisters an object.
-    @inlinable func unregisterObject(registrationID registration_id: Int) -> Bool {
-        let rv = ((g_dbus_connection_unregister_object(dbus_connection_ptr, guint(registration_id))) != 0)
+    @inlinable func unregisterObject(registrationID: Int) -> Bool {
+        let rv = ((g_dbus_connection_unregister_object(dbus_connection_ptr, guint(registrationID))) != 0)
         return rv
     }
 
     /// Unregisters a subtree.
-    @inlinable func unregisterSubtree(registrationID registration_id: Int) -> Bool {
-        let rv = ((g_dbus_connection_unregister_subtree(dbus_connection_ptr, guint(registration_id))) != 0)
+    @inlinable func unregisterSubtree(registrationID: Int) -> Bool {
+        let rv = ((g_dbus_connection_unregister_subtree(dbus_connection_ptr, guint(registrationID))) != 0)
         return rv
     }
 
     /// Like `g_bus_own_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
-    @inlinable func busOwnNameOnConnection(name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredHandler name_acquired_handler: GBusNameAcquiredCallback? = nil, nameLostHandler name_lost_handler: GBusNameLostCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-        let rv = Int(g_bus_own_name_on_connection(dbus_connection_ptr, name, flags.value, name_acquired_handler, name_lost_handler, user_data, user_data_free_func))
+    @inlinable func busOwnNameOnConnection(name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredHandler: GBusNameAcquiredCallback? = nil, nameLostHandler: GBusNameLostCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+        let rv = Int(g_bus_own_name_on_connection(dbus_connection_ptr, name, flags.value, nameAcquiredHandler, nameLostHandler, userData, userDataFreeFunc))
         return rv
     }
 
     /// Version of `g_bus_own_name_on_connection()` using closures instead of
     /// callbacks for easier binding in other languages.
-    @inlinable func busOwnNameOnConnectionWithClosures<ClosureT: ClosureProtocol>(name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure name_acquired_closure: ClosureT? = nil, nameLostClosure name_lost_closure: ClosureT? = nil) -> Int {
-        let rv = Int(g_bus_own_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, name_acquired_closure?.closure_ptr, name_lost_closure?.closure_ptr))
+    @inlinable func busOwnNameOnConnectionWithClosures(name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure: GLibObject.ClosureRef? = nil, nameLostClosure: GLibObject.ClosureRef? = nil) -> Int {
+        let rv = Int(g_bus_own_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
+        return rv
+    }
+    /// Version of `g_bus_own_name_on_connection()` using closures instead of
+    /// callbacks for easier binding in other languages.
+    @inlinable func busOwnNameOnConnectionWithClosures<ClosureT: GLibObject.ClosureProtocol>(name: UnsafePointer<gchar>!, flags: BusNameOwnerFlags, nameAcquiredClosure: ClosureT?, nameLostClosure: ClosureT?) -> Int {
+        let rv = Int(g_bus_own_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, nameAcquiredClosure?.closure_ptr, nameLostClosure?.closure_ptr))
         return rv
     }
 
     /// Like `g_bus_watch_name()` but takes a `GDBusConnection` instead of a
     /// `GBusType`.
-    @inlinable func busWatchNameOnConnection(name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler name_appeared_handler: GBusNameAppearedCallback? = nil, nameVanishedHandler name_vanished_handler: GBusNameVanishedCallback? = nil, userData user_data: gpointer! = nil, userDataFreeFunc user_data_free_func: GDestroyNotify? = nil) -> Int {
-        let rv = Int(g_bus_watch_name_on_connection(dbus_connection_ptr, name, flags.value, name_appeared_handler, name_vanished_handler, user_data, user_data_free_func))
+    @inlinable func busWatchNameOnConnection(name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedHandler: GBusNameAppearedCallback? = nil, nameVanishedHandler: GBusNameVanishedCallback? = nil, userData: gpointer! = nil, userDataFreeFunc: GDestroyNotify? = nil) -> Int {
+        let rv = Int(g_bus_watch_name_on_connection(dbus_connection_ptr, name, flags.value, nameAppearedHandler, nameVanishedHandler, userData, userDataFreeFunc))
         return rv
     }
 
     /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
     /// easier binding in other languages.
-    @inlinable func busWatchNameOnConnectionWithClosures<ClosureT: ClosureProtocol>(name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure name_appeared_closure: ClosureT? = nil, nameVanishedClosure name_vanished_closure: ClosureT? = nil) -> Int {
-        let rv = Int(g_bus_watch_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, name_appeared_closure?.closure_ptr, name_vanished_closure?.closure_ptr))
+    @inlinable func busWatchNameOnConnectionWithClosures(name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: GLibObject.ClosureRef? = nil, nameVanishedClosure: GLibObject.ClosureRef? = nil) -> Int {
+        let rv = Int(g_bus_watch_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
+        return rv
+    }
+    /// Version of `g_bus_watch_name_on_connection()` using closures instead of callbacks for
+    /// easier binding in other languages.
+    @inlinable func busWatchNameOnConnectionWithClosures<ClosureT: GLibObject.ClosureProtocol>(name: UnsafePointer<gchar>!, flags: BusNameWatcherFlags, nameAppearedClosure: ClosureT?, nameVanishedClosure: ClosureT?) -> Int {
+        let rv = Int(g_bus_watch_name_on_connection_with_closures(dbus_connection_ptr, name, flags.value, nameAppearedClosure?.closure_ptr, nameVanishedClosure?.closure_ptr))
         return rv
     }
     /// Flags from the `GDBusCapabilityFlags` enumeration
@@ -2280,7 +2602,7 @@ public extension DBusConnectionProtocol {
 /// Alternatively, use `DBusInterfaceSkeletonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Abstract base class for D-Bus interfaces on the service side.
-public protocol DBusInterfaceSkeletonProtocol: ObjectProtocol, DBusInterfaceProtocol {
+public protocol DBusInterfaceSkeletonProtocol: GLibObject.ObjectProtocol, DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2354,7 +2676,7 @@ public extension DBusInterfaceSkeletonRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2377,7 +2699,7 @@ public extension DBusInterfaceSkeletonRef {
 /// Use `DBusInterfaceSkeleton` as a strong reference or owner of a `GDBusInterfaceSkeleton` instance.
 ///
 /// Abstract base class for D-Bus interfaces on the service side.
-open class DBusInterfaceSkeleton: Object, DBusInterfaceSkeletonProtocol {
+open class DBusInterfaceSkeleton: GLibObject.Object, DBusInterfaceSkeletonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusInterfaceSkeleton` instance.
@@ -2520,7 +2842,7 @@ public extension DBusInterfaceSkeletonProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusInterfaceSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusInterfaceSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2668,9 +2990,9 @@ public extension DBusInterfaceSkeletonProtocol {
     /// the same for all connections.
     /// 
     /// Use `g_dbus_interface_skeleton_unexport()` to unexport the object.
-    @inlinable func export<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, objectPath object_path: UnsafePointer<gchar>!) throws -> Bool {
+    @inlinable func export<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, objectPath: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_dbus_interface_skeleton_export(dbus_interface_skeleton_ptr, connection.dbus_connection_ptr, object_path, &error)) != 0)
+        let rv = ((g_dbus_interface_skeleton_export(dbus_interface_skeleton_ptr, connection.dbus_connection_ptr, objectPath, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2695,8 +3017,8 @@ public extension DBusInterfaceSkeletonProtocol {
     }
 
     /// Gets a list of the connections that `interface_` is exported on.
-    @inlinable func getConnections() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_dbus_interface_skeleton_get_connections(dbus_interface_skeleton_ptr)))
+    @inlinable func getConnections() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_dbus_interface_skeleton_get_connections(dbus_interface_skeleton_ptr))
         return rv
     }
 
@@ -2721,8 +3043,8 @@ public extension DBusInterfaceSkeletonProtocol {
     }
 
     /// Gets all D-Bus properties for `interface_`.
-    @inlinable func getProperties() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_interface_skeleton_get_properties(dbus_interface_skeleton_ptr)))
+    @inlinable func getProperties() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_dbus_interface_skeleton_get_properties(dbus_interface_skeleton_ptr))
         return rv
     }
 
@@ -2773,10 +3095,10 @@ public extension DBusInterfaceSkeletonProtocol {
     }
 
     /// Gets a list of the connections that `interface_` is exported on.
-    @inlinable var connections: ListRef! {
+    @inlinable var connections: GLib.ListRef! {
         /// Gets a list of the connections that `interface_` is exported on.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_dbus_interface_skeleton_get_connections(dbus_interface_skeleton_ptr)))
+            let rv = GLib.ListRef(g_dbus_interface_skeleton_get_connections(dbus_interface_skeleton_ptr))
             return rv
         }
     }
@@ -2817,10 +3139,10 @@ public extension DBusInterfaceSkeletonProtocol {
     }
 
     /// Gets all D-Bus properties for `interface_`.
-    @inlinable var properties: VariantRef! {
+    @inlinable var properties: GLib.VariantRef! {
         /// Gets all D-Bus properties for `interface_`.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_interface_skeleton_get_properties(dbus_interface_skeleton_ptr)))
+            let rv = GLib.VariantRef(g_dbus_interface_skeleton_get_properties(dbus_interface_skeleton_ptr))
             return rv
         }
     }
@@ -2932,7 +3254,7 @@ public extension DBusMenuModelRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMenuModelProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2956,8 +3278,8 @@ public extension DBusMenuModelRef {
     /// with respect to this context.  All calls on the returned menu model
     /// (and linked models) must also originate from this same context, with
     /// the thread default main context unchanged.
-    @inlinable static func dbusMenuModelGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusMenuModelRef! {
-        guard let rv = DBusMenuModelRef(gconstpointer: gconstpointer(g_dbus_menu_model_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+    @inlinable static func dbusMenuModelGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!) -> DBusMenuModelRef! {
+        guard let rv = DBusMenuModelRef(gconstpointer: gconstpointer(g_dbus_menu_model_get(connection.dbus_connection_ptr, busName, objectPath))) else { return nil }
         return rv
     }
 }
@@ -3103,8 +3425,8 @@ open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
     /// with respect to this context.  All calls on the returned menu model
     /// (and linked models) must also originate from this same context, with
     /// the thread default main context unchanged.
-    @inlinable public static func dbusMenuModelGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName bus_name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!) -> DBusMenuModel! {
-        guard let rv = DBusMenuModel(gconstpointer: gconstpointer(g_dbus_menu_model_get(connection.dbus_connection_ptr, bus_name, object_path))) else { return nil }
+    @inlinable public static func dbusMenuModelGet<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT, busName: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!) -> DBusMenuModel! {
+        guard let rv = DBusMenuModel(gconstpointer: gconstpointer(g_dbus_menu_model_get(connection.dbus_connection_ptr, busName, objectPath))) else { return nil }
         return rv
     }
 
@@ -3210,7 +3532,7 @@ public extension DBusMenuModelProtocol {
 ///
 /// A type for representing D-Bus messages that can be sent or received
 /// on a `GDBusConnection`.
-public protocol DBusMessageProtocol: ObjectProtocol {
+public protocol DBusMessageProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3285,7 +3607,7 @@ public extension DBusMessageRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMessageProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3313,9 +3635,9 @@ public extension DBusMessageRef {
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
-    @inlinable init(blob: UnsafeMutablePointer<guchar>!, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
+    @inlinable init(blob: UnsafeMutablePointer<guchar>!, blobLen: Int, capabilities: DBusCapabilityFlags) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_message_new_from_blob(blob, gsize(blob_len), capabilities.value, &error)
+        let rv = g_dbus_message_new_from_blob(blob, gsize(blobLen), capabilities.value, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -3337,9 +3659,9 @@ public extension DBusMessageRef {
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
-    @inlinable static func newFrom(blob: UnsafeMutablePointer<guchar>!, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessageRef! {
+    @inlinable static func newFrom(blob: UnsafeMutablePointer<guchar>!, blobLen: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessageRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_from_blob(blob, gsize(blob_len), capabilities.value, &error)))
+        let maybeRV = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_from_blob(blob, gsize(blobLen), capabilities.value, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -3364,7 +3686,7 @@ public extension DBusMessageRef {
 ///
 /// A type for representing D-Bus messages that can be sent or received
 /// on a `GDBusConnection`.
-open class DBusMessage: Object, DBusMessageProtocol {
+open class DBusMessage: GLibObject.Object, DBusMessageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusMessage` instance.
@@ -3501,9 +3823,9 @@ open class DBusMessage: Object, DBusMessageProtocol {
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
-    @inlinable public init(blob: UnsafeMutablePointer<guchar>!, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws {
+    @inlinable public init(blob: UnsafeMutablePointer<guchar>!, blobLen: Int, capabilities: DBusCapabilityFlags) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_message_new_from_blob(blob, gsize(blob_len), capabilities.value, &error)
+        let rv = g_dbus_message_new_from_blob(blob, gsize(blobLen), capabilities.value, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -3526,9 +3848,9 @@ open class DBusMessage: Object, DBusMessageProtocol {
     /// 
     /// If the `blob` cannot be parsed, contains invalid fields, or contains invalid
     /// headers, `G_IO_ERROR_INVALID_ARGUMENT` will be returned.
-    @inlinable public static func newFrom(blob: UnsafeMutablePointer<guchar>!, blobLen blob_len: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessage! {
+    @inlinable public static func newFrom(blob: UnsafeMutablePointer<guchar>!, blobLen: Int, capabilities: DBusCapabilityFlags) throws -> DBusMessage! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_from_blob(blob, gsize(blob_len), capabilities.value, &error)))
+        let maybeRV = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_from_blob(blob, gsize(blobLen), capabilities.value, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -3561,7 +3883,7 @@ public extension DBusMessageProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusMessagePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3688,8 +4010,8 @@ public extension DBusMessageProtocol {
     }
 
     /// Gets the body of a message.
-    @inlinable func getBody() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_message_get_body(dbus_message_ptr)))
+    @inlinable func getBody() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_dbus_message_get_body(dbus_message_ptr))
         return rv
     }
 
@@ -3721,8 +4043,8 @@ public extension DBusMessageProtocol {
     /// 
     /// The caller is responsible for checking the type of the returned `GVariant`
     /// matches what is expected.
-    @inlinable func getHeader(headerField header_field: GDBusMessageHeaderField) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_message_get_header(dbus_message_ptr, header_field)))
+    @inlinable func getHeader(headerField: GDBusMessageHeaderField) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_dbus_message_get_header(dbus_message_ptr, headerField))
         return rv
     }
 
@@ -3813,14 +4135,14 @@ public extension DBusMessageProtocol {
 
 
     /// Creates a new `GDBusMessage` that is an error reply to `method_call_message`.
-    @inlinable func newMethodErrorLiteral(errorName error_name: UnsafePointer<gchar>!, errorMessage error_message: UnsafePointer<gchar>!) -> DBusMessageRef! {
-        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_error_literal(dbus_message_ptr, error_name, error_message))) else { return nil }
+    @inlinable func newMethodErrorLiteral(errorName: UnsafePointer<gchar>!, errorMessage: UnsafePointer<gchar>!) -> DBusMessageRef! {
+        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_error_literal(dbus_message_ptr, errorName, errorMessage))) else { return nil }
         return rv
     }
 
     /// Like `g_dbus_message_new_method_error()` but intended for language bindings.
-    @inlinable func newMethodErrorValist(errorName error_name: UnsafePointer<gchar>!, errorMessageFormat error_message_format: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) -> DBusMessageRef! {
-        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_error_valist(dbus_message_ptr, error_name, error_message_format, var_args))) else { return nil }
+    @inlinable func newMethodErrorValist(errorName: UnsafePointer<gchar>!, errorMessageFormat: UnsafePointer<gchar>!, varArgs: CVaListPointer) -> DBusMessageRef! {
+        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_error_valist(dbus_message_ptr, errorName, errorMessageFormat, varArgs))) else { return nil }
         return rv
     }
 
@@ -3873,14 +4195,14 @@ public extension DBusMessageProtocol {
     /// type string of `body` (or cleared if `body` is `nil`).
     /// 
     /// If `body` is floating, `message` assumes ownership of `body`.
-    @inlinable func set<VariantT: VariantProtocol>(body: VariantT) {
+    @inlinable func set<VariantT: GLib.VariantProtocol>(body: VariantT) {
         g_dbus_message_set_body(dbus_message_ptr, body.variant_ptr)
     
     }
 
     /// Sets the byte order of `message`.
-    @inlinable func set(byteOrder byte_order: GDBusMessageByteOrder) {
-        g_dbus_message_set_byte_order(dbus_message_ptr, byte_order)
+    @inlinable func set(byteOrder: GDBusMessageByteOrder) {
+        g_dbus_message_set_byte_order(dbus_message_ptr, byteOrder)
     
     }
 
@@ -3905,8 +4227,15 @@ public extension DBusMessageProtocol {
     /// Sets a header field on `message`.
     /// 
     /// If `value` is floating, `message` assumes ownership of `value`.
-    @inlinable func setHeader<VariantT: VariantProtocol>(headerField header_field: GDBusMessageHeaderField, value: VariantT? = nil) {
-        g_dbus_message_set_header(dbus_message_ptr, header_field, value?.variant_ptr)
+    @inlinable func setHeader(headerField: GDBusMessageHeaderField, value: GLib.VariantRef? = nil) {
+        g_dbus_message_set_header(dbus_message_ptr, headerField, value?.variant_ptr)
+    
+    }
+    /// Sets a header field on `message`.
+    /// 
+    /// If `value` is floating, `message` assumes ownership of `value`.
+    @inlinable func setHeader<VariantT: GLib.VariantProtocol>(headerField: GDBusMessageHeaderField, value: VariantT?) {
+        g_dbus_message_set_header(dbus_message_ptr, headerField, value?.variant_ptr)
     
     }
 
@@ -3970,16 +4299,26 @@ public extension DBusMessageProtocol {
     /// `fd_list` is `nil`).
     /// 
     /// This method is only available on UNIX.
-    @inlinable func setUnix<UnixFDListT: UnixFDListProtocol>(fdList fd_list: UnixFDListT? = nil) {
-        g_dbus_message_set_unix_fd_list(dbus_message_ptr, fd_list?.unix_fd_list_ptr)
+    @inlinable func setUnix(fdList: UnixFDListRef? = nil) {
+        g_dbus_message_set_unix_fd_list(dbus_message_ptr, fdList?.unix_fd_list_ptr)
+    
+    }
+    /// Sets the UNIX file descriptors associated with `message`. As a
+    /// side-effect the `G_DBUS_MESSAGE_HEADER_FIELD_NUM_UNIX_FDS` header
+    /// field is set to the number of fds in `fd_list` (or cleared if
+    /// `fd_list` is `nil`).
+    /// 
+    /// This method is only available on UNIX.
+    @inlinable func setUnix<UnixFDListT: UnixFDListProtocol>(fdList: UnixFDListT?) {
+        g_dbus_message_set_unix_fd_list(dbus_message_ptr, fdList?.unix_fd_list_ptr)
     
     }
 
     /// Serializes `message` to a blob. The byte order returned by
     /// `g_dbus_message_get_byte_order()` will be used.
-    @inlinable func toBlob(outSize out_size: UnsafeMutablePointer<gsize>!, capabilities: DBusCapabilityFlags) throws -> String! {
+    @inlinable func toBlob(outSize: UnsafeMutablePointer<gsize>!, capabilities: DBusCapabilityFlags) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_message_to_blob(dbus_message_ptr, out_size, capabilities.value, &error).map({ String(cString: $0) })
+        let rv = g_dbus_message_to_blob(dbus_message_ptr, outSize, capabilities.value, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -4007,10 +4346,10 @@ public extension DBusMessageProtocol {
     }
 
     /// Gets the body of a message.
-    @inlinable var body: VariantRef! {
+    @inlinable var body: GLib.VariantRef! {
         /// Gets the body of a message.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_message_get_body(dbus_message_ptr)))
+            let rv = GLib.VariantRef(g_dbus_message_get_body(dbus_message_ptr))
             return rv
         }
         /// Sets the body `message`. As a side-effect the
@@ -4252,7 +4591,7 @@ public extension DBusMessageProtocol {
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
-public protocol DBusMethodInvocationProtocol: ObjectProtocol {
+public protocol DBusMethodInvocationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4332,7 +4671,7 @@ public extension DBusMethodInvocationRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInvocationProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4361,7 +4700,7 @@ public extension DBusMethodInvocationRef {
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
-open class DBusMethodInvocation: Object, DBusMethodInvocationProtocol {
+open class DBusMethodInvocation: GLibObject.Object, DBusMethodInvocationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusMethodInvocation` instance.
@@ -4609,8 +4948,8 @@ public extension DBusMethodInvocationProtocol {
 
     /// Gets the parameters of the method invocation. If there are no input
     /// parameters then this will return a GVariant with 0 children rather than NULL.
-    @inlinable func getParameters() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_method_invocation_get_parameters(dbus_method_invocation_ptr)))
+    @inlinable func getParameters() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_dbus_method_invocation_get_parameters(dbus_method_invocation_ptr))
         return rv
     }
 
@@ -4647,8 +4986,8 @@ public extension DBusMethodInvocationProtocol {
     /// This method will take ownership of `invocation`. See
     /// `GDBusInterfaceVTable` for more information about the ownership of
     /// `invocation`.
-    @inlinable func returnDbusError(errorName error_name: UnsafePointer<gchar>!, errorMessage error_message: UnsafePointer<gchar>!) {
-        g_dbus_method_invocation_return_dbus_error(dbus_method_invocation_ptr, error_name, error_message)
+    @inlinable func returnDbusError(errorName: UnsafePointer<gchar>!, errorMessage: UnsafePointer<gchar>!) {
+        g_dbus_method_invocation_return_dbus_error(dbus_method_invocation_ptr, errorName, errorMessage)
     
     }
 
@@ -4672,8 +5011,8 @@ public extension DBusMethodInvocationProtocol {
     /// This method will take ownership of `invocation`. See
     /// `GDBusInterfaceVTable` for more information about the ownership of
     /// `invocation`.
-    @inlinable func returnErrorValist(domain: GQuark, code: Int, format: UnsafePointer<gchar>!, varArgs var_args: CVaListPointer) {
-        g_dbus_method_invocation_return_error_valist(dbus_method_invocation_ptr, domain, gint(code), format, var_args)
+    @inlinable func returnErrorValist(domain: GQuark, code: Int, format: UnsafePointer<gchar>!, varArgs: CVaListPointer) {
+        g_dbus_method_invocation_return_error_valist(dbus_method_invocation_ptr, domain, gint(code), format, varArgs)
     
     }
 
@@ -4721,7 +5060,44 @@ public extension DBusMethodInvocationProtocol {
     /// then this call will sink `parameters` and free `invocation`, but
     /// otherwise do nothing (as per the recommendations of the D-Bus
     /// specification).
-    @inlinable func returnValue<VariantT: VariantProtocol>(parameters: VariantT? = nil) {
+    @inlinable func returnValue(parameters: GLib.VariantRef? = nil) {
+        g_dbus_method_invocation_return_value(dbus_method_invocation_ptr, parameters?.variant_ptr)
+    
+    }
+    /// Finishes handling a D-Bus method call by returning `parameters`.
+    /// If the `parameters` GVariant is floating, it is consumed.
+    /// 
+    /// It is an error if `parameters` is not of the right format: it must be a tuple
+    /// containing the out-parameters of the D-Bus method. Even if the method has a
+    /// single out-parameter, it must be contained in a tuple. If the method has no
+    /// out-parameters, `parameters` may be `nil` or an empty tuple.
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// GDBusMethodInvocation *invocation = some_invocation;
+    /// g_autofree gchar *result_string = NULL;
+    /// g_autoptr (GError) error = NULL;
+    /// 
+    /// result_string = calculate_result (&error);
+    /// 
+    /// if (error != NULL)
+    ///   g_dbus_method_invocation_return_gerror (invocation, error);
+    /// else
+    ///   g_dbus_method_invocation_return_value (invocation,
+    ///                                          g_variant_new ("(s)", result_string));
+    /// 
+    /// // Do not free @invocation here; returning a value does that
+    /// ```
+    /// 
+    /// This method will take ownership of `invocation`. See
+    /// `GDBusInterfaceVTable` for more information about the ownership of
+    /// `invocation`.
+    /// 
+    /// Since 2.48, if the method call requested for a reply not to be sent
+    /// then this call will sink `parameters` and free `invocation`, but
+    /// otherwise do nothing (as per the recommendations of the D-Bus
+    /// specification).
+    @inlinable func returnValue<VariantT: GLib.VariantProtocol>(parameters: VariantT?) {
         g_dbus_method_invocation_return_value(dbus_method_invocation_ptr, parameters?.variant_ptr)
     
     }
@@ -4733,8 +5109,19 @@ public extension DBusMethodInvocationProtocol {
     /// This method will take ownership of `invocation`. See
     /// `GDBusInterfaceVTable` for more information about the ownership of
     /// `invocation`.
-    @inlinable func returnValueWithUnixFdList<UnixFDListT: UnixFDListProtocol, VariantT: VariantProtocol>(parameters: VariantT? = nil, fdList fd_list: UnixFDListT? = nil) {
-        g_dbus_method_invocation_return_value_with_unix_fd_list(dbus_method_invocation_ptr, parameters?.variant_ptr, fd_list?.unix_fd_list_ptr)
+    @inlinable func returnValueWithUnixFdList(parameters: GLib.VariantRef? = nil, fdList: UnixFDListRef? = nil) {
+        g_dbus_method_invocation_return_value_with_unix_fd_list(dbus_method_invocation_ptr, parameters?.variant_ptr, fdList?.unix_fd_list_ptr)
+    
+    }
+    /// Like `g_dbus_method_invocation_return_value()` but also takes a `GUnixFDList`.
+    /// 
+    /// This method is only available on UNIX.
+    /// 
+    /// This method will take ownership of `invocation`. See
+    /// `GDBusInterfaceVTable` for more information about the ownership of
+    /// `invocation`.
+    @inlinable func returnValueWithUnixFdList<UnixFDListT: UnixFDListProtocol, VariantT: GLib.VariantProtocol>(parameters: VariantT?, fdList: UnixFDListT?) {
+        g_dbus_method_invocation_return_value_with_unix_fd_list(dbus_method_invocation_ptr, parameters?.variant_ptr, fdList?.unix_fd_list_ptr)
     
     }
 
@@ -4838,11 +5225,11 @@ public extension DBusMethodInvocationProtocol {
 
     /// Gets the parameters of the method invocation. If there are no input
     /// parameters then this will return a GVariant with 0 children rather than NULL.
-    @inlinable var parameters: VariantRef! {
+    @inlinable var parameters: GLib.VariantRef! {
         /// Gets the parameters of the method invocation. If there are no input
         /// parameters then this will return a GVariant with 0 children rather than NULL.
         get {
-            let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_method_invocation_get_parameters(dbus_method_invocation_ptr)))
+            let rv = GLib.VariantRef(g_dbus_method_invocation_get_parameters(dbus_method_invocation_ptr))
             return rv
         }
     }
@@ -4981,7 +5368,7 @@ public extension DBusMethodInvocationProtocol {
 /// originating from the `GDBusObjectManagerClient` object will be created in
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
-public protocol DBusObjectManagerClientProtocol: ObjectProtocol, AsyncInitableProtocol, DBusObjectManagerProtocol, InitableProtocol {
+public protocol DBusObjectManagerClientProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, DBusObjectManagerProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -5129,7 +5516,7 @@ public extension DBusObjectManagerClientRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5226,7 +5613,7 @@ public extension DBusObjectManagerClientRef {
 /// originating from the `GDBusObjectManagerClient` object will be created in
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
-open class DBusObjectManagerClient: Object, DBusObjectManagerClientProtocol {
+open class DBusObjectManagerClient: GLibObject.Object, DBusObjectManagerClientProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectManagerClient` instance.
@@ -5391,7 +5778,7 @@ public extension DBusObjectManagerClientProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusObjectManagerClientPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -5648,7 +6035,7 @@ public extension DBusObjectManagerClientProtocol {
 /// intended to be used with `GDBusObjectManagerServer` or any D-Bus
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
-public protocol DBusObjectManagerServerProtocol: ObjectProtocol, DBusObjectManagerProtocol {
+public protocol DBusObjectManagerServerProtocol: GLibObject.ObjectProtocol, DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -5743,7 +6130,7 @@ public extension DBusObjectManagerServerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5766,8 +6153,8 @@ public extension DBusObjectManagerServerRef {
     /// want to export all of your objects before doing so to avoid
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
-    @inlinable init( object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_manager_server_new(object_path)
+    @inlinable init( objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_manager_server_new(objectPath)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -5798,7 +6185,7 @@ public extension DBusObjectManagerServerRef {
 /// intended to be used with `GDBusObjectManagerServer` or any D-Bus
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
-open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
+open class DBusObjectManagerServer: GLibObject.Object, DBusObjectManagerServerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectManagerServer` instance.
@@ -5930,8 +6317,8 @@ open class DBusObjectManagerServer: Object, DBusObjectManagerServerProtocol {
     /// want to export all of your objects before doing so to avoid
     /// [InterfacesAdded](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
     /// signals being emitted.
-    @inlinable public init( object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_manager_server_new(object_path)
+    @inlinable public init( objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_manager_server_new(objectPath)
         super.init(gpointer: (rv))
     }
 
@@ -5954,7 +6341,7 @@ public extension DBusObjectManagerServerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectManagerServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusObjectManagerServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -6101,7 +6488,13 @@ public extension DBusObjectManagerServerProtocol {
 
     /// Exports all objects managed by `manager` on `connection`. If
     /// `connection` is `nil`, stops exporting objects.
-    @inlinable func set<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT? = nil) {
+    @inlinable func set(connection: DBusConnectionRef? = nil) {
+        g_dbus_object_manager_server_set_connection(dbus_object_manager_server_ptr, connection?.dbus_connection_ptr)
+    
+    }
+    /// Exports all objects managed by `manager` on `connection`. If
+    /// `connection` is `nil`, stops exporting objects.
+    @inlinable func set<DBusConnectionT: DBusConnectionProtocol>(connection: DBusConnectionT?) {
         g_dbus_object_manager_server_set_connection(dbus_object_manager_server_ptr, connection?.dbus_connection_ptr)
     
     }
@@ -6111,8 +6504,8 @@ public extension DBusObjectManagerServerProtocol {
     /// 
     /// Note that `object_path` must be in the hierarchy rooted by the
     /// object path for `manager`.
-    @inlinable func unexport(objectPath object_path: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_dbus_object_manager_server_unexport(dbus_object_manager_server_ptr, object_path)) != 0)
+    @inlinable func unexport(objectPath: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_dbus_object_manager_server_unexport(dbus_object_manager_server_ptr, objectPath)) != 0)
         return rv
     }
     /// The `GDBusConnection` to export objects on.
@@ -6148,7 +6541,7 @@ public extension DBusObjectManagerServerProtocol {
 /// with one or more D-Bus interfaces. Normally, you don't instantiate
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
-public protocol DBusObjectProxyProtocol: ObjectProtocol, DBusObjectProtocol {
+public protocol DBusObjectProxyProtocol: GLibObject.ObjectProtocol, DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -6225,7 +6618,7 @@ public extension DBusObjectProxyRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6243,8 +6636,8 @@ public extension DBusObjectProxyRef {
 
         /// Creates a new `GDBusObjectProxy` for the given connection and
     /// object path.
-    @inlinable init<DBusConnectionT: DBusConnectionProtocol>( connection: DBusConnectionT, objectPath object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_proxy_new(connection.dbus_connection_ptr, object_path)
+    @inlinable init<DBusConnectionT: DBusConnectionProtocol>( connection: DBusConnectionT, objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_proxy_new(connection.dbus_connection_ptr, objectPath)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -6257,7 +6650,7 @@ public extension DBusObjectProxyRef {
 /// with one or more D-Bus interfaces. Normally, you don't instantiate
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
-open class DBusObjectProxy: Object, DBusObjectProxyProtocol {
+open class DBusObjectProxy: GLibObject.Object, DBusObjectProxyProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectProxy` instance.
@@ -6384,8 +6777,8 @@ open class DBusObjectProxy: Object, DBusObjectProxyProtocol {
 
     /// Creates a new `GDBusObjectProxy` for the given connection and
     /// object path.
-    @inlinable public init<DBusConnectionT: DBusConnectionProtocol>( connection: DBusConnectionT, objectPath object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_proxy_new(connection.dbus_connection_ptr, object_path)
+    @inlinable public init<DBusConnectionT: DBusConnectionProtocol>( connection: DBusConnectionT, objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_proxy_new(connection.dbus_connection_ptr, objectPath)
         super.init(gpointer: (rv))
     }
 
@@ -6408,7 +6801,7 @@ public extension DBusObjectProxyProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusObjectProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -6551,7 +6944,7 @@ public extension DBusObjectProxyProtocol {
 /// dynamic and change at runtime.
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
-public protocol DBusObjectSkeletonProtocol: ObjectProtocol, DBusObjectProtocol {
+public protocol DBusObjectSkeletonProtocol: GLibObject.ObjectProtocol, DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -6629,7 +7022,7 @@ public extension DBusObjectSkeletonRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6646,8 +7039,8 @@ public extension DBusObjectSkeletonRef {
     }
 
         /// Creates a new `GDBusObjectSkeleton`.
-    @inlinable init( object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_skeleton_new(object_path)
+    @inlinable init( objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_skeleton_new(objectPath)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -6661,7 +7054,7 @@ public extension DBusObjectSkeletonRef {
 /// dynamic and change at runtime.
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
-open class DBusObjectSkeleton: Object, DBusObjectSkeletonProtocol {
+open class DBusObjectSkeleton: GLibObject.Object, DBusObjectSkeletonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusObjectSkeleton` instance.
@@ -6787,8 +7180,8 @@ open class DBusObjectSkeleton: Object, DBusObjectSkeletonProtocol {
     }
 
     /// Creates a new `GDBusObjectSkeleton`.
-    @inlinable public init( object_path: UnsafePointer<gchar>!) {
-        let rv = g_dbus_object_skeleton_new(object_path)
+    @inlinable public init( objectPath: UnsafePointer<gchar>!) {
+        let rv = g_dbus_object_skeleton_new(objectPath)
         super.init(gpointer: (rv))
     }
 
@@ -6809,7 +7202,7 @@ public extension DBusObjectSkeletonProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusObjectSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusObjectSkeletonPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -6955,14 +7348,14 @@ public extension DBusObjectSkeletonProtocol {
     /// 
     /// If no D-Bus interface of the given interface exists, this function
     /// does nothing.
-    @inlinable func removeInterfaceByName(interfaceName interface_name: UnsafePointer<gchar>!) {
-        g_dbus_object_skeleton_remove_interface_by_name(dbus_object_skeleton_ptr, interface_name)
+    @inlinable func removeInterfaceByName(interfaceName: UnsafePointer<gchar>!) {
+        g_dbus_object_skeleton_remove_interface_by_name(dbus_object_skeleton_ptr, interfaceName)
     
     }
 
     /// Sets the object path for `object`.
-    @inlinable func set(objectPath object_path: UnsafePointer<gchar>!) {
-        g_dbus_object_skeleton_set_object_path(dbus_object_skeleton_ptr, object_path)
+    @inlinable func set(objectPath: UnsafePointer<gchar>!) {
+        g_dbus_object_skeleton_set_object_path(dbus_object_skeleton_ptr, objectPath)
     
     }
 
@@ -7018,7 +7411,7 @@ public extension DBusObjectSkeletonProtocol {
 /// 
 /// An example using a proxy for a well-known name can be found in
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
-public protocol DBusProxyProtocol: ObjectProtocol, AsyncInitableProtocol, DBusInterfaceProtocol, InitableProtocol {
+public protocol DBusProxyProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, DBusInterfaceProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -7128,7 +7521,7 @@ public extension DBusProxyRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7163,9 +7556,9 @@ public extension DBusProxyRef {
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable init<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync bus_type: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>!, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws {
+    @inlinable init<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync busType: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>!, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)
+        let rv = g_dbus_proxy_new_for_bus_sync(busType, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -7192,9 +7585,9 @@ public extension DBusProxyRef {
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable init<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws {
+    @inlinable init<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)
+        let rv = g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -7219,9 +7612,9 @@ public extension DBusProxyRef {
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable static func newFor<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync bus_type: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>!, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> DBusProxyRef! {
+    @inlinable static func newFor<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync busType: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>!, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> DBusProxyRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusProxyRef(gconstpointer: gconstpointer(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)))
+        let maybeRV = DBusProxyRef(gconstpointer: gconstpointer(g_dbus_proxy_new_for_bus_sync(busType, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -7249,9 +7642,9 @@ public extension DBusProxyRef {
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable static func new<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> DBusProxyRef! {
+    @inlinable static func new<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> DBusProxyRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusProxyRef(gconstpointer: gconstpointer(g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)))
+        let maybeRV = DBusProxyRef(gconstpointer: gconstpointer(g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -7299,7 +7692,7 @@ public extension DBusProxyRef {
 /// 
 /// An example using a proxy for a well-known name can be found in
 /// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
-open class DBusProxy: Object, DBusProxyProtocol {
+open class DBusProxy: GLibObject.Object, DBusProxyProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusProxy` instance.
@@ -7443,9 +7836,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable public init<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync bus_type: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>!, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws {
+    @inlinable public init<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync busType: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>!, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)
+        let rv = g_dbus_proxy_new_for_bus_sync(busType, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -7472,9 +7865,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable public init<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws {
+    @inlinable public init<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)
+        let rv = g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
         super.init(gpointer: (rv))
     }
@@ -7500,9 +7893,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// Like `g_dbus_proxy_new_sync()` but takes a `GBusType` instead of a `GDBusConnection`.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable public static func newFor<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync bus_type: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>!, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> DBusProxy! {
+    @inlinable public static func newFor<CancellableT: CancellableProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(busSync busType: GBusType, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>!, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> DBusProxy! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusProxy(gconstpointer: gconstpointer(g_dbus_proxy_new_for_bus_sync(bus_type, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)))
+        let maybeRV = DBusProxy(gconstpointer: gconstpointer(g_dbus_proxy_new_for_bus_sync(busType, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -7530,9 +7923,9 @@ open class DBusProxy: Object, DBusProxyProtocol {
     /// and `g_dbus_proxy_new_finish()` for the asynchronous version.
     /// 
     /// `GDBusProxy` is used in this [example](#gdbus-wellknown-proxy).
-    @inlinable public static func new<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT? = nil, name: UnsafePointer<gchar>? = nil, objectPath object_path: UnsafePointer<gchar>!, interfaceName interface_name: UnsafePointer<gchar>!, cancellable: CancellableT? = nil) throws -> DBusProxy! {
+    @inlinable public static func new<CancellableT: CancellableProtocol, DBusConnectionT: DBusConnectionProtocol, DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(sync connection: DBusConnectionT, flags: DBusProxyFlags, info: DBusInterfaceInfoT?, name: UnsafePointer<gchar>? = nil, objectPath: UnsafePointer<gchar>!, interfaceName: UnsafePointer<gchar>!, cancellable: CancellableT?) throws -> DBusProxy! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusProxy(gconstpointer: gconstpointer(g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, object_path, interface_name, cancellable?.cancellable_ptr, &error)))
+        let maybeRV = DBusProxy(gconstpointer: gconstpointer(g_dbus_proxy_new_sync(connection.dbus_connection_ptr, flags.value, info?.dbus_interface_info_ptr, name, objectPath, interfaceName, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -7605,7 +7998,7 @@ public extension DBusProxyProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusProxyPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -7821,15 +8214,62 @@ public extension DBusProxyProtocol {
     /// 
     /// If `callback` is `nil` then the D-Bus method call message will be sent with
     /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
-    @inlinable func call<CancellableT: CancellableProtocol, VariantT: VariantProtocol>(methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_proxy_call(dbus_proxy_ptr, method_name, parameters?.variant_ptr, flags.value, gint(timeout_msec), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func call(methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_proxy_call(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously invokes the `method_name` method on `proxy`.
+    /// 
+    /// If `method_name` contains any dots, then `name` is split into interface and
+    /// method name parts. This allows using `proxy` for invoking methods on
+    /// other interfaces.
+    /// 
+    /// If the `GDBusConnection` associated with `proxy` is closed then
+    /// the operation will fail with `G_IO_ERROR_CLOSED`. If
+    /// `cancellable` is canceled, the operation will fail with
+    /// `G_IO_ERROR_CANCELLED`. If `parameters` contains a value not
+    /// compatible with the D-Bus protocol, the operation fails with
+    /// `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// If the `parameters` `GVariant` is floating, it is consumed. This allows
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
+    /// (C Language Example):
+    /// ```C
+    ///  g_dbus_proxy_call (proxy,
+    ///                     "TwoStrings",
+    ///                     g_variant_new ("(ss)",
+    ///                                    "Thing One",
+    ///                                    "Thing Two"),
+    ///                     G_DBUS_CALL_FLAGS_NONE,
+    ///                     -1,
+    ///                     NULL,
+    ///                     (GAsyncReadyCallback) two_strings_done,
+    ///                     &data);
+    /// ```
+    /// 
+    /// If `proxy` has an expected interface (see
+    /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
+    /// then the return value is checked against the return type.
+    /// 
+    /// This is an asynchronous method. When the operation is finished,
+    /// `callback` will be invoked in the
+    /// [thread-default main context](#g-main-context-push-thread-default)
+    /// of the thread you are calling this method from.
+    /// You can then call `g_dbus_proxy_call_finish()` to get the result of
+    /// the operation. See `g_dbus_proxy_call_sync()` for the synchronous
+    /// version of this method.
+    /// 
+    /// If `callback` is `nil` then the D-Bus method call message will be sent with
+    /// the `G_DBUS_MESSAGE_FLAGS_NO_REPLY_EXPECTED` flag set.
+    @inlinable func call<CancellableT: CancellableProtocol, VariantT: GLib.VariantProtocol>(methodName: UnsafePointer<gchar>!, parameters: VariantT?, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_proxy_call(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an operation started with `g_dbus_proxy_call()`.
-    @inlinable func callFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> VariantRef! {
+    @inlinable func callFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_proxy_call_finish(dbus_proxy_ptr, res.async_result_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_proxy_call_finish(dbus_proxy_ptr, res.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -7869,9 +8309,50 @@ public extension DBusProxyProtocol {
     /// If `proxy` has an expected interface (see
     /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
     /// then the return value is checked against the return type.
-    @inlinable func callSync<CancellableT: CancellableProtocol, VariantT: VariantProtocol>(methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, cancellable: CancellableT? = nil) throws -> VariantRef! {
+    @inlinable func callSync(methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableRef? = nil) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_proxy_call_sync(dbus_proxy_ptr, method_name, parameters?.variant_ptr, flags.value, gint(timeout_msec), cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_proxy_call_sync(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Synchronously invokes the `method_name` method on `proxy`.
+    /// 
+    /// If `method_name` contains any dots, then `name` is split into interface and
+    /// method name parts. This allows using `proxy` for invoking methods on
+    /// other interfaces.
+    /// 
+    /// If the `GDBusConnection` associated with `proxy` is disconnected then
+    /// the operation will fail with `G_IO_ERROR_CLOSED`. If
+    /// `cancellable` is canceled, the operation will fail with
+    /// `G_IO_ERROR_CANCELLED`. If `parameters` contains a value not
+    /// compatible with the D-Bus protocol, the operation fails with
+    /// `G_IO_ERROR_INVALID_ARGUMENT`.
+    /// 
+    /// If the `parameters` `GVariant` is floating, it is consumed. This allows
+    /// convenient 'inline' use of `g_variant_new()`, e.g.:
+    /// (C Language Example):
+    /// ```C
+    ///  g_dbus_proxy_call_sync (proxy,
+    ///                          "TwoStrings",
+    ///                          g_variant_new ("(ss)",
+    ///                                         "Thing One",
+    ///                                         "Thing Two"),
+    ///                          G_DBUS_CALL_FLAGS_NONE,
+    ///                          -1,
+    ///                          NULL,
+    ///                          &error);
+    /// ```
+    /// 
+    /// The calling thread is blocked until a reply is received. See
+    /// `g_dbus_proxy_call()` for the asynchronous version of this
+    /// method.
+    /// 
+    /// If `proxy` has an expected interface (see
+    /// `GDBusProxy:g`-interface-info) and `method_name` is referenced by it,
+    /// then the return value is checked against the return type.
+    @inlinable func callSync<CancellableT: CancellableProtocol, VariantT: GLib.VariantProtocol>(methodName: UnsafePointer<gchar>!, parameters: VariantT?, flags: DBusCallFlags, timeoutMsec: Int, cancellable: CancellableT?) throws -> GLib.VariantRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.VariantRef(g_dbus_proxy_call_sync(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -7879,15 +8360,22 @@ public extension DBusProxyProtocol {
     /// Like `g_dbus_proxy_call()` but also takes a `GUnixFDList` object.
     /// 
     /// This method is only available on UNIX.
-    @inlinable func callWithUnixFdList<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: VariantProtocol>(methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, fdList fd_list: UnixFDListT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_dbus_proxy_call_with_unix_fd_list(dbus_proxy_ptr, method_name, parameters?.variant_ptr, flags.value, gint(timeout_msec), fd_list?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func callWithUnixFdList(methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_proxy_call_with_unix_fd_list(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Like `g_dbus_proxy_call()` but also takes a `GUnixFDList` object.
+    /// 
+    /// This method is only available on UNIX.
+    @inlinable func callWithUnixFdList<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: GLib.VariantProtocol>(methodName: UnsafePointer<gchar>!, parameters: VariantT?, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_dbus_proxy_call_with_unix_fd_list(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an operation started with `g_dbus_proxy_call_with_unix_fd_list()`.
-    @inlinable func callWithUnixFdListFinish<AsyncResultT: AsyncResultProtocol>(outFdList out_fd_list: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, res: AsyncResultT) throws -> VariantRef! {
+    @inlinable func callWithUnixFdListFinish<AsyncResultT: AsyncResultProtocol>(outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, res: AsyncResultT) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_proxy_call_with_unix_fd_list_finish(dbus_proxy_ptr, out_fd_list, res.async_result_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_proxy_call_with_unix_fd_list_finish(dbus_proxy_ptr, outFdList, res.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -7895,9 +8383,18 @@ public extension DBusProxyProtocol {
     /// Like `g_dbus_proxy_call_sync()` but also takes and returns `GUnixFDList` objects.
     /// 
     /// This method is only available on UNIX.
-    @inlinable func callWithUnixFdListSync<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: VariantProtocol>(methodName method_name: UnsafePointer<gchar>!, parameters: VariantT? = nil, flags: DBusCallFlags, timeoutMsec timeout_msec: Int, fdList fd_list: UnixFDListT? = nil, outFdList out_fd_list: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableT? = nil) throws -> VariantRef! {
+    @inlinable func callWithUnixFdListSync(methodName: UnsafePointer<gchar>!, parameters: GLib.VariantRef? = nil, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListRef? = nil, outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableRef? = nil) throws -> GLib.VariantRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_proxy_call_with_unix_fd_list_sync(dbus_proxy_ptr, method_name, parameters?.variant_ptr, flags.value, gint(timeout_msec), fd_list?.unix_fd_list_ptr, out_fd_list, cancellable?.cancellable_ptr, &error)))
+        let rv = GLib.VariantRef(g_dbus_proxy_call_with_unix_fd_list_sync(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, outFdList, cancellable?.cancellable_ptr, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Like `g_dbus_proxy_call_sync()` but also takes and returns `GUnixFDList` objects.
+    /// 
+    /// This method is only available on UNIX.
+    @inlinable func callWithUnixFdListSync<CancellableT: CancellableProtocol, UnixFDListT: UnixFDListProtocol, VariantT: GLib.VariantProtocol>(methodName: UnsafePointer<gchar>!, parameters: VariantT?, flags: DBusCallFlags, timeoutMsec: Int, fdList: UnixFDListT?, outFdList: UnsafeMutablePointer<UnsafeMutablePointer<GUnixFDList>?>! = nil, cancellable: CancellableT?) throws -> GLib.VariantRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = GLib.VariantRef(g_dbus_proxy_call_with_unix_fd_list_sync(dbus_proxy_ptr, methodName, parameters?.variant_ptr, flags.value, gint(timeoutMsec), fdList?.unix_fd_list_ptr, outFdList, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -7908,8 +8405,8 @@ public extension DBusProxyProtocol {
     /// If `proxy` has an expected interface (see
     /// `GDBusProxy:g`-interface-info) and `property_name` is referenced by
     /// it, then `value` is checked against the type of the property.
-    @inlinable func getCachedProperty(propertyName property_name: UnsafePointer<gchar>!) -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_dbus_proxy_get_cached_property(dbus_proxy_ptr, property_name)))
+    @inlinable func getCachedProperty(propertyName: UnsafePointer<gchar>!) -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_dbus_proxy_get_cached_property(dbus_proxy_ptr, propertyName))
         return rv
     }
 
@@ -8010,8 +8507,46 @@ public extension DBusProxyProtocol {
     /// it is more efficient to only transmit the delta using e.g. signals
     /// ``ChatroomParticipantJoined(String name)`` and
     /// ``ChatroomParticipantParted(String name)``.
-    @inlinable func setCachedProperty<VariantT: VariantProtocol>(propertyName property_name: UnsafePointer<gchar>!, value: VariantT? = nil) {
-        g_dbus_proxy_set_cached_property(dbus_proxy_ptr, property_name, value?.variant_ptr)
+    @inlinable func setCachedProperty(propertyName: UnsafePointer<gchar>!, value: GLib.VariantRef? = nil) {
+        g_dbus_proxy_set_cached_property(dbus_proxy_ptr, propertyName, value?.variant_ptr)
+    
+    }
+    /// If `value` is not `nil`, sets the cached value for the property with
+    /// name `property_name` to the value in `value`.
+    /// 
+    /// If `value` is `nil`, then the cached value is removed from the
+    /// property cache.
+    /// 
+    /// If `proxy` has an expected interface (see
+    /// `GDBusProxy:g`-interface-info) and `property_name` is referenced by
+    /// it, then `value` is checked against the type of the property.
+    /// 
+    /// If the `value` `GVariant` is floating, it is consumed. This allows
+    /// convenient 'inline' use of `g_variant_new()`, e.g.
+    /// (C Language Example):
+    /// ```C
+    ///  g_dbus_proxy_set_cached_property (proxy,
+    ///                                    "SomeProperty",
+    ///                                    g_variant_new ("(si)",
+    ///                                                  "A String",
+    ///                                                  42));
+    /// ```
+    /// 
+    /// Normally you will not need to use this method since `proxy`
+    /// is tracking changes using the
+    /// `org.freedesktop.DBus.Properties.PropertiesChanged`
+    /// D-Bus signal. However, for performance reasons an object may
+    /// decide to not use this signal for some properties and instead
+    /// use a proprietary out-of-band mechanism to transmit changes.
+    /// 
+    /// As a concrete example, consider an object with a property
+    /// `ChatroomParticipants` which is an array of strings. Instead of
+    /// transmitting the same (long) array every time the property changes,
+    /// it is more efficient to only transmit the delta using e.g. signals
+    /// ``ChatroomParticipantJoined(String name)`` and
+    /// ``ChatroomParticipantParted(String name)``.
+    @inlinable func setCachedProperty<VariantT: GLib.VariantProtocol>(propertyName: UnsafePointer<gchar>!, value: VariantT?) {
+        g_dbus_proxy_set_cached_property(dbus_proxy_ptr, propertyName, value?.variant_ptr)
     
     }
 
@@ -8020,15 +8555,22 @@ public extension DBusProxyProtocol {
     /// `g_dbus_proxy_call_sync()` functions.
     /// 
     /// See the `GDBusProxy:g`-default-timeout property for more details.
-    @inlinable func setDefaultTimeout(timeoutMsec timeout_msec: Int) {
-        g_dbus_proxy_set_default_timeout(dbus_proxy_ptr, gint(timeout_msec))
+    @inlinable func setDefaultTimeout(timeoutMsec: Int) {
+        g_dbus_proxy_set_default_timeout(dbus_proxy_ptr, gint(timeoutMsec))
     
     }
 
     /// Ensure that interactions with `proxy` conform to the given
     /// interface. See the `GDBusProxy:g`-interface-info property for more
     /// details.
-    @inlinable func setInterface<DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(info: DBusInterfaceInfoT? = nil) {
+    @inlinable func setInterface(info: DBusInterfaceInfoRef? = nil) {
+        g_dbus_proxy_set_interface_info(dbus_proxy_ptr, info?.dbus_interface_info_ptr)
+    
+    }
+    /// Ensure that interactions with `proxy` conform to the given
+    /// interface. See the `GDBusProxy:g`-interface-info property for more
+    /// details.
+    @inlinable func setInterface<DBusInterfaceInfoT: DBusInterfaceInfoProtocol>(info: DBusInterfaceInfoT?) {
         g_dbus_proxy_set_interface_info(dbus_proxy_ptr, info?.dbus_interface_info_ptr)
     
     }
@@ -8176,7 +8718,7 @@ public extension DBusProxyProtocol {
 /// peer. In many use-cases it will be necessary to add a `GDBusAuthObserver`
 /// that only accepts connections that have successfully authenticated
 /// as the same user that is running the `GDBusServer`.
-public protocol DBusServerProtocol: ObjectProtocol, InitableProtocol {
+public protocol DBusServerProtocol: GLibObject.ObjectProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusServer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -8265,7 +8807,7 @@ public extension DBusServerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusServerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8301,7 +8843,7 @@ public extension DBusServerRef {
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
-    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_server_new_sync(address, flags.value, guid, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -8327,7 +8869,7 @@ public extension DBusServerRef {
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
-    @inlinable static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusServerRef! {
+    @inlinable static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusServerRef! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusServerRef(gconstpointer: gconstpointer(g_dbus_server_new_sync(address, flags.value, guid, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -8356,7 +8898,7 @@ public extension DBusServerRef {
 /// peer. In many use-cases it will be necessary to add a `GDBusAuthObserver`
 /// that only accepts connections that have successfully authenticated
 /// as the same user that is running the `GDBusServer`.
-open class DBusServer: Object, DBusServerProtocol {
+open class DBusServer: GLibObject.Object, DBusServerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DBusServer` instance.
@@ -8501,7 +9043,7 @@ open class DBusServer: Object, DBusServerProtocol {
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
-    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws {
+    @inlinable public init<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_dbus_server_new_sync(address, flags.value, guid, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -8528,7 +9070,7 @@ open class DBusServer: Object, DBusServerProtocol {
     /// 
     /// This is a synchronous failable constructor. There is currently no
     /// asynchronous version.
-    @inlinable public static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT? = nil, cancellable: CancellableT? = nil) throws -> DBusServer! {
+    @inlinable public static func new<CancellableT: CancellableProtocol, DBusAuthObserverT: DBusAuthObserverProtocol>(sync address: UnsafePointer<gchar>!, flags: DBusServerFlags, guid: UnsafePointer<gchar>!, observer: DBusAuthObserverT?, cancellable: CancellableT?) throws -> DBusServer! {
         var error: UnsafeMutablePointer<GError>?
         let maybeRV = DBusServer(gconstpointer: gconstpointer(g_dbus_server_new_sync(address, flags.value, guid, observer?.dbus_auth_observer_ptr, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
@@ -8562,7 +9104,7 @@ public extension DBusServerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DBusServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DBusServerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -8861,7 +9403,7 @@ public extension DataInputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8878,8 +9420,8 @@ public extension DataInputStreamRef {
     }
 
         /// Creates a new data input stream for the `base_stream`.
-    @inlinable init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
-        let rv = g_data_input_stream_new(base_stream.input_stream_ptr)
+    @inlinable init<InputStreamT: InputStreamProtocol>( baseStream: InputStreamT) {
+        let rv = g_data_input_stream_new(baseStream.input_stream_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -9016,8 +9558,8 @@ open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
     }
 
     /// Creates a new data input stream for the `base_stream`.
-    @inlinable public override init<InputStreamT: InputStreamProtocol>( base_stream: InputStreamT) {
-        let rv = g_data_input_stream_new(base_stream.input_stream_ptr)
+    @inlinable public override init<InputStreamT: InputStreamProtocol>( baseStream: InputStreamT) {
+        let rv = g_data_input_stream_new(baseStream.input_stream_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -9041,7 +9583,7 @@ public extension DataInputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DataInputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -9164,7 +9706,14 @@ public extension DataInputStreamProtocol {
     }
 
     /// Reads an unsigned 8-bit/1-byte value from `stream`.
-    @inlinable func readByte<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> guchar {
+    @inlinable func readByte(cancellable: CancellableRef? = nil) throws -> guchar {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_byte(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads an unsigned 8-bit/1-byte value from `stream`.
+    @inlinable func readByte<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> guchar {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_byte(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9175,7 +9724,17 @@ public extension DataInputStreamProtocol {
     /// 
     /// In order to get the correct byte order for this read operation,
     /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
-    @inlinable func readInt16<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> gint16 {
+    @inlinable func readInt16(cancellable: CancellableRef? = nil) throws -> gint16 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_int16(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a 16-bit/2-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
+    @inlinable func readInt16<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> gint16 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int16(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9190,7 +9749,21 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readInt32<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> gint32 {
+    @inlinable func readInt32(cancellable: CancellableRef? = nil) throws -> gint32 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_int32(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a signed 32-bit/4-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readInt32<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> gint32 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int32(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9205,7 +9778,21 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readInt64<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> gint64 {
+    @inlinable func readInt64(cancellable: CancellableRef? = nil) throws -> gint64 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_int64(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a 64-bit/8-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readInt64<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> gint64 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_int64(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9219,7 +9806,20 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readLine<CancellableT: CancellableProtocol>(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> String! {
+    @inlinable func readLine(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_line(data_input_stream_ptr, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a line from the data input stream.  Note that no encoding
+    /// checks or conversion is performed; the input is not guaranteed to
+    /// be UTF-8, and may in fact have embedded NUL characters.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readLine<CancellableT: CancellableProtocol>(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_line(data_input_stream_ptr, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
@@ -9232,8 +9832,18 @@ public extension DataInputStreamProtocol {
     /// When the operation is finished, `callback` will be called. You
     /// can then call `g_data_input_stream_read_line_finish()` to get
     /// the result of the operation.
-    @inlinable func readLineAsync<CancellableT: CancellableProtocol>(ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_data_input_stream_read_line_async(data_input_stream_ptr, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readLineAsync(ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_line_async(data_input_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// The asynchronous version of `g_data_input_stream_read_line()`.  It is
+    /// an error to have two outstanding calls to this function.
+    /// 
+    /// When the operation is finished, `callback` will be called. You
+    /// can then call `g_data_input_stream_read_line_finish()` to get
+    /// the result of the operation.
+    @inlinable func readLineAsync<CancellableT: CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_line_async(data_input_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -9262,7 +9872,18 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readLineUTF8<CancellableT: CancellableProtocol>(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> String! {
+    @inlinable func readLineUTF8(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_line_utf8(data_input_stream_ptr, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a UTF-8 encoded line from the data input stream.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readLineUTF8<CancellableT: CancellableProtocol>(length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_line_utf8(data_input_stream_ptr, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
@@ -9273,7 +9894,17 @@ public extension DataInputStreamProtocol {
     /// 
     /// In order to get the correct byte order for this read operation,
     /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
-    @inlinable func readUint16<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> guint16 {
+    @inlinable func readUint16(cancellable: CancellableRef? = nil) throws -> guint16 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_uint16(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads an unsigned 16-bit/2-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
+    @inlinable func readUint16<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> guint16 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint16(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9288,7 +9919,21 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readUint32<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> guint32 {
+    @inlinable func readUint32(cancellable: CancellableRef? = nil) throws -> guint32 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_uint32(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads an unsigned 32-bit/4-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()` and `g_data_input_stream_set_byte_order()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readUint32<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> guint32 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint32(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9303,7 +9948,21 @@ public extension DataInputStreamProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func readUint64<CancellableT: CancellableProtocol>(cancellable: CancellableT? = nil) throws -> guint64 {
+    @inlinable func readUint64(cancellable: CancellableRef? = nil) throws -> guint64 {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_uint64(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads an unsigned 64-bit/8-byte value from `stream`.
+    /// 
+    /// In order to get the correct byte order for this read operation,
+    /// see `g_data_input_stream_get_byte_order()`.
+    /// 
+    /// If `cancellable` is not `nil`, then the operation can be cancelled by
+    /// triggering the cancellable object from another thread. If the operation
+    /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
+    @inlinable func readUint64<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> guint64 {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_data_input_stream_read_uint64(data_input_stream_ptr, cancellable?.cancellable_ptr, &error)
         if let error = error { throw GLibError(error) }
@@ -9325,9 +9984,30 @@ public extension DataInputStreamProtocol {
     /// **read_until is deprecated:**
     /// Use g_data_input_stream_read_upto() instead, which has more
     ///     consistent behaviour regarding the stop character.
-    @available(*, deprecated) @inlinable func readUntil<CancellableT: CancellableProtocol>(stopChars stop_chars: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> String! {
+    @available(*, deprecated) @inlinable func readUntil(stopChars: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_data_input_stream_read_until(data_input_stream_ptr, stop_chars, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        let rv = g_data_input_stream_read_until(data_input_stream_ptr, stopChars, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a string from the data input stream, up to the first
+    /// occurrence of any of the stop characters.
+    /// 
+    /// Note that, in contrast to `g_data_input_stream_read_until_async()`,
+    /// this function consumes the stop character that it finds.
+    /// 
+    /// Don't use this function in new code.  Its functionality is
+    /// inconsistent with `g_data_input_stream_read_until_async()`.  Both
+    /// functions will be marked as deprecated in a future release.  Use
+    /// `g_data_input_stream_read_upto()` instead, but note that that function
+    /// does not consume the stop character.
+    ///
+    /// **read_until is deprecated:**
+    /// Use g_data_input_stream_read_upto() instead, which has more
+    ///     consistent behaviour regarding the stop character.
+    @available(*, deprecated) @inlinable func readUntil<CancellableT: CancellableProtocol>(stopChars: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_until(data_input_stream_ptr, stopChars, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -9351,8 +10031,31 @@ public extension DataInputStreamProtocol {
     /// **read_until_async is deprecated:**
     /// Use g_data_input_stream_read_upto_async() instead, which
     ///     has more consistent behaviour regarding the stop character.
-    @available(*, deprecated) @inlinable func readUntilAsync<CancellableT: CancellableProtocol>(stopChars stop_chars: UnsafePointer<gchar>!, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_data_input_stream_read_until_async(data_input_stream_ptr, stop_chars, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func readUntilAsync(stopChars: UnsafePointer<gchar>!, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_until_async(data_input_stream_ptr, stopChars, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// The asynchronous version of `g_data_input_stream_read_until()`.
+    /// It is an error to have two outstanding calls to this function.
+    /// 
+    /// Note that, in contrast to `g_data_input_stream_read_until()`,
+    /// this function does not consume the stop character that it finds.  You
+    /// must read it for yourself.
+    /// 
+    /// When the operation is finished, `callback` will be called. You
+    /// can then call `g_data_input_stream_read_until_finish()` to get
+    /// the result of the operation.
+    /// 
+    /// Don't use this function in new code.  Its functionality is
+    /// inconsistent with `g_data_input_stream_read_until()`.  Both functions
+    /// will be marked as deprecated in a future release.  Use
+    /// `g_data_input_stream_read_upto_async()` instead.
+    ///
+    /// **read_until_async is deprecated:**
+    /// Use g_data_input_stream_read_upto_async() instead, which
+    ///     has more consistent behaviour regarding the stop character.
+    @available(*, deprecated) @inlinable func readUntilAsync<CancellableT: CancellableProtocol>(stopChars: UnsafePointer<gchar>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_until_async(data_input_stream_ptr, stopChars, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -9381,9 +10084,27 @@ public extension DataInputStreamProtocol {
     /// specified.
     /// 
     /// The returned string will always be nul-terminated on success.
-    @inlinable func readUpto<CancellableT: CancellableProtocol>(stopChars stop_chars: UnsafePointer<gchar>!, stopCharsLen stop_chars_len: gssize, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT? = nil) throws -> String! {
+    @inlinable func readUpto(stopChars: UnsafePointer<gchar>!, stopCharsLen: gssize, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableRef? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_data_input_stream_read_upto(data_input_stream_ptr, stop_chars, stop_chars_len, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        let rv = g_data_input_stream_read_upto(data_input_stream_ptr, stopChars, stopCharsLen, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Reads a string from the data input stream, up to the first
+    /// occurrence of any of the stop characters.
+    /// 
+    /// In contrast to `g_data_input_stream_read_until()`, this function
+    /// does not consume the stop character. You have to use
+    /// `g_data_input_stream_read_byte()` to get it before calling
+    /// `g_data_input_stream_read_upto()` again.
+    /// 
+    /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
+    /// specified.
+    /// 
+    /// The returned string will always be nul-terminated on success.
+    @inlinable func readUpto<CancellableT: CancellableProtocol>(stopChars: UnsafePointer<gchar>!, stopCharsLen: gssize, length: UnsafeMutablePointer<gsize>! = nil, cancellable: CancellableT?) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_data_input_stream_read_upto(data_input_stream_ptr, stopChars, stopCharsLen, length, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -9402,8 +10123,26 @@ public extension DataInputStreamProtocol {
     /// When the operation is finished, `callback` will be called. You
     /// can then call `g_data_input_stream_read_upto_finish()` to get
     /// the result of the operation.
-    @inlinable func readUptoAsync<CancellableT: CancellableProtocol>(stopChars stop_chars: UnsafePointer<gchar>!, stopCharsLen stop_chars_len: gssize, ioPriority io_priority: Int, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_data_input_stream_read_upto_async(data_input_stream_ptr, stop_chars, stop_chars_len, gint(io_priority), cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func readUptoAsync(stopChars: UnsafePointer<gchar>!, stopCharsLen: gssize, ioPriority: Int, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_upto_async(data_input_stream_ptr, stopChars, stopCharsLen, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// The asynchronous version of `g_data_input_stream_read_upto()`.
+    /// It is an error to have two outstanding calls to this function.
+    /// 
+    /// In contrast to `g_data_input_stream_read_until()`, this function
+    /// does not consume the stop character. You have to use
+    /// `g_data_input_stream_read_byte()` to get it before calling
+    /// `g_data_input_stream_read_upto()` again.
+    /// 
+    /// Note that `stop_chars` may contain '\0' if `stop_chars_len` is
+    /// specified.
+    /// 
+    /// When the operation is finished, `callback` will be called. You
+    /// can then call `g_data_input_stream_read_upto_finish()` to get
+    /// the result of the operation.
+    @inlinable func readUptoAsync<CancellableT: CancellableProtocol>(stopChars: UnsafePointer<gchar>!, stopCharsLen: gssize, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_data_input_stream_read_upto_async(data_input_stream_ptr, stopChars, stopCharsLen, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -9566,7 +10305,7 @@ public extension DataOutputStreamRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9583,8 +10322,8 @@ public extension DataOutputStreamRef {
     }
 
         /// Creates a new data output stream for `base_stream`.
-    @inlinable init<OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT) {
-        let rv = g_data_output_stream_new(base_stream.output_stream_ptr)
+    @inlinable init<OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT) {
+        let rv = g_data_output_stream_new(baseStream.output_stream_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -9721,8 +10460,8 @@ open class DataOutputStream: FilterOutputStream, DataOutputStreamProtocol {
     }
 
     /// Creates a new data output stream for `base_stream`.
-    @inlinable public init<OutputStreamT: OutputStreamProtocol>( base_stream: OutputStreamT) {
-        let rv = g_data_output_stream_new(base_stream.output_stream_ptr)
+    @inlinable public init<OutputStreamT: OutputStreamProtocol>( baseStream: OutputStreamT) {
+        let rv = g_data_output_stream_new(baseStream.output_stream_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -9746,7 +10485,7 @@ public extension DataOutputStreamProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DataOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DataOutputStreamPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -9863,7 +10602,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts a byte into the output stream.
-    @inlinable func putByte<CancellableT: CancellableProtocol>(data: guchar, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putByte(data: guchar, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_byte(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts a byte into the output stream.
+    @inlinable func putByte<CancellableT: CancellableProtocol>(data: guchar, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_byte(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9871,7 +10617,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts a signed 16-bit integer into the output stream.
-    @inlinable func putInt16<CancellableT: CancellableProtocol>(data: gint16, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putInt16(data: gint16, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_int16(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts a signed 16-bit integer into the output stream.
+    @inlinable func putInt16<CancellableT: CancellableProtocol>(data: gint16, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_int16(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9879,7 +10632,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts a signed 32-bit integer into the output stream.
-    @inlinable func putInt32<CancellableT: CancellableProtocol>(data: gint32, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putInt32(data: gint32, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_int32(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts a signed 32-bit integer into the output stream.
+    @inlinable func putInt32<CancellableT: CancellableProtocol>(data: gint32, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_int32(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9887,7 +10647,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts a signed 64-bit integer into the stream.
-    @inlinable func putInt64<CancellableT: CancellableProtocol>(data: gint64, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putInt64(data: gint64, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_int64(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts a signed 64-bit integer into the stream.
+    @inlinable func putInt64<CancellableT: CancellableProtocol>(data: gint64, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_int64(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9895,7 +10662,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts a string into the output stream.
-    @inlinable func putString<CancellableT: CancellableProtocol>(str: UnsafePointer<CChar>!, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putString(str: UnsafePointer<CChar>!, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_string(data_output_stream_ptr, str, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts a string into the output stream.
+    @inlinable func putString<CancellableT: CancellableProtocol>(str: UnsafePointer<CChar>!, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_string(data_output_stream_ptr, str, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9903,7 +10677,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts an unsigned 16-bit integer into the output stream.
-    @inlinable func putUint16<CancellableT: CancellableProtocol>(data: guint16, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putUint16(data: guint16, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_uint16(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts an unsigned 16-bit integer into the output stream.
+    @inlinable func putUint16<CancellableT: CancellableProtocol>(data: guint16, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_uint16(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9911,7 +10692,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts an unsigned 32-bit integer into the stream.
-    @inlinable func putUint32<CancellableT: CancellableProtocol>(data: guint32, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putUint32(data: guint32, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_uint32(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts an unsigned 32-bit integer into the stream.
+    @inlinable func putUint32<CancellableT: CancellableProtocol>(data: guint32, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_uint32(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9919,7 +10707,14 @@ public extension DataOutputStreamProtocol {
     }
 
     /// Puts an unsigned 64-bit integer into the stream.
-    @inlinable func putUint64<CancellableT: CancellableProtocol>(data: guint64, cancellable: CancellableT? = nil) throws -> Bool {
+    @inlinable func putUint64(data: guint64, cancellable: CancellableRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_data_output_stream_put_uint64(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Puts an unsigned 64-bit integer into the stream.
+    @inlinable func putUint64<CancellableT: CancellableProtocol>(data: guint64, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_data_output_stream_put_uint64(data_output_stream_ptr, data, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9970,7 +10765,7 @@ public extension DataOutputStreamProtocol {
 /// 
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
-public protocol EmblemProtocol: ObjectProtocol, IconProtocol {
+public protocol EmblemProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GEmblem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -10049,7 +10844,7 @@ public extension EmblemRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -10093,7 +10888,7 @@ public extension EmblemRef {
 /// 
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
-open class Emblem: Object, EmblemProtocol {
+open class Emblem: GLibObject.Object, EmblemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Emblem` instance.
@@ -10252,7 +11047,7 @@ public extension EmblemProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: EmblemPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: EmblemPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)

@@ -84,7 +84,7 @@ public extension DBusArgInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusArgInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -414,7 +414,7 @@ public extension DBusErrorEntryRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusErrorEntryProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -704,7 +704,7 @@ public extension DBusInterfaceIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -985,7 +985,7 @@ public extension DBusInterfaceInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1191,8 +1191,8 @@ public extension DBusInterfaceInfoProtocol {
     /// documents at run-time for handling the
     /// `org.freedesktop.DBus.Introspectable.Introspect`
     /// method.
-    @inlinable func generateXml<StringTypeT: StringProtocol>(indent: Int, stringBuilder string_builder: StringTypeT) {
-        g_dbus_interface_info_generate_xml(dbus_interface_info_ptr, guint(indent), string_builder.gstring_ptr)
+    @inlinable func generateXml<StringTypeT: StringProtocol>(indent: Int, stringBuilder: StringTypeT) {
+        g_dbus_interface_info_generate_xml(dbus_interface_info_ptr, guint(indent), stringBuilder.gstring_ptr)
     
     }
 
@@ -1402,7 +1402,7 @@ public extension DBusInterfaceSkeletonClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1689,7 +1689,7 @@ public extension DBusInterfaceSkeletonPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceSkeletonPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2034,7 +2034,7 @@ public extension DBusInterfaceVTableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceVTableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2379,7 +2379,7 @@ public extension DBusMethodInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2722,7 +2722,7 @@ public extension DBusNodeInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusNodeInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2746,9 +2746,9 @@ public extension DBusNodeInfoRef {
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
-    @inlinable init(xml xml_data: UnsafePointer<gchar>!) throws {
+    @inlinable init(xml xmlData: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
+        let rv = g_dbus_node_info_new_for_xml(xmlData, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2760,9 +2760,9 @@ public extension DBusNodeInfoRef {
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
-    @inlinable static func newFor(xml xml_data: UnsafePointer<gchar>!) throws -> DBusNodeInfoRef! {
+    @inlinable static func newFor(xml xmlData: UnsafePointer<gchar>!) throws -> DBusNodeInfoRef! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusNodeInfoRef(gconstpointer: gconstpointer(g_dbus_node_info_new_for_xml(xml_data, &error)))
+        let maybeRV = DBusNodeInfoRef(gconstpointer: gconstpointer(g_dbus_node_info_new_for_xml(xmlData, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -2922,9 +2922,9 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
-    @inlinable public init(xml xml_data: UnsafePointer<gchar>!) throws {
+    @inlinable public init(xml xmlData: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_dbus_node_info_new_for_xml(xml_data, &error)
+        let rv = g_dbus_node_info_new_for_xml(xmlData, &error)
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2937,9 +2937,9 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
     /// parser that only accepts a subset of valid XML documents.
-    @inlinable public static func newFor(xml xml_data: UnsafePointer<gchar>!) throws -> DBusNodeInfo! {
+    @inlinable public static func newFor(xml xmlData: UnsafePointer<gchar>!) throws -> DBusNodeInfo! {
         var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DBusNodeInfo(gconstpointer: gconstpointer(g_dbus_node_info_new_for_xml(xml_data, &error)))
+        let maybeRV = DBusNodeInfo(gconstpointer: gconstpointer(g_dbus_node_info_new_for_xml(xmlData, &error)))
         if let error = error { throw GLibError(error) }
         guard let rv = maybeRV else { return nil }
         return rv
@@ -2961,8 +2961,8 @@ public extension DBusNodeInfoProtocol {
     /// 
     /// This function is typically used for generating introspection XML documents at run-time for
     /// handling the `org.freedesktop.DBus.Introspectable.Introspect`  method.
-    @inlinable func generateXml<StringTypeT: StringProtocol>(indent: Int, stringBuilder string_builder: StringTypeT) {
-        g_dbus_node_info_generate_xml(dbus_node_info_ptr, guint(indent), string_builder.gstring_ptr)
+    @inlinable func generateXml<StringTypeT: StringProtocol>(indent: Int, stringBuilder: StringTypeT) {
+        g_dbus_node_info_generate_xml(dbus_node_info_ptr, guint(indent), stringBuilder.gstring_ptr)
     
     }
 
@@ -3140,7 +3140,7 @@ public extension DBusObjectIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3423,7 +3423,7 @@ public extension DBusObjectManagerClientClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3702,7 +3702,7 @@ public extension DBusObjectManagerClientPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerClientPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3967,7 +3967,7 @@ public extension DBusObjectManagerIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4256,7 +4256,7 @@ public extension DBusObjectManagerServerClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4531,7 +4531,7 @@ public extension DBusObjectManagerServerPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerServerPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4796,7 +4796,7 @@ public extension DBusObjectProxyClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5071,7 +5071,7 @@ public extension DBusObjectProxyPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProxyPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5336,7 +5336,7 @@ public extension DBusObjectSkeletonClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5613,7 +5613,7 @@ public extension DBusObjectSkeletonPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectSkeletonPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5878,7 +5878,7 @@ public extension DBusPropertyInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusPropertyInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6221,7 +6221,7 @@ public extension DBusProxyClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6493,7 +6493,7 @@ public extension DBusProxyPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusProxyPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6758,7 +6758,7 @@ public extension DBusSignalInfoRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusSignalInfoProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7088,7 +7088,7 @@ public extension DBusSubtreeVTableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusSubtreeVTableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7393,7 +7393,7 @@ public extension DataInputStreamClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7674,7 +7674,7 @@ public extension DataInputStreamPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataInputStreamPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7939,7 +7939,7 @@ public extension DataOutputStreamClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8220,7 +8220,7 @@ public extension DataOutputStreamPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataOutputStreamPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8493,7 +8493,7 @@ public extension DatagramBasedInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8780,7 +8780,7 @@ public extension DriveIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9117,7 +9117,7 @@ public extension DtlsClientConnectionInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9390,7 +9390,7 @@ public extension DtlsConnectionInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9681,7 +9681,7 @@ public extension DtlsServerConnectionInterfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionInterfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9954,7 +9954,7 @@ public extension EmblemClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

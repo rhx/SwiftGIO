@@ -86,7 +86,7 @@ public extension TLSClientConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -343,7 +343,7 @@ public extension TLSClientConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSClientConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -614,8 +614,8 @@ public extension TLSClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    @inlinable func getAcceptedCas() -> ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(g_tls_client_connection_get_accepted_cas(tls_client_connection_ptr)))
+    @inlinable func getAcceptedCas() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_tls_client_connection_get_accepted_cas(tls_client_connection_ptr))
         return rv
     }
 
@@ -663,8 +663,8 @@ public extension TLSClientConnectionProtocol {
     ///
     /// **set_use_ssl3 is deprecated:**
     /// SSL 3.0 is insecure.
-    @available(*, deprecated) @inlinable func set(useSSL3 use_ssl3: Bool) {
-        g_tls_client_connection_set_use_ssl3(tls_client_connection_ptr, gboolean((use_ssl3) ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(useSSL3: Bool) {
+        g_tls_client_connection_set_use_ssl3(tls_client_connection_ptr, gboolean((useSSL3) ? 1 : 0))
     
     }
 
@@ -682,7 +682,7 @@ public extension TLSClientConnectionProtocol {
     /// 
     /// Each item in the list is a `GByteArray` which contains the complete
     /// subject DN of the certificate authority.
-    @inlinable var acceptedCas: ListRef! {
+    @inlinable var acceptedCas: GLib.ListRef! {
         /// Gets the list of distinguished names of the Certificate Authorities
         /// that the server will accept certificates from. This will be set
         /// during the TLS handshake if the server requests a certificate.
@@ -691,7 +691,7 @@ public extension TLSClientConnectionProtocol {
         /// Each item in the list is a `GByteArray` which contains the complete
         /// subject DN of the certificate authority.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(g_tls_client_connection_get_accepted_cas(tls_client_connection_ptr)))
+            let rv = GLib.ListRef(g_tls_client_connection_get_accepted_cas(tls_client_connection_ptr))
             return rv
         }
     }
@@ -851,7 +851,7 @@ public extension TLSFileDatabaseRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1022,7 +1022,7 @@ public extension TLSFileDatabaseProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSFileDatabasePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSFileDatabasePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1222,7 +1222,7 @@ public extension TLSServerConnectionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1449,7 +1449,7 @@ public extension TLSServerConnectionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: TLSServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TLSServerConnectionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1818,7 +1818,7 @@ public extension VolumeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2088,8 +2088,18 @@ public extension VolumeProtocol {
     ///
     /// **eject is deprecated:**
     /// Use g_volume_eject_with_operation() instead.
-    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_volume_eject(volume_ptr, flags.value, cancellable?.cancellable_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func eject(flags: MountUnmountFlags, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_eject(volume_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Ejects a volume. This is an asynchronous operation, and is
+    /// finished by calling `g_volume_eject_finish()` with the `volume`
+    /// and `GAsyncResult` returned in the `callback`.
+    ///
+    /// **eject is deprecated:**
+    /// Use g_volume_eject_with_operation() instead.
+    @available(*, deprecated) @inlinable func eject<CancellableT: CancellableProtocol>(flags: MountUnmountFlags, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_eject(volume_ptr, flags.value, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2108,8 +2118,15 @@ public extension VolumeProtocol {
     /// Ejects a volume. This is an asynchronous operation, and is
     /// finished by calling `g_volume_eject_with_operation_finish()` with the `volume`
     /// and `GAsyncResult` data returned in the `callback`.
-    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_volume_eject_with_operation(volume_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func ejectWithOperation(flags: MountUnmountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_eject_with_operation(volume_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Ejects a volume. This is an asynchronous operation, and is
+    /// finished by calling `g_volume_eject_with_operation_finish()` with the `volume`
+    /// and `GAsyncResult` data returned in the `callback`.
+    @inlinable func ejectWithOperation<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountUnmountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_eject_with_operation(volume_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
@@ -2218,8 +2235,15 @@ public extension VolumeProtocol {
     /// Mounts a volume. This is an asynchronous operation, and is
     /// finished by calling `g_volume_mount_finish()` with the `volume`
     /// and `GAsyncResult` returned in the `callback`.
-    @inlinable func getMount<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation mount_operation: MountOperationT? = nil, cancellable: CancellableT? = nil, callback: GAsyncReadyCallback? = nil, userData user_data: gpointer! = nil) {
-        g_volume_mount(volume_ptr, flags.value, mount_operation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, user_data)
+    @inlinable func getMount(flags: MountMountFlags, mountOperation: MountOperationRef? = nil, cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_mount(volume_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Mounts a volume. This is an asynchronous operation, and is
+    /// finished by calling `g_volume_mount_finish()` with the `volume`
+    /// and `GAsyncResult` returned in the `callback`.
+    @inlinable func getMount<CancellableT: CancellableProtocol, MountOperationT: MountOperationProtocol>(flags: MountMountFlags, mountOperation: MountOperationT?, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        g_volume_mount(volume_ptr, flags.value, mountOperation?.mount_operation_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 

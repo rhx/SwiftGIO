@@ -94,7 +94,7 @@ public extension FileDescriptorBasedRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -431,7 +431,7 @@ public extension IconRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -448,7 +448,7 @@ public extension IconRef {
     }
 
         /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
-    @inlinable static func deserialize<VariantT: VariantProtocol>(value: VariantT) -> IconRef! {
+    @inlinable static func deserialize<VariantT: GLib.VariantProtocol>(value: VariantT) -> IconRef! {
         guard let rv = IconRef(gconstpointer: gconstpointer(g_icon_deserialize(value.variant_ptr))) else { return nil }
         return rv
     }
@@ -642,7 +642,7 @@ open class Icon: IconProtocol {
 
 
     /// Deserializes a `GIcon` previously serialized using `g_icon_serialize()`.
-    @inlinable public static func deserialize<VariantT: VariantProtocol>(value: VariantT) -> Icon! {
+    @inlinable public static func deserialize<VariantT: GLib.VariantProtocol>(value: VariantT) -> Icon! {
         guard let rv = Icon(gconstpointer: gconstpointer(g_icon_deserialize(value.variant_ptr))) else { return nil }
         return rv
     }
@@ -674,7 +674,12 @@ public extension IconProtocol {
     @inlinable var icon_ptr: UnsafeMutablePointer<GIcon>! { return ptr?.assumingMemoryBound(to: GIcon.self) }
 
     /// Checks if two icons are equal.
-    @inlinable func equal<IconT: IconProtocol>(icon2: IconT? = nil) -> Bool {
+    @inlinable func equal(icon2: IconRef? = nil) -> Bool {
+        let rv = ((g_icon_equal(icon_ptr, icon2?.icon_ptr)) != 0)
+        return rv
+    }
+    /// Checks if two icons are equal.
+    @inlinable func equal<IconT: IconProtocol>(icon2: IconT?) -> Bool {
         let rv = ((g_icon_equal(icon_ptr, icon2?.icon_ptr)) != 0)
         return rv
     }
@@ -684,8 +689,8 @@ public extension IconProtocol {
     /// As serialization will avoid using raw icon data when possible, it only
     /// makes sense to transfer the `GVariant` between processes on the same machine,
     /// (as opposed to over the network), and within the same file system namespace.
-    @inlinable func serialize() -> VariantRef! {
-        let rv = VariantRef(gconstpointer: gconstpointer(g_icon_serialize(icon_ptr)))
+    @inlinable func serialize() -> GLib.VariantRef! {
+        let rv = GLib.VariantRef(g_icon_serialize(icon_ptr))
         return rv
     }
 
