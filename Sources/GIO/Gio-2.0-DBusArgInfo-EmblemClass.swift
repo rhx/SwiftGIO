@@ -9595,6 +9595,8 @@ public extension DtlsConnectionInterfaceProtocol {
 
     // var getNegotiatedProtocol is unavailable because get_negotiated_protocol is void
 
+    // var getBindingData is unavailable because get_binding_data is void
+
 }
 
 

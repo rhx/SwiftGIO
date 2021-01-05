@@ -1567,6 +1567,8 @@ public struct Gio {
     public typealias SocketType = GSocketType
     public typealias TLSAuthenticationMode = GTlsAuthenticationMode
     public typealias TLSCertificateRequestFlags = GTlsCertificateRequestFlags
+    public typealias TLSChannelBindingError = GTlsChannelBindingError
+    public typealias TLSChannelBindingType = GTlsChannelBindingType
     public typealias TLSDatabaseLookupFlags = GTlsDatabaseLookupFlags
     public typealias TLSError = GTlsError
     public typealias TLSInteractionResult = GTlsInteractionResult

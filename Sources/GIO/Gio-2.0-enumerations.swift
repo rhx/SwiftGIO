@@ -61,16 +61,18 @@ public extension CredentialsType {
     }
     /// Indicates an invalid native credential type.
     static let invalid = G_CREDENTIALS_TYPE_INVALID // 0
-    /// The native credentials type is a struct ucred.
+    /// The native credentials type is a `struct ucred`.
     static let linuxUcred = G_CREDENTIALS_TYPE_LINUX_UCRED // 1
-    /// The native credentials type is a struct cmsgcred.
+    /// The native credentials type is a `struct cmsgcred`.
     static let freebsdCmsgcred = G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED // 2
-    /// The native credentials type is a struct sockpeercred. Added in 2.30.
+    /// The native credentials type is a `struct sockpeercred`. Added in 2.30.
     static let openbsdSockpeercred = G_CREDENTIALS_TYPE_OPENBSD_SOCKPEERCRED // 3
-    /// The native credentials type is a ucred_t. Added in 2.40.
+    /// The native credentials type is a `ucred_t`. Added in 2.40.
     static let solarisUcred = G_CREDENTIALS_TYPE_SOLARIS_UCRED // 4
-    /// The native credentials type is a struct unpcbid.
+    /// The native credentials type is a `struct unpcbid`. Added in 2.42.
     static let netbsdUnpcbid = G_CREDENTIALS_TYPE_NETBSD_UNPCBID // 5
+    /// The native credentials type is a `struct xucred`. Added in 2.66.
+    static let appleXucred = G_CREDENTIALS_TYPE_APPLE_XUCRED // 6
 }
 
 
@@ -403,7 +405,7 @@ public extension FileAttributeType {
         func castToFileAttributeTypeInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
         self.init(rawValue: castToFileAttributeTypeInt(raw))
     }
-    /// indicates an invalid or uninitalized type.
+    /// indicates an invalid or uninitialized type.
     static let invalid = G_FILE_ATTRIBUTE_TYPE_INVALID // 0
     /// a null terminated UTF8 string.
     static let string = G_FILE_ATTRIBUTE_TYPE_STRING // 1
@@ -1158,6 +1160,67 @@ public extension TLSCertificateRequestFlags {
     }
     /// No flags
     static let `none` = G_TLS_CERTIFICATE_REQUEST_NONE // 0
+}
+
+
+
+/// An error code used with `G_TLS_CHANNEL_BINDING_ERROR` in a `GError` to
+/// indicate a TLS channel binding retrieval error.
+public typealias TLSChannelBindingError = GTlsChannelBindingError
+
+public extension TLSChannelBindingError {
+    /// Cast constructor, converting any binary integer to a
+    /// `TLSChannelBindingError`.
+    /// - Parameter raw: The raw integer value to initialise the enum from
+    @inlinable init!<I: BinaryInteger>(_ raw: I) {
+        func castToTLSChannelBindingErrorInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+        self.init(rawValue: castToTLSChannelBindingErrorInt(raw))
+    }
+    /// Either entire binding
+    ///    retrieval facility or specific binding type is not implemented in the
+    ///    TLS backend.
+    static let notImplemented = G_TLS_CHANNEL_BINDING_ERROR_NOT_IMPLEMENTED // 0
+    /// The handshake is not yet
+    ///    complete on the connection which is a strong requirement for any existing
+    ///    binding type.
+    static let invalidState = G_TLS_CHANNEL_BINDING_ERROR_INVALID_STATE // 1
+    /// Handshake is complete but
+    ///    binding data is not available. That normally indicates the TLS
+    ///    implementation failed to provide the binding data. For example, some
+    ///    implementations do not provide a peer certificate for resumed connections.
+    static let notAvailable = G_TLS_CHANNEL_BINDING_ERROR_NOT_AVAILABLE // 2
+    /// Binding type is not supported
+    ///    on the current connection. This error could be triggered when requesting
+    ///    `tls-server-end-point` binding data for a certificate which has no hash
+    ///    function or uses multiple hash functions.
+    static let notSupported = G_TLS_CHANNEL_BINDING_ERROR_NOT_SUPPORTED // 3
+    /// Any other backend error
+    ///    preventing binding data retrieval.
+    static let generalError = G_TLS_CHANNEL_BINDING_ERROR_GENERAL_ERROR // 4
+}
+
+
+
+/// The type of TLS channel binding data to retrieve from `GTlsConnection`
+/// or `GDtlsConnection`, as documented by RFC 5929. The
+/// [`tls-unique-for-telnet`](https://tools.ietf.org/html/rfc5929`section`-5)
+/// binding type is not currently implemented.
+public typealias TLSChannelBindingType = GTlsChannelBindingType
+
+public extension TLSChannelBindingType {
+    /// Cast constructor, converting any binary integer to a
+    /// `TLSChannelBindingType`.
+    /// - Parameter raw: The raw integer value to initialise the enum from
+    @inlinable init!<I: BinaryInteger>(_ raw: I) {
+        func castToTLSChannelBindingTypeInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+        self.init(rawValue: castToTLSChannelBindingTypeInt(raw))
+    }
+    /// [`tls-unique`](https://tools.ietf.org/html/rfc5929`section`-3) binding
+    ///    type
+    static let unique = G_TLS_CHANNEL_BINDING_TLS_UNIQUE // 0
+    /// [`tls-server-end-point`](https://tools.ietf.org/html/rfc5929`section`-4)
+    ///    binding type
+    static let serverEndPoint = G_TLS_CHANNEL_BINDING_TLS_SERVER_END_POINT // 1
 }
 
 

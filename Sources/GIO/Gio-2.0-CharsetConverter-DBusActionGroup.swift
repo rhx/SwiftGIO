@@ -1250,22 +1250,26 @@ public extension ConverterOutputStreamProtocol {
 /// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
 /// `g_unix_connection_receive_credentials()` for details.
 /// 
-/// On Linux, the native credential type is a struct ucred - see the
+/// On Linux, the native credential type is a `struct ucred` - see the
 /// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
+/// On Apple operating systems (including iOS, tvOS, and macOS),
+/// the native credential type is a `struct xucred`.
+/// This corresponds to `G_CREDENTIALS_TYPE_APPLE_XUCRED`.
+/// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
-/// credential type is a struct cmsgcred. This corresponds
+/// credential type is a `struct cmsgcred`. This corresponds
 /// to `G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED`.
 /// 
-/// On NetBSD, the native credential type is a struct unpcbid.
+/// On NetBSD, the native credential type is a `struct unpcbid`.
 /// This corresponds to `G_CREDENTIALS_TYPE_NETBSD_UNPCBID`.
 /// 
-/// On OpenBSD, the native credential type is a struct sockpeercred.
+/// On OpenBSD, the native credential type is a `struct sockpeercred`.
 /// This corresponds to `G_CREDENTIALS_TYPE_OPENBSD_SOCKPEERCRED`.
 /// 
 /// On Solaris (including OpenSolaris and its derivatives), the native
-/// credential type is a ucred_t. This corresponds to
+/// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
 public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
@@ -1293,22 +1297,26 @@ public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
 /// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
 /// `g_unix_connection_receive_credentials()` for details.
 /// 
-/// On Linux, the native credential type is a struct ucred - see the
+/// On Linux, the native credential type is a `struct ucred` - see the
 /// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
+/// On Apple operating systems (including iOS, tvOS, and macOS),
+/// the native credential type is a `struct xucred`.
+/// This corresponds to `G_CREDENTIALS_TYPE_APPLE_XUCRED`.
+/// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
-/// credential type is a struct cmsgcred. This corresponds
+/// credential type is a `struct cmsgcred`. This corresponds
 /// to `G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED`.
 /// 
-/// On NetBSD, the native credential type is a struct unpcbid.
+/// On NetBSD, the native credential type is a `struct unpcbid`.
 /// This corresponds to `G_CREDENTIALS_TYPE_NETBSD_UNPCBID`.
 /// 
-/// On OpenBSD, the native credential type is a struct sockpeercred.
+/// On OpenBSD, the native credential type is a `struct sockpeercred`.
 /// This corresponds to `G_CREDENTIALS_TYPE_OPENBSD_SOCKPEERCRED`.
 /// 
 /// On Solaris (including OpenSolaris and its derivatives), the native
-/// credential type is a ucred_t. This corresponds to
+/// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
 public struct CredentialsRef: CredentialsProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
@@ -1411,22 +1419,26 @@ public extension CredentialsRef {
 /// `GUnixCredentialsMessage`, `g_unix_connection_send_credentials()` and
 /// `g_unix_connection_receive_credentials()` for details.
 /// 
-/// On Linux, the native credential type is a struct ucred - see the
+/// On Linux, the native credential type is a `struct ucred` - see the
 /// `unix(7)` man page for details. This corresponds to
 /// `G_CREDENTIALS_TYPE_LINUX_UCRED`.
 /// 
+/// On Apple operating systems (including iOS, tvOS, and macOS),
+/// the native credential type is a `struct xucred`.
+/// This corresponds to `G_CREDENTIALS_TYPE_APPLE_XUCRED`.
+/// 
 /// On FreeBSD, Debian GNU/kFreeBSD, and GNU/Hurd, the native
-/// credential type is a struct cmsgcred. This corresponds
+/// credential type is a `struct cmsgcred`. This corresponds
 /// to `G_CREDENTIALS_TYPE_FREEBSD_CMSGCRED`.
 /// 
-/// On NetBSD, the native credential type is a struct unpcbid.
+/// On NetBSD, the native credential type is a `struct unpcbid`.
 /// This corresponds to `G_CREDENTIALS_TYPE_NETBSD_UNPCBID`.
 /// 
-/// On OpenBSD, the native credential type is a struct sockpeercred.
+/// On OpenBSD, the native credential type is a `struct sockpeercred`.
 /// This corresponds to `G_CREDENTIALS_TYPE_OPENBSD_SOCKPEERCRED`.
 /// 
 /// On Solaris (including OpenSolaris and its derivatives), the native
-/// credential type is a ucred_t. This corresponds to
+/// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
 open class Credentials: GLibObject.Object, CredentialsProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -1643,7 +1655,8 @@ public extension CredentialsProtocol {
     /// 
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
-    /// about the UNIX process ID.
+    /// about the UNIX process ID (for example this is the case for
+    /// `G_CREDENTIALS_TYPE_APPLE_XUCRED`).
     @inlinable func getUnixPid() throws -> pid_t {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_credentials_get_unix_pid(credentials_ptr, &error)
@@ -1712,14 +1725,16 @@ public extension CredentialsProtocol {
     /// 
     /// This operation can fail if `GCredentials` is not supported on the
     /// OS or if the native credentials type does not contain information
-    /// about the UNIX process ID.
+    /// about the UNIX process ID (for example this is the case for
+    /// `G_CREDENTIALS_TYPE_APPLE_XUCRED`).
     @inlinable var unixPid: pid_t {
         /// Tries to get the UNIX process identifier from `credentials`. This
         /// method is only available on UNIX platforms.
         /// 
         /// This operation can fail if `GCredentials` is not supported on the
         /// OS or if the native credentials type does not contain information
-        /// about the UNIX process ID.
+        /// about the UNIX process ID (for example this is the case for
+        /// `G_CREDENTIALS_TYPE_APPLE_XUCRED`).
         get {
             var error: UnsafeMutablePointer<GError>?
         let rv = g_credentials_get_unix_pid(credentials_ptr, &error)

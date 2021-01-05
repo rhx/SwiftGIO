@@ -646,7 +646,7 @@ public extension IOStreamProtocol {
         return rv
     }
 
-    /// Asyncronously splice the output stream of `stream1` to the input stream of
+    /// Asynchronously splice the output stream of `stream1` to the input stream of
     /// `stream2`, and splice the output stream of `stream2` to the input stream of
     /// `stream1`.
     /// 
@@ -657,7 +657,7 @@ public extension IOStreamProtocol {
         g_io_stream_splice_async(io_stream_ptr, stream2.io_stream_ptr, flags.value, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
-    /// Asyncronously splice the output stream of `stream1` to the input stream of
+    /// Asynchronously splice the output stream of `stream1` to the input stream of
     /// `stream2`, and splice the output stream of `stream2` to the input stream of
     /// `stream1`.
     /// 

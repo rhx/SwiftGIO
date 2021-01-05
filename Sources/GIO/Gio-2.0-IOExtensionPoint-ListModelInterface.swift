@@ -906,7 +906,7 @@ public extension IOModuleScopeProtocol {
     /// 
     /// This may not actually load and initialize all the types in each
     /// module, some modules may be lazily loaded and initialized when
-    /// an extension point it implementes is used with e.g.
+    /// an extension point it implements is used with e.g.
     /// `g_io_extension_point_get_extensions()` or
     /// `g_io_extension_point_get_extension_by_name()`.
     /// 

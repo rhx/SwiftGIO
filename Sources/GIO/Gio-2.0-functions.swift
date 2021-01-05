@@ -1467,7 +1467,7 @@ import GLibObject
 /// 
 /// This may not actually load and initialize all the types in each
 /// module, some modules may be lazily loaded and initialized when
-/// an extension point it implementes is used with e.g.
+/// an extension point it implements is used with e.g.
 /// `g_io_extension_point_get_extensions()` or
 /// `g_io_extension_point_get_extension_by_name()`.
 /// 
@@ -1486,7 +1486,7 @@ import GLibObject
 /// 
 /// This may not actually load and initialize all the types in each
 /// module, some modules may be lazily loaded and initialized when
-/// an extension point it implementes is used with e.g.
+/// an extension point it implements is used with e.g.
 /// `g_io_extension_point_get_extensions()` or
 /// `g_io_extension_point_get_extension_by_name()`.
 /// 
@@ -2062,6 +2062,15 @@ import GLibObject
 
 
 
+/// Gets the TLS channel binding error quark.
+@inlinable public func tlsChannelBindingErrorQuark() -> GQuark {
+    let rv = g_tls_channel_binding_error_quark()
+    return rv
+}
+
+
+
+
 /// Creates a new `GTlsClientConnection` wrapping `base_io_stream` (which
 /// must have pollable input and output streams) which is assumed to
 /// communicate with the server identified by `server_identity`.
@@ -2362,6 +2371,20 @@ import GLibObject
 /// file system types and device paths are ignored.
 @inlinable public func unixMountIsSystemInternal<UnixMountEntryT: UnixMountEntryProtocol>(mountEntry: UnixMountEntryT) -> Bool {
     let rv = ((g_unix_mount_is_system_internal(mountEntry.unix_mount_entry_ptr)) != 0)
+    return rv
+}
+
+
+
+
+/// Gets a `GUnixMountPoint` for a given mount path. If `time_read` is set, it
+/// will be filled with a unix timestamp for checking if the mount points have
+/// changed since with `g_unix_mount_points_changed_since()`.
+/// 
+/// If more mount points have the same mount path, the last matching mount point
+/// is returned.
+@inlinable public func unixMountPointAt(mountPath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountPointRef! {
+    guard let rv = UnixMountPointRef(gconstpointer: gconstpointer(g_unix_mount_point_at(mountPath, timeRead))) else { return nil }
     return rv
 }
 

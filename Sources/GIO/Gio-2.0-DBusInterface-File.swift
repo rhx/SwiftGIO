@@ -1816,7 +1816,7 @@ public extension DatagramBasedProtocol {
 /// 
 /// If the `GDrive` reports that media isn't automatically detected, one
 /// can poll for media; typically one should not do this periodically
-/// as a poll for media operation is potententially expensive and may
+/// as a poll for media operation is potentially expensive and may
 /// spin up the drive creating noise.
 /// 
 /// `GDrive` supports starting and stopping drives with authentication
@@ -1855,7 +1855,7 @@ public protocol DriveProtocol {
 /// 
 /// If the `GDrive` reports that media isn't automatically detected, one
 /// can poll for media; typically one should not do this periodically
-/// as a poll for media operation is potententially expensive and may
+/// as a poll for media operation is potentially expensive and may
 /// spin up the drive creating noise.
 /// 
 /// `GDrive` supports starting and stopping drives with authentication
@@ -1963,7 +1963,7 @@ public extension DriveRef {
 /// 
 /// If the `GDrive` reports that media isn't automatically detected, one
 /// can poll for media; typically one should not do this periodically
-/// as a poll for media operation is potententially expensive and may
+/// as a poll for media operation is potentially expensive and may
 /// spin up the drive creating noise.
 /// 
 /// `GDrive` supports starting and stopping drives with authentication
@@ -2421,9 +2421,9 @@ public extension DriveProtocol {
         }
     }
 
-    /// Checks if `drive` is capabable of automatically detecting media changes.
+    /// Checks if `drive` is capable of automatically detecting media changes.
     @inlinable var isMediaCheckAutomatic: Bool {
-        /// Checks if `drive` is capabable of automatically detecting media changes.
+        /// Checks if `drive` is capable of automatically detecting media changes.
         get {
             let rv = ((g_drive_is_media_check_automatic(drive_ptr)) != 0)
             return rv
@@ -2768,7 +2768,7 @@ public enum DtlsClientConnectionPropertyName: String, PropertyNameProtocol {
     /// virtual hosts.
     case serverIdentity = "server-identity"
     /// What steps to perform when validating a certificate received from
-    /// a server. Server certificates that fail to validate in all of the
+    /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
     /// overrides the default via `GDtlsConnection::accept`-certificate.
     case validationFlags = "validation-flags"
@@ -2853,7 +2853,7 @@ public enum DtlsClientConnectionSignalName: String, SignalNameProtocol {
     /// virtual hosts.
     case notifyServerIdentity = "notify::server-identity"
     /// What steps to perform when validating a certificate received from
-    /// a server. Server certificates that fail to validate in all of the
+    /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
     /// overrides the default via `GDtlsConnection::accept`-certificate.
     case notifyValidationFlags = "notify::validation-flags"
@@ -3300,14 +3300,13 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     /// handshake. See `g_dtls_connection_get_negotiated_protocol()`.
     case negotiatedProtocol = "negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GDtlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GDtlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GDtlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -3435,14 +3434,13 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     /// handshake. See `g_dtls_connection_get_negotiated_protocol()`.
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GDtlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GDtlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GDtlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -3580,6 +3578,45 @@ public extension DtlsConnectionProtocol {
         return rv
     }
 
+    /// Query the TLS backend for TLS channel binding data of `type` for `conn`.
+    /// 
+    /// This call retrieves TLS channel binding data as specified in RFC
+    /// [5056](https://tools.ietf.org/html/rfc5056), RFC
+    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs.  The
+    /// binding data is returned in `data`.  The `data` is resized by the callee
+    /// using `GByteArray` buffer management and will be freed when the `data`
+    /// is destroyed by `g_byte_array_unref()`. If `data` is `nil`, it will only
+    /// check whether TLS backend is able to fetch the data (e.g. whether `type`
+    /// is supported by the TLS backend). It does not guarantee that the data
+    /// will be available though.  That could happen if TLS connection does not
+    /// support `type` or the binding data is not available yet due to additional
+    /// negotiation or input required.
+    @inlinable func getChannelBindingData(type: GTlsChannelBindingType, data: GLib.ByteArrayRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dtls_connection_get_channel_binding_data(dtls_connection_ptr, type, data?.byte_array_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Query the TLS backend for TLS channel binding data of `type` for `conn`.
+    /// 
+    /// This call retrieves TLS channel binding data as specified in RFC
+    /// [5056](https://tools.ietf.org/html/rfc5056), RFC
+    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs.  The
+    /// binding data is returned in `data`.  The `data` is resized by the callee
+    /// using `GByteArray` buffer management and will be freed when the `data`
+    /// is destroyed by `g_byte_array_unref()`. If `data` is `nil`, it will only
+    /// check whether TLS backend is able to fetch the data (e.g. whether `type`
+    /// is supported by the TLS backend). It does not guarantee that the data
+    /// will be available though.  That could happen if TLS connection does not
+    /// support `type` or the binding data is not available yet due to additional
+    /// negotiation or input required.
+    @inlinable func getChannelBindingData<ByteArrayT: GLib.ByteArrayProtocol>(type: GTlsChannelBindingType, data: ByteArrayT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_dtls_connection_get_channel_binding_data(dtls_connection_ptr, type, data?.byte_array_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_dtls_connection_set_database()`.
     @inlinable func getDatabase() -> TLSDatabaseRef! {
@@ -3607,8 +3644,8 @@ public extension DtlsConnectionProtocol {
         return rv
     }
 
-    /// Gets `conn`'s peer's certificate after the handshake has completed.
-    /// (It is not set during the emission of
+    /// Gets `conn`'s peer's certificate after the handshake has completed
+    /// or failed. (It is not set during the emission of
     /// `GDtlsConnection::accept`-certificate.)
     @inlinable func getPeerCertificate() -> TLSCertificateRef! {
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
@@ -3616,8 +3653,8 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
-    /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GDtlsConnection::accept`-certificate.)
+    /// certificate, after the handshake has completed or failed. (It is
+    /// not set during the emission of `GDtlsConnection::accept`-certificate.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
         return rv
@@ -3776,8 +3813,20 @@ public extension DtlsConnectionProtocol {
     /// `GDtlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
     /// `GDtlsClientConnection:validation`-flags).
-    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT) {
-        g_dtls_connection_set_database(dtls_connection_ptr, database.tls_database_ptr)
+    @inlinable func set(database: TLSDatabaseRef? = nil) {
+        g_dtls_connection_set_database(dtls_connection_ptr, database?.tls_database_ptr)
+    
+    }
+    /// Sets the certificate database that is used to verify peer certificates.
+    /// This is set to the default database by default. See
+    /// `g_tls_backend_get_default_database()`. If set to `nil`, then
+    /// peer certificate validation will always set the
+    /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
+    /// `GDtlsConnection::accept`-certificate will always be emitted on
+    /// client-side connections, unless that bit is not set in
+    /// `GDtlsClientConnection:validation`-flags).
+    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT?) {
+        g_dtls_connection_set_database(dtls_connection_ptr, database?.tls_database_ptr)
     
     }
 
@@ -4010,12 +4059,12 @@ public extension DtlsConnectionProtocol {
         }
     }
 
-    /// Gets `conn`'s peer's certificate after the handshake has completed.
-    /// (It is not set during the emission of
+    /// Gets `conn`'s peer's certificate after the handshake has completed
+    /// or failed. (It is not set during the emission of
     /// `GDtlsConnection::accept`-certificate.)
     @inlinable var peerCertificate: TLSCertificateRef! {
-        /// Gets `conn`'s peer's certificate after the handshake has completed.
-        /// (It is not set during the emission of
+        /// Gets `conn`'s peer's certificate after the handshake has completed
+        /// or failed. (It is not set during the emission of
         /// `GDtlsConnection::accept`-certificate.)
         get {
             let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
@@ -4024,12 +4073,12 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
-    /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GDtlsConnection::accept`-certificate.)
+    /// certificate, after the handshake has completed or failed. (It is
+    /// not set during the emission of `GDtlsConnection::accept`-certificate.)
     @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
-        /// certificate, after the handshake has completed. (It is not set
-        /// during the emission of `GDtlsConnection::accept`-certificate.)
+        /// certificate, after the handshake has completed or failed. (It is
+        /// not set during the emission of `GDtlsConnection::accept`-certificate.)
         get {
             let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
             return rv
@@ -5547,6 +5596,21 @@ public extension FileProtocol {
     /// Deletes a file. If the `file` is a directory, it will only be
     /// deleted if it is empty. This has the same semantics as `g_unlink()`.
     /// 
+    /// If `file` doesn’t exist, `G_IO_ERROR_NOT_FOUND` will be returned. This allows
+    /// for deletion to be implemented avoiding
+    /// [time-of-check to time-of-use races](https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use):
+    /// ```
+    /// g_autoptr(GError) local_error = NULL;
+    /// if (!g_file_delete (my_file, my_cancellable, &local_error) &&
+    ///     !g_error_matches (local_error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
+    ///   {
+    ///     // deletion failed for some reason other than the file not existing:
+    ///     // so report the error
+    ///     g_warning ("Failed to delete %s: %s",
+    ///                g_file_peek_path (my_file), local_error->message);
+    ///   }
+    /// ```
+    /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
@@ -5558,6 +5622,21 @@ public extension FileProtocol {
     }
     /// Deletes a file. If the `file` is a directory, it will only be
     /// deleted if it is empty. This has the same semantics as `g_unlink()`.
+    /// 
+    /// If `file` doesn’t exist, `G_IO_ERROR_NOT_FOUND` will be returned. This allows
+    /// for deletion to be implemented avoiding
+    /// [time-of-check to time-of-use races](https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use):
+    /// ```
+    /// g_autoptr(GError) local_error = NULL;
+    /// if (!g_file_delete (my_file, my_cancellable, &local_error) &&
+    ///     !g_error_matches (local_error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
+    ///   {
+    ///     // deletion failed for some reason other than the file not existing:
+    ///     // so report the error
+    ///     g_warning ("Failed to delete %s: %s",
+    ///                g_file_peek_path (my_file), local_error->message);
+    ///   }
+    /// ```
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -8034,7 +8113,9 @@ public extension FileProtocol {
     /// Sends `file` to the "Trashcan", if possible. This is similar to
     /// deleting it, but the user can recover it before emptying the trashcan.
     /// Not all file systems support trashing, so this call can return the
-    /// `G_IO_ERROR_NOT_SUPPORTED` error.
+    /// `G_IO_ERROR_NOT_SUPPORTED` error. Since GLib 2.66, the `x-gvfs-notrash` unix
+    /// mount option can be used to disable `g_file_trash()` support for certain
+    /// mounts, the `G_IO_ERROR_NOT_SUPPORTED` error will be returned in that case.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
@@ -8048,7 +8129,9 @@ public extension FileProtocol {
     /// Sends `file` to the "Trashcan", if possible. This is similar to
     /// deleting it, but the user can recover it before emptying the trashcan.
     /// Not all file systems support trashing, so this call can return the
-    /// `G_IO_ERROR_NOT_SUPPORTED` error.
+    /// `G_IO_ERROR_NOT_SUPPORTED` error. Since GLib 2.66, the `x-gvfs-notrash` unix
+    /// mount option can be used to disable `g_file_trash()` support for certain
+    /// mounts, the `G_IO_ERROR_NOT_SUPPORTED` error will be returned in that case.
     /// 
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation

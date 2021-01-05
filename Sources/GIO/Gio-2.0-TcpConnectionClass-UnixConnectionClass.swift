@@ -3268,6 +3268,8 @@ public extension TLSConnectionClassProtocol {
 
     // var handshakeFinish is unavailable because handshake_finish is void
 
+    // var getBindingData is unavailable because get_binding_data is void
+
     // var padding is unavailable because padding is private
 
 }

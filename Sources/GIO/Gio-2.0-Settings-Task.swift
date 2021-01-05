@@ -669,6 +669,12 @@ public extension SettingsRef {
         /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id`.
     /// 
+    /// It is an error for the schema to not exist: schemas are an
+    /// essential part of a program, as they provide type information.
+    /// If schemas need to be dynamically loaded (for example, from an
+    /// optional runtime dependency), `g_settings_schema_source_lookup()`
+    /// can be used to test for their existence before loading them.
+    /// 
     /// Signals on the newly created `GSettings` object will be dispatched
     /// via the thread-default `GMainContext` in effect at the time of the
     /// call to `g_settings_new()`.  The new `GSettings` will hold a reference
@@ -1231,6 +1237,12 @@ open class Settings: GLibObject.Object, SettingsProtocol {
 
     /// Creates a new `GSettings` object with the schema specified by
     /// `schema_id`.
+    /// 
+    /// It is an error for the schema to not exist: schemas are an
+    /// essential part of a program, as they provide type information.
+    /// If schemas need to be dynamically loaded (for example, from an
+    /// optional runtime dependency), `g_settings_schema_source_lookup()`
+    /// can be used to test for their existence before loading them.
     /// 
     /// Signals on the newly created `GSettings` object will be dispatched
     /// via the thread-default `GMainContext` in effect at the time of the
@@ -7160,6 +7172,7 @@ public extension SocketProtocol {
     /// - OpenBSD since GLib 2.30
     /// - Solaris, Illumos and OpenSolaris since GLib 2.40
     /// - NetBSD since GLib 2.42
+    /// - macOS, tvOS, iOS since GLib 2.66
     /// 
     /// Other ways to obtain credentials from a foreign peer includes the
     /// `GUnixCredentialsMessage` type and
@@ -8226,6 +8239,7 @@ public extension SocketProtocol {
     /// - OpenBSD since GLib 2.30
     /// - Solaris, Illumos and OpenSolaris since GLib 2.40
     /// - NetBSD since GLib 2.42
+    /// - macOS, tvOS, iOS since GLib 2.66
     /// 
     /// Other ways to obtain credentials from a foreign peer includes the
     /// `GUnixCredentialsMessage` type and
@@ -8246,6 +8260,7 @@ public extension SocketProtocol {
         /// - OpenBSD since GLib 2.30
         /// - Solaris, Illumos and OpenSolaris since GLib 2.40
         /// - NetBSD since GLib 2.42
+        /// - macOS, tvOS, iOS since GLib 2.66
         /// 
         /// Other ways to obtain credentials from a foreign peer includes the
         /// `GUnixCredentialsMessage` type and
@@ -8964,7 +8979,7 @@ public extension SocketAddressProtocol {
 /// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
@@ -8991,7 +9006,7 @@ public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
 /// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 public struct SocketAddressEnumeratorRef: SocketAddressEnumeratorProtocol {
@@ -9087,7 +9102,7 @@ public extension SocketAddressEnumeratorRef {
 /// `g_socket_address_enumerator_next_finish()` should be used where possible.
 /// 
 /// Each `GSocketAddressEnumerator` can only be enumerated once. Once
-/// `g_socket_address_enumerator_next()` has returned `nil` (and no error), further
+/// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
 open class SocketAddressEnumerator: GLibObject.Object, SocketAddressEnumeratorProtocol {
@@ -16912,7 +16927,7 @@ public extension TaskProtocol {
     /// `g_task_return_error_if_cancelled()` and then returned.
     /// 
     /// This allows you to create a cancellable wrapper around an
-    /// uninterruptable function. The `GTaskThreadFunc` just needs to be
+    /// uninterruptible function. The `GTaskThreadFunc` just needs to be
     /// careful that it does not modify any externally-visible state after
     /// it has been cancelled. To do that, the thread should call
     /// `g_task_set_return_on_cancel()` again to (atomically) set
@@ -17087,7 +17102,7 @@ public extension TaskProtocol {
         /// `g_task_return_error_if_cancelled()` and then returned.
         /// 
         /// This allows you to create a cancellable wrapper around an
-        /// uninterruptable function. The `GTaskThreadFunc` just needs to be
+        /// uninterruptible function. The `GTaskThreadFunc` just needs to be
         /// careful that it does not modify any externally-visible state after
         /// it has been cancelled. To do that, the thread should call
         /// `g_task_set_return_on_cancel()` again to (atomically) set

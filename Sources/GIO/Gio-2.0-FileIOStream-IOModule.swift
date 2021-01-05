@@ -1299,7 +1299,7 @@ public extension FileInfoProtocol {
         return rv
     }
 
-    /// Gets the value of a attribute, formated as a string.
+    /// Gets the value of a attribute, formatted as a string.
     /// This escapes things as needed to make the string valid
     /// UTF-8.
     @inlinable func getAttributeAsString(attribute: UnsafePointer<CChar>!) -> String! {
@@ -1406,7 +1406,7 @@ public extension FileInfoProtocol {
         return rv
     }
 
-    /// Gets a display name for a file.
+    /// Gets a display name for a file. This is guaranteed to always be set.
     @inlinable func getDisplayName() -> String! {
         let rv = g_file_info_get_display_name(file_info_ptr).map({ String(cString: $0) })
         return rv
@@ -1478,7 +1478,7 @@ public extension FileInfoProtocol {
     
     }
 
-    /// Gets the name for a file.
+    /// Gets the name for a file. This is guaranteed to always be set.
     @inlinable func getName() -> String! {
         let rv = g_file_info_get_name(file_info_ptr).map({ String(cString: $0) })
         return rv
@@ -1760,9 +1760,9 @@ public extension FileInfoProtocol {
         }
     }
 
-    /// Gets a display name for a file.
+    /// Gets a display name for a file. This is guaranteed to always be set.
     @inlinable var displayName: String! {
-        /// Gets a display name for a file.
+        /// Gets a display name for a file. This is guaranteed to always be set.
         get {
             let rv = g_file_info_get_display_name(file_info_ptr).map({ String(cString: $0) })
             return rv
@@ -1891,9 +1891,9 @@ public extension FileInfoProtocol {
         }
     }
 
-    /// Gets the name for a file.
+    /// Gets the name for a file. This is guaranteed to always be set.
     @inlinable var name: String! {
-        /// Gets the name for a file.
+        /// Gets the name for a file. This is guaranteed to always be set.
         get {
             let rv = g_file_info_get_name(file_info_ptr).map({ String(cString: $0) })
             return rv

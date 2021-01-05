@@ -3176,7 +3176,17 @@ public extension UnixMountPointRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// Gets a `GUnixMountPoint` for a given mount path. If `time_read` is set, it
+    /// will be filled with a unix timestamp for checking if the mount points have
+    /// changed since with `g_unix_mount_points_changed_since()`.
+    /// 
+    /// If more mount points have the same mount path, the last matching mount point
+    /// is returned.
+    @inlinable static func at(mountPath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountPointRef! {
+        guard let rv = UnixMountPointRef(gconstpointer: gconstpointer(g_unix_mount_point_at(mountPath, timeRead))) else { return nil }
+        return rv
     }
+}
 
 /// The `UnixMountPoint` type acts as an owner of an underlying `GUnixMountPoint` instance.
 /// It provides the methods that can operate on this data type through `UnixMountPointProtocol` conformance.
@@ -3325,6 +3335,16 @@ open class UnixMountPoint: UnixMountPointProtocol {
     }
 
 
+    /// Gets a `GUnixMountPoint` for a given mount path. If `time_read` is set, it
+    /// will be filled with a unix timestamp for checking if the mount points have
+    /// changed since with `g_unix_mount_points_changed_since()`.
+    /// 
+    /// If more mount points have the same mount path, the last matching mount point
+    /// is returned.
+    @inlinable public static func at(mountPath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountPoint! {
+        guard let rv = UnixMountPoint(gconstpointer: gconstpointer(g_unix_mount_point_at(mountPath, timeRead))) else { return nil }
+        return rv
+    }
 
 }
 

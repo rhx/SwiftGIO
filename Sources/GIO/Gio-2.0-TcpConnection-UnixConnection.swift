@@ -812,14 +812,14 @@ public extension TcpWrapperConnectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTcpWrapperConnection` instance.
     @inlinable var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection>! { return ptr?.assumingMemoryBound(to: GTcpWrapperConnection.self) }
 
-    /// Get's `conn`'s base `GIOStream`
+    /// Gets `conn`'s base `GIOStream`
     @inlinable func getBaseIoStream() -> IOStreamRef! {
         guard let rv = IOStreamRef(gconstpointer: gconstpointer(g_tcp_wrapper_connection_get_base_io_stream(tcp_wrapper_connection_ptr))) else { return nil }
         return rv
     }
-    /// Get's `conn`'s base `GIOStream`
+    /// Gets `conn`'s base `GIOStream`
     @inlinable var baseIoStream: IOStreamRef! {
-        /// Get's `conn`'s base `GIOStream`
+        /// Gets `conn`'s base `GIOStream`
         get {
             guard let rv = IOStreamRef(gconstpointer: gconstpointer(g_tcp_wrapper_connection_get_base_io_stream(tcp_wrapper_connection_ptr))) else { return nil }
             return rv
@@ -3478,14 +3478,13 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -3651,14 +3650,13 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -3730,6 +3728,45 @@ public extension TLSConnectionProtocol {
         return rv
     }
 
+    /// Query the TLS backend for TLS channel binding data of `type` for `conn`.
+    /// 
+    /// This call retrieves TLS channel binding data as specified in RFC
+    /// [5056](https://tools.ietf.org/html/rfc5056), RFC
+    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs.  The
+    /// binding data is returned in `data`.  The `data` is resized by the callee
+    /// using `GByteArray` buffer management and will be freed when the `data`
+    /// is destroyed by `g_byte_array_unref()`. If `data` is `nil`, it will only
+    /// check whether TLS backend is able to fetch the data (e.g. whether `type`
+    /// is supported by the TLS backend). It does not guarantee that the data
+    /// will be available though.  That could happen if TLS connection does not
+    /// support `type` or the binding data is not available yet due to additional
+    /// negotiation or input required.
+    @inlinable func getChannelBindingData(type: GTlsChannelBindingType, data: GLib.ByteArrayRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_tls_connection_get_channel_binding_data(tls_connection_ptr, type, data?.byte_array_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Query the TLS backend for TLS channel binding data of `type` for `conn`.
+    /// 
+    /// This call retrieves TLS channel binding data as specified in RFC
+    /// [5056](https://tools.ietf.org/html/rfc5056), RFC
+    /// [5929](https://tools.ietf.org/html/rfc5929), and related RFCs.  The
+    /// binding data is returned in `data`.  The `data` is resized by the callee
+    /// using `GByteArray` buffer management and will be freed when the `data`
+    /// is destroyed by `g_byte_array_unref()`. If `data` is `nil`, it will only
+    /// check whether TLS backend is able to fetch the data (e.g. whether `type`
+    /// is supported by the TLS backend). It does not guarantee that the data
+    /// will be available though.  That could happen if TLS connection does not
+    /// support `type` or the binding data is not available yet due to additional
+    /// negotiation or input required.
+    @inlinable func getChannelBindingData<ByteArrayT: GLib.ByteArrayProtocol>(type: GTlsChannelBindingType, data: ByteArrayT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_tls_connection_get_channel_binding_data(tls_connection_ptr, type, data?.byte_array_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_tls_connection_set_database()`.
     @inlinable func getDatabase() -> TLSDatabaseRef! {
@@ -3757,8 +3794,8 @@ public extension TLSConnectionProtocol {
         return rv
     }
 
-    /// Gets `conn`'s peer's certificate after the handshake has completed.
-    /// (It is not set during the emission of
+    /// Gets `conn`'s peer's certificate after the handshake has completed
+    /// or failed. (It is not set during the emission of
     /// `GTlsConnection::accept`-certificate.)
     @inlinable func getPeerCertificate() -> TLSCertificateRef! {
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
@@ -3766,8 +3803,8 @@ public extension TLSConnectionProtocol {
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
-    /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GTlsConnection::accept`-certificate.)
+    /// certificate, after the handshake has completed or failed. (It is
+    /// not set during the emission of `GTlsConnection::accept`-certificate.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
         return rv
@@ -3946,8 +3983,20 @@ public extension TLSConnectionProtocol {
     /// `GTlsConnection::accept`-certificate will always be emitted on
     /// client-side connections, unless that bit is not set in
     /// `GTlsClientConnection:validation`-flags).
-    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT) {
-        g_tls_connection_set_database(tls_connection_ptr, database.tls_database_ptr)
+    @inlinable func set(database: TLSDatabaseRef? = nil) {
+        g_tls_connection_set_database(tls_connection_ptr, database?.tls_database_ptr)
+    
+    }
+    /// Sets the certificate database that is used to verify peer certificates.
+    /// This is set to the default database by default. See
+    /// `g_tls_backend_get_default_database()`. If set to `nil`, then
+    /// peer certificate validation will always set the
+    /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
+    /// `GTlsConnection::accept`-certificate will always be emitted on
+    /// client-side connections, unless that bit is not set in
+    /// `GTlsClientConnection:validation`-flags).
+    @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT?) {
+        g_tls_connection_set_database(tls_connection_ptr, database?.tls_database_ptr)
     
     }
 
@@ -4130,12 +4179,12 @@ public extension TLSConnectionProtocol {
         }
     }
 
-    /// Gets `conn`'s peer's certificate after the handshake has completed.
-    /// (It is not set during the emission of
+    /// Gets `conn`'s peer's certificate after the handshake has completed
+    /// or failed. (It is not set during the emission of
     /// `GTlsConnection::accept`-certificate.)
     @inlinable var peerCertificate: TLSCertificateRef! {
-        /// Gets `conn`'s peer's certificate after the handshake has completed.
-        /// (It is not set during the emission of
+        /// Gets `conn`'s peer's certificate after the handshake has completed
+        /// or failed. (It is not set during the emission of
         /// `GTlsConnection::accept`-certificate.)
         get {
             let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
@@ -4144,12 +4193,12 @@ public extension TLSConnectionProtocol {
     }
 
     /// Gets the errors associated with validating `conn`'s peer's
-    /// certificate, after the handshake has completed. (It is not set
-    /// during the emission of `GTlsConnection::accept`-certificate.)
+    /// certificate, after the handshake has completed or failed. (It is
+    /// not set during the emission of `GTlsConnection::accept`-certificate.)
     @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
-        /// certificate, after the handshake has completed. (It is not set
-        /// during the emission of `GTlsConnection::accept`-certificate.)
+        /// certificate, after the handshake has completed or failed. (It is
+        /// not set during the emission of `GTlsConnection::accept`-certificate.)
         get {
             let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
             return rv
@@ -4794,9 +4843,13 @@ public extension TLSDatabaseProtocol {
     /// which means that the certificate is being used to authenticate a server
     /// (and we are acting as the client).
     /// 
-    /// The `identity` is used to check for pinned certificates (trust exceptions)
-    /// in the database. These will override the normal verification process on a
-    /// host by host basis.
+    /// The `identity` is used to ensure the server certificate is valid for
+    /// the expected peer identity. If the identity does not match the
+    /// certificate, `G_TLS_CERTIFICATE_BAD_IDENTITY` will be set in the
+    /// return value. If `identity` is `nil`, that bit will never be set in
+    /// the return value. The peer identity may also be used to check for
+    /// pinned certificates (trust exceptions) in the database. These may
+    /// override the normal verification process on a host-by-host basis.
     /// 
     /// Currently there are no `flags`, and `G_TLS_DATABASE_VERIFY_NONE` should be
     /// used.
@@ -4833,9 +4886,13 @@ public extension TLSDatabaseProtocol {
     /// which means that the certificate is being used to authenticate a server
     /// (and we are acting as the client).
     /// 
-    /// The `identity` is used to check for pinned certificates (trust exceptions)
-    /// in the database. These will override the normal verification process on a
-    /// host by host basis.
+    /// The `identity` is used to ensure the server certificate is valid for
+    /// the expected peer identity. If the identity does not match the
+    /// certificate, `G_TLS_CERTIFICATE_BAD_IDENTITY` will be set in the
+    /// return value. If `identity` is `nil`, that bit will never be set in
+    /// the return value. The peer identity may also be used to check for
+    /// pinned certificates (trust exceptions) in the database. These may
+    /// override the normal verification process on a host-by-host basis.
     /// 
     /// Currently there are no `flags`, and `G_TLS_DATABASE_VERIFY_NONE` should be
     /// used.

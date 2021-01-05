@@ -1175,7 +1175,7 @@ public extension NetworkServiceProtocol {
         return rv
     }
 
-    /// Get's the URI scheme used to resolve proxies. By default, the service name
+    /// Gets the URI scheme used to resolve proxies. By default, the service name
     /// is used as scheme.
     @inlinable func getScheme() -> String! {
         let rv = g_network_service_get_scheme(network_service_ptr).map({ String(cString: $0) })
@@ -1212,7 +1212,7 @@ public extension NetworkServiceProtocol {
     }
 
     @inlinable var scheme: String! {
-        /// Get's the URI scheme used to resolve proxies. By default, the service name
+        /// Gets the URI scheme used to resolve proxies. By default, the service name
         /// is used as scheme.
         get {
             let rv = g_network_service_get_scheme(network_service_ptr).map({ String(cString: $0) })

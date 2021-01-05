@@ -2634,6 +2634,7 @@ public extension AppInfoProtocol {
 ///   GTask *task;
 /// 
 ///   task = g_task_new (initable, cancellable, callback, user_data);
+///   g_task_set_name (task, G_STRFUNC);
 /// 
 ///   switch (self->priv->state)
 ///     {
@@ -2747,6 +2748,7 @@ public protocol AsyncInitableProtocol {
 ///   GTask *task;
 /// 
 ///   task = g_task_new (initable, cancellable, callback, user_data);
+///   g_task_set_name (task, G_STRFUNC);
 /// 
 ///   switch (self->priv->state)
 ///     {
@@ -2929,6 +2931,7 @@ public extension AsyncInitableRef {
 ///   GTask *task;
 /// 
 ///   task = g_task_new (initable, cancellable, callback, user_data);
+///   g_task_set_name (task, G_STRFUNC);
 /// 
 ///   switch (self->priv->state)
 ///     {

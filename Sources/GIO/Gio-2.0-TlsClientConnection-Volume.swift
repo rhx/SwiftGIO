@@ -276,14 +276,13 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -328,7 +327,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// Use GTlsConnection:database instead
     case useSystemCertdb = "use-system-certdb"
     /// What steps to perform when validating a certificate received from
-    /// a server. Server certificates that fail to validate in all of the
+    /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
     /// overrides the default via `GTlsConnection::accept`-certificate.
     case validationFlags = "validation-flags"
@@ -483,14 +482,13 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -535,7 +533,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// Use GTlsConnection:database instead
     case notifyUseSystemCertdb = "notify::use-system-certdb"
     /// What steps to perform when validating a certificate received from
-    /// a server. Server certificates that fail to validate in all of the
+    /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
     /// overrides the default via `GTlsConnection::accept`-certificate.
     case notifyValidationFlags = "notify::validation-flags"
@@ -1408,14 +1406,13 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     case negotiatedProtocol = "negotiated-protocol"
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
@@ -1585,14 +1582,13 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
-    /// completed and the certificate has been accepted. Note in
-    /// particular that this is not yet set during the emission of
-    /// `GTlsConnection::accept`-certificate.
+    /// completed or failed. Note in particular that this is not yet set
+    /// during the emission of `GTlsConnection::accept`-certificate.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
-    /// The errors noticed-and-ignored while verifying
+    /// The errors noticed while verifying
     /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
     /// it may not be if `GTlsClientConnection:validation`-flags is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if

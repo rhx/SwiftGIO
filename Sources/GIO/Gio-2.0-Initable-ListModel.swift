@@ -30,7 +30,7 @@ import GLibObject
 /// unreferenced).
 /// 
 /// For bindings in languages where the native constructor supports
-/// exceptions the binding could check for objects implemention `GInitable`
+/// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 public protocol InitableProtocol {
@@ -67,7 +67,7 @@ public protocol InitableProtocol {
 /// unreferenced).
 /// 
 /// For bindings in languages where the native constructor supports
-/// exceptions the binding could check for objects implemention `GInitable`
+/// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 public struct InitableRef: InitableProtocol {
@@ -173,7 +173,7 @@ public extension InitableRef {
 /// unreferenced).
 /// 
 /// For bindings in languages where the native constructor supports
-/// exceptions the binding could check for objects implemention `GInitable`
+/// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
 open class Initable: InitableProtocol {
@@ -469,7 +469,7 @@ public extension InitableProtocol {
 /// it are gone.
 /// 
 /// On the other side, a consumer is expected only to hold references on
-/// objects that are currently "user visible", in order to faciliate the
+/// objects that are currently "user visible", in order to facilitate the
 /// maximum level of laziness in the implementation of the list and to
 /// reduce the required number of signal connections at a given time.
 /// 
@@ -529,7 +529,7 @@ public protocol ListModelProtocol {
 /// it are gone.
 /// 
 /// On the other side, a consumer is expected only to hold references on
-/// objects that are currently "user visible", in order to faciliate the
+/// objects that are currently "user visible", in order to facilitate the
 /// maximum level of laziness in the implementation of the list and to
 /// reduce the required number of signal connections at a given time.
 /// 
@@ -658,7 +658,7 @@ public extension ListModelRef {
 /// it are gone.
 /// 
 /// On the other side, a consumer is expected only to hold references on
-/// objects that are currently "user visible", in order to faciliate the
+/// objects that are currently "user visible", in order to facilitate the
 /// maximum level of laziness in the implementation of the list and to
 /// reduce the required number of signal connections at a given time.
 /// 

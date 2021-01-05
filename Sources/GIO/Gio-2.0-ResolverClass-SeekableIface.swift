@@ -612,6 +612,13 @@ public extension ResolverPrivateProtocol {
 /// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
 /// abort.
 /// 
+/// `json-stripblanks` which will use the `json-glib-format` command to strip
+/// ignorable whitespace from the JSON file. For this to work, the
+/// `JSON_GLIB_FORMAT` environment variable must be set to the full path to the
+/// `json-glib-format` executable, or it must be in the `PATH`;
+/// otherwise the preprocessing step is skipped. In addition, at least version
+/// 1.6 of `json-glib-format` is required.
+/// 
 /// Resource files will be exported in the GResource namespace using the
 /// combination of the given `prefix` and the filename from the `file` element.
 /// The `alias` attribute can be used to alter the filename to expose them at a
@@ -749,6 +756,13 @@ public protocol ResourceProtocol {
 /// program must be in the PATH, or the `GDK_PIXBUF_PIXDATA` environment variable must be
 /// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
 /// abort.
+/// 
+/// `json-stripblanks` which will use the `json-glib-format` command to strip
+/// ignorable whitespace from the JSON file. For this to work, the
+/// `JSON_GLIB_FORMAT` environment variable must be set to the full path to the
+/// `json-glib-format` executable, or it must be in the `PATH`;
+/// otherwise the preprocessing step is skipped. In addition, at least version
+/// 1.6 of `json-glib-format` is required.
 /// 
 /// Resource files will be exported in the GResource namespace using the
 /// combination of the given `prefix` and the filename from the `file` element.
@@ -1011,6 +1025,13 @@ public extension ResourceRef {
 /// program must be in the PATH, or the `GDK_PIXBUF_PIXDATA` environment variable must be
 /// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
 /// abort.
+/// 
+/// `json-stripblanks` which will use the `json-glib-format` command to strip
+/// ignorable whitespace from the JSON file. For this to work, the
+/// `JSON_GLIB_FORMAT` environment variable must be set to the full path to the
+/// `json-glib-format` executable, or it must be in the `PATH`;
+/// otherwise the preprocessing step is skipped. In addition, at least version
+/// 1.6 of `json-glib-format` is required.
 /// 
 /// Resource files will be exported in the GResource namespace using the
 /// combination of the given `prefix` and the filename from the `file` element.
