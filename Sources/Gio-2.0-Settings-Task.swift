@@ -7479,13 +7479,13 @@ public enum SocketSignalName: String, SignalNameProtocol {
     case notifyMulticastLoopback = "notify::multicast-loopback"
     /// Time-to-live out outgoing multicast packets
     case notifyMulticastTtl = "notify::multicast-ttl"
-    case notifyProtocol = "notify::protocol"
+    case notifyProtocol_ = "notify::protocol"
     case notifyRemoteAddress = "notify::remote-address"
     /// The timeout in seconds on socket I/O
     case notifyTimeout = "notify::timeout"
     /// Time-to-live for outgoing unicast packets
     case notifyTtl = "notify::ttl"
-    case notifyType = "notify::type"
+    case notifyType_ = "notify::type"
 }
 
 // MARK: Socket has no signals
@@ -10431,13 +10431,13 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     case notifyEnableProxy = "notify::enable-proxy"
     case notifyFamily = "notify::family"
     case notifyLocalAddress = "notify::local-address"
-    case notifyProtocol = "notify::protocol"
+    case notifyProtocol_ = "notify::protocol"
     /// The proxy resolver to use
     case notifyProxyResolver = "notify::proxy-resolver"
     case notifyTimeout = "notify::timeout"
     case notifyTLS = "notify::tls"
     case notifyTLSValidationFlags = "notify::tls-validation-flags"
-    case notifyType = "notify::type"
+    case notifyType_ = "notify::type"
 }
 
 // MARK: SocketClient signals

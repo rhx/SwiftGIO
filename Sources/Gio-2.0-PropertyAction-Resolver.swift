@@ -934,7 +934,7 @@ public enum ProxyAddressSignalName: String, SignalNameProtocol {
     case notifyFlowinfo = "notify::flowinfo"
     case notifyPassword = "notify::password"
     case notifyPort = "notify::port"
-    case notifyProtocol = "notify::protocol"
+    case notifyProtocol_ = "notify::protocol"
     case notifyScopeID = "notify::scope-id"
     /// The URI string that the proxy was constructed from (or `nil`
     /// if the creator didn't specify this).

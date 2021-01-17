@@ -6775,7 +6775,7 @@ public extension DBusObjectManagerClientProtocol {
             return output
         }
         return connect(
-            signal: .notifyGetProxyTypeDestroyNotify,
+            signal: @escaping .notifyGetProxyTypeDestroyNotify,
             flags: flags,
             data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
@@ -6824,7 +6824,7 @@ public extension DBusObjectManagerClientProtocol {
             return output
         }
         return connect(
-            signal: .notifyGetProxyTypeFunc,
+            signal: @escaping .notifyGetProxyTypeFunc,
             flags: flags,
             data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },

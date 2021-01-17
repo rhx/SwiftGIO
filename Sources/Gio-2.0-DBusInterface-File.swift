@@ -4275,7 +4275,7 @@ public extension DtlsConnectionProtocol {
             return output
         }
         return connect(
-            signal: .notifyRequireCloseNotify,
+            signal: @escaping .notifyRequireCloseNotify,
             flags: flags,
             data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },

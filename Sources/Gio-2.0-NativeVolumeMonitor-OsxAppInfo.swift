@@ -1079,7 +1079,7 @@ public enum NetworkServiceSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyDomain = "notify::domain"
-    case notifyProtocol = "notify::protocol"
+    case notifyProtocol_ = "notify::protocol"
     case notifyScheme = "notify::scheme"
     case notifyService = "notify::service"
 }
