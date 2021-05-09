@@ -18,6 +18,8 @@ public protocol FileAttributeInfoListProtocol {
     /// Typed pointer to the underlying `GFileAttributeInfoList` instance.
     var file_attribute_info_list_ptr: UnsafeMutablePointer<GFileAttributeInfoList>! { get }
 
+    /// Required Initialiser for types conforming to `FileAttributeInfoListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileAttributeInfoListRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeInfoList` instance.
@@ -228,7 +230,7 @@ open class FileAttributeInfoList: FileAttributeInfoListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -351,6 +353,8 @@ public protocol FileAttributeMatcherProtocol {
     /// Typed pointer to the underlying `GFileAttributeMatcher` instance.
     var file_attribute_matcher_ptr: UnsafeMutablePointer<GFileAttributeMatcher>! { get }
 
+    /// Required Initialiser for types conforming to `FileAttributeMatcherProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileAttributeMatcherRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeMatcher` instance.
@@ -442,14 +446,14 @@ public extension FileAttributeMatcherRef {
     /// 
     /// The `attributes` string should be formatted with specific keys separated
     /// from namespaces with a double colon. Several "namespace`key`" strings may be
-    /// concatenated with a single comma (e.g. "standard`type`,standard`is`-hidden").
+    /// concatenated with a single comma (e.g. "standard`type`,standard`is-hidden`").
     /// The wildcard "*" may be used to match all keys and namespaces, or
     /// "namespace``*" will match all keys in a given namespace.
     /// 
     /// ## Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
-    /// - `"standard`is`-hidden"`: matches only the key is-hidden in the
+    /// - `"standard`is-hidden`"`: matches only the key is-hidden in the
     ///   standard namespace.
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
@@ -577,7 +581,7 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeMatcherProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -612,14 +616,14 @@ open class FileAttributeMatcher: FileAttributeMatcherProtocol {
     /// 
     /// The `attributes` string should be formatted with specific keys separated
     /// from namespaces with a double colon. Several "namespace`key`" strings may be
-    /// concatenated with a single comma (e.g. "standard`type`,standard`is`-hidden").
+    /// concatenated with a single comma (e.g. "standard`type`,standard`is-hidden`").
     /// The wildcard "*" may be used to match all keys and namespaces, or
     /// "namespace``*" will match all keys in a given namespace.
     /// 
     /// ## Examples of file attribute matcher strings and results
     /// 
     /// - `"*"`: matches all attributes.
-    /// - `"standard`is`-hidden"`: matches only the key is-hidden in the
+    /// - `"standard`is-hidden`"`: matches only the key is-hidden in the
     ///   standard namespace.
     /// - `"standard`type`,unix``*"`: matches the type key in the standard
     ///   namespace and all keys in the unix namespace.
@@ -687,8 +691,20 @@ public extension FileAttributeMatcherProtocol {
     /// a namespace or attribute when the matcher matches everything. This
     /// is a limitation of the current implementation, but may be fixed
     /// in the future.
-    @inlinable func subtract<FileAttributeMatcherT: FileAttributeMatcherProtocol>(subtract: FileAttributeMatcherT) -> FileAttributeMatcherRef! {
-        guard let rv = FileAttributeMatcherRef(gconstpointer: gconstpointer(g_file_attribute_matcher_subtract(file_attribute_matcher_ptr, subtract.file_attribute_matcher_ptr))) else { return nil }
+    @inlinable func subtract(subtract: FileAttributeMatcherRef? = nil) -> FileAttributeMatcherRef! {
+        guard let rv = FileAttributeMatcherRef(gconstpointer: gconstpointer(g_file_attribute_matcher_subtract(file_attribute_matcher_ptr, subtract?.file_attribute_matcher_ptr))) else { return nil }
+        return rv
+    }
+    /// Subtracts all attributes of `subtract` from `matcher` and returns
+    /// a matcher that supports those attributes.
+    /// 
+    /// Note that currently it is not possible to remove a single
+    /// attribute when the `matcher` matches the whole namespace - or remove
+    /// a namespace or attribute when the matcher matches everything. This
+    /// is a limitation of the current implementation, but may be fixed
+    /// in the future.
+    @inlinable func subtract<FileAttributeMatcherT: FileAttributeMatcherProtocol>(subtract: FileAttributeMatcherT?) -> FileAttributeMatcherRef! {
+        guard let rv = FileAttributeMatcherRef(gconstpointer: gconstpointer(g_file_attribute_matcher_subtract(file_attribute_matcher_ptr, subtract?.file_attribute_matcher_ptr))) else { return nil }
         return rv
     }
 
@@ -743,6 +759,8 @@ public protocol FileDescriptorBasedIfaceProtocol {
     /// Typed pointer to the underlying `GFileDescriptorBasedIface` instance.
     var _ptr: UnsafeMutablePointer<GFileDescriptorBasedIface>! { get }
 
+    /// Required Initialiser for types conforming to `FileDescriptorBasedIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileDescriptorBasedIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBasedIface` instance.
@@ -879,6 +897,8 @@ public protocol FileEnumeratorClassProtocol {
     /// Typed pointer to the underlying `GFileEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GFileEnumeratorClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileEnumeratorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GFileEnumeratorClass` instance.
@@ -1037,6 +1057,8 @@ public protocol FileIOStreamClassProtocol {
     /// Typed pointer to the underlying `GFileIOStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileIOStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileIOStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileIOStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileIOStreamClass` instance.
@@ -1197,6 +1219,8 @@ public protocol FileIconClassProtocol {
     /// Typed pointer to the underlying `GFileIconClass` instance.
     var _ptr: UnsafeMutablePointer<GFileIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileIconClassRef` type acts as a lightweight Swift reference to an underlying `GFileIconClass` instance.
@@ -1323,6 +1347,8 @@ public protocol FileIfaceProtocol {
     /// Typed pointer to the underlying `GFileIface` instance.
     var _ptr: UnsafeMutablePointer<GFileIface>! { get }
 
+    /// Required Initialiser for types conforming to `FileIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileIface` instance.
@@ -1670,6 +1696,8 @@ public protocol FileInfoClassProtocol {
     /// Typed pointer to the underlying `GFileInfoClass` instance.
     var _ptr: UnsafeMutablePointer<GFileInfoClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileInfoClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileInfoClassRef` type acts as a lightweight Swift reference to an underlying `GFileInfoClass` instance.
@@ -1796,6 +1824,8 @@ public protocol FileInputStreamClassProtocol {
     /// Typed pointer to the underlying `GFileInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileInputStreamClass` instance.
@@ -1950,6 +1980,8 @@ public protocol FileMonitorClassProtocol {
     /// Typed pointer to the underlying `GFileMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GFileMonitorClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileMonitorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GFileMonitorClass` instance.
@@ -2096,6 +2128,8 @@ public protocol FileOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GFileOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFileOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `FileOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStreamClass` instance.
@@ -2256,6 +2290,8 @@ public protocol FilenameCompleterClassProtocol {
     /// Typed pointer to the underlying `GFilenameCompleterClass` instance.
     var _ptr: UnsafeMutablePointer<GFilenameCompleterClass>! { get }
 
+    /// Required Initialiser for types conforming to `FilenameCompleterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilenameCompleterClassRef` type acts as a lightweight Swift reference to an underlying `GFilenameCompleterClass` instance.
@@ -2396,6 +2432,8 @@ public protocol FilterInputStreamClassProtocol {
     /// Typed pointer to the underlying `GFilterInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFilterInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `FilterInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStreamClass` instance.
@@ -2534,6 +2572,8 @@ public protocol FilterOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GFilterOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GFilterOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `FilterOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStreamClass` instance.
@@ -2658,6 +2698,8 @@ public protocol IOExtensionProtocol {
     /// Typed pointer to the underlying `GIOExtension` instance.
     var _ptr: UnsafeMutablePointer<GIOExtension>! { get }
 
+    /// Required Initialiser for types conforming to `IOExtensionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOExtensionRef` type acts as a lightweight Swift reference to an underlying `GIOExtension` instance.
@@ -2863,7 +2905,7 @@ open class IOExtension: IOExtensionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

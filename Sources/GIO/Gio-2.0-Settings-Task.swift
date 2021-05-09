@@ -58,20 +58,20 @@ import GLibObject
 /// Similar to GConf, the default values in GSettings schemas can be
 /// localized, but the localized values are stored in gettext catalogs
 /// and looked up with the domain that is specified in the
-/// `gettext-domain` attribute of the <schemalist> or <schema>
+/// `gettext-domain` attribute of the &lt;schemalist&gt; or &lt;schema&gt;
 /// elements and the category that is specified in the `l10n` attribute of
-/// the <default> element. The string which is translated includes all text in
-/// the <default> element, including any surrounding quotation marks.
+/// the &lt;default&gt; element. The string which is translated includes all text in
+/// the &lt;default&gt; element, including any surrounding quotation marks.
 /// 
 /// The `l10n` attribute must be set to `messages` or `time`, and sets the
 /// [locale category for
-/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index`-locale-categories-1).
+/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index-locale-categories-1`).
 /// The `messages` category should be used by default; use `time` for
 /// translatable date or time formats. A translation comment can be added as an
-/// XML comment immediately above the <default> element — it is recommended to
+/// XML comment immediately above the &lt;default&gt; element — it is recommended to
 /// add these comments to aid translators understand the meaning and
 /// implications of the default value. An optional translation `context`
-/// attribute can be set on the <default> element to disambiguate multiple
+/// attribute can be set on the &lt;default&gt; element to disambiguate multiple
 /// defaults which use the same string.
 /// 
 /// For example:
@@ -94,7 +94,7 @@ import GLibObject
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
-/// id attribute of the <schema> element). The convention for schema
+/// id attribute of the &lt;schema&gt; element). The convention for schema
 /// ids is to use a dotted name, similar in style to a D-Bus bus name,
 /// e.g. "org.gnome.SessionManager". In particular, if the settings are
 /// for a specific service that owns a D-Bus bus name, the D-Bus bus name
@@ -103,8 +103,8 @@ import GLibObject
 /// StudlyCaps, e.g. "org.gnome.font-rendering".
 /// 
 /// In addition to `GVariant` types, keys can have types that have
-/// enumerated types. These can be described by a <choice>,
-/// <enum> or <flags> element, as seen in the
+/// enumerated types. These can be described by a &lt;choice&gt;,
+/// &lt;enum&gt; or &lt;flags&gt; element, as seen in the
 /// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
@@ -220,7 +220,7 @@ import GLibObject
 /// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
+/// &lt;schema&gt; element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
 /// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
@@ -233,7 +233,7 @@ import GLibObject
 /// `org.foo.MyApp.Window`, it could be instantiated for paths
 /// `/org/foo/MyApp/main/`, `/org/foo/MyApp/document-1/`,
 /// `/org/foo/MyApp/document-2/`, etc. If any of the paths are well-known
-/// they can be specified as <child> elements in the parent schema, e.g.:
+/// they can be specified as &lt;child&gt; elements in the parent schema, e.g.:
 /// ```
 /// <schema id="org.foo.MyApp" path="/org/foo/MyApp/">
 ///   <child name="main" schema="org.foo.MyApp.Window"/>
@@ -271,14 +271,14 @@ import GLibObject
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// GSettings will use gettext to look up translations for the <summary> and
-/// <description> elements, and also any <default> elements which have a `l10n`
+/// GSettings will use gettext to look up translations for the &lt;summary&gt; and
+/// &lt;description&gt; elements, and also any &lt;default&gt; elements which have a `l10n`
 /// attribute set. Translations must not be included in the `.gschema.xml` file
 /// by the build system, for example by using intltool XML rules with a
 /// `.gschema.xml.in` template.
 /// 
 /// If an enumerated type defined in a C header file is to be used in a GSettings
-/// schema, it can either be defined manually using an <enum> element in the
+/// schema, it can either be defined manually using an &lt;enum&gt; element in the
 /// schema XML, or it can be extracted automatically from the C header. This
 /// approach is preferred, as it ensures the two representations are always
 /// synchronised. To do so, add the following to the relevant `Makefile.am`:
@@ -300,6 +300,8 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSettings` instance.
     var settings_ptr: UnsafeMutablePointer<GSettings>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsRef` type acts as a lightweight Swift reference to an underlying `GSettings` instance.
@@ -355,20 +357,20 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// Similar to GConf, the default values in GSettings schemas can be
 /// localized, but the localized values are stored in gettext catalogs
 /// and looked up with the domain that is specified in the
-/// `gettext-domain` attribute of the <schemalist> or <schema>
+/// `gettext-domain` attribute of the &lt;schemalist&gt; or &lt;schema&gt;
 /// elements and the category that is specified in the `l10n` attribute of
-/// the <default> element. The string which is translated includes all text in
-/// the <default> element, including any surrounding quotation marks.
+/// the &lt;default&gt; element. The string which is translated includes all text in
+/// the &lt;default&gt; element, including any surrounding quotation marks.
 /// 
 /// The `l10n` attribute must be set to `messages` or `time`, and sets the
 /// [locale category for
-/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index`-locale-categories-1).
+/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index-locale-categories-1`).
 /// The `messages` category should be used by default; use `time` for
 /// translatable date or time formats. A translation comment can be added as an
-/// XML comment immediately above the <default> element — it is recommended to
+/// XML comment immediately above the &lt;default&gt; element — it is recommended to
 /// add these comments to aid translators understand the meaning and
 /// implications of the default value. An optional translation `context`
-/// attribute can be set on the <default> element to disambiguate multiple
+/// attribute can be set on the &lt;default&gt; element to disambiguate multiple
 /// defaults which use the same string.
 /// 
 /// For example:
@@ -391,7 +393,7 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
-/// id attribute of the <schema> element). The convention for schema
+/// id attribute of the &lt;schema&gt; element). The convention for schema
 /// ids is to use a dotted name, similar in style to a D-Bus bus name,
 /// e.g. "org.gnome.SessionManager". In particular, if the settings are
 /// for a specific service that owns a D-Bus bus name, the D-Bus bus name
@@ -400,8 +402,8 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// StudlyCaps, e.g. "org.gnome.font-rendering".
 /// 
 /// In addition to `GVariant` types, keys can have types that have
-/// enumerated types. These can be described by a <choice>,
-/// <enum> or <flags> element, as seen in the
+/// enumerated types. These can be described by a &lt;choice&gt;,
+/// &lt;enum&gt; or &lt;flags&gt; element, as seen in the
 /// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
@@ -517,7 +519,7 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
+/// &lt;schema&gt; element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
 /// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
@@ -530,7 +532,7 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// `org.foo.MyApp.Window`, it could be instantiated for paths
 /// `/org/foo/MyApp/main/`, `/org/foo/MyApp/document-1/`,
 /// `/org/foo/MyApp/document-2/`, etc. If any of the paths are well-known
-/// they can be specified as <child> elements in the parent schema, e.g.:
+/// they can be specified as &lt;child&gt; elements in the parent schema, e.g.:
 /// ```
 /// <schema id="org.foo.MyApp" path="/org/foo/MyApp/">
 ///   <child name="main" schema="org.foo.MyApp.Window"/>
@@ -568,14 +570,14 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// GSettings will use gettext to look up translations for the <summary> and
-/// <description> elements, and also any <default> elements which have a `l10n`
+/// GSettings will use gettext to look up translations for the &lt;summary&gt; and
+/// &lt;description&gt; elements, and also any &lt;default&gt; elements which have a `l10n`
 /// attribute set. Translations must not be included in the `.gschema.xml` file
 /// by the build system, for example by using intltool XML rules with a
 /// `.gschema.xml.in` template.
 /// 
 /// If an enumerated type defined in a C header file is to be used in a GSettings
-/// schema, it can either be defined manually using an <enum> element in the
+/// schema, it can either be defined manually using an &lt;enum&gt; element in the
 /// schema XML, or it can be extracted automatically from the C header. This
 /// approach is preferred, as it ensures the two representations are always
 /// synchronised. To do so, add the following to the relevant `Makefile.am`:
@@ -878,20 +880,20 @@ public extension SettingsRef {
 /// Similar to GConf, the default values in GSettings schemas can be
 /// localized, but the localized values are stored in gettext catalogs
 /// and looked up with the domain that is specified in the
-/// `gettext-domain` attribute of the <schemalist> or <schema>
+/// `gettext-domain` attribute of the &lt;schemalist&gt; or &lt;schema&gt;
 /// elements and the category that is specified in the `l10n` attribute of
-/// the <default> element. The string which is translated includes all text in
-/// the <default> element, including any surrounding quotation marks.
+/// the &lt;default&gt; element. The string which is translated includes all text in
+/// the &lt;default&gt; element, including any surrounding quotation marks.
 /// 
 /// The `l10n` attribute must be set to `messages` or `time`, and sets the
 /// [locale category for
-/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index`-locale-categories-1).
+/// translation](https://www.gnu.org/software/gettext/manual/html_node/Aspects.html`index-locale-categories-1`).
 /// The `messages` category should be used by default; use `time` for
 /// translatable date or time formats. A translation comment can be added as an
-/// XML comment immediately above the <default> element — it is recommended to
+/// XML comment immediately above the &lt;default&gt; element — it is recommended to
 /// add these comments to aid translators understand the meaning and
 /// implications of the default value. An optional translation `context`
-/// attribute can be set on the <default> element to disambiguate multiple
+/// attribute can be set on the &lt;default&gt; element to disambiguate multiple
 /// defaults which use the same string.
 /// 
 /// For example:
@@ -914,7 +916,7 @@ public extension SettingsRef {
 /// files to have the extension `.gschema.xml`.
 /// 
 /// At runtime, schemas are identified by their id (as specified in the
-/// id attribute of the <schema> element). The convention for schema
+/// id attribute of the &lt;schema&gt; element). The convention for schema
 /// ids is to use a dotted name, similar in style to a D-Bus bus name,
 /// e.g. "org.gnome.SessionManager". In particular, if the settings are
 /// for a specific service that owns a D-Bus bus name, the D-Bus bus name
@@ -923,8 +925,8 @@ public extension SettingsRef {
 /// StudlyCaps, e.g. "org.gnome.font-rendering".
 /// 
 /// In addition to `GVariant` types, keys can have types that have
-/// enumerated types. These can be described by a <choice>,
-/// <enum> or <flags> element, as seen in the
+/// enumerated types. These can be described by a &lt;choice&gt;,
+/// &lt;enum&gt; or &lt;flags&gt; element, as seen in the
 /// [example](#schema-enumerated). The underlying type of such a key
 /// is string, but you can use `g_settings_get_enum()`, `g_settings_set_enum()`,
 /// `g_settings_get_flags()`, `g_settings_set_flags()` access the numeric values
@@ -1040,7 +1042,7 @@ public extension SettingsRef {
 /// ## Relocatable schemas # <a name="gsettings-relocatable"></a>
 /// 
 /// A relocatable schema is one with no `path` attribute specified on its
-/// <schema> element. By using `g_settings_new_with_path()`, a `GSettings` object
+/// &lt;schema&gt; element. By using `g_settings_new_with_path()`, a `GSettings` object
 /// can be instantiated for a relocatable schema, assigning a path to the
 /// instance. Paths passed to `g_settings_new_with_path()` will typically be
 /// constructed dynamically from a constant prefix plus some form of instance
@@ -1053,7 +1055,7 @@ public extension SettingsRef {
 /// `org.foo.MyApp.Window`, it could be instantiated for paths
 /// `/org/foo/MyApp/main/`, `/org/foo/MyApp/document-1/`,
 /// `/org/foo/MyApp/document-2/`, etc. If any of the paths are well-known
-/// they can be specified as <child> elements in the parent schema, e.g.:
+/// they can be specified as &lt;child&gt; elements in the parent schema, e.g.:
 /// ```
 /// <schema id="org.foo.MyApp" path="/org/foo/MyApp/">
 ///   <child name="main" schema="org.foo.MyApp.Window"/>
@@ -1091,14 +1093,14 @@ public extension SettingsRef {
 /// [type: gettext/gsettings]data/org.foo.MyApp.gschema.xml
 /// ```
 /// 
-/// GSettings will use gettext to look up translations for the <summary> and
-/// <description> elements, and also any <default> elements which have a `l10n`
+/// GSettings will use gettext to look up translations for the &lt;summary&gt; and
+/// &lt;description&gt; elements, and also any &lt;default&gt; elements which have a `l10n`
 /// attribute set. Translations must not be included in the `.gschema.xml` file
 /// by the build system, for example by using intltool XML rules with a
 /// `.gschema.xml.in` template.
 /// 
 /// If an enumerated type defined in a C header file is to be used in a GSettings
-/// schema, it can either be defined manually using an <enum> element in the
+/// schema, it can either be defined manually using an &lt;enum&gt; element in the
 /// schema XML, or it can be extracted automatically from the C header. This
 /// approach is preferred, as it ensures the two representations are always
 /// synchronised. To do so, add the following to the relevant `Makefile.am`:
@@ -1213,14 +1215,14 @@ open class Settings: GLibObject.Object, SettingsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2243,7 +2245,7 @@ public extension SettingsProtocol {
     /// `settings`.
     /// 
     /// The schema for the child settings object must have been declared
-    /// in the schema of `settings` using a <child> element.
+    /// in the schema of `settings` using a &lt;child&gt; element.
     @inlinable func getChild(name: UnsafePointer<gchar>!) -> SettingsRef! {
         guard let rv = SettingsRef(gconstpointer: gconstpointer(g_settings_get_child(settings_ptr, name))) else { return nil }
         return rv
@@ -2734,6 +2736,8 @@ public protocol SettingsBackendProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSettingsBackend` instance.
     var settings_backend_ptr: UnsafeMutablePointer<GSettingsBackend>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsBackendProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsBackendRef` type acts as a lightweight Swift reference to an underlying `GSettingsBackend` instance.
@@ -2982,14 +2986,14 @@ open class SettingsBackend: GLibObject.Object, SettingsBackendProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsBackendProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3196,6 +3200,8 @@ public protocol SimpleActionProtocol: GLibObject.ObjectProtocol, ActionProtocol 
     /// Typed pointer to the underlying `GSimpleAction` instance.
     var simple_action_ptr: UnsafeMutablePointer<GSimpleAction>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleActionRef` type acts as a lightweight Swift reference to an underlying `GSimpleAction` instance.
@@ -3426,14 +3432,14 @@ open class SimpleAction: GLibObject.Object, SimpleActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3568,10 +3574,10 @@ public enum SimpleActionSignalName: String, SignalNameProtocol {
     /// 
     /// Since GLib 2.40, if no handler is connected to this signal then the
     /// default behaviour for boolean-stated actions with a `nil` parameter
-    /// type is to toggle them via the `GSimpleAction::change`-state signal.
+    /// type is to toggle them via the `GSimpleAction::change-state` signal.
     /// For stateful actions where the state type is equal to the parameter
     /// type, the default is to forward them directly to
-    /// `GSimpleAction::change`-state.  This should allow almost all users
+    /// `GSimpleAction::change-state`.  This should allow almost all users
     /// of `GSimpleAction` to connect only one handler or the other.
     case activate = "activate"
     /// Indicates that the action just received a request to change its
@@ -3688,10 +3694,10 @@ public extension SimpleActionProtocol {
     /// 
     /// Since GLib 2.40, if no handler is connected to this signal then the
     /// default behaviour for boolean-stated actions with a `nil` parameter
-    /// type is to toggle them via the `GSimpleAction::change`-state signal.
+    /// type is to toggle them via the `GSimpleAction::change-state` signal.
     /// For stateful actions where the state type is equal to the parameter
     /// type, the default is to forward them directly to
-    /// `GSimpleAction::change`-state.  This should allow almost all users
+    /// `GSimpleAction::change-state`.  This should allow almost all users
     /// of `GSimpleAction` to connect only one handler or the other.
     /// - Note: This represents the underlying `activate` signal
     /// - Parameter flags: Flags
@@ -4094,6 +4100,8 @@ public protocol SimpleActionGroupProtocol: GLibObject.ObjectProtocol, ActionGrou
     /// Typed pointer to the underlying `GSimpleActionGroup` instance.
     var simple_action_group_ptr: UnsafeMutablePointer<GSimpleActionGroup>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleActionGroupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleActionGroupRef` type acts as a lightweight Swift reference to an underlying `GSimpleActionGroup` instance.
@@ -4294,14 +4302,14 @@ open class SimpleActionGroup: GLibObject.Object, SimpleActionGroupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleActionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4601,6 +4609,8 @@ public protocol SimpleAsyncResultProtocol: GLibObject.ObjectProtocol, AsyncResul
     /// Typed pointer to the underlying `GSimpleAsyncResult` instance.
     var simple_async_result_ptr: UnsafeMutablePointer<GSimpleAsyncResult>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleAsyncResultProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleAsyncResultRef` type acts as a lightweight Swift reference to an underlying `GSimpleAsyncResult` instance.
@@ -5188,14 +5198,14 @@ open class SimpleAsyncResult: GLibObject.Object, SimpleAsyncResultProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleAsyncResultProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5650,6 +5660,8 @@ public protocol SimpleIOStreamProtocol: IOStreamProtocol {
     /// Typed pointer to the underlying `GSimpleIOStream` instance.
     var simple_io_stream_ptr: UnsafeMutablePointer<GSimpleIOStream>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleIOStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleIOStreamRef` type acts as a lightweight Swift reference to an underlying `GSimpleIOStream` instance.
@@ -5863,14 +5875,14 @@ open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleIOStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6020,6 +6032,8 @@ public protocol SimplePermissionProtocol: PermissionProtocol {
     /// Typed pointer to the underlying `GSimplePermission` instance.
     var simple_permission_ptr: UnsafeMutablePointer<GSimplePermission>! { get }
 
+    /// Required Initialiser for types conforming to `SimplePermissionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimplePermissionRef` type acts as a lightweight Swift reference to an underlying `GSimplePermission` instance.
@@ -6227,14 +6241,14 @@ open class SimplePermission: Permission, SimplePermissionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimplePermissionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6399,6 +6413,8 @@ public protocol SimpleProxyResolverProtocol: GLibObject.ObjectProtocol, ProxyRes
     /// Typed pointer to the underlying `GSimpleProxyResolver` instance.
     var simple_proxy_resolver_ptr: UnsafeMutablePointer<GSimpleProxyResolver>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleProxyResolverProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GSimpleProxyResolver` instance.
@@ -6606,14 +6622,14 @@ open class SimpleProxyResolver: GLibObject.Object, SimpleProxyResolverProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SimpleProxyResolverProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6637,7 +6653,7 @@ open class SimpleProxyResolver: GLibObject.Object, SimpleProxyResolverProtocol {
 
 public enum SimpleProxyResolverPropertyName: String, PropertyNameProtocol {
     /// The default proxy URI that will be used for any URI that doesn't
-    /// match `GSimpleProxyResolver:ignore`-hosts, and doesn't match any
+    /// match `GSimpleProxyResolver:ignore-hosts`, and doesn't match any
     /// of the schemes set with `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// Note that as a special case, if this URI starts with
@@ -6761,7 +6777,7 @@ public enum SimpleProxyResolverSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The default proxy URI that will be used for any URI that doesn't
-    /// match `GSimpleProxyResolver:ignore`-hosts, and doesn't match any
+    /// match `GSimpleProxyResolver:ignore-hosts`, and doesn't match any
     /// of the schemes set with `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// Note that as a special case, if this URI starts with
@@ -6812,7 +6828,7 @@ public extension SimpleProxyResolverProtocol {
     @inlinable var simple_proxy_resolver_ptr: UnsafeMutablePointer<GSimpleProxyResolver>! { return ptr?.assumingMemoryBound(to: GSimpleProxyResolver.self) }
 
     /// Sets the default proxy on `resolver`, to be used for any URIs that
-    /// don't match `GSimpleProxyResolver:ignore`-hosts or a proxy set
+    /// don't match `GSimpleProxyResolver:ignore-hosts` or a proxy set
     /// via `g_simple_proxy_resolver_set_uri_proxy()`.
     /// 
     /// If `default_proxy` starts with "socks://",
@@ -6825,7 +6841,7 @@ public extension SimpleProxyResolverProtocol {
 
     /// Sets the list of ignored hosts.
     /// 
-    /// See `GSimpleProxyResolver:ignore`-hosts for more details on how the
+    /// See `GSimpleProxyResolver:ignore-hosts` for more details on how the
     /// `ignore_hosts` argument is interpreted.
     @inlinable func set(ignoreHosts: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!) {
         g_simple_proxy_resolver_set_ignore_hosts(simple_proxy_resolver_ptr, ignoreHosts)
@@ -6834,9 +6850,9 @@ public extension SimpleProxyResolverProtocol {
 
     /// Adds a URI-scheme-specific proxy to `resolver`; URIs whose scheme
     /// matches `uri_scheme` (and which don't match
-    /// `GSimpleProxyResolver:ignore`-hosts) will be proxied via `proxy`.
+    /// `GSimpleProxyResolver:ignore-hosts`) will be proxied via `proxy`.
     /// 
-    /// As with `GSimpleProxyResolver:default`-proxy, if `proxy` starts with
+    /// As with `GSimpleProxyResolver:default-proxy`, if `proxy` starts with
     /// "socks://", `GSimpleProxyResolver` will treat it
     /// as referring to all three of the socks5, socks4a, and socks4 proxy
     /// types.
@@ -6923,6 +6939,8 @@ public protocol SocketProtocol: GLibObject.ObjectProtocol, DatagramBasedProtocol
     /// Typed pointer to the underlying `GSocket` instance.
     var socket_ptr: UnsafeMutablePointer<GSocket>! { get }
 
+    /// Required Initialiser for types conforming to `SocketProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketRef` type acts as a lightweight Swift reference to an underlying `GSocket` instance.
@@ -7275,14 +7293,14 @@ open class Socket: GLibObject.Object, SocketProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -7924,7 +7942,7 @@ public extension SocketProtocol {
     /// `getsockopt()`. (If you need to fetch a  non-integer-valued option,
     /// you will need to call `getsockopt()` directly.)
     /// 
-    /// The [<gio/gnetworking.h>](#gio-gnetworking.h)
+    /// The [&lt;gio/gnetworking.h&gt;](#gio-gnetworking.h)
     /// header pulls in system headers that will define most of the
     /// standard/portable socket options. For unusual socket protocols or
     /// platform-dependent options, you may need to include additional
@@ -8485,6 +8503,11 @@ public extension SocketProtocol {
     /// notified of a `G_IO_OUT` condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
     /// 
+    /// The sum of the sizes of each `GOutputVector` in vectors must not be
+    /// greater than `G_MAXSSIZE`. If the message can be larger than this,
+    /// then it is mandatory to use the `g_socket_send_message_with_timeout()`
+    /// function.
+    /// 
     /// On error -1 is returned and `error` is set accordingly.
     @inlinable func sendMessage(address: SocketAddressRef? = nil, vectors: UnsafeMutablePointer<GOutputVector>!, numVectors: Int, messages: UnsafeMutablePointer<UnsafeMutablePointer<GSocketControlMessage>?>! = nil, numMessages: Int, flags: Int, cancellable: CancellableRef? = nil) throws -> gssize {
         var error: UnsafeMutablePointer<GError>?
@@ -8527,6 +8550,11 @@ public extension SocketProtocol {
     /// `G_IO_ERROR_WOULD_BLOCK` from `g_socket_send()` even if you were previously
     /// notified of a `G_IO_OUT` condition. (On Windows in particular, this is
     /// very common due to the way the underlying APIs work.)
+    /// 
+    /// The sum of the sizes of each `GOutputVector` in vectors must not be
+    /// greater than `G_MAXSSIZE`. If the message can be larger than this,
+    /// then it is mandatory to use the `g_socket_send_message_with_timeout()`
+    /// function.
     /// 
     /// On error -1 is returned and `error` is set accordingly.
     @inlinable func sendMessage<CancellableT: CancellableProtocol, SocketAddressT: SocketAddressProtocol>(address: SocketAddressT?, vectors: UnsafeMutablePointer<GOutputVector>!, numVectors: Int, messages: UnsafeMutablePointer<UnsafeMutablePointer<GSocketControlMessage>?>! = nil, numMessages: Int, flags: Int, cancellable: CancellableT?) throws -> gssize {
@@ -8759,7 +8787,7 @@ public extension SocketProtocol {
     /// `setsockopt()`. (If you need to set a non-integer-valued option,
     /// you will need to call `setsockopt()` directly.)
     /// 
-    /// The [<gio/gnetworking.h>](#gio-gnetworking.h)
+    /// The [&lt;gio/gnetworking.h&gt;](#gio-gnetworking.h)
     /// header pulls in system headers that will define most of the
     /// standard/portable socket options. For unusual socket protocols or
     /// platform-dependent options, you may need to include additional
@@ -9212,6 +9240,8 @@ public protocol SocketAddressProtocol: GLibObject.ObjectProtocol, SocketConnecta
     /// Typed pointer to the underlying `GSocketAddress` instance.
     var socket_address_ptr: UnsafeMutablePointer<GSocketAddress>! { get }
 
+    /// Required Initialiser for types conforming to `SocketAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketAddressRef` type acts as a lightweight Swift reference to an underlying `GSocketAddress` instance.
@@ -9421,14 +9451,14 @@ open class SocketAddress: GLibObject.Object, SocketAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9642,6 +9672,8 @@ public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSocketAddressEnumerator` instance.
     var socket_address_enumerator_ptr: UnsafeMutablePointer<GSocketAddressEnumerator>! { get }
 
+    /// Required Initialiser for types conforming to `SocketAddressEnumeratorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressEnumerator` instance.
@@ -9861,14 +9893,14 @@ open class SocketAddressEnumerator: GLibObject.Object, SocketAddressEnumeratorPr
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketAddressEnumeratorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10029,6 +10061,8 @@ public protocol SocketClientProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSocketClient` instance.
     var socket_client_ptr: UnsafeMutablePointer<GSocketClient>! { get }
 
+    /// Required Initialiser for types conforming to `SocketClientProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketClientRef` type acts as a lightweight Swift reference to an underlying `GSocketClient` instance.
@@ -10251,14 +10285,14 @@ open class SocketClient: GLibObject.Object, SocketClientProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketClientProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10397,7 +10431,7 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     /// multiple times (or not at all) for a given connectable (in
     /// particular, if `client` ends up attempting to connect to more than
     /// one address). However, if `client` emits the `GSocketClient::event`
-    /// signal at all for a given connectable, that it will always emit
+    /// signal at all for a given connectable, then it will always emit
     /// it with `G_SOCKET_CLIENT_COMPLETE` when it is done.
     /// 
     /// Note that there may be additional `GSocketClientEvent` values in
@@ -10512,7 +10546,7 @@ public extension SocketClientProtocol {
     /// multiple times (or not at all) for a given connectable (in
     /// particular, if `client` ends up attempting to connect to more than
     /// one address). However, if `client` emits the `GSocketClient::event`
-    /// signal at all for a given connectable, that it will always emit
+    /// signal at all for a given connectable, then it will always emit
     /// it with `G_SOCKET_CLIENT_COMPLETE` when it is done.
     /// 
     /// Note that there may be additional `GSocketClientEvent` values in
@@ -11067,6 +11101,15 @@ public extension SocketClientProtocol {
 
     /// This is the asynchronous version of `g_socket_client_connect()`.
     /// 
+    /// You may wish to prefer the asynchronous version even in synchronous
+    /// command line programs because, since 2.60, it implements
+    /// [RFC 8305](https://tools.ietf.org/html/rfc8305) "Happy Eyeballs"
+    /// recommendations to work around long connection timeouts in networks
+    /// where IPv6 is broken by performing an IPv4 connection simultaneously
+    /// without waiting for IPv6 to time out, which is not supported by the
+    /// synchronous call. (This is not an API guarantee, and may change in
+    /// the future.)
+    /// 
     /// When the operation is finished `callback` will be
     /// called. You can then call `g_socket_client_connect_finish()` to get
     /// the result of the operation.
@@ -11075,6 +11118,15 @@ public extension SocketClientProtocol {
     
     }
     /// This is the asynchronous version of `g_socket_client_connect()`.
+    /// 
+    /// You may wish to prefer the asynchronous version even in synchronous
+    /// command line programs because, since 2.60, it implements
+    /// [RFC 8305](https://tools.ietf.org/html/rfc8305) "Happy Eyeballs"
+    /// recommendations to work around long connection timeouts in networks
+    /// where IPv6 is broken by performing an IPv4 connection simultaneously
+    /// without waiting for IPv6 to time out, which is not supported by the
+    /// synchronous call. (This is not an API guarantee, and may change in
+    /// the future.)
     /// 
     /// When the operation is finished `callback` will be
     /// called. You can then call `g_socket_client_connect_finish()` to get
@@ -11467,7 +11519,7 @@ public extension SocketClientProtocol {
     /// default proxy settings.
     /// 
     /// Note that whether or not the proxy resolver is actually used
-    /// depends on the setting of `GSocketClient:enable`-proxy, which is not
+    /// depends on the setting of `GSocketClient:enable-proxy`, which is not
     /// changed by this function (but which is `true` by default)
     @inlinable func set(proxyResolver: ProxyResolverRef? = nil) {
         g_socket_client_set_proxy_resolver(socket_client_ptr, proxyResolver?.proxy_resolver_ptr)
@@ -11478,7 +11530,7 @@ public extension SocketClientProtocol {
     /// default proxy settings.
     /// 
     /// Note that whether or not the proxy resolver is actually used
-    /// depends on the setting of `GSocketClient:enable`-proxy, which is not
+    /// depends on the setting of `GSocketClient:enable-proxy`, which is not
     /// changed by this function (but which is `true` by default)
     @inlinable func set<ProxyResolverT: ProxyResolverProtocol>(proxyResolver: ProxyResolverT?) {
         g_socket_client_set_proxy_resolver(socket_client_ptr, proxyResolver?.proxy_resolver_ptr)
@@ -11520,7 +11572,7 @@ public extension SocketClientProtocol {
     /// 
     /// If you need to modify the behavior of the TLS handshake (eg, by
     /// setting a client-side certificate to use, or connecting to the
-    /// `GTlsConnection::accept`-certificate signal), you can connect to
+    /// `GTlsConnection::accept-certificate` signal), you can connect to
     /// `client`'s `GSocketClient::event` signal and wait for it to be
     /// emitted with `G_SOCKET_CLIENT_TLS_HANDSHAKING`, which will give you
     /// a chance to see the `GTlsClientConnection` before the handshake
@@ -11633,7 +11685,7 @@ public extension SocketClientProtocol {
         /// default proxy settings.
         /// 
         /// Note that whether or not the proxy resolver is actually used
-        /// depends on the setting of `GSocketClient:enable`-proxy, which is not
+        /// depends on the setting of `GSocketClient:enable-proxy`, which is not
         /// changed by this function (but which is `true` by default)
         nonmutating set {
             g_socket_client_set_proxy_resolver(socket_client_ptr, UnsafeMutablePointer<GProxyResolver>(newValue?.proxy_resolver_ptr))
@@ -11701,7 +11753,7 @@ public extension SocketClientProtocol {
         /// 
         /// If you need to modify the behavior of the TLS handshake (eg, by
         /// setting a client-side certificate to use, or connecting to the
-        /// `GTlsConnection::accept`-certificate signal), you can connect to
+        /// `GTlsConnection::accept-certificate` signal), you can connect to
         /// `client`'s `GSocketClient::event` signal and wait for it to be
         /// emitted with `G_SOCKET_CLIENT_TLS_HANDSHAKING`, which will give you
         /// a chance to see the `GTlsClientConnection` before the handshake
@@ -11770,6 +11822,8 @@ public protocol SocketConnectionProtocol: IOStreamProtocol {
     /// Typed pointer to the underlying `GSocketConnection` instance.
     var socket_connection_ptr: UnsafeMutablePointer<GSocketConnection>! { get }
 
+    /// Required Initialiser for types conforming to `SocketConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketConnectionRef` type acts as a lightweight Swift reference to an underlying `GSocketConnection` instance.
@@ -11993,14 +12047,14 @@ open class SocketConnection: IOStream, SocketConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -12298,6 +12352,8 @@ public protocol SocketControlMessageProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSocketControlMessage` instance.
     var socket_control_message_ptr: UnsafeMutablePointer<GSocketControlMessage>! { get }
 
+    /// Required Initialiser for types conforming to `SocketControlMessageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketControlMessageRef` type acts as a lightweight Swift reference to an underlying `GSocketControlMessage` instance.
@@ -12540,14 +12596,14 @@ open class SocketControlMessage: GLibObject.Object, SocketControlMessageProtocol
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketControlMessageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -12723,6 +12779,8 @@ public protocol SocketListenerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSocketListener` instance.
     var socket_listener_ptr: UnsafeMutablePointer<GSocketListener>! { get }
 
+    /// Required Initialiser for types conforming to `SocketListenerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketListenerRef` type acts as a lightweight Swift reference to an underlying `GSocketListener` instance.
@@ -12949,14 +13007,14 @@ open class SocketListener: GLibObject.Object, SocketListenerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketListenerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -13558,6 +13616,8 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
     /// Typed pointer to the underlying `GSocketService` instance.
     var socket_service_ptr: UnsafeMutablePointer<GSocketService>! { get }
 
+    /// Required Initialiser for types conforming to `SocketServiceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketServiceRef` type acts as a lightweight Swift reference to an underlying `GSocketService` instance.
@@ -13812,14 +13872,14 @@ open class SocketService: SocketListener, SocketServiceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketServiceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -14200,6 +14260,8 @@ public protocol SubprocessProtocol: GLibObject.ObjectProtocol, InitableProtocol 
     /// Typed pointer to the underlying `GSubprocess` instance.
     var subprocess_ptr: UnsafeMutablePointer<GSubprocess>! { get }
 
+    /// Required Initialiser for types conforming to `SubprocessProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SubprocessRef` type acts as a lightweight Swift reference to an underlying `GSubprocess` instance.
@@ -14522,14 +14584,14 @@ open class Subprocess: GLibObject.Object, SubprocessProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -14905,8 +14967,8 @@ public extension SubprocessProtocol {
     /// Gets the `GInputStream` from which to read the stderr output of
     /// `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDERR_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDERR_PIPE`,
+    /// otherwise `nil` will be returned.
     @inlinable func getStderrPipe() -> InputStreamRef! {
         let rv = InputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stderr_pipe(subprocess_ptr)))
         return rv
@@ -14915,8 +14977,8 @@ public extension SubprocessProtocol {
     /// Gets the `GOutputStream` that you can write to in order to give data
     /// to the stdin of `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDIN_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDIN_PIPE` and
+    /// not `G_SUBPROCESS_FLAGS_STDIN_INHERIT`, otherwise `nil` will be returned.
     @inlinable func getStdinPipe() -> OutputStreamRef! {
         let rv = OutputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stdin_pipe(subprocess_ptr)))
         return rv
@@ -14925,8 +14987,8 @@ public extension SubprocessProtocol {
     /// Gets the `GInputStream` from which to read the stdout output of
     /// `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDOUT_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDOUT_PIPE`,
+    /// otherwise `nil` will be returned.
     @inlinable func getStdoutPipe() -> InputStreamRef! {
         let rv = InputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stdout_pipe(subprocess_ptr)))
         return rv
@@ -15172,14 +15234,14 @@ public extension SubprocessProtocol {
     /// Gets the `GInputStream` from which to read the stderr output of
     /// `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDERR_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDERR_PIPE`,
+    /// otherwise `nil` will be returned.
     @inlinable var stderrPipe: InputStreamRef! {
         /// Gets the `GInputStream` from which to read the stderr output of
         /// `subprocess`.
         /// 
-        /// The process must have been created with
-        /// `G_SUBPROCESS_FLAGS_STDERR_PIPE`.
+        /// The process must have been created with `G_SUBPROCESS_FLAGS_STDERR_PIPE`,
+        /// otherwise `nil` will be returned.
         get {
             let rv = InputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stderr_pipe(subprocess_ptr)))
             return rv
@@ -15189,14 +15251,14 @@ public extension SubprocessProtocol {
     /// Gets the `GOutputStream` that you can write to in order to give data
     /// to the stdin of `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDIN_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDIN_PIPE` and
+    /// not `G_SUBPROCESS_FLAGS_STDIN_INHERIT`, otherwise `nil` will be returned.
     @inlinable var stdinPipe: OutputStreamRef! {
         /// Gets the `GOutputStream` that you can write to in order to give data
         /// to the stdin of `subprocess`.
         /// 
-        /// The process must have been created with
-        /// `G_SUBPROCESS_FLAGS_STDIN_PIPE`.
+        /// The process must have been created with `G_SUBPROCESS_FLAGS_STDIN_PIPE` and
+        /// not `G_SUBPROCESS_FLAGS_STDIN_INHERIT`, otherwise `nil` will be returned.
         get {
             let rv = OutputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stdin_pipe(subprocess_ptr)))
             return rv
@@ -15206,14 +15268,14 @@ public extension SubprocessProtocol {
     /// Gets the `GInputStream` from which to read the stdout output of
     /// `subprocess`.
     /// 
-    /// The process must have been created with
-    /// `G_SUBPROCESS_FLAGS_STDOUT_PIPE`.
+    /// The process must have been created with `G_SUBPROCESS_FLAGS_STDOUT_PIPE`,
+    /// otherwise `nil` will be returned.
     @inlinable var stdoutPipe: InputStreamRef! {
         /// Gets the `GInputStream` from which to read the stdout output of
         /// `subprocess`.
         /// 
-        /// The process must have been created with
-        /// `G_SUBPROCESS_FLAGS_STDOUT_PIPE`.
+        /// The process must have been created with `G_SUBPROCESS_FLAGS_STDOUT_PIPE`,
+        /// otherwise `nil` will be returned.
         get {
             let rv = InputStreamRef(gconstpointer: gconstpointer(g_subprocess_get_stdout_pipe(subprocess_ptr)))
             return rv
@@ -15287,6 +15349,8 @@ public protocol SubprocessLauncherProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GSubprocessLauncher` instance.
     var subprocess_launcher_ptr: UnsafeMutablePointer<GSubprocessLauncher>! { get }
 
+    /// Required Initialiser for types conforming to `SubprocessLauncherProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SubprocessLauncherRef` type acts as a lightweight Swift reference to an underlying `GSubprocessLauncher` instance.
@@ -15503,14 +15567,14 @@ open class SubprocessLauncher: GLibObject.Object, SubprocessLauncherProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SubprocessLauncherProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -15718,7 +15782,7 @@ public extension SubprocessLauncherProtocol {
     /// If `path` is `nil` then any previously given path is unset.
     /// 
     /// The file will be created or truncated when the process is spawned, as
-    /// would be the case if using '2>' at the shell.
+    /// would be the case if using '2&gt;' at the shell.
     /// 
     /// If you want to send both stdout and stderr to the same file then use
     /// `G_SUBPROCESS_FLAGS_STDERR_MERGE`.
@@ -15752,7 +15816,7 @@ public extension SubprocessLauncherProtocol {
     /// If `path` is `nil` then any previously given path is unset.
     /// 
     /// The file will be created or truncated when the process is spawned, as
-    /// would be the case if using '>' at the shell.
+    /// would be the case if using '&gt;' at the shell.
     /// 
     /// You may not set a stdout file path if a stdout fd is already set or
     /// if the launcher flags contain any flags directing stdout elsewhere.
@@ -15787,16 +15851,16 @@ public extension SubprocessLauncherProtocol {
     }
 
     /// Transfer an arbitrary file descriptor from parent process to the
-    /// child.  This function takes "ownership" of the fd; it will be closed
+    /// child.  This function takes ownership of the `source_fd`; it will be closed
     /// in the parent when `self` is freed.
     /// 
     /// By default, all file descriptors from the parent will be closed.
-    /// This function allows you to create (for example) a custom `pipe()` or
-    /// `socketpair()` before launching the process, and choose the target
+    /// This function allows you to create (for example) a custom ``pipe()`` or
+    /// ``socketpair()`` before launching the process, and choose the target
     /// descriptor in the child.
     /// 
     /// An example use case is GNUPG, which has a command line argument
-    /// --passphrase-fd providing a file descriptor number where it expects
+    /// `--passphrase-fd` providing a file descriptor number where it expects
     /// the passphrase to be written.
     @inlinable func takeFd(sourceFd: Int, targetFd: Int) {
         g_subprocess_launcher_take_fd(subprocess_launcher_ptr, gint(sourceFd), gint(targetFd))
@@ -16400,6 +16464,8 @@ public protocol TaskProtocol: GLibObject.ObjectProtocol, AsyncResultProtocol {
     /// Typed pointer to the underlying `GTask` instance.
     var task_ptr: UnsafeMutablePointer<GTask>! { get }
 
+    /// Required Initialiser for types conforming to `TaskProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TaskRef` type acts as a lightweight Swift reference to an underlying `GTask` instance.
@@ -17615,14 +17681,14 @@ open class Task: GLibObject.Object, TaskProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TaskProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

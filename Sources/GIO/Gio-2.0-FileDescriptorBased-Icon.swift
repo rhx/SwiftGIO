@@ -12,7 +12,7 @@ import GLibObject
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
-/// Note that `<gio/gfiledescriptorbased.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public protocol FileDescriptorBasedProtocol {
@@ -22,6 +22,8 @@ public protocol FileDescriptorBasedProtocol {
     /// Typed pointer to the underlying `GFileDescriptorBased` instance.
     var file_descriptor_based_ptr: UnsafeMutablePointer<GFileDescriptorBased>! { get }
 
+    /// Required Initialiser for types conforming to `FileDescriptorBasedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileDescriptorBasedRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBased` instance.
@@ -31,7 +33,7 @@ public protocol FileDescriptorBasedProtocol {
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
-/// Note that `<gio/gfiledescriptorbased.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public struct FileDescriptorBasedRef: FileDescriptorBasedProtocol {
@@ -119,7 +121,7 @@ public extension FileDescriptorBasedRef {
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
-/// Note that `<gio/gfiledescriptorbased.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 open class FileDescriptorBased: FileDescriptorBasedProtocol {
@@ -235,7 +237,7 @@ open class FileDescriptorBased: FileDescriptorBasedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileDescriptorBasedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -337,6 +339,8 @@ public protocol IconProtocol {
     /// Typed pointer to the underlying `GIcon` instance.
     var icon_ptr: UnsafeMutablePointer<GIcon>! { get }
 
+    /// Required Initialiser for types conforming to `IconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconRef` type acts as a lightweight Swift reference to an underlying `GIcon` instance.
@@ -613,7 +617,7 @@ open class Icon: IconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -36,6 +36,8 @@ public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
     /// Typed pointer to the underlying `GFileIOStream` instance.
     var file_io_stream_ptr: UnsafeMutablePointer<GFileIOStream>! { get }
 
+    /// Required Initialiser for types conforming to `FileIOStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileIOStreamRef` type acts as a lightweight Swift reference to an underlying `GFileIOStream` instance.
@@ -267,14 +269,14 @@ open class FileIOStream: IOStream, FileIOStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIOStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -518,6 +520,8 @@ public protocol FileIconProtocol: GLibObject.ObjectProtocol, IconProtocol, Loada
     /// Typed pointer to the underlying `GFileIcon` instance.
     var file_icon_ptr: UnsafeMutablePointer<GFileIcon>! { get }
 
+    /// Required Initialiser for types conforming to `FileIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileIconRef` type acts as a lightweight Swift reference to an underlying `GFileIcon` instance.
@@ -713,14 +717,14 @@ open class FileIcon: GLibObject.Object, FileIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -893,6 +897,8 @@ public protocol FileInfoProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GFileInfo` instance.
     var file_info_ptr: UnsafeMutablePointer<GFileInfo>! { get }
 
+    /// Required Initialiser for types conforming to `FileInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileInfoRef` type acts as a lightweight Swift reference to an underlying `GFileInfo` instance.
@@ -1137,14 +1143,14 @@ open class FileInfo: GLibObject.Object, FileInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInfoProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1413,7 +1419,9 @@ public extension FileInfoProtocol {
         return rv
     }
 
-    /// Gets the file's size.
+    /// Gets the file's size (in bytes). The size is retrieved through the value of
+    /// the `G_FILE_ATTRIBUTE_STANDARD_SIZE` attribute and is converted
+    /// from `guint64` to `goffset` before returning the result.
     @inlinable func getSize() -> goffset {
         let rv = g_file_info_get_size(file_info_ptr)
         return rv
@@ -1834,9 +1842,13 @@ public extension FileInfoProtocol {
         }
     }
 
-    /// Gets the file's size.
+    /// Gets the file's size (in bytes). The size is retrieved through the value of
+    /// the `G_FILE_ATTRIBUTE_STANDARD_SIZE` attribute and is converted
+    /// from `guint64` to `goffset` before returning the result.
     @inlinable var size: goffset {
-        /// Gets the file's size.
+        /// Gets the file's size (in bytes). The size is retrieved through the value of
+        /// the `G_FILE_ATTRIBUTE_STANDARD_SIZE` attribute and is converted
+        /// from `guint64` to `goffset` before returning the result.
         get {
             let rv = g_file_info_get_size(file_info_ptr)
             return rv
@@ -1920,6 +1932,8 @@ public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
     /// Typed pointer to the underlying `GFileInputStream` instance.
     var file_input_stream_ptr: UnsafeMutablePointer<GFileInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `FileInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileInputStream` instance.
@@ -2129,14 +2143,14 @@ open class FileInputStream: InputStream, FileInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2298,6 +2312,8 @@ public protocol FileMonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GFileMonitor` instance.
     var file_monitor_ptr: UnsafeMutablePointer<GFileMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `FileMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileMonitorRef` type acts as a lightweight Swift reference to an underlying `GFileMonitor` instance.
@@ -2517,14 +2533,14 @@ open class FileMonitor: GLibObject.Object, FileMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2925,6 +2941,8 @@ public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol
     /// Typed pointer to the underlying `GFileOutputStream` instance.
     var file_output_stream_ptr: UnsafeMutablePointer<GFileOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `FileOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStream` instance.
@@ -3144,14 +3162,14 @@ open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3337,6 +3355,8 @@ public protocol FilenameCompleterProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GFilenameCompleter` instance.
     var filename_completer_ptr: UnsafeMutablePointer<GFilenameCompleter>! { get }
 
+    /// Required Initialiser for types conforming to `FilenameCompleterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilenameCompleterRef` type acts as a lightweight Swift reference to an underlying `GFilenameCompleter` instance.
@@ -3539,14 +3559,14 @@ open class FilenameCompleter: GLibObject.Object, FilenameCompleterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilenameCompleterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3710,6 +3730,8 @@ public protocol FilterInputStreamProtocol: InputStreamProtocol {
     /// Typed pointer to the underlying `GFilterInputStream` instance.
     var filter_input_stream_ptr: UnsafeMutablePointer<GFilterInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `FilterInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStream` instance.
@@ -3909,14 +3931,14 @@ open class FilterInputStream: InputStream, FilterInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4110,6 +4132,8 @@ public protocol FilterOutputStreamProtocol: OutputStreamProtocol {
     /// Typed pointer to the underlying `GFilterOutputStream` instance.
     var filter_output_stream_ptr: UnsafeMutablePointer<GFilterOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `FilterOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FilterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStream` instance.
@@ -4309,14 +4333,14 @@ open class FilterOutputStream: OutputStream, FilterOutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FilterOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4509,6 +4533,8 @@ public protocol IOModuleProtocol: GLibObject.TypeModuleProtocol, GLibObject.Type
     /// Typed pointer to the underlying `GIOModule` instance.
     var io_module_ptr: UnsafeMutablePointer<GIOModule>! { get }
 
+    /// Required Initialiser for types conforming to `IOModuleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOModuleRef` type acts as a lightweight Swift reference to an underlying `GIOModule` instance.
@@ -4712,14 +4738,14 @@ open class IOModule: GLibObject.TypeModule, IOModuleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4791,7 +4817,7 @@ public extension IOModuleProtocol {
     /// to initialize the module. Typically, this function will call
     /// `g_io_extension_point_implement()`.
     /// 
-    /// Since 2.56, this function should be named `g_io_<modulename>_load`, where
+    /// Since 2.56, this function should be named `g_io_&lt;modulename&gt;_load`, where
     /// `modulename` is the plugin’s filename with the `lib` or `libgio` prefix and
     /// everything after the first dot removed, and with `-` replaced with `_`
     /// throughout. For example, `libgiognutls-helper.so` becomes `gnutls_helper`.
@@ -4808,7 +4834,7 @@ public extension IOModuleProtocol {
     /// This function is run when the module is being unloaded from GIO,
     /// to finalize the module.
     /// 
-    /// Since 2.56, this function should be named `g_io_<modulename>_unload`, where
+    /// Since 2.56, this function should be named `g_io_&lt;modulename&gt;_unload`, where
     /// `modulename` is the plugin’s filename with the `lib` or `libgio` prefix and
     /// everything after the first dot removed, and with `-` replaced with `_`
     /// throughout. For example, `libgiognutls-helper.so` becomes `gnutls_helper`.

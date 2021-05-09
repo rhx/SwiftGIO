@@ -22,6 +22,8 @@ public protocol EmblemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
     /// Typed pointer to the underlying `GEmblemedIcon` instance.
     var emblemed_icon_ptr: UnsafeMutablePointer<GEmblemedIcon>! { get }
 
+    /// Required Initialiser for types conforming to `EmblemedIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EmblemedIconRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIcon` instance.
@@ -225,14 +227,14 @@ open class EmblemedIcon: GLibObject.Object, EmblemedIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EmblemedIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -440,6 +442,8 @@ public protocol FileEnumeratorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GFileEnumerator` instance.
     var file_enumerator_ptr: UnsafeMutablePointer<GFileEnumerator>! { get }
 
+    /// Required Initialiser for types conforming to `FileEnumeratorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GFileEnumerator` instance.
@@ -683,14 +687,14 @@ open class FileEnumerator: GLibObject.Object, FileEnumeratorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileEnumeratorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

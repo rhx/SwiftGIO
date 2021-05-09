@@ -33,6 +33,8 @@ public protocol AppInfoMonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GAppInfoMonitor` instance.
     var app_info_monitor_ptr: UnsafeMutablePointer<GAppInfoMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `AppInfoMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppInfoMonitorRef` type acts as a lightweight Swift reference to an underlying `GAppInfoMonitor` instance.
@@ -271,14 +273,14 @@ open class AppInfoMonitor: GLibObject.Object, AppInfoMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -433,6 +435,8 @@ public protocol AppLaunchContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GAppLaunchContext` instance.
     var app_launch_context_ptr: UnsafeMutablePointer<GAppLaunchContext>! { get }
 
+    /// Required Initialiser for types conforming to `AppLaunchContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppLaunchContextRef` type acts as a lightweight Swift reference to an underlying `GAppLaunchContext` instance.
@@ -636,14 +640,14 @@ open class AppLaunchContext: GLibObject.Object, AppLaunchContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -675,7 +679,7 @@ open class AppLaunchContext: GLibObject.Object, AppLaunchContextProtocol {
 // MARK: no AppLaunchContext properties
 
 public enum AppLaunchContextSignalName: String, SignalNameProtocol {
-    /// The `launch`-failed signal is emitted when a `GAppInfo` launch
+    /// The `launch-failed` signal is emitted when a `GAppInfo` launch
     /// fails. The startup notification id is provided, so that the launcher
     /// can cancel the startup notification.
     case launchFailed = "launch-failed"
@@ -741,7 +745,7 @@ public extension AppLaunchContextProtocol {
     }
     
     
-    /// The `launch`-failed signal is emitted when a `GAppInfo` launch
+    /// The `launch-failed` signal is emitted when a `GAppInfo` launch
     /// fails. The startup notification id is provided, so that the launcher
     /// can cancel the startup notification.
     /// - Note: This represents the underlying `launch-failed` signal
@@ -974,7 +978,7 @@ public extension AppLaunchContextProtocol {
 /// 
 /// If used, the expected form of an application identifier is the same as
 /// that of of a
-/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
+/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message-protocol-names-bus`).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
 /// For details on valid application identifiers, see `g_application_id_is_valid()`.
@@ -1036,7 +1040,7 @@ public extension AppLaunchContextProtocol {
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication::command`-line signal or override the `local_command_line()`
+/// `GApplication::command-line` signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -1055,6 +1059,8 @@ public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProto
     /// Typed pointer to the underlying `GApplication` instance.
     var application_ptr: UnsafeMutablePointer<GApplication>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GApplication` instance.
@@ -1101,7 +1107,7 @@ public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProto
 /// 
 /// If used, the expected form of an application identifier is the same as
 /// that of of a
-/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
+/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message-protocol-names-bus`).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
 /// For details on valid application identifiers, see `g_application_id_is_valid()`.
@@ -1163,7 +1169,7 @@ public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProto
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication::command`-line signal or override the `local_command_line()`
+/// `GApplication::command-line` signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -1322,7 +1328,7 @@ public extension ApplicationRef {
 /// 
 /// If used, the expected form of an application identifier is the same as
 /// that of of a
-/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message`-protocol-names-bus).
+/// [D-Bus well-known bus name](https://dbus.freedesktop.org/doc/dbus-specification.html`message-protocol-names-bus`).
 /// Examples include: `com.example.MyApp`, `org.example.internal_apps.Calculator`,
 /// `org._7_zip.Archiver`.
 /// For details on valid application identifiers, see `g_application_id_is_valid()`.
@@ -1384,7 +1390,7 @@ public extension ApplicationRef {
 /// data in this way.
 /// 
 /// To parse commandline arguments you may handle the
-/// `GApplication::command`-line signal or override the `local_command_line()`
+/// `GApplication::command-line` signal or override the `local_command_line()`
 /// vfunc, to parse them in either the primary instance or the local instance,
 /// respectively.
 /// 
@@ -1496,14 +1502,14 @@ open class Application: GLibObject.Object, ApplicationProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1619,11 +1625,11 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// The `activate` signal is emitted on the primary instance when an
     /// activation occurs. See `g_application_activate()`.
     case activate = "activate"
-    /// The `command`-line signal is emitted on the primary instance when
+    /// The `command-line` signal is emitted on the primary instance when
     /// a commandline is not handled locally. See `g_application_run()` and
     /// the `GApplicationCommandLine` documentation for more information.
     case commandLine = "command-line"
-    /// The `handle`-local-options signal is emitted on the local instance
+    /// The `handle-local-options` signal is emitted on the local instance
     /// after the parsing of the commandline options has occurred.
     /// 
     /// You can add options to be recognised during commandline option
@@ -1665,7 +1671,7 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// capabilities than what is provided here, but this should not
     /// normally be required.
     case handleLocalOptions = "handle-local-options"
-    /// The `name`-lost signal is emitted only on the registered primary instance
+    /// The `name-lost` signal is emitted only on the registered primary instance
     /// when a new instance has taken over. This can only happen if the application
     /// is using the `G_APPLICATION_ALLOW_REPLACEMENT` flag.
     /// 
@@ -1783,7 +1789,7 @@ public extension ApplicationProtocol {
     /// Typed `activate` signal for using the `connect(signal:)` methods
     static var activateSignal: ApplicationSignalName { .activate }
     
-    /// The `command`-line signal is emitted on the primary instance when
+    /// The `command-line` signal is emitted on the primary instance when
     /// a commandline is not handled locally. See `g_application_run()` and
     /// the `GApplicationCommandLine` documentation for more information.
     /// - Note: This represents the underlying `command-line` signal
@@ -1811,7 +1817,7 @@ public extension ApplicationProtocol {
     /// Typed `command-line` signal for using the `connect(signal:)` methods
     static var commandLineSignal: ApplicationSignalName { .commandLine }
     
-    /// The `handle`-local-options signal is emitted on the local instance
+    /// The `handle-local-options` signal is emitted on the local instance
     /// after the parsing of the commandline options has occurred.
     /// 
     /// You can add options to be recognised during commandline option
@@ -1877,7 +1883,7 @@ public extension ApplicationProtocol {
     /// Typed `handle-local-options` signal for using the `connect(signal:)` methods
     static var handleLocalOptionsSignal: ApplicationSignalName { .handleLocalOptions }
     
-    /// The `name`-lost signal is emitted only on the registered primary instance
+    /// The `name-lost` signal is emitted only on the registered primary instance
     /// when a new instance has taken over. This can only happen if the application
     /// is using the `G_APPLICATION_ALLOW_REPLACEMENT` flag.
     /// 
@@ -2375,7 +2381,7 @@ public extension ApplicationProtocol {
     /// that has its arg_data member set to `nil`.
     /// 
     /// The parsed arguments will be packed into a `GVariantDict` which
-    /// is passed to `GApplication::handle`-local-options. If
+    /// is passed to `GApplication::handle-local-options`. If
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` is set, then it will also
     /// be sent to the primary instance. See
     /// `g_application_add_main_option_entries()` for more details.
@@ -2391,14 +2397,14 @@ public extension ApplicationProtocol {
     /// This function is comparable to `g_option_context_add_main_entries()`.
     /// 
     /// After the commandline arguments are parsed, the
-    /// `GApplication::handle`-local-options signal will be emitted.  At this
+    /// `GApplication::handle-local-options` signal will be emitted.  At this
     /// point, the application can inspect the values pointed to by `arg_data`
     /// in the given `GOptionEntrys`.
     /// 
     /// Unlike `GOptionContext`, `GApplication` supports giving a `nil`
     /// `arg_data` for a non-callback `GOptionEntry`.  This results in the
     /// argument in question being packed into a `GVariantDict` which is also
-    /// passed to `GApplication::handle`-local-options, where it can be
+    /// passed to `GApplication::handle-local-options`, where it can be
     /// inspected and modified.  If `G_APPLICATION_HANDLES_COMMAND_LINE` is
     /// set, then the resulting dictionary is sent to the primary instance,
     /// where `g_application_command_line_get_options_dict()` will return it.
@@ -2422,7 +2428,7 @@ public extension ApplicationProtocol {
     /// treated as errors.  Unrecognised options have never been ignored when
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` is unset.
     /// 
-    /// If `GApplication::handle`-local-options needs to see the list of
+    /// If `GApplication::handle-local-options` needs to see the list of
     /// filenames, then the use of `G_OPTION_REMAINING` is recommended.  If
     /// `arg_data` is `nil` then `G_OPTION_REMAINING` can be used as a key into
     /// the options dictionary.  If you do use `G_OPTION_REMAINING` then you
@@ -2456,7 +2462,7 @@ public extension ApplicationProtocol {
     /// The reason for that is because, by the time the options arrive at the
     /// primary instance, it is typically too late to do anything with them.
     /// Taking the GTK option group as an example: GTK will already have been
-    /// initialised by the time the `GApplication::command`-line handler runs.
+    /// initialised by the time the `GApplication::command-line` handler runs.
     /// In the case that this is not the first-running instance of the
     /// application, the existing instance may already have been running for
     /// a very long time.
@@ -2746,20 +2752,20 @@ public extension ApplicationProtocol {
     /// `GApplication` will attempt to parse the commandline arguments.  You
     /// can add commandline flags to the list of recognised options by way of
     /// `g_application_add_main_option_entries()`.  After this, the
-    /// `GApplication::handle`-local-options signal is emitted, from which the
+    /// `GApplication::handle-local-options` signal is emitted, from which the
     /// application can inspect the values of its `GOptionEntrys`.
     /// 
-    /// `GApplication::handle`-local-options is a good place to handle options
+    /// `GApplication::handle-local-options` is a good place to handle options
     /// such as `--version`, where an immediate reply from the local process is
     /// desired (instead of communicating with an already-running instance).
-    /// A `GApplication::handle`-local-options handler can stop further processing
+    /// A `GApplication::handle-local-options` handler can stop further processing
     /// by returning a non-negative value, which then becomes the exit status of
     /// the process.
     /// 
     /// What happens next depends on the flags: if
     /// `G_APPLICATION_HANDLES_COMMAND_LINE` was specified then the remaining
     /// commandline arguments are sent to the primary instance, where a
-    /// `GApplication::command`-line signal is emitted.  Otherwise, the
+    /// `GApplication::command-line` signal is emitted.  Otherwise, the
     /// remaining commandline arguments are assumed to be a list of files.
     /// If there are no files listed, the application is activated via the
     /// `GApplication::activate` signal.  If there are one or more files, and
@@ -2974,7 +2980,7 @@ public extension ApplicationProtocol {
     /// not recommended.  The point at which the resource path is consulted
     /// for forming paths for various purposes is unspecified.  When writing
     /// a sub-class of `GApplication` you should either set the
-    /// `GApplication:resource`-base-path property at construction time, or call
+    /// `GApplication:resource-base-path` property at construction time, or call
     /// this function during the instance initialization. Alternatively, you
     /// can call this function in the `GApplicationClass.startup` virtual function,
     /// before chaining up to the parent implementation.
@@ -3245,7 +3251,7 @@ public extension ApplicationProtocol {
         /// not recommended.  The point at which the resource path is consulted
         /// for forming paths for various purposes is unspecified.  When writing
         /// a sub-class of `GApplication` you should either set the
-        /// `GApplication:resource`-base-path property at construction time, or call
+        /// `GApplication:resource-base-path` property at construction time, or call
         /// this function during the instance initialization. Alternatively, you
         /// can call this function in the `GApplicationClass.startup` virtual function,
         /// before chaining up to the parent implementation.
@@ -3271,7 +3277,7 @@ public extension ApplicationProtocol {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication::command`-line signal and virtual function.
+/// in the `GApplication::command-line` signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -3292,7 +3298,7 @@ public extension ApplicationProtocol {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command-line` signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -3301,7 +3307,7 @@ public extension ApplicationProtocol {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication::command`-line handler. The launching instance exits
+/// `GApplication::command-line` handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -3378,7 +3384,7 @@ public extension ApplicationProtocol {
 /// ```
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication::command`-line handler which runs in the primary
+/// to the `GApplication::command-line` handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -3419,7 +3425,7 @@ public extension ApplicationProtocol {
 /// }
 /// ```
 /// In this example the commandline is not completely handled before
-/// the `GApplication::command`-line handler returns. Instead, we keep
+/// the `GApplication::command-line` handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -3433,6 +3439,8 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GApplicationCommandLine` instance.
     var application_command_line_ptr: UnsafeMutablePointer<GApplicationCommandLine>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationCommandLineProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationCommandLineRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLine` instance.
@@ -3441,7 +3449,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication::command`-line signal and virtual function.
+/// in the `GApplication::command-line` signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -3462,7 +3470,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command-line` signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -3471,7 +3479,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication::command`-line handler. The launching instance exits
+/// `GApplication::command-line` handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -3548,7 +3556,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// ```
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication::command`-line handler which runs in the primary
+/// to the `GApplication::command-line` handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -3589,7 +3597,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// }
 /// ```
 /// In this example the commandline is not completely handled before
-/// the `GApplication::command`-line handler returns. Instead, we keep
+/// the `GApplication::command-line` handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -3683,7 +3691,7 @@ public extension ApplicationCommandLineRef {
 ///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
-/// in the `GApplication::command`-line signal and virtual function.
+/// in the `GApplication::command-line` signal and virtual function.
 /// 
 /// The class contains the list of arguments that the program was invoked
 /// with.  It is also possible to query if the commandline invocation was
@@ -3704,7 +3712,7 @@ public extension ApplicationCommandLineRef {
 /// dropped).
 /// 
 /// The main use for `GApplicationCommandLine` (and the
-/// `GApplication::command`-line signal) is 'Emacs server' like use cases:
+/// `GApplication::command-line` signal) is 'Emacs server' like use cases:
 /// You can set the `EDITOR` environment variable to have e.g. git use
 /// your favourite editor to edit commit messages, and if you already
 /// have an instance of the editor running, the editing will happen
@@ -3713,7 +3721,7 @@ public extension ApplicationCommandLineRef {
 /// does not return until the editing is done.
 /// 
 /// Normally, the commandline is completely handled in the
-/// `GApplication::command`-line handler. The launching instance exits
+/// `GApplication::command-line` handler. The launching instance exits
 /// once the signal handler in the primary instance has returned, and
 /// the return value of the signal handler becomes the exit status
 /// of the launching instance.
@@ -3790,7 +3798,7 @@ public extension ApplicationCommandLineRef {
 /// ```
 /// In this example of split commandline handling, options that start
 /// with `--local-` are handled locally, all other options are passed
-/// to the `GApplication::command`-line handler which runs in the primary
+/// to the `GApplication::command-line` handler which runs in the primary
 /// instance.
 /// 
 /// The complete example can be found here:
@@ -3831,7 +3839,7 @@ public extension ApplicationCommandLineRef {
 /// }
 /// ```
 /// In this example the commandline is not completely handled before
-/// the `GApplication::command`-line handler returns. Instead, we keep
+/// the `GApplication::command-line` handler returns. Instead, we keep
 /// a reference to the `GApplicationCommandLine` object and handle it
 /// later (in this example, in an idle). Note that it is necessary to
 /// hold the application until you are done with the commandline.
@@ -3938,14 +3946,14 @@ open class ApplicationCommandLine: GLibObject.Object, ApplicationCommandLineProt
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ApplicationCommandLineProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4143,7 +4151,7 @@ public extension ApplicationCommandLineProtocol {
     /// If you did not override `local_command_line()` then these are the same
     /// options that were parsed according to the `GOptionEntrys` added to the
     /// application with `g_application_add_main_option_entries()` and possibly
-    /// modified from your GApplication`handle`-local-options handler.
+    /// modified from your GApplication`handle-local-options` handler.
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
@@ -4170,7 +4178,7 @@ public extension ApplicationCommandLineProtocol {
     /// The `GInputStream` can be used to read data passed to the standard
     /// input of the invoking process.
     /// This doesn't work on all platforms.  Presently, it is only available
-    /// on UNIX when using a DBus daemon capable of passing file descriptors.
+    /// on UNIX when using a D-Bus daemon capable of passing file descriptors.
     /// If stdin is not available then `nil` will be returned.  In the
     /// future, support may be expanded to other platforms.
     /// 
@@ -4207,7 +4215,7 @@ public extension ApplicationCommandLineProtocol {
     /// Sets the exit status that will be used when the invoking process
     /// exits.
     /// 
-    /// The return value of the `GApplication::command`-line signal is
+    /// The return value of the `GApplication::command-line` signal is
     /// passed to this function when the handler returns.  This is the usual
     /// way of setting the exit status.
     /// 
@@ -4301,7 +4309,7 @@ public extension ApplicationCommandLineProtocol {
         /// Sets the exit status that will be used when the invoking process
         /// exits.
         /// 
-        /// The return value of the `GApplication::command`-line signal is
+        /// The return value of the `GApplication::command-line` signal is
         /// passed to this function when the handler returns.  This is the usual
         /// way of setting the exit status.
         /// 
@@ -4338,7 +4346,7 @@ public extension ApplicationCommandLineProtocol {
     /// If you did not override `local_command_line()` then these are the same
     /// options that were parsed according to the `GOptionEntrys` added to the
     /// application with `g_application_add_main_option_entries()` and possibly
-    /// modified from your GApplication`handle`-local-options handler.
+    /// modified from your GApplication`handle-local-options` handler.
     /// 
     /// If no options were sent then an empty dictionary is returned so that
     /// you don't need to check for `nil`.
@@ -4348,7 +4356,7 @@ public extension ApplicationCommandLineProtocol {
         /// If you did not override `local_command_line()` then these are the same
         /// options that were parsed according to the `GOptionEntrys` added to the
         /// application with `g_application_add_main_option_entries()` and possibly
-        /// modified from your GApplication`handle`-local-options handler.
+        /// modified from your GApplication`handle-local-options` handler.
         /// 
         /// If no options were sent then an empty dictionary is returned so that
         /// you don't need to check for `nil`.
@@ -4386,7 +4394,7 @@ public extension ApplicationCommandLineProtocol {
     /// The `GInputStream` can be used to read data passed to the standard
     /// input of the invoking process.
     /// This doesn't work on all platforms.  Presently, it is only available
-    /// on UNIX when using a DBus daemon capable of passing file descriptors.
+    /// on UNIX when using a D-Bus daemon capable of passing file descriptors.
     /// If stdin is not available then `nil` will be returned.  In the
     /// future, support may be expanded to other platforms.
     /// 
@@ -4397,7 +4405,7 @@ public extension ApplicationCommandLineProtocol {
         /// The `GInputStream` can be used to read data passed to the standard
         /// input of the invoking process.
         /// This doesn't work on all platforms.  Presently, it is only available
-        /// on UNIX when using a DBus daemon capable of passing file descriptors.
+        /// on UNIX when using a D-Bus daemon capable of passing file descriptors.
         /// If stdin is not available then `nil` will be returned.  In the
         /// future, support may be expanded to other platforms.
         /// 
@@ -4444,6 +4452,8 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
     /// Typed pointer to the underlying `GBufferedInputStream` instance.
     var buffered_input_stream_ptr: UnsafeMutablePointer<GBufferedInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `BufferedInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BufferedInputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStream` instance.
@@ -4682,14 +4692,14 @@ open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

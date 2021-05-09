@@ -62,6 +62,8 @@ public protocol IOStreamProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GIOStream` instance.
     var io_stream_ptr: UnsafeMutablePointer<GIOStream>! { get }
 
+    /// Required Initialiser for types conforming to `IOStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOStreamRef` type acts as a lightweight Swift reference to an underlying `GIOStream` instance.
@@ -345,14 +347,14 @@ open class IOStream: GLibObject.Object, IOStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -649,7 +651,7 @@ public extension IOStreamProtocol {
     /// must have pollable input and output streams) which is assumed to
     /// communicate with the server identified by `server_identity`.
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsClientConnectionNew(serverIdentity: SocketConnectableRef? = nil) throws -> TLSClientConnectionRef! {
@@ -662,7 +664,7 @@ public extension IOStreamProtocol {
     /// must have pollable input and output streams) which is assumed to
     /// communicate with the server identified by `server_identity`.
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsClientConnectionNew<SocketConnectableT: SocketConnectableProtocol>(serverIdentity: SocketConnectableT?) throws -> TLSClientConnectionRef! {
@@ -675,7 +677,7 @@ public extension IOStreamProtocol {
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
     /// must have pollable input and output streams).
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsServerConnectionNew(certificate: TLSCertificateRef? = nil) throws -> TLSServerConnectionRef! {
@@ -687,7 +689,7 @@ public extension IOStreamProtocol {
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
     /// must have pollable input and output streams).
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsServerConnectionNew<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT?) throws -> TLSServerConnectionRef! {
@@ -764,6 +766,8 @@ public protocol InetAddressProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GInetAddress` instance.
     var inet_address_ptr: UnsafeMutablePointer<GInetAddress>! { get }
 
+    /// Required Initialiser for types conforming to `InetAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetAddressRef` type acts as a lightweight Swift reference to an underlying `GInetAddress` instance.
@@ -1027,14 +1031,14 @@ open class InetAddress: GLibObject.Object, InetAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1515,6 +1519,8 @@ public protocol InetAddressMaskProtocol: GLibObject.ObjectProtocol, InitableProt
     /// Typed pointer to the underlying `GInetAddressMask` instance.
     var inet_address_mask_ptr: UnsafeMutablePointer<GInetAddressMask>! { get }
 
+    /// Required Initialiser for types conforming to `InetAddressMaskProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetAddressMaskRef` type acts as a lightweight Swift reference to an underlying `GInetAddressMask` instance.
@@ -1744,14 +1750,14 @@ open class InetAddressMask: GLibObject.Object, InetAddressMaskProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetAddressMaskProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1990,6 +1996,8 @@ public protocol InetSocketAddressProtocol: SocketAddressProtocol {
     /// Typed pointer to the underlying `GInetSocketAddress` instance.
     var inet_socket_address_ptr: UnsafeMutablePointer<GInetSocketAddress>! { get }
 
+    /// Required Initialiser for types conforming to `InetSocketAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GInetSocketAddress` instance.
@@ -2207,14 +2215,14 @@ open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InetSocketAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2463,6 +2471,8 @@ public protocol InputStreamProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GInputStream` instance.
     var input_stream_ptr: UnsafeMutablePointer<GInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `InputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputStreamRef` type acts as a lightweight Swift reference to an underlying `GInputStream` instance.
@@ -2676,14 +2686,14 @@ open class InputStream: GLibObject.Object, InputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3365,6 +3375,8 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, ListModelProtocol 
     /// Typed pointer to the underlying `GListStore` instance.
     var list_store_ptr: UnsafeMutablePointer<GListStore>! { get }
 
+    /// Required Initialiser for types conforming to `ListStoreProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GListStore` instance.
@@ -3572,14 +3584,14 @@ open class ListStore: GLibObject.Object, ListStoreProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListStoreProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3704,7 +3716,7 @@ public extension ListStoreProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GListStore` instance.
     @inlinable var list_store_ptr: UnsafeMutablePointer<GListStore>! { return ptr?.assumingMemoryBound(to: GListStore.self) }
 
-    /// Appends `item` to `store`. `item` must be of type `GListStore:item`-type.
+    /// Appends `item` to `store`. `item` must be of type `GListStore:item-type`.
     /// 
     /// This function takes a ref on `item`.
     /// 
@@ -3736,7 +3748,7 @@ public extension ListStoreProtocol {
     }
 
     /// Inserts `item` into `store` at `position`. `item` must be of type
-    /// `GListStore:item`-type or derived from it. `position` must be smaller
+    /// `GListStore:item-type` or derived from it. `position` must be smaller
     /// than the length of the list, or equal to it to append.
     /// 
     /// This function takes a ref on `item`.
@@ -3785,11 +3797,11 @@ public extension ListStoreProtocol {
 
     /// Changes `store` by removing `n_removals` items and adding `n_additions`
     /// items to it. `additions` must contain `n_additions` items of type
-    /// `GListStore:item`-type.  `nil` is not permitted.
+    /// `GListStore:item-type`.  `nil` is not permitted.
     /// 
     /// This function is more efficient than `g_list_store_insert()` and
     /// `g_list_store_remove()`, because it only emits
-    /// `GListModel::items`-changed once for the change.
+    /// `GListModel::items-changed` once for the change.
     /// 
     /// This function takes a ref on each item in `additions`.
     /// 

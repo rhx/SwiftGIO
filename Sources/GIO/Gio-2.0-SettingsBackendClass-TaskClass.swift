@@ -32,6 +32,8 @@ public protocol SettingsBackendClassProtocol {
     /// Typed pointer to the underlying `GSettingsBackendClass` instance.
     var _ptr: UnsafeMutablePointer<GSettingsBackendClass>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsBackendClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsBackendClassRef` type acts as a lightweight Swift reference to an underlying `GSettingsBackendClass` instance.
@@ -186,6 +188,8 @@ public protocol SettingsClassProtocol {
     /// Typed pointer to the underlying `GSettingsClass` instance.
     var _ptr: UnsafeMutablePointer<GSettingsClass>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `GSettingsClass` instance.
@@ -409,6 +413,8 @@ public protocol SettingsSchemaProtocol {
     /// Typed pointer to the underlying `GSettingsSchema` instance.
     var settings_schema_ptr: UnsafeMutablePointer<GSettingsSchema>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsSchemaProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsSchemaRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchema` instance.
@@ -794,7 +800,7 @@ open class SettingsSchema: SettingsSchemaProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -955,6 +961,8 @@ public protocol SettingsSchemaKeyProtocol {
     /// Typed pointer to the underlying `GSettingsSchemaKey` instance.
     var settings_schema_key_ptr: UnsafeMutablePointer<GSettingsSchemaKey>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsSchemaKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsSchemaKeyRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchemaKey` instance.
@@ -1160,7 +1168,7 @@ open class SettingsSchemaKey: SettingsSchemaKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1521,6 +1529,8 @@ public protocol SettingsSchemaSourceProtocol {
     /// Typed pointer to the underlying `GSettingsSchemaSource` instance.
     var settings_schema_source_ptr: UnsafeMutablePointer<GSettingsSchemaSource>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsSchemaSourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsSchemaSourceRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchemaSource` instance.
@@ -1817,7 +1827,7 @@ open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsSchemaSourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2030,6 +2040,8 @@ public protocol SimpleActionGroupClassProtocol {
     /// Typed pointer to the underlying `GSimpleActionGroupClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleActionGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleActionGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleActionGroupClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleActionGroupClass` instance.
@@ -2159,6 +2171,8 @@ public protocol SimpleAsyncResultClassProtocol {
     /// Typed pointer to the underlying `GSimpleAsyncResultClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleAsyncResultClass>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleAsyncResultClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleAsyncResultClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleAsyncResultClass` instance.
@@ -2285,6 +2299,8 @@ public protocol SimpleProxyResolverClassProtocol {
     /// Typed pointer to the underlying `GSimpleProxyResolverClass` instance.
     var _ptr: UnsafeMutablePointer<GSimpleProxyResolverClass>! { get }
 
+    /// Required Initialiser for types conforming to `SimpleProxyResolverClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SimpleProxyResolverClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleProxyResolverClass` instance.
@@ -2427,6 +2443,8 @@ public protocol SocketAddressClassProtocol {
     /// Typed pointer to the underlying `GSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressClass` instance.
@@ -2565,6 +2583,8 @@ public protocol SocketAddressEnumeratorClassProtocol {
     /// Typed pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketAddressEnumeratorClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketAddressEnumeratorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketAddressEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressEnumeratorClass` instance.
@@ -2698,6 +2718,8 @@ public protocol SocketClassProtocol {
     /// Typed pointer to the underlying `GSocketClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketClassRef` type acts as a lightweight Swift reference to an underlying `GSocketClass` instance.
@@ -2850,6 +2872,8 @@ public protocol SocketClientClassProtocol {
     /// Typed pointer to the underlying `GSocketClientClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketClientClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketClientClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketClientClassRef` type acts as a lightweight Swift reference to an underlying `GSocketClientClass` instance.
@@ -2993,6 +3017,8 @@ public protocol SocketConnectableIfaceProtocol {
     /// Typed pointer to the underlying `GSocketConnectableIface` instance.
     var _ptr: UnsafeMutablePointer<GSocketConnectableIface>! { get }
 
+    /// Required Initialiser for types conforming to `SocketConnectableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketConnectableIfaceRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectableIface` instance.
@@ -3134,6 +3160,8 @@ public protocol SocketConnectionClassProtocol {
     /// Typed pointer to the underlying `GSocketConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketConnectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketConnectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectionClass` instance.
@@ -3278,6 +3306,8 @@ public protocol SocketControlMessageClassProtocol {
     /// Typed pointer to the underlying `GSocketControlMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketControlMessageClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketControlMessageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketControlMessageClassRef` type acts as a lightweight Swift reference to an underlying `GSocketControlMessageClass` instance.
@@ -3430,6 +3460,8 @@ public protocol SocketListenerClassProtocol {
     /// Typed pointer to the underlying `GSocketListenerClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketListenerClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketListenerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketListenerClassRef` type acts as a lightweight Swift reference to an underlying `GSocketListenerClass` instance.
@@ -3576,6 +3608,8 @@ public protocol SocketServiceClassProtocol {
     /// Typed pointer to the underlying `GSocketServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GSocketServiceClass>! { get }
 
+    /// Required Initialiser for types conforming to `SocketServiceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketServiceClassRef` type acts as a lightweight Swift reference to an underlying `GSocketServiceClass` instance.
@@ -3720,6 +3754,8 @@ public protocol SrvTargetProtocol {
     /// Typed pointer to the underlying `GSrvTarget` instance.
     var srv_target_ptr: UnsafeMutablePointer<GSrvTarget>! { get }
 
+    /// Required Initialiser for types conforming to `SrvTargetProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SrvTargetRef` type acts as a lightweight Swift reference to an underlying `GSrvTarget` instance.
@@ -3957,7 +3993,7 @@ open class SrvTarget: SrvTargetProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SrvTargetProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4119,6 +4155,8 @@ public protocol StaticResourceProtocol {
     /// Typed pointer to the underlying `GStaticResource` instance.
     var _ptr: UnsafeMutablePointer<GStaticResource>! { get }
 
+    /// Required Initialiser for types conforming to `StaticResourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StaticResourceRef` type acts as a lightweight Swift reference to an underlying `GStaticResource` instance.
@@ -4324,7 +4362,7 @@ open class StaticResource: StaticResourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StaticResourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4456,6 +4494,8 @@ public protocol TaskClassProtocol {
     /// Typed pointer to the underlying `GTaskClass` instance.
     var _ptr: UnsafeMutablePointer<GTaskClass>! { get }
 
+    /// Required Initialiser for types conforming to `TaskClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TaskClassRef` type acts as a lightweight Swift reference to an underlying `GTaskClass` instance.

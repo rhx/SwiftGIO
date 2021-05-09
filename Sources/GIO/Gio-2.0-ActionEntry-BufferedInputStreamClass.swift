@@ -26,6 +26,8 @@ public protocol ActionEntryProtocol {
     /// Typed pointer to the underlying `GActionEntry` instance.
     var _ptr: UnsafeMutablePointer<GActionEntry>! { get }
 
+    /// Required Initialiser for types conforming to `ActionEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionEntryRef` type acts as a lightweight Swift reference to an underlying `GActionEntry` instance.
@@ -247,7 +249,7 @@ open class ActionEntry: ActionEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -386,6 +388,8 @@ public protocol ActionGroupInterfaceProtocol {
     /// Typed pointer to the underlying `GActionGroupInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionGroupInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ActionGroupInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionGroupInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionGroupInterface` instance.
@@ -546,6 +550,8 @@ public protocol ActionInterfaceProtocol {
     /// Typed pointer to the underlying `GActionInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ActionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionInterface` instance.
@@ -694,6 +700,8 @@ public protocol ActionMapInterfaceProtocol {
     /// Typed pointer to the underlying `GActionMapInterface` instance.
     var _ptr: UnsafeMutablePointer<GActionMapInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ActionMapInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionMapInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionMapInterface` instance.
@@ -832,6 +840,8 @@ public protocol AppInfoIfaceProtocol {
     /// Typed pointer to the underlying `GAppInfoIface` instance.
     var _ptr: UnsafeMutablePointer<GAppInfoIface>! { get }
 
+    /// Required Initialiser for types conforming to `AppInfoIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppInfoIfaceRef` type acts as a lightweight Swift reference to an underlying `GAppInfoIface` instance.
@@ -1016,6 +1026,8 @@ public protocol AppLaunchContextClassProtocol {
     /// Typed pointer to the underlying `GAppLaunchContextClass` instance.
     var _ptr: UnsafeMutablePointer<GAppLaunchContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `AppLaunchContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppLaunchContextClassRef` type acts as a lightweight Swift reference to an underlying `GAppLaunchContextClass` instance.
@@ -1164,6 +1176,8 @@ public protocol ApplicationClassProtocol {
     /// Typed pointer to the underlying `GApplicationClass` instance.
     var _ptr: UnsafeMutablePointer<GApplicationClass>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationClassRef` type acts as a lightweight Swift reference to an underlying `GApplicationClass` instance.
@@ -1315,7 +1329,7 @@ public extension ApplicationCommandLineClassRef {
 /// For a concrete class that implements these methods and properties, see `ApplicationCommandLineClass`.
 /// Alternatively, use `ApplicationCommandLineClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GApplicationCommandLineClass`-struct
+/// The `GApplicationCommandLineClass-struct`
 /// contains private data only.
 public protocol ApplicationCommandLineClassProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
@@ -1324,13 +1338,15 @@ public protocol ApplicationCommandLineClassProtocol {
     /// Typed pointer to the underlying `GApplicationCommandLineClass` instance.
     var _ptr: UnsafeMutablePointer<GApplicationCommandLineClass>! { get }
 
+    /// Required Initialiser for types conforming to `ApplicationCommandLineClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ApplicationCommandLineClassRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLineClass` instance.
 /// It exposes methods that can operate on this data type through `ApplicationCommandLineClassProtocol` conformance.
 /// Use `ApplicationCommandLineClassRef` only as an `unowned` reference to an existing `GApplicationCommandLineClass` instance.
 ///
-/// The `GApplicationCommandLineClass`-struct
+/// The `GApplicationCommandLineClass-struct`
 /// contains private data only.
 public struct ApplicationCommandLineClassRef: ApplicationCommandLineClassProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
@@ -1461,6 +1477,8 @@ public protocol AsyncInitableIfaceProtocol {
     /// Typed pointer to the underlying `GAsyncInitableIface` instance.
     var _ptr: UnsafeMutablePointer<GAsyncInitableIface>! { get }
 
+    /// Required Initialiser for types conforming to `AsyncInitableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AsyncInitableIfaceRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitableIface` instance.
@@ -1600,6 +1618,8 @@ public protocol AsyncResultIfaceProtocol {
     /// Typed pointer to the underlying `GAsyncResultIface` instance.
     var _ptr: UnsafeMutablePointer<GAsyncResultIface>! { get }
 
+    /// Required Initialiser for types conforming to `AsyncResultIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AsyncResultIfaceRef` type acts as a lightweight Swift reference to an underlying `GAsyncResultIface` instance.
@@ -1740,6 +1760,8 @@ public protocol BufferedInputStreamClassProtocol {
     /// Typed pointer to the underlying `GBufferedInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GBufferedInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `BufferedInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BufferedInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStreamClass` instance.

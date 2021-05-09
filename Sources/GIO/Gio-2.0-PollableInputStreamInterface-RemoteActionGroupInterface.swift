@@ -41,6 +41,8 @@ public protocol PollableInputStreamInterfaceProtocol {
     /// Typed pointer to the underlying `GPollableInputStreamInterface` instance.
     var _ptr: UnsafeMutablePointer<GPollableInputStreamInterface>! { get }
 
+    /// Required Initialiser for types conforming to `PollableInputStreamInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PollableInputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStreamInterface` instance.
@@ -207,6 +209,8 @@ public protocol PollableOutputStreamInterfaceProtocol {
     /// Typed pointer to the underlying `GPollableOutputStreamInterface` instance.
     var _ptr: UnsafeMutablePointer<GPollableOutputStreamInterface>! { get }
 
+    /// Required Initialiser for types conforming to `PollableOutputStreamInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PollableOutputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStreamInterface` instance.
@@ -366,6 +370,8 @@ public protocol ProxyAddressClassProtocol {
     /// Typed pointer to the underlying `GProxyAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyAddressClassRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressClass` instance.
@@ -498,6 +504,8 @@ public protocol ProxyAddressEnumeratorClassProtocol {
     /// Typed pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     var _ptr: UnsafeMutablePointer<GProxyAddressEnumeratorClass>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyAddressEnumeratorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyAddressEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressEnumeratorClass` instance.
@@ -639,6 +647,8 @@ public protocol ProxyInterfaceProtocol {
     /// Typed pointer to the underlying `GProxyInterface` instance.
     var _ptr: UnsafeMutablePointer<GProxyInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyInterfaceRef` type acts as a lightweight Swift reference to an underlying `GProxyInterface` instance.
@@ -781,6 +791,8 @@ public protocol ProxyResolverInterfaceProtocol {
     /// Typed pointer to the underlying `GProxyResolverInterface` instance.
     var _ptr: UnsafeMutablePointer<GProxyResolverInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyResolverInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyResolverInterfaceRef` type acts as a lightweight Swift reference to an underlying `GProxyResolverInterface` instance.
@@ -923,6 +935,8 @@ public protocol RemoteActionGroupInterfaceProtocol {
     /// Typed pointer to the underlying `GRemoteActionGroupInterface` instance.
     var _ptr: UnsafeMutablePointer<GRemoteActionGroupInterface>! { get }
 
+    /// Required Initialiser for types conforming to `RemoteActionGroupInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RemoteActionGroupInterfaceRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroupInterface` instance.

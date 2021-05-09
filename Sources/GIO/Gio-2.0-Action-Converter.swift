@@ -45,6 +45,8 @@ public protocol ActionProtocol {
     /// Typed pointer to the underlying `GAction` instance.
     var action_ptr: UnsafeMutablePointer<GAction>! { get }
 
+    /// Required Initialiser for types conforming to `ActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GAction` instance.
@@ -304,7 +306,7 @@ open class Action: ActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -755,6 +757,8 @@ public protocol ActionGroupProtocol {
     /// Typed pointer to the underlying `GActionGroup` instance.
     var action_group_ptr: UnsafeMutablePointer<GActionGroup>! { get }
 
+    /// Required Initialiser for types conforming to `ActionGroupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GActionGroup` instance.
@@ -1046,7 +1050,7 @@ open class ActionGroup: ActionGroupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1241,7 +1245,7 @@ public extension ActionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GActionGroup` instance.
     @inlinable var action_group_ptr: UnsafeMutablePointer<GActionGroup>! { return ptr?.assumingMemoryBound(to: GActionGroup.self) }
 
-    /// Emits the `GActionGroup::action`-added signal on `action_group`.
+    /// Emits the `GActionGroup::action-added` signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     @inlinable func actionAdded(actionName: UnsafePointer<gchar>!) {
@@ -1249,7 +1253,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup::action`-enabled-changed signal on `action_group`.
+    /// Emits the `GActionGroup::action-enabled-changed` signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     @inlinable func actionEnabledChanged(actionName: UnsafePointer<gchar>!, enabled: Bool) {
@@ -1257,7 +1261,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup::action`-removed signal on `action_group`.
+    /// Emits the `GActionGroup::action-removed` signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     @inlinable func actionRemoved(actionName: UnsafePointer<gchar>!) {
@@ -1265,7 +1269,7 @@ public extension ActionGroupProtocol {
     
     }
 
-    /// Emits the `GActionGroup::action`-state-changed signal on `action_group`.
+    /// Emits the `GActionGroup::action-state-changed` signal on `action_group`.
     /// 
     /// This function should only be called by `GActionGroup` implementations.
     @inlinable func actionStateChanged<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, state: VariantT) {
@@ -1279,6 +1283,35 @@ public extension ActionGroupProtocol {
     /// parameter must be given as `parameter`.  If the action is expecting no
     /// parameters then `parameter` must be `nil`.  See
     /// `g_action_group_get_action_parameter_type()`.
+    /// 
+    /// If the `GActionGroup` implementation supports asynchronous remote
+    /// activation over D-Bus, this call may return before the relevant
+    /// D-Bus traffic has been sent, or any replies have been received. In
+    /// order to block on such asynchronous activation calls,
+    /// `g_dbus_connection_flush()` should be called prior to the code, which
+    /// depends on the result of the action activation. Without flushing
+    /// the D-Bus connection, there is no guarantee that the action would
+    /// have been activated.
+    /// 
+    /// The following code which runs in a remote app instance, shows an
+    /// example of a "quit" action being activated on the primary app
+    /// instance over D-Bus. Here `g_dbus_connection_flush()` is called
+    /// before ``exit()``. Without `g_dbus_connection_flush()`, the "quit" action
+    /// may fail to be activated on the primary instance.
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// // call "quit" action on primary instance
+    /// g_action_group_activate_action (G_ACTION_GROUP (app), "quit", NULL);
+    /// 
+    /// // make sure the action is activated now
+    /// g_dbus_connection_flush (...);
+    /// 
+    /// g_debug ("application has been terminated. exiting.");
+    /// 
+    /// exit (0);
+    /// ```
+    /// 
     @inlinable func activateAction(actionName: UnsafePointer<gchar>!, parameter: GLib.VariantRef? = nil) {
         g_action_group_activate_action(action_group_ptr, actionName, parameter?.variant_ptr)
     
@@ -1289,6 +1322,35 @@ public extension ActionGroupProtocol {
     /// parameter must be given as `parameter`.  If the action is expecting no
     /// parameters then `parameter` must be `nil`.  See
     /// `g_action_group_get_action_parameter_type()`.
+    /// 
+    /// If the `GActionGroup` implementation supports asynchronous remote
+    /// activation over D-Bus, this call may return before the relevant
+    /// D-Bus traffic has been sent, or any replies have been received. In
+    /// order to block on such asynchronous activation calls,
+    /// `g_dbus_connection_flush()` should be called prior to the code, which
+    /// depends on the result of the action activation. Without flushing
+    /// the D-Bus connection, there is no guarantee that the action would
+    /// have been activated.
+    /// 
+    /// The following code which runs in a remote app instance, shows an
+    /// example of a "quit" action being activated on the primary app
+    /// instance over D-Bus. Here `g_dbus_connection_flush()` is called
+    /// before ``exit()``. Without `g_dbus_connection_flush()`, the "quit" action
+    /// may fail to be activated on the primary instance.
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// // call "quit" action on primary instance
+    /// g_action_group_activate_action (G_ACTION_GROUP (app), "quit", NULL);
+    /// 
+    /// // make sure the action is activated now
+    /// g_dbus_connection_flush (...);
+    /// 
+    /// g_debug ("application has been terminated. exiting.");
+    /// 
+    /// exit (0);
+    /// ```
+    /// 
     @inlinable func activateAction<VariantT: GLib.VariantProtocol>(actionName: UnsafePointer<gchar>!, parameter: VariantT?) {
         g_action_group_activate_action(action_group_ptr, actionName, parameter?.variant_ptr)
     
@@ -1469,6 +1531,8 @@ public protocol ActionMapProtocol {
     /// Typed pointer to the underlying `GActionMap` instance.
     var action_map_ptr: UnsafeMutablePointer<GActionMap>! { get }
 
+    /// Required Initialiser for types conforming to `ActionMapProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionMapRef` type acts as a lightweight Swift reference to an underlying `GActionMap` instance.
@@ -1688,7 +1752,7 @@ open class ActionMap: ActionMapProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionMapProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1867,6 +1931,8 @@ public protocol AppInfoProtocol {
     /// Typed pointer to the underlying `GAppInfo` instance.
     var app_info_ptr: UnsafeMutablePointer<GAppInfo>! { get }
 
+    /// Required Initialiser for types conforming to `AppInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppInfoRef` type acts as a lightweight Swift reference to an underlying `GAppInfo` instance.
@@ -2193,7 +2259,7 @@ open class AppInfo: AppInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2303,7 +2369,7 @@ public extension AppInfoProtocol {
 
     /// Checks if two `GAppInfos` are equal.
     /// 
-    /// Note that the check <emphasis>may not</emphasis> compare each individual
+    /// Note that the check *may not* compare each individual
     /// field, and only does an identity check. In case detecting changes in the
     /// contents is needed, program code must additionally compare relevant fields.
     @inlinable func equal<AppInfoT: AppInfoProtocol>(appinfo2: AppInfoT) -> Bool {
@@ -2772,6 +2838,8 @@ public protocol AsyncInitableProtocol {
     /// Typed pointer to the underlying `GAsyncInitable` instance.
     var async_initable_ptr: UnsafeMutablePointer<GAsyncInitable>! { get }
 
+    /// Required Initialiser for types conforming to `AsyncInitableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AsyncInitableRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitable` instance.
@@ -3175,7 +3243,7 @@ open class AsyncInitable: AsyncInitableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncInitableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3419,6 +3487,8 @@ public protocol AsyncResultProtocol {
     /// Typed pointer to the underlying `GAsyncResult` instance.
     var async_result_ptr: UnsafeMutablePointer<GAsyncResult>! { get }
 
+    /// Required Initialiser for types conforming to `AsyncResultProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AsyncResultRef` type acts as a lightweight Swift reference to an underlying `GAsyncResult` instance.
@@ -3790,7 +3860,7 @@ open class AsyncResult: AsyncResultProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncResultProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3884,7 +3954,7 @@ public extension AsyncResultProtocol {
     /// `g_dbus_connection_new_for_address()`.
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
-    /// the `GDBusConnection:exit`-on-close property set to `true`.
+    /// the `GDBusConnection:exit-on-close` property set to `true`.
     @inlinable func busGetFinish() throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_finish(async_result_ptr, &error)))
@@ -3893,7 +3963,10 @@ public extension AsyncResultProtocol {
     }
 
     /// Finishes an operation started with `g_dbus_address_get_stream()`.
-    @inlinable func dbusAddressGetStreamFinish(outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+    /// 
+    /// A server is not required to set a GUID, so `out_guid` may be set to `nil`
+    /// even on success.
+    @inlinable func dbusAddressGetStreamFinish(outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(async_result_ptr, outGuid, &error)))
         if let error = error { throw GLibError(error) }
@@ -3943,6 +4016,8 @@ public protocol ConverterProtocol {
     /// Typed pointer to the underlying `GConverter` instance.
     var converter_ptr: UnsafeMutablePointer<GConverter>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterRef` type acts as a lightweight Swift reference to an underlying `GConverter` instance.
@@ -4158,7 +4233,7 @@ open class Converter: ConverterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

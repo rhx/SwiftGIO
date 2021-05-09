@@ -17,6 +17,8 @@ public protocol DBusArgInfoProtocol {
     /// Typed pointer to the underlying `GDBusArgInfo` instance.
     var dbus_arg_info_ptr: UnsafeMutablePointer<GDBusArgInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusArgInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusArgInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusArgInfo` instance.
@@ -220,7 +222,7 @@ open class DBusArgInfo: DBusArgInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusArgInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -347,6 +349,8 @@ public protocol DBusErrorEntryProtocol {
     /// Typed pointer to the underlying `GDBusErrorEntry` instance.
     var _ptr: UnsafeMutablePointer<GDBusErrorEntry>! { get }
 
+    /// Required Initialiser for types conforming to `DBusErrorEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusErrorEntryRef` type acts as a lightweight Swift reference to an underlying `GDBusErrorEntry` instance.
@@ -550,7 +554,7 @@ open class DBusErrorEntry: DBusErrorEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusErrorEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -652,6 +656,8 @@ public protocol DBusInterfaceIfaceProtocol {
     /// Typed pointer to the underlying `GDBusInterfaceIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceIface>! { get }
 
+    /// Required Initialiser for types conforming to `DBusInterfaceIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusInterfaceIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceIface` instance.
@@ -779,6 +785,8 @@ public protocol DBusInterfaceInfoProtocol {
     /// Typed pointer to the underlying `GDBusInterfaceInfo` instance.
     var dbus_interface_info_ptr: UnsafeMutablePointer<GDBusInterfaceInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusInterfaceInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusInterfaceInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceInfo` instance.
@@ -982,7 +990,7 @@ open class DBusInterfaceInfo: DBusInterfaceInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1211,6 +1219,8 @@ public protocol DBusInterfaceSkeletonClassProtocol {
     /// Typed pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceSkeletonClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusInterfaceSkeletonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusInterfaceSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceSkeletonClass` instance.
@@ -1384,6 +1394,8 @@ public protocol DBusInterfaceVTableProtocol {
     /// Typed pointer to the underlying `GDBusInterfaceVTable` instance.
     var _ptr: UnsafeMutablePointer<GDBusInterfaceVTable>! { get }
 
+    /// Required Initialiser for types conforming to `DBusInterfaceVTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusInterfaceVTableRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceVTable` instance.
@@ -1667,7 +1679,7 @@ open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceVTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1769,6 +1781,8 @@ public protocol DBusMethodInfoProtocol {
     /// Typed pointer to the underlying `GDBusMethodInfo` instance.
     var dbus_method_info_ptr: UnsafeMutablePointer<GDBusMethodInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusMethodInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusMethodInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusMethodInfo` instance.
@@ -1972,7 +1986,7 @@ open class DBusMethodInfo: DBusMethodInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusMethodInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2112,6 +2126,8 @@ public protocol DBusNodeInfoProtocol {
     /// Typed pointer to the underlying `GDBusNodeInfo` instance.
     var dbus_node_info_ptr: UnsafeMutablePointer<GDBusNodeInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusNodeInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusNodeInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusNodeInfo` instance.
@@ -2198,7 +2214,7 @@ public extension DBusNodeInfoRef {
         /// Parses `xml_data` and returns a `GDBusNodeInfo` representing the data.
     /// 
     /// The introspection XML must contain exactly one top-level
-    /// <node> element.
+    /// &lt;node&gt; element.
     /// 
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
@@ -2212,7 +2228,7 @@ public extension DBusNodeInfoRef {
     /// Parses `xml_data` and returns a `GDBusNodeInfo` representing the data.
     /// 
     /// The introspection XML must contain exactly one top-level
-    /// <node> element.
+    /// &lt;node&gt; element.
     /// 
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
@@ -2344,7 +2360,7 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusNodeInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2374,7 +2390,7 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// Parses `xml_data` and returns a `GDBusNodeInfo` representing the data.
     /// 
     /// The introspection XML must contain exactly one top-level
-    /// <node> element.
+    /// &lt;node&gt; element.
     /// 
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
@@ -2389,7 +2405,7 @@ open class DBusNodeInfo: DBusNodeInfoProtocol {
     /// Parses `xml_data` and returns a `GDBusNodeInfo` representing the data.
     /// 
     /// The introspection XML must contain exactly one top-level
-    /// <node> element.
+    /// &lt;node&gt; element.
     /// 
     /// Note that this routine is using a
     /// [GMarkup](#glib-Simple-XML-Subset-Parser.description)-based
@@ -2545,6 +2561,8 @@ public protocol DBusObjectIfaceProtocol {
     /// Typed pointer to the underlying `GDBusObjectIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectIface>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectIface` instance.
@@ -2689,6 +2707,8 @@ public protocol DBusObjectManagerClientClassProtocol {
     /// Typed pointer to the underlying `GDBusObjectManagerClientClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerClientClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectManagerClientClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectManagerClientClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerClientClass` instance.
@@ -2829,6 +2849,8 @@ public protocol DBusObjectManagerIfaceProtocol {
     /// Typed pointer to the underlying `GDBusObjectManagerIface` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerIface>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectManagerIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectManagerIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerIface` instance.
@@ -2979,6 +3001,8 @@ public protocol DBusObjectManagerServerClassProtocol {
     /// Typed pointer to the underlying `GDBusObjectManagerServerClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectManagerServerClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectManagerServerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectManagerServerClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerServerClass` instance.
@@ -3115,6 +3139,8 @@ public protocol DBusObjectProxyClassProtocol {
     /// Typed pointer to the underlying `GDBusObjectProxyClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectProxyClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectProxyClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectProxyClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectProxyClass` instance.
@@ -3251,6 +3277,8 @@ public protocol DBusObjectSkeletonClassProtocol {
     /// Typed pointer to the underlying `GDBusObjectSkeletonClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusObjectSkeletonClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectSkeletonClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectSkeletonClass` instance.
@@ -3374,6 +3402,8 @@ public protocol DBusPropertyInfoProtocol {
     /// Typed pointer to the underlying `GDBusPropertyInfo` instance.
     var dbus_property_info_ptr: UnsafeMutablePointer<GDBusPropertyInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusPropertyInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusPropertyInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusPropertyInfo` instance.
@@ -3577,7 +3607,7 @@ open class DBusPropertyInfo: DBusPropertyInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusPropertyInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3732,6 +3762,8 @@ public protocol DBusProxyClassProtocol {
     /// Typed pointer to the underlying `GDBusProxyClass` instance.
     var _ptr: UnsafeMutablePointer<GDBusProxyClass>! { get }
 
+    /// Required Initialiser for types conforming to `DBusProxyClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusProxyClassRef` type acts as a lightweight Swift reference to an underlying `GDBusProxyClass` instance.
@@ -3850,6 +3882,8 @@ public protocol DBusSignalInfoProtocol {
     /// Typed pointer to the underlying `GDBusSignalInfo` instance.
     var dbus_signal_info_ptr: UnsafeMutablePointer<GDBusSignalInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusSignalInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusSignalInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusSignalInfo` instance.
@@ -4053,7 +4087,7 @@ open class DBusSignalInfo: DBusSignalInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusSignalInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4180,6 +4214,8 @@ public protocol DBusSubtreeVTableProtocol {
     /// Typed pointer to the underlying `GDBusSubtreeVTable` instance.
     var _ptr: UnsafeMutablePointer<GDBusSubtreeVTable>! { get }
 
+    /// Required Initialiser for types conforming to `DBusSubtreeVTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusSubtreeVTableRef` type acts as a lightweight Swift reference to an underlying `GDBusSubtreeVTable` instance.
@@ -4383,7 +4419,7 @@ open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusSubtreeVTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4500,6 +4536,8 @@ public protocol DataInputStreamClassProtocol {
     /// Typed pointer to the underlying `GDataInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GDataInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `DataInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DataInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GDataInputStreamClass` instance.
@@ -4642,6 +4680,8 @@ public protocol DataOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GDataOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GDataOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `DataOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DataOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GDataOutputStreamClass` instance.
@@ -4788,6 +4828,8 @@ public protocol DatagramBasedInterfaceProtocol {
     /// Typed pointer to the underlying `GDatagramBasedInterface` instance.
     var _ptr: UnsafeMutablePointer<GDatagramBasedInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DatagramBasedInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DatagramBasedInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDatagramBasedInterface` instance.
@@ -4936,6 +4978,8 @@ public protocol DriveIfaceProtocol {
     /// Typed pointer to the underlying `GDriveIface` instance.
     var _ptr: UnsafeMutablePointer<GDriveIface>! { get }
 
+    /// Required Initialiser for types conforming to `DriveIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DriveIfaceRef` type acts as a lightweight Swift reference to an underlying `GDriveIface` instance.
@@ -5134,6 +5178,8 @@ public protocol DtlsClientConnectionInterfaceProtocol {
     /// Typed pointer to the underlying `GDtlsClientConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsClientConnectionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsClientConnectionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsClientConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsClientConnectionInterface` instance.
@@ -5268,6 +5314,8 @@ public protocol DtlsConnectionInterfaceProtocol {
     /// Typed pointer to the underlying `GDtlsConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsConnectionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsConnectionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnectionInterface` instance.
@@ -5422,6 +5470,8 @@ public protocol DtlsServerConnectionInterfaceProtocol {
     /// Typed pointer to the underlying `GDtlsServerConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GDtlsServerConnectionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsServerConnectionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsServerConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsServerConnectionInterface` instance.
@@ -5556,6 +5606,8 @@ public protocol EmblemClassProtocol {
     /// Typed pointer to the underlying `GEmblemClass` instance.
     var _ptr: UnsafeMutablePointer<GEmblemClass>! { get }
 
+    /// Required Initialiser for types conforming to `EmblemClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EmblemClassRef` type acts as a lightweight Swift reference to an underlying `GEmblemClass` instance.

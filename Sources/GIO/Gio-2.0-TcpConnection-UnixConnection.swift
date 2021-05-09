@@ -18,6 +18,8 @@ public protocol TcpConnectionProtocol: SocketConnectionProtocol {
     /// Typed pointer to the underlying `GTcpConnection` instance.
     var tcp_connection_ptr: UnsafeMutablePointer<GTcpConnection>! { get }
 
+    /// Required Initialiser for types conforming to `TcpConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TcpConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpConnection` instance.
@@ -213,14 +215,14 @@ open class TcpConnection: SocketConnection, TcpConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -417,6 +419,8 @@ public protocol TcpWrapperConnectionProtocol: TcpConnectionProtocol {
     /// Typed pointer to the underlying `GTcpWrapperConnection` instance.
     var tcp_wrapper_connection_ptr: UnsafeMutablePointer<GTcpWrapperConnection>! { get }
 
+    /// Required Initialiser for types conforming to `TcpWrapperConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TcpWrapperConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnection` instance.
@@ -623,14 +627,14 @@ open class TcpWrapperConnection: TcpConnection, TcpWrapperConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TcpWrapperConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -874,6 +878,8 @@ public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GTestDBus` instance.
     var test_dbus_ptr: UnsafeMutablePointer<GTestDBus>! { get }
 
+    /// Required Initialiser for types conforming to `TestDBusProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestDBusRef` type acts as a lightweight Swift reference to an underlying `GTestDBus` instance.
@@ -1216,14 +1222,14 @@ open class TestDBus: GLibObject.Object, TestDBusProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestDBusProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1447,6 +1453,8 @@ public protocol ThemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
     /// Typed pointer to the underlying `GThemedIcon` instance.
     var themed_icon_ptr: UnsafeMutablePointer<GThemedIcon>! { get }
 
+    /// Required Initialiser for types conforming to `ThemedIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThemedIconRef` type acts as a lightweight Swift reference to an underlying `GThemedIcon` instance.
@@ -1652,14 +1660,14 @@ open class ThemedIcon: GLibObject.Object, ThemedIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThemedIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1881,6 +1889,8 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
     /// Typed pointer to the underlying `GThreadedSocketService` instance.
     var threaded_socket_service_ptr: UnsafeMutablePointer<GThreadedSocketService>! { get }
 
+    /// Required Initialiser for types conforming to `ThreadedSocketServiceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThreadedSocketServiceRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketService` instance.
@@ -2108,14 +2118,14 @@ open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadedSocketServiceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2401,6 +2411,8 @@ public protocol TLSCertificateProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GTlsCertificate` instance.
     var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate>! { get }
 
+    /// Required Initialiser for types conforming to `TLSCertificateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSCertificateRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificate` instance.
@@ -2535,7 +2547,7 @@ public extension TLSCertificateRef {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate:private`-key-pem property for information about
+    /// the `GTlsCertificate:private-key-pem` property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
@@ -2598,7 +2610,7 @@ public extension TLSCertificateRef {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate:private`-key-pem property for information about
+    /// the `GTlsCertificate:private-key-pem` property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
@@ -2727,14 +2739,14 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSCertificateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2798,7 +2810,7 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate:private`-key-pem property for information about
+    /// the `GTlsCertificate:private-key-pem` property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
@@ -2865,7 +2877,7 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `data`. If
     /// `data` includes both a certificate and a private key, then the
     /// returned certificate will include the private key data as well. (See
-    /// the `GTlsCertificate:private`-key-pem property for information about
+    /// the `GTlsCertificate:private-key-pem` property for information about
     /// supported formats.)
     /// 
     /// The returned certificate will be the first certificate found in
@@ -2889,7 +2901,7 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
 
 public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     /// The DER (binary) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate:certificate`-pem property
+    /// This property and the `GTlsCertificate:certificate-pem` property
     /// represent the same data, just in different forms.
     case certificate = "certificate"
     /// The PEM (ASCII) encoded representation of the certificate.
@@ -2903,7 +2915,7 @@ public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     case issuer = "issuer"
     /// The DER (binary) encoded representation of the certificate's
     /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate:private`-key-pem
+    /// format. This property (or the `GTlsCertificate:private-key-pem`
     /// property) can be set when constructing a key (eg, from a file),
     /// but cannot be read.
     /// 
@@ -2915,7 +2927,7 @@ public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
     /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
     /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate:private`-key property) can be set when
+    /// `GTlsCertificate:private-key` property) can be set when
     /// constructing a key (eg, from a file), but cannot be read.
     /// 
     /// PKCS`8` format is supported since 2.32; earlier releases only
@@ -3004,7 +3016,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The DER (binary) encoded representation of the certificate.
-    /// This property and the `GTlsCertificate:certificate`-pem property
+    /// This property and the `GTlsCertificate:certificate-pem` property
     /// represent the same data, just in different forms.
     case notifyCertificate = "notify::certificate"
     /// The PEM (ASCII) encoded representation of the certificate.
@@ -3018,7 +3030,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     case notifyIssuer = "notify::issuer"
     /// The DER (binary) encoded representation of the certificate's
     /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate:private`-key-pem
+    /// format. This property (or the `GTlsCertificate:private-key-pem`
     /// property) can be set when constructing a key (eg, from a file),
     /// but cannot be read.
     /// 
@@ -3030,7 +3042,7 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
     /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
     /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate:private`-key property) can be set when
+    /// `GTlsCertificate:private-key` property) can be set when
     /// constructing a key (eg, from a file), but cannot be read.
     /// 
     /// PKCS`8` format is supported since 2.32; earlier releases only
@@ -3054,8 +3066,8 @@ public extension TLSCertificateProtocol {
     /// Check if two `GTlsCertificate` objects represent the same certificate.
     /// The raw DER byte data of the two certificates are checked for equality.
     /// This has the effect that two certificates may compare equal even if
-    /// their `GTlsCertificate:issuer`, `GTlsCertificate:private`-key, or
-    /// `GTlsCertificate:private`-key-pem properties differ.
+    /// their `GTlsCertificate:issuer`, `GTlsCertificate:private-key`, or
+    /// `GTlsCertificate:private-key-pem` properties differ.
     @inlinable func isSame<TLSCertificateT: TLSCertificateProtocol>(certTwo: TLSCertificateT) -> Bool {
         let rv = ((g_tls_certificate_is_same(tls_certificate_ptr, certTwo.tls_certificate_ptr)) != 0)
         return rv
@@ -3119,7 +3131,7 @@ public extension TLSCertificateProtocol {
     /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
     /// must have pollable input and output streams).
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT) throws -> TLSServerConnectionRef! {
@@ -3173,6 +3185,8 @@ public protocol TLSConnectionProtocol: IOStreamProtocol {
     /// Typed pointer to the underlying `GTlsConnection` instance.
     var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection>! { get }
 
+    /// Required Initialiser for types conforming to `TLSConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsConnection` instance.
@@ -3376,14 +3390,14 @@ open class TLSConnection: IOStream, TLSConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3435,16 +3449,16 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -3607,16 +3621,16 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -4271,7 +4285,7 @@ public extension TLSConnectionProtocol {
     @inlinable var tls_connection_ptr: UnsafeMutablePointer<GTlsConnection>! { return ptr?.assumingMemoryBound(to: GTlsConnection.self) }
 
     /// Used by `GTlsConnection` implementations to emit the
-    /// `GTlsConnection::accept`-certificate signal.
+    /// `GTlsConnection::accept-certificate` signal.
     @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
         let rv = ((g_tls_connection_emit_accept_certificate(tls_connection_ptr, peerCert.tls_certificate_ptr, errors.value)) != 0)
         return rv
@@ -4352,7 +4366,7 @@ public extension TLSConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed
     /// or failed. (It is not set during the emission of
-    /// `GTlsConnection::accept`-certificate.)
+    /// `GTlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificate() -> TLSCertificateRef! {
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
         return rv
@@ -4360,7 +4374,7 @@ public extension TLSConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed or failed. (It is
-    /// not set during the emission of `GTlsConnection::accept`-certificate.)
+    /// not set during the emission of `GTlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
         return rv
@@ -4501,7 +4515,7 @@ public extension TLSConnectionProtocol {
     /// protocol after the handshake.  Specifying `nil` for the the value
     /// of `protocols` will disable ALPN negotiation.
     /// 
-    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn`-protocol-ids)
+    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn-protocol-ids`)
     /// for a list of registered protocol IDs.
     @inlinable func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>?>! = nil) {
         g_tls_connection_set_advertised_protocols(tls_connection_ptr, protocols)
@@ -4536,9 +4550,9 @@ public extension TLSConnectionProtocol {
     /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GTlsConnection::accept`-certificate will always be emitted on
+    /// `GTlsConnection::accept-certificate` will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GTlsClientConnection:validation`-flags).
+    /// `GTlsClientConnection:validation-flags`).
     @inlinable func set(database: TLSDatabaseRef? = nil) {
         g_tls_connection_set_database(tls_connection_ptr, database?.tls_database_ptr)
     
@@ -4548,9 +4562,9 @@ public extension TLSConnectionProtocol {
     /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GTlsConnection::accept`-certificate will always be emitted on
+    /// `GTlsConnection::accept-certificate` will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GTlsClientConnection:validation`-flags).
+    /// `GTlsClientConnection:validation-flags`).
     @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT?) {
         g_tls_connection_set_database(tls_connection_ptr, database?.tls_database_ptr)
     
@@ -4615,7 +4629,7 @@ public extension TLSConnectionProtocol {
     /// connection; when the application calls `g_io_stream_close()` itself
     /// on `conn`, this will send a close notification regardless of the
     /// setting of this property. If you explicitly want to do an unclean
-    /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
+    /// close, you can close `conn`'s `GTlsConnection:base-io-stream` rather
     /// than closing `conn` itself, but note that this may only be done when no other
     /// operations are pending on `conn` or the base I/O stream.
     @inlinable func set(requireCloseNotify: Bool) {
@@ -4627,9 +4641,9 @@ public extension TLSConnectionProtocol {
     /// peer certificates. This is `true` by default. If set to `false`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GTlsConnection::accept`-certificate will always be emitted on
+    /// `GTlsConnection::accept-certificate` will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GTlsClientConnection:validation`-flags).
+    /// `GTlsClientConnection:validation-flags`).
     ///
     /// **set_use_system_certdb is deprecated:**
     /// Use g_tls_connection_set_database() instead
@@ -4684,9 +4698,9 @@ public extension TLSConnectionProtocol {
         /// `g_tls_backend_get_default_database()`. If set to `nil`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GTlsConnection::accept`-certificate will always be emitted on
+        /// `GTlsConnection::accept-certificate` will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GTlsClientConnection:validation`-flags).
+        /// `GTlsClientConnection:validation-flags`).
         nonmutating set {
             g_tls_connection_set_database(tls_connection_ptr, UnsafeMutablePointer<GTlsDatabase>(newValue?.tls_database_ptr))
         }
@@ -4737,11 +4751,11 @@ public extension TLSConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed
     /// or failed. (It is not set during the emission of
-    /// `GTlsConnection::accept`-certificate.)
+    /// `GTlsConnection::accept-certificate`.)
     @inlinable var peerCertificate: TLSCertificateRef! {
         /// Gets `conn`'s peer's certificate after the handshake has completed
         /// or failed. (It is not set during the emission of
-        /// `GTlsConnection::accept`-certificate.)
+        /// `GTlsConnection::accept-certificate`.)
         get {
             let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_connection_get_peer_certificate(tls_connection_ptr)))
             return rv
@@ -4750,11 +4764,11 @@ public extension TLSConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed or failed. (It is
-    /// not set during the emission of `GTlsConnection::accept`-certificate.)
+    /// not set during the emission of `GTlsConnection::accept-certificate`.)
     @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed or failed. (It is
-        /// not set during the emission of `GTlsConnection::accept`-certificate.)
+        /// not set during the emission of `GTlsConnection::accept-certificate`.)
         get {
             let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
             return rv
@@ -4829,7 +4843,7 @@ public extension TLSConnectionProtocol {
         /// connection; when the application calls `g_io_stream_close()` itself
         /// on `conn`, this will send a close notification regardless of the
         /// setting of this property. If you explicitly want to do an unclean
-        /// close, you can close `conn`'s `GTlsConnection:base`-io-stream rather
+        /// close, you can close `conn`'s `GTlsConnection:base-io-stream` rather
         /// than closing `conn` itself, but note that this may only be done when no other
         /// operations are pending on `conn` or the base I/O stream.
         nonmutating set {
@@ -4856,9 +4870,9 @@ public extension TLSConnectionProtocol {
         /// peer certificates. This is `true` by default. If set to `false`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GTlsConnection::accept`-certificate will always be emitted on
+        /// `GTlsConnection::accept-certificate` will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GTlsClientConnection:validation`-flags).
+        /// `GTlsClientConnection:validation-flags`).
         ///
         /// **set_use_system_certdb is deprecated:**
         /// Use g_tls_connection_set_database() instead
@@ -4903,6 +4917,8 @@ public protocol TLSDatabaseProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GTlsDatabase` instance.
     var tls_database_ptr: UnsafeMutablePointer<GTlsDatabase>! { get }
 
+    /// Required Initialiser for types conforming to `TLSDatabaseProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabase` instance.
@@ -5112,14 +5128,14 @@ open class TLSDatabase: GLibObject.Object, TLSDatabaseProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSDatabaseProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5522,6 +5538,8 @@ public protocol TLSInteractionProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GTlsInteraction` instance.
     var tls_interaction_ptr: UnsafeMutablePointer<GTlsInteraction>! { get }
 
+    /// Required Initialiser for types conforming to `TLSInteractionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSInteractionRef` type acts as a lightweight Swift reference to an underlying `GTlsInteraction` instance.
@@ -5753,14 +5771,14 @@ open class TLSInteraction: GLibObject.Object, TLSInteractionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSInteractionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6127,6 +6145,8 @@ public protocol TLSPasswordProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GTlsPassword` instance.
     var tls_password_ptr: UnsafeMutablePointer<GTlsPassword>! { get }
 
+    /// Required Initialiser for types conforming to `TLSPasswordProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSPasswordRef` type acts as a lightweight Swift reference to an underlying `GTlsPassword` instance.
@@ -6325,14 +6345,14 @@ open class TLSPassword: GLibObject.Object, TLSPasswordProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSPasswordProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6597,7 +6617,7 @@ public extension TLSPasswordProtocol {
 /// It contains functions to do some of the UNIX socket specific
 /// functionality like passing file descriptors.
 /// 
-/// Note that `<gio/gunixconnection.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
 public protocol UnixConnectionProtocol: SocketConnectionProtocol {
@@ -6607,6 +6627,8 @@ public protocol UnixConnectionProtocol: SocketConnectionProtocol {
     /// Typed pointer to the underlying `GUnixConnection` instance.
     var unix_connection_ptr: UnsafeMutablePointer<GUnixConnection>! { get }
 
+    /// Required Initialiser for types conforming to `UnixConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixConnectionRef` type acts as a lightweight Swift reference to an underlying `GUnixConnection` instance.
@@ -6619,7 +6641,7 @@ public protocol UnixConnectionProtocol: SocketConnectionProtocol {
 /// It contains functions to do some of the UNIX socket specific
 /// functionality like passing file descriptors.
 /// 
-/// Note that `<gio/gunixconnection.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
 public struct UnixConnectionRef: UnixConnectionProtocol, GWeakCapturing {
@@ -6713,7 +6735,7 @@ public extension UnixConnectionRef {
 /// It contains functions to do some of the UNIX socket specific
 /// functionality like passing file descriptors.
 /// 
-/// Note that `<gio/gunixconnection.h>` belongs to the UNIX-specific
+/// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
 open class UnixConnection: SocketConnection, UnixConnectionProtocol {
@@ -6816,14 +6838,14 @@ open class UnixConnection: SocketConnection, UnixConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

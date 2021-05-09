@@ -35,6 +35,8 @@ public protocol MountProtocol {
     /// Typed pointer to the underlying `GMount` instance.
     var mount_ptr: UnsafeMutablePointer<GMount>! { get }
 
+    /// Required Initialiser for types conforming to `MountProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountRef` type acts as a lightweight Swift reference to an underlying `GMount` instance.
@@ -274,7 +276,7 @@ open class Mount: MountProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -932,6 +934,8 @@ public protocol NetworkMonitorProtocol: InitableProtocol {
     /// Typed pointer to the underlying `GNetworkMonitor` instance.
     var network_monitor_ptr: UnsafeMutablePointer<GNetworkMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkMonitorRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitor` instance.
@@ -1137,7 +1141,7 @@ open class NetworkMonitor: Initable, NetworkMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1192,7 +1196,7 @@ public enum NetworkMonitorPropertyName: String, PropertyNameProtocol {
     /// hosts at all are reachable, and should indicate this to the user
     /// in its UI.)
     /// 
-    /// See also `GNetworkMonitor::network`-changed.
+    /// See also `GNetworkMonitor::network-changed`.
     case networkAvailable = "network-available"
     /// Whether the network is considered metered. That is, whether the
     /// system has traffic flowing through the default connection that is
@@ -1210,7 +1214,7 @@ public enum NetworkMonitorPropertyName: String, PropertyNameProtocol {
     /// If this information is not available then no networks will be
     /// marked as metered.
     /// 
-    /// See also `GNetworkMonitor:network`-available.
+    /// See also `GNetworkMonitor:network-available`.
     case networkMetered = "network-metered"
 }
 
@@ -1290,7 +1294,7 @@ public enum NetworkMonitorSignalName: String, SignalNameProtocol {
     /// hosts at all are reachable, and should indicate this to the user
     /// in its UI.)
     /// 
-    /// See also `GNetworkMonitor::network`-changed.
+    /// See also `GNetworkMonitor::network-changed`.
     case notifyNetworkAvailable = "notify::network-available"
     /// Whether the network is considered metered. That is, whether the
     /// system has traffic flowing through the default connection that is
@@ -1308,7 +1312,7 @@ public enum NetworkMonitorSignalName: String, SignalNameProtocol {
     /// If this information is not available then no networks will be
     /// marked as metered.
     /// 
-    /// See also `GNetworkMonitor:network`-available.
+    /// See also `GNetworkMonitor:network-available`.
     case notifyNetworkMetered = "notify::network-metered"
 }
 
@@ -1344,7 +1348,7 @@ public extension NetworkMonitorProtocol {
     /// - Note: This represents the underlying `network-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter networkAvailable: the current value of `GNetworkMonitor:network`-available
+    /// - Parameter networkAvailable: the current value of `GNetworkMonitor:network-available`
     /// - Parameter handler: The signal handler to call
     /// Run the given callback whenever the `networkChanged` signal is emitted
     @discardableResult @inlinable func onNetworkChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: NetworkMonitorRef, _ networkAvailable: Bool) -> Void ) -> Int {
@@ -1524,7 +1528,7 @@ public extension NetworkMonitorProtocol {
     /// `connectable` can be reached, without actually trying to connect to
     /// it.
     /// 
-    /// This may return `true` even when `GNetworkMonitor:network`-available
+    /// This may return `true` even when `GNetworkMonitor:network-available`
     /// is `false`, if, for example, `monitor` can determine that
     /// `connectable` refers to a host on a local network.
     /// 
@@ -1547,7 +1551,7 @@ public extension NetworkMonitorProtocol {
     /// `connectable` can be reached, without actually trying to connect to
     /// it.
     /// 
-    /// This may return `true` even when `GNetworkMonitor:network`-available
+    /// This may return `true` even when `GNetworkMonitor:network-available`
     /// is `false`, if, for example, `monitor` can determine that
     /// `connectable` refers to a host on a local network.
     /// 
@@ -1606,10 +1610,10 @@ public extension NetworkMonitorProtocol {
     /// Gets a more detailed networking state than
     /// `g_network_monitor_get_network_available()`.
     /// 
-    /// If `GNetworkMonitor:network`-available is `false`, then the
+    /// If `GNetworkMonitor:network-available` is `false`, then the
     /// connectivity state will be `G_NETWORK_CONNECTIVITY_LOCAL`.
     /// 
-    /// If `GNetworkMonitor:network`-available is `true`, then the
+    /// If `GNetworkMonitor:network-available` is `true`, then the
     /// connectivity state will be `G_NETWORK_CONNECTIVITY_FULL` (if there
     /// is full Internet connectivity), `G_NETWORK_CONNECTIVITY_LIMITED` (if
     /// the host has a default route, but appears to be unable to actually
@@ -1630,14 +1634,14 @@ public extension NetworkMonitorProtocol {
     /// Checks if the network is available. "Available" here means that the
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
-    /// reachable. See `GNetworkMonitor:network`-available for more details.
+    /// reachable. See `GNetworkMonitor:network-available` for more details.
     @inlinable func getNetworkAvailable() -> Bool {
         let rv = ((g_network_monitor_get_network_available(network_monitor_ptr)) != 0)
         return rv
     }
 
     /// Checks if the network is metered.
-    /// See `GNetworkMonitor:network`-metered for more details.
+    /// See `GNetworkMonitor:network-metered` for more details.
     @inlinable func getNetworkMetered() -> Bool {
         let rv = ((g_network_monitor_get_network_metered(network_monitor_ptr)) != 0)
         return rv
@@ -1649,10 +1653,10 @@ public extension NetworkMonitorProtocol {
         /// Gets a more detailed networking state than
         /// `g_network_monitor_get_network_available()`.
         /// 
-        /// If `GNetworkMonitor:network`-available is `false`, then the
+        /// If `GNetworkMonitor:network-available` is `false`, then the
         /// connectivity state will be `G_NETWORK_CONNECTIVITY_LOCAL`.
         /// 
-        /// If `GNetworkMonitor:network`-available is `true`, then the
+        /// If `GNetworkMonitor:network-available` is `true`, then the
         /// connectivity state will be `G_NETWORK_CONNECTIVITY_FULL` (if there
         /// is full Internet connectivity), `G_NETWORK_CONNECTIVITY_LIMITED` (if
         /// the host has a default route, but appears to be unable to actually
@@ -1674,12 +1678,12 @@ public extension NetworkMonitorProtocol {
     /// Checks if the network is available. "Available" here means that the
     /// system has a default route available for at least one of IPv4 or
     /// IPv6. It does not necessarily imply that the public Internet is
-    /// reachable. See `GNetworkMonitor:network`-available for more details.
+    /// reachable. See `GNetworkMonitor:network-available` for more details.
     @inlinable var networkAvailable: Bool {
         /// Checks if the network is available. "Available" here means that the
         /// system has a default route available for at least one of IPv4 or
         /// IPv6. It does not necessarily imply that the public Internet is
-        /// reachable. See `GNetworkMonitor:network`-available for more details.
+        /// reachable. See `GNetworkMonitor:network-available` for more details.
         get {
             let rv = ((g_network_monitor_get_network_available(network_monitor_ptr)) != 0)
             return rv
@@ -1687,10 +1691,10 @@ public extension NetworkMonitorProtocol {
     }
 
     /// Checks if the network is metered.
-    /// See `GNetworkMonitor:network`-metered for more details.
+    /// See `GNetworkMonitor:network-metered` for more details.
     @inlinable var networkMetered: Bool {
         /// Checks if the network is metered.
-        /// See `GNetworkMonitor:network`-metered for more details.
+        /// See `GNetworkMonitor:network-metered` for more details.
         get {
             let rv = ((g_network_monitor_get_network_metered(network_monitor_ptr)) != 0)
             return rv

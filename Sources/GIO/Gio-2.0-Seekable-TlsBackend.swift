@@ -30,6 +30,8 @@ public protocol SeekableProtocol {
     /// Typed pointer to the underlying `GSeekable` instance.
     var seekable_ptr: UnsafeMutablePointer<GSeekable>! { get }
 
+    /// Required Initialiser for types conforming to `SeekableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeekableRef` type acts as a lightweight Swift reference to an underlying `GSeekable` instance.
@@ -259,7 +261,7 @@ open class Seekable: SeekableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeekableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -469,6 +471,8 @@ public protocol SocketConnectableProtocol {
     /// Typed pointer to the underlying `GSocketConnectable` instance.
     var socket_connectable_ptr: UnsafeMutablePointer<GSocketConnectable>! { get }
 
+    /// Required Initialiser for types conforming to `SocketConnectableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SocketConnectableRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectable` instance.
@@ -788,7 +792,7 @@ open class SocketConnectable: SocketConnectableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SocketConnectableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -872,7 +876,7 @@ public extension SocketConnectableProtocol {
     /// must have pollable input and output streams) which is assumed to
     /// communicate with the server identified by `server_identity`.
     /// 
-    /// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+    /// See the documentation for `GTlsConnection:base-io-stream` for restrictions
     /// on when application code can run operations on the `base_io_stream` after
     /// this function has returned.
     @inlinable func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT) throws -> TLSClientConnectionRef! {
@@ -902,6 +906,8 @@ public protocol TLSBackendProtocol {
     /// Typed pointer to the underlying `GTlsBackend` instance.
     var tls_backend_ptr: UnsafeMutablePointer<GTlsBackend>! { get }
 
+    /// Required Initialiser for types conforming to `TLSBackendProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSBackendRef` type acts as a lightweight Swift reference to an underlying `GTlsBackend` instance.
@@ -1110,7 +1116,7 @@ open class TLSBackend: TLSBackendProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSBackendProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -32,6 +32,8 @@ public protocol ListStoreClassProtocol {
     /// Typed pointer to the underlying `GListStoreClass` instance.
     var _ptr: UnsafeMutablePointer<GListStoreClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListStoreClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GListStoreClass` instance.
@@ -164,6 +166,8 @@ public protocol LoadableIconIfaceProtocol {
     /// Typed pointer to the underlying `GLoadableIconIface` instance.
     var _ptr: UnsafeMutablePointer<GLoadableIconIface>! { get }
 
+    /// Required Initialiser for types conforming to `LoadableIconIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LoadableIconIfaceRef` type acts as a lightweight Swift reference to an underlying `GLoadableIconIface` instance.
@@ -304,6 +308,8 @@ public protocol MemoryInputStreamClassProtocol {
     /// Typed pointer to the underlying `GMemoryInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GMemoryInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStreamClass` instance.

@@ -17,6 +17,8 @@ public protocol NativeVolumeMonitorProtocol: VolumeMonitorProtocol {
     /// Typed pointer to the underlying `GNativeVolumeMonitor` instance.
     var native_volume_monitor_ptr: UnsafeMutablePointer<GNativeVolumeMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `NativeVolumeMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeVolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GNativeVolumeMonitor` instance.
@@ -210,14 +212,14 @@ open class NativeVolumeMonitor: VolumeMonitor, NativeVolumeMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeVolumeMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeVolumeMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -339,6 +341,8 @@ public protocol NetworkAddressProtocol: GLibObject.ObjectProtocol, SocketConnect
     /// Typed pointer to the underlying `GNetworkAddress` instance.
     var network_address_ptr: UnsafeMutablePointer<GNetworkAddress>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkAddressRef` type acts as a lightweight Swift reference to an underlying `GNetworkAddress` instance.
@@ -550,14 +554,14 @@ open class NetworkAddress: GLibObject.Object, NetworkAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -754,6 +758,8 @@ public protocol NetworkServiceProtocol: GLibObject.ObjectProtocol, SocketConnect
     /// Typed pointer to the underlying `GNetworkService` instance.
     var network_service_ptr: UnsafeMutablePointer<GNetworkService>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkServiceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkServiceRef` type acts as a lightweight Swift reference to an underlying `GNetworkService` instance.
@@ -963,14 +969,14 @@ open class NetworkService: GLibObject.Object, NetworkServiceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkServiceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NetworkServiceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1209,6 +1215,8 @@ public protocol NotificationProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GNotification` instance.
     var notification_ptr: UnsafeMutablePointer<GNotification>! { get }
 
+    /// Required Initialiser for types conforming to `NotificationProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NotificationRef` type acts as a lightweight Swift reference to an underlying `GNotification` instance.
@@ -1452,14 +1460,14 @@ open class Notification: GLibObject.Object, NotificationProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotificationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NotificationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1667,6 +1675,8 @@ public protocol OsxAppInfoProtocol: GLibObject.ObjectProtocol, AppInfoProtocol {
     /// Typed pointer to the underlying `GOsxAppInfo` instance.
     var osx_app_info_ptr: UnsafeMutablePointer<GOsxAppInfo>! { get }
 
+    /// Required Initialiser for types conforming to `OsxAppInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OsxAppInfoRef` type acts as a lightweight Swift reference to an underlying `GOsxAppInfo` instance.
@@ -1860,14 +1870,14 @@ open class OsxAppInfo: GLibObject.Object, OsxAppInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OsxAppInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OsxAppInfoProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

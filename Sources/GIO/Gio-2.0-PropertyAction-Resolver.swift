@@ -67,6 +67,8 @@ public protocol PropertyActionProtocol: GLibObject.ObjectProtocol, ActionProtoco
     /// Typed pointer to the underlying `GPropertyAction` instance.
     var property_action_ptr: UnsafeMutablePointer<GPropertyAction>! { get }
 
+    /// Required Initialiser for types conforming to `PropertyActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PropertyActionRef` type acts as a lightweight Swift reference to an underlying `GPropertyAction` instance.
@@ -372,14 +374,14 @@ open class PropertyAction: GLibObject.Object, PropertyActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -581,6 +583,8 @@ public protocol ProxyAddressProtocol: InetSocketAddressProtocol {
     /// Typed pointer to the underlying `GProxyAddress` instance.
     var proxy_address_ptr: UnsafeMutablePointer<GProxyAddress>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyAddressRef` type acts as a lightweight Swift reference to an underlying `GProxyAddress` instance.
@@ -671,7 +675,7 @@ public extension ProxyAddressRef {
     /// tunnel through `dest_hostname` and `dest_port`.
     /// 
     /// (Note that this method doesn't set the `GProxyAddress:uri` or
-    /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
+    /// `GProxyAddress:destination-protocol` fields; use `g_object_new()`
     /// directly if you want to set those.)
     @inlinable init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname: UnsafePointer<gchar>!, destPort: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
         let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, destHostname, destPort, username, password)
@@ -784,14 +788,14 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -813,7 +817,7 @@ open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
     /// tunnel through `dest_hostname` and `dest_port`.
     /// 
     /// (Note that this method doesn't set the `GProxyAddress:uri` or
-    /// `GProxyAddress:destination`-protocol fields; use `g_object_new()`
+    /// `GProxyAddress:destination-protocol` fields; use `g_object_new()`
     /// directly if you want to set those.)
     @inlinable public init<InetAddressT: InetAddressProtocol>( inetaddr: InetAddressT, port: guint16, `protocol`: UnsafePointer<gchar>!, destHostname: UnsafePointer<gchar>!, destPort: guint16, username: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil) {
         let rv = g_proxy_address_new(inetaddr.inet_address_ptr, port, `protocol`, destHostname, destPort, username, password)
@@ -1088,7 +1092,7 @@ public extension ProxyAddressProtocol {
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator:proxy`-resolver.
+/// `GProxyAddressEnumerator:proxy-resolver`.
 /// 
 /// This enumerator will be returned (for example, by
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
@@ -1101,6 +1105,8 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
     /// Typed pointer to the underlying `GProxyAddressEnumerator` instance.
     var proxy_address_enumerator_ptr: UnsafeMutablePointer<GProxyAddressEnumerator>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyAddressEnumeratorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressEnumerator` instance.
@@ -1110,7 +1116,7 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator:proxy`-resolver.
+/// `GProxyAddressEnumerator:proxy-resolver`.
 /// 
 /// This enumerator will be returned (for example, by
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
@@ -1204,7 +1210,7 @@ public extension ProxyAddressEnumeratorRef {
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
-/// `GProxyAddressEnumerator:proxy`-resolver.
+/// `GProxyAddressEnumerator:proxy-resolver`.
 /// 
 /// This enumerator will be returned (for example, by
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
@@ -1310,14 +1316,14 @@ open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumerat
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyAddressEnumeratorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1474,6 +1480,8 @@ public protocol ResolverProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GResolver` instance.
     var resolver_ptr: UnsafeMutablePointer<GResolver>! { get }
 
+    /// Required Initialiser for types conforming to `ResolverProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ResolverRef` type acts as a lightweight Swift reference to an underlying `GResolver` instance.
@@ -1688,14 +1696,14 @@ open class Resolver: GLibObject.Object, ResolverProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResolverProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

@@ -17,6 +17,8 @@ public protocol ZlibDecompressorProtocol: GLibObject.ObjectProtocol, ConverterPr
     /// Typed pointer to the underlying `GZlibDecompressor` instance.
     var zlib_decompressor_ptr: UnsafeMutablePointer<GZlibDecompressor>! { get }
 
+    /// Required Initialiser for types conforming to `ZlibDecompressorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ZlibDecompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibDecompressor` instance.
@@ -215,14 +217,14 @@ open class ZlibDecompressor: GLibObject.Object, ZlibDecompressorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibDecompressorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

@@ -23,6 +23,8 @@ public protocol OutputMessageProtocol {
     /// Typed pointer to the underlying `GOutputMessage` instance.
     var _ptr: UnsafeMutablePointer<GOutputMessage>! { get }
 
+    /// Required Initialiser for types conforming to `OutputMessageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OutputMessageRef` type acts as a lightweight Swift reference to an underlying `GOutputMessage` instance.
@@ -238,7 +240,7 @@ open class OutputMessage: OutputMessageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputMessageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -398,6 +400,8 @@ public protocol OutputStreamClassProtocol {
     /// Typed pointer to the underlying `GOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `OutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GOutputStreamClass` instance.
@@ -558,6 +562,8 @@ public protocol OutputVectorProtocol {
     /// Typed pointer to the underlying `GOutputVector` instance.
     var _ptr: UnsafeMutablePointer<GOutputVector>! { get }
 
+    /// Required Initialiser for types conforming to `OutputVectorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OutputVectorRef` type acts as a lightweight Swift reference to an underlying `GOutputVector` instance.
@@ -767,7 +773,7 @@ open class OutputVector: OutputVectorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputVectorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -869,6 +875,8 @@ public protocol PermissionClassProtocol {
     /// Typed pointer to the underlying `GPermissionClass` instance.
     var _ptr: UnsafeMutablePointer<GPermissionClass>! { get }
 
+    /// Required Initialiser for types conforming to `PermissionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PermissionClassRef` type acts as a lightweight Swift reference to an underlying `GPermissionClass` instance.

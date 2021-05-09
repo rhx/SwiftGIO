@@ -19,6 +19,8 @@ public protocol DBusInterfaceProtocol {
     /// Typed pointer to the underlying `GDBusInterface` instance.
     var dbus_interface_ptr: UnsafeMutablePointer<GDBusInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DBusInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusInterface` instance.
@@ -226,7 +228,7 @@ open class DBusInterface: DBusInterfaceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusInterfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -361,6 +363,8 @@ public protocol DBusObjectProtocol {
     /// Typed pointer to the underlying `GDBusObject` instance.
     var dbus_object_ptr: UnsafeMutablePointer<GDBusObject>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectRef` type acts as a lightweight Swift reference to an underlying `GDBusObject` instance.
@@ -570,7 +574,7 @@ open class DBusObject: DBusObjectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -749,7 +753,7 @@ public extension DBusObjectProtocol {
 ///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
-/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
+/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
 /// interface.
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
@@ -761,6 +765,8 @@ public protocol DBusObjectManagerProtocol {
     /// Typed pointer to the underlying `GDBusObjectManager` instance.
     var dbus_object_manager_ptr: UnsafeMutablePointer<GDBusObjectManager>! { get }
 
+    /// Required Initialiser for types conforming to `DBusObjectManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusObjectManagerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManager` instance.
@@ -769,7 +775,7 @@ public protocol DBusObjectManagerProtocol {
 ///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
-/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
+/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
 /// interface.
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
@@ -858,7 +864,7 @@ public extension DBusObjectManagerRef {
 ///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
-/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-objectmanager)
+/// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
 /// interface.
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
@@ -976,7 +982,7 @@ open class DBusObjectManager: DBusObjectManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusObjectManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1283,6 +1289,8 @@ public protocol DatagramBasedProtocol {
     /// Typed pointer to the underlying `GDatagramBased` instance.
     var datagram_based_ptr: UnsafeMutablePointer<GDatagramBased>! { get }
 
+    /// Required Initialiser for types conforming to `DatagramBasedProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DatagramBasedRef` type acts as a lightweight Swift reference to an underlying `GDatagramBased` instance.
@@ -1578,7 +1586,7 @@ open class DatagramBased: DatagramBasedProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DatagramBasedProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2007,6 +2015,8 @@ public protocol DriveProtocol {
     /// Typed pointer to the underlying `GDrive` instance.
     var drive_ptr: UnsafeMutablePointer<GDrive>! { get }
 
+    /// Required Initialiser for types conforming to `DriveProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DriveRef` type acts as a lightweight Swift reference to an underlying `GDrive` instance.
@@ -2260,7 +2270,7 @@ open class Drive: DriveProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DriveProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2800,6 +2810,8 @@ public protocol DtlsClientConnectionProtocol: DatagramBasedProtocol {
     /// Typed pointer to the underlying `GDtlsClientConnection` instance.
     var dtls_client_connection_ptr: UnsafeMutablePointer<GDtlsClientConnection>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsClientConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsClientConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsClientConnection` instance.
@@ -2992,7 +3004,7 @@ open class DtlsClientConnection: DatagramBased, DtlsClientConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsClientConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3034,9 +3046,9 @@ public enum DtlsClientConnectionPropertyName: String, PropertyNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GDtlsClientConnection:validation`-flags, this object will be used
+    /// `GDtlsClientConnection:validation-flags`, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GDtlsClientConnection:server`-identity is not set,
+    /// connection; if `GDtlsClientConnection:server-identity` is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -3048,7 +3060,7 @@ public enum DtlsClientConnectionPropertyName: String, PropertyNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GDtlsConnection::accept`-certificate.
+    /// overrides the default via `GDtlsConnection::accept-certificate`.
     case validationFlags = "validation-flags"
 }
 
@@ -3119,9 +3131,9 @@ public enum DtlsClientConnectionSignalName: String, SignalNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GDtlsClientConnection:validation`-flags, this object will be used
+    /// `GDtlsClientConnection:validation-flags`, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GDtlsClientConnection:server`-identity is not set,
+    /// connection; if `GDtlsClientConnection:server-identity` is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -3133,7 +3145,7 @@ public enum DtlsClientConnectionSignalName: String, SignalNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GDtlsConnection::accept`-certificate.
+    /// overrides the default via `GDtlsConnection::accept-certificate`.
     case notifyValidationFlags = "notify::validation-flags"
 }
 
@@ -3257,7 +3269,7 @@ public extension DtlsClientConnectionProtocol {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection:base`-socket).
+/// (`GDtlsConnection:base-socket`).
 /// 
 /// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
@@ -3273,6 +3285,8 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
     /// Typed pointer to the underlying `GDtlsConnection` instance.
     var dtls_connection_ptr: UnsafeMutablePointer<GDtlsConnection>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnection` instance.
@@ -3289,7 +3303,7 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection:base`-socket).
+/// (`GDtlsConnection:base-socket`).
 /// 
 /// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
@@ -3390,7 +3404,7 @@ public extension DtlsConnectionRef {
 /// As DTLS is datagram based, `GDtlsConnection` implements `GDatagramBased`,
 /// presenting a datagram-socket-like API for the encrypted connection. This
 /// operates over a base datagram connection, which is also a `GDatagramBased`
-/// (`GDtlsConnection:base`-socket).
+/// (`GDtlsConnection:base-socket`).
 /// 
 /// To close a DTLS connection, use `g_dtls_connection_close()`.
 /// 
@@ -3499,7 +3513,7 @@ open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3552,16 +3566,16 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     case negotiatedProtocol = "negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GDtlsConnection::accept`-certificate.
+    /// during the emission of `GDtlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed while verifying
-    /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GDtlsClientConnection:validation`-flags is not
+    /// `GDtlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GDtlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GDtlsConnection::accept`-certificate overrode the default
+    /// `GDtlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -3686,16 +3700,16 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     case notifyNegotiatedProtocol = "notify::negotiated-protocol"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GDtlsConnection::accept`-certificate.
+    /// during the emission of `GDtlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed while verifying
-    /// `GDtlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GDtlsClientConnection:validation`-flags is not
+    /// `GDtlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GDtlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GDtlsConnection::accept`-certificate overrode the default
+    /// `GDtlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -4299,7 +4313,7 @@ public extension DtlsConnectionProtocol {
     /// Closing a `GDtlsConnection` waits for all buffered but untransmitted data to
     /// be sent before it completes. It then sends a `close_notify` DTLS alert to the
     /// peer and may wait for a `close_notify` to be received from the peer. It does
-    /// not close the underlying `GDtlsConnection:base`-socket; that must be closed
+    /// not close the underlying `GDtlsConnection:base-socket`; that must be closed
     /// separately.
     /// 
     /// Once `conn` is closed, all other operations will return `G_IO_ERROR_CLOSED`.
@@ -4324,7 +4338,7 @@ public extension DtlsConnectionProtocol {
     /// Closing a `GDtlsConnection` waits for all buffered but untransmitted data to
     /// be sent before it completes. It then sends a `close_notify` DTLS alert to the
     /// peer and may wait for a `close_notify` to be received from the peer. It does
-    /// not close the underlying `GDtlsConnection:base`-socket; that must be closed
+    /// not close the underlying `GDtlsConnection:base-socket`; that must be closed
     /// separately.
     /// 
     /// Once `conn` is closed, all other operations will return `G_IO_ERROR_CLOSED`.
@@ -4367,7 +4381,7 @@ public extension DtlsConnectionProtocol {
     }
 
     /// Used by `GDtlsConnection` implementations to emit the
-    /// `GDtlsConnection::accept`-certificate signal.
+    /// `GDtlsConnection::accept-certificate` signal.
     @inlinable func emitAcceptCertificate<TLSCertificateT: TLSCertificateProtocol>(peerCert: TLSCertificateT, errors: TLSCertificateFlags) -> Bool {
         let rv = ((g_dtls_connection_emit_accept_certificate(dtls_connection_ptr, peerCert.tls_certificate_ptr, errors.value)) != 0)
         return rv
@@ -4448,7 +4462,7 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed
     /// or failed. (It is not set during the emission of
-    /// `GDtlsConnection::accept`-certificate.)
+    /// `GDtlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificate() -> TLSCertificateRef! {
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
         return rv
@@ -4456,7 +4470,7 @@ public extension DtlsConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed or failed. (It is
-    /// not set during the emission of `GDtlsConnection::accept`-certificate.)
+    /// not set during the emission of `GDtlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
         return rv
@@ -4577,7 +4591,7 @@ public extension DtlsConnectionProtocol {
     /// protocol after the handshake.  Specifying `nil` for the the value
     /// of `protocols` will disable ALPN negotiation.
     /// 
-    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn`-protocol-ids)
+    /// See [IANA TLS ALPN Protocol IDs](https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml`alpn-protocol-ids`)
     /// for a list of registered protocol IDs.
     @inlinable func setAdvertised(protocols: UnsafePointer<UnsafePointer<gchar>?>! = nil) {
         g_dtls_connection_set_advertised_protocols(dtls_connection_ptr, protocols)
@@ -4612,9 +4626,9 @@ public extension DtlsConnectionProtocol {
     /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GDtlsConnection::accept`-certificate will always be emitted on
+    /// `GDtlsConnection::accept-certificate` will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GDtlsClientConnection:validation`-flags).
+    /// `GDtlsClientConnection:validation-flags`).
     @inlinable func set(database: TLSDatabaseRef? = nil) {
         g_dtls_connection_set_database(dtls_connection_ptr, database?.tls_database_ptr)
     
@@ -4624,9 +4638,9 @@ public extension DtlsConnectionProtocol {
     /// `g_tls_backend_get_default_database()`. If set to `nil`, then
     /// peer certificate validation will always set the
     /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-    /// `GDtlsConnection::accept`-certificate will always be emitted on
+    /// `GDtlsConnection::accept-certificate` will always be emitted on
     /// client-side connections, unless that bit is not set in
-    /// `GDtlsClientConnection:validation`-flags).
+    /// `GDtlsClientConnection:validation-flags`).
     @inlinable func set<TLSDatabaseT: TLSDatabaseProtocol>(database: TLSDatabaseT?) {
         g_dtls_connection_set_database(dtls_connection_ptr, database?.tls_database_ptr)
     
@@ -4690,7 +4704,7 @@ public extension DtlsConnectionProtocol {
     /// connection; when the application calls `g_dtls_connection_close_async()` on
     /// `conn` itself, this will send a close notification regardless of the
     /// setting of this property. If you explicitly want to do an unclean
-    /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
+    /// close, you can close `conn`'s `GDtlsConnection:base-socket` rather
     /// than closing `conn` itself.
     @inlinable func set(requireCloseNotify: Bool) {
         g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((requireCloseNotify) ? 1 : 0))
@@ -4810,9 +4824,9 @@ public extension DtlsConnectionProtocol {
         /// `g_tls_backend_get_default_database()`. If set to `nil`, then
         /// peer certificate validation will always set the
         /// `G_TLS_CERTIFICATE_UNKNOWN_CA` error (meaning
-        /// `GDtlsConnection::accept`-certificate will always be emitted on
+        /// `GDtlsConnection::accept-certificate` will always be emitted on
         /// client-side connections, unless that bit is not set in
-        /// `GDtlsClientConnection:validation`-flags).
+        /// `GDtlsClientConnection:validation-flags`).
         nonmutating set {
             g_dtls_connection_set_database(dtls_connection_ptr, UnsafeMutablePointer<GTlsDatabase>(newValue?.tls_database_ptr))
         }
@@ -4863,11 +4877,11 @@ public extension DtlsConnectionProtocol {
 
     /// Gets `conn`'s peer's certificate after the handshake has completed
     /// or failed. (It is not set during the emission of
-    /// `GDtlsConnection::accept`-certificate.)
+    /// `GDtlsConnection::accept-certificate`.)
     @inlinable var peerCertificate: TLSCertificateRef! {
         /// Gets `conn`'s peer's certificate after the handshake has completed
         /// or failed. (It is not set during the emission of
-        /// `GDtlsConnection::accept`-certificate.)
+        /// `GDtlsConnection::accept-certificate`.)
         get {
             let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_dtls_connection_get_peer_certificate(dtls_connection_ptr)))
             return rv
@@ -4876,11 +4890,11 @@ public extension DtlsConnectionProtocol {
 
     /// Gets the errors associated with validating `conn`'s peer's
     /// certificate, after the handshake has completed or failed. (It is
-    /// not set during the emission of `GDtlsConnection::accept`-certificate.)
+    /// not set during the emission of `GDtlsConnection::accept-certificate`.)
     @inlinable var peerCertificateErrors: TLSCertificateFlags {
         /// Gets the errors associated with validating `conn`'s peer's
         /// certificate, after the handshake has completed or failed. (It is
-        /// not set during the emission of `GDtlsConnection::accept`-certificate.)
+        /// not set during the emission of `GDtlsConnection::accept-certificate`.)
         get {
             let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
             return rv
@@ -4954,7 +4968,7 @@ public extension DtlsConnectionProtocol {
         /// connection; when the application calls `g_dtls_connection_close_async()` on
         /// `conn` itself, this will send a close notification regardless of the
         /// setting of this property. If you explicitly want to do an unclean
-        /// close, you can close `conn`'s `GDtlsConnection:base`-socket rather
+        /// close, you can close `conn`'s `GDtlsConnection:base-socket` rather
         /// than closing `conn` itself.
         nonmutating set {
             g_dtls_connection_set_require_close_notify(dtls_connection_ptr, gboolean((newValue) ? 1 : 0))
@@ -4982,6 +4996,8 @@ public protocol DtlsServerConnectionProtocol: DatagramBasedProtocol {
     /// Typed pointer to the underlying `GDtlsServerConnection` instance.
     var dtls_server_connection_ptr: UnsafeMutablePointer<GDtlsServerConnection>! { get }
 
+    /// Required Initialiser for types conforming to `DtlsServerConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DtlsServerConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsServerConnection` instance.
@@ -5174,7 +5190,7 @@ open class DtlsServerConnection: DatagramBased, DtlsServerConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DtlsServerConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -5378,6 +5394,8 @@ public protocol FileProtocol {
     /// Typed pointer to the underlying `GFile` instance.
     var file_ptr: UnsafeMutablePointer<GFile>! { get }
 
+    /// Required Initialiser for types conforming to `FileProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileRef` type acts as a lightweight Swift reference to an underlying `GFile` instance.
@@ -5823,7 +5841,7 @@ open class File: FileProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -6820,6 +6838,9 @@ public extension FileProtocol {
     /// ```
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
+    /// The scheme can be different from the one used to construct the `GFile`,
+    /// in that it might be replaced with one that is logically equivalent to the `GFile`.
+    /// 
     /// This call does no blocking I/O.
     @inlinable func getURIScheme() -> String! {
         let rv = g_file_get_uri_scheme(file_ptr).map({ String(cString: $0) })
@@ -6968,7 +6989,7 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func loadContents(cancellable: CancellableRef? = nil, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadContents(cancellable: CancellableRef? = nil, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -6982,7 +7003,7 @@ public extension FileProtocol {
     /// If `cancellable` is not `nil`, then the operation can be cancelled by
     /// triggering the cancellable object from another thread. If the operation
     /// was cancelled, the error `G_IO_ERROR_CANCELLED` will be returned.
-    @inlinable func loadContents<CancellableT: CancellableProtocol>(cancellable: CancellableT?, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadContents<CancellableT: CancellableProtocol>(cancellable: CancellableT?, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_load_contents(file_ptr, cancellable?.cancellable_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -7029,7 +7050,7 @@ public extension FileProtocol {
     /// size of the `contents` string. The `contents` should be freed with
     /// `g_free()` when no longer needed. If `etag_out` is present, it will be
     /// set to the new entity tag for the `file`.
-    @inlinable func loadContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_load_contents_finish(file_ptr, res.async_result_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -7072,7 +7093,7 @@ public extension FileProtocol {
     /// zero-terminated, but this is not included in the resultant `length`.
     /// The returned `contents` should be freed with `g_free()` when no longer
     /// needed.
-    @inlinable func loadPartialContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func loadPartialContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, contents: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>!, length: UnsafeMutablePointer<gsize>! = nil, etagOut: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_load_partial_contents_finish(file_ptr, res.async_result_ptr, contents, length, etagOut, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -8266,7 +8287,7 @@ public extension FileProtocol {
     /// 
     /// The returned `new_etag` can be used to verify that the file hasn't
     /// changed the next time it is saved over.
-    @inlinable func replace(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableRef? = nil) throws -> Bool {
+    @inlinable func replace(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil, cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, newEtag, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -8288,7 +8309,7 @@ public extension FileProtocol {
     /// 
     /// The returned `new_etag` can be used to verify that the file hasn't
     /// changed the next time it is saved over.
-    @inlinable func replace<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, cancellable: CancellableT?) throws -> Bool {
+    @inlinable func replace<CancellableT: CancellableProtocol>(contents: UnsafePointer<CChar>!, length: Int, etag: UnsafePointer<CChar>? = nil, makeBackup: Bool, flags: FileCreateFlags, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil, cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_replace_contents(file_ptr, contents, gsize(length), etag, gboolean((makeBackup) ? 1 : 0), flags.value, newEtag, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -8370,7 +8391,7 @@ public extension FileProtocol {
     /// Finishes an asynchronous replace of the given `file`. See
     /// `g_file_replace_contents_async()`. Sets `new_etag` to the new entity
     /// tag for the document, if present.
-    @inlinable func replaceContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil) throws -> Bool {
+    @inlinable func replaceContentsFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, newEtag: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_file_replace_contents_finish(file_ptr, res.async_result_ptr, newEtag, &error)) != 0)
         if let error = error { throw GLibError(error) }
@@ -9190,6 +9211,9 @@ public extension FileProtocol {
     /// ```
     /// Common schemes include "file", "http", "ftp", etc.
     /// 
+    /// The scheme can be different from the one used to construct the `GFile`,
+    /// in that it might be replaced with one that is logically equivalent to the `GFile`.
+    /// 
     /// This call does no blocking I/O.
     @inlinable var uriScheme: String! {
         /// Gets the URI scheme for a `GFile`.
@@ -9198,6 +9222,9 @@ public extension FileProtocol {
         /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
         /// ```
         /// Common schemes include "file", "http", "ftp", etc.
+        /// 
+        /// The scheme can be different from the one used to construct the `GFile`,
+        /// in that it might be replaced with one that is logically equivalent to the `GFile`.
         /// 
         /// This call does no blocking I/O.
         get {

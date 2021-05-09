@@ -20,6 +20,8 @@ public protocol PollableInputStreamProtocol: InputStreamProtocol {
     /// Typed pointer to the underlying `GPollableInputStream` instance.
     var pollable_input_stream_ptr: UnsafeMutablePointer<GPollableInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `PollableInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PollableInputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStream` instance.
@@ -219,14 +221,14 @@ open class PollableInputStream: InputStream, PollableInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -402,6 +404,8 @@ public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
     /// Typed pointer to the underlying `GPollableOutputStream` instance.
     var pollable_output_stream_ptr: UnsafeMutablePointer<GPollableOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `PollableOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PollableOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStream` instance.
@@ -601,14 +605,14 @@ open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollableOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -839,6 +843,8 @@ public protocol ProxyProtocol {
     /// Typed pointer to the underlying `GProxy` instance.
     var proxy_ptr: UnsafeMutablePointer<GProxy>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyRef` type acts as a lightweight Swift reference to an underlying `GProxy` instance.
@@ -1058,7 +1064,7 @@ open class Proxy: ProxyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1183,6 +1189,8 @@ public protocol ProxyResolverProtocol {
     /// Typed pointer to the underlying `GProxyResolver` instance.
     var proxy_resolver_ptr: UnsafeMutablePointer<GProxyResolver>! { get }
 
+    /// Required Initialiser for types conforming to `ProxyResolverProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GProxyResolver` instance.
@@ -1403,7 +1411,7 @@ open class ProxyResolver: ProxyResolverProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProxyResolverProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1451,8 +1459,8 @@ public extension ProxyResolverProtocol {
 
     /// Looks into the system proxy configuration to determine what proxy,
     /// if any, to use to connect to `uri`. The returned proxy URIs are of
-    /// the form `<protocol>://[user[:password]@]host:port` or
-    /// `direct://`, where <protocol> could be http, rtsp, socks
+    /// the form `&lt;protocol&gt;://[user[:password]@]host:port` or
+    /// `direct://`, where &lt;protocol&gt; could be http, rtsp, socks
     /// or other proxying protocol.
     /// 
     /// If you don't know what network protocol is being used on the
@@ -1472,8 +1480,8 @@ public extension ProxyResolverProtocol {
     }
     /// Looks into the system proxy configuration to determine what proxy,
     /// if any, to use to connect to `uri`. The returned proxy URIs are of
-    /// the form `<protocol>://[user[:password]@]host:port` or
-    /// `direct://`, where <protocol> could be http, rtsp, socks
+    /// the form `&lt;protocol&gt;://[user[:password]@]host:port` or
+    /// `direct://`, where &lt;protocol&gt; could be http, rtsp, socks
     /// or other proxying protocol.
     /// 
     /// If you don't know what network protocol is being used on the
@@ -1567,6 +1575,8 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
     /// Typed pointer to the underlying `GRemoteActionGroup` instance.
     var remote_action_group_ptr: UnsafeMutablePointer<GRemoteActionGroup>! { get }
 
+    /// Required Initialiser for types conforming to `RemoteActionGroupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RemoteActionGroupRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroup` instance.
@@ -1797,7 +1807,7 @@ open class RemoteActionGroup: ActionGroup, RemoteActionGroupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RemoteActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

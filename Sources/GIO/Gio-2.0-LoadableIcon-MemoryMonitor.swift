@@ -18,6 +18,8 @@ public protocol LoadableIconProtocol: IconProtocol {
     /// Typed pointer to the underlying `GLoadableIcon` instance.
     var loadable_icon_ptr: UnsafeMutablePointer<GLoadableIcon>! { get }
 
+    /// Required Initialiser for types conforming to `LoadableIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LoadableIconRef` type acts as a lightweight Swift reference to an underlying `GLoadableIcon` instance.
@@ -210,7 +212,7 @@ open class LoadableIcon: Icon, LoadableIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LoadableIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -345,7 +347,7 @@ public extension LoadableIconProtocol {
 /// }
 /// ```
 /// 
-/// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
+/// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 public protocol MemoryMonitorProtocol: InitableProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitor` instance.
@@ -354,6 +356,8 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
     /// Typed pointer to the underlying `GMemoryMonitor` instance.
     var memory_monitor_ptr: UnsafeMutablePointer<GMemoryMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryMonitorRef` type acts as a lightweight Swift reference to an underlying `GMemoryMonitor` instance.
@@ -404,7 +408,7 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
 /// }
 /// ```
 /// 
-/// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
+/// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 public struct MemoryMonitorRef: MemoryMonitorProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitor` instance.
@@ -537,7 +541,7 @@ public extension MemoryMonitorRef {
 /// }
 /// ```
 /// 
-/// Don't forget to disconnect the `GMemoryMonitor::low`-memory-warning
+/// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
 open class MemoryMonitor: Initable, MemoryMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -639,7 +643,7 @@ open class MemoryMonitor: Initable, MemoryMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

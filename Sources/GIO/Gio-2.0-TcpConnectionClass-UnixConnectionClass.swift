@@ -32,6 +32,8 @@ public protocol TcpConnectionClassProtocol {
     /// Typed pointer to the underlying `GTcpConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTcpConnectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TcpConnectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TcpConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTcpConnectionClass` instance.
@@ -164,6 +166,8 @@ public protocol TcpWrapperConnectionClassProtocol {
     /// Typed pointer to the underlying `GTcpWrapperConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTcpWrapperConnectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TcpWrapperConnectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TcpWrapperConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnectionClass` instance.
@@ -296,6 +300,8 @@ public protocol ThemedIconClassProtocol {
     /// Typed pointer to the underlying `GThemedIconClass` instance.
     var _ptr: UnsafeMutablePointer<GThemedIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `ThemedIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThemedIconClassRef` type acts as a lightweight Swift reference to an underlying `GThemedIconClass` instance.
@@ -422,6 +428,8 @@ public protocol ThreadedSocketServiceClassProtocol {
     /// Typed pointer to the underlying `GThreadedSocketServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GThreadedSocketServiceClass>! { get }
 
+    /// Required Initialiser for types conforming to `ThreadedSocketServiceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThreadedSocketServiceClassRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketServiceClass` instance.
@@ -566,6 +574,8 @@ public protocol TLSBackendInterfaceProtocol {
     /// Typed pointer to the underlying `GTlsBackendInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsBackendInterface>! { get }
 
+    /// Required Initialiser for types conforming to `TLSBackendInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSBackendInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsBackendInterface` instance.
@@ -718,6 +728,8 @@ public protocol TLSCertificateClassProtocol {
     /// Typed pointer to the underlying `GTlsCertificateClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsCertificateClass>! { get }
 
+    /// Required Initialiser for types conforming to `TLSCertificateClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSCertificateClassRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificateClass` instance.
@@ -854,6 +866,8 @@ public protocol TLSClientConnectionInterfaceProtocol {
     /// Typed pointer to the underlying `GTlsClientConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsClientConnectionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `TLSClientConnectionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSClientConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsClientConnectionInterface` instance.
@@ -990,6 +1004,8 @@ public protocol TLSConnectionClassProtocol {
     /// Typed pointer to the underlying `GTlsConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsConnectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TLSConnectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTlsConnectionClass` instance.
@@ -1136,6 +1152,8 @@ public protocol TLSDatabaseClassProtocol {
     /// Typed pointer to the underlying `GTlsDatabaseClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsDatabaseClass>! { get }
 
+    /// Required Initialiser for types conforming to `TLSDatabaseClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSDatabaseClassRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabaseClass` instance.
@@ -1298,6 +1316,8 @@ public protocol TLSFileDatabaseInterfaceProtocol {
     /// Typed pointer to the underlying `GTlsFileDatabaseInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsFileDatabaseInterface>! { get }
 
+    /// Required Initialiser for types conforming to `TLSFileDatabaseInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSFileDatabaseInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsFileDatabaseInterface` instance.
@@ -1447,6 +1467,8 @@ public protocol TLSInteractionClassProtocol {
     /// Typed pointer to the underlying `GTlsInteractionClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsInteractionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TLSInteractionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSInteractionClassRef` type acts as a lightweight Swift reference to an underlying `GTlsInteractionClass` instance.
@@ -1601,6 +1623,8 @@ public protocol TLSPasswordClassProtocol {
     /// Typed pointer to the underlying `GTlsPasswordClass` instance.
     var _ptr: UnsafeMutablePointer<GTlsPasswordClass>! { get }
 
+    /// Required Initialiser for types conforming to `TLSPasswordClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSPasswordClassRef` type acts as a lightweight Swift reference to an underlying `GTlsPasswordClass` instance.
@@ -1741,6 +1765,8 @@ public protocol TLSServerConnectionInterfaceProtocol {
     /// Typed pointer to the underlying `GTlsServerConnectionInterface` instance.
     var _ptr: UnsafeMutablePointer<GTlsServerConnectionInterface>! { get }
 
+    /// Required Initialiser for types conforming to `TLSServerConnectionInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSServerConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsServerConnectionInterface` instance.
@@ -1875,6 +1901,8 @@ public protocol UnixConnectionClassProtocol {
     /// Typed pointer to the underlying `GUnixConnectionClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixConnectionClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixConnectionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GUnixConnectionClass` instance.

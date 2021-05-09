@@ -32,6 +32,8 @@ public protocol BufferedOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GBufferedOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GBufferedOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `BufferedOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BufferedOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GBufferedOutputStreamClass` instance.
@@ -168,6 +170,8 @@ public protocol CancellableClassProtocol {
     /// Typed pointer to the underlying `GCancellableClass` instance.
     var _ptr: UnsafeMutablePointer<GCancellableClass>! { get }
 
+    /// Required Initialiser for types conforming to `CancellableClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CancellableClassRef` type acts as a lightweight Swift reference to an underlying `GCancellableClass` instance.

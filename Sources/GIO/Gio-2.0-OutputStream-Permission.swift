@@ -27,6 +27,8 @@ public protocol OutputStreamProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GOutputStream` instance.
     var output_stream_ptr: UnsafeMutablePointer<GOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `OutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OutputStreamRef` type acts as a lightweight Swift reference to an underlying `GOutputStream` instance.
@@ -240,14 +242,14 @@ open class OutputStream: GLibObject.Object, OutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1304,6 +1306,8 @@ public protocol PermissionProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GPermission` instance.
     var permission_ptr: UnsafeMutablePointer<GPermission>! { get }
 
+    /// Required Initialiser for types conforming to `PermissionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PermissionRef` type acts as a lightweight Swift reference to an underlying `GPermission` instance.
@@ -1525,14 +1529,14 @@ open class Permission: GLibObject.Object, PermissionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PermissionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

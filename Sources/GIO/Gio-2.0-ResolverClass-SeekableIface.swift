@@ -32,6 +32,8 @@ public protocol ResolverClassProtocol {
     /// Typed pointer to the underlying `GResolverClass` instance.
     var _ptr: UnsafeMutablePointer<GResolverClass>! { get }
 
+    /// Required Initialiser for types conforming to `ResolverClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ResolverClassRef` type acts as a lightweight Swift reference to an underlying `GResolverClass` instance.
@@ -201,12 +203,16 @@ public extension ResolverClassProtocol {
 /// the xmllint executable, or xmllint must be in the `PATH`; otherwise
 /// the preprocessing step is skipped.
 /// 
-/// `to-pixdata` which will use the gdk-pixbuf-pixdata command to convert
-/// images to the GdkPixdata format, which allows you to create pixbufs directly using the data inside
-/// the resource file, rather than an (uncompressed) copy of it. For this, the gdk-pixbuf-pixdata
-/// program must be in the PATH, or the `GDK_PIXBUF_PIXDATA` environment variable must be
-/// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
-/// abort.
+/// `to-pixdata` (deprecated since gdk-pixbuf 2.32) which will use the
+/// `gdk-pixbuf-pixdata` command to convert images to the `GdkPixdata` format,
+/// which allows you to create pixbufs directly using the data inside the
+/// resource file, rather than an (uncompressed) copy of it. For this, the
+/// `gdk-pixbuf-pixdata` program must be in the `PATH`, or the
+/// `GDK_PIXBUF_PIXDATA` environment variable must be set to the full path to the
+/// `gdk-pixbuf-pixdata` executable; otherwise the resource compiler will abort.
+/// `to-pixdata` has been deprecated since gdk-pixbuf 2.32, as `GResource`
+/// supports embedding modern image formats just as well. Instead of using it,
+/// embed a PNG or SVG file in your `GResource`.
 /// 
 /// `json-stripblanks` which will use the `json-glib-format` command to strip
 /// ignorable whitespace from the JSON file. For this to work, the
@@ -283,8 +289,8 @@ public extension ResolverClassProtocol {
 /// When debugging a program or testing a change to an installed version, it is often useful to be able to
 /// replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
 /// purposes. Since GLib 2.50, it is possible to use the `G_RESOURCE_OVERLAYS` environment variable to selectively overlay
-/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR`-separated list of substitutions to perform
-/// during resource lookups.
+/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR-separated` list of substitutions to perform
+/// during resource lookups. It is ignored when running in a setuid process.
 /// 
 /// A substitution has the form
 /// 
@@ -312,6 +318,8 @@ public protocol ResourceProtocol {
     /// Typed pointer to the underlying `GResource` instance.
     var resource_ptr: UnsafeMutablePointer<GResource>! { get }
 
+    /// Required Initialiser for types conforming to `ResourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ResourceRef` type acts as a lightweight Swift reference to an underlying `GResource` instance.
@@ -346,12 +354,16 @@ public protocol ResourceProtocol {
 /// the xmllint executable, or xmllint must be in the `PATH`; otherwise
 /// the preprocessing step is skipped.
 /// 
-/// `to-pixdata` which will use the gdk-pixbuf-pixdata command to convert
-/// images to the GdkPixdata format, which allows you to create pixbufs directly using the data inside
-/// the resource file, rather than an (uncompressed) copy of it. For this, the gdk-pixbuf-pixdata
-/// program must be in the PATH, or the `GDK_PIXBUF_PIXDATA` environment variable must be
-/// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
-/// abort.
+/// `to-pixdata` (deprecated since gdk-pixbuf 2.32) which will use the
+/// `gdk-pixbuf-pixdata` command to convert images to the `GdkPixdata` format,
+/// which allows you to create pixbufs directly using the data inside the
+/// resource file, rather than an (uncompressed) copy of it. For this, the
+/// `gdk-pixbuf-pixdata` program must be in the `PATH`, or the
+/// `GDK_PIXBUF_PIXDATA` environment variable must be set to the full path to the
+/// `gdk-pixbuf-pixdata` executable; otherwise the resource compiler will abort.
+/// `to-pixdata` has been deprecated since gdk-pixbuf 2.32, as `GResource`
+/// supports embedding modern image formats just as well. Instead of using it,
+/// embed a PNG or SVG file in your `GResource`.
 /// 
 /// `json-stripblanks` which will use the `json-glib-format` command to strip
 /// ignorable whitespace from the JSON file. For this to work, the
@@ -428,8 +440,8 @@ public protocol ResourceProtocol {
 /// When debugging a program or testing a change to an installed version, it is often useful to be able to
 /// replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
 /// purposes. Since GLib 2.50, it is possible to use the `G_RESOURCE_OVERLAYS` environment variable to selectively overlay
-/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR`-separated list of substitutions to perform
-/// during resource lookups.
+/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR-separated` list of substitutions to perform
+/// during resource lookups. It is ignored when running in a setuid process.
 /// 
 /// A substitution has the form
 /// 
@@ -615,12 +627,16 @@ public extension ResourceRef {
 /// the xmllint executable, or xmllint must be in the `PATH`; otherwise
 /// the preprocessing step is skipped.
 /// 
-/// `to-pixdata` which will use the gdk-pixbuf-pixdata command to convert
-/// images to the GdkPixdata format, which allows you to create pixbufs directly using the data inside
-/// the resource file, rather than an (uncompressed) copy of it. For this, the gdk-pixbuf-pixdata
-/// program must be in the PATH, or the `GDK_PIXBUF_PIXDATA` environment variable must be
-/// set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
-/// abort.
+/// `to-pixdata` (deprecated since gdk-pixbuf 2.32) which will use the
+/// `gdk-pixbuf-pixdata` command to convert images to the `GdkPixdata` format,
+/// which allows you to create pixbufs directly using the data inside the
+/// resource file, rather than an (uncompressed) copy of it. For this, the
+/// `gdk-pixbuf-pixdata` program must be in the `PATH`, or the
+/// `GDK_PIXBUF_PIXDATA` environment variable must be set to the full path to the
+/// `gdk-pixbuf-pixdata` executable; otherwise the resource compiler will abort.
+/// `to-pixdata` has been deprecated since gdk-pixbuf 2.32, as `GResource`
+/// supports embedding modern image formats just as well. Instead of using it,
+/// embed a PNG or SVG file in your `GResource`.
 /// 
 /// `json-stripblanks` which will use the `json-glib-format` command to strip
 /// ignorable whitespace from the JSON file. For this to work, the
@@ -697,8 +713,8 @@ public extension ResourceRef {
 /// When debugging a program or testing a change to an installed version, it is often useful to be able to
 /// replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
 /// purposes. Since GLib 2.50, it is possible to use the `G_RESOURCE_OVERLAYS` environment variable to selectively overlay
-/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR`-separated list of substitutions to perform
-/// during resource lookups.
+/// resources with replacements from the filesystem.  It is a `G_SEARCHPATH_SEPARATOR-separated` list of substitutions to perform
+/// during resource lookups. It is ignored when running in a setuid process.
 /// 
 /// A substitution has the form
 /// 
@@ -832,7 +848,7 @@ open class Resource: ResourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ResourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1065,6 +1081,8 @@ public protocol SeekableIfaceProtocol {
     /// Typed pointer to the underlying `GSeekableIface` instance.
     var _ptr: UnsafeMutablePointer<GSeekableIface>! { get }
 
+    /// Required Initialiser for types conforming to `SeekableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeekableIfaceRef` type acts as a lightweight Swift reference to an underlying `GSeekableIface` instance.

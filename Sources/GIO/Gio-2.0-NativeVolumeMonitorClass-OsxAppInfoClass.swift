@@ -32,6 +32,8 @@ public protocol NativeVolumeMonitorClassProtocol {
     /// Typed pointer to the underlying `GNativeVolumeMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GNativeVolumeMonitorClass>! { get }
 
+    /// Required Initialiser for types conforming to `NativeVolumeMonitorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeVolumeMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GNativeVolumeMonitorClass` instance.
@@ -166,6 +168,8 @@ public protocol NetworkAddressClassProtocol {
     /// Typed pointer to the underlying `GNetworkAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GNetworkAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkAddressClassRef` type acts as a lightweight Swift reference to an underlying `GNetworkAddressClass` instance.
@@ -298,6 +302,8 @@ public protocol NetworkMonitorInterfaceProtocol {
     /// Typed pointer to the underlying `GNetworkMonitorInterface` instance.
     var _ptr: UnsafeMutablePointer<GNetworkMonitorInterface>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkMonitorInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkMonitorInterfaceRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitorInterface` instance.
@@ -440,6 +446,8 @@ public protocol NetworkServiceClassProtocol {
     /// Typed pointer to the underlying `GNetworkServiceClass` instance.
     var _ptr: UnsafeMutablePointer<GNetworkServiceClass>! { get }
 
+    /// Required Initialiser for types conforming to `NetworkServiceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NetworkServiceClassRef` type acts as a lightweight Swift reference to an underlying `GNetworkServiceClass` instance.
@@ -572,6 +580,8 @@ public protocol OsxAppInfoClassProtocol {
     /// Typed pointer to the underlying `GOsxAppInfoClass` instance.
     var _ptr: UnsafeMutablePointer<GOsxAppInfoClass>! { get }
 
+    /// Required Initialiser for types conforming to `OsxAppInfoClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OsxAppInfoClassRef` type acts as a lightweight Swift reference to an underlying `GOsxAppInfoClass` instance.

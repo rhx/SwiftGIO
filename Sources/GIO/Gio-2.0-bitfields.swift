@@ -88,7 +88,7 @@ public struct ApplicationFlags: OptionSet {
     ///     environment variables. For instance, an editor might be expected
     ///     to use the `GIT_COMMITTER_NAME` environment variable
     ///     when editing a git commit message. The environment is available
-    ///     to the `GApplication::command`-line signal handler, via
+    ///     to the `GApplication::command-line` signal handler, via
     ///     `g_application_command_line_getenv()`.
     public static let sendEnvironment = ApplicationFlags(16) // G_APPLICATION_SEND_ENVIRONMENT
     /// Make no attempts to do any of the typical
@@ -552,7 +552,7 @@ public struct DBusProxyFlags: OptionSet {
     /// do not ask the bus to launch an owner during proxy initialization or a method call.
     /// This flag is only meaningful in proxies for well-known names.
     public static let doNotAutoStart = DBusProxyFlags(4) // G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START
-    /// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html`standard`-interfaces-properties) D-Bus signal and the property will not cause emission of the `GDBusProxy::g`-properties-changed signal. When the value is received the `GDBusProxy::g`-properties-changed signal is emitted for the property along with the retrieved value. Since 2.32.
+    /// If set, the property value for any __invalidated property__ will be (asynchronously) retrieved upon receiving the [`PropertiesChanged`](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-properties`) D-Bus signal and the property will not cause emission of the `GDBusProxy::g-properties-changed` signal. When the value is received the `GDBusProxy::g-properties-changed` signal is emitted for the property along with the retrieved value. Since 2.32.
     public static let getInvalidatedProperties = DBusProxyFlags(8) // G_DBUS_PROXY_FLAGS_GET_INVALIDATED_PROPERTIES
     /// If the proxy is for a well-known name,
     /// do not ask the bus to launch an owner during proxy initialization, but allow it to be
@@ -623,7 +623,7 @@ public struct DBusServerFlags: OptionSet {
 
     /// No flags set.
     public static let `none` = DBusServerFlags(0) // G_DBUS_SERVER_FLAGS_NONE
-    /// All `GDBusServer::new`-connection
+    /// All `GDBusServer::new-connection`
     /// signals will run in separated dedicated threads (see signal for
     /// details).
     public static let runInThread = DBusServerFlags(1) // G_DBUS_SERVER_FLAGS_RUN_IN_THREAD
@@ -1406,7 +1406,7 @@ public struct TestDBusFlags: OptionSet {
 /// used to set which validation steps to perform (eg, with
 /// `g_tls_client_connection_set_validation_flags()`), or to describe why
 /// a particular certificate was rejected (eg, in
-/// `GTlsConnection::accept`-certificate).
+/// `GTlsConnection::accept-certificate`).
 public struct TLSCertificateFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0

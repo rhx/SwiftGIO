@@ -18,6 +18,8 @@ public protocol CharsetConverterProtocol: GLibObject.ObjectProtocol, ConverterPr
     /// Typed pointer to the underlying `GCharsetConverter` instance.
     var charset_converter_ptr: UnsafeMutablePointer<GCharsetConverter>! { get }
 
+    /// Required Initialiser for types conforming to `CharsetConverterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CharsetConverterRef` type acts as a lightweight Swift reference to an underlying `GCharsetConverter` instance.
@@ -220,14 +222,14 @@ open class CharsetConverter: GLibObject.Object, CharsetConverterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CharsetConverterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -359,13 +361,13 @@ public extension CharsetConverterProtocol {
         return rv
     }
 
-    /// Gets the `GCharsetConverter:use`-fallback property.
+    /// Gets the `GCharsetConverter:use-fallback` property.
     @inlinable func getUseFallback() -> Bool {
         let rv = ((g_charset_converter_get_use_fallback(charset_converter_ptr)) != 0)
         return rv
     }
 
-    /// Sets the `GCharsetConverter:use`-fallback property.
+    /// Sets the `GCharsetConverter:use-fallback` property.
     @inlinable func set(useFallback: Bool) {
         g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((useFallback) ? 1 : 0))
     
@@ -379,14 +381,14 @@ public extension CharsetConverterProtocol {
         }
     }
 
-    /// Gets the `GCharsetConverter:use`-fallback property.
+    /// Gets the `GCharsetConverter:use-fallback` property.
     @inlinable var useFallback: Bool {
-        /// Gets the `GCharsetConverter:use`-fallback property.
+        /// Gets the `GCharsetConverter:use-fallback` property.
         get {
             let rv = ((g_charset_converter_get_use_fallback(charset_converter_ptr)) != 0)
             return rv
         }
-        /// Sets the `GCharsetConverter:use`-fallback property.
+        /// Sets the `GCharsetConverter:use-fallback` property.
         nonmutating set {
             g_charset_converter_set_use_fallback(charset_converter_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -416,6 +418,8 @@ public protocol ConverterInputStreamProtocol: FilterInputStreamProtocol, Pollabl
     /// Typed pointer to the underlying `GConverterInputStream` instance.
     var converter_input_stream_ptr: UnsafeMutablePointer<GConverterInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStream` instance.
@@ -622,14 +626,14 @@ open class ConverterInputStream: FilterInputStream, ConverterInputStreamProtocol
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -798,6 +802,8 @@ public protocol ConverterOutputStreamProtocol: FilterOutputStreamProtocol, Polla
     /// Typed pointer to the underlying `GConverterOutputStream` instance.
     var converter_output_stream_ptr: UnsafeMutablePointer<GConverterOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStream` instance.
@@ -1004,14 +1010,14 @@ open class ConverterOutputStream: FilterOutputStream, ConverterOutputStreamProto
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConverterOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1209,6 +1215,8 @@ public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GCredentials` instance.
     var credentials_ptr: UnsafeMutablePointer<GCredentials>! { get }
 
+    /// Required Initialiser for types conforming to `CredentialsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CredentialsRef` type acts as a lightweight Swift reference to an underlying `GCredentials` instance.
@@ -1474,14 +1482,14 @@ open class Credentials: GLibObject.Object, CredentialsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CredentialsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1706,6 +1714,8 @@ public protocol DBusActionGroupProtocol: GLibObject.ObjectProtocol, ActionGroupP
     /// Typed pointer to the underlying `GDBusActionGroup` instance.
     var dbus_action_group_ptr: UnsafeMutablePointer<GDBusActionGroup>! { get }
 
+    /// Required Initialiser for types conforming to `DBusActionGroupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusActionGroupRef` type acts as a lightweight Swift reference to an underlying `GDBusActionGroup` instance.
@@ -1920,14 +1930,14 @@ open class DBusActionGroup: GLibObject.Object, DBusActionGroupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusActionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

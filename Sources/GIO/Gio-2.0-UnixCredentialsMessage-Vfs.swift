@@ -27,6 +27,8 @@ public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
     /// Typed pointer to the underlying `GUnixCredentialsMessage` instance.
     var unix_credentials_message_ptr: UnsafeMutablePointer<GUnixCredentialsMessage>! { get }
 
+    /// Required Initialiser for types conforming to `UnixCredentialsMessageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixCredentialsMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixCredentialsMessage` instance.
@@ -256,14 +258,14 @@ open class UnixCredentialsMessage: SocketControlMessage, UnixCredentialsMessageP
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixCredentialsMessageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -439,7 +441,7 @@ public extension UnixCredentialsMessageProtocol {
 /// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
 /// and received using `g_socket_receive_message()`.
 /// 
-/// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
@@ -449,6 +451,8 @@ public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GUnixFDList` instance.
     var unix_fd_list_ptr: UnsafeMutablePointer<GUnixFDList>! { get }
 
+    /// Required Initialiser for types conforming to `UnixFDListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixFDListRef` type acts as a lightweight Swift reference to an underlying `GUnixFDList` instance.
@@ -462,7 +466,7 @@ public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
 /// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
 /// and received using `g_socket_receive_message()`.
 /// 
-/// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public struct UnixFDListRef: UnixFDListProtocol, GWeakCapturing {
@@ -587,7 +591,7 @@ public extension UnixFDListRef {
 /// the `G_SOCKET_FAMILY_UNIX` family by using `g_socket_send_message()`
 /// and received using `g_socket_receive_message()`.
 /// 
-/// Note that `<gio/gunixfdlist.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 open class UnixFDList: GLibObject.Object, UnixFDListProtocol {
@@ -690,14 +694,14 @@ open class UnixFDList: GLibObject.Object, UnixFDListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDListProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -915,7 +919,7 @@ public extension UnixFDListProtocol {
 /// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
 /// `g_unix_connection_receive_fd()`.
 /// 
-/// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
@@ -925,6 +929,8 @@ public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
     /// Typed pointer to the underlying `GUnixFDMessage` instance.
     var unix_fd_message_ptr: UnsafeMutablePointer<GUnixFDMessage>! { get }
 
+    /// Required Initialiser for types conforming to `UnixFDMessageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixFDMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixFDMessage` instance.
@@ -941,7 +947,7 @@ public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
 /// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
 /// `g_unix_connection_receive_fd()`.
 /// 
-/// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public struct UnixFDMessageRef: UnixFDMessageProtocol, GWeakCapturing {
@@ -1056,7 +1062,7 @@ public extension UnixFDMessageRef {
 /// stream-oriented UNIX sockets, see `g_unix_connection_send_fd()` and
 /// `g_unix_connection_receive_fd()`.
 /// 
-/// Note that `<gio/gunixfdmessage.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 open class UnixFDMessage: SocketControlMessage, UnixFDMessageProtocol {
@@ -1159,14 +1165,14 @@ open class UnixFDMessage: SocketControlMessage, UnixFDMessageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixFDMessageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1383,7 +1389,7 @@ public extension UnixFDMessageProtocol {
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixinputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBasedProtocol, PollableInputStreamProtocol {
@@ -1393,6 +1399,8 @@ public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBase
     /// Typed pointer to the underlying `GUnixInputStream` instance.
     var unix_input_stream_ptr: UnsafeMutablePointer<GUnixInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `UnixInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixInputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixInputStream` instance.
@@ -1405,7 +1413,7 @@ public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBase
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixinputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 public struct UnixInputStreamRef: UnixInputStreamProtocol, GWeakCapturing {
@@ -1507,7 +1515,7 @@ public extension UnixInputStreamRef {
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixinputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
 open class UnixInputStream: InputStream, UnixInputStreamProtocol {
@@ -1610,14 +1618,14 @@ open class UnixInputStream: InputStream, UnixInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1818,6 +1826,8 @@ public protocol UnixMountMonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GUnixMountMonitor` instance.
     var unix_mount_monitor_ptr: UnsafeMutablePointer<GUnixMountMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `UnixMountMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixMountMonitorRef` type acts as a lightweight Swift reference to an underlying `GUnixMountMonitor` instance.
@@ -2035,14 +2045,14 @@ open class UnixMountMonitor: GLibObject.Object, UnixMountMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2244,7 +2254,7 @@ public extension UnixMountMonitorProtocol {
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixoutputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBasedProtocol, PollableOutputStreamProtocol {
@@ -2254,6 +2264,8 @@ public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBa
     /// Typed pointer to the underlying `GUnixOutputStream` instance.
     var unix_output_stream_ptr: UnsafeMutablePointer<GUnixOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `UnixOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixOutputStream` instance.
@@ -2266,7 +2278,7 @@ public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBa
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixoutputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 public struct UnixOutputStreamRef: UnixOutputStreamProtocol, GWeakCapturing {
@@ -2368,7 +2380,7 @@ public extension UnixOutputStreamRef {
 /// asynchronous I/O. If it refers to a regular file, it will fall back
 /// to doing asynchronous I/O in another thread.)
 /// 
-/// Note that `<gio/gunixoutputstream.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 open class UnixOutputStream: OutputStream, UnixOutputStreamProtocol {
@@ -2471,14 +2483,14 @@ open class UnixOutputStream: OutputStream, UnixOutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2682,7 +2694,7 @@ public extension UnixOutputStreamProtocol {
 /// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
-/// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
@@ -2692,6 +2704,8 @@ public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
     /// Typed pointer to the underlying `GUnixSocketAddress` instance.
     var unix_socket_address_ptr: UnsafeMutablePointer<GUnixSocketAddress>! { get }
 
+    /// Required Initialiser for types conforming to `UnixSocketAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GUnixSocketAddress` instance.
@@ -2709,7 +2723,7 @@ public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
 /// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
-/// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 public struct UnixSocketAddressRef: UnixSocketAddressProtocol, GWeakCapturing {
@@ -2907,7 +2921,7 @@ public extension UnixSocketAddressRef {
 /// errors. You can use `g_unix_socket_address_abstract_names_supported()`
 /// to see if abstract names are supported.
 /// 
-/// Note that `<gio/gunixsocketaddress.h>` belongs to the UNIX-specific GIO
+/// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
 open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
@@ -3010,14 +3024,14 @@ open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixSocketAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3366,6 +3380,8 @@ public protocol VfsProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GVfs` instance.
     var vfs_ptr: UnsafeMutablePointer<GVfs>! { get }
 
+    /// Required Initialiser for types conforming to `VfsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VfsRef` type acts as a lightweight Swift reference to an underlying `GVfs` instance.
@@ -3570,14 +3586,14 @@ open class Vfs: GLibObject.Object, VfsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VfsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

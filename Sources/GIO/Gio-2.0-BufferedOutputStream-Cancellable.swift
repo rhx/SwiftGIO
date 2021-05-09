@@ -30,6 +30,8 @@ public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, Seekab
     /// Typed pointer to the underlying `GBufferedOutputStream` instance.
     var buffered_output_stream_ptr: UnsafeMutablePointer<GBufferedOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `BufferedOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BufferedOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedOutputStream` instance.
@@ -265,14 +267,14 @@ open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtoco
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BufferedOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -495,6 +497,8 @@ public protocol BytesIconProtocol: GLibObject.ObjectProtocol, IconProtocol, Load
     /// Typed pointer to the underlying `GBytesIcon` instance.
     var bytes_icon_ptr: UnsafeMutablePointer<GBytesIcon>! { get }
 
+    /// Required Initialiser for types conforming to `BytesIconProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BytesIconRef` type acts as a lightweight Swift reference to an underlying `GBytesIcon` instance.
@@ -690,14 +694,14 @@ open class BytesIcon: GLibObject.Object, BytesIconProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesIconProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -849,6 +853,8 @@ public protocol CancellableProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GCancellable` instance.
     var cancellable_ptr: UnsafeMutablePointer<GCancellable>! { get }
 
+    /// Required Initialiser for types conforming to `CancellableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CancellableRef` type acts as a lightweight Swift reference to an underlying `GCancellable` instance.
@@ -1063,14 +1069,14 @@ open class Cancellable: GLibObject.Object, CancellableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CancellableProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1555,7 +1561,7 @@ public extension CancellableProtocol {
     /// `g_dbus_connection_new_for_address()`.
     /// 
     /// Note that the returned `GDBusConnection` object will (usually) have
-    /// the `GDBusConnection:exit`-on-close property set to `true`.
+    /// the `GDBusConnection:exit-on-close` property set to `true`.
     @inlinable func busGetSync(busType: GBusType) throws -> DBusConnectionRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable_ptr, &error)))
@@ -1597,9 +1603,12 @@ public extension CancellableProtocol {
     /// of the D-Bus authentication conversation. `address` must be in the
     /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
     /// 
+    /// A server is not required to set a GUID, so `out_guid` may be set to `nil`
+    /// even on success.
+    /// 
     /// This is a synchronous failable function. See
     /// `g_dbus_address_get_stream()` for the asynchronous version.
-    @inlinable func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+    @inlinable func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> IOStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }

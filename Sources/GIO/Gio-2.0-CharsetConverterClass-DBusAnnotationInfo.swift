@@ -32,6 +32,8 @@ public protocol CharsetConverterClassProtocol {
     /// Typed pointer to the underlying `GCharsetConverterClass` instance.
     var _ptr: UnsafeMutablePointer<GCharsetConverterClass>! { get }
 
+    /// Required Initialiser for types conforming to `CharsetConverterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CharsetConverterClassRef` type acts as a lightweight Swift reference to an underlying `GCharsetConverterClass` instance.
@@ -166,6 +168,8 @@ public protocol ConverterIfaceProtocol {
     /// Typed pointer to the underlying `GConverterIface` instance.
     var _ptr: UnsafeMutablePointer<GConverterIface>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterIfaceRef` type acts as a lightweight Swift reference to an underlying `GConverterIface` instance.
@@ -306,6 +310,8 @@ public protocol ConverterInputStreamClassProtocol {
     /// Typed pointer to the underlying `GConverterInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GConverterInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStreamClass` instance.
@@ -448,6 +454,8 @@ public protocol ConverterOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GConverterOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GConverterOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `ConverterOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConverterOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStreamClass` instance.
@@ -590,6 +598,8 @@ public protocol CredentialsClassProtocol {
     /// Typed pointer to the underlying `GCredentialsClass` instance.
     var _ptr: UnsafeMutablePointer<GCredentialsClass>! { get }
 
+    /// Required Initialiser for types conforming to `CredentialsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CredentialsClassRef` type acts as a lightweight Swift reference to an underlying `GCredentialsClass` instance.
@@ -701,6 +711,8 @@ public protocol DBusAnnotationInfoProtocol {
     /// Typed pointer to the underlying `GDBusAnnotationInfo` instance.
     var dbus_annotation_info_ptr: UnsafeMutablePointer<GDBusAnnotationInfo>! { get }
 
+    /// Required Initialiser for types conforming to `DBusAnnotationInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DBusAnnotationInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusAnnotationInfo` instance.
@@ -904,7 +916,7 @@ open class DBusAnnotationInfo: DBusAnnotationInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DBusAnnotationInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

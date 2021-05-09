@@ -32,6 +32,8 @@ public protocol MemoryMonitorInterfaceProtocol {
     /// Typed pointer to the underlying `GMemoryMonitorInterface` instance.
     var _ptr: UnsafeMutablePointer<GMemoryMonitorInterface>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryMonitorInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryMonitorInterfaceRef` type acts as a lightweight Swift reference to an underlying `GMemoryMonitorInterface` instance.
@@ -161,6 +163,8 @@ public protocol MemoryOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GMemoryOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GMemoryOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStreamClass` instance.
@@ -303,6 +307,8 @@ public protocol MenuAttributeIterClassProtocol {
     /// Typed pointer to the underlying `GMenuAttributeIterClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuAttributeIterClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuAttributeIterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuAttributeIterClassRef` type acts as a lightweight Swift reference to an underlying `GMenuAttributeIterClass` instance.
@@ -437,6 +443,8 @@ public protocol MenuLinkIterClassProtocol {
     /// Typed pointer to the underlying `GMenuLinkIterClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuLinkIterClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuLinkIterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuLinkIterClassRef` type acts as a lightweight Swift reference to an underlying `GMenuLinkIterClass` instance.
@@ -571,6 +579,8 @@ public protocol MenuModelClassProtocol {
     /// Typed pointer to the underlying `GMenuModelClass` instance.
     var _ptr: UnsafeMutablePointer<GMenuModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `MenuModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuModelClassRef` type acts as a lightweight Swift reference to an underlying `GMenuModelClass` instance.
@@ -719,6 +729,8 @@ public protocol MountIfaceProtocol {
     /// Typed pointer to the underlying `GMountIface` instance.
     var _ptr: UnsafeMutablePointer<GMountIface>! { get }
 
+    /// Required Initialiser for types conforming to `MountIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountIfaceRef` type acts as a lightweight Swift reference to an underlying `GMountIface` instance.
@@ -907,6 +919,8 @@ public protocol MountOperationClassProtocol {
     /// Typed pointer to the underlying `GMountOperationClass` instance.
     var _ptr: UnsafeMutablePointer<GMountOperationClass>! { get }
 
+    /// Required Initialiser for types conforming to `MountOperationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GMountOperationClass` instance.
@@ -1069,6 +1083,8 @@ public protocol NativeSocketAddressClassProtocol {
     /// Typed pointer to the underlying `GNativeSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GNativeSocketAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `NativeSocketAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeSocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GNativeSocketAddressClass` instance.

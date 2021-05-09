@@ -40,6 +40,8 @@ public protocol InitableProtocol {
     /// Typed pointer to the underlying `GInitable` instance.
     var initable_ptr: UnsafeMutablePointer<GInitable>! { get }
 
+    /// Required Initialiser for types conforming to `InitableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InitableRef` type acts as a lightweight Swift reference to an underlying `GInitable` instance.
@@ -289,7 +291,7 @@ open class Initable: InitableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InitableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -439,7 +441,7 @@ public extension InitableProtocol {
 /// 
 /// Each object in the list may also report changes in itself via some
 /// mechanism (normally the `GObject::notify` signal).  Taken together
-/// with the `GListModel::items`-changed signal, this provides for a list
+/// with the `GListModel::items-changed` signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -485,6 +487,8 @@ public protocol ListModelProtocol {
     /// Typed pointer to the underlying `GListModel` instance.
     var list_model_ptr: UnsafeMutablePointer<GListModel>! { get }
 
+    /// Required Initialiser for types conforming to `ListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListModelRef` type acts as a lightweight Swift reference to an underlying `GListModel` instance.
@@ -499,7 +503,7 @@ public protocol ListModelProtocol {
 /// 
 /// Each object in the list may also report changes in itself via some
 /// mechanism (normally the `GObject::notify` signal).  Taken together
-/// with the `GListModel::items`-changed signal, this provides for a list
+/// with the `GListModel::items-changed` signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -628,7 +632,7 @@ public extension ListModelRef {
 /// 
 /// Each object in the list may also report changes in itself via some
 /// mechanism (normally the `GObject::notify` signal).  Taken together
-/// with the `GListModel::items`-changed signal, this provides for a list
+/// with the `GListModel::items-changed` signal, this provides for a list
 /// that can change its membership, and in which the members can change
 /// their individual properties.
 /// 
@@ -780,7 +784,7 @@ open class ListModel: ListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -934,7 +938,7 @@ public extension ListModelProtocol {
         return rv
     }
 
-    /// Emits the `GListModel::items`-changed signal on `list`.
+    /// Emits the `GListModel::items-changed` signal on `list`.
     /// 
     /// This function should only be called by classes implementing
     /// `GListModel`. It has to be called after the internal representation

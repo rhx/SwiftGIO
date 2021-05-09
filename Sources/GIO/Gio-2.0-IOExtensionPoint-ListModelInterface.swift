@@ -18,6 +18,8 @@ public protocol IOExtensionPointProtocol {
     /// Typed pointer to the underlying `GIOExtensionPoint` instance.
     var _ptr: UnsafeMutablePointer<GIOExtensionPoint>! { get }
 
+    /// Required Initialiser for types conforming to `IOExtensionPointProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOExtensionPointRef` type acts as a lightweight Swift reference to an underlying `GIOExtensionPoint` instance.
@@ -234,7 +236,7 @@ open class IOExtensionPoint: IOExtensionPointProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOExtensionPointProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -371,6 +373,8 @@ public protocol IOModuleClassProtocol {
     /// Typed pointer to the underlying `GIOModuleClass` instance.
     var _ptr: UnsafeMutablePointer<GIOModuleClass>! { get }
 
+    /// Required Initialiser for types conforming to `IOModuleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOModuleClassRef` type acts as a lightweight Swift reference to an underlying `GIOModuleClass` instance.
@@ -486,6 +490,8 @@ public protocol IOModuleScopeProtocol {
     /// Typed pointer to the underlying `GIOModuleScope` instance.
     var _ptr: UnsafeMutablePointer<GIOModuleScope>! { get }
 
+    /// Required Initialiser for types conforming to `IOModuleScopeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOModuleScopeRef` type acts as a lightweight Swift reference to an underlying `GIOModuleScope` instance.
@@ -697,7 +703,7 @@ open class IOModuleScope: IOModuleScopeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOModuleScopeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -798,6 +804,8 @@ public protocol IOSchedulerJobProtocol {
     /// Typed pointer to the underlying `GIOSchedulerJob` instance.
     var _ptr: UnsafeMutablePointer<GIOSchedulerJob>! { get }
 
+    /// Required Initialiser for types conforming to `IOSchedulerJobProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOSchedulerJobRef` type acts as a lightweight Swift reference to an underlying `GIOSchedulerJob` instance.
@@ -1001,7 +1009,7 @@ open class IOSchedulerJob: IOSchedulerJobProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOSchedulerJobProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1090,6 +1098,8 @@ public protocol IOStreamAdapterProtocol {
     /// Typed pointer to the underlying `GIOStreamAdapter` instance.
     var _ptr: UnsafeMutablePointer<GIOStreamAdapter>! { get }
 
+    /// Required Initialiser for types conforming to `IOStreamAdapterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOStreamAdapterRef` type acts as a lightweight Swift reference to an underlying `GIOStreamAdapter` instance.
@@ -1293,7 +1303,7 @@ open class IOStreamAdapter: IOStreamAdapterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOStreamAdapterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1370,6 +1380,8 @@ public protocol IOStreamClassProtocol {
     /// Typed pointer to the underlying `GIOStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GIOStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `IOStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOStreamClassRef` type acts as a lightweight Swift reference to an underlying `GIOStreamClass` instance.
@@ -1534,6 +1546,8 @@ public protocol IconIfaceProtocol {
     /// Typed pointer to the underlying `GIconIface` instance.
     var _ptr: UnsafeMutablePointer<GIconIface>! { get }
 
+    /// Required Initialiser for types conforming to `IconIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IconIfaceRef` type acts as a lightweight Swift reference to an underlying `GIconIface` instance.
@@ -1680,6 +1694,8 @@ public protocol InetAddressClassProtocol {
     /// Typed pointer to the underlying `GInetAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `InetAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetAddressClassRef` type acts as a lightweight Swift reference to an underlying `GInetAddressClass` instance.
@@ -1816,6 +1832,8 @@ public protocol InetAddressMaskClassProtocol {
     /// Typed pointer to the underlying `GInetAddressMaskClass` instance.
     var _ptr: UnsafeMutablePointer<GInetAddressMaskClass>! { get }
 
+    /// Required Initialiser for types conforming to `InetAddressMaskClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetAddressMaskClassRef` type acts as a lightweight Swift reference to an underlying `GInetAddressMaskClass` instance.
@@ -1948,6 +1966,8 @@ public protocol InetSocketAddressClassProtocol {
     /// Typed pointer to the underlying `GInetSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GInetSocketAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `InetSocketAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InetSocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GInetSocketAddressClass` instance.
@@ -2081,6 +2101,8 @@ public protocol InitableIfaceProtocol {
     /// Typed pointer to the underlying `GInitableIface` instance.
     var _ptr: UnsafeMutablePointer<GInitableIface>! { get }
 
+    /// Required Initialiser for types conforming to `InitableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InitableIfaceRef` type acts as a lightweight Swift reference to an underlying `GInitableIface` instance.
@@ -2221,6 +2243,8 @@ public protocol InputMessageProtocol {
     /// Typed pointer to the underlying `GInputMessage` instance.
     var _ptr: UnsafeMutablePointer<GInputMessage>! { get }
 
+    /// Required Initialiser for types conforming to `InputMessageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputMessageRef` type acts as a lightweight Swift reference to an underlying `GInputMessage` instance.
@@ -2460,7 +2484,7 @@ open class InputMessage: InputMessageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputMessageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2645,6 +2669,8 @@ public protocol InputStreamClassProtocol {
     /// Typed pointer to the underlying `GInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `InputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GInputStreamClass` instance.
@@ -2793,6 +2819,8 @@ public protocol InputVectorProtocol {
     /// Typed pointer to the underlying `GInputVector` instance.
     var _ptr: UnsafeMutablePointer<GInputVector>! { get }
 
+    /// Required Initialiser for types conforming to `InputVectorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputVectorRef` type acts as a lightweight Swift reference to an underlying `GInputVector` instance.
@@ -3002,7 +3030,7 @@ open class InputVector: InputVectorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputVectorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3104,6 +3132,8 @@ public protocol ListModelInterfaceProtocol {
     /// Typed pointer to the underlying `GListModelInterface` instance.
     var _ptr: UnsafeMutablePointer<GListModelInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ListModelInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListModelInterfaceRef` type acts as a lightweight Swift reference to an underlying `GListModelInterface` instance.

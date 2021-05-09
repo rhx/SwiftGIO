@@ -32,6 +32,8 @@ public protocol EmblemedIconClassProtocol {
     /// Typed pointer to the underlying `GEmblemedIconClass` instance.
     var _ptr: UnsafeMutablePointer<GEmblemedIconClass>! { get }
 
+    /// Required Initialiser for types conforming to `EmblemedIconClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EmblemedIconClassRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIconClass` instance.
@@ -149,6 +151,8 @@ public protocol FileAttributeInfoProtocol {
     /// Typed pointer to the underlying `GFileAttributeInfo` instance.
     var _ptr: UnsafeMutablePointer<GFileAttributeInfo>! { get }
 
+    /// Required Initialiser for types conforming to `FileAttributeInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FileAttributeInfoRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeInfo` instance.
@@ -352,7 +356,7 @@ open class FileAttributeInfo: FileAttributeInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FileAttributeInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

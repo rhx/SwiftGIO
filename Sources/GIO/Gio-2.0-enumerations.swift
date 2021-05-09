@@ -342,8 +342,8 @@ public extension DriveStartStopType {
     ///    drives.
     static let multidisk = G_DRIVE_START_STOP_TYPE_MULTIDISK // 3
     /// The start/stop methods will
-    ///    unlock/lock the disk (for example using the ATA <quote>SECURITY
-    ///    UNLOCK DEVICE</quote> command)
+    ///    unlock/lock the disk (for example using the ATA &lt;quote&gt;SECURITY
+    ///    UNLOCK DEVICE&lt;/quote&gt; command)
     static let password = G_DRIVE_START_STOP_TYPE_PASSWORD // 4
 }
 
@@ -913,11 +913,11 @@ public extension ResolverError {
 /// `G_RESOLVER_RECORD_TXT` records are returned as variants with the signature
 /// `(as)`, representing an array of the strings in the text record. Note: Most TXT
 /// records only contain a single string, but
-/// [RFC 1035](https://tools.ietf.org/html/rfc1035`section`-3.3.14) does allow a
+/// [RFC 1035](https://tools.ietf.org/html/rfc1035`section-3.3.14`) does allow a
 /// record to contain multiple strings. The RFC which defines the interpretation
 /// of a specific TXT record will likely require concatenation of multiple
 /// strings if they are present, as with
-/// [RFC 7208](https://tools.ietf.org/html/rfc7208`section`-3.3).
+/// [RFC 7208](https://tools.ietf.org/html/rfc7208`section-3.3`).
 /// 
 /// `G_RESOLVER_RECORD_SOA` records are returned as variants with the signature
 /// `(ssuuuuu)`, representing a string containing the primary name server, a
@@ -1203,7 +1203,7 @@ public extension TLSChannelBindingError {
 
 /// The type of TLS channel binding data to retrieve from `GTlsConnection`
 /// or `GDtlsConnection`, as documented by RFC 5929. The
-/// [`tls-unique-for-telnet`](https://tools.ietf.org/html/rfc5929`section`-5)
+/// [`tls-unique-for-telnet`](https://tools.ietf.org/html/rfc5929`section-5`)
 /// binding type is not currently implemented.
 public typealias TLSChannelBindingType = GTlsChannelBindingType
 
@@ -1215,10 +1215,10 @@ public extension TLSChannelBindingType {
         func castToTLSChannelBindingTypeInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
         self.init(rawValue: castToTLSChannelBindingTypeInt(raw))
     }
-    /// [`tls-unique`](https://tools.ietf.org/html/rfc5929`section`-3) binding
+    /// [`tls-unique`](https://tools.ietf.org/html/rfc5929`section-3`) binding
     ///    type
     static let unique = G_TLS_CHANNEL_BINDING_TLS_UNIQUE // 0
-    /// [`tls-server-end-point`](https://tools.ietf.org/html/rfc5929`section`-4)
+    /// [`tls-server-end-point`](https://tools.ietf.org/html/rfc5929`section-4`)
     ///    binding type
     static let serverEndPoint = G_TLS_CHANNEL_BINDING_TLS_SERVER_END_POINT // 1
 }

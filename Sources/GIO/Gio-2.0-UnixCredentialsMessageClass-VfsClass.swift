@@ -32,6 +32,8 @@ public protocol UnixCredentialsMessageClassProtocol {
     /// Typed pointer to the underlying `GUnixCredentialsMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixCredentialsMessageClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixCredentialsMessageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixCredentialsMessageClassRef` type acts as a lightweight Swift reference to an underlying `GUnixCredentialsMessageClass` instance.
@@ -168,6 +170,8 @@ public protocol UnixFDListClassProtocol {
     /// Typed pointer to the underlying `GUnixFDListClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDListClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixFDListClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixFDListClassRef` type acts as a lightweight Swift reference to an underlying `GUnixFDListClass` instance.
@@ -310,6 +314,8 @@ public protocol UnixFDMessageClassProtocol {
     /// Typed pointer to the underlying `GUnixFDMessageClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixFDMessageClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixFDMessageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixFDMessageClassRef` type acts as a lightweight Swift reference to an underlying `GUnixFDMessageClass` instance.
@@ -446,6 +452,8 @@ public protocol UnixInputStreamClassProtocol {
     /// Typed pointer to the underlying `GUnixInputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixInputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixInputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GUnixInputStreamClass` instance.
@@ -565,7 +573,7 @@ public extension UnixInputStreamClassProtocol {
 /// For a concrete class that implements these methods and properties, see `UnixMountEntry`.
 /// Alternatively, use `UnixMountEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
+/// Defines a Unix mount entry (e.g. &lt;filename&gt;/media/cdrom&lt;/filename&gt;).
 /// This corresponds roughly to a mtab entry.
 public protocol UnixMountEntryProtocol {
         /// Untyped pointer to the underlying `GUnixMountEntry` instance.
@@ -574,13 +582,15 @@ public protocol UnixMountEntryProtocol {
     /// Typed pointer to the underlying `GUnixMountEntry` instance.
     var unix_mount_entry_ptr: UnsafeMutablePointer<GUnixMountEntry>! { get }
 
+    /// Required Initialiser for types conforming to `UnixMountEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixMountEntryRef` type acts as a lightweight Swift reference to an underlying `GUnixMountEntry` instance.
 /// It exposes methods that can operate on this data type through `UnixMountEntryProtocol` conformance.
 /// Use `UnixMountEntryRef` only as an `unowned` reference to an existing `GUnixMountEntry` instance.
 ///
-/// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
+/// Defines a Unix mount entry (e.g. &lt;filename&gt;/media/cdrom&lt;/filename&gt;).
 /// This corresponds roughly to a mtab entry.
 public struct UnixMountEntryRef: UnixMountEntryProtocol {
         /// Untyped pointer to the underlying `GUnixMountEntry` instance.
@@ -664,7 +674,7 @@ public extension UnixMountEntryRef {
 /// It provides the methods that can operate on this data type through `UnixMountEntryProtocol` conformance.
 /// Use `UnixMountEntry` as a strong reference or owner of a `GUnixMountEntry` instance.
 ///
-/// Defines a Unix mount entry (e.g. <filename>/media/cdrom</filename>).
+/// Defines a Unix mount entry (e.g. &lt;filename&gt;/media/cdrom&lt;/filename&gt;).
 /// This corresponds roughly to a mtab entry.
 open class UnixMountEntry: UnixMountEntryProtocol {
         /// Untyped pointer to the underlying `GUnixMountEntry` instance.
@@ -779,7 +789,7 @@ open class UnixMountEntry: UnixMountEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -960,6 +970,8 @@ public protocol UnixMountMonitorClassProtocol {
     /// Typed pointer to the underlying `GUnixMountMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixMountMonitorClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixMountMonitorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixMountMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GUnixMountMonitorClass` instance.
@@ -1063,7 +1075,7 @@ public extension UnixMountMonitorClassProtocol {
 /// For a concrete class that implements these methods and properties, see `UnixMountPoint`.
 /// Alternatively, use `UnixMountPointRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Defines a Unix mount point (e.g. <filename>/dev</filename>).
+/// Defines a Unix mount point (e.g. &lt;filename&gt;/dev&lt;/filename&gt;).
 /// This corresponds roughly to a fstab entry.
 public protocol UnixMountPointProtocol {
         /// Untyped pointer to the underlying `GUnixMountPoint` instance.
@@ -1072,13 +1084,15 @@ public protocol UnixMountPointProtocol {
     /// Typed pointer to the underlying `GUnixMountPoint` instance.
     var unix_mount_point_ptr: UnsafeMutablePointer<GUnixMountPoint>! { get }
 
+    /// Required Initialiser for types conforming to `UnixMountPointProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixMountPointRef` type acts as a lightweight Swift reference to an underlying `GUnixMountPoint` instance.
 /// It exposes methods that can operate on this data type through `UnixMountPointProtocol` conformance.
 /// Use `UnixMountPointRef` only as an `unowned` reference to an existing `GUnixMountPoint` instance.
 ///
-/// Defines a Unix mount point (e.g. <filename>/dev</filename>).
+/// Defines a Unix mount point (e.g. &lt;filename&gt;/dev&lt;/filename&gt;).
 /// This corresponds roughly to a fstab entry.
 public struct UnixMountPointRef: UnixMountPointProtocol {
         /// Untyped pointer to the underlying `GUnixMountPoint` instance.
@@ -1172,7 +1186,7 @@ public extension UnixMountPointRef {
 /// It provides the methods that can operate on this data type through `UnixMountPointProtocol` conformance.
 /// Use `UnixMountPoint` as a strong reference or owner of a `GUnixMountPoint` instance.
 ///
-/// Defines a Unix mount point (e.g. <filename>/dev</filename>).
+/// Defines a Unix mount point (e.g. &lt;filename&gt;/dev&lt;/filename&gt;).
 /// This corresponds roughly to a fstab entry.
 open class UnixMountPoint: UnixMountPointProtocol {
         /// Untyped pointer to the underlying `GUnixMountPoint` instance.
@@ -1287,7 +1301,7 @@ open class UnixMountPoint: UnixMountPointProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnixMountPointProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1502,6 +1516,8 @@ public protocol UnixOutputStreamClassProtocol {
     /// Typed pointer to the underlying `GUnixOutputStreamClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixOutputStreamClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixOutputStreamClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GUnixOutputStreamClass` instance.
@@ -1644,6 +1660,8 @@ public protocol UnixSocketAddressClassProtocol {
     /// Typed pointer to the underlying `GUnixSocketAddressClass` instance.
     var _ptr: UnsafeMutablePointer<GUnixSocketAddressClass>! { get }
 
+    /// Required Initialiser for types conforming to `UnixSocketAddressClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnixSocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GUnixSocketAddressClass` instance.
@@ -1776,6 +1794,8 @@ public protocol VfsClassProtocol {
     /// Typed pointer to the underlying `GVfsClass` instance.
     var _ptr: UnsafeMutablePointer<GVfsClass>! { get }
 
+    /// Required Initialiser for types conforming to `VfsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VfsClassRef` type acts as a lightweight Swift reference to an underlying `GVfsClass` instance.

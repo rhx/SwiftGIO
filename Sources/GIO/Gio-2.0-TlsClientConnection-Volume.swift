@@ -18,6 +18,8 @@ public protocol TLSClientConnectionProtocol: TLSConnectionProtocol {
     /// Typed pointer to the underlying `GTlsClientConnection` instance.
     var tls_client_connection_ptr: UnsafeMutablePointer<GTlsClientConnection>! { get }
 
+    /// Required Initialiser for types conforming to `TLSClientConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSClientConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsClientConnection` instance.
@@ -213,14 +215,14 @@ open class TLSClientConnection: TLSConnection, TLSClientConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSClientConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -280,16 +282,16 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -305,9 +307,9 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GTlsClientConnection:validation`-flags, this object will be used
+    /// `GTlsClientConnection:validation-flags`, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GTlsClientConnection:server`-identity is not set,
+    /// connection; if `GTlsClientConnection:server-identity` is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -332,7 +334,7 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GTlsConnection::accept`-certificate.
+    /// overrides the default via `GTlsConnection::accept-certificate`.
     case validationFlags = "validation-flags"
 }
 
@@ -486,16 +488,16 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -511,9 +513,9 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// is expected on the other end of the connection.
     /// 
     /// If the `G_TLS_CERTIFICATE_BAD_IDENTITY` flag is set in
-    /// `GTlsClientConnection:validation`-flags, this object will be used
+    /// `GTlsClientConnection:validation-flags`, this object will be used
     /// to determine the expected identify of the remote end of the
-    /// connection; if `GTlsClientConnection:server`-identity is not set,
+    /// connection; if `GTlsClientConnection:server-identity` is not set,
     /// or does not match the identity presented by the server, then the
     /// `G_TLS_CERTIFICATE_BAD_IDENTITY` validation will fail.
     /// 
@@ -538,7 +540,7 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// What steps to perform when validating a certificate received from
     /// a server. Server certificates that fail to validate in any of the
     /// ways indicated here will be rejected unless the application
-    /// overrides the default via `GTlsConnection::accept`-certificate.
+    /// overrides the default via `GTlsConnection::accept-certificate`.
     case notifyValidationFlags = "notify::validation-flags"
 }
 
@@ -756,6 +758,8 @@ public protocol TLSFileDatabaseProtocol: TLSDatabaseProtocol {
     /// Typed pointer to the underlying `GTlsFileDatabase` instance.
     var tls_file_database_ptr: UnsafeMutablePointer<GTlsFileDatabase>! { get }
 
+    /// Required Initialiser for types conforming to `TLSFileDatabaseProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSFileDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsFileDatabase` instance.
@@ -953,14 +957,14 @@ open class TLSFileDatabase: TLSDatabase, TLSFileDatabaseProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSFileDatabaseProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1104,6 +1108,8 @@ public protocol TLSServerConnectionProtocol: TLSConnectionProtocol {
     /// Typed pointer to the underlying `GTlsServerConnection` instance.
     var tls_server_connection_ptr: UnsafeMutablePointer<GTlsServerConnection>! { get }
 
+    /// Required Initialiser for types conforming to `TLSServerConnectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TLSServerConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsServerConnection` instance.
@@ -1299,14 +1305,14 @@ open class TLSServerConnection: TLSConnection, TLSServerConnectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TLSServerConnectionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1362,16 +1368,16 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     case outputStream = "output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case peerCertificate = "peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -1538,16 +1544,16 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     case notifyOutputStream = "notify::output-stream"
     /// The connection's peer's certificate, after the TLS handshake has
     /// completed or failed. Note in particular that this is not yet set
-    /// during the emission of `GTlsConnection::accept`-certificate.
+    /// during the emission of `GTlsConnection::accept-certificate`.
     /// 
     /// (You can watch for a `GObject::notify` signal on this property to
     /// detect when a handshake has occurred.)
     case notifyPeerCertificate = "notify::peer-certificate"
     /// The errors noticed while verifying
-    /// `GTlsConnection:peer`-certificate. Normally this should be 0, but
-    /// it may not be if `GTlsClientConnection:validation`-flags is not
+    /// `GTlsConnection:peer-certificate`. Normally this should be 0, but
+    /// it may not be if `GTlsClientConnection:validation-flags` is not
     /// `G_TLS_CERTIFICATE_VALIDATE_ALL`, or if
-    /// `GTlsConnection::accept`-certificate overrode the default
+    /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
     /// The rehandshaking mode. See
@@ -1635,6 +1641,8 @@ public protocol VolumeProtocol {
     /// Typed pointer to the underlying `GVolume` instance.
     var volume_ptr: UnsafeMutablePointer<GVolume>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeRef` type acts as a lightweight Swift reference to an underlying `GVolume` instance.
@@ -1918,7 +1926,7 @@ open class Volume: VolumeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

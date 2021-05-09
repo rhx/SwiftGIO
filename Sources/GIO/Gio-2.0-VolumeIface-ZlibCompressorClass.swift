@@ -32,6 +32,8 @@ public protocol VolumeIfaceProtocol {
     /// Typed pointer to the underlying `GVolumeIface` instance.
     var _ptr: UnsafeMutablePointer<GVolumeIface>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeIfaceRef` type acts as a lightweight Swift reference to an underlying `GVolumeIface` instance.
@@ -208,6 +210,8 @@ public protocol VolumeMonitorClassProtocol {
     /// Typed pointer to the underlying `GVolumeMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GVolumeMonitorClass>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeMonitorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitorClass` instance.
@@ -390,6 +394,8 @@ public protocol ZlibCompressorClassProtocol {
     /// Typed pointer to the underlying `GZlibCompressorClass` instance.
     var _ptr: UnsafeMutablePointer<GZlibCompressorClass>! { get }
 
+    /// Required Initialiser for types conforming to `ZlibCompressorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ZlibCompressorClassRef` type acts as a lightweight Swift reference to an underlying `GZlibCompressorClass` instance.

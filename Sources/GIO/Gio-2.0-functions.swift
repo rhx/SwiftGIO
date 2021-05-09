@@ -330,7 +330,7 @@ import GLibObject
 /// `g_dbus_connection_new_for_address()`.
 /// 
 /// Note that the returned `GDBusConnection` object will (usually) have
-/// the `GDBusConnection:exit`-on-close property set to `true`.
+/// the `GDBusConnection:exit-on-close` property set to `true`.
 @inlinable public func busGetFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> DBusConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_finish(res.async_result_ptr, &error)))
@@ -357,7 +357,7 @@ import GLibObject
 /// `g_dbus_connection_new_for_address()`.
 /// 
 /// Note that the returned `GDBusConnection` object will (usually) have
-/// the `GDBusConnection:exit`-on-close property set to `true`.
+/// the `GDBusConnection:exit-on-close` property set to `true`.
 @inlinable public func busGetSync(busType: GBusType, cancellable: CancellableRef? = nil) throws -> DBusConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable?.cancellable_ptr, &error)))
@@ -380,7 +380,7 @@ import GLibObject
 /// `g_dbus_connection_new_for_address()`.
 /// 
 /// Note that the returned `GDBusConnection` object will (usually) have
-/// the `GDBusConnection:exit`-on-close property set to `true`.
+/// the `GDBusConnection:exit-on-close` property set to `true`.
 @inlinable public func busGetSync<CancellableT: CancellableProtocol>(busType: GBusType, cancellable: CancellableT?) throws -> DBusConnectionRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = DBusConnectionRef(gconstpointer: gconstpointer(g_bus_get_sync(busType, cancellable?.cancellable_ptr, &error)))
@@ -847,7 +847,10 @@ import GLibObject
 
 
 /// Finishes an operation started with `g_dbus_address_get_stream()`.
-@inlinable public func dbusAddressGetStreamFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> IOStreamRef! {
+/// 
+/// A server is not required to set a GUID, so `out_guid` may be set to `nil`
+/// even on success.
+@inlinable public func dbusAddressGetStreamFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> IOStreamRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_finish(res.async_result_ptr, outGuid, &error)))
     if let error = error { throw GLibError(error) }
@@ -863,9 +866,12 @@ import GLibObject
 /// of the D-Bus authentication conversation. `address` must be in the
 /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
 /// 
+/// A server is not required to set a GUID, so `out_guid` may be set to `nil`
+/// even on success.
+/// 
 /// This is a synchronous failable function. See
 /// `g_dbus_address_get_stream()` for the asynchronous version.
-@inlinable public func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, cancellable: CancellableRef? = nil) throws -> IOStreamRef! {
+@inlinable public func dbusAddressGetStreamSync(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, cancellable: CancellableRef? = nil) throws -> IOStreamRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable?.cancellable_ptr, &error)))
     if let error = error { throw GLibError(error) }
@@ -877,9 +883,12 @@ import GLibObject
 /// of the D-Bus authentication conversation. `address` must be in the
 /// [D-Bus address format](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`).
 /// 
+/// A server is not required to set a GUID, so `out_guid` may be set to `nil`
+/// even on success.
+/// 
 /// This is a synchronous failable function. See
 /// `g_dbus_address_get_stream()` for the asynchronous version.
-@inlinable public func dbusAddressGetStreamSync<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, cancellable: CancellableT?) throws -> IOStreamRef! {
+@inlinable public func dbusAddressGetStreamSync<CancellableT: CancellableProtocol>(address: UnsafePointer<gchar>!, outGuid: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, cancellable: CancellableT?) throws -> IOStreamRef! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = IOStreamRef(gconstpointer: gconstpointer(g_dbus_address_get_stream_sync(address, outGuid, cancellable?.cancellable_ptr, &error)))
     if let error = error { throw GLibError(error) }
@@ -1000,6 +1009,9 @@ import GLibObject
 
 
 /// Helper function for associating a `GError` error domain with D-Bus error names.
+/// 
+/// While `quark_volatile` has a `volatile` qualifier, this is a historical
+/// artifact and the argument passed to it should not be `volatile`.
 @inlinable public func dbusErrorRegisterErrorDomain(errorDomainQuarkName: UnsafePointer<gchar>!, quarkVolatile: UnsafeMutablePointer<gsize>!, entries: UnsafePointer<GDBusErrorEntry>!, numEntries: Int) {
     g_dbus_error_register_error_domain(errorDomainQuarkName, quarkVolatile, entries, guint(numEntries))
 
@@ -1597,7 +1609,7 @@ import GLibObject
 /// trouble.
 /// 
 /// The backend reads default values from a keyfile called `defaults` in
-/// the directory specified by the `GKeyfileSettingsBackend:defaults`-dir property,
+/// the directory specified by the `GKeyfileSettingsBackend:defaults-dir` property,
 /// and a list of locked keys from a text file with the name `locks` in
 /// the same location.
 @inlinable public func keyfileSettingsBackendNew(filename: UnsafePointer<gchar>!, rootPath: UnsafePointer<gchar>!, rootGroup: UnsafePointer<gchar>? = nil) -> SettingsBackendRef! {
@@ -2075,7 +2087,7 @@ import GLibObject
 /// must have pollable input and output streams) which is assumed to
 /// communicate with the server identified by `server_identity`.
 /// 
-/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// See the documentation for `GTlsConnection:base-io-stream` for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 @inlinable public func tlsClientConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT, serverIdentity: SocketConnectableRef? = nil) throws -> TLSClientConnectionRef! {
@@ -2089,7 +2101,7 @@ import GLibObject
 /// must have pollable input and output streams) which is assumed to
 /// communicate with the server identified by `server_identity`.
 /// 
-/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// See the documentation for `GTlsConnection:base-io-stream` for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 @inlinable public func tlsClientConnectionNew<IOStreamT: IOStreamProtocol, SocketConnectableT: SocketConnectableProtocol>(baseIoStream: IOStreamT, serverIdentity: SocketConnectableT?) throws -> TLSClientConnectionRef! {
@@ -2130,7 +2142,7 @@ import GLibObject
 /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
 /// must have pollable input and output streams).
 /// 
-/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// See the documentation for `GTlsConnection:base-io-stream` for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 @inlinable public func tlsServerConnectionNew<IOStreamT: IOStreamProtocol>(baseIoStream: IOStreamT, certificate: TLSCertificateRef? = nil) throws -> TLSServerConnectionRef! {
@@ -2143,7 +2155,7 @@ import GLibObject
 /// Creates a new `GTlsServerConnection` wrapping `base_io_stream` (which
 /// must have pollable input and output streams).
 /// 
-/// See the documentation for `GTlsConnection:base`-io-stream for restrictions
+/// See the documentation for `GTlsConnection:base-io-stream` for restrictions
 /// on when application code can run operations on the `base_io_stream` after
 /// this function has returned.
 @inlinable public func tlsServerConnectionNew<IOStreamT: IOStreamProtocol, TLSCertificateT: TLSCertificateProtocol>(baseIoStream: IOStreamT, certificate: TLSCertificateT?) throws -> TLSServerConnectionRef! {

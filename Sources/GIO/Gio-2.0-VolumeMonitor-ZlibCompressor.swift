@@ -27,6 +27,8 @@ public protocol VolumeMonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GVolumeMonitor` instance.
     var volume_monitor_ptr: UnsafeMutablePointer<GVolumeMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `VolumeMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitor` instance.
@@ -245,14 +247,14 @@ open class VolumeMonitor: GLibObject.Object, VolumeMonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VolumeMonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -800,6 +802,8 @@ public protocol ZlibCompressorProtocol: GLibObject.ObjectProtocol, ConverterProt
     /// Typed pointer to the underlying `GZlibCompressor` instance.
     var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor>! { get }
 
+    /// Required Initialiser for types conforming to `ZlibCompressorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ZlibCompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibCompressor` instance.
@@ -998,14 +1002,14 @@ open class ZlibCompressor: GLibObject.Object, ZlibCompressorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZlibCompressorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1135,7 +1139,7 @@ public extension ZlibCompressorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GZlibCompressor` instance.
     @inlinable var zlib_compressor_ptr: UnsafeMutablePointer<GZlibCompressor>! { return ptr?.assumingMemoryBound(to: GZlibCompressor.self) }
 
-    /// Returns the `GZlibCompressor:file`-info property.
+    /// Returns the `GZlibCompressor:file-info` property.
     @inlinable func getFileInfo() -> FileInfoRef! {
         let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_compressor_get_file_info(zlib_compressor_ptr)))
         return rv
@@ -1165,9 +1169,9 @@ public extension ZlibCompressorProtocol {
         g_zlib_compressor_set_file_info(zlib_compressor_ptr, fileInfo?.file_info_ptr)
     
     }
-    /// Returns the `GZlibCompressor:file`-info property.
+    /// Returns the `GZlibCompressor:file-info` property.
     @inlinable var fileInfo: FileInfoRef! {
-        /// Returns the `GZlibCompressor:file`-info property.
+        /// Returns the `GZlibCompressor:file-info` property.
         get {
             let rv = FileInfoRef(gconstpointer: gconstpointer(g_zlib_compressor_get_file_info(zlib_compressor_ptr)))
             return rv

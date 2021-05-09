@@ -32,6 +32,8 @@ public protocol ZlibDecompressorClassProtocol {
     /// Typed pointer to the underlying `GZlibDecompressorClass` instance.
     var _ptr: UnsafeMutablePointer<GZlibDecompressorClass>! { get }
 
+    /// Required Initialiser for types conforming to `ZlibDecompressorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ZlibDecompressorClassRef` type acts as a lightweight Swift reference to an underlying `GZlibDecompressorClass` instance.

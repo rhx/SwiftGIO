@@ -21,6 +21,8 @@ public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStr
     /// Typed pointer to the underlying `GMemoryInputStream` instance.
     var memory_input_stream_ptr: UnsafeMutablePointer<GMemoryInputStream>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryInputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryInputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStream` instance.
@@ -250,14 +252,14 @@ open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryInputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -393,6 +395,8 @@ public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutput
     /// Typed pointer to the underlying `GMemoryOutputStream` instance.
     var memory_output_stream_ptr: UnsafeMutablePointer<GMemoryOutputStream>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryOutputStreamProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStream` instance.
@@ -647,14 +651,14 @@ open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryOutputStreamProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -887,7 +891,7 @@ public extension MemoryOutputStreamProtocol {
     /// Gets any loaded data from the `ostream`. Ownership of the data
     /// is transferred to the caller; when no longer needed it must be
     /// freed using the free function set in `ostream`'s
-    /// `GMemoryOutputStream:destroy`-function property.
+    /// `GMemoryOutputStream:destroy-function` property.
     /// 
     /// `ostream` must be closed before calling this function.
     @inlinable func stealData() -> gpointer! {
@@ -975,6 +979,8 @@ public protocol MenuProtocol: MenuModelProtocol {
     /// Typed pointer to the underlying `GMenu` instance.
     var menu_ptr: UnsafeMutablePointer<GMenu>! { get }
 
+    /// Required Initialiser for types conforming to `MenuProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuRef` type acts as a lightweight Swift reference to an underlying `GMenu` instance.
@@ -1189,14 +1195,14 @@ open class Menu: MenuModel, MenuProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1449,6 +1455,8 @@ public protocol MenuAttributeIterProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GMenuAttributeIter` instance.
     var menu_attribute_iter_ptr: UnsafeMutablePointer<GMenuAttributeIter>! { get }
 
+    /// Required Initialiser for types conforming to `MenuAttributeIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuAttributeIterRef` type acts as a lightweight Swift reference to an underlying `GMenuAttributeIter` instance.
@@ -1644,14 +1652,14 @@ open class MenuAttributeIter: GLibObject.Object, MenuAttributeIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuAttributeIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1817,6 +1825,8 @@ public protocol MenuItemProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GMenuItem` instance.
     var menu_item_ptr: UnsafeMutablePointer<GMenuItem>! { get }
 
+    /// Required Initialiser for types conforming to `MenuItemProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuItemRef` type acts as a lightweight Swift reference to an underlying `GMenuItem` instance.
@@ -2193,14 +2203,14 @@ open class MenuItem: GLibObject.Object, MenuItemProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuItemProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2750,6 +2760,8 @@ public protocol MenuLinkIterProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GMenuLinkIter` instance.
     var menu_link_iter_ptr: UnsafeMutablePointer<GMenuLinkIter>! { get }
 
+    /// Required Initialiser for types conforming to `MenuLinkIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuLinkIterRef` type acts as a lightweight Swift reference to an underlying `GMenuLinkIter` instance.
@@ -2945,14 +2957,14 @@ open class MenuLinkIter: GLibObject.Object, MenuLinkIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuLinkIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3224,6 +3236,8 @@ public protocol MenuModelProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GMenuModel` instance.
     var menu_model_ptr: UnsafeMutablePointer<GMenuModel>! { get }
 
+    /// Required Initialiser for types conforming to `MenuModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MenuModelRef` type acts as a lightweight Swift reference to an underlying `GMenuModel` instance.
@@ -3641,14 +3655,14 @@ open class MenuModel: GLibObject.Object, MenuModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MenuModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3856,7 +3870,7 @@ public extension MenuModelProtocol {
         return rv
     }
 
-    /// Requests emission of the `GMenuModel::items`-changed signal on `model`.
+    /// Requests emission of the `GMenuModel::items-changed` signal on `model`.
     /// 
     /// This function should never be called except by `GMenuModel`
     /// subclasses.  Any other calls to this function will very likely lead
@@ -3895,12 +3909,12 @@ public extension MenuModelProtocol {
     }
     /// Queries if `model` is mutable.
     /// 
-    /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
+    /// An immutable `GMenuModel` will never emit the `GMenuModel::items-changed`
     /// signal. Consumers of the model may make optimisations accordingly.
     @inlinable var isMutable: Bool {
         /// Queries if `model` is mutable.
         /// 
-        /// An immutable `GMenuModel` will never emit the `GMenuModel::items`-changed
+        /// An immutable `GMenuModel` will never emit the `GMenuModel::items-changed`
         /// signal. Consumers of the model may make optimisations accordingly.
         get {
             let rv = ((g_menu_model_is_mutable(menu_model_ptr)) != 0)
@@ -3965,6 +3979,8 @@ public protocol MountOperationProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GMountOperation` instance.
     var mount_operation_ptr: UnsafeMutablePointer<GMountOperation>! { get }
 
+    /// Required Initialiser for types conforming to `MountOperationProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GMountOperation` instance.
@@ -4203,14 +4219,14 @@ open class MountOperation: GLibObject.Object, MountOperationProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MountOperationProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4242,7 +4258,7 @@ public enum MountOperationPropertyName: String, PropertyNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case anonymous = "anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation::ask`-question signal.
+    /// mount operation. See the `GMountOperation::ask-question` signal.
     case choice = "choice"
     /// The domain to use for the mount operation.
     case domain = "domain"
@@ -4401,7 +4417,7 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// Whether to use an anonymous user when authenticating.
     case notifyAnonymous = "notify::anonymous"
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation::ask`-question signal.
+    /// mount operation. See the `GMountOperation::ask-question` signal.
     case notifyChoice = "notify::choice"
     /// The domain to use for the mount operation.
     case notifyDomain = "notify::domain"
@@ -5147,7 +5163,7 @@ public extension MountOperationProtocol {
     }
 
     /// Sets the mount operation's domain.
-    @inlinable func set(domain: UnsafePointer<CChar>!) {
+    @inlinable func set(domain: UnsafePointer<CChar>? = nil) {
         g_mount_operation_set_domain(mount_operation_ptr, domain)
     
     }
@@ -5165,7 +5181,7 @@ public extension MountOperationProtocol {
     }
 
     /// Sets the mount operation's password to `password`.
-    @inlinable func set(password: UnsafePointer<CChar>!) {
+    @inlinable func set(password: UnsafePointer<CChar>? = nil) {
         g_mount_operation_set_password(mount_operation_ptr, password)
     
     }
@@ -5183,7 +5199,7 @@ public extension MountOperationProtocol {
     }
 
     /// Sets the user name within `op` to `username`.
-    @inlinable func set(username: UnsafePointer<CChar>!) {
+    @inlinable func set(username: UnsafePointer<CChar>? = nil) {
         g_mount_operation_set_username(mount_operation_ptr, username)
     
     }
@@ -5202,7 +5218,7 @@ public extension MountOperationProtocol {
     }
 
     /// The index of the user's choice when a question is asked during the
-    /// mount operation. See the `GMountOperation::ask`-question signal.
+    /// mount operation. See the `GMountOperation::ask-question` signal.
     @inlinable var choice: Int {
         /// Gets a choice from the mount operation.
         get {
@@ -5341,6 +5357,8 @@ public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
     /// Typed pointer to the underlying `GNativeSocketAddress` instance.
     var native_socket_address_ptr: UnsafeMutablePointer<GNativeSocketAddress>! { get }
 
+    /// Required Initialiser for types conforming to `NativeSocketAddressProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NativeSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GNativeSocketAddress` instance.
@@ -5539,14 +5557,14 @@ open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NativeSocketAddressProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
