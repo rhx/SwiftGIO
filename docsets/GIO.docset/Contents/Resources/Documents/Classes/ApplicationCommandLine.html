@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5873,7 +5873,7 @@ Use <code>ApplicationCommandLine</code> as a strong reference or owner of a <cod
 
 <p><code>GApplicationCommandLine</code> represents a command-line invocation of
 an application.  It is created by <code>GApplication</code> and emitted
-in the <code>GApplication::command</code>-line signal and virtual function.</p>
+in the <code>GApplication::command-line</code> signal and virtual function.</p>
 
 <p>The class contains the list of arguments that the program was invoked
 with.  It is also possible to query if the commandline invocation was
@@ -5894,7 +5894,7 @@ of this object (ie: the process exits when the last reference is
 dropped).</p>
 
 <p>The main use for <code>GApplicationCommandLine</code> (and the
-<code>GApplication::command</code>-line signal) is &lsquo;Emacs server&rsquo; like use cases:
+<code>GApplication::command-line</code> signal) is &lsquo;Emacs server&rsquo; like use cases:
 You can set the <code>EDITOR</code> environment variable to have e.g. git use
 your favourite editor to edit commit messages, and if you already
 have an instance of the editor running, the editing will happen
@@ -5903,7 +5903,7 @@ aspect of this use case is that the process that gets started by git
 does not return until the editing is done.</p>
 
 <p>Normally, the commandline is completely handled in the
-<code>GApplication::command</code>-line handler. The launching instance exits
+<code>GApplication::command-line</code> handler. The launching instance exits
 once the signal handler in the primary instance has returned, and
 the return value of the signal handler becomes the exit status
 of the launching instance.
@@ -5980,7 +5980,7 @@ test_application_class_init (TestApplicationClass *class)
 
 <p>In this example of split commandline handling, options that start
 with <code>--local-</code> are handled locally, all other options are passed
-to the <code>GApplication::command</code>-line handler which runs in the primary
+to the <code>GApplication::command-line</code> handler which runs in the primary
 instance.</p>
 
 <p>The complete example can be found here:
@@ -6021,7 +6021,7 @@ command_line (GApplication            *application,
 </code></pre>
 
 <p>In this example the commandline is not completely handled before
-the <code>GApplication::command</code>-line handler returns. Instead, we keep
+the <code>GApplication::command-line</code> handler returns. Instead, we keep
 a reference to the <code>GApplicationCommandLine</code> object and handle it
 later (in this example, in an idle). Note that it is necessary to
 hold the application until you are done with the commandline.</p>
@@ -6030,7 +6030,7 @@ hold the application until you are done with the commandline.</p>
 <a href="https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c">gapplication-example-cmdline3.c</a></p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3841-L3968">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3849-L3976">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -6088,7 +6088,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3846-L3848">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3854-L3856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6140,7 +6140,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3854-L3856">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3862-L3864">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6193,7 +6193,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3863-L3866">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3871-L3874">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6246,7 +6246,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3873-L3876">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3881-L3884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6298,7 +6298,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3882-L3885">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3890-L3893">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6350,7 +6350,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3891-L3894">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3899-L3902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6402,7 +6402,7 @@ i.e., ownership is transferred to the <code>ApplicationCommandLine</code> instan
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3900-L3902">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3908-L3910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6453,7 +6453,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3907-L3909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3915-L3917">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6504,7 +6504,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3914-L3916">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3922-L3924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6555,7 +6555,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3921-L3923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3929-L3931">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6606,7 +6606,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3928-L3930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3936-L3938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6638,7 +6638,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3934-L3936">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3942-L3944">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6665,7 +6665,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -6689,7 +6689,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3941-L3943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3949-L3951">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6716,7 +6716,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+<span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -6740,7 +6740,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3948-L3950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3956-L3958">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6791,7 +6791,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3955-L3957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3963-L3965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6842,7 +6842,7 @@ Will retain <code>GApplicationCommandLine</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3962-L3964">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3970-L3972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6855,8 +6855,8 @@ Will retain <code>GApplicationCommandLine</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5912,7 +5912,7 @@ examples below.</p>
 
 <p>If used, the expected form of an application identifier is the same as
 that of of a
-<a href="https://dbus.freedesktop.org/doc/dbus-specification.html%60message%60-protocol-names-bus">D-Bus well-known bus name</a>.
+<a href="https://dbus.freedesktop.org/doc/dbus-specification.html%60message-protocol-names-bus%60">D-Bus well-known bus name</a>.
 Examples include: <code>com.example.MyApp</code>, <code>org.example.internal_apps.Calculator</code>,
 <code>org._7_zip.Archiver</code>.
 For details on valid application identifiers, see <code>g_application_id_is_valid()</code>.</p>
@@ -5973,7 +5973,7 @@ virtual function. For instance, <code>GtkApplication</code> adds startup notific
 data in this way.</p>
 
 <p>To parse commandline arguments you may handle the
-<code>GApplication::command</code>-line signal or override the <code>local_command_line()</code>
+<code>GApplication::command-line</code> signal or override the <code>local_command_line()</code>
 vfunc, to parse them in either the primary instance or the local instance,
 respectively.</p>
 
@@ -5987,7 +5987,7 @@ respectively.</p>
 <a href="https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c">gapplication-example-dbushooks.c</a>.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1051-L1058">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1055-L1064">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -6021,7 +6021,7 @@ respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1057">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6059,7 +6059,37 @@ respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1060">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3GIO19ApplicationProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3GIO19ApplicationProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>ApplicationProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6190,7 +6220,7 @@ respectively.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1574-L1598">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1580-L1604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6247,7 +6277,7 @@ respectively.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1603-L1607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1609-L1613">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6305,7 +6335,7 @@ respectively.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1613-L1615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1619-L1621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6424,7 +6454,7 @@ respectively.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1730-L1732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1736-L1738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6530,7 +6560,7 @@ respectively.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1743-L1745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1749-L1751">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6656,7 +6686,7 @@ files to open. See <code>g_application_open()</code> for more information.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1765">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6741,7 +6771,7 @@ Run the given callback whenever the <code>activate</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1767-L1781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1773-L1787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6774,7 +6804,7 @@ Run the given callback whenever the <code>activate</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1784">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1790">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6795,7 +6825,7 @@ Run the given callback whenever the <code>activate</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>command</code>-line signal is emitted on the primary instance when
+                        <p>The <code>command-line</code> signal is emitted on the primary instance when
 a commandline is not handled locally. See <code>g_application_run()</code> and
 the <code>GApplicationCommandLine</code> documentation for more information.</p>
 <div class="aside aside-note">
@@ -6872,7 +6902,7 @@ Run the given callback whenever the <code>commandLine</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1795-L1809">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1801-L1815">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6905,7 +6935,7 @@ Run the given callback whenever the <code>commandLine</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1812">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1818">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6926,7 +6956,7 @@ Run the given callback whenever the <code>commandLine</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>handle</code>-local-options signal is emitted on the local instance
+                        <p>The <code>handle-local-options</code> signal is emitted on the local instance
 after the parsing of the commandline options has occurred.</p>
 
 <p>You can add options to be recognised during commandline option
@@ -7041,7 +7071,7 @@ Run the given callback whenever the <code>handleLocalOptions</code> signal is em
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1861-L1875">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1867-L1881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7074,7 +7104,7 @@ Run the given callback whenever the <code>handleLocalOptions</code> signal is em
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1878">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7095,7 +7125,7 @@ Run the given callback whenever the <code>handleLocalOptions</code> signal is em
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>name</code>-lost signal is emitted only on the registered primary instance
+                        <p>The <code>name-lost</code> signal is emitted only on the registered primary instance
 when a new instance has taken over. This can only happen if the application
 is using the <code>G_APPLICATION_ALLOW_REPLACEMENT</code> flag.</p>
 
@@ -7162,7 +7192,7 @@ Run the given callback whenever the <code>nameLost</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1890-L1904">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1896-L1910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7195,7 +7225,7 @@ Run the given callback whenever the <code>nameLost</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7280,7 +7310,7 @@ Run the given callback whenever the <code>shutdown</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1916-L1930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1922-L1936">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7313,7 +7343,7 @@ Run the given callback whenever the <code>shutdown</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7398,7 +7428,7 @@ Run the given callback whenever the <code>startup</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1942-L1956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1948-L1962">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7431,7 +7461,7 @@ Run the given callback whenever the <code>startup</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7550,7 +7580,7 @@ Run the given callback whenever the <code>notifyActionGroup</code> signal is emi
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1991-L2005">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L1997-L2011">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7583,7 +7613,7 @@ Run the given callback whenever the <code>notifyActionGroup</code> signal is emi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2014">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7702,7 +7732,7 @@ Run the given callback whenever the <code>notifyApplicationID</code> signal is e
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2040-L2054">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2046-L2060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7735,7 +7765,7 @@ Run the given callback whenever the <code>notifyApplicationID</code> signal is e
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2057">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7854,7 +7884,7 @@ Run the given callback whenever the <code>notifyFlags</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2089-L2103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2095-L2109">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7887,7 +7917,7 @@ Run the given callback whenever the <code>notifyFlags</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2106">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8006,7 +8036,7 @@ Run the given callback whenever the <code>notifyInactivityTimeout</code> signal 
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2138-L2152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2144-L2158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8039,7 +8069,7 @@ Run the given callback whenever the <code>notifyInactivityTimeout</code> signal 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8158,7 +8188,7 @@ Run the given callback whenever the <code>notifyIsBusy</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2187-L2201">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2193-L2207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8191,7 +8221,7 @@ Run the given callback whenever the <code>notifyIsBusy</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2210">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8310,7 +8340,7 @@ Run the given callback whenever the <code>notifyIsRegistered</code> signal is em
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2236-L2250">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2242-L2256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8343,7 +8373,7 @@ Run the given callback whenever the <code>notifyIsRegistered</code> signal is em
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8462,7 +8492,7 @@ Run the given callback whenever the <code>notifyIsRemote</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2285-L2299">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2291-L2305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8495,7 +8525,7 @@ Run the given callback whenever the <code>notifyIsRemote</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8614,7 +8644,7 @@ Run the given callback whenever the <code>notifyResourceBasePath</code> signal i
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2334-L2348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2340-L2354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8647,7 +8677,7 @@ Run the given callback whenever the <code>notifyResourceBasePath</code> signal i
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8699,7 +8729,7 @@ emitted in the primary instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2366-L2369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2372-L2375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8727,7 +8757,7 @@ emitted in the primary instance.</p>
 that has its arg_data member set to <code>nil</code>.</p>
 
 <p>The parsed arguments will be packed into a <code>GVariantDict</code> which
-is passed to <code>GApplication::handle</code>-local-options. If
+is passed to <code>GApplication::handle-local-options</code>. If
 <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> is set, then it will also
 be sent to the primary instance. See
 <code>g_application_add_main_option_entries()</code> for more details.</p>
@@ -8745,7 +8775,7 @@ be sent to the primary instance. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2384-L2387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2390-L2393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8771,14 +8801,14 @@ be sent to the primary instance. See
 <p>This function is comparable to <code>g_option_context_add_main_entries()</code>.</p>
 
 <p>After the commandline arguments are parsed, the
-<code>GApplication::handle</code>-local-options signal will be emitted.  At this
+<code>GApplication::handle-local-options</code> signal will be emitted.  At this
 point, the application can inspect the values pointed to by <code>arg_data</code>
 in the given <code>GOptionEntrys</code>.</p>
 
 <p>Unlike <code>GOptionContext</code>, <code>GApplication</code> supports giving a <code>nil</code>
 <code>arg_data</code> for a non-callback <code>GOptionEntry</code>.  This results in the
 argument in question being packed into a <code>GVariantDict</code> which is also
-passed to <code>GApplication::handle</code>-local-options, where it can be
+passed to <code>GApplication::handle-local-options</code>, where it can be
 inspected and modified.  If <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> is
 set, then the resulting dictionary is sent to the primary instance,
 where <code>g_application_command_line_get_options_dict()</code> will return it.
@@ -8802,7 +8832,7 @@ behaviour, and in particular, means that unrecognised options will be
 treated as errors.  Unrecognised options have never been ignored when
 <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> is unset.</p>
 
-<p>If <code>GApplication::handle</code>-local-options needs to see the list of
+<p>If <code>GApplication::handle-local-options</code> needs to see the list of
 filenames, then the use of <code>G_OPTION_REMAINING</code> is recommended.  If
 <code>arg_data</code> is <code>nil</code> then <code>G_OPTION_REMAINING</code> can be used as a key into
 the options dictionary.  If you do use <code>G_OPTION_REMAINING</code> then you
@@ -8835,7 +8865,7 @@ the options with <code>g_variant_dict_lookup()</code>:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2443-L2446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2449-L2452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8867,7 +8897,7 @@ primary instance.</p>
 <p>The reason for that is because, by the time the options arrive at the
 primary instance, it is typically too late to do anything with them.
 Taking the GTK option group as an example: GTK will already have been
-initialised by the time the <code>GApplication::command</code>-line handler runs.
+initialised by the time the <code>GApplication::command-line</code> handler runs.
 In the case that this is not the first-running instance of the
 application, the existing instance may already have been running for
 a very long time.</p>
@@ -8893,7 +8923,7 @@ new functionality whereby unrecognised options are rejected even if
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2473-L2476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2479-L2482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8932,7 +8962,7 @@ finalized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2484-L2487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2490-L2493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8966,7 +8996,7 @@ finalized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2490-L2493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2496-L2499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9012,7 +9042,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2508-L2511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2514-L2517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9059,7 +9089,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2527-L2530">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2533-L2536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9095,7 +9125,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2535-L2538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2541-L2544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9132,7 +9162,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2544-L2547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2550-L2553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9167,7 +9197,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2551-L2554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2557-L2560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9204,7 +9234,7 @@ successfully called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2560-L2563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2566-L2569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9247,7 +9277,7 @@ performed by the primary instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2575-L2578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2581-L2584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9283,7 +9313,7 @@ performed by the primary instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2583-L2586">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2589-L2592">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9323,7 +9353,7 @@ when a toplevel window is on the screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2595-L2598">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2601-L2604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9366,7 +9396,7 @@ spinner).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2610-L2613">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2616-L2619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9413,7 +9443,7 @@ and it must have the <code>G_APPLICATION_HANDLES_OPEN</code> flag set.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2629-L2632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2635-L2638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9459,7 +9489,7 @@ unspecified.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2647-L2650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2653-L2656">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9522,7 +9552,7 @@ instance is or is not the primary instance of the application.  See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2682-L2687">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2688-L2693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9585,7 +9615,7 @@ instance is or is not the primary instance of the application.  See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2718-L2723">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2724-L2729">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9624,7 +9654,7 @@ call to <code>g_application_hold()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2731-L2734">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2737-L2740">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9658,20 +9688,20 @@ of Unicode commandline arguments).</p>
 <p><code>GApplication</code> will attempt to parse the commandline arguments.  You
 can add commandline flags to the list of recognised options by way of
 <code>g_application_add_main_option_entries()</code>.  After this, the
-<code>GApplication::handle</code>-local-options signal is emitted, from which the
+<code>GApplication::handle-local-options</code> signal is emitted, from which the
 application can inspect the values of its <code>GOptionEntrys</code>.</p>
 
-<p><code>GApplication::handle</code>-local-options is a good place to handle options
+<p><code>GApplication::handle-local-options</code> is a good place to handle options
 such as <code>--version</code>, where an immediate reply from the local process is
 desired (instead of communicating with an already-running instance).
-A <code>GApplication::handle</code>-local-options handler can stop further processing
+A <code>GApplication::handle-local-options</code> handler can stop further processing
 by returning a non-negative value, which then becomes the exit status of
 the process.</p>
 
 <p>What happens next depends on the flags: if
 <code>G_APPLICATION_HANDLES_COMMAND_LINE</code> was specified then the remaining
 commandline arguments are sent to the primary instance, where a
-<code>GApplication::command</code>-line signal is emitted.  Otherwise, the
+<code>GApplication::command-line</code> signal is emitted.  Otherwise, the
 remaining commandline arguments are assumed to be a list of files.
 If there are no files listed, the application is activated via the
 <code>GApplication::activate</code> signal.  If there are one or more files, and
@@ -9732,7 +9762,7 @@ what their exit status will be.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2811-L2814">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2817-L2820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9791,7 +9821,7 @@ notifications without an id.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2842-L2845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2848-L2851">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9834,7 +9864,7 @@ action group), so you should really use #GActionMap instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2856-L2859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2862-L2865">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9877,7 +9907,7 @@ action group), so you should really use #GActionMap instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2869-L2872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2875-L2878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9917,7 +9947,7 @@ been registered.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2881-L2884">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2887-L2890">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9956,7 +9986,7 @@ back to <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2892-L2895">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2898-L2901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9995,7 +10025,7 @@ registered.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2903-L2906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2909-L2912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10036,7 +10066,7 @@ zero.  Any timeouts currently in progress are not impacted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2916-L2919">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2922-L2925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10072,7 +10102,7 @@ zero.  Any timeouts currently in progress are not impacted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2924-L2927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2930-L2933">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10111,7 +10141,7 @@ when the internal <code>GOptionContext</code> of <code>application</code> is cre
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2935-L2938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2941-L2944">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10147,7 +10177,7 @@ when the internal <code>GOptionContext</code> of <code>application</code> is cre
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2943-L2946">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2949-L2952">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10197,7 +10227,7 @@ the path to <code>nil</code>.</p>
 not recommended.  The point at which the resource path is consulted
 for forming paths for various purposes is unspecified.  When writing
 a sub-class of <code>GApplication</code> you should either set the
-<code>GApplication:resource</code>-base-path property at construction time, or call
+<code>GApplication:resource-base-path</code> property at construction time, or call
 this function during the instance initialization. Alternatively, you
 can call this function in the <code>GApplicationClass.startup</code> virtual function,
 before chaining up to the parent implementation.</p>
@@ -10213,7 +10243,7 @@ before chaining up to the parent implementation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2981-L2984">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2987-L2990">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10249,7 +10279,7 @@ before chaining up to the parent implementation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2989-L2992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L2995-L2998">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10289,7 +10319,7 @@ call to <code>g_application_mark_busy()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3001-L3004">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3007-L3010">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10335,7 +10365,7 @@ there is no need to explicitly withdraw the notification in that case.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3019-L3022">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3025-L3028">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10369,7 +10399,7 @@ there is no need to explicitly withdraw the notification in that case.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3024-L3040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3030-L3046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10415,7 +10445,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3055-L3073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3061-L3079">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10462,7 +10492,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3089-L3108">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3095-L3114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10496,7 +10526,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3110-L3127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3116-L3133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10533,7 +10563,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3133-L3153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3139-L3159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10568,7 +10598,7 @@ registered.  See <code>g_application_get_is_registered()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3157-L3164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3163-L3170">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10605,7 +10635,7 @@ successfully called.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3170-L3179">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3176-L3185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10648,7 +10678,7 @@ performed by the primary instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3191-L3206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3197-L3212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10684,7 +10714,7 @@ performed by the primary instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3211-L3255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-AppInfoMonitor-BufferedInputStream.swift#L3217-L3261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10697,8 +10727,8 @@ performed by the primary instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

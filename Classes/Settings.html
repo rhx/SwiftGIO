@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5920,20 +5920,20 @@ with a &lsquo;-&rsquo;, and must not contain consecutive dashes.</p>
 <p>Similar to GConf, the default values in GSettings schemas can be
 localized, but the localized values are stored in gettext catalogs
 and looked up with the domain that is specified in the
-<code>gettext-domain</code> attribute of the <schemalist> or <schema>
+<code>gettext-domain</code> attribute of the &lt;schemalist&gt; or &lt;schema&gt;
 elements and the category that is specified in the <code>l10n</code> attribute of
-the <default> element. The string which is translated includes all text in
-the <default> element, including any surrounding quotation marks.</p>
+the &lt;default&gt; element. The string which is translated includes all text in
+the &lt;default&gt; element, including any surrounding quotation marks.</p>
 
 <p>The <code>l10n</code> attribute must be set to <code>messages</code> or <code>time</code>, and sets the
-<a href="https://www.gnu.org/software/gettext/manual/html_node/Aspects.html%60index%60-locale-categories-1">locale category for
+<a href="https://www.gnu.org/software/gettext/manual/html_node/Aspects.html%60index-locale-categories-1%60">locale category for
 translation</a>.
 The <code>messages</code> category should be used by default; use <code>time</code> for
 translatable date or time formats. A translation comment can be added as an
-XML comment immediately above the <default> element — it is recommended to
+XML comment immediately above the &lt;default&gt; element — it is recommended to
 add these comments to aid translators understand the meaning and
 implications of the default value. An optional translation <code>context</code>
-attribute can be set on the <default> element to disambiguate multiple
+attribute can be set on the &lt;default&gt; element to disambiguate multiple
 defaults which use the same string.</p>
 
 <p>For example:</p>
@@ -5955,7 +5955,7 @@ utility. The input is a schema description in an XML format.</p>
 files to have the extension <code>.gschema.xml</code>.</p>
 
 <p>At runtime, schemas are identified by their id (as specified in the
-id attribute of the <schema> element). The convention for schema
+id attribute of the &lt;schema&gt; element). The convention for schema
 ids is to use a dotted name, similar in style to a D-Bus bus name,
 e.g. &ldquo;org.gnome.SessionManager&rdquo;. In particular, if the settings are
 for a specific service that owns a D-Bus bus name, the D-Bus bus name
@@ -5964,8 +5964,8 @@ associated with one named application, the id should not use
 StudlyCaps, e.g. &ldquo;org.gnome.font-rendering&rdquo;.</p>
 
 <p>In addition to <code>GVariant</code> types, keys can have types that have
-enumerated types. These can be described by a <choice>,
-<enum> or <flags> element, as seen in the
+enumerated types. These can be described by a &lt;choice&gt;,
+&lt;enum&gt; or &lt;flags&gt; element, as seen in the
 <a href="#schema-enumerated">example</a>. The underlying type of such a key
 is string, but you can use <code>g_settings_get_enum()</code>, <code>g_settings_set_enum()</code>,
 <code>g_settings_get_flags()</code>, <code>g_settings_set_flags()</code> access the numeric values
@@ -6075,7 +6075,7 @@ If this &lsquo;magic&rsquo; gets in the way, it can be suppressed with the
 <h2 id='relocatable-schemas-a-name-gsettings-relocatable-a' class='heading'>Relocatable schemas # <a name="gsettings-relocatable"></a></h2>
 
 <p>A relocatable schema is one with no <code>path</code> attribute specified on its
-<schema> element. By using <code>g_settings_new_with_path()</code>, a <code>GSettings</code> object
+&lt;schema&gt; element. By using <code>g_settings_new_with_path()</code>, a <code>GSettings</code> object
 can be instantiated for a relocatable schema, assigning a path to the
 instance. Paths passed to <code>g_settings_new_with_path()</code> will typically be
 constructed dynamically from a constant prefix plus some form of instance
@@ -6088,7 +6088,7 @@ for different windows in an application. If the schema ID was
 <code>org.foo.MyApp.Window</code>, it could be instantiated for paths
 <code>/org/foo/MyApp/main/</code>, <code>/org/foo/MyApp/document-1/</code>,
 <code>/org/foo/MyApp/document-2/</code>, etc. If any of the paths are well-known
-they can be specified as <child> elements in the parent schema, e.g.:</p>
+they can be specified as &lt;child&gt; elements in the parent schema, e.g.:</p>
 <pre class="highlight swift"><code><span class="o">&lt;</span><span class="n">schema</span> <span class="n">id</span><span class="o">=</span><span class="s">"org.foo.MyApp"</span> <span class="n">path</span><span class="o">=</span><span class="s">"/org/foo/MyApp/"</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">child</span> <span class="n">name</span><span class="o">=</span><span class="s">"main"</span> <span class="n">schema</span><span class="o">=</span><span class="s">"org.foo.MyApp.Window"</span><span class="o">/&gt;</span>
 <span class="o">&lt;/</span><span class="n">schema</span><span class="o">&gt;</span>
@@ -6120,14 +6120,14 @@ be marked for translation by adding it to <code>POTFILES.in</code>, assuming get
 <pre class="highlight swift"><code><span class="p">[</span><span class="nv">type</span><span class="p">:</span> <span class="n">gettext</span><span class="o">/</span><span class="n">gsettings</span><span class="p">]</span><span class="n">data</span><span class="o">/</span><span class="n">org</span><span class="o">.</span><span class="n">foo</span><span class="o">.</span><span class="kt">MyApp</span><span class="o">.</span><span class="n">gschema</span><span class="o">.</span><span class="n">xml</span>
 </code></pre>
 
-<p>GSettings will use gettext to look up translations for the <summary> and
-<description> elements, and also any <default> elements which have a <code>l10n</code>
+<p>GSettings will use gettext to look up translations for the &lt;summary&gt; and
+&lt;description&gt; elements, and also any &lt;default&gt; elements which have a <code>l10n</code>
 attribute set. Translations must not be included in the <code>.gschema.xml</code> file
 by the build system, for example by using intltool XML rules with a
 <code>.gschema.xml.in</code> template.</p>
 
 <p>If an enumerated type defined in a C header file is to be used in a GSettings
-schema, it can either be defined manually using an <enum> element in the
+schema, it can either be defined manually using an &lt;enum&gt; element in the
 schema XML, or it can be extracted automatically from the C header. This
 approach is preferred, as it ensures the two representations are always
 synchronised. To do so, add the following to the relevant <code>Makefile.am</code>:</p>
@@ -6143,7 +6143,7 @@ rules. It should not be committed to version control or included in
 <code>EXTRA_DIST</code>.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1116-L1406">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1118-L1408">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -6201,7 +6201,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1121-L1123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1123-L1125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6253,7 +6253,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1129-L1131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1131-L1133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6306,7 +6306,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1138-L1141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1140-L1143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6359,7 +6359,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1148-L1151">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1150-L1153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6411,7 +6411,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1157-L1160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1159-L1162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6463,7 +6463,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1166-L1169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1168-L1171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6515,7 +6515,7 @@ i.e., ownership is transferred to the <code>Settings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1175-L1177">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1177-L1179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6566,7 +6566,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1182-L1184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1184-L1186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6617,7 +6617,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1189-L1191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1191-L1193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6668,7 +6668,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1196-L1198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1198-L1200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6719,7 +6719,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1203-L1205">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1205-L1207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6751,7 +6751,7 @@ Will retain <code>GSettings</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1209-L1211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1211-L1213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6778,7 +6778,7 @@ Will retain <code>GSettings</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="n">raw</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -6802,7 +6802,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1216-L1218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1218-L1220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6829,7 +6829,7 @@ Will retain <code>GSettings</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="k">override</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+<span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">retainingRaw</span> <span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -6853,7 +6853,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1223-L1225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1225-L1227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6904,7 +6904,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1230-L1232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1232-L1234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6955,7 +6955,7 @@ Will retain <code>GSettings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1237-L1239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1239-L1241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6998,7 +6998,7 @@ on the context.  See <code>g_main_context_push_thread_default()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1254-L1258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1256-L1260">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7051,7 +7051,7 @@ have.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1283-L1287">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1285-L1289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7089,7 +7089,7 @@ settings instead of the settings for this user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1297-L1301">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1299-L1303">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7124,7 +7124,7 @@ settings instead of the settings for this user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1308-L1312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1310-L1314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7167,7 +7167,7 @@ characters.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1327-L1331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1329-L1333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7220,7 +7220,7 @@ have.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1356-L1360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1358-L1362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7258,7 +7258,7 @@ settings instead of the settings for this user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1370-L1374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1372-L1376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7293,7 +7293,7 @@ settings instead of the settings for this user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1381-L1385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1383-L1387">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7336,7 +7336,7 @@ characters.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1400-L1404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-Settings-Task.swift#L1402-L1406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7349,8 +7349,8 @@ characters.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

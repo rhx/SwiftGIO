@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5900,12 +5900,16 @@ the <code>XMLLINT</code> environment variable must be set to the full path to
 the xmllint executable, or xmllint must be in the <code>PATH</code>; otherwise
 the preprocessing step is skipped.</p>
 
-<p><code>to-pixdata</code> which will use the gdk-pixbuf-pixdata command to convert
-images to the GdkPixdata format, which allows you to create pixbufs directly using the data inside
-the resource file, rather than an (uncompressed) copy of it. For this, the gdk-pixbuf-pixdata
-program must be in the PATH, or the <code>GDK_PIXBUF_PIXDATA</code> environment variable must be
-set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
-abort.</p>
+<p><code>to-pixdata</code> (deprecated since gdk-pixbuf 2.32) which will use the
+<code>gdk-pixbuf-pixdata</code> command to convert images to the <code>GdkPixdata</code> format,
+which allows you to create pixbufs directly using the data inside the
+resource file, rather than an (uncompressed) copy of it. For this, the
+<code>gdk-pixbuf-pixdata</code> program must be in the <code>PATH</code>, or the
+<code>GDK_PIXBUF_PIXDATA</code> environment variable must be set to the full path to the
+<code>gdk-pixbuf-pixdata</code> executable; otherwise the resource compiler will abort.
+<code>to-pixdata</code> has been deprecated since gdk-pixbuf 2.32, as <code>GResource</code>
+supports embedding modern image formats just as well. Instead of using it,
+embed a PNG or SVG file in your <code>GResource</code>.</p>
 
 <p><code>json-stripblanks</code> which will use the <code>json-glib-format</code> command to strip
 ignorable whitespace from the JSON file. For this to work, the
@@ -5980,8 +5984,8 @@ are for your own resources, and resource data is often used once, during parsing
 <p>When debugging a program or testing a change to an installed version, it is often useful to be able to
 replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
 purposes. Since GLib 2.50, it is possible to use the <code>G_RESOURCE_OVERLAYS</code> environment variable to selectively overlay
-resources with replacements from the filesystem.  It is a <code>G_SEARCHPATH_SEPARATOR</code>-separated list of substitutions to perform
-during resource lookups.</p>
+resources with replacements from the filesystem.  It is a <code>G_SEARCHPATH_SEPARATOR-separated</code> list of substitutions to perform
+during resource lookups. It is ignored when running in a setuid process.</p>
 
 <p>A substitution has the form</p>
 <pre class="highlight swift"><code>   <span class="o">/</span><span class="n">org</span><span class="o">/</span><span class="n">gtk</span><span class="o">/</span><span class="n">libgtk</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">desrt</span><span class="o">/</span><span class="n">gtk</span><span class="o">-</span><span class="n">overlay</span>
@@ -6002,7 +6006,7 @@ the slash should ideally be absolute, but this is not strictly required.  It is 
 location of a single resource with an individual file.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L308-L315">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L314-L323">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -6036,7 +6040,7 @@ location of a single resource with an individual file.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6074,7 +6078,37 @@ location of a single resource with an individual file.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L319">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3GIO16ResourceProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3GIO16ResourceProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>ResourceProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6123,7 +6157,7 @@ with the global resource lookup functions like <code>g_resources_lookup_data()</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L934-L937">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L950-L953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6157,7 +6191,7 @@ with the global resource lookup functions like <code>g_resources_lookup_data()</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L940-L943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L956-L959">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6198,7 +6232,7 @@ be released with <code>g_strfreev()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L953-L958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L969-L974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6235,7 +6269,7 @@ if found returns information about it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L964-L969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L980-L985">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6282,7 +6316,7 @@ the heap and automatically uncompress the data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L985-L990">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1001-L1006">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6319,7 +6353,7 @@ returns a <code>GInputStream</code> that lets you read the data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L996-L1001">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1012-L1017">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6355,7 +6389,7 @@ function is MT-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1005-L1008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1021-L1024">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6392,7 +6426,7 @@ thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1014-L1017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1030-L1033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6428,7 +6462,7 @@ with the global resource lookup functions like <code>g_resources_lookup_data()</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1022-L1025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1038-L1041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6462,7 +6496,7 @@ with the global resource lookup functions like <code>g_resources_lookup_data()</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1028-L1031">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-ResolverClass-SeekableIface.swift#L1044-L1047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6475,8 +6509,8 @@ with the global resource lookup functions like <code>g_resources_lookup_data()</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

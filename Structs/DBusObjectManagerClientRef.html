@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5874,12 +5874,12 @@ Use <code>DBusObjectManagerClientRef</code> only as an <code>unowned</code> refe
 <p><code>GDBusObjectManagerClient</code> is used to create, monitor and delete object
 proxies for remote objects exported by a <code>GDBusObjectManagerServer</code> (or any
 code implementing the
-<a href="http://dbus.freedesktop.org/doc/dbus-specification.html%60standard%60-interfaces-objectmanager">org.freedesktop.DBus.ObjectManager</a>
+<a href="http://dbus.freedesktop.org/doc/dbus-specification.html%60standard-interfaces-objectmanager%60">org.freedesktop.DBus.ObjectManager</a>
 interface).</p>
 
 <p>Once an instance of this type has been created, you can connect to
-the <code>GDBusObjectManager::object</code>-added and
-<code>GDBusObjectManager::object</code>-removed signals and inspect the
+the <code>GDBusObjectManager::object-added</code> and
+<code>GDBusObjectManager::object-removed</code> signals and inspect the
 <code>GDBusObjectProxy</code> objects returned by
 <code>g_dbus_object_manager_get_objects()</code>.</p>
 
@@ -5893,27 +5893,27 @@ is not possible to launch an owner for the requested name. In this
 case, <code>GDBusObjectManagerClient</code> object construction still succeeds but
 there will be no object proxies
 (e.g. <code>g_dbus_object_manager_get_objects()</code> returns the empty list) and
-the <code>GDBusObjectManagerClient:name</code>-owner property is <code>nil</code>.</p>
+the <code>GDBusObjectManagerClient:name-owner</code> property is <code>nil</code>.</p>
 
 <p>The owner of the requested name can come and go (for example
 consider a system service being restarted) – <code>GDBusObjectManagerClient</code>
 handles this case too; simply connect to the <code>GObject::notify</code>
-signal to watch for changes on the <code>GDBusObjectManagerClient:name</code>-owner
+signal to watch for changes on the <code>GDBusObjectManagerClient:name-owner</code>
 property. When the name owner vanishes, the behavior is that
-<code>GDBusObjectManagerClient:name</code>-owner is set to <code>nil</code> (this includes
+<code>GDBusObjectManagerClient:name-owner</code> is set to <code>nil</code> (this includes
 emission of the <code>GObject::notify</code> signal) and then
-<code>GDBusObjectManager::object</code>-removed signals are synthesized
+<code>GDBusObjectManager::object-removed</code> signals are synthesized
 for all currently existing object proxies. Since
-<code>GDBusObjectManagerClient:name</code>-owner is <code>nil</code> when this happens, you can
+<code>GDBusObjectManagerClient:name-owner</code> is <code>nil</code> when this happens, you can
 use this information to disambiguate a synthesized signal from a
 genuine signal caused by object removal on the remote
 <code>GDBusObjectManager</code>. Similarly, when a new name owner appears,
-<code>GDBusObjectManager::object</code>-added signals are synthesized
-while <code>GDBusObjectManagerClient:name</code>-owner is still <code>nil</code>. Only when all
-object proxies have been added, the <code>GDBusObjectManagerClient:name</code>-owner
+<code>GDBusObjectManager::object-added</code> signals are synthesized
+while <code>GDBusObjectManagerClient:name-owner</code> is still <code>nil</code>. Only when all
+object proxies have been added, the <code>GDBusObjectManagerClient:name-owner</code>
 is set to the new name owner (this includes emission of the
 <code>GObject::notify</code> signal).  Furthermore, you are guaranteed that
-<code>GDBusObjectManagerClient:name</code>-owner will alternate between a name owner
+<code>GDBusObjectManagerClient:name-owner</code> will alternate between a name owner
 (e.g. <code>:1.42</code>) and <code>nil</code> even in the case where
 the name of interest is atomically replaced</p>
 
@@ -5928,16 +5928,16 @@ the new owner&rdquo; problem cannot happen.</p>
 
 <p>To avoid having the application connect to signals on the returned
 <code>GDBusObjectProxy</code> and <code>GDBusProxy</code> objects, the
-<code>GDBusObject::interface</code>-added,
-<code>GDBusObject::interface</code>-removed,
-<code>GDBusProxy::g</code>-properties-changed and
-<code>GDBusProxy::g</code>-signal signals
+<code>GDBusObject::interface-added</code>,
+<code>GDBusObject::interface-removed</code>,
+<code>GDBusProxy::g-properties-changed</code> and
+<code>GDBusProxy::g-signal</code> signals
 are also emitted on the <code>GDBusObjectManagerClient</code> instance managing these
 objects. The signals emitted are
-<code>GDBusObjectManager::interface</code>-added,
-<code>GDBusObjectManager::interface</code>-removed,
-<code>GDBusObjectManagerClient::interface</code>-proxy-properties-changed and
-<code>GDBusObjectManagerClient::interface</code>-proxy-signal.</p>
+<code>GDBusObjectManager::interface-added</code>,
+<code>GDBusObjectManager::interface-removed</code>,
+<code>GDBusObjectManagerClient::interface-proxy-properties-changed</code> and
+<code>GDBusObjectManagerClient::interface-proxy-signal</code>.</p>
 
 <p>Note that all callbacks and signals are emitted in the
 <a href="#g-main-context-push-thread-default">thread-default main context</a>
@@ -5948,7 +5948,7 @@ the same context and, consequently, will deliver signals in the
 same main loop.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6064-L6068">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6170-L6174">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -5985,7 +5985,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6029,7 +6029,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6072-L6074">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6178-L6180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6060,7 +6060,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6077-L6079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6183-L6185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6091,7 +6091,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6082-L6085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6188-L6191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6122,7 +6122,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6088-L6091">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6194-L6197">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6153,7 +6153,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6094-L6097">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6200-L6203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6184,7 +6184,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6100-L6103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6206-L6209">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6215,7 +6215,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6106-L6108">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6212-L6214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6246,7 +6246,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6111">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6278,7 +6278,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6115-L6117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6221-L6223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6310,7 +6310,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6121-L6123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6227-L6229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6342,7 +6342,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6127-L6129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6233-L6235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6374,7 +6374,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6133-L6135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6239-L6241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6406,7 +6406,7 @@ same main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6139-L6141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L6245-L6247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6419,8 +6419,8 @@ same main loop.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

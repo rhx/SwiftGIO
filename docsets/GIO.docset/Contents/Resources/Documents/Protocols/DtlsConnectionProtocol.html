@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5882,7 +5882,7 @@ implement client-side and server-side DTLS, respectively.</p>
 <p>As DTLS is datagram based, <code>GDtlsConnection</code> implements <code>GDatagramBased</code>,
 presenting a datagram-socket-like API for the encrypted connection. This
 operates over a base datagram connection, which is also a <code>GDatagramBased</code>
-(<code>GDtlsConnection:base</code>-socket).</p>
+(<code>GDtlsConnection:base-socket</code>).</p>
 
 <p>To close a DTLS connection, use <code>g_dtls_connection_close()</code>.</p>
 
@@ -5893,7 +5893,7 @@ base socket, the <code>GDtlsConnection</code> will not raise a <code>G_IO_ERROR_
 error on further I/O.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3269-L3276">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3281-L3290">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -5927,7 +5927,7 @@ error on further I/O.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5965,7 +5965,37 @@ error on further I/O.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3274">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3286">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3GIO22DtlsConnectionProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3GIO22DtlsConnectionProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>DtlsConnectionProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6096,7 +6126,7 @@ error on further I/O.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3587-L3611">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3601-L3625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6153,7 +6183,7 @@ error on further I/O.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3616-L3620">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3630-L3634">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6211,7 +6241,7 @@ error on further I/O.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3626-L3628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3640-L3642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6330,7 +6360,7 @@ error on further I/O.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3722-L3724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3736-L3738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6436,7 +6466,7 @@ error on further I/O.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3735-L3737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3749-L3751">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6576,7 +6606,7 @@ Run the given callback whenever the <code>acceptCertificate</code> signal is emi
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3780-L3794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3794-L3808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6609,7 +6639,7 @@ Run the given callback whenever the <code>acceptCertificate</code> signal is emi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6728,7 +6758,7 @@ Run the given callback whenever the <code>notifyAdvertisedProtocols</code> signa
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3829-L3843">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3843-L3857">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6761,7 +6791,7 @@ Run the given callback whenever the <code>notifyAdvertisedProtocols</code> signa
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6880,7 +6910,7 @@ Run the given callback whenever the <code>notifyBaseSocket</code> signal is emit
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3878-L3892">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3892-L3906">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6913,7 +6943,7 @@ Run the given callback whenever the <code>notifyBaseSocket</code> signal is emit
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3895">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3909">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7032,7 +7062,7 @@ Run the given callback whenever the <code>notifyCertificate</code> signal is emi
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3927-L3941">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3941-L3955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7065,7 +7095,7 @@ Run the given callback whenever the <code>notifyCertificate</code> signal is emi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3958">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7184,7 +7214,7 @@ Run the given callback whenever the <code>notifyDatabase</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3976-L3990">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3990-L4004">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7217,7 +7247,7 @@ Run the given callback whenever the <code>notifyDatabase</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L3993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7336,7 +7366,7 @@ Run the given callback whenever the <code>notifyInteraction</code> signal is emi
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4025-L4039">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4039-L4053">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7369,7 +7399,7 @@ Run the given callback whenever the <code>notifyInteraction</code> signal is emi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4042">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7488,7 +7518,7 @@ Run the given callback whenever the <code>notifyNegotiatedProtocol</code> signal
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4074-L4088">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4088-L4102">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7521,7 +7551,7 @@ Run the given callback whenever the <code>notifyNegotiatedProtocol</code> signal
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4091">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7640,7 +7670,7 @@ Run the given callback whenever the <code>notifyPeerCertificate</code> signal is
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4123-L4137">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4137-L4151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7673,7 +7703,7 @@ Run the given callback whenever the <code>notifyPeerCertificate</code> signal is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7792,7 +7822,7 @@ Run the given callback whenever the <code>notifyPeerCertificateErrors</code> sig
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4172-L4186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4186-L4200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7825,7 +7855,7 @@ Run the given callback whenever the <code>notifyPeerCertificateErrors</code> sig
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4189">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7944,7 +7974,7 @@ Run the given callback whenever the <code>notifyRehandshakeMode</code> signal is
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4221-L4235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4235-L4249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7977,7 +8007,7 @@ Run the given callback whenever the <code>notifyRehandshakeMode</code> signal is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8096,7 +8126,7 @@ Run the given callback whenever the <code>notifyRequireCloseNotify</code> signal
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4270-L4284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4284-L4298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8129,7 +8159,7 @@ Run the given callback whenever the <code>notifyRequireCloseNotify</code> signal
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4287">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4301">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8169,7 +8199,7 @@ Run the given callback whenever the <code>notifyRequireCloseNotify</code> signal
 <p>Closing a <code>GDtlsConnection</code> waits for all buffered but untransmitted data to
 be sent before it completes. It then sends a <code>close_notify</code> DTLS alert to the
 peer and may wait for a <code>close_notify</code> to be received from the peer. It does
-not close the underlying <code>GDtlsConnection:base</code>-socket; that must be closed
+not close the underlying <code>GDtlsConnection:base-socket</code>; that must be closed
 separately.</p>
 
 <p>Once <code>conn</code> is closed, all other operations will return <code>G_IO_ERROR_CLOSED</code>.
@@ -8194,7 +8224,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4315-L4320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4329-L4334">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8221,7 +8251,7 @@ partially-closed and any pending untransmitted data may be lost. Call
 <p>Closing a <code>GDtlsConnection</code> waits for all buffered but untransmitted data to
 be sent before it completes. It then sends a <code>close_notify</code> DTLS alert to the
 peer and may wait for a <code>close_notify</code> to be received from the peer. It does
-not close the underlying <code>GDtlsConnection:base</code>-socket; that must be closed
+not close the underlying <code>GDtlsConnection:base-socket</code>; that must be closed
 separately.</p>
 
 <p>Once <code>conn</code> is closed, all other operations will return <code>G_IO_ERROR_CLOSED</code>.
@@ -8246,7 +8276,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4340-L4345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4354-L4359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8281,7 +8311,7 @@ more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4349-L4352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4363-L4366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8316,7 +8346,7 @@ more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4355-L4358">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4369-L4372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8351,7 +8381,7 @@ for more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4362-L4367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4376-L4381">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8373,7 +8403,7 @@ for more information.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Used by <code>GDtlsConnection</code> implementations to emit the
-<code>GDtlsConnection::accept</code>-certificate signal.</p>
+<code>GDtlsConnection::accept-certificate</code> signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -8386,7 +8416,7 @@ for more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4371-L4374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4385-L4388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8421,7 +8451,7 @@ for more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4378-L4381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4392-L4395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8467,7 +8497,7 @@ negotiation or input required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4396-L4401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4410-L4415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,7 +8543,7 @@ negotiation or input required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4415-L4420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4429-L4434">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8548,7 +8578,7 @@ peer certificates. See <code>g_dtls_connection_set_database()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4424-L4427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4438-L4441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8584,7 +8614,7 @@ no user interaction will occur for this connection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4432-L4435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4446-L4449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8624,7 +8654,7 @@ does not support ALPN, then this will be <code>nil</code>. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4444-L4447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4458-L4461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8647,7 +8677,7 @@ does not support ALPN, then this will be <code>nil</code>. See
                       <div class="abstract">
                         <p>Gets <code>conn</code>&lsquo;s peer&rsquo;s certificate after the handshake has completed
 or failed. (It is not set during the emission of
-<code>GDtlsConnection::accept</code>-certificate.)</p>
+<code>GDtlsConnection::accept-certificate</code>.)</p>
 
                       </div>
                       <div class="declaration">
@@ -8660,7 +8690,7 @@ or failed. (It is not set during the emission of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4452-L4455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4466-L4469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8683,7 +8713,7 @@ or failed. (It is not set during the emission of
                       <div class="abstract">
                         <p>Gets the errors associated with validating <code>conn</code>&lsquo;s peer&rsquo;s
 certificate, after the handshake has completed or failed. (It is
-not set during the emission of <code>GDtlsConnection::accept</code>-certificate.)</p>
+not set during the emission of <code>GDtlsConnection::accept-certificate</code>.)</p>
 
                       </div>
                       <div class="declaration">
@@ -8696,7 +8726,7 @@ not set during the emission of <code>GDtlsConnection::accept</code>-certificate.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4460-L4463">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4474-L4477">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8737,7 +8767,7 @@ Changing the rehandshake mode is no longer
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4472-L4475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4486-L4489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8773,7 +8803,7 @@ when the connection is closed. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4480-L4483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4494-L4497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8832,7 +8862,7 @@ handshake.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4511-L4516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4525-L4530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8891,7 +8921,7 @@ handshake.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4543-L4548">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4557-L4562">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8926,7 +8956,7 @@ handshake.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4552-L4555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4566-L4569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8961,7 +8991,7 @@ handshake.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4558-L4561">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4572-L4575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8996,7 +9026,7 @@ handshake.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4565-L4570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4579-L4584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9025,7 +9055,7 @@ used to negotiate a compatible protocol with the peer; use
 protocol after the handshake.  Specifying <code>nil</code> for the the value
 of <code>protocols</code> will disable ALPN negotiation.</p>
 
-<p>See <a href="https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml%60alpn%60-protocol-ids">IANA TLS ALPN Protocol IDs</a>
+<p>See <a href="https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml%60alpn-protocol-ids%60">IANA TLS ALPN Protocol IDs</a>
 for a list of registered protocol IDs.</p>
 
                       </div>
@@ -9039,7 +9069,7 @@ for a list of registered protocol IDs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4582-L4585">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4596-L4599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9090,7 +9120,7 @@ non-<code>nil</code>.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4605-L4608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4619-L4622">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9116,9 +9146,9 @@ This is set to the default database by default. See
 <code>g_tls_backend_get_default_database()</code>. If set to <code>nil</code>, then
 peer certificate validation will always set the
 <code>G_TLS_CERTIFICATE_UNKNOWN_CA</code> error (meaning
-<code>GDtlsConnection::accept</code>-certificate will always be emitted on
+<code>GDtlsConnection::accept-certificate</code> will always be emitted on
 client-side connections, unless that bit is not set in
-<code>GDtlsClientConnection:validation</code>-flags).</p>
+<code>GDtlsClientConnection:validation-flags</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -9131,7 +9161,7 @@ client-side connections, unless that bit is not set in
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4618-L4621">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4632-L4635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9157,9 +9187,9 @@ This is set to the default database by default. See
 <code>g_tls_backend_get_default_database()</code>. If set to <code>nil</code>, then
 peer certificate validation will always set the
 <code>G_TLS_CERTIFICATE_UNKNOWN_CA</code> error (meaning
-<code>GDtlsConnection::accept</code>-certificate will always be emitted on
+<code>GDtlsConnection::accept-certificate</code> will always be emitted on
 client-side connections, unless that bit is not set in
-<code>GDtlsClientConnection:validation</code>-flags).</p>
+<code>GDtlsClientConnection:validation-flags</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -9172,7 +9202,7 @@ client-side connections, unless that bit is not set in
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4630-L4633">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4644-L4647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9211,7 +9241,7 @@ should occur for this connection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4641-L4644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4655-L4658">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9250,7 +9280,7 @@ should occur for this connection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4651-L4654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4665-L4668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9293,7 +9323,7 @@ Changing the rehandshake mode is no longer
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4665-L4668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4679-L4682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9337,7 +9367,7 @@ the data has been fully received.</p>
 connection; when the application calls <code>g_dtls_connection_close_async()</code> on
 <code>conn</code> itself, this will send a close notification regardless of the
 setting of this property. If you explicitly want to do an unclean
-close, you can close <code>conn</code>&lsquo;s <code>GDtlsConnection:base</code>-socket rather
+close, you can close <code>conn</code>&lsquo;s <code>GDtlsConnection:base-socket</code> rather
 than closing <code>conn</code> itself.</p>
 
                       </div>
@@ -9351,7 +9381,7 @@ than closing <code>conn</code> itself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4695-L4698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4709-L4712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9400,7 +9430,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4716-L4721">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4730-L4735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9449,7 +9479,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4738-L4743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4752-L4757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9484,7 +9514,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4747-L4750">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4761-L4764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9519,7 +9549,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4753-L4756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4767-L4770">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9554,7 +9584,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4760-L4765">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4774-L4779">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9589,7 +9619,7 @@ partially-closed and any pending untransmitted data may be lost. Call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4768-L4796">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4782-L4810">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9625,7 +9655,7 @@ used. See <code>g_tls_backend_get_default_database()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4801-L4819">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4815-L4833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9661,7 +9691,7 @@ user for passwords where necessary.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4824-L4841">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4838-L4855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9701,7 +9731,7 @@ does not support ALPN, then this will be <code>nil</code>. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4850-L4862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4864-L4876">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9724,7 +9754,7 @@ does not support ALPN, then this will be <code>nil</code>. See
                       <div class="abstract">
                         <p>Gets <code>conn</code>&lsquo;s peer&rsquo;s certificate after the handshake has completed
 or failed. (It is not set during the emission of
-<code>GDtlsConnection::accept</code>-certificate.)</p>
+<code>GDtlsConnection::accept-certificate</code>.)</p>
 
                       </div>
                       <div class="declaration">
@@ -9737,7 +9767,7 @@ or failed. (It is not set during the emission of
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4867-L4875">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4881-L4889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9760,7 +9790,7 @@ or failed. (It is not set during the emission of
                       <div class="abstract">
                         <p>Gets the errors associated with validating <code>conn</code>&lsquo;s peer&rsquo;s
 certificate, after the handshake has completed or failed. (It is
-not set during the emission of <code>GDtlsConnection::accept</code>-certificate.)</p>
+not set during the emission of <code>GDtlsConnection::accept-certificate</code>.)</p>
 
                       </div>
                       <div class="declaration">
@@ -9773,7 +9803,7 @@ not set during the emission of <code>GDtlsConnection::accept</code>-certificate.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4880-L4888">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4894-L4902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9813,7 +9843,7 @@ Changing the rehandshake mode is no longer
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4897-L4921">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4911-L4935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9849,7 +9879,7 @@ when the connection is closed. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4926-L4962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusInterface-File.swift#L4940-L4976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9862,8 +9892,8 @@ when the connection is closed. See
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

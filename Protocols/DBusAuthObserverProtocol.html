@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5906,7 +5906,9 @@ on_allow_mechanism (GDBusAuthObserver *observer,
 connections from any successfully authenticated user (but not from
 anonymous connections using the <code>ANONYMOUS</code> mechanism). If you only
 want to allow D-Bus connections from processes owned by the same uid
-as the server, you would use a signal handler like the following:</p>
+as the server, since GLib 2.68, you should use the
+<code>G_DBUS_SERVER_FLAGS_AUTHENTICATION_REQUIRE_SAME_USER</code> flag. It’s equivalent
+to the following signal handler:</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>static gboolean
@@ -5932,7 +5934,7 @@ on_authorize_authenticated_peer (GDBusAuthObserver *observer,
 </code></pre>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L75-L82">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L77-L86">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -5966,7 +5968,7 @@ on_authorize_authenticated_peer (GDBusAuthObserver *observer,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L77">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L79">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6004,7 +6006,37 @@ on_authorize_authenticated_peer (GDBusAuthObserver *observer,
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L80">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L82">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3GIO24DBusAuthObserverProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3GIO24DBusAuthObserverProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>DBusAuthObserverProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6123,7 +6155,7 @@ on_authorize_authenticated_peer (GDBusAuthObserver *observer,
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L485-L487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L493-L495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6229,7 +6261,7 @@ on_authorize_authenticated_peer (GDBusAuthObserver *observer,
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L498-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L506-L508">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6325,7 +6357,7 @@ Run the given callback whenever the <code>allowMechanism</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L510-L524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L518-L532">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6358,7 +6390,7 @@ Run the given callback whenever the <code>allowMechanism</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6467,7 +6499,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L538-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L546-L560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6500,7 +6532,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6534,7 +6566,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GDBusAuthObserver::allow</code>-mechanism signal on <code>observer</code>.</p>
+                        <p>Emits the <code>GDBusAuthObserver::allow-mechanism</code> signal on <code>observer</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6547,7 +6579,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L566-L569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L574-L577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6568,7 +6600,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GDBusAuthObserver::authorize</code>-authenticated-peer signal on <code>observer</code>.</p>
+                        <p>Emits the <code>GDBusAuthObserver::authorize-authenticated-peer</code> signal on <code>observer</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6581,7 +6613,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L572-L575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L580-L583">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6602,7 +6634,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GDBusAuthObserver::authorize</code>-authenticated-peer signal on <code>observer</code>.</p>
+                        <p>Emits the <code>GDBusAuthObserver::authorize-authenticated-peer</code> signal on <code>observer</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6615,7 +6647,7 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L577-L580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L585-L588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6628,8 +6660,8 @@ Run the given callback whenever the <code>authorizeAuthenticatedPeer</code> sign
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

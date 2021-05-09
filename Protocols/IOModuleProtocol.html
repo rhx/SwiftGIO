@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5877,7 +5877,7 @@ modules. This is used internally to make GIO extensible, but can also
 be used by others to implement module loading.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4505-L4512">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4529-L4538">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -5911,7 +5911,7 @@ be used by others to implement module loading.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5949,7 +5949,37 @@ be used by others to implement module loading.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4534">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3GIO16IOModuleProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3GIO16IOModuleProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>IOModuleProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5989,7 +6019,7 @@ be used by others to implement module loading.</p>
 to initialize the module. Typically, this function will call
 <code>g_io_extension_point_implement()</code>.</p>
 
-<p>Since 2.56, this function should be named <code>g_io_&lt;modulename&gt;_load</code>, where
+<p>Since 2.56, this function should be named <code>g_io_&amp;lt;modulename&amp;gt;_load</code>, where
 <code>modulename</code> is the plugin’s filename with the <code>lib</code> or <code>libgio</code> prefix and
 everything after the first dot removed, and with <code>-</code> replaced with <code>_</code>
 throughout. For example, <code>libgiognutls-helper.so</code> becomes <code>gnutls_helper</code>.
@@ -6008,7 +6038,7 @@ for static builds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4801-L4804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4827-L4830">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6034,7 +6064,7 @@ for static builds.</p>
 <p>This function is run when the module is being unloaded from GIO,
 to finalize the module.</p>
 
-<p>Since 2.56, this function should be named <code>g_io_&lt;modulename&gt;_unload</code>, where
+<p>Since 2.56, this function should be named <code>g_io_&amp;lt;modulename&amp;gt;_unload</code>, where
 <code>modulename</code> is the plugin’s filename with the <code>lib</code> or <code>libgio</code> prefix and
 everything after the first dot removed, and with <code>-</code> replaced with <code>_</code>
 throughout. For example, <code>libgiognutls-helper.so</code> becomes <code>gnutls_helper</code>.
@@ -6053,7 +6083,7 @@ for static builds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4818-L4821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-FileIOStream-IOModule.swift#L4844-L4847">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6066,8 +6096,8 @@ for static builds.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

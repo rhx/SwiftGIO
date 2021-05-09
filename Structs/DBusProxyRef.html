@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GIO 2.66.4 Docs
+          GIO 2.68.1 Docs
         </a>
          (87% documented)
       </p>
@@ -5883,7 +5883,7 @@ well-known name, the property cache is flushed when the name owner
 vanishes and reloaded when a name owner appears.</p>
 
 <p>The unique name owner of the proxy&rsquo;s name is tracked and can be read from
-<code>GDBusProxy:g</code>-name-owner. Connect to the <code>GObject::notify</code> signal to
+<code>GDBusProxy:g-name-owner</code>. Connect to the <code>GObject::notify</code> signal to
 get notified of changes. Additionally, only signals and property
 changes emitted from the current name owner are considered and
 calls are always sent to the current name owner. This avoids a
@@ -5893,15 +5893,15 @@ then calls will be sent to the well-known name which may result in
 the message bus launching an owner (unless
 <code>G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START</code> is set).</p>
 
-<p>The generic <code>GDBusProxy::g</code>-properties-changed and
-<code>GDBusProxy::g</code>-signal signals are not very convenient to work with.
+<p>The generic <code>GDBusProxy::g-properties-changed</code> and
+<code>GDBusProxy::g-signal</code> signals are not very convenient to work with.
 Therefore, the recommended way of working with proxies is to subclass
 <code>GDBusProxy</code>, and have more natural properties and signals in your derived
 class. This <a href="#gdbus-example-gdbus-codegen">example</a> shows how this can
 easily be done using the <a href="#gdbus-codegen">gdbus-codegen</a> tool.</p>
 
 <p>A <code>GDBusProxy</code> instance can be used from multiple threads but note
-that all signals (e.g. <code>GDBusProxy::g</code>-signal, <code>GDBusProxy::g</code>-properties-changed
+that all signals (e.g. <code>GDBusProxy::g-signal</code>, <code>GDBusProxy::g-properties-changed</code>
 and <code>GObject::notify</code>) are emitted in the
 <a href="#g-main-context-push-thread-default">thread-default main context</a>
 of the thread where the instance was constructed.</p>
@@ -5910,7 +5910,7 @@ of the thread where the instance was constructed.</p>
 <a href="https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c">gdbus-example-watch-proxy.c</a></p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8617-L8621">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8731-L8735">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -5947,7 +5947,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8620">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5991,7 +5991,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8625-L8627">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8739-L8741">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6022,7 +6022,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8630-L8632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8744-L8746">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6053,7 +6053,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8635-L8638">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8749-L8752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6084,7 +6084,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8641-L8644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8755-L8758">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6115,7 +6115,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8647-L8650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8761-L8764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6146,7 +6146,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8653-L8656">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8767-L8770">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6177,7 +6177,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8659-L8661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8773-L8775">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6208,7 +6208,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8664">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6240,7 +6240,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8668-L8670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8782-L8784">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6272,7 +6272,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8674-L8676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8788-L8790">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6304,7 +6304,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8680-L8682">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8794-L8796">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6336,7 +6336,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8686-L8688">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8800-L8802">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6368,7 +6368,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8692-L8694">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8806-L8808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6399,7 +6399,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8697-L8702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8811-L8816">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6430,7 +6430,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8705-L8710">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8819-L8824">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6463,7 +6463,7 @@ of the thread where the instance was constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8715-L8720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8829-L8834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6487,7 +6487,7 @@ loads D-Bus properties unless the
 <code>G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code> flag is used.</p>
 
 <p>If the <code>G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS</code> flag is not set, also sets up
-match rules for signals. Connect to the <code>GDBusProxy::g</code>-signal signal
+match rules for signals. Connect to the <code>GDBusProxy::g-signal</code> signal
 to handle signals from the remote object.</p>
 
 <p>If both <code>G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code> and
@@ -6515,7 +6515,7 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8744-L8749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8858-L8863">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6546,7 +6546,7 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8751-L8757">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8865-L8871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6577,7 +6577,7 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8760-L8766">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8874-L8880">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6610,7 +6610,7 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8771-L8777">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8885-L8891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6634,7 +6634,7 @@ loads D-Bus properties unless the
 <code>G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code> flag is used.</p>
 
 <p>If the <code>G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS</code> flag is not set, also sets up
-match rules for signals. Connect to the <code>GDBusProxy::g</code>-signal signal
+match rules for signals. Connect to the <code>GDBusProxy::g-signal</code> signal
 to handle signals from the remote object.</p>
 
 <p>If both <code>G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES</code> and
@@ -6662,7 +6662,7 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8801-L8807">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGIO/tree/generated/Sources/GIO/Gio-2.0-DBusAuthObserver-Emblem.swift#L8915-L8921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6675,8 +6675,8 @@ and <code>g_dbus_proxy_new_finish()</code> for the asynchronous version.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
