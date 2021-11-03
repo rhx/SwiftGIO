@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - OutputStream Class
 
-/// The `OutputStreamProtocol` protocol exposes the methods and properties of an underlying `GOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `OutputStream`.
-/// Alternatively, use `OutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
 /// to close a stream (`g_output_stream_close()`) and to flush pending writes
 /// (`g_output_stream_flush()`).
@@ -20,6 +15,12 @@ import GLibObject
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `OutputStreamProtocol` protocol exposes the methods and properties of an underlying `GOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `OutputStream`.
+/// Alternatively, use `OutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OutputStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -31,10 +32,6 @@ public protocol OutputStreamProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OutputStreamRef` type acts as a lightweight Swift reference to an underlying `GOutputStream` instance.
-/// It exposes methods that can operate on this data type through `OutputStreamProtocol` conformance.
-/// Use `OutputStreamRef` only as an `unowned` reference to an existing `GOutputStream` instance.
-///
 /// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
 /// to close a stream (`g_output_stream_close()`) and to flush pending writes
 /// (`g_output_stream_flush()`).
@@ -46,6 +43,11 @@ public protocol OutputStreamProtocol: GLibObject.ObjectProtocol {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `OutputStreamRef` type acts as a lightweight Swift reference to an underlying `GOutputStream` instance.
+/// It exposes methods that can operate on this data type through `OutputStreamProtocol` conformance.
+/// Use `OutputStreamRef` only as an `unowned` reference to an existing `GOutputStream` instance.
+///
 public struct OutputStreamRef: OutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `output_stream_ptr` property instead.
@@ -127,10 +129,6 @@ public extension OutputStreamRef {
 
     }
 
-/// The `OutputStream` type acts as a reference-counted owner of an underlying `GOutputStream` instance.
-/// It provides the methods that can operate on this data type through `OutputStreamProtocol` conformance.
-/// Use `OutputStream` as a strong reference or owner of a `GOutputStream` instance.
-///
 /// `GOutputStream` has functions to write to a stream (`g_output_stream_write()`),
 /// to close a stream (`g_output_stream_close()`) and to flush pending writes
 /// (`g_output_stream_flush()`).
@@ -142,6 +140,11 @@ public extension OutputStreamRef {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `OutputStream` type acts as a reference-counted owner of an underlying `GOutputStream` instance.
+/// It provides the methods that can operate on this data type through `OutputStreamProtocol` conformance.
+/// Use `OutputStream` as a strong reference or owner of a `GOutputStream` instance.
+///
 open class OutputStream: GLibObject.Object, OutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -289,12 +292,14 @@ public enum OutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1279,11 +1284,6 @@ public extension OutputStreamProtocol {
 
 // MARK: - Permission Class
 
-/// The `PermissionProtocol` protocol exposes the methods and properties of an underlying `GPermission` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Permission`.
-/// Alternatively, use `PermissionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GPermission` represents the status of the caller's permission to
 /// perform a certain action.
 /// 
@@ -1299,6 +1299,12 @@ public extension OutputStreamProtocol {
 /// then be used to decide if it is appropriate to show a "Click here to
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
+///
+/// The `PermissionProtocol` protocol exposes the methods and properties of an underlying `GPermission` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Permission`.
+/// Alternatively, use `PermissionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PermissionProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GPermission` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1310,10 +1316,6 @@ public protocol PermissionProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PermissionRef` type acts as a lightweight Swift reference to an underlying `GPermission` instance.
-/// It exposes methods that can operate on this data type through `PermissionProtocol` conformance.
-/// Use `PermissionRef` only as an `unowned` reference to an existing `GPermission` instance.
-///
 /// A `GPermission` represents the status of the caller's permission to
 /// perform a certain action.
 /// 
@@ -1329,6 +1331,11 @@ public protocol PermissionProtocol: GLibObject.ObjectProtocol {
 /// then be used to decide if it is appropriate to show a "Click here to
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
+///
+/// The `PermissionRef` type acts as a lightweight Swift reference to an underlying `GPermission` instance.
+/// It exposes methods that can operate on this data type through `PermissionProtocol` conformance.
+/// Use `PermissionRef` only as an `unowned` reference to an existing `GPermission` instance.
+///
 public struct PermissionRef: PermissionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GPermission` instance.
     /// For type-safe access, use the generated, typed pointer `permission_ptr` property instead.
@@ -1410,10 +1417,6 @@ public extension PermissionRef {
 
     }
 
-/// The `Permission` type acts as a reference-counted owner of an underlying `GPermission` instance.
-/// It provides the methods that can operate on this data type through `PermissionProtocol` conformance.
-/// Use `Permission` as a strong reference or owner of a `GPermission` instance.
-///
 /// A `GPermission` represents the status of the caller's permission to
 /// perform a certain action.
 /// 
@@ -1429,6 +1432,11 @@ public extension PermissionRef {
 /// then be used to decide if it is appropriate to show a "Click here to
 /// unlock" button in a dialog and to provide the mechanism to invoke
 /// when that button is clicked.
+///
+/// The `Permission` type acts as a reference-counted owner of an underlying `GPermission` instance.
+/// It provides the methods that can operate on this data type through `PermissionProtocol` conformance.
+/// Use `Permission` as a strong reference or owner of a `GPermission` instance.
+///
 open class Permission: GLibObject.Object, PermissionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1639,12 +1647,14 @@ public enum PermissionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - LoadableIcon Interface
 
+/// Extends the `GIcon` interface and adds the ability to
+/// load icons from streams.
+///
 /// The `LoadableIconProtocol` protocol exposes the methods and properties of an underlying `GLoadableIcon` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LoadableIcon`.
 /// Alternatively, use `LoadableIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Extends the `GIcon` interface and adds the ability to
-/// load icons from streams.
 public protocol LoadableIconProtocol: IconProtocol {
         /// Untyped pointer to the underlying `GLoadableIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol LoadableIconProtocol: IconProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Extends the `GIcon` interface and adds the ability to
+/// load icons from streams.
+///
 /// The `LoadableIconRef` type acts as a lightweight Swift reference to an underlying `GLoadableIcon` instance.
 /// It exposes methods that can operate on this data type through `LoadableIconProtocol` conformance.
 /// Use `LoadableIconRef` only as an `unowned` reference to an existing `GLoadableIcon` instance.
 ///
-/// Extends the `GIcon` interface and adds the ability to
-/// load icons from streams.
 public struct LoadableIconRef: LoadableIconProtocol {
         /// Untyped pointer to the underlying `GLoadableIcon` instance.
     /// For type-safe access, use the generated, typed pointer `loadable_icon_ptr` property instead.
@@ -106,12 +108,13 @@ public extension LoadableIconRef {
 
     }
 
+/// Extends the `GIcon` interface and adds the ability to
+/// load icons from streams.
+///
 /// The `LoadableIcon` type acts as an owner of an underlying `GLoadableIcon` instance.
 /// It provides the methods that can operate on this data type through `LoadableIconProtocol` conformance.
 /// Use `LoadableIcon` as a strong reference or owner of a `GLoadableIcon` instance.
 ///
-/// Extends the `GIcon` interface and adds the ability to
-/// load icons from streams.
 open class LoadableIcon: Icon, LoadableIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -298,11 +301,6 @@ public extension LoadableIconProtocol {
 
 // MARK: - MemoryMonitor Interface
 
-/// The `MemoryMonitorProtocol` protocol exposes the methods and properties of an underlying `GMemoryMonitor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MemoryMonitor`.
-/// Alternatively, use `MemoryMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMemoryMonitor` will monitor system memory and suggest to the application
 /// when to free memory so as to leave more room for other applications.
 /// It is implemented on Linux using the [Low Memory Monitor](https://gitlab.freedesktop.org/hadess/low-memory-monitor/)
@@ -311,13 +309,14 @@ public extension LoadableIconProtocol {
 /// There is also an implementation for use inside Flatpak sandboxes.
 /// 
 /// Possible actions to take when the signal is received are:
-/// - Free caches
-/// - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
-/// - Run a garbage collection cycle
-/// - Try and compress fragmented allocations
-/// - Exit on idle if the process has no reason to stay around
-/// - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
-///   the kernel (if supported by your libc)
+/// 
+///  - Free caches
+///  - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
+///  - Run a garbage collection cycle
+///  - Try and compress fragmented allocations
+///  - Exit on idle if the process has no reason to stay around
+///  - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
+///    the kernel (if supported by your libc)
 /// 
 /// Note that some actions may not always improve system performance, and so
 /// should be profiled for your application. ``malloc_trim()``, for example, may
@@ -349,6 +348,12 @@ public extension LoadableIconProtocol {
 /// 
 /// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
+///
+/// The `MemoryMonitorProtocol` protocol exposes the methods and properties of an underlying `GMemoryMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MemoryMonitor`.
+/// Alternatively, use `MemoryMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MemoryMonitorProtocol: InitableProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -360,10 +365,6 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MemoryMonitorRef` type acts as a lightweight Swift reference to an underlying `GMemoryMonitor` instance.
-/// It exposes methods that can operate on this data type through `MemoryMonitorProtocol` conformance.
-/// Use `MemoryMonitorRef` only as an `unowned` reference to an existing `GMemoryMonitor` instance.
-///
 /// `GMemoryMonitor` will monitor system memory and suggest to the application
 /// when to free memory so as to leave more room for other applications.
 /// It is implemented on Linux using the [Low Memory Monitor](https://gitlab.freedesktop.org/hadess/low-memory-monitor/)
@@ -372,13 +373,14 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
 /// There is also an implementation for use inside Flatpak sandboxes.
 /// 
 /// Possible actions to take when the signal is received are:
-/// - Free caches
-/// - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
-/// - Run a garbage collection cycle
-/// - Try and compress fragmented allocations
-/// - Exit on idle if the process has no reason to stay around
-/// - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
-///   the kernel (if supported by your libc)
+/// 
+///  - Free caches
+///  - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
+///  - Run a garbage collection cycle
+///  - Try and compress fragmented allocations
+///  - Exit on idle if the process has no reason to stay around
+///  - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
+///    the kernel (if supported by your libc)
 /// 
 /// Note that some actions may not always improve system performance, and so
 /// should be profiled for your application. ``malloc_trim()``, for example, may
@@ -410,6 +412,11 @@ public protocol MemoryMonitorProtocol: InitableProtocol {
 /// 
 /// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
+///
+/// The `MemoryMonitorRef` type acts as a lightweight Swift reference to an underlying `GMemoryMonitor` instance.
+/// It exposes methods that can operate on this data type through `MemoryMonitorProtocol` conformance.
+/// Use `MemoryMonitorRef` only as an `unowned` reference to an existing `GMemoryMonitor` instance.
+///
 public struct MemoryMonitorRef: MemoryMonitorProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `memory_monitor_ptr` property instead.
@@ -493,10 +500,6 @@ public extension MemoryMonitorRef {
     }
 }
 
-/// The `MemoryMonitor` type acts as an owner of an underlying `GMemoryMonitor` instance.
-/// It provides the methods that can operate on this data type through `MemoryMonitorProtocol` conformance.
-/// Use `MemoryMonitor` as a strong reference or owner of a `GMemoryMonitor` instance.
-///
 /// `GMemoryMonitor` will monitor system memory and suggest to the application
 /// when to free memory so as to leave more room for other applications.
 /// It is implemented on Linux using the [Low Memory Monitor](https://gitlab.freedesktop.org/hadess/low-memory-monitor/)
@@ -505,13 +508,14 @@ public extension MemoryMonitorRef {
 /// There is also an implementation for use inside Flatpak sandboxes.
 /// 
 /// Possible actions to take when the signal is received are:
-/// - Free caches
-/// - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
-/// - Run a garbage collection cycle
-/// - Try and compress fragmented allocations
-/// - Exit on idle if the process has no reason to stay around
-/// - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
-///   the kernel (if supported by your libc)
+/// 
+///  - Free caches
+///  - Save files that haven't been looked at in a while to disk, ready to be reopened when needed
+///  - Run a garbage collection cycle
+///  - Try and compress fragmented allocations
+///  - Exit on idle if the process has no reason to stay around
+///  - Call [``malloc_trim(3)``](man:malloc_trim) to return cached heap pages to
+///    the kernel (if supported by your libc)
 /// 
 /// Note that some actions may not always improve system performance, and so
 /// should be profiled for your application. ``malloc_trim()``, for example, may
@@ -543,6 +547,11 @@ public extension MemoryMonitorRef {
 /// 
 /// Don't forget to disconnect the `GMemoryMonitor::low-memory-warning`
 /// signal, and unref the `GMemoryMonitor` itself when exiting.
+///
+/// The `MemoryMonitor` type acts as an owner of an underlying `GMemoryMonitor` instance.
+/// It provides the methods that can operate on this data type through `MemoryMonitorProtocol` conformance.
+/// Use `MemoryMonitor` as a strong reference or owner of a `GMemoryMonitor` instance.
+///
 open class MemoryMonitor: Initable, MemoryMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

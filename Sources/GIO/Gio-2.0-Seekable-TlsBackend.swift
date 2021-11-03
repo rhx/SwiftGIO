@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - Seekable Interface
 
-/// The `SeekableProtocol` protocol exposes the methods and properties of an underlying `GSeekable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Seekable`.
-/// Alternatively, use `SeekableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSeekable` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that support seeking.
 /// 
@@ -23,6 +18,12 @@ import GLibObject
 /// `GSeekable` on resizable streams is approximately the same as POSIX
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
+///
+/// The `SeekableProtocol` protocol exposes the methods and properties of an underlying `GSeekable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Seekable`.
+/// Alternatively, use `SeekableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,10 +35,6 @@ public protocol SeekableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SeekableRef` type acts as a lightweight Swift reference to an underlying `GSeekable` instance.
-/// It exposes methods that can operate on this data type through `SeekableProtocol` conformance.
-/// Use `SeekableRef` only as an `unowned` reference to an existing `GSeekable` instance.
-///
 /// `GSeekable` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that support seeking.
 /// 
@@ -52,6 +49,11 @@ public protocol SeekableProtocol {
 /// `GSeekable` on resizable streams is approximately the same as POSIX
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
+///
+/// The `SeekableRef` type acts as a lightweight Swift reference to an underlying `GSeekable` instance.
+/// It exposes methods that can operate on this data type through `SeekableProtocol` conformance.
+/// Use `SeekableRef` only as an `unowned` reference to an existing `GSeekable` instance.
+///
 public struct SeekableRef: SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
@@ -130,10 +132,6 @@ public extension SeekableRef {
 
     }
 
-/// The `Seekable` type acts as an owner of an underlying `GSeekable` instance.
-/// It provides the methods that can operate on this data type through `SeekableProtocol` conformance.
-/// Use `Seekable` as a strong reference or owner of a `GSeekable` instance.
-///
 /// `GSeekable` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that support seeking.
 /// 
@@ -148,6 +146,11 @@ public extension SeekableRef {
 /// `GSeekable` on resizable streams is approximately the same as POSIX
 /// `lseek()` on a normal file.  Seeking past the end and writing data will
 /// usually cause the stream to resize by introducing zero bytes.
+///
+/// The `Seekable` type acts as an owner of an underlying `GSeekable` instance.
+/// It provides the methods that can operate on this data type through `SeekableProtocol` conformance.
+/// Use `Seekable` as a strong reference or owner of a `GSeekable` instance.
+///
 open class Seekable: SeekableProtocol {
         /// Untyped pointer to the underlying `GSeekable` instance.
     /// For type-safe access, use the generated, typed pointer `seekable_ptr` property instead.
@@ -400,11 +403,6 @@ public extension SeekableProtocol {
 
 // MARK: - SocketConnectable Interface
 
-/// The `SocketConnectableProtocol` protocol exposes the methods and properties of an underlying `GSocketConnectable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketConnectable`.
-/// Alternatively, use `SocketConnectableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
 /// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
@@ -464,6 +462,12 @@ public extension SeekableProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `SocketConnectableProtocol` protocol exposes the methods and properties of an underlying `GSocketConnectable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketConnectable`.
+/// Alternatively, use `SocketConnectableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -475,10 +479,6 @@ public protocol SocketConnectableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketConnectableRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectable` instance.
-/// It exposes methods that can operate on this data type through `SocketConnectableProtocol` conformance.
-/// Use `SocketConnectableRef` only as an `unowned` reference to an existing `GSocketConnectable` instance.
-///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
 /// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
@@ -538,6 +538,11 @@ public protocol SocketConnectableProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `SocketConnectableRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectable` instance.
+/// It exposes methods that can operate on this data type through `SocketConnectableProtocol` conformance.
+/// Use `SocketConnectableRef` only as an `unowned` reference to an existing `GSocketConnectable` instance.
+///
 public struct SocketConnectableRef: SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
@@ -616,10 +621,6 @@ public extension SocketConnectableRef {
 
     }
 
-/// The `SocketConnectable` type acts as an owner of an underlying `GSocketConnectable` instance.
-/// It provides the methods that can operate on this data type through `SocketConnectableProtocol` conformance.
-/// Use `SocketConnectable` as a strong reference or owner of a `GSocketConnectable` instance.
-///
 /// Objects that describe one or more potential socket endpoints
 /// implement `GSocketConnectable`. Callers can then use
 /// `g_socket_connectable_enumerate()` to get a `GSocketAddressEnumerator`
@@ -679,6 +680,11 @@ public extension SocketConnectableRef {
 /// }
 /// ```
 /// 
+///
+/// The `SocketConnectable` type acts as an owner of an underlying `GSocketConnectable` instance.
+/// It provides the methods that can operate on this data type through `SocketConnectableProtocol` conformance.
+/// Use `SocketConnectable` as a strong reference or owner of a `GSocketConnectable` instance.
+///
 open class SocketConnectable: SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketConnectable` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connectable_ptr` property instead.
@@ -893,12 +899,13 @@ public extension SocketConnectableProtocol {
 
 // MARK: - TLSBackend Interface
 
+/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
+///
 /// The `TLSBackendProtocol` protocol exposes the methods and properties of an underlying `GTlsBackend` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSBackend`.
 /// Alternatively, use `TLSBackendRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 public protocol TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -910,11 +917,12 @@ public protocol TLSBackendProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
+///
 /// The `TLSBackendRef` type acts as a lightweight Swift reference to an underlying `GTlsBackend` instance.
 /// It exposes methods that can operate on this data type through `TLSBackendProtocol` conformance.
 /// Use `TLSBackendRef` only as an `unowned` reference to an existing `GTlsBackend` instance.
 ///
-/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 public struct TLSBackendRef: TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.
@@ -998,11 +1006,12 @@ public extension TLSBackendRef {
     }
 }
 
+/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
+///
 /// The `TLSBackend` type acts as an owner of an underlying `GTlsBackend` instance.
 /// It provides the methods that can operate on this data type through `TLSBackendProtocol` conformance.
 /// Use `TLSBackend` as a strong reference or owner of a `GTlsBackend` instance.
 ///
-/// TLS (Transport Layer Security, aka SSL) and DTLS backend.
 open class TLSBackend: TLSBackendProtocol {
         /// Untyped pointer to the underlying `GTlsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `tls_backend_ptr` property instead.

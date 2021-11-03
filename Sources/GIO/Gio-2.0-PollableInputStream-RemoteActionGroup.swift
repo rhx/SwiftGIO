@@ -4,15 +4,16 @@ import GLibObject
 
 // MARK: - PollableInputStream Interface
 
+/// `GPollableInputStream` is implemented by `GInputStreams` that
+/// can be polled for readiness to read. This can be used when
+/// interfacing with a non-GIO API that expects
+/// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
 /// The `PollableInputStreamProtocol` protocol exposes the methods and properties of an underlying `GPollableInputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PollableInputStream`.
 /// Alternatively, use `PollableInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GPollableInputStream` is implemented by `GInputStreams` that
-/// can be polled for readiness to read. This can be used when
-/// interfacing with a non-GIO API that expects
-/// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableInputStreamProtocol: InputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -24,14 +25,15 @@ public protocol PollableInputStreamProtocol: InputStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PollableInputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStream` instance.
-/// It exposes methods that can operate on this data type through `PollableInputStreamProtocol` conformance.
-/// Use `PollableInputStreamRef` only as an `unowned` reference to an existing `GPollableInputStream` instance.
-///
 /// `GPollableInputStream` is implemented by `GInputStreams` that
 /// can be polled for readiness to read. This can be used when
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
+/// The `PollableInputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStream` instance.
+/// It exposes methods that can operate on this data type through `PollableInputStreamProtocol` conformance.
+/// Use `PollableInputStreamRef` only as an `unowned` reference to an existing `GPollableInputStream` instance.
+///
 public struct PollableInputStreamRef: PollableInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GPollableInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_input_stream_ptr` property instead.
@@ -113,14 +115,15 @@ public extension PollableInputStreamRef {
 
     }
 
-/// The `PollableInputStream` type acts as a reference-counted owner of an underlying `GPollableInputStream` instance.
-/// It provides the methods that can operate on this data type through `PollableInputStreamProtocol` conformance.
-/// Use `PollableInputStream` as a strong reference or owner of a `GPollableInputStream` instance.
-///
 /// `GPollableInputStream` is implemented by `GInputStreams` that
 /// can be polled for readiness to read. This can be used when
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
+/// The `PollableInputStream` type acts as a reference-counted owner of an underlying `GPollableInputStream` instance.
+/// It provides the methods that can operate on this data type through `PollableInputStreamProtocol` conformance.
+/// Use `PollableInputStream` as a strong reference or owner of a `GPollableInputStream` instance.
+///
 open class PollableInputStream: InputStream, PollableInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -268,12 +271,14 @@ public enum PollableInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -388,15 +393,16 @@ public extension PollableInputStreamProtocol {
 
 // MARK: - PollableOutputStream Interface
 
+/// `GPollableOutputStream` is implemented by `GOutputStreams` that
+/// can be polled for readiness to write. This can be used when
+/// interfacing with a non-GIO API that expects
+/// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
 /// The `PollableOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GPollableOutputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PollableOutputStream`.
 /// Alternatively, use `PollableOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GPollableOutputStream` is implemented by `GOutputStreams` that
-/// can be polled for readiness to write. This can be used when
-/// interfacing with a non-GIO API that expects
-/// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
 public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
         /// Untyped pointer to the underlying `GPollableOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -408,14 +414,15 @@ public protocol PollableOutputStreamProtocol: OutputStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PollableOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStream` instance.
-/// It exposes methods that can operate on this data type through `PollableOutputStreamProtocol` conformance.
-/// Use `PollableOutputStreamRef` only as an `unowned` reference to an existing `GPollableOutputStream` instance.
-///
 /// `GPollableOutputStream` is implemented by `GOutputStreams` that
 /// can be polled for readiness to write. This can be used when
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
+/// The `PollableOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStream` instance.
+/// It exposes methods that can operate on this data type through `PollableOutputStreamProtocol` conformance.
+/// Use `PollableOutputStreamRef` only as an `unowned` reference to an existing `GPollableOutputStream` instance.
+///
 public struct PollableOutputStreamRef: PollableOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GPollableOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `pollable_output_stream_ptr` property instead.
@@ -497,14 +504,15 @@ public extension PollableOutputStreamRef {
 
     }
 
-/// The `PollableOutputStream` type acts as a reference-counted owner of an underlying `GPollableOutputStream` instance.
-/// It provides the methods that can operate on this data type through `PollableOutputStreamProtocol` conformance.
-/// Use `PollableOutputStream` as a strong reference or owner of a `GPollableOutputStream` instance.
-///
 /// `GPollableOutputStream` is implemented by `GOutputStreams` that
 /// can be polled for readiness to write. This can be used when
 /// interfacing with a non-GIO API that expects
 /// UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.
+///
+/// The `PollableOutputStream` type acts as a reference-counted owner of an underlying `GPollableOutputStream` instance.
+/// It provides the methods that can operate on this data type through `PollableOutputStreamProtocol` conformance.
+/// Use `PollableOutputStream` as a strong reference or owner of a `GPollableOutputStream` instance.
+///
 open class PollableOutputStream: OutputStream, PollableOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -652,12 +660,14 @@ public enum PollableOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -823,19 +833,433 @@ public extension PollableOutputStreamProtocol {
 
 
 
+// MARK: - PowerProfileMonitor Interface
+
+/// `GPowerProfileMonitor` makes it possible for applications as well as OS components
+/// to monitor system power profiles and act upon them. It currently only exports
+/// whether the system is in “Power Saver” mode (known as “Low Power” mode on
+/// some systems).
+/// 
+/// When in “Low Power” mode, it is recommended that applications:
+/// - disabling automatic downloads
+/// - reduce the rate of refresh from online sources such as calendar or
+///   email synchronisation
+/// - if the application has expensive visual effects, reduce them
+/// 
+/// It is also likely that OS components providing services to applications will
+/// lower their own background activity, for the sake of the system.
+/// 
+/// There are a variety of tools that exist for power consumption analysis, but those
+/// usually depend on the OS and hardware used. On Linux, one could use `upower` to
+/// monitor the battery discharge rate, `powertop` to check on the background activity
+/// or activity at all), `sysprof` to inspect CPU usage, and `intel_gpu_time` to
+/// profile GPU usage.
+/// 
+/// Don't forget to disconnect the `GPowerProfileMonitor::notify::power-saver-enabled`
+/// signal, and unref the `GPowerProfileMonitor` itself when exiting.
+///
+/// The `PowerProfileMonitorProtocol` protocol exposes the methods and properties of an underlying `GPowerProfileMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PowerProfileMonitor`.
+/// Alternatively, use `PowerProfileMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol PowerProfileMonitorProtocol: InitableProtocol {
+        /// Untyped pointer to the underlying `GPowerProfileMonitor` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GPowerProfileMonitor` instance.
+    var power_profile_monitor_ptr: UnsafeMutablePointer<GPowerProfileMonitor>! { get }
+
+    /// Required Initialiser for types conforming to `PowerProfileMonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// `GPowerProfileMonitor` makes it possible for applications as well as OS components
+/// to monitor system power profiles and act upon them. It currently only exports
+/// whether the system is in “Power Saver” mode (known as “Low Power” mode on
+/// some systems).
+/// 
+/// When in “Low Power” mode, it is recommended that applications:
+/// - disabling automatic downloads
+/// - reduce the rate of refresh from online sources such as calendar or
+///   email synchronisation
+/// - if the application has expensive visual effects, reduce them
+/// 
+/// It is also likely that OS components providing services to applications will
+/// lower their own background activity, for the sake of the system.
+/// 
+/// There are a variety of tools that exist for power consumption analysis, but those
+/// usually depend on the OS and hardware used. On Linux, one could use `upower` to
+/// monitor the battery discharge rate, `powertop` to check on the background activity
+/// or activity at all), `sysprof` to inspect CPU usage, and `intel_gpu_time` to
+/// profile GPU usage.
+/// 
+/// Don't forget to disconnect the `GPowerProfileMonitor::notify::power-saver-enabled`
+/// signal, and unref the `GPowerProfileMonitor` itself when exiting.
+///
+/// The `PowerProfileMonitorRef` type acts as a lightweight Swift reference to an underlying `GPowerProfileMonitor` instance.
+/// It exposes methods that can operate on this data type through `PowerProfileMonitorProtocol` conformance.
+/// Use `PowerProfileMonitorRef` only as an `unowned` reference to an existing `GPowerProfileMonitor` instance.
+///
+public struct PowerProfileMonitorRef: PowerProfileMonitorProtocol {
+        /// Untyped pointer to the underlying `GPowerProfileMonitor` instance.
+    /// For type-safe access, use the generated, typed pointer `power_profile_monitor_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension PowerProfileMonitorRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GPowerProfileMonitor>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GPowerProfileMonitor>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPowerProfileMonitor>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GPowerProfileMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `PowerProfileMonitorProtocol`
+    @inlinable init<T: PowerProfileMonitorProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+        /// Gets a reference to the default `GPowerProfileMonitor` for the system.
+    @inlinable static func dupDefault() -> PowerProfileMonitorRef! {
+        guard let rv = PowerProfileMonitorRef(gconstpointer: gconstpointer(g_power_profile_monitor_dup_default())) else { return nil }
+        return rv
+    }
+}
+
+/// `GPowerProfileMonitor` makes it possible for applications as well as OS components
+/// to monitor system power profiles and act upon them. It currently only exports
+/// whether the system is in “Power Saver” mode (known as “Low Power” mode on
+/// some systems).
+/// 
+/// When in “Low Power” mode, it is recommended that applications:
+/// - disabling automatic downloads
+/// - reduce the rate of refresh from online sources such as calendar or
+///   email synchronisation
+/// - if the application has expensive visual effects, reduce them
+/// 
+/// It is also likely that OS components providing services to applications will
+/// lower their own background activity, for the sake of the system.
+/// 
+/// There are a variety of tools that exist for power consumption analysis, but those
+/// usually depend on the OS and hardware used. On Linux, one could use `upower` to
+/// monitor the battery discharge rate, `powertop` to check on the background activity
+/// or activity at all), `sysprof` to inspect CPU usage, and `intel_gpu_time` to
+/// profile GPU usage.
+/// 
+/// Don't forget to disconnect the `GPowerProfileMonitor::notify::power-saver-enabled`
+/// signal, and unref the `GPowerProfileMonitor` itself when exiting.
+///
+/// The `PowerProfileMonitor` type acts as an owner of an underlying `GPowerProfileMonitor` instance.
+/// It provides the methods that can operate on this data type through `PowerProfileMonitorProtocol` conformance.
+/// Use `PowerProfileMonitor` as a strong reference or owner of a `GPowerProfileMonitor` instance.
+///
+open class PowerProfileMonitor: Initable, PowerProfileMonitorProtocol {
+        /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GPowerProfileMonitor>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GPowerProfileMonitor>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GPowerProfileMonitor>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GPowerProfileMonitor>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GPowerProfileMonitor` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `PowerProfileMonitor` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GPowerProfileMonitor>) {
+        super.init(retainingCPointer: op)
+    }
+
+    /// Reference intialiser for a related type that implements `PowerProfileMonitorProtocol`
+    /// `GPowerProfileMonitor` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `PowerProfileMonitorProtocol`
+    @inlinable public init<T: PowerProfileMonitorProtocol>(powerProfileMonitor other: T) {
+        super.init(retainingRaw: other.ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
+    }
+
+
+    /// Gets a reference to the default `GPowerProfileMonitor` for the system.
+    @inlinable public static func dupDefault() -> PowerProfileMonitor! {
+        guard let rv = PowerProfileMonitor(gconstpointer: gconstpointer(g_power_profile_monitor_dup_default())) else { return nil }
+        return rv
+    }
+
+}
+
+public enum PowerProfileMonitorPropertyName: String, PropertyNameProtocol {
+    /// Whether “Power Saver” mode is enabled on the system.
+    case powerSaverEnabled = "power-saver-enabled"
+}
+
+public extension PowerProfileMonitorProtocol {
+    /// Bind a `PowerProfileMonitorPropertyName` source property to a given target object.
+    /// - Parameter source_property: the source property to bind
+    /// - Parameter target: the target object to bind to
+    /// - Parameter target_property: the target property to bind to
+    /// - Parameter flags: the flags to pass to the `Binding`
+    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Returns: binding reference or `nil` in case of an error
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: PowerProfileMonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
+            let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
+            let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+                if let swift = UnsafeRawPointer($0) {
+                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
+                    holder.release()
+                }
+            }
+            return rv.map { BindingRef($0) }
+        }
+
+        let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_from(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }) {
+            let ptr = UnsafeRawPointer($3)
+            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
+            return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
+        }
+        return rv
+    }
+
+    /// Get the value of a PowerProfileMonitor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func get(property: PowerProfileMonitorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a PowerProfileMonitor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    @inlinable func set(property: PowerProfileMonitorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+    }
+}
+
+public enum PowerProfileMonitorSignalName: String, SignalNameProtocol {
+
+    /// Whether “Power Saver” mode is enabled on the system.
+    case notifyPowerSaverEnabled = "notify::power-saver-enabled"
+}
+
+// MARK: PowerProfileMonitor has no signals
+// MARK: PowerProfileMonitor Interface: PowerProfileMonitorProtocol extension (methods and fields)
+public extension PowerProfileMonitorProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GPowerProfileMonitor` instance.
+    @inlinable var power_profile_monitor_ptr: UnsafeMutablePointer<GPowerProfileMonitor>! { return ptr?.assumingMemoryBound(to: GPowerProfileMonitor.self) }
+
+    /// Gets whether the system is in “Power Saver” mode.
+    /// 
+    /// You are expected to listen to the
+    /// `GPowerProfileMonitor::notify::power-saver-enabled` signal to know when the profile has
+    /// changed.
+    @inlinable func getPowerSaverEnabled() -> Bool {
+        let rv = ((g_power_profile_monitor_get_power_saver_enabled(power_profile_monitor_ptr)) != 0)
+        return rv
+    }
+    /// Gets whether the system is in “Power Saver” mode.
+    /// 
+    /// You are expected to listen to the
+    /// `GPowerProfileMonitor::notify::power-saver-enabled` signal to know when the profile has
+    /// changed.
+    @inlinable var powerSaverEnabled: Bool {
+        /// Gets whether the system is in “Power Saver” mode.
+        /// 
+        /// You are expected to listen to the
+        /// `GPowerProfileMonitor::notify::power-saver-enabled` signal to know when the profile has
+        /// changed.
+        get {
+            let rv = ((g_power_profile_monitor_get_power_saver_enabled(power_profile_monitor_ptr)) != 0)
+            return rv
+        }
+    }
+
+
+}
+
+
+
 // MARK: - Proxy Interface
 
-/// The `ProxyProtocol` protocol exposes the methods and properties of an underlying `GProxy` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Proxy`.
-/// Alternatively, use `ProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GProxy` handles connecting to a remote host via a given type of
 /// proxy server. It is implemented by the 'gio-proxy' extension point.
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
+///
+/// The `ProxyProtocol` protocol exposes the methods and properties of an underlying `GProxy` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Proxy`.
+/// Alternatively, use `ProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -847,16 +1271,17 @@ public protocol ProxyProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ProxyRef` type acts as a lightweight Swift reference to an underlying `GProxy` instance.
-/// It exposes methods that can operate on this data type through `ProxyProtocol` conformance.
-/// Use `ProxyRef` only as an `unowned` reference to an existing `GProxy` instance.
-///
 /// A `GProxy` handles connecting to a remote host via a given type of
 /// proxy server. It is implemented by the 'gio-proxy' extension point.
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
+///
+/// The `ProxyRef` type acts as a lightweight Swift reference to an underlying `GProxy` instance.
+/// It exposes methods that can operate on this data type through `ProxyProtocol` conformance.
+/// Use `ProxyRef` only as an `unowned` reference to an existing `GProxy` instance.
+///
 public struct ProxyRef: ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
@@ -941,16 +1366,17 @@ public extension ProxyRef {
     }
 }
 
-/// The `Proxy` type acts as an owner of an underlying `GProxy` instance.
-/// It provides the methods that can operate on this data type through `ProxyProtocol` conformance.
-/// Use `Proxy` as a strong reference or owner of a `GProxy` instance.
-///
 /// A `GProxy` handles connecting to a remote host via a given type of
 /// proxy server. It is implemented by the 'gio-proxy' extension point.
 /// The extensions are named after their proxy protocol name. As an
 /// example, a SOCKS5 proxy implementation can be retrieved with the
 /// name 'socks5' using the function
 /// `g_io_extension_point_get_extension_by_name()`.
+///
+/// The `Proxy` type acts as an owner of an underlying `GProxy` instance.
+/// It provides the methods that can operate on this data type through `ProxyProtocol` conformance.
+/// Use `Proxy` as a strong reference or owner of a `GProxy` instance.
+///
 open class Proxy: ProxyProtocol {
         /// Untyped pointer to the underlying `GProxy` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_ptr` property instead.
@@ -1170,11 +1596,6 @@ public extension ProxyProtocol {
 
 // MARK: - ProxyResolver Interface
 
-/// The `ProxyResolverProtocol` protocol exposes the methods and properties of an underlying `GProxyResolver` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ProxyResolver`.
-/// Alternatively, use `ProxyResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
 /// the method `g_socket_connectable_proxy_enumerate()`.
@@ -1182,6 +1603,12 @@ public extension ProxyProtocol {
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
+///
+/// The `ProxyResolverProtocol` protocol exposes the methods and properties of an underlying `GProxyResolver` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ProxyResolver`.
+/// Alternatively, use `ProxyResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1193,10 +1620,6 @@ public protocol ProxyResolverProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GProxyResolver` instance.
-/// It exposes methods that can operate on this data type through `ProxyResolverProtocol` conformance.
-/// Use `ProxyResolverRef` only as an `unowned` reference to an existing `GProxyResolver` instance.
-///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
 /// the method `g_socket_connectable_proxy_enumerate()`.
@@ -1204,6 +1627,11 @@ public protocol ProxyResolverProtocol {
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
+///
+/// The `ProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GProxyResolver` instance.
+/// It exposes methods that can operate on this data type through `ProxyResolverProtocol` conformance.
+/// Use `ProxyResolverRef` only as an `unowned` reference to an existing `GProxyResolver` instance.
+///
 public struct ProxyResolverRef: ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
@@ -1287,10 +1715,6 @@ public extension ProxyResolverRef {
     }
 }
 
-/// The `ProxyResolver` type acts as an owner of an underlying `GProxyResolver` instance.
-/// It provides the methods that can operate on this data type through `ProxyResolverProtocol` conformance.
-/// Use `ProxyResolver` as a strong reference or owner of a `GProxyResolver` instance.
-///
 /// `GProxyResolver` provides synchronous and asynchronous network proxy
 /// resolution. `GProxyResolver` is used within `GSocketClient` through
 /// the method `g_socket_connectable_proxy_enumerate()`.
@@ -1298,6 +1722,11 @@ public extension ProxyResolverRef {
 /// Implementations of `GProxyResolver` based on libproxy and GNOME settings can
 /// be found in glib-networking. GIO comes with an implementation for use inside
 /// Flatpak portals.
+///
+/// The `ProxyResolver` type acts as an owner of an underlying `GProxyResolver` instance.
+/// It provides the methods that can operate on this data type through `ProxyResolverProtocol` conformance.
+/// Use `ProxyResolver` as a strong reference or owner of a `GProxyResolver` instance.
+///
 open class ProxyResolver: ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_resolver_ptr` property instead.
@@ -1542,11 +1971,6 @@ public extension ProxyResolverProtocol {
 
 // MARK: - RemoteActionGroup Interface
 
-/// The `RemoteActionGroupProtocol` protocol exposes the methods and properties of an underlying `GRemoteActionGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RemoteActionGroup`.
-/// Alternatively, use `RemoteActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GRemoteActionGroup interface is implemented by `GActionGroup`
 /// instances that either transmit action invocations to other processes
 /// or receive action invocations in the local process from other
@@ -1568,6 +1992,12 @@ public extension ProxyResolverProtocol {
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
+///
+/// The `RemoteActionGroupProtocol` protocol exposes the methods and properties of an underlying `GRemoteActionGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RemoteActionGroup`.
+/// Alternatively, use `RemoteActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1579,10 +2009,6 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RemoteActionGroupRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroup` instance.
-/// It exposes methods that can operate on this data type through `RemoteActionGroupProtocol` conformance.
-/// Use `RemoteActionGroupRef` only as an `unowned` reference to an existing `GRemoteActionGroup` instance.
-///
 /// The GRemoteActionGroup interface is implemented by `GActionGroup`
 /// instances that either transmit action invocations to other processes
 /// or receive action invocations in the local process from other
@@ -1604,6 +2030,11 @@ public protocol RemoteActionGroupProtocol: ActionGroupProtocol {
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
+///
+/// The `RemoteActionGroupRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroup` instance.
+/// It exposes methods that can operate on this data type through `RemoteActionGroupProtocol` conformance.
+/// Use `RemoteActionGroupRef` only as an `unowned` reference to an existing `GRemoteActionGroup` instance.
+///
 public struct RemoteActionGroupRef: RemoteActionGroupProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `remote_action_group_ptr` property instead.
@@ -1682,10 +2113,6 @@ public extension RemoteActionGroupRef {
 
     }
 
-/// The `RemoteActionGroup` type acts as an owner of an underlying `GRemoteActionGroup` instance.
-/// It provides the methods that can operate on this data type through `RemoteActionGroupProtocol` conformance.
-/// Use `RemoteActionGroup` as a strong reference or owner of a `GRemoteActionGroup` instance.
-///
 /// The GRemoteActionGroup interface is implemented by `GActionGroup`
 /// instances that either transmit action invocations to other processes
 /// or receive action invocations in the local process from other
@@ -1707,6 +2134,11 @@ public extension RemoteActionGroupRef {
 /// `_full` variants of the calls if available.  This
 /// provides a mechanism by which to receive platform data for action
 /// invocations that arrive by way of D-Bus.
+///
+/// The `RemoteActionGroup` type acts as an owner of an underlying `GRemoteActionGroup` instance.
+/// It provides the methods that can operate on this data type through `RemoteActionGroupProtocol` conformance.
+/// Use `RemoteActionGroup` as a strong reference or owner of a `GRemoteActionGroup` instance.
+///
 open class RemoteActionGroup: ActionGroup, RemoteActionGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

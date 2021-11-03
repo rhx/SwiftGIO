@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - IOExtensionPoint Record
 
+/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtensionPointProtocol` protocol exposes the methods and properties of an underlying `GIOExtensionPoint` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOExtensionPoint`.
 /// Alternatively, use `IOExtensionPointRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
-/// using the following functions.
 public protocol IOExtensionPointProtocol {
         /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol IOExtensionPointProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtensionPointRef` type acts as a lightweight Swift reference to an underlying `GIOExtensionPoint` instance.
 /// It exposes methods that can operate on this data type through `IOExtensionPointProtocol` conformance.
 /// Use `IOExtensionPointRef` only as an `unowned` reference to an existing `GIOExtensionPoint` instance.
 ///
-/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
-/// using the following functions.
 public struct IOExtensionPointRef: IOExtensionPointProtocol {
         /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -117,12 +119,13 @@ public extension IOExtensionPointRef {
     }
 }
 
+/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtensionPoint` type acts as an owner of an underlying `GIOExtensionPoint` instance.
 /// It provides the methods that can operate on this data type through `IOExtensionPointProtocol` conformance.
 /// Use `IOExtensionPoint` as a strong reference or owner of a `GIOExtensionPoint` instance.
 ///
-/// `GIOExtensionPoint` is an opaque data structure and can only be accessed
-/// using the following functions.
 open class IOExtensionPoint: IOExtensionPointProtocol {
         /// Untyped pointer to the underlying `GIOExtensionPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -360,12 +363,13 @@ public extension IOModuleClassRef {
 
 // MARK: - IOModuleClass Record
 
+
+///
 /// The `IOModuleClassProtocol` protocol exposes the methods and properties of an underlying `GIOModuleClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOModuleClass`.
 /// Alternatively, use `IOModuleClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IOModuleClassProtocol {
         /// Untyped pointer to the underlying `GIOModuleClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -377,11 +381,12 @@ public protocol IOModuleClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IOModuleClassRef` type acts as a lightweight Swift reference to an underlying `GIOModuleClass` instance.
 /// It exposes methods that can operate on this data type through `IOModuleClassProtocol` conformance.
 /// Use `IOModuleClassRef` only as an `unowned` reference to an existing `GIOModuleClass` instance.
 ///
-
 public struct IOModuleClassRef: IOModuleClassProtocol {
         /// Untyped pointer to the underlying `GIOModuleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -473,16 +478,17 @@ public extension IOModuleClassProtocol {
 
 // MARK: - IOModuleScope Record
 
-/// The `IOModuleScopeProtocol` protocol exposes the methods and properties of an underlying `GIOModuleScope` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IOModuleScope`.
-/// Alternatively, use `IOModuleScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
+///
+/// The `IOModuleScopeProtocol` protocol exposes the methods and properties of an underlying `GIOModuleScope` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IOModuleScope`.
+/// Alternatively, use `IOModuleScopeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IOModuleScopeProtocol {
         /// Untyped pointer to the underlying `GIOModuleScope` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -494,15 +500,16 @@ public protocol IOModuleScopeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IOModuleScopeRef` type acts as a lightweight Swift reference to an underlying `GIOModuleScope` instance.
-/// It exposes methods that can operate on this data type through `IOModuleScopeProtocol` conformance.
-/// Use `IOModuleScopeRef` only as an `unowned` reference to an existing `GIOModuleScope` instance.
-///
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
+///
+/// The `IOModuleScopeRef` type acts as a lightweight Swift reference to an underlying `GIOModuleScope` instance.
+/// It exposes methods that can operate on this data type through `IOModuleScopeProtocol` conformance.
+/// Use `IOModuleScopeRef` only as an `unowned` reference to an existing `GIOModuleScope` instance.
+///
 public struct IOModuleScopeRef: IOModuleScopeProtocol {
         /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -581,15 +588,16 @@ public extension IOModuleScopeRef {
 
     }
 
-/// The `IOModuleScope` type acts as an owner of an underlying `GIOModuleScope` instance.
-/// It provides the methods that can operate on this data type through `IOModuleScopeProtocol` conformance.
-/// Use `IOModuleScope` as a strong reference or owner of a `GIOModuleScope` instance.
-///
 /// Represents a scope for loading IO modules. A scope can be used for blocking
 /// duplicate modules, or blocking a module you don't want to load.
 /// 
 /// The scope can be used with `g_io_modules_load_all_in_directory_with_scope()`
 /// or `g_io_modules_scan_all_in_directory_with_scope()`.
+///
+/// The `IOModuleScope` type acts as an owner of an underlying `GIOModuleScope` instance.
+/// It provides the methods that can operate on this data type through `IOModuleScopeProtocol` conformance.
+/// Use `IOModuleScope` as a strong reference or owner of a `GIOModuleScope` instance.
+///
 open class IOModuleScope: IOModuleScopeProtocol {
         /// Untyped pointer to the underlying `GIOModuleScope` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -791,12 +799,13 @@ public extension IOModuleScopeProtocol {
 
 // MARK: - IOSchedulerJob Record
 
+/// Opaque class for defining and scheduling IO jobs.
+///
 /// The `IOSchedulerJobProtocol` protocol exposes the methods and properties of an underlying `GIOSchedulerJob` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOSchedulerJob`.
 /// Alternatively, use `IOSchedulerJobRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Opaque class for defining and scheduling IO jobs.
 public protocol IOSchedulerJobProtocol {
         /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -808,11 +817,12 @@ public protocol IOSchedulerJobProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Opaque class for defining and scheduling IO jobs.
+///
 /// The `IOSchedulerJobRef` type acts as a lightweight Swift reference to an underlying `GIOSchedulerJob` instance.
 /// It exposes methods that can operate on this data type through `IOSchedulerJobProtocol` conformance.
 /// Use `IOSchedulerJobRef` only as an `unowned` reference to an existing `GIOSchedulerJob` instance.
 ///
-/// Opaque class for defining and scheduling IO jobs.
 public struct IOSchedulerJobRef: IOSchedulerJobProtocol {
         /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -891,11 +901,12 @@ public extension IOSchedulerJobRef {
 
     }
 
+/// Opaque class for defining and scheduling IO jobs.
+///
 /// The `IOSchedulerJob` type acts as an owner of an underlying `GIOSchedulerJob` instance.
 /// It provides the methods that can operate on this data type through `IOSchedulerJobProtocol` conformance.
 /// Use `IOSchedulerJob` as a strong reference or owner of a `GIOSchedulerJob` instance.
 ///
-/// Opaque class for defining and scheduling IO jobs.
 open class IOSchedulerJob: IOSchedulerJobProtocol {
         /// Untyped pointer to the underlying `GIOSchedulerJob` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1085,12 +1096,13 @@ public extension IOSchedulerJobProtocol {
 
 // MARK: - IOStreamAdapter Record
 
+
+///
 /// The `IOStreamAdapterProtocol` protocol exposes the methods and properties of an underlying `GIOStreamAdapter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOStreamAdapter`.
 /// Alternatively, use `IOStreamAdapterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IOStreamAdapterProtocol {
         /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1102,11 +1114,12 @@ public protocol IOStreamAdapterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IOStreamAdapterRef` type acts as a lightweight Swift reference to an underlying `GIOStreamAdapter` instance.
 /// It exposes methods that can operate on this data type through `IOStreamAdapterProtocol` conformance.
 /// Use `IOStreamAdapterRef` only as an `unowned` reference to an existing `GIOStreamAdapter` instance.
 ///
-
 public struct IOStreamAdapterRef: IOStreamAdapterProtocol {
         /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1185,11 +1198,12 @@ public extension IOStreamAdapterRef {
 
     }
 
+
+///
 /// The `IOStreamAdapter` type acts as an owner of an underlying `GIOStreamAdapter` instance.
 /// It provides the methods that can operate on this data type through `IOStreamAdapterProtocol` conformance.
 /// Use `IOStreamAdapter` as a strong reference or owner of a `GIOStreamAdapter` instance.
 ///
-
 open class IOStreamAdapter: IOStreamAdapterProtocol {
         /// Untyped pointer to the underlying `GIOStreamAdapter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1367,12 +1381,13 @@ public extension IOStreamClassRef {
 
 // MARK: - IOStreamClass Record
 
+
+///
 /// The `IOStreamClassProtocol` protocol exposes the methods and properties of an underlying `GIOStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOStreamClass`.
 /// Alternatively, use `IOStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol IOStreamClassProtocol {
         /// Untyped pointer to the underlying `GIOStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1384,11 +1399,12 @@ public protocol IOStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `IOStreamClassRef` type acts as a lightweight Swift reference to an underlying `GIOStreamClass` instance.
 /// It exposes methods that can operate on this data type through `IOStreamClassProtocol` conformance.
 /// Use `IOStreamClassRef` only as an `unowned` reference to an existing `GIOStreamClass` instance.
 ///
-
 public struct IOStreamClassRef: IOStreamClassProtocol {
         /// Untyped pointer to the underlying `GIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1531,14 +1547,15 @@ public extension IconIfaceRef {
 
 // MARK: - IconIface Record
 
+/// GIconIface is used to implement GIcon types for various
+/// different systems. See `GThemedIcon` and `GLoadableIcon` for
+/// examples of how to implement this interface.
+///
 /// The `IconIfaceProtocol` protocol exposes the methods and properties of an underlying `GIconIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IconIface`.
 /// Alternatively, use `IconIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GIconIface is used to implement GIcon types for various
-/// different systems. See `GThemedIcon` and `GLoadableIcon` for
-/// examples of how to implement this interface.
 public protocol IconIfaceProtocol {
         /// Untyped pointer to the underlying `GIconIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1550,13 +1567,14 @@ public protocol IconIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// GIconIface is used to implement GIcon types for various
+/// different systems. See `GThemedIcon` and `GLoadableIcon` for
+/// examples of how to implement this interface.
+///
 /// The `IconIfaceRef` type acts as a lightweight Swift reference to an underlying `GIconIface` instance.
 /// It exposes methods that can operate on this data type through `IconIfaceProtocol` conformance.
 /// Use `IconIfaceRef` only as an `unowned` reference to an existing `GIconIface` instance.
 ///
-/// GIconIface is used to implement GIcon types for various
-/// different systems. See `GThemedIcon` and `GLoadableIcon` for
-/// examples of how to implement this interface.
 public struct IconIfaceRef: IconIfaceProtocol {
         /// Untyped pointer to the underlying `GIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1681,12 +1699,13 @@ public extension InetAddressClassRef {
 
 // MARK: - InetAddressClass Record
 
+
+///
 /// The `InetAddressClassProtocol` protocol exposes the methods and properties of an underlying `GInetAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InetAddressClass`.
 /// Alternatively, use `InetAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InetAddressClassProtocol {
         /// Untyped pointer to the underlying `GInetAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1698,11 +1717,12 @@ public protocol InetAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InetAddressClassRef` type acts as a lightweight Swift reference to an underlying `GInetAddressClass` instance.
 /// It exposes methods that can operate on this data type through `InetAddressClassProtocol` conformance.
 /// Use `InetAddressClassRef` only as an `unowned` reference to an existing `GInetAddressClass` instance.
 ///
-
 public struct InetAddressClassRef: InetAddressClassProtocol {
         /// Untyped pointer to the underlying `GInetAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1819,12 +1839,13 @@ public extension InetAddressMaskClassRef {
 
 // MARK: - InetAddressMaskClass Record
 
+
+///
 /// The `InetAddressMaskClassProtocol` protocol exposes the methods and properties of an underlying `GInetAddressMaskClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InetAddressMaskClass`.
 /// Alternatively, use `InetAddressMaskClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InetAddressMaskClassProtocol {
         /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1836,11 +1857,12 @@ public protocol InetAddressMaskClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InetAddressMaskClassRef` type acts as a lightweight Swift reference to an underlying `GInetAddressMaskClass` instance.
 /// It exposes methods that can operate on this data type through `InetAddressMaskClassProtocol` conformance.
 /// Use `InetAddressMaskClassRef` only as an `unowned` reference to an existing `GInetAddressMaskClass` instance.
 ///
-
 public struct InetAddressMaskClassRef: InetAddressMaskClassProtocol {
         /// Untyped pointer to the underlying `GInetAddressMaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1953,12 +1975,13 @@ public extension InetSocketAddressClassRef {
 
 // MARK: - InetSocketAddressClass Record
 
+
+///
 /// The `InetSocketAddressClassProtocol` protocol exposes the methods and properties of an underlying `GInetSocketAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InetSocketAddressClass`.
 /// Alternatively, use `InetSocketAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InetSocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1970,11 +1993,12 @@ public protocol InetSocketAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InetSocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GInetSocketAddressClass` instance.
 /// It exposes methods that can operate on this data type through `InetSocketAddressClassProtocol` conformance.
 /// Use `InetSocketAddressClassRef` only as an `unowned` reference to an existing `GInetSocketAddressClass` instance.
 ///
-
 public struct InetSocketAddressClassRef: InetSocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GInetSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2087,13 +2111,14 @@ public extension InitableIfaceRef {
 
 // MARK: - InitableIface Record
 
+/// Provides an interface for initializing object such that initialization
+/// may fail.
+///
 /// The `InitableIfaceProtocol` protocol exposes the methods and properties of an underlying `GInitableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InitableIface`.
 /// Alternatively, use `InitableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for initializing object such that initialization
-/// may fail.
 public protocol InitableIfaceProtocol {
         /// Untyped pointer to the underlying `GInitableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2105,12 +2130,13 @@ public protocol InitableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for initializing object such that initialization
+/// may fail.
+///
 /// The `InitableIfaceRef` type acts as a lightweight Swift reference to an underlying `GInitableIface` instance.
 /// It exposes methods that can operate on this data type through `InitableIfaceProtocol` conformance.
 /// Use `InitableIfaceRef` only as an `unowned` reference to an existing `GInitableIface` instance.
 ///
-/// Provides an interface for initializing object such that initialization
-/// may fail.
 public struct InitableIfaceRef: InitableIfaceProtocol {
         /// Untyped pointer to the underlying `GInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2212,11 +2238,6 @@ public extension InitableIfaceProtocol {
 
 // MARK: - InputMessage Record
 
-/// The `InputMessageProtocol` protocol exposes the methods and properties of an underlying `GInputMessage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `InputMessage`.
-/// Alternatively, use `InputMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Structure used for scatter/gather data input when receiving multiple
 /// messages or packets in one go. You generally pass in an array of empty
 /// `GInputVectors` and the operation will use all the buffers as if they
@@ -2236,6 +2257,12 @@ public extension InitableIfaceProtocol {
 /// 
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
+///
+/// The `InputMessageProtocol` protocol exposes the methods and properties of an underlying `GInputMessage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `InputMessage`.
+/// Alternatively, use `InputMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol InputMessageProtocol {
         /// Untyped pointer to the underlying `GInputMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2247,10 +2274,6 @@ public protocol InputMessageProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InputMessageRef` type acts as a lightweight Swift reference to an underlying `GInputMessage` instance.
-/// It exposes methods that can operate on this data type through `InputMessageProtocol` conformance.
-/// Use `InputMessageRef` only as an `unowned` reference to an existing `GInputMessage` instance.
-///
 /// Structure used for scatter/gather data input when receiving multiple
 /// messages or packets in one go. You generally pass in an array of empty
 /// `GInputVectors` and the operation will use all the buffers as if they
@@ -2270,6 +2293,11 @@ public protocol InputMessageProtocol {
 /// 
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
+///
+/// The `InputMessageRef` type acts as a lightweight Swift reference to an underlying `GInputMessage` instance.
+/// It exposes methods that can operate on this data type through `InputMessageProtocol` conformance.
+/// Use `InputMessageRef` only as an `unowned` reference to an existing `GInputMessage` instance.
+///
 public struct InputMessageRef: InputMessageProtocol {
         /// Untyped pointer to the underlying `GInputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2348,10 +2376,6 @@ public extension InputMessageRef {
 
     }
 
-/// The `InputMessage` type acts as an owner of an underlying `GInputMessage` instance.
-/// It provides the methods that can operate on this data type through `InputMessageProtocol` conformance.
-/// Use `InputMessage` as a strong reference or owner of a `GInputMessage` instance.
-///
 /// Structure used for scatter/gather data input when receiving multiple
 /// messages or packets in one go. You generally pass in an array of empty
 /// `GInputVectors` and the operation will use all the buffers as if they
@@ -2371,6 +2395,11 @@ public extension InputMessageRef {
 /// 
 /// Flags relevant to this message will be returned in `flags`. For example,
 /// `MSG_EOR` or `MSG_TRUNC`.
+///
+/// The `InputMessage` type acts as an owner of an underlying `GInputMessage` instance.
+/// It provides the methods that can operate on this data type through `InputMessageProtocol` conformance.
+/// Use `InputMessage` as a strong reference or owner of a `GInputMessage` instance.
+///
 open class InputMessage: InputMessageProtocol {
         /// Untyped pointer to the underlying `GInputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2656,12 +2685,13 @@ public extension InputStreamClassRef {
 
 // MARK: - InputStreamClass Record
 
+
+///
 /// The `InputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InputStreamClass`.
 /// Alternatively, use `InputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol InputStreamClassProtocol {
         /// Untyped pointer to the underlying `GInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2673,11 +2703,12 @@ public protocol InputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `InputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `InputStreamClassProtocol` conformance.
 /// Use `InputStreamClassRef` only as an `unowned` reference to an existing `GInputStreamClass` instance.
 ///
-
 public struct InputStreamClassRef: InputStreamClassProtocol {
         /// Untyped pointer to the underlying `GInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2803,15 +2834,16 @@ public extension InputStreamClassProtocol {
 
 // MARK: - InputVector Record
 
+/// Structure used for scatter/gather data input.
+/// You generally pass in an array of `GInputVectors`
+/// and the operation will store the read data starting in the
+/// first buffer, switching to the next as needed.
+///
 /// The `InputVectorProtocol` protocol exposes the methods and properties of an underlying `GInputVector` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InputVector`.
 /// Alternatively, use `InputVectorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Structure used for scatter/gather data input.
-/// You generally pass in an array of `GInputVectors`
-/// and the operation will store the read data starting in the
-/// first buffer, switching to the next as needed.
 public protocol InputVectorProtocol {
         /// Untyped pointer to the underlying `GInputVector` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2823,14 +2855,15 @@ public protocol InputVectorProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InputVectorRef` type acts as a lightweight Swift reference to an underlying `GInputVector` instance.
-/// It exposes methods that can operate on this data type through `InputVectorProtocol` conformance.
-/// Use `InputVectorRef` only as an `unowned` reference to an existing `GInputVector` instance.
-///
 /// Structure used for scatter/gather data input.
 /// You generally pass in an array of `GInputVectors`
 /// and the operation will store the read data starting in the
 /// first buffer, switching to the next as needed.
+///
+/// The `InputVectorRef` type acts as a lightweight Swift reference to an underlying `GInputVector` instance.
+/// It exposes methods that can operate on this data type through `InputVectorProtocol` conformance.
+/// Use `InputVectorRef` only as an `unowned` reference to an existing `GInputVector` instance.
+///
 public struct InputVectorRef: InputVectorProtocol {
         /// Untyped pointer to the underlying `GInputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2909,14 +2942,15 @@ public extension InputVectorRef {
 
     }
 
-/// The `InputVector` type acts as an owner of an underlying `GInputVector` instance.
-/// It provides the methods that can operate on this data type through `InputVectorProtocol` conformance.
-/// Use `InputVector` as a strong reference or owner of a `GInputVector` instance.
-///
 /// Structure used for scatter/gather data input.
 /// You generally pass in an array of `GInputVectors`
 /// and the operation will store the read data starting in the
 /// first buffer, switching to the next as needed.
+///
+/// The `InputVector` type acts as an owner of an underlying `GInputVector` instance.
+/// It provides the methods that can operate on this data type through `InputVectorProtocol` conformance.
+/// Use `InputVector` as a strong reference or owner of a `GInputVector` instance.
+///
 open class InputVector: InputVectorProtocol {
         /// Untyped pointer to the underlying `GInputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3119,12 +3153,13 @@ public extension ListModelInterfaceRef {
 
 // MARK: - ListModelInterface Record
 
+/// The virtual function table for `GListModel`.
+///
 /// The `ListModelInterfaceProtocol` protocol exposes the methods and properties of an underlying `GListModelInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListModelInterface`.
 /// Alternatively, use `ListModelInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GListModel`.
 public protocol ListModelInterfaceProtocol {
         /// Untyped pointer to the underlying `GListModelInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3136,11 +3171,12 @@ public protocol ListModelInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GListModel`.
+///
 /// The `ListModelInterfaceRef` type acts as a lightweight Swift reference to an underlying `GListModelInterface` instance.
 /// It exposes methods that can operate on this data type through `ListModelInterfaceProtocol` conformance.
 /// Use `ListModelInterfaceRef` only as an `unowned` reference to an existing `GListModelInterface` instance.
 ///
-/// The virtual function table for `GListModel`.
 public struct ListModelInterfaceRef: ListModelInterfaceProtocol {
         /// Untyped pointer to the underlying `GListModelInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

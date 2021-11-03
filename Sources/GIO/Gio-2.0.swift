@@ -2,6 +2,10 @@ import CGLib
 import GLib
 import GLibObject
 
+import CGLib
+import GLib
+import GLibObject
+
 @usableFromInline
 func _g_io_module_load(_ module: UnsafeMutablePointer<GIOModule>) {
     fatalError("private _g_io_module_load called")

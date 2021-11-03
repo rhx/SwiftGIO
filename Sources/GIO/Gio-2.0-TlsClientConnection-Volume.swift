@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - TLSClientConnection Interface
 
+/// `GTlsClientConnection` is the client-side subclass of
+/// `GTlsConnection`, representing a client-side TLS connection.
+///
 /// The `TLSClientConnectionProtocol` protocol exposes the methods and properties of an underlying `GTlsClientConnection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSClientConnection`.
 /// Alternatively, use `TLSClientConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GTlsClientConnection` is the client-side subclass of
-/// `GTlsConnection`, representing a client-side TLS connection.
 public protocol TLSClientConnectionProtocol: TLSConnectionProtocol {
         /// Untyped pointer to the underlying `GTlsClientConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol TLSClientConnectionProtocol: TLSConnectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GTlsClientConnection` is the client-side subclass of
+/// `GTlsConnection`, representing a client-side TLS connection.
+///
 /// The `TLSClientConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsClientConnection` instance.
 /// It exposes methods that can operate on this data type through `TLSClientConnectionProtocol` conformance.
 /// Use `TLSClientConnectionRef` only as an `unowned` reference to an existing `GTlsClientConnection` instance.
 ///
-/// `GTlsClientConnection` is the client-side subclass of
-/// `GTlsConnection`, representing a client-side TLS connection.
 public struct TLSClientConnectionRef: TLSClientConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsClientConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_client_connection_ptr` property instead.
@@ -109,12 +111,13 @@ public extension TLSClientConnectionRef {
 
     }
 
+/// `GTlsClientConnection` is the client-side subclass of
+/// `GTlsConnection`, representing a client-side TLS connection.
+///
 /// The `TLSClientConnection` type acts as a reference-counted owner of an underlying `GTlsClientConnection` instance.
 /// It provides the methods that can operate on this data type through `TLSClientConnectionProtocol` conformance.
 /// Use `TLSClientConnection` as a strong reference or owner of a `GTlsClientConnection` instance.
 ///
-/// `GTlsClientConnection` is the client-side subclass of
-/// `GTlsConnection`, representing a client-side TLS connection.
 open class TLSClientConnection: TLSConnection, TLSClientConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -266,6 +269,8 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case ciphersuiteName = "ciphersuite-name"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -294,6 +299,8 @@ public enum TLSClientConnectionPropertyName: String, PropertyNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case protocolVersion = "protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -441,12 +448,14 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -472,6 +481,8 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case notifyCiphersuiteName = "notify::ciphersuite-name"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -500,6 +511,8 @@ public enum TLSClientConnectionSignalName: String, SignalNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case notifyProtocolVersion = "notify::protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -743,14 +756,15 @@ public extension TLSClientConnectionProtocol {
 
 // MARK: - TLSFileDatabase Interface
 
+/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
+/// their certificate information from a file. It is an interface which
+/// TLS library specific subtypes implement.
+///
 /// The `TLSFileDatabaseProtocol` protocol exposes the methods and properties of an underlying `GTlsFileDatabase` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSFileDatabase`.
 /// Alternatively, use `TLSFileDatabaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
-/// their certificate information from a file. It is an interface which
-/// TLS library specific subtypes implement.
 public protocol TLSFileDatabaseProtocol: TLSDatabaseProtocol {
         /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -762,13 +776,14 @@ public protocol TLSFileDatabaseProtocol: TLSDatabaseProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
+/// their certificate information from a file. It is an interface which
+/// TLS library specific subtypes implement.
+///
 /// The `TLSFileDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsFileDatabase` instance.
 /// It exposes methods that can operate on this data type through `TLSFileDatabaseProtocol` conformance.
 /// Use `TLSFileDatabaseRef` only as an `unowned` reference to an existing `GTlsFileDatabase` instance.
 ///
-/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
-/// their certificate information from a file. It is an interface which
-/// TLS library specific subtypes implement.
 public struct TLSFileDatabaseRef: TLSFileDatabaseProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsFileDatabase` instance.
     /// For type-safe access, use the generated, typed pointer `tls_file_database_ptr` property instead.
@@ -850,13 +865,14 @@ public extension TLSFileDatabaseRef {
 
     }
 
+/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
+/// their certificate information from a file. It is an interface which
+/// TLS library specific subtypes implement.
+///
 /// The `TLSFileDatabase` type acts as a reference-counted owner of an underlying `GTlsFileDatabase` instance.
 /// It provides the methods that can operate on this data type through `TLSFileDatabaseProtocol` conformance.
 /// Use `TLSFileDatabase` as a strong reference or owner of a `GTlsFileDatabase` instance.
 ///
-/// `GTlsFileDatabase` is implemented by `GTlsDatabase` objects which load
-/// their certificate information from a file. It is an interface which
-/// TLS library specific subtypes implement.
 open class TLSFileDatabase: TLSDatabase, TLSFileDatabaseProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1063,12 +1079,14 @@ public enum TLSFileDatabaseSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1094,13 +1112,14 @@ public extension TLSFileDatabaseProtocol {
 
 // MARK: - TLSServerConnection Interface
 
+/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
+/// representing a server-side TLS connection.
+///
 /// The `TLSServerConnectionProtocol` protocol exposes the methods and properties of an underlying `GTlsServerConnection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSServerConnection`.
 /// Alternatively, use `TLSServerConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
-/// representing a server-side TLS connection.
 public protocol TLSServerConnectionProtocol: TLSConnectionProtocol {
         /// Untyped pointer to the underlying `GTlsServerConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1112,12 +1131,13 @@ public protocol TLSServerConnectionProtocol: TLSConnectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
+/// representing a server-side TLS connection.
+///
 /// The `TLSServerConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsServerConnection` instance.
 /// It exposes methods that can operate on this data type through `TLSServerConnectionProtocol` conformance.
 /// Use `TLSServerConnectionRef` only as an `unowned` reference to an existing `GTlsServerConnection` instance.
 ///
-/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
-/// representing a server-side TLS connection.
 public struct TLSServerConnectionRef: TLSServerConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsServerConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_server_connection_ptr` property instead.
@@ -1199,12 +1219,13 @@ public extension TLSServerConnectionRef {
 
     }
 
+/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
+/// representing a server-side TLS connection.
+///
 /// The `TLSServerConnection` type acts as a reference-counted owner of an underlying `GTlsServerConnection` instance.
 /// It provides the methods that can operate on this data type through `TLSServerConnectionProtocol` conformance.
 /// Use `TLSServerConnection` as a strong reference or owner of a `GTlsServerConnection` instance.
 ///
-/// `GTlsServerConnection` is the server-side subclass of `GTlsConnection`,
-/// representing a server-side TLS connection.
 open class TLSServerConnection: TLSConnection, TLSServerConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1352,6 +1373,8 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case ciphersuiteName = "ciphersuite-name"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -1380,6 +1403,8 @@ public enum TLSServerConnectionPropertyName: String, PropertyNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case protocolVersion = "protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -1501,12 +1526,14 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1528,6 +1555,8 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case notifyCiphersuiteName = "notify::ciphersuite-name"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -1556,6 +1585,8 @@ public enum TLSServerConnectionSignalName: String, SignalNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case notifyProtocolVersion = "notify::protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -1588,11 +1619,6 @@ public extension TLSServerConnectionProtocol {
 
 // MARK: - Volume Interface
 
-/// The `VolumeProtocol` protocol exposes the methods and properties of an underlying `GVolume` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Volume`.
-/// Alternatively, use `VolumeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GVolume` interface represents user-visible objects that can be
 /// mounted. Note, when porting from GnomeVFS, `GVolume` is the moral
 /// equivalent of `GnomeVFSDrive`.
@@ -1634,6 +1660,12 @@ public extension TLSServerConnectionProtocol {
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
+///
+/// The `VolumeProtocol` protocol exposes the methods and properties of an underlying `GVolume` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Volume`.
+/// Alternatively, use `VolumeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VolumeProtocol {
         /// Untyped pointer to the underlying `GVolume` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1645,10 +1677,6 @@ public protocol VolumeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VolumeRef` type acts as a lightweight Swift reference to an underlying `GVolume` instance.
-/// It exposes methods that can operate on this data type through `VolumeProtocol` conformance.
-/// Use `VolumeRef` only as an `unowned` reference to an existing `GVolume` instance.
-///
 /// The `GVolume` interface represents user-visible objects that can be
 /// mounted. Note, when porting from GnomeVFS, `GVolume` is the moral
 /// equivalent of `GnomeVFSDrive`.
@@ -1690,6 +1718,11 @@ public protocol VolumeProtocol {
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
+///
+/// The `VolumeRef` type acts as a lightweight Swift reference to an underlying `GVolume` instance.
+/// It exposes methods that can operate on this data type through `VolumeProtocol` conformance.
+/// Use `VolumeRef` only as an `unowned` reference to an existing `GVolume` instance.
+///
 public struct VolumeRef: VolumeProtocol {
         /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.
@@ -1768,10 +1801,6 @@ public extension VolumeRef {
 
     }
 
-/// The `Volume` type acts as an owner of an underlying `GVolume` instance.
-/// It provides the methods that can operate on this data type through `VolumeProtocol` conformance.
-/// Use `Volume` as a strong reference or owner of a `GVolume` instance.
-///
 /// The `GVolume` interface represents user-visible objects that can be
 /// mounted. Note, when porting from GnomeVFS, `GVolume` is the moral
 /// equivalent of `GnomeVFSDrive`.
@@ -1813,6 +1842,11 @@ public extension VolumeRef {
 /// will generally be able to provide the `G_VOLUME_IDENTIFIER_KIND_UNIX_DEVICE`
 /// identifier, which can be used to obtain a hal device by means of
 /// `libhal_manager_find_device_string_match()`.
+///
+/// The `Volume` type acts as an owner of an underlying `GVolume` instance.
+/// It provides the methods that can operate on this data type through `VolumeProtocol` conformance.
+/// Use `Volume` as a strong reference or owner of a `GVolume` instance.
+///
 open class Volume: VolumeProtocol {
         /// Untyped pointer to the underlying `GVolume` instance.
     /// For type-safe access, use the generated, typed pointer `volume_ptr` property instead.

@@ -1043,11 +1043,50 @@ import GLibObject
 
 
 
+/// This is a language binding friendly version of `g_dbus_escape_object_path_bytestring()`.
+@inlinable public func dbusEscapeObjectPath(s: UnsafePointer<gchar>!) -> String! {
+    guard let rv = g_dbus_escape_object_path(s).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
+/// Escapes `bytes` for use in a D-Bus object path component.
+/// `bytes` is an array of zero or more nonzero bytes in an
+/// unspecified encoding, followed by a single zero byte.
+/// 
+/// The escaping method consists of replacing all non-alphanumeric
+/// characters (see `g_ascii_isalnum()`) with their hexadecimal value
+/// preceded by an underscore (`_`). For example:
+/// `foo.bar.baz` will become `foo_2ebar_2ebaz`.
+/// 
+/// This method is appropriate to use when the input is nearly
+/// a valid object path component but is not when your input
+/// is far from being a valid object path component.
+/// Other escaping algorithms are also valid to use with
+/// D-Bus object paths.
+/// 
+/// This can be reversed with `g_dbus_unescape_object_path()`.
+@inlinable public func dbusEscapeObjectPathBytestring(bytes: UnsafePointer<guint8>!) -> String! {
+    guard let rv = g_dbus_escape_object_path_bytestring(bytes).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
 /// Generate a D-Bus GUID that can be used with
 /// e.g. `g_dbus_connection_new()`.
 /// 
-/// See the D-Bus specification regarding what strings are valid D-Bus
-/// GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
+/// See the
+/// [D-Bus specification](https://dbus.freedesktop.org/doc/dbus-specification.html`uuids`)
+/// regarding what strings are valid D-Bus GUIDs. The specification refers to
+/// these as ‘UUIDs’ whereas GLib (for historical reasons) refers to them as
+/// ‘GUIDs’. The terms are interchangeable.
+/// 
+/// Note that D-Bus GUIDs do not follow
+/// [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122).
 @inlinable public func dbusGenerateGuid() -> String! {
     guard let rv = g_dbus_generate_guid().map({ String(cString: $0) }) else { return nil }
     return rv
@@ -1125,10 +1164,23 @@ import GLibObject
 
 
 
+/// Check whether `string` is a valid D-Bus error name.
+/// 
+/// This function returns the same result as `g_dbus_is_interface_name()`,
+/// because D-Bus error names are defined to have exactly the
+/// same syntax as interface names.
+@inlinable public func dbusIsErrorName(string: UnsafePointer<gchar>!) -> Bool {
+    let rv = ((g_dbus_is_error_name(string)) != 0)
+    return rv
+}
+
+
+
+
 /// Checks if `string` is a D-Bus GUID.
 /// 
-/// See the D-Bus specification regarding what strings are valid D-Bus
-/// GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).
+/// See the documentation for `g_dbus_generate_guid()` for more information about
+/// the format of a GUID.
 @inlinable public func dbusIsGuid(string: UnsafePointer<gchar>!) -> Bool {
     let rv = ((g_dbus_is_guid(string)) != 0)
     return rv
@@ -1181,6 +1233,22 @@ import GLibObject
 /// Checks if `string` is a valid D-Bus unique bus name.
 @inlinable public func dbusIsUniqueName(string: UnsafePointer<gchar>!) -> Bool {
     let rv = ((g_dbus_is_unique_name(string)) != 0)
+    return rv
+}
+
+
+
+
+/// Unescapes an string that was previously escaped with
+/// `g_dbus_escape_object_path()`. If the string is in a format that could
+/// not have been returned by `g_dbus_escape_object_path()`, this function
+/// returns `nil`.
+/// 
+/// Encoding alphanumeric characters which do not need to be
+/// encoded is not allowed (e.g `_63` is not valid, the string
+/// should contain `c` instead).
+@inlinable public func dbusUnescapeObjectPath(s: UnsafePointer<gchar>!) -> UnsafeMutablePointer<guint8>! {
+    guard let rv = g_dbus_unescape_object_path(s) else { return nil }
     return rv
 }
 
@@ -1830,6 +1898,15 @@ import GLibObject
 
 
 
+/// Gets a reference to the default `GPowerProfileMonitor` for the system.
+@inlinable public func powerProfileMonitorDupDefault() -> PowerProfileMonitorRef! {
+    guard let rv = PowerProfileMonitorRef(gconstpointer: gconstpointer(g_power_profile_monitor_dup_default())) else { return nil }
+    return rv
+}
+
+
+
+
 /// Find the `gio-proxy` extension point for a proxy implementation that supports
 /// the specified protocol.
 @inlinable public func proxyGetDefaultForProtocol(`protocol`: UnsafePointer<gchar>!) -> ProxyRef! {
@@ -2217,6 +2294,8 @@ import GLibObject
 /// 
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
+/// 
+/// This will return `nil` if there is no mount point at `mount_path`.
 @inlinable public func unixMountAt(mountPath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
     guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_at(mountPath, timeRead))) else { return nil }
     return rv
@@ -2249,6 +2328,9 @@ import GLibObject
 /// 
 /// If more mounts have the same mount path, the last matching mount
 /// is returned.
+/// 
+/// This will return `nil` if looking up the mount entry fails, if
+/// `file_path` doesn’t exist or there is an I/O error.
 @inlinable public func unixMountFor(filePath: UnsafePointer<CChar>!, timeRead: UnsafeMutablePointer<guint64>! = nil) -> UnixMountEntryRef! {
     guard let rv = UnixMountEntryRef(gconstpointer: gconstpointer(g_unix_mount_for(filePath, timeRead))) else { return nil }
     return rv

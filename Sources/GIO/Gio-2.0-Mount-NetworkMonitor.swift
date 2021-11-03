@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - Mount Interface
 
-/// The `MountProtocol` protocol exposes the methods and properties of an underlying `GMount` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Mount`.
-/// Alternatively, use `MountRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GMount` interface represents user-visible mounts. Note, when
 /// porting from GnomeVFS, `GMount` is the moral equivalent of `GnomeVFSVolume`.
 /// 
@@ -28,6 +23,12 @@ import GLibObject
 /// and the `GAsyncResult` data to see if the operation was completed
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
+///
+/// The `MountProtocol` protocol exposes the methods and properties of an underlying `GMount` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Mount`.
+/// Alternatively, use `MountRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -39,10 +40,6 @@ public protocol MountProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MountRef` type acts as a lightweight Swift reference to an underlying `GMount` instance.
-/// It exposes methods that can operate on this data type through `MountProtocol` conformance.
-/// Use `MountRef` only as an `unowned` reference to an existing `GMount` instance.
-///
 /// The `GMount` interface represents user-visible mounts. Note, when
 /// porting from GnomeVFS, `GMount` is the moral equivalent of `GnomeVFSVolume`.
 /// 
@@ -62,6 +59,11 @@ public protocol MountProtocol {
 /// and the `GAsyncResult` data to see if the operation was completed
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
+///
+/// The `MountRef` type acts as a lightweight Swift reference to an underlying `GMount` instance.
+/// It exposes methods that can operate on this data type through `MountProtocol` conformance.
+/// Use `MountRef` only as an `unowned` reference to an existing `GMount` instance.
+///
 public struct MountRef: MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
@@ -140,10 +142,6 @@ public extension MountRef {
 
     }
 
-/// The `Mount` type acts as an owner of an underlying `GMount` instance.
-/// It provides the methods that can operate on this data type through `MountProtocol` conformance.
-/// Use `Mount` as a strong reference or owner of a `GMount` instance.
-///
 /// The `GMount` interface represents user-visible mounts. Note, when
 /// porting from GnomeVFS, `GMount` is the moral equivalent of `GnomeVFSVolume`.
 /// 
@@ -163,6 +161,11 @@ public extension MountRef {
 /// and the `GAsyncResult` data to see if the operation was completed
 /// successfully.  If an `error` is present when `g_mount_unmount_with_operation_finish()`
 /// is called, then it will be filled with any error information.
+///
+/// The `Mount` type acts as an owner of an underlying `GMount` instance.
+/// It provides the methods that can operate on this data type through `MountProtocol` conformance.
+/// Use `Mount` as a strong reference or owner of a `GMount` instance.
+///
 open class Mount: MountProtocol {
         /// Untyped pointer to the underlying `GMount` instance.
     /// For type-safe access, use the generated, typed pointer `mount_ptr` property instead.
@@ -916,17 +919,18 @@ public extension MountProtocol {
 
 // MARK: - NetworkMonitor Interface
 
-/// The `NetworkMonitorProtocol` protocol exposes the methods and properties of an underlying `GNetworkMonitor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NetworkMonitor`.
-/// Alternatively, use `NetworkMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GNetworkMonitor` provides an easy-to-use cross-platform API
 /// for monitoring network connectivity. On Linux, the available
 /// implementations are based on the kernel's netlink interface and
 /// on NetworkManager.
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
+///
+/// The `NetworkMonitorProtocol` protocol exposes the methods and properties of an underlying `GNetworkMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NetworkMonitor`.
+/// Alternatively, use `NetworkMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NetworkMonitorProtocol: InitableProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -938,16 +942,17 @@ public protocol NetworkMonitorProtocol: InitableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NetworkMonitorRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitor` instance.
-/// It exposes methods that can operate on this data type through `NetworkMonitorProtocol` conformance.
-/// Use `NetworkMonitorRef` only as an `unowned` reference to an existing `GNetworkMonitor` instance.
-///
 /// `GNetworkMonitor` provides an easy-to-use cross-platform API
 /// for monitoring network connectivity. On Linux, the available
 /// implementations are based on the kernel's netlink interface and
 /// on NetworkManager.
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
+///
+/// The `NetworkMonitorRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitor` instance.
+/// It exposes methods that can operate on this data type through `NetworkMonitorProtocol` conformance.
+/// Use `NetworkMonitorRef` only as an `unowned` reference to an existing `GNetworkMonitor` instance.
+///
 public struct NetworkMonitorRef: NetworkMonitorProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `network_monitor_ptr` property instead.
@@ -1031,16 +1036,17 @@ public extension NetworkMonitorRef {
     }
 }
 
-/// The `NetworkMonitor` type acts as an owner of an underlying `GNetworkMonitor` instance.
-/// It provides the methods that can operate on this data type through `NetworkMonitorProtocol` conformance.
-/// Use `NetworkMonitor` as a strong reference or owner of a `GNetworkMonitor` instance.
-///
 /// `GNetworkMonitor` provides an easy-to-use cross-platform API
 /// for monitoring network connectivity. On Linux, the available
 /// implementations are based on the kernel's netlink interface and
 /// on NetworkManager.
 /// 
 /// There is also an implementation for use inside Flatpak sandboxes.
+///
+/// The `NetworkMonitor` type acts as an owner of an underlying `GNetworkMonitor` instance.
+/// It provides the methods that can operate on this data type through `NetworkMonitorProtocol` conformance.
+/// Use `NetworkMonitor` as a strong reference or owner of a `GNetworkMonitor` instance.
+///
 open class NetworkMonitor: Initable, NetworkMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1385,12 +1391,14 @@ public extension NetworkMonitorProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1434,12 +1442,14 @@ public extension NetworkMonitorProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1483,12 +1493,14 @@ public extension NetworkMonitorProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

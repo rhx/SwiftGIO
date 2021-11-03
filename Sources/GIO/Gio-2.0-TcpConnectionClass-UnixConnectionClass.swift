@@ -19,12 +19,13 @@ public extension TcpConnectionClassRef {
 
 // MARK: - TcpConnectionClass Record
 
+
+///
 /// The `TcpConnectionClassProtocol` protocol exposes the methods and properties of an underlying `GTcpConnectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TcpConnectionClass`.
 /// Alternatively, use `TcpConnectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TcpConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol TcpConnectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TcpConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTcpConnectionClass` instance.
 /// It exposes methods that can operate on this data type through `TcpConnectionClassProtocol` conformance.
 /// Use `TcpConnectionClassRef` only as an `unowned` reference to an existing `GTcpConnectionClass` instance.
 ///
-
 public struct TcpConnectionClassRef: TcpConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTcpConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -153,12 +155,13 @@ public extension TcpWrapperConnectionClassRef {
 
 // MARK: - TcpWrapperConnectionClass Record
 
+
+///
 /// The `TcpWrapperConnectionClassProtocol` protocol exposes the methods and properties of an underlying `GTcpWrapperConnectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TcpWrapperConnectionClass`.
 /// Alternatively, use `TcpWrapperConnectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TcpWrapperConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -170,11 +173,12 @@ public protocol TcpWrapperConnectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TcpWrapperConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnectionClass` instance.
 /// It exposes methods that can operate on this data type through `TcpWrapperConnectionClassProtocol` conformance.
 /// Use `TcpWrapperConnectionClassRef` only as an `unowned` reference to an existing `GTcpWrapperConnectionClass` instance.
 ///
-
 public struct TcpWrapperConnectionClassRef: TcpWrapperConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTcpWrapperConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -287,12 +291,13 @@ public extension ThemedIconClassRef {
 
 // MARK: - ThemedIconClass Record
 
+
+///
 /// The `ThemedIconClassProtocol` protocol exposes the methods and properties of an underlying `GThemedIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ThemedIconClass`.
 /// Alternatively, use `ThemedIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ThemedIconClassProtocol {
         /// Untyped pointer to the underlying `GThemedIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -304,11 +309,12 @@ public protocol ThemedIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ThemedIconClassRef` type acts as a lightweight Swift reference to an underlying `GThemedIconClass` instance.
 /// It exposes methods that can operate on this data type through `ThemedIconClassProtocol` conformance.
 /// Use `ThemedIconClassRef` only as an `unowned` reference to an existing `GThemedIconClass` instance.
 ///
-
 public struct ThemedIconClassRef: ThemedIconClassProtocol {
         /// Untyped pointer to the underlying `GThemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -415,12 +421,13 @@ public extension ThreadedSocketServiceClassRef {
 
 // MARK: - ThreadedSocketServiceClass Record
 
+
+///
 /// The `ThreadedSocketServiceClassProtocol` protocol exposes the methods and properties of an underlying `GThreadedSocketServiceClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ThreadedSocketServiceClass`.
 /// Alternatively, use `ThreadedSocketServiceClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ThreadedSocketServiceClassProtocol {
         /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -432,11 +439,12 @@ public protocol ThreadedSocketServiceClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ThreadedSocketServiceClassRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketServiceClass` instance.
 /// It exposes methods that can operate on this data type through `ThreadedSocketServiceClassProtocol` conformance.
 /// Use `ThreadedSocketServiceClassRef` only as an `unowned` reference to an existing `GThreadedSocketServiceClass` instance.
 ///
-
 public struct ThreadedSocketServiceClassRef: ThreadedSocketServiceClassProtocol {
         /// Untyped pointer to the underlying `GThreadedSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -561,12 +569,13 @@ public extension TLSBackendInterfaceRef {
 
 // MARK: - TLSBackendInterface Record
 
+/// Provides an interface for describing TLS-related types.
+///
 /// The `TLSBackendInterfaceProtocol` protocol exposes the methods and properties of an underlying `GTlsBackendInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSBackendInterface`.
 /// Alternatively, use `TLSBackendInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for describing TLS-related types.
 public protocol TLSBackendInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -578,11 +587,12 @@ public protocol TLSBackendInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for describing TLS-related types.
+///
 /// The `TLSBackendInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsBackendInterface` instance.
 /// It exposes methods that can operate on this data type through `TLSBackendInterfaceProtocol` conformance.
 /// Use `TLSBackendInterfaceRef` only as an `unowned` reference to an existing `GTlsBackendInterface` instance.
 ///
-/// Provides an interface for describing TLS-related types.
 public struct TLSBackendInterfaceRef: TLSBackendInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsBackendInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -715,12 +725,13 @@ public extension TLSCertificateClassRef {
 
 // MARK: - TLSCertificateClass Record
 
+
+///
 /// The `TLSCertificateClassProtocol` protocol exposes the methods and properties of an underlying `GTlsCertificateClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSCertificateClass`.
 /// Alternatively, use `TLSCertificateClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TLSCertificateClassProtocol {
         /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -732,11 +743,12 @@ public protocol TLSCertificateClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TLSCertificateClassRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificateClass` instance.
 /// It exposes methods that can operate on this data type through `TLSCertificateClassProtocol` conformance.
 /// Use `TLSCertificateClassRef` only as an `unowned` reference to an existing `GTlsCertificateClass` instance.
 ///
-
 public struct TLSCertificateClassRef: TLSCertificateClassProtocol {
         /// Untyped pointer to the underlying `GTlsCertificateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -853,12 +865,13 @@ public extension TLSClientConnectionInterfaceRef {
 
 // MARK: - TLSClientConnectionInterface Record
 
+/// vtable for a `GTlsClientConnection` implementation.
+///
 /// The `TLSClientConnectionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GTlsClientConnectionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSClientConnectionInterface`.
 /// Alternatively, use `TLSClientConnectionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// vtable for a `GTlsClientConnection` implementation.
 public protocol TLSClientConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -870,11 +883,12 @@ public protocol TLSClientConnectionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// vtable for a `GTlsClientConnection` implementation.
+///
 /// The `TLSClientConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsClientConnectionInterface` instance.
 /// It exposes methods that can operate on this data type through `TLSClientConnectionInterfaceProtocol` conformance.
 /// Use `TLSClientConnectionInterfaceRef` only as an `unowned` reference to an existing `GTlsClientConnectionInterface` instance.
 ///
-/// vtable for a `GTlsClientConnection` implementation.
 public struct TLSClientConnectionInterfaceRef: TLSClientConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -991,12 +1005,13 @@ public extension TLSConnectionClassRef {
 
 // MARK: - TLSConnectionClass Record
 
+/// The class structure for the `GTlsConnection` type.
+///
 /// The `TLSConnectionClassProtocol` protocol exposes the methods and properties of an underlying `GTlsConnectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSConnectionClass`.
 /// Alternatively, use `TLSConnectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TLSConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1008,11 +1023,12 @@ public protocol TLSConnectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class structure for the `GTlsConnection` type.
+///
 /// The `TLSConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GTlsConnectionClass` instance.
 /// It exposes methods that can operate on this data type through `TLSConnectionClassProtocol` conformance.
 /// Use `TLSConnectionClassRef` only as an `unowned` reference to an existing `GTlsConnectionClass` instance.
 ///
-
 public struct TLSConnectionClassRef: TLSConnectionClassProtocol {
         /// Untyped pointer to the underlying `GTlsConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1097,7 +1113,9 @@ public extension TLSConnectionClassProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GTlsConnectionClass>! { return ptr?.assumingMemoryBound(to: GTlsConnectionClass.self) }
 
 
+    /// The parent class.
     @inlinable var parentClass: GIOStreamClass {
+        /// The parent class.
         get {
             let rv = _ptr.pointee.parent_class
             return rv
@@ -1113,6 +1131,8 @@ public extension TLSConnectionClassProtocol {
     // var handshakeFinish is unavailable because handshake_finish is void
 
     // var getBindingData is unavailable because get_binding_data is void
+
+    // var getNegotiatedProtocol is unavailable because get_negotiated_protocol is void
 
     // var padding is unavailable because padding is private
 
@@ -1137,14 +1157,15 @@ public extension TLSDatabaseClassRef {
 
 // MARK: - TLSDatabaseClass Record
 
+/// The class for `GTlsDatabase`. Derived classes should implement the various
+/// virtual methods. _async and _finish methods have a default
+/// implementation that runs the corresponding sync method in a thread.
+///
 /// The `TLSDatabaseClassProtocol` protocol exposes the methods and properties of an underlying `GTlsDatabaseClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSDatabaseClass`.
 /// Alternatively, use `TLSDatabaseClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The class for `GTlsDatabase`. Derived classes should implement the various
-/// virtual methods. _async and _finish methods have a default
-/// implementation that runs the corresponding sync method in a thread.
 public protocol TLSDatabaseClassProtocol {
         /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1156,13 +1177,14 @@ public protocol TLSDatabaseClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The class for `GTlsDatabase`. Derived classes should implement the various
+/// virtual methods. _async and _finish methods have a default
+/// implementation that runs the corresponding sync method in a thread.
+///
 /// The `TLSDatabaseClassRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabaseClass` instance.
 /// It exposes methods that can operate on this data type through `TLSDatabaseClassProtocol` conformance.
 /// Use `TLSDatabaseClassRef` only as an `unowned` reference to an existing `GTlsDatabaseClass` instance.
 ///
-/// The class for `GTlsDatabase`. Derived classes should implement the various
-/// virtual methods. _async and _finish methods have a default
-/// implementation that runs the corresponding sync method in a thread.
 public struct TLSDatabaseClassRef: TLSDatabaseClassProtocol {
         /// Untyped pointer to the underlying `GTlsDatabaseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1303,12 +1325,13 @@ public extension TLSFileDatabaseInterfaceRef {
 
 // MARK: - TLSFileDatabaseInterface Record
 
+/// Provides an interface for `GTlsFileDatabase` implementations.
+///
 /// The `TLSFileDatabaseInterfaceProtocol` protocol exposes the methods and properties of an underlying `GTlsFileDatabaseInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSFileDatabaseInterface`.
 /// Alternatively, use `TLSFileDatabaseInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for `GTlsFileDatabase` implementations.
 public protocol TLSFileDatabaseInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1320,11 +1343,12 @@ public protocol TLSFileDatabaseInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for `GTlsFileDatabase` implementations.
+///
 /// The `TLSFileDatabaseInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsFileDatabaseInterface` instance.
 /// It exposes methods that can operate on this data type through `TLSFileDatabaseInterfaceProtocol` conformance.
 /// Use `TLSFileDatabaseInterfaceRef` only as an `unowned` reference to an existing `GTlsFileDatabaseInterface` instance.
 ///
-/// Provides an interface for `GTlsFileDatabase` implementations.
 public struct TLSFileDatabaseInterfaceRef: TLSFileDatabaseInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsFileDatabaseInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1441,11 +1465,6 @@ public extension TLSInteractionClassRef {
 
 // MARK: - TLSInteractionClass Record
 
-/// The `TLSInteractionClassProtocol` protocol exposes the methods and properties of an underlying `GTlsInteractionClass` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TLSInteractionClass`.
-/// Alternatively, use `TLSInteractionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The class for `GTlsInteraction`. Derived classes implement the various
 /// virtual interaction methods to handle TLS interactions.
 /// 
@@ -1460,6 +1479,12 @@ public extension TLSInteractionClassRef {
 /// If the user cancels an interaction, then the result should be
 /// `G_TLS_INTERACTION_FAILED` and the error should be set with a domain of
 /// `G_IO_ERROR` and code of `G_IO_ERROR_CANCELLED`.
+///
+/// The `TLSInteractionClassProtocol` protocol exposes the methods and properties of an underlying `GTlsInteractionClass` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TLSInteractionClass`.
+/// Alternatively, use `TLSInteractionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TLSInteractionClassProtocol {
         /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1471,10 +1496,6 @@ public protocol TLSInteractionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TLSInteractionClassRef` type acts as a lightweight Swift reference to an underlying `GTlsInteractionClass` instance.
-/// It exposes methods that can operate on this data type through `TLSInteractionClassProtocol` conformance.
-/// Use `TLSInteractionClassRef` only as an `unowned` reference to an existing `GTlsInteractionClass` instance.
-///
 /// The class for `GTlsInteraction`. Derived classes implement the various
 /// virtual interaction methods to handle TLS interactions.
 /// 
@@ -1489,6 +1510,11 @@ public protocol TLSInteractionClassProtocol {
 /// If the user cancels an interaction, then the result should be
 /// `G_TLS_INTERACTION_FAILED` and the error should be set with a domain of
 /// `G_IO_ERROR` and code of `G_IO_ERROR_CANCELLED`.
+///
+/// The `TLSInteractionClassRef` type acts as a lightweight Swift reference to an underlying `GTlsInteractionClass` instance.
+/// It exposes methods that can operate on this data type through `TLSInteractionClassProtocol` conformance.
+/// Use `TLSInteractionClassRef` only as an `unowned` reference to an existing `GTlsInteractionClass` instance.
+///
 public struct TLSInteractionClassRef: TLSInteractionClassProtocol {
         /// Untyped pointer to the underlying `GTlsInteractionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1610,12 +1636,13 @@ public extension TLSPasswordClassRef {
 
 // MARK: - TLSPasswordClass Record
 
+/// Class structure for `GTlsPassword`.
+///
 /// The `TLSPasswordClassProtocol` protocol exposes the methods and properties of an underlying `GTlsPasswordClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSPasswordClass`.
 /// Alternatively, use `TLSPasswordClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GTlsPassword`.
 public protocol TLSPasswordClassProtocol {
         /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1627,11 +1654,12 @@ public protocol TLSPasswordClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GTlsPassword`.
+///
 /// The `TLSPasswordClassRef` type acts as a lightweight Swift reference to an underlying `GTlsPasswordClass` instance.
 /// It exposes methods that can operate on this data type through `TLSPasswordClassProtocol` conformance.
 /// Use `TLSPasswordClassRef` only as an `unowned` reference to an existing `GTlsPasswordClass` instance.
 ///
-/// Class structure for `GTlsPassword`.
 public struct TLSPasswordClassRef: TLSPasswordClassProtocol {
         /// Untyped pointer to the underlying `GTlsPasswordClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1752,12 +1780,13 @@ public extension TLSServerConnectionInterfaceRef {
 
 // MARK: - TLSServerConnectionInterface Record
 
+/// vtable for a `GTlsServerConnection` implementation.
+///
 /// The `TLSServerConnectionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GTlsServerConnectionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSServerConnectionInterface`.
 /// Alternatively, use `TLSServerConnectionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// vtable for a `GTlsServerConnection` implementation.
 public protocol TLSServerConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1769,11 +1798,12 @@ public protocol TLSServerConnectionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// vtable for a `GTlsServerConnection` implementation.
+///
 /// The `TLSServerConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GTlsServerConnectionInterface` instance.
 /// It exposes methods that can operate on this data type through `TLSServerConnectionInterfaceProtocol` conformance.
 /// Use `TLSServerConnectionInterfaceRef` only as an `unowned` reference to an existing `GTlsServerConnectionInterface` instance.
 ///
-/// vtable for a `GTlsServerConnection` implementation.
 public struct TLSServerConnectionInterfaceRef: TLSServerConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GTlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1888,12 +1918,13 @@ public extension UnixConnectionClassRef {
 
 // MARK: - UnixConnectionClass Record
 
+
+///
 /// The `UnixConnectionClassProtocol` protocol exposes the methods and properties of an underlying `GUnixConnectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `UnixConnectionClass`.
 /// Alternatively, use `UnixConnectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol UnixConnectionClassProtocol {
         /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1905,11 +1936,12 @@ public protocol UnixConnectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `UnixConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GUnixConnectionClass` instance.
 /// It exposes methods that can operate on this data type through `UnixConnectionClassProtocol` conformance.
 /// Use `UnixConnectionClassRef` only as an `unowned` reference to an existing `GUnixConnectionClass` instance.
 ///
-
 public struct UnixConnectionClassRef: UnixConnectionClassProtocol {
         /// Untyped pointer to the underlying `GUnixConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

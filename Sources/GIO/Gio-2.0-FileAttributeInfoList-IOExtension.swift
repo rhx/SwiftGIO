@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - FileAttributeInfoList Record
 
+/// Acts as a lightweight registry for possible valid file attributes.
+/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
+///
 /// The `FileAttributeInfoListProtocol` protocol exposes the methods and properties of an underlying `GFileAttributeInfoList` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileAttributeInfoList`.
 /// Alternatively, use `FileAttributeInfoListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Acts as a lightweight registry for possible valid file attributes.
-/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 public protocol FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol FileAttributeInfoListProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Acts as a lightweight registry for possible valid file attributes.
+/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
+///
 /// The `FileAttributeInfoListRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeInfoList` instance.
 /// It exposes methods that can operate on this data type through `FileAttributeInfoListProtocol` conformance.
 /// Use `FileAttributeInfoListRef` only as an `unowned` reference to an existing `GFileAttributeInfoList` instance.
 ///
-/// Acts as a lightweight registry for possible valid file attributes.
-/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 public struct FileAttributeInfoListRef: FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
@@ -111,12 +113,13 @@ public extension FileAttributeInfoListRef {
     }
 }
 
+/// Acts as a lightweight registry for possible valid file attributes.
+/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
+///
 /// The `FileAttributeInfoList` type acts as a reference-counted owner of an underlying `GFileAttributeInfoList` instance.
 /// It provides the methods that can operate on this data type through `FileAttributeInfoListProtocol` conformance.
 /// Use `FileAttributeInfoList` as a strong reference or owner of a `GFileAttributeInfoList` instance.
 ///
-/// Acts as a lightweight registry for possible valid file attributes.
-/// The registry stores Key-Value pair formats as `GFileAttributeInfos`.
 open class FileAttributeInfoList: FileAttributeInfoListProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfoList` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_info_list_ptr` property instead.
@@ -340,12 +343,13 @@ public extension FileAttributeInfoListProtocol {
 
 // MARK: - FileAttributeMatcher Record
 
+/// Determines if a string matches a file attribute.
+///
 /// The `FileAttributeMatcherProtocol` protocol exposes the methods and properties of an underlying `GFileAttributeMatcher` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileAttributeMatcher`.
 /// Alternatively, use `FileAttributeMatcherRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Determines if a string matches a file attribute.
 public protocol FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -357,11 +361,12 @@ public protocol FileAttributeMatcherProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Determines if a string matches a file attribute.
+///
 /// The `FileAttributeMatcherRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeMatcher` instance.
 /// It exposes methods that can operate on this data type through `FileAttributeMatcherProtocol` conformance.
 /// Use `FileAttributeMatcherRef` only as an `unowned` reference to an existing `GFileAttributeMatcher` instance.
 ///
-/// Determines if a string matches a file attribute.
 public struct FileAttributeMatcherRef: FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
@@ -463,11 +468,12 @@ public extension FileAttributeMatcherRef {
     }
 }
 
+/// Determines if a string matches a file attribute.
+///
 /// The `FileAttributeMatcher` type acts as a reference-counted owner of an underlying `GFileAttributeMatcher` instance.
 /// It provides the methods that can operate on this data type through `FileAttributeMatcherProtocol` conformance.
 /// Use `FileAttributeMatcher` as a strong reference or owner of a `GFileAttributeMatcher` instance.
 ///
-/// Determines if a string matches a file attribute.
 open class FileAttributeMatcher: FileAttributeMatcherProtocol {
         /// Untyped pointer to the underlying `GFileAttributeMatcher` instance.
     /// For type-safe access, use the generated, typed pointer `file_attribute_matcher_ptr` property instead.
@@ -746,12 +752,13 @@ public extension FileDescriptorBasedIfaceRef {
 
 // MARK: - FileDescriptorBasedIface Record
 
+/// An interface for file descriptor based io objects.
+///
 /// The `FileDescriptorBasedIfaceProtocol` protocol exposes the methods and properties of an underlying `GFileDescriptorBasedIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileDescriptorBasedIface`.
 /// Alternatively, use `FileDescriptorBasedIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An interface for file descriptor based io objects.
 public protocol FileDescriptorBasedIfaceProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -763,11 +770,12 @@ public protocol FileDescriptorBasedIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An interface for file descriptor based io objects.
+///
 /// The `FileDescriptorBasedIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBasedIface` instance.
 /// It exposes methods that can operate on this data type through `FileDescriptorBasedIfaceProtocol` conformance.
 /// Use `FileDescriptorBasedIfaceRef` only as an `unowned` reference to an existing `GFileDescriptorBasedIface` instance.
 ///
-/// An interface for file descriptor based io objects.
 public struct FileDescriptorBasedIfaceRef: FileDescriptorBasedIfaceProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBasedIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -884,12 +892,13 @@ public extension FileEnumeratorClassRef {
 
 // MARK: - FileEnumeratorClass Record
 
+
+///
 /// The `FileEnumeratorClassProtocol` protocol exposes the methods and properties of an underlying `GFileEnumeratorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileEnumeratorClass`.
 /// Alternatively, use `FileEnumeratorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -901,11 +910,12 @@ public protocol FileEnumeratorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GFileEnumeratorClass` instance.
 /// It exposes methods that can operate on this data type through `FileEnumeratorClassProtocol` conformance.
 /// Use `FileEnumeratorClassRef` only as an `unowned` reference to an existing `GFileEnumeratorClass` instance.
 ///
-
 public struct FileEnumeratorClassRef: FileEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GFileEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1044,12 +1054,13 @@ public extension FileIOStreamClassRef {
 
 // MARK: - FileIOStreamClass Record
 
+
+///
 /// The `FileIOStreamClassProtocol` protocol exposes the methods and properties of an underlying `GFileIOStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileIOStreamClass`.
 /// Alternatively, use `FileIOStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileIOStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1061,11 +1072,12 @@ public protocol FileIOStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileIOStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileIOStreamClass` instance.
 /// It exposes methods that can operate on this data type through `FileIOStreamClassProtocol` conformance.
 /// Use `FileIOStreamClassRef` only as an `unowned` reference to an existing `GFileIOStreamClass` instance.
 ///
-
 public struct FileIOStreamClassRef: FileIOStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileIOStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1206,12 +1218,13 @@ public extension FileIconClassRef {
 
 // MARK: - FileIconClass Record
 
+
+///
 /// The `FileIconClassProtocol` protocol exposes the methods and properties of an underlying `GFileIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileIconClass`.
 /// Alternatively, use `FileIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileIconClassProtocol {
         /// Untyped pointer to the underlying `GFileIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1223,11 +1236,12 @@ public protocol FileIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileIconClassRef` type acts as a lightweight Swift reference to an underlying `GFileIconClass` instance.
 /// It exposes methods that can operate on this data type through `FileIconClassProtocol` conformance.
 /// Use `FileIconClassRef` only as an `unowned` reference to an existing `GFileIconClass` instance.
 ///
-
 public struct FileIconClassRef: FileIconClassProtocol {
         /// Untyped pointer to the underlying `GFileIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1334,12 +1348,13 @@ public extension FileIfaceRef {
 
 // MARK: - FileIface Record
 
+/// An interface for writing VFS file handles.
+///
 /// The `FileIfaceProtocol` protocol exposes the methods and properties of an underlying `GFileIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileIface`.
 /// Alternatively, use `FileIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An interface for writing VFS file handles.
 public protocol FileIfaceProtocol {
         /// Untyped pointer to the underlying `GFileIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1351,11 +1366,12 @@ public protocol FileIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An interface for writing VFS file handles.
+///
 /// The `FileIfaceRef` type acts as a lightweight Swift reference to an underlying `GFileIface` instance.
 /// It exposes methods that can operate on this data type through `FileIfaceProtocol` conformance.
 /// Use `FileIfaceRef` only as an `unowned` reference to an existing `GFileIface` instance.
 ///
-/// An interface for writing VFS file handles.
 public struct FileIfaceRef: FileIfaceProtocol {
         /// Untyped pointer to the underlying `GFileIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1683,12 +1699,13 @@ public extension FileInfoClassRef {
 
 // MARK: - FileInfoClass Record
 
+
+///
 /// The `FileInfoClassProtocol` protocol exposes the methods and properties of an underlying `GFileInfoClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileInfoClass`.
 /// Alternatively, use `FileInfoClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileInfoClassProtocol {
         /// Untyped pointer to the underlying `GFileInfoClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1700,11 +1717,12 @@ public protocol FileInfoClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileInfoClassRef` type acts as a lightweight Swift reference to an underlying `GFileInfoClass` instance.
 /// It exposes methods that can operate on this data type through `FileInfoClassProtocol` conformance.
 /// Use `FileInfoClassRef` only as an `unowned` reference to an existing `GFileInfoClass` instance.
 ///
-
 public struct FileInfoClassRef: FileInfoClassProtocol {
         /// Untyped pointer to the underlying `GFileInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1811,12 +1829,13 @@ public extension FileInputStreamClassRef {
 
 // MARK: - FileInputStreamClass Record
 
+
+///
 /// The `FileInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GFileInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileInputStreamClass`.
 /// Alternatively, use `FileInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1828,11 +1847,12 @@ public protocol FileInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `FileInputStreamClassProtocol` conformance.
 /// Use `FileInputStreamClassRef` only as an `unowned` reference to an existing `GFileInputStreamClass` instance.
 ///
-
 public struct FileInputStreamClassRef: FileInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1967,12 +1987,13 @@ public extension FileMonitorClassRef {
 
 // MARK: - FileMonitorClass Record
 
+
+///
 /// The `FileMonitorClassProtocol` protocol exposes the methods and properties of an underlying `GFileMonitorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileMonitorClass`.
 /// Alternatively, use `FileMonitorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileMonitorClassProtocol {
         /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1984,11 +2005,12 @@ public protocol FileMonitorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GFileMonitorClass` instance.
 /// It exposes methods that can operate on this data type through `FileMonitorClassProtocol` conformance.
 /// Use `FileMonitorClassRef` only as an `unowned` reference to an existing `GFileMonitorClass` instance.
 ///
-
 public struct FileMonitorClassRef: FileMonitorClassProtocol {
         /// Untyped pointer to the underlying `GFileMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2115,12 +2137,13 @@ public extension FileOutputStreamClassRef {
 
 // MARK: - FileOutputStreamClass Record
 
+
+///
 /// The `FileOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GFileOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileOutputStreamClass`.
 /// Alternatively, use `FileOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FileOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2132,11 +2155,12 @@ public protocol FileOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FileOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `FileOutputStreamClassProtocol` conformance.
 /// Use `FileOutputStreamClassRef` only as an `unowned` reference to an existing `GFileOutputStreamClass` instance.
 ///
-
 public struct FileOutputStreamClassRef: FileOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFileOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2277,12 +2301,13 @@ public extension FilenameCompleterClassRef {
 
 // MARK: - FilenameCompleterClass Record
 
+
+///
 /// The `FilenameCompleterClassProtocol` protocol exposes the methods and properties of an underlying `GFilenameCompleterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilenameCompleterClass`.
 /// Alternatively, use `FilenameCompleterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FilenameCompleterClassProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2294,11 +2319,12 @@ public protocol FilenameCompleterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FilenameCompleterClassRef` type acts as a lightweight Swift reference to an underlying `GFilenameCompleterClass` instance.
 /// It exposes methods that can operate on this data type through `FilenameCompleterClassProtocol` conformance.
 /// Use `FilenameCompleterClassRef` only as an `unowned` reference to an existing `GFilenameCompleterClass` instance.
 ///
-
 public struct FilenameCompleterClassRef: FilenameCompleterClassProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2419,12 +2445,13 @@ public extension FilterInputStreamClassRef {
 
 // MARK: - FilterInputStreamClass Record
 
+
+///
 /// The `FilterInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GFilterInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterInputStreamClass`.
 /// Alternatively, use `FilterInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FilterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2436,11 +2463,12 @@ public protocol FilterInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FilterInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `FilterInputStreamClassProtocol` conformance.
 /// Use `FilterInputStreamClassRef` only as an `unowned` reference to an existing `GFilterInputStreamClass` instance.
 ///
-
 public struct FilterInputStreamClassRef: FilterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2559,12 +2587,13 @@ public extension FilterOutputStreamClassRef {
 
 // MARK: - FilterOutputStreamClass Record
 
+
+///
 /// The `FilterOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GFilterOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterOutputStreamClass`.
 /// Alternatively, use `FilterOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol FilterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2576,11 +2605,12 @@ public protocol FilterOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `FilterOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `FilterOutputStreamClassProtocol` conformance.
 /// Use `FilterOutputStreamClassRef` only as an `unowned` reference to an existing `GFilterOutputStreamClass` instance.
 ///
-
 public struct FilterOutputStreamClassRef: FilterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2684,13 +2714,14 @@ public extension FilterOutputStreamClassProtocol {
 
 // MARK: - IOExtension Record
 
+/// `GIOExtension` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtensionProtocol` protocol exposes the methods and properties of an underlying `GIOExtension` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOExtension`.
 /// Alternatively, use `IOExtensionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GIOExtension` is an opaque data structure and can only be accessed
-/// using the following functions.
 public protocol IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2702,12 +2733,13 @@ public protocol IOExtensionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GIOExtension` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtensionRef` type acts as a lightweight Swift reference to an underlying `GIOExtension` instance.
 /// It exposes methods that can operate on this data type through `IOExtensionProtocol` conformance.
 /// Use `IOExtensionRef` only as an `unowned` reference to an existing `GIOExtension` instance.
 ///
-/// `GIOExtension` is an opaque data structure and can only be accessed
-/// using the following functions.
 public struct IOExtensionRef: IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2786,12 +2818,13 @@ public extension IOExtensionRef {
 
     }
 
+/// `GIOExtension` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `IOExtension` type acts as an owner of an underlying `GIOExtension` instance.
 /// It provides the methods that can operate on this data type through `IOExtensionProtocol` conformance.
 /// Use `IOExtension` as a strong reference or owner of a `GIOExtension` instance.
 ///
-/// `GIOExtension` is an opaque data structure and can only be accessed
-/// using the following functions.
 open class IOExtension: IOExtensionProtocol {
         /// Untyped pointer to the underlying `GIOExtension` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

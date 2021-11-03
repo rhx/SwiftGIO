@@ -10,19 +10,28 @@ import GLibObject
 /// where the `GTask` was created. All other users of
 /// `GAsyncReadyCallback` must likewise call it asynchronously in a
 /// later iteration of the main context.
+/// 
+/// The asynchronous operation is guaranteed to have held a reference to
+/// `source_object` from the time when the ``*_async()`` function was called, until
+/// after this callback returns.
 public typealias AsyncReadyCallback = GAsyncReadyCallback
+
 
 /// Invoked when a connection to a message bus has been obtained.
 public typealias BusAcquiredCallback = GBusAcquiredCallback
 
+
 /// Invoked when the name is acquired.
 public typealias BusNameAcquiredCallback = GBusNameAcquiredCallback
+
 
 /// Invoked when the name being watched is known to have to have an owner.
 public typealias BusNameAppearedCallback = GBusNameAppearedCallback
 
+
 /// Invoked when the name is lost or `connection` has been closed.
 public typealias BusNameLostCallback = GBusNameLostCallback
+
 
 /// Invoked when the name being watched is known not to have to have an owner.
 /// 
@@ -31,18 +40,23 @@ public typealias BusNameLostCallback = GBusNameLostCallback
 /// `nil`.
 public typealias BusNameVanishedCallback = GBusNameVanishedCallback
 
+
 /// This is the function type of the callback used for the `GSource`
 /// returned by `g_cancellable_source_new()`.
 public typealias CancellableSourceFunc = GCancellableSourceFunc
 
+
 /// The type of the `get_property` function in `GDBusInterfaceVTable`.
 public typealias DBusInterfaceGetPropertyFunc = GDBusInterfaceGetPropertyFunc
+
 
 /// The type of the `method_call` function in `GDBusInterfaceVTable`.
 public typealias DBusInterfaceMethodCallFunc = GDBusInterfaceMethodCallFunc
 
+
 /// The type of the `set_property` function in `GDBusInterfaceVTable`.
 public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
+
 
 /// Signature for function used in `g_dbus_connection_add_filter()`.
 /// 
@@ -105,6 +119,7 @@ public typealias DBusInterfaceSetPropertyFunc = GDBusInterfaceSetPropertyFunc
 /// `GDBusCapabilityFlags` value obtained from `connection`.
 public typealias DBusMessageFilterFunction = GDBusMessageFilterFunction
 
+
 /// Function signature for a function used to determine the `GType` to
 /// use for an interface proxy (if `interface_name` is not `nil`) or
 /// object proxy (if `interface_name` is `nil`).
@@ -114,14 +129,17 @@ public typealias DBusMessageFilterFunction = GDBusMessageFilterFunction
 /// that `manager` was constructed in.
 public typealias DBusProxyTypeFunc = GDBusProxyTypeFunc
 
+
 /// Signature for callback function used in `g_dbus_connection_signal_subscribe()`.
 public typealias DBusSignalCallback = GDBusSignalCallback
+
 
 /// The type of the `dispatch` function in `GDBusSubtreeVTable`.
 /// 
 /// Subtrees are flat.  `node`, if non-`nil`, is always exactly one
 /// segment of the object path (ie: it never contains a slash).
 public typealias DBusSubtreeDispatchFunc = GDBusSubtreeDispatchFunc
+
 
 /// The type of the `enumerate` function in `GDBusSubtreeVTable`.
 /// 
@@ -131,10 +149,11 @@ public typealias DBusSubtreeDispatchFunc = GDBusSubtreeDispatchFunc
 /// specified (ie: to verify that the object path is valid).
 /// 
 /// Hierarchies are not supported; the items that you return should not
-/// contain the '/' character.
+/// contain the `/` character.
 /// 
 /// The return value will be freed with `g_strfreev()`.
 public typealias DBusSubtreeEnumerateFunc = GDBusSubtreeEnumerateFunc
+
 
 /// The type of the `introspect` function in `GDBusSubtreeVTable`.
 /// 
@@ -156,9 +175,11 @@ public typealias DBusSubtreeEnumerateFunc = GDBusSubtreeEnumerateFunc
 /// case.
 public typealias DBusSubtreeIntrospectFunc = GDBusSubtreeIntrospectFunc
 
+
 /// This is the function type of the callback used for the `GSource`
 /// returned by `g_datagram_based_create_source()`.
 public typealias DatagramBasedSourceFunc = GDatagramBasedSourceFunc
+
 
 /// This callback type is used by `g_file_measure_disk_usage()` to make
 /// periodic progress reports when measuring the amount of disk spaced
@@ -189,10 +210,12 @@ public typealias DatagramBasedSourceFunc = GDatagramBasedSourceFunc
 /// result.  Always check the async result to get the final value.
 public typealias FileMeasureProgressCallback = GFileMeasureProgressCallback
 
+
 /// When doing file operations that may take a while, such as moving
 /// a file or copying a file, a progress callback is used to pass how
 /// far along that operation is to the application.
 public typealias FileProgressCallback = GFileProgressCallback
+
 
 /// When loading the partial contents of a file with `g_file_load_partial_contents_async()`,
 /// it may become necessary to determine if any more data from the file should be loaded.
@@ -200,16 +223,19 @@ public typealias FileProgressCallback = GFileProgressCallback
 /// should be read, or `false` otherwise.
 public typealias FileReadMoreCallback = GFileReadMoreCallback
 
+
 /// I/O Job function.
 /// 
 /// Long-running jobs should periodically check the `cancellable`
 /// to see if they have been cancelled.
 public typealias IOSchedulerJobFunc = GIOSchedulerJobFunc
 
+
 /// This is the function type of the callback used for the `GSource`
 /// returned by `g_pollable_input_stream_create_source()` and
 /// `g_pollable_output_stream_create_source()`.
 public typealias PollableSourceFunc = GPollableSourceFunc
+
 
 /// Changes the size of the memory block pointed to by `data` to
 /// `size` bytes.
@@ -217,14 +243,17 @@ public typealias PollableSourceFunc = GPollableSourceFunc
 /// The function should have the same semantics as `realloc()`.
 public typealias ReallocFunc = GReallocFunc
 
+
 /// The type for the function that is used to convert from `GSettings` to
 /// an object property. The `value` is already initialized to hold values
 /// of the appropriate type.
 public typealias SettingsBindGetMapping = GSettingsBindGetMapping
 
+
 /// The type for the function that is used to convert an object property
 /// value to a `GVariant` for storing it in `GSettings`.
 public typealias SettingsBindSetMapping = GSettingsBindSetMapping
+
 
 /// The type of the function that is used to convert from a value stored
 /// in a `GSettings` to a value that is useful to the application.
@@ -238,13 +267,16 @@ public typealias SettingsBindSetMapping = GSettingsBindSetMapping
 /// must be returned in this case.
 public typealias SettingsGetMapping = GSettingsGetMapping
 
+
 /// Simple thread function that runs an asynchronous operation and
 /// checks for cancellation.
 public typealias SimpleAsyncThreadFunc = GSimpleAsyncThreadFunc
 
+
 /// This is the function type of the callback used for the `GSource`
 /// returned by `g_socket_create_source()`.
 public typealias SocketSourceFunc = GSocketSourceFunc
+
 
 /// The prototype for a task function to be run in a thread via
 /// `g_task_run_in_thread()` or `g_task_run_in_thread_sync()`.
@@ -262,6 +294,7 @@ public typealias SocketSourceFunc = GSocketSourceFunc
 /// `GTaskThreadFunc` returns, not when it calls a
 /// `g_task_return_` function.
 public typealias TaskThreadFunc = GTaskThreadFunc
+
 
 /// This function type is used by `g_vfs_register_uri_scheme()` to make it
 /// possible for a client to associate an URI scheme to a different `GFile`

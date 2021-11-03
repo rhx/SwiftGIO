@@ -19,12 +19,13 @@ public extension MemoryMonitorInterfaceRef {
 
 // MARK: - MemoryMonitorInterface Record
 
+/// The virtual function table for `GMemoryMonitor`.
+///
 /// The `MemoryMonitorInterfaceProtocol` protocol exposes the methods and properties of an underlying `GMemoryMonitorInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MemoryMonitorInterface`.
 /// Alternatively, use `MemoryMonitorInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GMemoryMonitor`.
 public protocol MemoryMonitorInterfaceProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol MemoryMonitorInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GMemoryMonitor`.
+///
 /// The `MemoryMonitorInterfaceRef` type acts as a lightweight Swift reference to an underlying `GMemoryMonitorInterface` instance.
 /// It exposes methods that can operate on this data type through `MemoryMonitorInterfaceProtocol` conformance.
 /// Use `MemoryMonitorInterfaceRef` only as an `unowned` reference to an existing `GMemoryMonitorInterface` instance.
 ///
-/// The virtual function table for `GMemoryMonitor`.
 public struct MemoryMonitorInterfaceRef: MemoryMonitorInterfaceProtocol {
         /// Untyped pointer to the underlying `GMemoryMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -150,12 +152,13 @@ public extension MemoryOutputStreamClassRef {
 
 // MARK: - MemoryOutputStreamClass Record
 
+
+///
 /// The `MemoryOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GMemoryOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MemoryOutputStreamClass`.
 /// Alternatively, use `MemoryOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MemoryOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -167,11 +170,12 @@ public protocol MemoryOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MemoryOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `MemoryOutputStreamClassProtocol` conformance.
 /// Use `MemoryOutputStreamClassRef` only as an `unowned` reference to an existing `GMemoryOutputStreamClass` instance.
 ///
-
 public struct MemoryOutputStreamClassRef: MemoryOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GMemoryOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -294,12 +298,13 @@ public extension MenuAttributeIterClassRef {
 
 // MARK: - MenuAttributeIterClass Record
 
+
+///
 /// The `MenuAttributeIterClassProtocol` protocol exposes the methods and properties of an underlying `GMenuAttributeIterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuAttributeIterClass`.
 /// Alternatively, use `MenuAttributeIterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuAttributeIterClassProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -311,11 +316,12 @@ public protocol MenuAttributeIterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuAttributeIterClassRef` type acts as a lightweight Swift reference to an underlying `GMenuAttributeIterClass` instance.
 /// It exposes methods that can operate on this data type through `MenuAttributeIterClassProtocol` conformance.
 /// Use `MenuAttributeIterClassRef` only as an `unowned` reference to an existing `GMenuAttributeIterClass` instance.
 ///
-
 public struct MenuAttributeIterClassRef: MenuAttributeIterClassProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -430,12 +436,13 @@ public extension MenuLinkIterClassRef {
 
 // MARK: - MenuLinkIterClass Record
 
+
+///
 /// The `MenuLinkIterClassProtocol` protocol exposes the methods and properties of an underlying `GMenuLinkIterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuLinkIterClass`.
 /// Alternatively, use `MenuLinkIterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuLinkIterClassProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -447,11 +454,12 @@ public protocol MenuLinkIterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuLinkIterClassRef` type acts as a lightweight Swift reference to an underlying `GMenuLinkIterClass` instance.
 /// It exposes methods that can operate on this data type through `MenuLinkIterClassProtocol` conformance.
 /// Use `MenuLinkIterClassRef` only as an `unowned` reference to an existing `GMenuLinkIterClass` instance.
 ///
-
 public struct MenuLinkIterClassRef: MenuLinkIterClassProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -566,12 +574,13 @@ public extension MenuModelClassRef {
 
 // MARK: - MenuModelClass Record
 
+
+///
 /// The `MenuModelClassProtocol` protocol exposes the methods and properties of an underlying `GMenuModelClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuModelClass`.
 /// Alternatively, use `MenuModelClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MenuModelClassProtocol {
         /// Untyped pointer to the underlying `GMenuModelClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -583,11 +592,12 @@ public protocol MenuModelClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MenuModelClassRef` type acts as a lightweight Swift reference to an underlying `GMenuModelClass` instance.
 /// It exposes methods that can operate on this data type through `MenuModelClassProtocol` conformance.
 /// Use `MenuModelClassRef` only as an `unowned` reference to an existing `GMenuModelClass` instance.
 ///
-
 public struct MenuModelClassRef: MenuModelClassProtocol {
         /// Untyped pointer to the underlying `GMenuModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -716,12 +726,13 @@ public extension MountIfaceRef {
 
 // MARK: - MountIface Record
 
+/// Interface for implementing operations for mounts.
+///
 /// The `MountIfaceProtocol` protocol exposes the methods and properties of an underlying `GMountIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MountIface`.
 /// Alternatively, use `MountIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for implementing operations for mounts.
 public protocol MountIfaceProtocol {
         /// Untyped pointer to the underlying `GMountIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -733,11 +744,12 @@ public protocol MountIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for implementing operations for mounts.
+///
 /// The `MountIfaceRef` type acts as a lightweight Swift reference to an underlying `GMountIface` instance.
 /// It exposes methods that can operate on this data type through `MountIfaceProtocol` conformance.
 /// Use `MountIfaceRef` only as an `unowned` reference to an existing `GMountIface` instance.
 ///
-/// Interface for implementing operations for mounts.
 public struct MountIfaceRef: MountIfaceProtocol {
         /// Untyped pointer to the underlying `GMountIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -906,12 +918,13 @@ public extension MountOperationClassRef {
 
 // MARK: - MountOperationClass Record
 
+
+///
 /// The `MountOperationClassProtocol` protocol exposes the methods and properties of an underlying `GMountOperationClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MountOperationClass`.
 /// Alternatively, use `MountOperationClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GMountOperationClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -923,11 +936,12 @@ public protocol MountOperationClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MountOperationClassRef` type acts as a lightweight Swift reference to an underlying `GMountOperationClass` instance.
 /// It exposes methods that can operate on this data type through `MountOperationClassProtocol` conformance.
 /// Use `MountOperationClassRef` only as an `unowned` reference to an existing `GMountOperationClass` instance.
 ///
-
 public struct MountOperationClassRef: MountOperationClassProtocol {
         /// Untyped pointer to the underlying `GMountOperationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1070,12 +1084,13 @@ public extension NativeSocketAddressClassRef {
 
 // MARK: - NativeSocketAddressClass Record
 
+
+///
 /// The `NativeSocketAddressClassProtocol` protocol exposes the methods and properties of an underlying `GNativeSocketAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeSocketAddressClass`.
 /// Alternatively, use `NativeSocketAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NativeSocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1087,11 +1102,12 @@ public protocol NativeSocketAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NativeSocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GNativeSocketAddressClass` instance.
 /// It exposes methods that can operate on this data type through `NativeSocketAddressClassProtocol` conformance.
 /// Use `NativeSocketAddressClassRef` only as an `unowned` reference to an existing `GNativeSocketAddressClass` instance.
 ///
-
 public struct NativeSocketAddressClassRef: NativeSocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GNativeSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

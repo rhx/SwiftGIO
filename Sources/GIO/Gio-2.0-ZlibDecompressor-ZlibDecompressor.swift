@@ -4,12 +4,14 @@ import GLibObject
 
 // MARK: - ZlibDecompressor Class
 
+/// `GZlibDecompressor` is an implementation of `GConverter` that
+/// decompresses data compressed with zlib.
+///
 /// The `ZlibDecompressorProtocol` protocol exposes the methods and properties of an underlying `GZlibDecompressor` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ZlibDecompressor`.
 /// Alternatively, use `ZlibDecompressorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Zlib decompression
 public protocol ZlibDecompressorProtocol: GLibObject.ObjectProtocol, ConverterProtocol {
         /// Untyped pointer to the underlying `GZlibDecompressor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +23,13 @@ public protocol ZlibDecompressorProtocol: GLibObject.ObjectProtocol, ConverterPr
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GZlibDecompressor` is an implementation of `GConverter` that
+/// decompresses data compressed with zlib.
+///
 /// The `ZlibDecompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibDecompressor` instance.
 /// It exposes methods that can operate on this data type through `ZlibDecompressorProtocol` conformance.
 /// Use `ZlibDecompressorRef` only as an `unowned` reference to an existing `GZlibDecompressor` instance.
 ///
-/// Zlib decompression
 public struct ZlibDecompressorRef: ZlibDecompressorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GZlibDecompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_decompressor_ptr` property instead.
@@ -112,11 +116,13 @@ public extension ZlibDecompressorRef {
     }
 }
 
+/// `GZlibDecompressor` is an implementation of `GConverter` that
+/// decompresses data compressed with zlib.
+///
 /// The `ZlibDecompressor` type acts as a reference-counted owner of an underlying `GZlibDecompressor` instance.
 /// It provides the methods that can operate on this data type through `ZlibDecompressorProtocol` conformance.
 /// Use `ZlibDecompressor` as a strong reference or owner of a `GZlibDecompressor` instance.
 ///
-/// Zlib decompression
 open class ZlibDecompressor: GLibObject.Object, ZlibDecompressorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -330,12 +336,14 @@ public enum ZlibDecompressorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

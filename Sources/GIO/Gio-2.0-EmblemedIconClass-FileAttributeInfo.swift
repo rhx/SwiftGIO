@@ -19,12 +19,13 @@ public extension EmblemedIconClassRef {
 
 // MARK: - EmblemedIconClass Record
 
+
+///
 /// The `EmblemedIconClassProtocol` protocol exposes the methods and properties of an underlying `GEmblemedIconClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EmblemedIconClass`.
 /// Alternatively, use `EmblemedIconClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EmblemedIconClassProtocol {
         /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol EmblemedIconClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EmblemedIconClassRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIconClass` instance.
 /// It exposes methods that can operate on this data type through `EmblemedIconClassProtocol` conformance.
 /// Use `EmblemedIconClassRef` only as an `unowned` reference to an existing `GEmblemedIconClass` instance.
 ///
-
 public struct EmblemedIconClassRef: EmblemedIconClassProtocol {
         /// Untyped pointer to the underlying `GEmblemedIconClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -138,12 +140,13 @@ public extension EmblemedIconClassProtocol {
 
 // MARK: - FileAttributeInfo Record
 
+/// Information about a specific attribute.
+///
 /// The `FileAttributeInfoProtocol` protocol exposes the methods and properties of an underlying `GFileAttributeInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileAttributeInfo`.
 /// Alternatively, use `FileAttributeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about a specific attribute.
 public protocol FileAttributeInfoProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -155,11 +158,12 @@ public protocol FileAttributeInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about a specific attribute.
+///
 /// The `FileAttributeInfoRef` type acts as a lightweight Swift reference to an underlying `GFileAttributeInfo` instance.
 /// It exposes methods that can operate on this data type through `FileAttributeInfoProtocol` conformance.
 /// Use `FileAttributeInfoRef` only as an `unowned` reference to an existing `GFileAttributeInfo` instance.
 ///
-/// Information about a specific attribute.
 public struct FileAttributeInfoRef: FileAttributeInfoProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -238,11 +242,12 @@ public extension FileAttributeInfoRef {
 
     }
 
+/// Information about a specific attribute.
+///
 /// The `FileAttributeInfo` type acts as an owner of an underlying `GFileAttributeInfo` instance.
 /// It provides the methods that can operate on this data type through `FileAttributeInfoProtocol` conformance.
 /// Use `FileAttributeInfo` as a strong reference or owner of a `GFileAttributeInfo` instance.
 ///
-/// Information about a specific attribute.
 open class FileAttributeInfo: FileAttributeInfoProtocol {
         /// Untyped pointer to the underlying `GFileAttributeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

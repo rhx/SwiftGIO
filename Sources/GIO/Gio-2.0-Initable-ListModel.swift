@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - Initable Interface
 
-/// The `InitableProtocol` protocol exposes the methods and properties of an underlying `GInitable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Initable`.
-/// Alternatively, use `InitableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
@@ -33,6 +28,12 @@ import GLibObject
 /// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
+///
+/// The `InitableProtocol` protocol exposes the methods and properties of an underlying `GInitable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Initable`.
+/// Alternatively, use `InitableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -44,10 +45,6 @@ public protocol InitableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InitableRef` type acts as a lightweight Swift reference to an underlying `GInitable` instance.
-/// It exposes methods that can operate on this data type through `InitableProtocol` conformance.
-/// Use `InitableRef` only as an `unowned` reference to an existing `GInitable` instance.
-///
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
@@ -72,6 +69,11 @@ public protocol InitableProtocol {
 /// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
+///
+/// The `InitableRef` type acts as a lightweight Swift reference to an underlying `GInitable` instance.
+/// It exposes methods that can operate on this data type through `InitableProtocol` conformance.
+/// Use `InitableRef` only as an `unowned` reference to an existing `GInitable` instance.
+///
 public struct InitableRef: InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
@@ -150,10 +152,6 @@ public extension InitableRef {
 
     }
 
-/// The `Initable` type acts as an owner of an underlying `GInitable` instance.
-/// It provides the methods that can operate on this data type through `InitableProtocol` conformance.
-/// Use `Initable` as a strong reference or owner of a `GInitable` instance.
-///
 /// `GInitable` is implemented by objects that can fail during
 /// initialization. If an object implements this interface then
 /// it must be initialized as the first thing after construction,
@@ -178,6 +176,11 @@ public extension InitableRef {
 /// exceptions the binding could check for objects implementing `GInitable`
 /// during normal construction and automatically initialize them, throwing
 /// an exception on failure.
+///
+/// The `Initable` type acts as an owner of an underlying `GInitable` instance.
+/// It provides the methods that can operate on this data type through `InitableProtocol` conformance.
+/// Use `Initable` as a strong reference or owner of a `GInitable` instance.
+///
 open class Initable: InitableProtocol {
         /// Untyped pointer to the underlying `GInitable` instance.
     /// For type-safe access, use the generated, typed pointer `initable_ptr` property instead.
@@ -428,11 +431,6 @@ public extension InitableProtocol {
 
 // MARK: - ListModel Interface
 
-/// The `ListModelProtocol` protocol exposes the methods and properties of an underlying `GListModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListModel`.
-/// Alternatively, use `ListModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GListModel` is an interface that represents a mutable list of
 /// `GObjects`. Its main intention is as a model for various widgets in
 /// user interfaces, such as list views, but it can also be used as a
@@ -480,6 +478,12 @@ public extension InitableProtocol {
 /// implementation, but typically it will be from the thread that owns
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
+///
+/// The `ListModelProtocol` protocol exposes the methods and properties of an underlying `GListModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListModel`.
+/// Alternatively, use `ListModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -491,10 +495,6 @@ public protocol ListModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListModelRef` type acts as a lightweight Swift reference to an underlying `GListModel` instance.
-/// It exposes methods that can operate on this data type through `ListModelProtocol` conformance.
-/// Use `ListModelRef` only as an `unowned` reference to an existing `GListModel` instance.
-///
 /// `GListModel` is an interface that represents a mutable list of
 /// `GObjects`. Its main intention is as a model for various widgets in
 /// user interfaces, such as list views, but it can also be used as a
@@ -542,6 +542,11 @@ public protocol ListModelProtocol {
 /// implementation, but typically it will be from the thread that owns
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
+///
+/// The `ListModelRef` type acts as a lightweight Swift reference to an underlying `GListModel` instance.
+/// It exposes methods that can operate on this data type through `ListModelProtocol` conformance.
+/// Use `ListModelRef` only as an `unowned` reference to an existing `GListModel` instance.
+///
 public struct ListModelRef: ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
@@ -620,10 +625,6 @@ public extension ListModelRef {
 
     }
 
-/// The `ListModel` type acts as an owner of an underlying `GListModel` instance.
-/// It provides the methods that can operate on this data type through `ListModelProtocol` conformance.
-/// Use `ListModel` as a strong reference or owner of a `GListModel` instance.
-///
 /// `GListModel` is an interface that represents a mutable list of
 /// `GObjects`. Its main intention is as a model for various widgets in
 /// user interfaces, such as list views, but it can also be used as a
@@ -671,6 +672,11 @@ public extension ListModelRef {
 /// implementation, but typically it will be from the thread that owns
 /// the [thread-default main context](#g-main-context-push-thread-default)
 /// in effect at the time that the model was created.
+///
+/// The `ListModel` type acts as an owner of an underlying `GListModel` instance.
+/// It provides the methods that can operate on this data type through `ListModelProtocol` conformance.
+/// Use `ListModel` as a strong reference or owner of a `GListModel` instance.
+///
 open class ListModel: ListModelProtocol {
         /// Untyped pointer to the underlying `GListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.

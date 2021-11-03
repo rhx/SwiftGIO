@@ -19,12 +19,13 @@ public extension VolumeIfaceRef {
 
 // MARK: - VolumeIface Record
 
+/// Interface for implementing operations for mountable volumes.
+///
 /// The `VolumeIfaceProtocol` protocol exposes the methods and properties of an underlying `GVolumeIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VolumeIface`.
 /// Alternatively, use `VolumeIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for implementing operations for mountable volumes.
 public protocol VolumeIfaceProtocol {
         /// Untyped pointer to the underlying `GVolumeIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol VolumeIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for implementing operations for mountable volumes.
+///
 /// The `VolumeIfaceRef` type acts as a lightweight Swift reference to an underlying `GVolumeIface` instance.
 /// It exposes methods that can operate on this data type through `VolumeIfaceProtocol` conformance.
 /// Use `VolumeIfaceRef` only as an `unowned` reference to an existing `GVolumeIface` instance.
 ///
-/// Interface for implementing operations for mountable volumes.
 public struct VolumeIfaceRef: VolumeIfaceProtocol {
         /// Untyped pointer to the underlying `GVolumeIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -197,12 +199,13 @@ public extension VolumeMonitorClassRef {
 
 // MARK: - VolumeMonitorClass Record
 
+
+///
 /// The `VolumeMonitorClassProtocol` protocol exposes the methods and properties of an underlying `GVolumeMonitorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VolumeMonitorClass`.
 /// Alternatively, use `VolumeMonitorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol VolumeMonitorClassProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -214,11 +217,12 @@ public protocol VolumeMonitorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `VolumeMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitorClass` instance.
 /// It exposes methods that can operate on this data type through `VolumeMonitorClassProtocol` conformance.
 /// Use `VolumeMonitorClassRef` only as an `unowned` reference to an existing `GVolumeMonitorClass` instance.
 ///
-
 public struct VolumeMonitorClassRef: VolumeMonitorClassProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -381,12 +385,13 @@ public extension ZlibCompressorClassRef {
 
 // MARK: - ZlibCompressorClass Record
 
+
+///
 /// The `ZlibCompressorClassProtocol` protocol exposes the methods and properties of an underlying `GZlibCompressorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ZlibCompressorClass`.
 /// Alternatively, use `ZlibCompressorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ZlibCompressorClassProtocol {
         /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -398,11 +403,12 @@ public protocol ZlibCompressorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ZlibCompressorClassRef` type acts as a lightweight Swift reference to an underlying `GZlibCompressorClass` instance.
 /// It exposes methods that can operate on this data type through `ZlibCompressorClassProtocol` conformance.
 /// Use `ZlibCompressorClassRef` only as an `unowned` reference to an existing `GZlibCompressorClass` instance.
 ///
-
 public struct ZlibCompressorClassRef: ZlibCompressorClassProtocol {
         /// Untyped pointer to the underlying `GZlibCompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

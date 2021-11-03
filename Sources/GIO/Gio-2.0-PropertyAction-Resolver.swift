@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - PropertyAction Class
 
-/// The `PropertyActionProtocol` protocol exposes the methods and properties of an underlying `GPropertyAction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PropertyAction`.
-/// Alternatively, use `PropertyActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GPropertyAction` is a way to get a `GAction` with a state value
 /// reflecting and controlling the value of a `GObject` property.
 /// 
@@ -60,6 +55,12 @@ import GLibObject
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
+///
+/// The `PropertyActionProtocol` protocol exposes the methods and properties of an underlying `GPropertyAction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PropertyAction`.
+/// Alternatively, use `PropertyActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PropertyActionProtocol: GLibObject.ObjectProtocol, ActionProtocol {
         /// Untyped pointer to the underlying `GPropertyAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -71,10 +72,6 @@ public protocol PropertyActionProtocol: GLibObject.ObjectProtocol, ActionProtoco
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PropertyActionRef` type acts as a lightweight Swift reference to an underlying `GPropertyAction` instance.
-/// It exposes methods that can operate on this data type through `PropertyActionProtocol` conformance.
-/// Use `PropertyActionRef` only as an `unowned` reference to an existing `GPropertyAction` instance.
-///
 /// A `GPropertyAction` is a way to get a `GAction` with a state value
 /// reflecting and controlling the value of a `GObject` property.
 /// 
@@ -126,6 +123,11 @@ public protocol PropertyActionProtocol: GLibObject.ObjectProtocol, ActionProtoco
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
+///
+/// The `PropertyActionRef` type acts as a lightweight Swift reference to an underlying `GPropertyAction` instance.
+/// It exposes methods that can operate on this data type through `PropertyActionProtocol` conformance.
+/// Use `PropertyActionRef` only as an `unowned` reference to an existing `GPropertyAction` instance.
+///
 public struct PropertyActionRef: PropertyActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GPropertyAction` instance.
     /// For type-safe access, use the generated, typed pointer `property_action_ptr` property instead.
@@ -219,10 +221,6 @@ public extension PropertyActionRef {
     }
 }
 
-/// The `PropertyAction` type acts as a reference-counted owner of an underlying `GPropertyAction` instance.
-/// It provides the methods that can operate on this data type through `PropertyActionProtocol` conformance.
-/// Use `PropertyAction` as a strong reference or owner of a `GPropertyAction` instance.
-///
 /// A `GPropertyAction` is a way to get a `GAction` with a state value
 /// reflecting and controlling the value of a `GObject` property.
 /// 
@@ -274,6 +272,11 @@ public extension PropertyActionRef {
 /// `GSettings`.  If you want a `GAction` to control a setting stored in
 /// `GSettings`, see `g_settings_create_action()` instead, and possibly
 /// combine its use with `g_settings_bind()`.
+///
+/// The `PropertyAction` type acts as a reference-counted owner of an underlying `GPropertyAction` instance.
+/// It provides the methods that can operate on this data type through `PropertyActionProtocol` conformance.
+/// Use `PropertyAction` as a strong reference or owner of a `GPropertyAction` instance.
+///
 open class PropertyAction: GLibObject.Object, PropertyActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -516,12 +519,14 @@ public enum PropertyActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -570,12 +575,13 @@ public extension PropertyActionProtocol {
 
 // MARK: - ProxyAddress Class
 
+/// Support for proxied `GInetSocketAddress`.
+///
 /// The `ProxyAddressProtocol` protocol exposes the methods and properties of an underlying `GProxyAddress` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ProxyAddress`.
 /// Alternatively, use `ProxyAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Support for proxied `GInetSocketAddress`.
 public protocol ProxyAddressProtocol: InetSocketAddressProtocol {
         /// Untyped pointer to the underlying `GProxyAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -587,11 +593,12 @@ public protocol ProxyAddressProtocol: InetSocketAddressProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Support for proxied `GInetSocketAddress`.
+///
 /// The `ProxyAddressRef` type acts as a lightweight Swift reference to an underlying `GProxyAddress` instance.
 /// It exposes methods that can operate on this data type through `ProxyAddressProtocol` conformance.
 /// Use `ProxyAddressRef` only as an `unowned` reference to an existing `GProxyAddress` instance.
 ///
-/// Support for proxied `GInetSocketAddress`.
 public struct ProxyAddressRef: ProxyAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GProxyAddress` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_address_ptr` property instead.
@@ -683,11 +690,12 @@ public extension ProxyAddressRef {
     }
 }
 
+/// Support for proxied `GInetSocketAddress`.
+///
 /// The `ProxyAddress` type acts as a reference-counted owner of an underlying `GProxyAddress` instance.
 /// It provides the methods that can operate on this data type through `ProxyAddressProtocol` conformance.
 /// Use `ProxyAddress` as a strong reference or owner of a `GProxyAddress` instance.
 ///
-/// Support for proxied `GInetSocketAddress`.
 open class ProxyAddress: InetSocketAddress, ProxyAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -917,12 +925,14 @@ public enum ProxyAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1084,11 +1094,6 @@ public extension ProxyAddressProtocol {
 
 // MARK: - ProxyAddressEnumerator Class
 
-/// The `ProxyAddressEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GProxyAddressEnumerator` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ProxyAddressEnumerator`.
-/// Alternatively, use `ProxyAddressEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
@@ -1098,6 +1103,12 @@ public extension ProxyAddressProtocol {
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
+///
+/// The `ProxyAddressEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GProxyAddressEnumerator` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ProxyAddressEnumerator`.
+/// Alternatively, use `ProxyAddressEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol {
         /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1109,10 +1120,6 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ProxyAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressEnumerator` instance.
-/// It exposes methods that can operate on this data type through `ProxyAddressEnumeratorProtocol` conformance.
-/// Use `ProxyAddressEnumeratorRef` only as an `unowned` reference to an existing `GProxyAddressEnumerator` instance.
-///
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
@@ -1122,6 +1129,11 @@ public protocol ProxyAddressEnumeratorProtocol: SocketAddressEnumeratorProtocol 
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
+///
+/// The `ProxyAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressEnumerator` instance.
+/// It exposes methods that can operate on this data type through `ProxyAddressEnumeratorProtocol` conformance.
+/// Use `ProxyAddressEnumeratorRef` only as an `unowned` reference to an existing `GProxyAddressEnumerator` instance.
+///
 public struct ProxyAddressEnumeratorRef: ProxyAddressEnumeratorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GProxyAddressEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `proxy_address_enumerator_ptr` property instead.
@@ -1203,10 +1215,6 @@ public extension ProxyAddressEnumeratorRef {
 
     }
 
-/// The `ProxyAddressEnumerator` type acts as a reference-counted owner of an underlying `GProxyAddressEnumerator` instance.
-/// It provides the methods that can operate on this data type through `ProxyAddressEnumeratorProtocol` conformance.
-/// Use `ProxyAddressEnumerator` as a strong reference or owner of a `GProxyAddressEnumerator` instance.
-///
 /// `GProxyAddressEnumerator` is a wrapper around `GSocketAddressEnumerator` which
 /// takes the `GSocketAddress` instances returned by the `GSocketAddressEnumerator`
 /// and wraps them in `GProxyAddress` instances, using the given
@@ -1216,6 +1224,11 @@ public extension ProxyAddressEnumeratorRef {
 /// `g_socket_connectable_enumerate()`) as appropriate when a proxy is configured;
 /// there should be no need to manually wrap a `GSocketAddressEnumerator` instance
 /// with one.
+///
+/// The `ProxyAddressEnumerator` type acts as a reference-counted owner of an underlying `GProxyAddressEnumerator` instance.
+/// It provides the methods that can operate on this data type through `ProxyAddressEnumeratorProtocol` conformance.
+/// Use `ProxyAddressEnumerator` as a strong reference or owner of a `GProxyAddressEnumerator` instance.
+///
 open class ProxyAddressEnumerator: SocketAddressEnumerator, ProxyAddressEnumeratorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1424,12 +1437,14 @@ public enum ProxyAddressEnumeratorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1460,11 +1475,6 @@ public extension ProxyAddressEnumeratorProtocol {
 
 // MARK: - Resolver Class
 
-/// The `ResolverProtocol` protocol exposes the methods and properties of an underlying `GResolver` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Resolver`.
-/// Alternatively, use `ResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
 /// resolution, for hostnames (`g_resolver_lookup_by_address()`,
 /// `g_resolver_lookup_by_name()` and their async variants) and SRV
@@ -1473,6 +1483,12 @@ public extension ProxyAddressEnumeratorProtocol {
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
+///
+/// The `ResolverProtocol` protocol exposes the methods and properties of an underlying `GResolver` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Resolver`.
+/// Alternatively, use `ResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ResolverProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GResolver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1484,10 +1500,6 @@ public protocol ResolverProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ResolverRef` type acts as a lightweight Swift reference to an underlying `GResolver` instance.
-/// It exposes methods that can operate on this data type through `ResolverProtocol` conformance.
-/// Use `ResolverRef` only as an `unowned` reference to an existing `GResolver` instance.
-///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
 /// resolution, for hostnames (`g_resolver_lookup_by_address()`,
 /// `g_resolver_lookup_by_name()` and their async variants) and SRV
@@ -1496,6 +1508,11 @@ public protocol ResolverProtocol: GLibObject.ObjectProtocol {
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
+///
+/// The `ResolverRef` type acts as a lightweight Swift reference to an underlying `GResolver` instance.
+/// It exposes methods that can operate on this data type through `ResolverProtocol` conformance.
+/// Use `ResolverRef` only as an `unowned` reference to an existing `GResolver` instance.
+///
 public struct ResolverRef: ResolverProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GResolver` instance.
     /// For type-safe access, use the generated, typed pointer `resolver_ptr` property instead.
@@ -1584,10 +1601,6 @@ public extension ResolverRef {
     }
 }
 
-/// The `Resolver` type acts as a reference-counted owner of an underlying `GResolver` instance.
-/// It provides the methods that can operate on this data type through `ResolverProtocol` conformance.
-/// Use `Resolver` as a strong reference or owner of a `GResolver` instance.
-///
 /// `GResolver` provides cancellable synchronous and asynchronous DNS
 /// resolution, for hostnames (`g_resolver_lookup_by_address()`,
 /// `g_resolver_lookup_by_name()` and their async variants) and SRV
@@ -1596,6 +1609,11 @@ public extension ResolverRef {
 /// `GNetworkAddress` and `GNetworkService` provide wrappers around
 /// `GResolver` functionality that also implement `GSocketConnectable`,
 /// making it easy to connect to a remote host/service.
+///
+/// The `Resolver` type acts as a reference-counted owner of an underlying `GResolver` instance.
+/// It provides the methods that can operate on this data type through `ResolverProtocol` conformance.
+/// Use `Resolver` as a strong reference or owner of a `GResolver` instance.
+///
 open class Resolver: GLibObject.Object, ResolverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1751,12 +1769,14 @@ public enum ResolverSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

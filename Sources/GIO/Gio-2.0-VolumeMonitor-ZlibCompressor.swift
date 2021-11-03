@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - VolumeMonitor Class
 
-/// The `VolumeMonitorProtocol` protocol exposes the methods and properties of an underlying `GVolumeMonitor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `VolumeMonitor`.
-/// Alternatively, use `VolumeMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GVolumeMonitor` is for listing the user interesting devices and volumes
 /// on the computer. In other words, what a file selector or file manager
 /// would show in a sidebar.
@@ -20,6 +15,12 @@ import GLibObject
 /// 
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
+///
+/// The `VolumeMonitorProtocol` protocol exposes the methods and properties of an underlying `GVolumeMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `VolumeMonitor`.
+/// Alternatively, use `VolumeMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VolumeMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -31,10 +32,6 @@ public protocol VolumeMonitorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitor` instance.
-/// It exposes methods that can operate on this data type through `VolumeMonitorProtocol` conformance.
-/// Use `VolumeMonitorRef` only as an `unowned` reference to an existing `GVolumeMonitor` instance.
-///
 /// `GVolumeMonitor` is for listing the user interesting devices and volumes
 /// on the computer. In other words, what a file selector or file manager
 /// would show in a sidebar.
@@ -46,6 +43,11 @@ public protocol VolumeMonitorProtocol: GLibObject.ObjectProtocol {
 /// 
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
+///
+/// The `VolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GVolumeMonitor` instance.
+/// It exposes methods that can operate on this data type through `VolumeMonitorProtocol` conformance.
+/// Use `VolumeMonitorRef` only as an `unowned` reference to an existing `GVolumeMonitor` instance.
+///
 public struct VolumeMonitorRef: VolumeMonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GVolumeMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `volume_monitor_ptr` property instead.
@@ -132,10 +134,6 @@ public extension VolumeMonitorRef {
     }
 }
 
-/// The `VolumeMonitor` type acts as a reference-counted owner of an underlying `GVolumeMonitor` instance.
-/// It provides the methods that can operate on this data type through `VolumeMonitorProtocol` conformance.
-/// Use `VolumeMonitor` as a strong reference or owner of a `GVolumeMonitor` instance.
-///
 /// `GVolumeMonitor` is for listing the user interesting devices and volumes
 /// on the computer. In other words, what a file selector or file manager
 /// would show in a sidebar.
@@ -147,6 +145,11 @@ public extension VolumeMonitorRef {
 /// 
 /// In order to receive updates about volumes and mounts monitored through GVFS,
 /// a main loop must be running.
+///
+/// The `VolumeMonitor` type acts as a reference-counted owner of an underlying `GVolumeMonitor` instance.
+/// It provides the methods that can operate on this data type through `VolumeMonitorProtocol` conformance.
+/// Use `VolumeMonitor` as a strong reference or owner of a `GVolumeMonitor` instance.
+///
 open class VolumeMonitor: GLibObject.Object, VolumeMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -321,12 +324,14 @@ public enum VolumeMonitorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -789,12 +794,14 @@ public extension VolumeMonitorProtocol {
 
 // MARK: - ZlibCompressor Class
 
+/// `GZlibCompressor` is an implementation of `GConverter` that
+/// compresses data using zlib.
+///
 /// The `ZlibCompressorProtocol` protocol exposes the methods and properties of an underlying `GZlibCompressor` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ZlibCompressor`.
 /// Alternatively, use `ZlibCompressorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Zlib decompression
 public protocol ZlibCompressorProtocol: GLibObject.ObjectProtocol, ConverterProtocol {
         /// Untyped pointer to the underlying `GZlibCompressor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -806,11 +813,13 @@ public protocol ZlibCompressorProtocol: GLibObject.ObjectProtocol, ConverterProt
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GZlibCompressor` is an implementation of `GConverter` that
+/// compresses data using zlib.
+///
 /// The `ZlibCompressorRef` type acts as a lightweight Swift reference to an underlying `GZlibCompressor` instance.
 /// It exposes methods that can operate on this data type through `ZlibCompressorProtocol` conformance.
 /// Use `ZlibCompressorRef` only as an `unowned` reference to an existing `GZlibCompressor` instance.
 ///
-/// Zlib decompression
 public struct ZlibCompressorRef: ZlibCompressorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GZlibCompressor` instance.
     /// For type-safe access, use the generated, typed pointer `zlib_compressor_ptr` property instead.
@@ -897,11 +906,13 @@ public extension ZlibCompressorRef {
     }
 }
 
+/// `GZlibCompressor` is an implementation of `GConverter` that
+/// compresses data using zlib.
+///
 /// The `ZlibCompressor` type acts as a reference-counted owner of an underlying `GZlibCompressor` instance.
 /// It provides the methods that can operate on this data type through `ZlibCompressorProtocol` conformance.
 /// Use `ZlibCompressor` as a strong reference or owner of a `GZlibCompressor` instance.
 ///
-/// Zlib decompression
 open class ZlibCompressor: GLibObject.Object, ZlibCompressorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1115,12 +1126,14 @@ public enum ZlibCompressorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

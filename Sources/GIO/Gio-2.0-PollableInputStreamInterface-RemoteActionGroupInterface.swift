@@ -19,11 +19,6 @@ public extension PollableInputStreamInterfaceRef {
 
 // MARK: - PollableInputStreamInterface Record
 
-/// The `PollableInputStreamInterfaceProtocol` protocol exposes the methods and properties of an underlying `GPollableInputStreamInterface` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PollableInputStreamInterface`.
-/// Alternatively, use `PollableInputStreamInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The interface for pollable input streams.
 /// 
 /// The default implementation of `can_poll` always returns `true`.
@@ -34,6 +29,12 @@ public extension PollableInputStreamInterfaceRef {
 /// to override it if it is possible that your `is_readable`
 /// implementation may return `true` when the stream is not actually
 /// readable.
+///
+/// The `PollableInputStreamInterfaceProtocol` protocol exposes the methods and properties of an underlying `GPollableInputStreamInterface` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PollableInputStreamInterface`.
+/// Alternatively, use `PollableInputStreamInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PollableInputStreamInterfaceProtocol {
         /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -45,10 +46,6 @@ public protocol PollableInputStreamInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PollableInputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStreamInterface` instance.
-/// It exposes methods that can operate on this data type through `PollableInputStreamInterfaceProtocol` conformance.
-/// Use `PollableInputStreamInterfaceRef` only as an `unowned` reference to an existing `GPollableInputStreamInterface` instance.
-///
 /// The interface for pollable input streams.
 /// 
 /// The default implementation of `can_poll` always returns `true`.
@@ -59,6 +56,11 @@ public protocol PollableInputStreamInterfaceProtocol {
 /// to override it if it is possible that your `is_readable`
 /// implementation may return `true` when the stream is not actually
 /// readable.
+///
+/// The `PollableInputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableInputStreamInterface` instance.
+/// It exposes methods that can operate on this data type through `PollableInputStreamInterfaceProtocol` conformance.
+/// Use `PollableInputStreamInterfaceRef` only as an `unowned` reference to an existing `GPollableInputStreamInterface` instance.
+///
 public struct PollableInputStreamInterfaceRef: PollableInputStreamInterfaceProtocol {
         /// Untyped pointer to the underlying `GPollableInputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -181,11 +183,6 @@ public extension PollableOutputStreamInterfaceRef {
 
 // MARK: - PollableOutputStreamInterface Record
 
-/// The `PollableOutputStreamInterfaceProtocol` protocol exposes the methods and properties of an underlying `GPollableOutputStreamInterface` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PollableOutputStreamInterface`.
-/// Alternatively, use `PollableOutputStreamInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The interface for pollable output streams.
 /// 
 /// The default implementation of `can_poll` always returns `true`.
@@ -202,6 +199,12 @@ public extension PollableOutputStreamInterfaceRef {
 /// its return value and error (if set) to a `GPollableReturn`. You should
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
+///
+/// The `PollableOutputStreamInterfaceProtocol` protocol exposes the methods and properties of an underlying `GPollableOutputStreamInterface` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PollableOutputStreamInterface`.
+/// Alternatively, use `PollableOutputStreamInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PollableOutputStreamInterfaceProtocol {
         /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -213,10 +216,6 @@ public protocol PollableOutputStreamInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PollableOutputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStreamInterface` instance.
-/// It exposes methods that can operate on this data type through `PollableOutputStreamInterfaceProtocol` conformance.
-/// Use `PollableOutputStreamInterfaceRef` only as an `unowned` reference to an existing `GPollableOutputStreamInterface` instance.
-///
 /// The interface for pollable output streams.
 /// 
 /// The default implementation of `can_poll` always returns `true`.
@@ -233,6 +232,11 @@ public protocol PollableOutputStreamInterfaceProtocol {
 /// its return value and error (if set) to a `GPollableReturn`. You should
 /// override this where possible to avoid having to allocate a `GError` to return
 /// `G_IO_ERROR_WOULD_BLOCK`.
+///
+/// The `PollableOutputStreamInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPollableOutputStreamInterface` instance.
+/// It exposes methods that can operate on this data type through `PollableOutputStreamInterfaceProtocol` conformance.
+/// Use `PollableOutputStreamInterfaceRef` only as an `unowned` reference to an existing `GPollableOutputStreamInterface` instance.
+///
 public struct PollableOutputStreamInterfaceRef: PollableOutputStreamInterfaceProtocol {
         /// Untyped pointer to the underlying `GPollableOutputStreamInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -340,6 +344,137 @@ public extension PollableOutputStreamInterfaceProtocol {
 
 
 
+/// Metatype/GType declaration for PowerProfileMonitor
+public extension PowerProfileMonitorInterfaceRef {
+    
+    /// This getter returns the GLib type identifier registered for `PowerProfileMonitor`
+    static var metatypeReference: GType { g_power_profile_monitor_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GPowerProfileMonitorInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GPowerProfileMonitorInterface.self) }
+    
+    static var metatype: GPowerProfileMonitorInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: PowerProfileMonitorInterfaceRef? { PowerProfileMonitorInterfaceRef(metatypePointer) }
+    
+    
+}
+
+// MARK: - PowerProfileMonitorInterface Record
+
+/// The virtual function table for `GPowerProfileMonitor`.
+///
+/// The `PowerProfileMonitorInterfaceProtocol` protocol exposes the methods and properties of an underlying `GPowerProfileMonitorInterface` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `PowerProfileMonitorInterface`.
+/// Alternatively, use `PowerProfileMonitorInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol PowerProfileMonitorInterfaceProtocol {
+        /// Untyped pointer to the underlying `GPowerProfileMonitorInterface` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GPowerProfileMonitorInterface` instance.
+    var _ptr: UnsafeMutablePointer<GPowerProfileMonitorInterface>! { get }
+
+    /// Required Initialiser for types conforming to `PowerProfileMonitorInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The virtual function table for `GPowerProfileMonitor`.
+///
+/// The `PowerProfileMonitorInterfaceRef` type acts as a lightweight Swift reference to an underlying `GPowerProfileMonitorInterface` instance.
+/// It exposes methods that can operate on this data type through `PowerProfileMonitorInterfaceProtocol` conformance.
+/// Use `PowerProfileMonitorInterfaceRef` only as an `unowned` reference to an existing `GPowerProfileMonitorInterface` instance.
+///
+public struct PowerProfileMonitorInterfaceRef: PowerProfileMonitorInterfaceProtocol {
+        /// Untyped pointer to the underlying `GPowerProfileMonitorInterface` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension PowerProfileMonitorInterfaceRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GPowerProfileMonitorInterface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GPowerProfileMonitorInterface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPowerProfileMonitorInterface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GPowerProfileMonitorInterface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `PowerProfileMonitorInterfaceProtocol`
+    @inlinable init<T: PowerProfileMonitorInterfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorInterfaceProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorInterfaceProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorInterfaceProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorInterfaceProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PowerProfileMonitorInterfaceProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+// MARK: PowerProfileMonitorInterface Record: PowerProfileMonitorInterfaceProtocol extension (methods and fields)
+public extension PowerProfileMonitorInterfaceProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GPowerProfileMonitorInterface` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GPowerProfileMonitorInterface>! { return ptr?.assumingMemoryBound(to: GPowerProfileMonitorInterface.self) }
+
+
+    // var gIface is unavailable because g_iface is private
+
+}
+
+
+
 /// Metatype/GType declaration for ProxyAddress
 public extension ProxyAddressClassRef {
     
@@ -357,12 +492,13 @@ public extension ProxyAddressClassRef {
 
 // MARK: - ProxyAddressClass Record
 
+/// Class structure for `GProxyAddress`.
+///
 /// The `ProxyAddressClassProtocol` protocol exposes the methods and properties of an underlying `GProxyAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ProxyAddressClass`.
 /// Alternatively, use `ProxyAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GProxyAddress`.
 public protocol ProxyAddressClassProtocol {
         /// Untyped pointer to the underlying `GProxyAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -374,11 +510,12 @@ public protocol ProxyAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GProxyAddress`.
+///
 /// The `ProxyAddressClassRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressClass` instance.
 /// It exposes methods that can operate on this data type through `ProxyAddressClassProtocol` conformance.
 /// Use `ProxyAddressClassRef` only as an `unowned` reference to an existing `GProxyAddressClass` instance.
 ///
-/// Class structure for `GProxyAddress`.
 public struct ProxyAddressClassRef: ProxyAddressClassProtocol {
         /// Untyped pointer to the underlying `GProxyAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -491,12 +628,13 @@ public extension ProxyAddressEnumeratorClassRef {
 
 // MARK: - ProxyAddressEnumeratorClass Record
 
+/// Class structure for `GProxyAddressEnumerator`.
+///
 /// The `ProxyAddressEnumeratorClassProtocol` protocol exposes the methods and properties of an underlying `GProxyAddressEnumeratorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ProxyAddressEnumeratorClass`.
 /// Alternatively, use `ProxyAddressEnumeratorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GProxyAddressEnumerator`.
 public protocol ProxyAddressEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -508,11 +646,12 @@ public protocol ProxyAddressEnumeratorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GProxyAddressEnumerator`.
+///
 /// The `ProxyAddressEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GProxyAddressEnumeratorClass` instance.
 /// It exposes methods that can operate on this data type through `ProxyAddressEnumeratorClassProtocol` conformance.
 /// Use `ProxyAddressEnumeratorClassRef` only as an `unowned` reference to an existing `GProxyAddressEnumeratorClass` instance.
 ///
-/// Class structure for `GProxyAddressEnumerator`.
 public struct ProxyAddressEnumeratorClassRef: ProxyAddressEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GProxyAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -634,12 +773,13 @@ public extension ProxyInterfaceRef {
 
 // MARK: - ProxyInterface Record
 
+/// Provides an interface for handling proxy connection and payload.
+///
 /// The `ProxyInterfaceProtocol` protocol exposes the methods and properties of an underlying `GProxyInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ProxyInterface`.
 /// Alternatively, use `ProxyInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for handling proxy connection and payload.
 public protocol ProxyInterfaceProtocol {
         /// Untyped pointer to the underlying `GProxyInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -651,11 +791,12 @@ public protocol ProxyInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for handling proxy connection and payload.
+///
 /// The `ProxyInterfaceRef` type acts as a lightweight Swift reference to an underlying `GProxyInterface` instance.
 /// It exposes methods that can operate on this data type through `ProxyInterfaceProtocol` conformance.
 /// Use `ProxyInterfaceRef` only as an `unowned` reference to an existing `GProxyInterface` instance.
 ///
-/// Provides an interface for handling proxy connection and payload.
 public struct ProxyInterfaceRef: ProxyInterfaceProtocol {
         /// Untyped pointer to the underlying `GProxyInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -778,12 +919,13 @@ public extension ProxyResolverInterfaceRef {
 
 // MARK: - ProxyResolverInterface Record
 
+/// The virtual function table for `GProxyResolver`.
+///
 /// The `ProxyResolverInterfaceProtocol` protocol exposes the methods and properties of an underlying `GProxyResolverInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ProxyResolverInterface`.
 /// Alternatively, use `ProxyResolverInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GProxyResolver`.
 public protocol ProxyResolverInterfaceProtocol {
         /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -795,11 +937,12 @@ public protocol ProxyResolverInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GProxyResolver`.
+///
 /// The `ProxyResolverInterfaceRef` type acts as a lightweight Swift reference to an underlying `GProxyResolverInterface` instance.
 /// It exposes methods that can operate on this data type through `ProxyResolverInterfaceProtocol` conformance.
 /// Use `ProxyResolverInterfaceRef` only as an `unowned` reference to an existing `GProxyResolverInterface` instance.
 ///
-/// The virtual function table for `GProxyResolver`.
 public struct ProxyResolverInterfaceRef: ProxyResolverInterfaceProtocol {
         /// Untyped pointer to the underlying `GProxyResolverInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -922,12 +1065,13 @@ public extension RemoteActionGroupInterfaceRef {
 
 // MARK: - RemoteActionGroupInterface Record
 
+/// The virtual function table for `GRemoteActionGroup`.
+///
 /// The `RemoteActionGroupInterfaceProtocol` protocol exposes the methods and properties of an underlying `GRemoteActionGroupInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `RemoteActionGroupInterface`.
 /// Alternatively, use `RemoteActionGroupInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GRemoteActionGroup`.
 public protocol RemoteActionGroupInterfaceProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -939,11 +1083,12 @@ public protocol RemoteActionGroupInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GRemoteActionGroup`.
+///
 /// The `RemoteActionGroupInterfaceRef` type acts as a lightweight Swift reference to an underlying `GRemoteActionGroupInterface` instance.
 /// It exposes methods that can operate on this data type through `RemoteActionGroupInterfaceProtocol` conformance.
 /// Use `RemoteActionGroupInterfaceRef` only as an `unowned` reference to an existing `GRemoteActionGroupInterface` instance.
 ///
-/// The virtual function table for `GRemoteActionGroup`.
 public struct RemoteActionGroupInterfaceRef: RemoteActionGroupInterfaceProtocol {
         /// Untyped pointer to the underlying `GRemoteActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

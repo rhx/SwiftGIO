@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - FileIOStream Class
 
-/// The `FileIOStreamProtocol` protocol exposes the methods and properties of an underlying `GFileIOStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileIOStream`.
-/// Alternatively, use `FileIOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GFileIOStream provides io streams that both read and write to the same
 /// file handle.
 /// 
@@ -29,6 +24,12 @@ import GLibObject
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
+///
+/// The `FileIOStreamProtocol` protocol exposes the methods and properties of an underlying `GFileIOStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileIOStream`.
+/// Alternatively, use `FileIOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GFileIOStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -40,10 +41,6 @@ public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileIOStreamRef` type acts as a lightweight Swift reference to an underlying `GFileIOStream` instance.
-/// It exposes methods that can operate on this data type through `FileIOStreamProtocol` conformance.
-/// Use `FileIOStreamRef` only as an `unowned` reference to an existing `GFileIOStream` instance.
-///
 /// GFileIOStream provides io streams that both read and write to the same
 /// file handle.
 /// 
@@ -64,6 +61,11 @@ public protocol FileIOStreamProtocol: IOStreamProtocol, SeekableProtocol {
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
+///
+/// The `FileIOStreamRef` type acts as a lightweight Swift reference to an underlying `GFileIOStream` instance.
+/// It exposes methods that can operate on this data type through `FileIOStreamProtocol` conformance.
+/// Use `FileIOStreamRef` only as an `unowned` reference to an existing `GFileIOStream` instance.
+///
 public struct FileIOStreamRef: FileIOStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_io_stream_ptr` property instead.
@@ -145,10 +147,6 @@ public extension FileIOStreamRef {
 
     }
 
-/// The `FileIOStream` type acts as a reference-counted owner of an underlying `GFileIOStream` instance.
-/// It provides the methods that can operate on this data type through `FileIOStreamProtocol` conformance.
-/// Use `FileIOStream` as a strong reference or owner of a `GFileIOStream` instance.
-///
 /// GFileIOStream provides io streams that both read and write to the same
 /// file handle.
 /// 
@@ -169,6 +167,11 @@ public extension FileIOStreamRef {
 /// The default implementation of all the `GFileIOStream` operations
 /// and the implementation of `GSeekable` just call into the same operations
 /// on the output stream.
+///
+/// The `FileIOStream` type acts as a reference-counted owner of an underlying `GFileIOStream` instance.
+/// It provides the methods that can operate on this data type through `FileIOStreamProtocol` conformance.
+/// Use `FileIOStream` as a strong reference or owner of a `GFileIOStream` instance.
+///
 open class FileIOStream: IOStream, FileIOStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -373,12 +376,14 @@ public enum FileIOStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -506,13 +511,14 @@ public extension FileIOStreamProtocol {
 
 // MARK: - FileIcon Class
 
+/// `GFileIcon` specifies an icon by pointing to an image file
+/// to be used as icon.
+///
 /// The `FileIconProtocol` protocol exposes the methods and properties of an underlying `GFileIcon` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FileIcon`.
 /// Alternatively, use `FileIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GFileIcon` specifies an icon by pointing to an image file
-/// to be used as icon.
 public protocol FileIconProtocol: GLibObject.ObjectProtocol, IconProtocol, LoadableIconProtocol {
         /// Untyped pointer to the underlying `GFileIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -524,12 +530,13 @@ public protocol FileIconProtocol: GLibObject.ObjectProtocol, IconProtocol, Loada
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GFileIcon` specifies an icon by pointing to an image file
+/// to be used as icon.
+///
 /// The `FileIconRef` type acts as a lightweight Swift reference to an underlying `GFileIcon` instance.
 /// It exposes methods that can operate on this data type through `FileIconProtocol` conformance.
 /// Use `FileIconRef` only as an `unowned` reference to an existing `GFileIcon` instance.
 ///
-/// `GFileIcon` specifies an icon by pointing to an image file
-/// to be used as icon.
 public struct FileIconRef: FileIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileIcon` instance.
     /// For type-safe access, use the generated, typed pointer `file_icon_ptr` property instead.
@@ -611,12 +618,13 @@ public extension FileIconRef {
 
     }
 
+/// `GFileIcon` specifies an icon by pointing to an image file
+/// to be used as icon.
+///
 /// The `FileIcon` type acts as a reference-counted owner of an underlying `GFileIcon` instance.
 /// It provides the methods that can operate on this data type through `FileIconProtocol` conformance.
 /// Use `FileIcon` as a strong reference or owner of a `GFileIcon` instance.
 ///
-/// `GFileIcon` specifies an icon by pointing to an image file
-/// to be used as icon.
 open class FileIcon: GLibObject.Object, FileIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -820,12 +828,14 @@ public enum FileIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -861,11 +871,6 @@ public extension FileIconProtocol {
 
 // MARK: - FileInfo Class
 
-/// The `FileInfoProtocol` protocol exposes the methods and properties of an underlying `GFileInfo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileInfo`.
-/// Alternatively, use `FileInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Functionality for manipulating basic metadata for files. `GFileInfo`
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
@@ -888,8 +893,19 @@ public extension FileIconProtocol {
 /// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
+/// The direct accessors, such as `g_file_info_get_name()`, are slightly more
+/// optimized than the generic attribute accessors, such as
+/// `g_file_info_get_attribute_byte_string()`.This optimization will matter
+/// only if calling the API in a tight loop.
+/// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
+///
+/// The `FileInfoProtocol` protocol exposes the methods and properties of an underlying `GFileInfo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileInfo`.
+/// Alternatively, use `FileInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileInfoProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -901,10 +917,6 @@ public protocol FileInfoProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileInfoRef` type acts as a lightweight Swift reference to an underlying `GFileInfo` instance.
-/// It exposes methods that can operate on this data type through `FileInfoProtocol` conformance.
-/// Use `FileInfoRef` only as an `unowned` reference to an existing `GFileInfo` instance.
-///
 /// Functionality for manipulating basic metadata for files. `GFileInfo`
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
@@ -927,8 +939,18 @@ public protocol FileInfoProtocol: GLibObject.ObjectProtocol {
 /// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
+/// The direct accessors, such as `g_file_info_get_name()`, are slightly more
+/// optimized than the generic attribute accessors, such as
+/// `g_file_info_get_attribute_byte_string()`.This optimization will matter
+/// only if calling the API in a tight loop.
+/// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
+///
+/// The `FileInfoRef` type acts as a lightweight Swift reference to an underlying `GFileInfo` instance.
+/// It exposes methods that can operate on this data type through `FileInfoProtocol` conformance.
+/// Use `FileInfoRef` only as an `unowned` reference to an existing `GFileInfo` instance.
+///
 public struct FileInfoRef: FileInfoProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileInfo` instance.
     /// For type-safe access, use the generated, typed pointer `file_info_ptr` property instead.
@@ -1015,10 +1037,6 @@ public extension FileInfoRef {
     }
 }
 
-/// The `FileInfo` type acts as a reference-counted owner of an underlying `GFileInfo` instance.
-/// It provides the methods that can operate on this data type through `FileInfoProtocol` conformance.
-/// Use `FileInfo` as a strong reference or owner of a `GFileInfo` instance.
-///
 /// Functionality for manipulating basic metadata for files. `GFileInfo`
 /// implements methods for getting information that all files should
 /// contain, and allows for manipulation of extended attributes.
@@ -1041,8 +1059,18 @@ public extension FileInfoRef {
 /// `g_file_query_writable_namespaces()` to discover the settable attributes
 /// of a particular file at runtime.
 /// 
+/// The direct accessors, such as `g_file_info_get_name()`, are slightly more
+/// optimized than the generic attribute accessors, such as
+/// `g_file_info_get_attribute_byte_string()`.This optimization will matter
+/// only if calling the API in a tight loop.
+/// 
 /// `GFileAttributeMatcher` allows for searching through a `GFileInfo` for
 /// attributes.
+///
+/// The `FileInfo` type acts as a reference-counted owner of an underlying `GFileInfo` instance.
+/// It provides the methods that can operate on this data type through `FileInfoProtocol` conformance.
+/// Use `FileInfo` as a strong reference or owner of a `GFileInfo` instance.
+///
 open class FileInfo: GLibObject.Object, FileInfoProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1196,12 +1224,14 @@ public enum FileInfoSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1231,6 +1261,17 @@ public extension FileInfoProtocol {
     /// Duplicates a file info structure.
     @inlinable func dup() -> FileInfoRef! {
         guard let rv = FileInfoRef(gconstpointer: gconstpointer(g_file_info_dup(file_info_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Gets the access time of the current `info` and returns it as a
+    /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_ACCESS` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_ACCESS_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
+    @inlinable func getAccessDateTime() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_file_info_get_access_date_time(file_info_ptr))
         return rv
     }
 
@@ -1330,6 +1371,17 @@ public extension FileInfoProtocol {
     /// Gets the file's content type.
     @inlinable func getContentType() -> String! {
         let rv = g_file_info_get_content_type(file_info_ptr).map({ String(cString: $0) })
+        return rv
+    }
+
+    /// Gets the creation time of the current `info` and returns it as a
+    /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_CREATED` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_CREATED_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
+    @inlinable func getCreationDateTime() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_file_info_get_creation_date_time(file_info_ptr))
         return rv
     }
 
@@ -1471,6 +1523,14 @@ public extension FileInfoProtocol {
     
     }
 
+    /// Sets the `G_FILE_ATTRIBUTE_TIME_ACCESS` and
+    /// `G_FILE_ATTRIBUTE_TIME_ACCESS_USEC` attributes in the file info to the
+    /// given date/time value.
+    @inlinable func setAccessDateTime<DateTimeT: GLib.DateTimeProtocol>(atime: DateTimeT) {
+        g_file_info_set_access_date_time(file_info_ptr, atime.date_time_ptr)
+    
+    }
+
     /// Sets the `attribute` to contain the given value, if possible. To unset the
     /// attribute, use `G_FILE_ATTRIBUTE_TYPE_INVALID` for `type`.
     @inlinable func set(attribute: UnsafePointer<CChar>!, type: GFileAttributeType, valueP: gpointer!) {
@@ -1564,6 +1624,14 @@ public extension FileInfoProtocol {
     /// See `G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`.
     @inlinable func set(contentType: UnsafePointer<CChar>!) {
         g_file_info_set_content_type(file_info_ptr, contentType)
+    
+    }
+
+    /// Sets the `G_FILE_ATTRIBUTE_TIME_CREATED` and
+    /// `G_FILE_ATTRIBUTE_TIME_CREATED_USEC` attributes in the file info to the
+    /// given date/time value.
+    @inlinable func setCreationDateTime<DateTimeT: GLib.DateTimeProtocol>(creationTime: DateTimeT) {
+        g_file_info_set_creation_date_time(file_info_ptr, creationTime.date_time_ptr)
     
     }
 
@@ -1670,6 +1738,31 @@ public extension FileInfoProtocol {
         g_file_info_unset_attribute_mask(file_info_ptr)
     
     }
+    /// Gets the access time of the current `info` and returns it as a
+    /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_ACCESS` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_ACCESS_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
+    @inlinable var accessDateTime: GLib.DateTimeRef! {
+        /// Gets the access time of the current `info` and returns it as a
+        /// `GDateTime`.
+        /// 
+        /// This requires the `G_FILE_ATTRIBUTE_TIME_ACCESS` attribute. If
+        /// `G_FILE_ATTRIBUTE_TIME_ACCESS_USEC` is provided, the resulting `GDateTime`
+        /// will have microsecond precision.
+        get {
+            let rv = GLib.DateTimeRef(g_file_info_get_access_date_time(file_info_ptr))
+            return rv
+        }
+        /// Sets the `G_FILE_ATTRIBUTE_TIME_ACCESS` and
+        /// `G_FILE_ATTRIBUTE_TIME_ACCESS_USEC` attributes in the file info to the
+        /// given date/time value.
+        nonmutating set {
+            g_file_info_set_access_date_time(file_info_ptr, UnsafeMutablePointer<GDateTime>(newValue?.date_time_ptr))
+        }
+    }
+
     /// Gets the file's content type.
     @inlinable var contentType: String! {
         /// Gets the file's content type.
@@ -1681,6 +1774,31 @@ public extension FileInfoProtocol {
         /// See `G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE`.
         nonmutating set {
             g_file_info_set_content_type(file_info_ptr, newValue)
+        }
+    }
+
+    /// Gets the creation time of the current `info` and returns it as a
+    /// `GDateTime`.
+    /// 
+    /// This requires the `G_FILE_ATTRIBUTE_TIME_CREATED` attribute. If
+    /// `G_FILE_ATTRIBUTE_TIME_CREATED_USEC` is provided, the resulting `GDateTime`
+    /// will have microsecond precision.
+    @inlinable var creationDateTime: GLib.DateTimeRef! {
+        /// Gets the creation time of the current `info` and returns it as a
+        /// `GDateTime`.
+        /// 
+        /// This requires the `G_FILE_ATTRIBUTE_TIME_CREATED` attribute. If
+        /// `G_FILE_ATTRIBUTE_TIME_CREATED_USEC` is provided, the resulting `GDateTime`
+        /// will have microsecond precision.
+        get {
+            let rv = GLib.DateTimeRef(g_file_info_get_creation_date_time(file_info_ptr))
+            return rv
+        }
+        /// Sets the `G_FILE_ATTRIBUTE_TIME_CREATED` and
+        /// `G_FILE_ATTRIBUTE_TIME_CREATED_USEC` attributes in the file info to the
+        /// given date/time value.
+        nonmutating set {
+            g_file_info_set_creation_date_time(file_info_ptr, UnsafeMutablePointer<GDateTime>(newValue?.date_time_ptr))
         }
     }
 
@@ -1911,11 +2029,6 @@ public extension FileInfoProtocol {
 
 // MARK: - FileInputStream Class
 
-/// The `FileInputStreamProtocol` protocol exposes the methods and properties of an underlying `GFileInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileInputStream`.
-/// Alternatively, use `FileInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GFileInputStream provides input streams that take their
 /// content from a file.
 /// 
@@ -1925,6 +2038,12 @@ public extension FileInfoProtocol {
 /// input stream, use `g_seekable_tell()`. To find out if a file input
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
+///
+/// The `FileInputStreamProtocol` protocol exposes the methods and properties of an underlying `GFileInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileInputStream`.
+/// Alternatively, use `FileInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GFileInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1936,10 +2055,6 @@ public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileInputStream` instance.
-/// It exposes methods that can operate on this data type through `FileInputStreamProtocol` conformance.
-/// Use `FileInputStreamRef` only as an `unowned` reference to an existing `GFileInputStream` instance.
-///
 /// GFileInputStream provides input streams that take their
 /// content from a file.
 /// 
@@ -1949,6 +2064,11 @@ public protocol FileInputStreamProtocol: InputStreamProtocol, SeekableProtocol {
 /// input stream, use `g_seekable_tell()`. To find out if a file input
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
+///
+/// The `FileInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileInputStream` instance.
+/// It exposes methods that can operate on this data type through `FileInputStreamProtocol` conformance.
+/// Use `FileInputStreamRef` only as an `unowned` reference to an existing `GFileInputStream` instance.
+///
 public struct FileInputStreamRef: FileInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_input_stream_ptr` property instead.
@@ -2030,10 +2150,6 @@ public extension FileInputStreamRef {
 
     }
 
-/// The `FileInputStream` type acts as a reference-counted owner of an underlying `GFileInputStream` instance.
-/// It provides the methods that can operate on this data type through `FileInputStreamProtocol` conformance.
-/// Use `FileInputStream` as a strong reference or owner of a `GFileInputStream` instance.
-///
 /// GFileInputStream provides input streams that take their
 /// content from a file.
 /// 
@@ -2043,6 +2159,11 @@ public extension FileInputStreamRef {
 /// input stream, use `g_seekable_tell()`. To find out if a file input
 /// stream supports seeking, use `g_seekable_can_seek()`.
 /// To position a file input stream, use `g_seekable_seek()`.
+///
+/// The `FileInputStream` type acts as a reference-counted owner of an underlying `GFileInputStream` instance.
+/// It provides the methods that can operate on this data type through `FileInputStreamProtocol` conformance.
+/// Use `FileInputStream` as a strong reference or owner of a `GFileInputStream` instance.
+///
 open class FileInputStream: InputStream, FileInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2190,12 +2311,14 @@ public enum FileInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2286,11 +2409,6 @@ public extension FileInputStreamProtocol {
 
 // MARK: - FileMonitor Class
 
-/// The `FileMonitorProtocol` protocol exposes the methods and properties of an underlying `GFileMonitor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileMonitor`.
-/// Alternatively, use `FileMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
@@ -2305,6 +2423,12 @@ public extension FileInputStreamProtocol {
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
+///
+/// The `FileMonitorProtocol` protocol exposes the methods and properties of an underlying `GFileMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileMonitor`.
+/// Alternatively, use `FileMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2316,10 +2440,6 @@ public protocol FileMonitorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileMonitorRef` type acts as a lightweight Swift reference to an underlying `GFileMonitor` instance.
-/// It exposes methods that can operate on this data type through `FileMonitorProtocol` conformance.
-/// Use `FileMonitorRef` only as an `unowned` reference to an existing `GFileMonitor` instance.
-///
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
@@ -2334,6 +2454,11 @@ public protocol FileMonitorProtocol: GLibObject.ObjectProtocol {
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
+///
+/// The `FileMonitorRef` type acts as a lightweight Swift reference to an underlying `GFileMonitor` instance.
+/// It exposes methods that can operate on this data type through `FileMonitorProtocol` conformance.
+/// Use `FileMonitorRef` only as an `unowned` reference to an existing `GFileMonitor` instance.
+///
 public struct FileMonitorRef: FileMonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `file_monitor_ptr` property instead.
@@ -2415,10 +2540,6 @@ public extension FileMonitorRef {
 
     }
 
-/// The `FileMonitor` type acts as a reference-counted owner of an underlying `GFileMonitor` instance.
-/// It provides the methods that can operate on this data type through `FileMonitorProtocol` conformance.
-/// Use `FileMonitor` as a strong reference or owner of a `GFileMonitor` instance.
-///
 /// Monitors a file or directory for changes.
 /// 
 /// To obtain a `GFileMonitor` for a file or directory, use
@@ -2433,6 +2554,11 @@ public extension FileMonitorRef {
 /// (though if the global default main context is blocked, this may
 /// cause notifications to be blocked even if the thread-default
 /// context is still running).
+///
+/// The `FileMonitor` type acts as a reference-counted owner of an underlying `GFileMonitor` instance.
+/// It provides the methods that can operate on this data type through `FileMonitorProtocol` conformance.
+/// Use `FileMonitor` as a strong reference or owner of a `GFileMonitor` instance.
+///
 open class FileMonitor: GLibObject.Object, FileMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2665,12 +2791,14 @@ public enum FileMonitorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2777,12 +2905,14 @@ public extension FileMonitorProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2826,12 +2956,14 @@ public extension FileMonitorProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2915,11 +3047,6 @@ public extension FileMonitorProtocol {
 
 // MARK: - FileOutputStream Class
 
-/// The `FileOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GFileOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileOutputStream`.
-/// Alternatively, use `FileOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GFileOutputStream provides output streams that write their
 /// content to a file.
 /// 
@@ -2934,6 +3061,12 @@ public extension FileMonitorProtocol {
 /// `g_seekable_seek()`. To find out if a file output stream supports
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
+///
+/// The `FileOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GFileOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileOutputStream`.
+/// Alternatively, use `FileOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GFileOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2945,10 +3078,6 @@ public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStream` instance.
-/// It exposes methods that can operate on this data type through `FileOutputStreamProtocol` conformance.
-/// Use `FileOutputStreamRef` only as an `unowned` reference to an existing `GFileOutputStream` instance.
-///
 /// GFileOutputStream provides output streams that write their
 /// content to a file.
 /// 
@@ -2963,6 +3092,11 @@ public protocol FileOutputStreamProtocol: OutputStreamProtocol, SeekableProtocol
 /// `g_seekable_seek()`. To find out if a file output stream supports
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
+///
+/// The `FileOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFileOutputStream` instance.
+/// It exposes methods that can operate on this data type through `FileOutputStreamProtocol` conformance.
+/// Use `FileOutputStreamRef` only as an `unowned` reference to an existing `GFileOutputStream` instance.
+///
 public struct FileOutputStreamRef: FileOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `file_output_stream_ptr` property instead.
@@ -3044,10 +3178,6 @@ public extension FileOutputStreamRef {
 
     }
 
-/// The `FileOutputStream` type acts as a reference-counted owner of an underlying `GFileOutputStream` instance.
-/// It provides the methods that can operate on this data type through `FileOutputStreamProtocol` conformance.
-/// Use `FileOutputStream` as a strong reference or owner of a `GFileOutputStream` instance.
-///
 /// GFileOutputStream provides output streams that write their
 /// content to a file.
 /// 
@@ -3062,6 +3192,11 @@ public extension FileOutputStreamRef {
 /// `g_seekable_seek()`. To find out if a file output stream supports
 /// truncating, use `g_seekable_can_truncate()`. To truncate a file output
 /// stream, use `g_seekable_truncate()`.
+///
+/// The `FileOutputStream` type acts as a reference-counted owner of an underlying `GFileOutputStream` instance.
+/// It provides the methods that can operate on this data type through `FileOutputStreamProtocol` conformance.
+/// Use `FileOutputStream` as a strong reference or owner of a `GFileOutputStream` instance.
+///
 open class FileOutputStream: OutputStream, FileOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3209,12 +3344,14 @@ public enum FileOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3340,14 +3477,15 @@ public extension FileOutputStreamProtocol {
 
 // MARK: - FilenameCompleter Class
 
+/// Completes partial file and directory names given a partial string by
+/// looking in the file system for clues. Can return a list of possible
+/// completion strings for widget implementations.
+///
 /// The `FilenameCompleterProtocol` protocol exposes the methods and properties of an underlying `GFilenameCompleter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilenameCompleter`.
 /// Alternatively, use `FilenameCompleterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Completes partial file and directory names given a partial string by
-/// looking in the file system for clues. Can return a list of possible
-/// completion strings for widget implementations.
 public protocol FilenameCompleterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFilenameCompleter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3359,13 +3497,14 @@ public protocol FilenameCompleterProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Completes partial file and directory names given a partial string by
+/// looking in the file system for clues. Can return a list of possible
+/// completion strings for widget implementations.
+///
 /// The `FilenameCompleterRef` type acts as a lightweight Swift reference to an underlying `GFilenameCompleter` instance.
 /// It exposes methods that can operate on this data type through `FilenameCompleterProtocol` conformance.
 /// Use `FilenameCompleterRef` only as an `unowned` reference to an existing `GFilenameCompleter` instance.
 ///
-/// Completes partial file and directory names given a partial string by
-/// looking in the file system for clues. Can return a list of possible
-/// completion strings for widget implementations.
 public struct FilenameCompleterRef: FilenameCompleterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFilenameCompleter` instance.
     /// For type-safe access, use the generated, typed pointer `filename_completer_ptr` property instead.
@@ -3452,13 +3591,14 @@ public extension FilenameCompleterRef {
     }
 }
 
+/// Completes partial file and directory names given a partial string by
+/// looking in the file system for clues. Can return a list of possible
+/// completion strings for widget implementations.
+///
 /// The `FilenameCompleter` type acts as a reference-counted owner of an underlying `GFilenameCompleter` instance.
 /// It provides the methods that can operate on this data type through `FilenameCompleterProtocol` conformance.
 /// Use `FilenameCompleter` as a strong reference or owner of a `GFilenameCompleter` instance.
 ///
-/// Completes partial file and directory names given a partial string by
-/// looking in the file system for clues. Can return a list of possible
-/// completion strings for widget implementations.
 open class FilenameCompleter: GLibObject.Object, FilenameCompleterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3614,12 +3754,14 @@ public enum FilenameCompleterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3714,15 +3856,16 @@ public extension FilenameCompleterProtocol {
 
 // MARK: - FilterInputStream Class
 
+/// Base class for input stream implementations that perform some
+/// kind of filtering operation on a base stream. Typical examples
+/// of filtering operations are character set conversion, compression
+/// and byte order flipping.
+///
 /// The `FilterInputStreamProtocol` protocol exposes the methods and properties of an underlying `GFilterInputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterInputStream`.
 /// Alternatively, use `FilterInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base class for input stream implementations that perform some
-/// kind of filtering operation on a base stream. Typical examples
-/// of filtering operations are character set conversion, compression
-/// and byte order flipping.
 public protocol FilterInputStreamProtocol: InputStreamProtocol {
         /// Untyped pointer to the underlying `GFilterInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3734,14 +3877,15 @@ public protocol FilterInputStreamProtocol: InputStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FilterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStream` instance.
-/// It exposes methods that can operate on this data type through `FilterInputStreamProtocol` conformance.
-/// Use `FilterInputStreamRef` only as an `unowned` reference to an existing `GFilterInputStream` instance.
-///
 /// Base class for input stream implementations that perform some
 /// kind of filtering operation on a base stream. Typical examples
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
+///
+/// The `FilterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterInputStream` instance.
+/// It exposes methods that can operate on this data type through `FilterInputStreamProtocol` conformance.
+/// Use `FilterInputStreamRef` only as an `unowned` reference to an existing `GFilterInputStream` instance.
+///
 public struct FilterInputStreamRef: FilterInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFilterInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `filter_input_stream_ptr` property instead.
@@ -3823,14 +3967,15 @@ public extension FilterInputStreamRef {
 
     }
 
-/// The `FilterInputStream` type acts as a reference-counted owner of an underlying `GFilterInputStream` instance.
-/// It provides the methods that can operate on this data type through `FilterInputStreamProtocol` conformance.
-/// Use `FilterInputStream` as a strong reference or owner of a `GFilterInputStream` instance.
-///
 /// Base class for input stream implementations that perform some
 /// kind of filtering operation on a base stream. Typical examples
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
+///
+/// The `FilterInputStream` type acts as a reference-counted owner of an underlying `GFilterInputStream` instance.
+/// It provides the methods that can operate on this data type through `FilterInputStreamProtocol` conformance.
+/// Use `FilterInputStream` as a strong reference or owner of a `GFilterInputStream` instance.
+///
 open class FilterInputStream: InputStream, FilterInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4034,12 +4179,14 @@ public enum FilterInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4116,15 +4263,16 @@ public extension FilterInputStreamProtocol {
 
 // MARK: - FilterOutputStream Class
 
+/// Base class for output stream implementations that perform some
+/// kind of filtering operation on a base stream. Typical examples
+/// of filtering operations are character set conversion, compression
+/// and byte order flipping.
+///
 /// The `FilterOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GFilterOutputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FilterOutputStream`.
 /// Alternatively, use `FilterOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base class for output stream implementations that perform some
-/// kind of filtering operation on a base stream. Typical examples
-/// of filtering operations are character set conversion, compression
-/// and byte order flipping.
 public protocol FilterOutputStreamProtocol: OutputStreamProtocol {
         /// Untyped pointer to the underlying `GFilterOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4136,14 +4284,15 @@ public protocol FilterOutputStreamProtocol: OutputStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FilterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStream` instance.
-/// It exposes methods that can operate on this data type through `FilterOutputStreamProtocol` conformance.
-/// Use `FilterOutputStreamRef` only as an `unowned` reference to an existing `GFilterOutputStream` instance.
-///
 /// Base class for output stream implementations that perform some
 /// kind of filtering operation on a base stream. Typical examples
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
+///
+/// The `FilterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GFilterOutputStream` instance.
+/// It exposes methods that can operate on this data type through `FilterOutputStreamProtocol` conformance.
+/// Use `FilterOutputStreamRef` only as an `unowned` reference to an existing `GFilterOutputStream` instance.
+///
 public struct FilterOutputStreamRef: FilterOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFilterOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `filter_output_stream_ptr` property instead.
@@ -4225,14 +4374,15 @@ public extension FilterOutputStreamRef {
 
     }
 
-/// The `FilterOutputStream` type acts as a reference-counted owner of an underlying `GFilterOutputStream` instance.
-/// It provides the methods that can operate on this data type through `FilterOutputStreamProtocol` conformance.
-/// Use `FilterOutputStream` as a strong reference or owner of a `GFilterOutputStream` instance.
-///
 /// Base class for output stream implementations that perform some
 /// kind of filtering operation on a base stream. Typical examples
 /// of filtering operations are character set conversion, compression
 /// and byte order flipping.
+///
+/// The `FilterOutputStream` type acts as a reference-counted owner of an underlying `GFilterOutputStream` instance.
+/// It provides the methods that can operate on this data type through `FilterOutputStreamProtocol` conformance.
+/// Use `FilterOutputStream` as a strong reference or owner of a `GFilterOutputStream` instance.
+///
 open class FilterOutputStream: OutputStream, FilterOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4436,12 +4586,14 @@ public enum FilterOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4518,14 +4670,15 @@ public extension FilterOutputStreamProtocol {
 
 // MARK: - IOModule Class
 
+/// Provides an interface and default functions for loading and unloading
+/// modules. This is used internally to make GIO extensible, but can also
+/// be used by others to implement module loading.
+///
 /// The `IOModuleProtocol` protocol exposes the methods and properties of an underlying `GIOModule` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOModule`.
 /// Alternatively, use `IOModuleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface and default functions for loading and unloading
-/// modules. This is used internally to make GIO extensible, but can also
-/// be used by others to implement module loading.
 public protocol IOModuleProtocol: GLibObject.TypeModuleProtocol, GLibObject.TypePluginProtocol {
         /// Untyped pointer to the underlying `GIOModule` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4537,13 +4690,14 @@ public protocol IOModuleProtocol: GLibObject.TypeModuleProtocol, GLibObject.Type
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface and default functions for loading and unloading
+/// modules. This is used internally to make GIO extensible, but can also
+/// be used by others to implement module loading.
+///
 /// The `IOModuleRef` type acts as a lightweight Swift reference to an underlying `GIOModule` instance.
 /// It exposes methods that can operate on this data type through `IOModuleProtocol` conformance.
 /// Use `IOModuleRef` only as an `unowned` reference to an existing `GIOModule` instance.
 ///
-/// Provides an interface and default functions for loading and unloading
-/// modules. This is used internally to make GIO extensible, but can also
-/// be used by others to implement module loading.
 public struct IOModuleRef: IOModuleProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GIOModule` instance.
     /// For type-safe access, use the generated, typed pointer `io_module_ptr` property instead.
@@ -4631,13 +4785,14 @@ public extension IOModuleRef {
     }
 }
 
+/// Provides an interface and default functions for loading and unloading
+/// modules. This is used internally to make GIO extensible, but can also
+/// be used by others to implement module loading.
+///
 /// The `IOModule` type acts as a reference-counted owner of an underlying `GIOModule` instance.
 /// It provides the methods that can operate on this data type through `IOModuleProtocol` conformance.
 /// Use `IOModule` as a strong reference or owner of a `GIOModule` instance.
 ///
-/// Provides an interface and default functions for loading and unloading
-/// modules. This is used internally to make GIO extensible, but can also
-/// be used by others to implement module loading.
 open class IOModule: GLibObject.TypeModule, IOModuleProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4792,12 +4947,14 @@ public enum IOModuleSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

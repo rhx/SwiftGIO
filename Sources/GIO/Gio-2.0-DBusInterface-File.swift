@@ -4,14 +4,15 @@ import GLibObject
 
 // MARK: - DBusInterface Interface
 
+/// The `GDBusInterface` type is the base type for D-Bus interfaces both
+/// on the service side (see `GDBusInterfaceSkeleton`) and client side
+/// (see `GDBusProxy`).
+///
 /// The `DBusInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDBusInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusInterface`.
 /// Alternatively, use `DBusInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GDBusInterface` type is the base type for D-Bus interfaces both
-/// on the service side (see `GDBusInterfaceSkeleton`) and client side
-/// (see `GDBusProxy`).
 public protocol DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -23,13 +24,14 @@ public protocol DBusInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GDBusInterface` type is the base type for D-Bus interfaces both
+/// on the service side (see `GDBusInterfaceSkeleton`) and client side
+/// (see `GDBusProxy`).
+///
 /// The `DBusInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusInterface` instance.
 /// It exposes methods that can operate on this data type through `DBusInterfaceProtocol` conformance.
 /// Use `DBusInterfaceRef` only as an `unowned` reference to an existing `GDBusInterface` instance.
 ///
-/// The `GDBusInterface` type is the base type for D-Bus interfaces both
-/// on the service side (see `GDBusInterfaceSkeleton`) and client side
-/// (see `GDBusProxy`).
 public struct DBusInterfaceRef: DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_ptr` property instead.
@@ -108,13 +110,14 @@ public extension DBusInterfaceRef {
 
     }
 
+/// The `GDBusInterface` type is the base type for D-Bus interfaces both
+/// on the service side (see `GDBusInterfaceSkeleton`) and client side
+/// (see `GDBusProxy`).
+///
 /// The `DBusInterface` type acts as an owner of an underlying `GDBusInterface` instance.
 /// It provides the methods that can operate on this data type through `DBusInterfaceProtocol` conformance.
 /// Use `DBusInterface` as a strong reference or owner of a `GDBusInterface` instance.
 ///
-/// The `GDBusInterface` type is the base type for D-Bus interfaces both
-/// on the service side (see `GDBusInterfaceSkeleton`) and client side
-/// (see `GDBusProxy`).
 open class DBusInterface: DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterface` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_ptr` property instead.
@@ -347,15 +350,16 @@ public extension DBusInterfaceProtocol {
 
 // MARK: - DBusObject Interface
 
+/// The `GDBusObject` type is the base type for D-Bus objects on both
+/// the service side (see `GDBusObjectSkeleton`) and the client side
+/// (see `GDBusObjectProxy`). It is essentially just a container of
+/// interfaces.
+///
 /// The `DBusObjectProtocol` protocol exposes the methods and properties of an underlying `GDBusObject` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObject`.
 /// Alternatively, use `DBusObjectRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GDBusObject` type is the base type for D-Bus objects on both
-/// the service side (see `GDBusObjectSkeleton`) and the client side
-/// (see `GDBusObjectProxy`). It is essentially just a container of
-/// interfaces.
 public protocol DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -367,14 +371,15 @@ public protocol DBusObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectRef` type acts as a lightweight Swift reference to an underlying `GDBusObject` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectProtocol` conformance.
-/// Use `DBusObjectRef` only as an `unowned` reference to an existing `GDBusObject` instance.
-///
 /// The `GDBusObject` type is the base type for D-Bus objects on both
 /// the service side (see `GDBusObjectSkeleton`) and the client side
 /// (see `GDBusObjectProxy`). It is essentially just a container of
 /// interfaces.
+///
+/// The `DBusObjectRef` type acts as a lightweight Swift reference to an underlying `GDBusObject` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectProtocol` conformance.
+/// Use `DBusObjectRef` only as an `unowned` reference to an existing `GDBusObject` instance.
+///
 public struct DBusObjectRef: DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_ptr` property instead.
@@ -453,14 +458,15 @@ public extension DBusObjectRef {
 
     }
 
-/// The `DBusObject` type acts as an owner of an underlying `GDBusObject` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectProtocol` conformance.
-/// Use `DBusObject` as a strong reference or owner of a `GDBusObject` instance.
-///
 /// The `GDBusObject` type is the base type for D-Bus objects on both
 /// the service side (see `GDBusObjectSkeleton`) and the client side
 /// (see `GDBusObjectProxy`). It is essentially just a container of
 /// interfaces.
+///
+/// The `DBusObject` type acts as an owner of an underlying `GDBusObject` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectProtocol` conformance.
+/// Use `DBusObject` as a strong reference or owner of a `GDBusObject` instance.
+///
 open class DBusObject: DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObject` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_ptr` property instead.
@@ -746,11 +752,6 @@ public extension DBusObjectProtocol {
 
 // MARK: - DBusObjectManager Interface
 
-/// The `DBusObjectManagerProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManager` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusObjectManager`.
-/// Alternatively, use `DBusObjectManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -758,6 +759,12 @@ public extension DBusObjectProtocol {
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
 /// and `GDBusObjectManagerServer` for the service-side implementation.
+///
+/// The `DBusObjectManagerProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManager` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusObjectManager`.
+/// Alternatively, use `DBusObjectManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -769,10 +776,6 @@ public protocol DBusObjectManagerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectManagerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManager` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectManagerProtocol` conformance.
-/// Use `DBusObjectManagerRef` only as an `unowned` reference to an existing `GDBusObjectManager` instance.
-///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -780,6 +783,11 @@ public protocol DBusObjectManagerProtocol {
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
 /// and `GDBusObjectManagerServer` for the service-side implementation.
+///
+/// The `DBusObjectManagerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManager` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectManagerProtocol` conformance.
+/// Use `DBusObjectManagerRef` only as an `unowned` reference to an existing `GDBusObjectManager` instance.
+///
 public struct DBusObjectManagerRef: DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_ptr` property instead.
@@ -858,10 +866,6 @@ public extension DBusObjectManagerRef {
 
     }
 
-/// The `DBusObjectManager` type acts as an owner of an underlying `GDBusObjectManager` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectManagerProtocol` conformance.
-/// Use `DBusObjectManager` as a strong reference or owner of a `GDBusObjectManager` instance.
-///
 /// The `GDBusObjectManager` type is the base type for service- and
 /// client-side implementations of the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -869,6 +873,11 @@ public extension DBusObjectManagerRef {
 /// 
 /// See `GDBusObjectManagerClient` for the client-side implementation
 /// and `GDBusObjectManagerServer` for the service-side implementation.
+///
+/// The `DBusObjectManager` type acts as an owner of an underlying `GDBusObjectManager` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectManagerProtocol` conformance.
+/// Use `DBusObjectManager` as a strong reference or owner of a `GDBusObjectManager` instance.
+///
 open class DBusObjectManager: DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManager` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_ptr` property instead.
@@ -1230,11 +1239,6 @@ public extension DBusObjectManagerProtocol {
 
 // MARK: - DatagramBased Interface
 
-/// The `DatagramBasedProtocol` protocol exposes the methods and properties of an underlying `GDatagramBased` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DatagramBased`.
-/// Alternatively, use `DatagramBasedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GDatagramBased` is a networking interface for representing datagram-based
 /// communications. It is a more or less direct mapping of the core parts of the
 /// BSD socket API in a portable GObject interface. It is implemented by
@@ -1282,6 +1286,12 @@ public extension DBusObjectManagerProtocol {
 /// Like most other APIs in GLib, `GDatagramBased` is not inherently thread safe.
 /// To use a `GDatagramBased` concurrently from multiple threads, you must
 /// implement your own locking.
+///
+/// The `DatagramBasedProtocol` protocol exposes the methods and properties of an underlying `GDatagramBased` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DatagramBased`.
+/// Alternatively, use `DatagramBasedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1293,10 +1303,6 @@ public protocol DatagramBasedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DatagramBasedRef` type acts as a lightweight Swift reference to an underlying `GDatagramBased` instance.
-/// It exposes methods that can operate on this data type through `DatagramBasedProtocol` conformance.
-/// Use `DatagramBasedRef` only as an `unowned` reference to an existing `GDatagramBased` instance.
-///
 /// A `GDatagramBased` is a networking interface for representing datagram-based
 /// communications. It is a more or less direct mapping of the core parts of the
 /// BSD socket API in a portable GObject interface. It is implemented by
@@ -1344,6 +1350,11 @@ public protocol DatagramBasedProtocol {
 /// Like most other APIs in GLib, `GDatagramBased` is not inherently thread safe.
 /// To use a `GDatagramBased` concurrently from multiple threads, you must
 /// implement your own locking.
+///
+/// The `DatagramBasedRef` type acts as a lightweight Swift reference to an underlying `GDatagramBased` instance.
+/// It exposes methods that can operate on this data type through `DatagramBasedProtocol` conformance.
+/// Use `DatagramBasedRef` only as an `unowned` reference to an existing `GDatagramBased` instance.
+///
 public struct DatagramBasedRef: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
     /// For type-safe access, use the generated, typed pointer `datagram_based_ptr` property instead.
@@ -1422,10 +1433,6 @@ public extension DatagramBasedRef {
 
     }
 
-/// The `DatagramBased` type acts as an owner of an underlying `GDatagramBased` instance.
-/// It provides the methods that can operate on this data type through `DatagramBasedProtocol` conformance.
-/// Use `DatagramBased` as a strong reference or owner of a `GDatagramBased` instance.
-///
 /// A `GDatagramBased` is a networking interface for representing datagram-based
 /// communications. It is a more or less direct mapping of the core parts of the
 /// BSD socket API in a portable GObject interface. It is implemented by
@@ -1473,6 +1480,11 @@ public extension DatagramBasedRef {
 /// Like most other APIs in GLib, `GDatagramBased` is not inherently thread safe.
 /// To use a `GDatagramBased` concurrently from multiple threads, you must
 /// implement your own locking.
+///
+/// The `DatagramBased` type acts as an owner of an underlying `GDatagramBased` instance.
+/// It provides the methods that can operate on this data type through `DatagramBasedProtocol` conformance.
+/// Use `DatagramBased` as a strong reference or owner of a `GDatagramBased` instance.
+///
 open class DatagramBased: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDatagramBased` instance.
     /// For type-safe access, use the generated, typed pointer `datagram_based_ptr` property instead.
@@ -1977,11 +1989,6 @@ public extension DatagramBasedProtocol {
 
 // MARK: - Drive Interface
 
-/// The `DriveProtocol` protocol exposes the methods and properties of an underlying `GDrive` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Drive`.
-/// Alternatively, use `DriveRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDrive` - this represent a piece of hardware connected to the machine.
 /// It's generally only created for removable hardware or hardware with
 /// removable media.
@@ -2008,6 +2015,12 @@ public extension DatagramBasedProtocol {
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
+///
+/// The `DriveProtocol` protocol exposes the methods and properties of an underlying `GDrive` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Drive`.
+/// Alternatively, use `DriveRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2019,10 +2032,6 @@ public protocol DriveProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DriveRef` type acts as a lightweight Swift reference to an underlying `GDrive` instance.
-/// It exposes methods that can operate on this data type through `DriveProtocol` conformance.
-/// Use `DriveRef` only as an `unowned` reference to an existing `GDrive` instance.
-///
 /// `GDrive` - this represent a piece of hardware connected to the machine.
 /// It's generally only created for removable hardware or hardware with
 /// removable media.
@@ -2049,6 +2058,11 @@ public protocol DriveProtocol {
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
+///
+/// The `DriveRef` type acts as a lightweight Swift reference to an underlying `GDrive` instance.
+/// It exposes methods that can operate on this data type through `DriveProtocol` conformance.
+/// Use `DriveRef` only as an `unowned` reference to an existing `GDrive` instance.
+///
 public struct DriveRef: DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
     /// For type-safe access, use the generated, typed pointer `drive_ptr` property instead.
@@ -2127,10 +2141,6 @@ public extension DriveRef {
 
     }
 
-/// The `Drive` type acts as an owner of an underlying `GDrive` instance.
-/// It provides the methods that can operate on this data type through `DriveProtocol` conformance.
-/// Use `Drive` as a strong reference or owner of a `GDrive` instance.
-///
 /// `GDrive` - this represent a piece of hardware connected to the machine.
 /// It's generally only created for removable hardware or hardware with
 /// removable media.
@@ -2157,6 +2167,11 @@ public extension DriveRef {
 /// 
 /// For porting from GnomeVFS note that there is no equivalent of
 /// `GDrive` in that API.
+///
+/// The `Drive` type acts as an owner of an underlying `GDrive` instance.
+/// It provides the methods that can operate on this data type through `DriveProtocol` conformance.
+/// Use `Drive` as a strong reference or owner of a `GDrive` instance.
+///
 open class Drive: DriveProtocol {
         /// Untyped pointer to the underlying `GDrive` instance.
     /// For type-safe access, use the generated, typed pointer `drive_ptr` property instead.
@@ -2796,13 +2811,14 @@ public extension DriveProtocol {
 
 // MARK: - DtlsClientConnection Interface
 
+/// `GDtlsClientConnection` is the client-side subclass of
+/// `GDtlsConnection`, representing a client-side DTLS connection.
+///
 /// The `DtlsClientConnectionProtocol` protocol exposes the methods and properties of an underlying `GDtlsClientConnection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DtlsClientConnection`.
 /// Alternatively, use `DtlsClientConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GDtlsClientConnection` is the client-side subclass of
-/// `GDtlsConnection`, representing a client-side DTLS connection.
 public protocol DtlsClientConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2814,12 +2830,13 @@ public protocol DtlsClientConnectionProtocol: DatagramBasedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GDtlsClientConnection` is the client-side subclass of
+/// `GDtlsConnection`, representing a client-side DTLS connection.
+///
 /// The `DtlsClientConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsClientConnection` instance.
 /// It exposes methods that can operate on this data type through `DtlsClientConnectionProtocol` conformance.
 /// Use `DtlsClientConnectionRef` only as an `unowned` reference to an existing `GDtlsClientConnection` instance.
 ///
-/// `GDtlsClientConnection` is the client-side subclass of
-/// `GDtlsConnection`, representing a client-side DTLS connection.
 public struct DtlsClientConnectionRef: DtlsClientConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_client_connection_ptr` property instead.
@@ -2898,12 +2915,13 @@ public extension DtlsClientConnectionRef {
 
     }
 
+/// `GDtlsClientConnection` is the client-side subclass of
+/// `GDtlsConnection`, representing a client-side DTLS connection.
+///
 /// The `DtlsClientConnection` type acts as an owner of an underlying `GDtlsClientConnection` instance.
 /// It provides the methods that can operate on this data type through `DtlsClientConnectionProtocol` conformance.
 /// Use `DtlsClientConnection` as a strong reference or owner of a `GDtlsClientConnection` instance.
 ///
-/// `GDtlsClientConnection` is the client-side subclass of
-/// `GDtlsConnection`, representing a client-side DTLS connection.
 open class DtlsClientConnection: DatagramBased, DtlsClientConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3254,11 +3272,6 @@ public extension DtlsClientConnectionProtocol {
 
 // MARK: - DtlsConnection Interface
 
-/// The `DtlsConnectionProtocol` protocol exposes the methods and properties of an underlying `GDtlsConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DtlsConnection`.
-/// Alternatively, use `DtlsConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDtlsConnection` is the base DTLS connection class type, which wraps
 /// a `GDatagramBased` and provides DTLS encryption on top of it. Its
 /// subclasses, `GDtlsClientConnection` and `GDtlsServerConnection`,
@@ -3278,6 +3291,12 @@ public extension DtlsClientConnectionProtocol {
 /// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
+///
+/// The `DtlsConnectionProtocol` protocol exposes the methods and properties of an underlying `GDtlsConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DtlsConnection`.
+/// Alternatively, use `DtlsConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3289,10 +3308,6 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DtlsConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnection` instance.
-/// It exposes methods that can operate on this data type through `DtlsConnectionProtocol` conformance.
-/// Use `DtlsConnectionRef` only as an `unowned` reference to an existing `GDtlsConnection` instance.
-///
 /// `GDtlsConnection` is the base DTLS connection class type, which wraps
 /// a `GDatagramBased` and provides DTLS encryption on top of it. Its
 /// subclasses, `GDtlsClientConnection` and `GDtlsServerConnection`,
@@ -3312,6 +3327,11 @@ public protocol DtlsConnectionProtocol: DatagramBasedProtocol {
 /// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
+///
+/// The `DtlsConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnection` instance.
+/// It exposes methods that can operate on this data type through `DtlsConnectionProtocol` conformance.
+/// Use `DtlsConnectionRef` only as an `unowned` reference to an existing `GDtlsConnection` instance.
+///
 public struct DtlsConnectionRef: DtlsConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_connection_ptr` property instead.
@@ -3390,10 +3410,6 @@ public extension DtlsConnectionRef {
 
     }
 
-/// The `DtlsConnection` type acts as an owner of an underlying `GDtlsConnection` instance.
-/// It provides the methods that can operate on this data type through `DtlsConnectionProtocol` conformance.
-/// Use `DtlsConnection` as a strong reference or owner of a `GDtlsConnection` instance.
-///
 /// `GDtlsConnection` is the base DTLS connection class type, which wraps
 /// a `GDatagramBased` and provides DTLS encryption on top of it. Its
 /// subclasses, `GDtlsClientConnection` and `GDtlsServerConnection`,
@@ -3413,6 +3429,11 @@ public extension DtlsConnectionRef {
 /// do that if they wish. If they do not, and `g_socket_close()` is called on the
 /// base socket, the `GDtlsConnection` will not raise a `G_IO_ERROR_NOT_CONNECTED`
 /// error on further I/O.
+///
+/// The `DtlsConnection` type acts as an owner of an underlying `GDtlsConnection` instance.
+/// It provides the methods that can operate on this data type through `DtlsConnectionProtocol` conformance.
+/// Use `DtlsConnection` as a strong reference or owner of a `GDtlsConnection` instance.
+///
 open class DtlsConnection: DatagramBased, DtlsConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3553,6 +3574,8 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     /// The connection's certificate; see
     /// `g_dtls_connection_set_certificate()`.
     case certificate = "certificate"
+    /// The name of the DTLS ciphersuite in use. See `g_dtls_connection_get_ciphersuite_name()`.
+    case ciphersuiteName = "ciphersuite-name"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
@@ -3578,6 +3601,8 @@ public enum DtlsConnectionPropertyName: String, PropertyNameProtocol {
     /// `GDtlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
+    /// The DTLS protocol version in use. See `g_dtls_connection_get_protocol_version()`.
+    case protocolVersion = "protocol-version"
     /// The rehandshaking mode. See
     /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
@@ -3687,6 +3712,8 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     /// The connection's certificate; see
     /// `g_dtls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
+    /// The name of the DTLS ciphersuite in use. See `g_dtls_connection_get_ciphersuite_name()`.
+    case notifyCiphersuiteName = "notify::ciphersuite-name"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
@@ -3712,6 +3739,8 @@ public enum DtlsConnectionSignalName: String, SignalNameProtocol {
     /// `GDtlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
+    /// The DTLS protocol version in use. See `g_dtls_connection_get_protocol_version()`.
+    case notifyProtocolVersion = "notify::protocol-version"
     /// The rehandshaking mode. See
     /// `g_dtls_connection_set_rehandshake_mode()`.
     ///
@@ -3825,12 +3854,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3874,12 +3905,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3923,12 +3956,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3972,12 +4007,65 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::ciphersuite-name` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCiphersuiteName` signal is emitted
+    @discardableResult @inlinable func onNotifyCiphersuiteName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DtlsConnectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<DtlsConnectionRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(DtlsConnectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyCiphersuiteName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::ciphersuite-name` signal for using the `connect(signal:)` methods
+    static var notifyCiphersuiteNameSignal: DtlsConnectionSignalName { .notifyCiphersuiteName }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4021,12 +4109,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4070,12 +4160,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4119,12 +4211,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4168,12 +4262,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4217,12 +4313,65 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::protocol-version` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyProtocolVersion` signal is emitted
+    @discardableResult @inlinable func onNotifyProtocolVersion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DtlsConnectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<DtlsConnectionRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(DtlsConnectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyProtocolVersion,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::protocol-version` signal for using the `connect(signal:)` methods
+    static var notifyProtocolVersionSignal: DtlsConnectionSignalName { .notifyProtocolVersion }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4266,12 +4415,14 @@ public extension DtlsConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4433,6 +4584,19 @@ public extension DtlsConnectionProtocol {
         return rv
     }
 
+    /// Returns the name of the current DTLS ciphersuite, or `nil` if the
+    /// connection has not handshaked or has been closed. Beware that the TLS
+    /// backend may use any of multiple different naming conventions, because
+    /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+    /// are different from each other and different from the standard, IANA-
+    /// registered ciphersuite names. The ciphersuite name is intended to be
+    /// displayed to the user for informative purposes only, and parsing it
+    /// is not recommended.
+    @inlinable func getCiphersuiteName() -> String! {
+        let rv = g_dtls_connection_get_ciphersuite_name(dtls_connection_ptr).map({ String(cString: $0) })
+        return rv
+    }
+
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_dtls_connection_set_database()`.
     @inlinable func getDatabase() -> TLSDatabaseRef! {
@@ -4473,6 +4637,15 @@ public extension DtlsConnectionProtocol {
     /// not set during the emission of `GDtlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_dtls_connection_get_peer_certificate_errors(dtls_connection_ptr))
+        return rv
+    }
+
+    /// Returns the current DTLS protocol version, which may be
+    /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+    /// has been closed, or if the TLS backend has implemented a protocol version
+    /// that is not a recognized `GTlsProtocolVersion`.
+    @inlinable func getProtocolVersion() -> GTlsProtocolVersion {
+        let rv = g_dtls_connection_get_protocol_version(dtls_connection_ptr)
         return rv
     }
 
@@ -4809,6 +4982,29 @@ public extension DtlsConnectionProtocol {
         }
     }
 
+    /// Returns the name of the current DTLS ciphersuite, or `nil` if the
+    /// connection has not handshaked or has been closed. Beware that the TLS
+    /// backend may use any of multiple different naming conventions, because
+    /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+    /// are different from each other and different from the standard, IANA-
+    /// registered ciphersuite names. The ciphersuite name is intended to be
+    /// displayed to the user for informative purposes only, and parsing it
+    /// is not recommended.
+    @inlinable var ciphersuiteName: String! {
+        /// Returns the name of the current DTLS ciphersuite, or `nil` if the
+        /// connection has not handshaked or has been closed. Beware that the TLS
+        /// backend may use any of multiple different naming conventions, because
+        /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+        /// are different from each other and different from the standard, IANA-
+        /// registered ciphersuite names. The ciphersuite name is intended to be
+        /// displayed to the user for informative purposes only, and parsing it
+        /// is not recommended.
+        get {
+            let rv = g_dtls_connection_get_ciphersuite_name(dtls_connection_ptr).map({ String(cString: $0) })
+            return rv
+        }
+    }
+
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
@@ -4901,6 +5097,21 @@ public extension DtlsConnectionProtocol {
         }
     }
 
+    /// Returns the current DTLS protocol version, which may be
+    /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+    /// has been closed, or if the TLS backend has implemented a protocol version
+    /// that is not a recognized `GTlsProtocolVersion`.
+    @inlinable var protocolVersion: GTlsProtocolVersion {
+        /// Returns the current DTLS protocol version, which may be
+        /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+        /// has been closed, or if the TLS backend has implemented a protocol version
+        /// that is not a recognized `GTlsProtocolVersion`.
+        get {
+            let rv = g_dtls_connection_get_protocol_version(dtls_connection_ptr)
+            return rv
+        }
+    }
+
     /// Gets `conn` rehandshaking mode. See
     /// `g_dtls_connection_set_rehandshake_mode()` for details.
     ///
@@ -4982,13 +5193,14 @@ public extension DtlsConnectionProtocol {
 
 // MARK: - DtlsServerConnection Interface
 
+/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
+/// representing a server-side DTLS connection.
+///
 /// The `DtlsServerConnectionProtocol` protocol exposes the methods and properties of an underlying `GDtlsServerConnection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DtlsServerConnection`.
 /// Alternatively, use `DtlsServerConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
-/// representing a server-side DTLS connection.
 public protocol DtlsServerConnectionProtocol: DatagramBasedProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5000,12 +5212,13 @@ public protocol DtlsServerConnectionProtocol: DatagramBasedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
+/// representing a server-side DTLS connection.
+///
 /// The `DtlsServerConnectionRef` type acts as a lightweight Swift reference to an underlying `GDtlsServerConnection` instance.
 /// It exposes methods that can operate on this data type through `DtlsServerConnectionProtocol` conformance.
 /// Use `DtlsServerConnectionRef` only as an `unowned` reference to an existing `GDtlsServerConnection` instance.
 ///
-/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
-/// representing a server-side DTLS connection.
 public struct DtlsServerConnectionRef: DtlsServerConnectionProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dtls_server_connection_ptr` property instead.
@@ -5084,12 +5297,13 @@ public extension DtlsServerConnectionRef {
 
     }
 
+/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
+/// representing a server-side DTLS connection.
+///
 /// The `DtlsServerConnection` type acts as an owner of an underlying `GDtlsServerConnection` instance.
 /// It provides the methods that can operate on this data type through `DtlsServerConnectionProtocol` conformance.
 /// Use `DtlsServerConnection` as a strong reference or owner of a `GDtlsServerConnection` instance.
 ///
-/// `GDtlsServerConnection` is the server-side subclass of `GDtlsConnection`,
-/// representing a server-side DTLS connection.
 open class DtlsServerConnection: DatagramBased, DtlsServerConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5301,11 +5515,6 @@ public extension DtlsServerConnectionProtocol {
 
 // MARK: - File Interface
 
-/// The `FileProtocol` protocol exposes the methods and properties of an underlying `GFile` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `File`.
-/// Alternatively, use `FileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GFile` is a high level abstraction for manipulating files on a
 /// virtual file system. `GFiles` are lightweight, immutable objects
 /// that do no I/O upon creation. It is necessary to understand that
@@ -5387,6 +5596,12 @@ public extension DtlsServerConnectionProtocol {
 /// HTTP 1.1
 /// [specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 /// for HTTP Etag headers, which are a very similar concept.
+///
+/// The `FileProtocol` protocol exposes the methods and properties of an underlying `GFile` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `File`.
+/// Alternatively, use `FileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5398,10 +5613,6 @@ public protocol FileProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileRef` type acts as a lightweight Swift reference to an underlying `GFile` instance.
-/// It exposes methods that can operate on this data type through `FileProtocol` conformance.
-/// Use `FileRef` only as an `unowned` reference to an existing `GFile` instance.
-///
 /// `GFile` is a high level abstraction for manipulating files on a
 /// virtual file system. `GFiles` are lightweight, immutable objects
 /// that do no I/O upon creation. It is necessary to understand that
@@ -5483,6 +5694,11 @@ public protocol FileProtocol {
 /// HTTP 1.1
 /// [specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 /// for HTTP Etag headers, which are a very similar concept.
+///
+/// The `FileRef` type acts as a lightweight Swift reference to an underlying `GFile` instance.
+/// It exposes methods that can operate on this data type through `FileProtocol` conformance.
+/// Use `FileRef` only as an `unowned` reference to an existing `GFile` instance.
+///
 public struct FileRef: FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
     /// For type-safe access, use the generated, typed pointer `file_ptr` property instead.
@@ -5643,10 +5859,6 @@ public extension FileRef {
     }
 }
 
-/// The `File` type acts as an owner of an underlying `GFile` instance.
-/// It provides the methods that can operate on this data type through `FileProtocol` conformance.
-/// Use `File` as a strong reference or owner of a `GFile` instance.
-///
 /// `GFile` is a high level abstraction for manipulating files on a
 /// virtual file system. `GFiles` are lightweight, immutable objects
 /// that do no I/O upon creation. It is necessary to understand that
@@ -5728,6 +5940,11 @@ public extension FileRef {
 /// HTTP 1.1
 /// [specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)
 /// for HTTP Etag headers, which are a very similar concept.
+///
+/// The `File` type acts as an owner of an underlying `GFile` instance.
+/// It provides the methods that can operate on this data type through `FileProtocol` conformance.
+/// Use `File` as a strong reference or owner of a `GFile` instance.
+///
 open class File: FileProtocol {
         /// Untyped pointer to the underlying `GFile` instance.
     /// For type-safe access, use the generated, typed pointer `file_ptr` property instead.
@@ -6041,6 +6258,37 @@ public extension FileProtocol {
     @inlinable func appendToFinish<AsyncResultT: AsyncResultProtocol>(res: AsyncResultT) throws -> FileOutputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = FileOutputStreamRef(gconstpointer: gconstpointer(g_file_append_to_finish(file_ptr, res.async_result_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
+    /// Prepares the file attribute query string for copying to `file`.
+    /// 
+    /// This function prepares an attribute query string to be
+    /// passed to `g_file_query_info()` to get a list of attributes
+    /// normally copied with the file (see `g_file_copy_attributes()`
+    /// for the detailed description). This function is used by the
+    /// implementation of `g_file_copy_attributes()` and is useful
+    /// when one needs to query and set the attributes in two
+    /// stages (e.g., for recursive move of a directory).
+    @inlinable func buildAttributeListForCopy(flags: FileCopyFlags, cancellable: CancellableRef? = nil) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_file_build_attribute_list_for_copy(file_ptr, flags.value, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Prepares the file attribute query string for copying to `file`.
+    /// 
+    /// This function prepares an attribute query string to be
+    /// passed to `g_file_query_info()` to get a list of attributes
+    /// normally copied with the file (see `g_file_copy_attributes()`
+    /// for the detailed description). This function is used by the
+    /// implementation of `g_file_copy_attributes()` and is useful
+    /// when one needs to query and set the attributes in two
+    /// stages (e.g., for recursive move of a directory).
+    @inlinable func buildAttributeListForCopy<CancellableT: CancellableProtocol>(flags: FileCopyFlags, cancellable: CancellableT?) throws -> String! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_file_build_attribute_list_for_copy(file_ptr, flags.value, cancellable?.cancellable_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }

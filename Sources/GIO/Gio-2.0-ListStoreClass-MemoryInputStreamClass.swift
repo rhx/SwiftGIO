@@ -19,12 +19,13 @@ public extension ListStoreClassRef {
 
 // MARK: - ListStoreClass Record
 
+
+///
 /// The `ListStoreClassProtocol` protocol exposes the methods and properties of an underlying `GListStoreClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ListStoreClass`.
 /// Alternatively, use `ListStoreClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GListStoreClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol ListStoreClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ListStoreClassRef` type acts as a lightweight Swift reference to an underlying `GListStoreClass` instance.
 /// It exposes methods that can operate on this data type through `ListStoreClassProtocol` conformance.
 /// Use `ListStoreClassRef` only as an `unowned` reference to an existing `GListStoreClass` instance.
 ///
-
 public struct ListStoreClassRef: ListStoreClassProtocol {
         /// Untyped pointer to the underlying `GListStoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -153,12 +155,13 @@ public extension LoadableIconIfaceRef {
 
 // MARK: - LoadableIconIface Record
 
+/// Interface for icons that can be loaded as a stream.
+///
 /// The `LoadableIconIfaceProtocol` protocol exposes the methods and properties of an underlying `GLoadableIconIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `LoadableIconIface`.
 /// Alternatively, use `LoadableIconIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for icons that can be loaded as a stream.
 public protocol LoadableIconIfaceProtocol {
         /// Untyped pointer to the underlying `GLoadableIconIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -170,11 +173,12 @@ public protocol LoadableIconIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for icons that can be loaded as a stream.
+///
 /// The `LoadableIconIfaceRef` type acts as a lightweight Swift reference to an underlying `GLoadableIconIface` instance.
 /// It exposes methods that can operate on this data type through `LoadableIconIfaceProtocol` conformance.
 /// Use `LoadableIconIfaceRef` only as an `unowned` reference to an existing `GLoadableIconIface` instance.
 ///
-/// Interface for icons that can be loaded as a stream.
 public struct LoadableIconIfaceRef: LoadableIconIfaceProtocol {
         /// Untyped pointer to the underlying `GLoadableIconIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -295,12 +299,13 @@ public extension MemoryInputStreamClassRef {
 
 // MARK: - MemoryInputStreamClass Record
 
+
+///
 /// The `MemoryInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GMemoryInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MemoryInputStreamClass`.
 /// Alternatively, use `MemoryInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol MemoryInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -312,11 +317,12 @@ public protocol MemoryInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `MemoryInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `MemoryInputStreamClassProtocol` conformance.
 /// Use `MemoryInputStreamClassRef` only as an `unowned` reference to an existing `GMemoryInputStreamClass` instance.
 ///
-
 public struct MemoryInputStreamClassRef: MemoryInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GMemoryInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

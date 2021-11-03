@@ -19,12 +19,13 @@ public extension SettingsBackendClassRef {
 
 // MARK: - SettingsBackendClass Record
 
+/// Class structure for `GSettingsBackend`.
+///
 /// The `SettingsBackendClassProtocol` protocol exposes the methods and properties of an underlying `GSettingsBackendClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsBackendClass`.
 /// Alternatively, use `SettingsBackendClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GSettingsBackend`.
 public protocol SettingsBackendClassProtocol {
         /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol SettingsBackendClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GSettingsBackend`.
+///
 /// The `SettingsBackendClassRef` type acts as a lightweight Swift reference to an underlying `GSettingsBackendClass` instance.
 /// It exposes methods that can operate on this data type through `SettingsBackendClassProtocol` conformance.
 /// Use `SettingsBackendClassRef` only as an `unowned` reference to an existing `GSettingsBackendClass` instance.
 ///
-/// Class structure for `GSettingsBackend`.
 public struct SettingsBackendClassRef: SettingsBackendClassProtocol {
         /// Untyped pointer to the underlying `GSettingsBackendClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -175,12 +177,13 @@ public extension SettingsClassRef {
 
 // MARK: - SettingsClass Record
 
+
+///
 /// The `SettingsClassProtocol` protocol exposes the methods and properties of an underlying `GSettingsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsClass`.
 /// Alternatively, use `SettingsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SettingsClassProtocol {
         /// Untyped pointer to the underlying `GSettingsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -192,11 +195,12 @@ public protocol SettingsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `GSettingsClass` instance.
 /// It exposes methods that can operate on this data type through `SettingsClassProtocol` conformance.
 /// Use `SettingsClassRef` only as an `unowned` reference to an existing `GSettingsClass` instance.
 ///
-
 public struct SettingsClassRef: SettingsClassProtocol {
         /// Untyped pointer to the underlying `GSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -309,11 +313,6 @@ public extension SettingsClassProtocol {
 
 // MARK: - SettingsSchema Record
 
-/// The `SettingsSchemaProtocol` protocol exposes the methods and properties of an underlying `GSettingsSchema` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SettingsSchema`.
-/// Alternatively, use `SettingsSchemaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GSettingsSchemaSource` and `GSettingsSchema` APIs provide a
 /// mechanism for advanced control over the loading of schemas and a
 /// mechanism for introspecting their content.
@@ -406,6 +405,12 @@ public extension SettingsClassProtocol {
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
+///
+/// The `SettingsSchemaProtocol` protocol exposes the methods and properties of an underlying `GSettingsSchema` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SettingsSchema`.
+/// Alternatively, use `SettingsSchemaRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SettingsSchemaProtocol {
         /// Untyped pointer to the underlying `GSettingsSchema` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -417,10 +422,6 @@ public protocol SettingsSchemaProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SettingsSchemaRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchema` instance.
-/// It exposes methods that can operate on this data type through `SettingsSchemaProtocol` conformance.
-/// Use `SettingsSchemaRef` only as an `unowned` reference to an existing `GSettingsSchema` instance.
-///
 /// The `GSettingsSchemaSource` and `GSettingsSchema` APIs provide a
 /// mechanism for advanced control over the loading of schemas and a
 /// mechanism for introspecting their content.
@@ -513,6 +514,11 @@ public protocol SettingsSchemaProtocol {
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
+///
+/// The `SettingsSchemaRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchema` instance.
+/// It exposes methods that can operate on this data type through `SettingsSchemaProtocol` conformance.
+/// Use `SettingsSchemaRef` only as an `unowned` reference to an existing `GSettingsSchema` instance.
+///
 public struct SettingsSchemaRef: SettingsSchemaProtocol {
         /// Untyped pointer to the underlying `GSettingsSchema` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_ptr` property instead.
@@ -591,10 +597,6 @@ public extension SettingsSchemaRef {
 
     }
 
-/// The `SettingsSchema` type acts as a reference-counted owner of an underlying `GSettingsSchema` instance.
-/// It provides the methods that can operate on this data type through `SettingsSchemaProtocol` conformance.
-/// Use `SettingsSchema` as a strong reference or owner of a `GSettingsSchema` instance.
-///
 /// The `GSettingsSchemaSource` and `GSettingsSchema` APIs provide a
 /// mechanism for advanced control over the loading of schemas and a
 /// mechanism for introspecting their content.
@@ -687,6 +689,11 @@ public extension SettingsSchemaRef {
 /// files (ie: .gschema.xml files) instead of a gschemas.compiled file.
 /// In that case, the plugin loading system must compile the schemas for
 /// itself before attempting to create the settings source.
+///
+/// The `SettingsSchema` type acts as a reference-counted owner of an underlying `GSettingsSchema` instance.
+/// It provides the methods that can operate on this data type through `SettingsSchemaProtocol` conformance.
+/// Use `SettingsSchema` as a strong reference or owner of a `GSettingsSchema` instance.
+///
 open class SettingsSchema: SettingsSchemaProtocol {
         /// Untyped pointer to the underlying `GSettingsSchema` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_ptr` property instead.
@@ -947,13 +954,14 @@ public extension SettingsSchemaProtocol {
 
 // MARK: - SettingsSchemaKey Record
 
+/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `SettingsSchemaKeyProtocol` protocol exposes the methods and properties of an underlying `GSettingsSchemaKey` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsSchemaKey`.
 /// Alternatively, use `SettingsSchemaKeyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
-/// using the following functions.
 public protocol SettingsSchemaKeyProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -965,12 +973,13 @@ public protocol SettingsSchemaKeyProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `SettingsSchemaKeyRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchemaKey` instance.
 /// It exposes methods that can operate on this data type through `SettingsSchemaKeyProtocol` conformance.
 /// Use `SettingsSchemaKeyRef` only as an `unowned` reference to an existing `GSettingsSchemaKey` instance.
 ///
-/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
-/// using the following functions.
 public struct SettingsSchemaKeyRef: SettingsSchemaKeyProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_key_ptr` property instead.
@@ -1049,12 +1058,13 @@ public extension SettingsSchemaKeyRef {
 
     }
 
+/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `SettingsSchemaKey` type acts as a reference-counted owner of an underlying `GSettingsSchemaKey` instance.
 /// It provides the methods that can operate on this data type through `SettingsSchemaKeyProtocol` conformance.
 /// Use `SettingsSchemaKey` as a strong reference or owner of a `GSettingsSchemaKey` instance.
 ///
-/// `GSettingsSchemaKey` is an opaque data structure and can only be accessed
-/// using the following functions.
 open class SettingsSchemaKey: SettingsSchemaKeyProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaKey` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_key_ptr` property instead.
@@ -1308,10 +1318,10 @@ public extension SettingsSchemaKeyProtocol {
         return rv
     }
 
-    /// Checks if the given `value` is of the correct type and within the
+    /// Checks if the given `value` is within the
     /// permitted range for `key`.
     /// 
-    /// It is a programmer error if `value` is not of the correct type -- you
+    /// It is a programmer error if `value` is not of the correct type — you
     /// must check for this first.
     @inlinable func rangeCheck<VariantT: GLib.VariantProtocol>(value: VariantT) -> Bool {
         let rv = ((g_settings_schema_key_range_check(settings_schema_key_ptr, value.variant_ptr)) != 0)
@@ -1516,12 +1526,13 @@ public extension SettingsSchemaKeyProtocol {
 
 // MARK: - SettingsSchemaSource Record
 
+/// This is an opaque structure type.  You may not access it directly.
+///
 /// The `SettingsSchemaSourceProtocol` protocol exposes the methods and properties of an underlying `GSettingsSchemaSource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SettingsSchemaSource`.
 /// Alternatively, use `SettingsSchemaSourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This is an opaque structure type.  You may not access it directly.
 public protocol SettingsSchemaSourceProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1533,11 +1544,12 @@ public protocol SettingsSchemaSourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// This is an opaque structure type.  You may not access it directly.
+///
 /// The `SettingsSchemaSourceRef` type acts as a lightweight Swift reference to an underlying `GSettingsSchemaSource` instance.
 /// It exposes methods that can operate on this data type through `SettingsSchemaSourceProtocol` conformance.
 /// Use `SettingsSchemaSourceRef` only as an `unowned` reference to an existing `GSettingsSchemaSource` instance.
 ///
-/// This is an opaque structure type.  You may not access it directly.
 public struct SettingsSchemaSourceRef: SettingsSchemaSourceProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_source_ptr` property instead.
@@ -1709,11 +1721,12 @@ public extension SettingsSchemaSourceRef {
     }
 }
 
+/// This is an opaque structure type.  You may not access it directly.
+///
 /// The `SettingsSchemaSource` type acts as a reference-counted owner of an underlying `GSettingsSchemaSource` instance.
 /// It provides the methods that can operate on this data type through `SettingsSchemaSourceProtocol` conformance.
 /// Use `SettingsSchemaSource` as a strong reference or owner of a `GSettingsSchemaSource` instance.
 ///
-/// This is an opaque structure type.  You may not access it directly.
 open class SettingsSchemaSource: SettingsSchemaSourceProtocol {
         /// Untyped pointer to the underlying `GSettingsSchemaSource` instance.
     /// For type-safe access, use the generated, typed pointer `settings_schema_source_ptr` property instead.
@@ -2027,12 +2040,13 @@ public extension SimpleActionGroupClassRef {
 
 // MARK: - SimpleActionGroupClass Record
 
+
+///
 /// The `SimpleActionGroupClassProtocol` protocol exposes the methods and properties of an underlying `GSimpleActionGroupClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SimpleActionGroupClass`.
 /// Alternatively, use `SimpleActionGroupClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SimpleActionGroupClassProtocol {
         /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2044,11 +2058,12 @@ public protocol SimpleActionGroupClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SimpleActionGroupClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleActionGroupClass` instance.
 /// It exposes methods that can operate on this data type through `SimpleActionGroupClassProtocol` conformance.
 /// Use `SimpleActionGroupClassRef` only as an `unowned` reference to an existing `GSimpleActionGroupClass` instance.
 ///
-
 public struct SimpleActionGroupClassRef: SimpleActionGroupClassProtocol {
         /// Untyped pointer to the underlying `GSimpleActionGroupClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2158,12 +2173,13 @@ public extension SimpleAsyncResultClassRef {
 
 // MARK: - SimpleAsyncResultClass Record
 
+
+///
 /// The `SimpleAsyncResultClassProtocol` protocol exposes the methods and properties of an underlying `GSimpleAsyncResultClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SimpleAsyncResultClass`.
 /// Alternatively, use `SimpleAsyncResultClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SimpleAsyncResultClassProtocol {
         /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2175,11 +2191,12 @@ public protocol SimpleAsyncResultClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SimpleAsyncResultClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleAsyncResultClass` instance.
 /// It exposes methods that can operate on this data type through `SimpleAsyncResultClassProtocol` conformance.
 /// Use `SimpleAsyncResultClassRef` only as an `unowned` reference to an existing `GSimpleAsyncResultClass` instance.
 ///
-
 public struct SimpleAsyncResultClassRef: SimpleAsyncResultClassProtocol {
         /// Untyped pointer to the underlying `GSimpleAsyncResultClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2286,12 +2303,13 @@ public extension SimpleProxyResolverClassRef {
 
 // MARK: - SimpleProxyResolverClass Record
 
+
+///
 /// The `SimpleProxyResolverClassProtocol` protocol exposes the methods and properties of an underlying `GSimpleProxyResolverClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SimpleProxyResolverClass`.
 /// Alternatively, use `SimpleProxyResolverClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SimpleProxyResolverClassProtocol {
         /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2303,11 +2321,12 @@ public protocol SimpleProxyResolverClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SimpleProxyResolverClassRef` type acts as a lightweight Swift reference to an underlying `GSimpleProxyResolverClass` instance.
 /// It exposes methods that can operate on this data type through `SimpleProxyResolverClassProtocol` conformance.
 /// Use `SimpleProxyResolverClassRef` only as an `unowned` reference to an existing `GSimpleProxyResolverClass` instance.
 ///
-
 public struct SimpleProxyResolverClassRef: SimpleProxyResolverClassProtocol {
         /// Untyped pointer to the underlying `GSimpleProxyResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2430,12 +2449,13 @@ public extension SocketAddressClassRef {
 
 // MARK: - SocketAddressClass Record
 
+
+///
 /// The `SocketAddressClassProtocol` protocol exposes the methods and properties of an underlying `GSocketAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketAddressClass`.
 /// Alternatively, use `SocketAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GSocketAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2447,11 +2467,12 @@ public protocol SocketAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SocketAddressClassRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressClass` instance.
 /// It exposes methods that can operate on this data type through `SocketAddressClassProtocol` conformance.
 /// Use `SocketAddressClassRef` only as an `unowned` reference to an existing `GSocketAddressClass` instance.
 ///
-
 public struct SocketAddressClassRef: SocketAddressClassProtocol {
         /// Untyped pointer to the underlying `GSocketAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2570,12 +2591,13 @@ public extension SocketAddressEnumeratorClassRef {
 
 // MARK: - SocketAddressEnumeratorClass Record
 
+/// Class structure for `GSocketAddressEnumerator`.
+///
 /// The `SocketAddressEnumeratorClassProtocol` protocol exposes the methods and properties of an underlying `GSocketAddressEnumeratorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketAddressEnumeratorClass`.
 /// Alternatively, use `SocketAddressEnumeratorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GSocketAddressEnumerator`.
 public protocol SocketAddressEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2587,11 +2609,12 @@ public protocol SocketAddressEnumeratorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GSocketAddressEnumerator`.
+///
 /// The `SocketAddressEnumeratorClassRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressEnumeratorClass` instance.
 /// It exposes methods that can operate on this data type through `SocketAddressEnumeratorClassProtocol` conformance.
 /// Use `SocketAddressEnumeratorClassRef` only as an `unowned` reference to an existing `GSocketAddressEnumeratorClass` instance.
 ///
-/// Class structure for `GSocketAddressEnumerator`.
 public struct SocketAddressEnumeratorClassRef: SocketAddressEnumeratorClassProtocol {
         /// Untyped pointer to the underlying `GSocketAddressEnumeratorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2705,12 +2728,13 @@ public extension SocketClassRef {
 
 // MARK: - SocketClass Record
 
+
+///
 /// The `SocketClassProtocol` protocol exposes the methods and properties of an underlying `GSocketClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketClass`.
 /// Alternatively, use `SocketClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SocketClassProtocol {
         /// Untyped pointer to the underlying `GSocketClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2722,11 +2746,12 @@ public protocol SocketClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SocketClassRef` type acts as a lightweight Swift reference to an underlying `GSocketClass` instance.
 /// It exposes methods that can operate on this data type through `SocketClassProtocol` conformance.
 /// Use `SocketClassRef` only as an `unowned` reference to an existing `GSocketClass` instance.
 ///
-
 public struct SocketClassRef: SocketClassProtocol {
         /// Untyped pointer to the underlying `GSocketClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2859,12 +2884,13 @@ public extension SocketClientClassRef {
 
 // MARK: - SocketClientClass Record
 
+
+///
 /// The `SocketClientClassProtocol` protocol exposes the methods and properties of an underlying `GSocketClientClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketClientClass`.
 /// Alternatively, use `SocketClientClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SocketClientClassProtocol {
         /// Untyped pointer to the underlying `GSocketClientClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2876,11 +2902,12 @@ public protocol SocketClientClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SocketClientClassRef` type acts as a lightweight Swift reference to an underlying `GSocketClientClass` instance.
 /// It exposes methods that can operate on this data type through `SocketClientClassProtocol` conformance.
 /// Use `SocketClientClassRef` only as an `unowned` reference to an existing `GSocketClientClass` instance.
 ///
-
 public struct SocketClientClassRef: SocketClientClassProtocol {
         /// Untyped pointer to the underlying `GSocketClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3003,13 +3030,14 @@ public extension SocketConnectableIfaceRef {
 
 // MARK: - SocketConnectableIface Record
 
+/// Provides an interface for returning a `GSocketAddressEnumerator`
+/// and `GProxyAddressEnumerator`
+///
 /// The `SocketConnectableIfaceProtocol` protocol exposes the methods and properties of an underlying `GSocketConnectableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketConnectableIface`.
 /// Alternatively, use `SocketConnectableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for returning a `GSocketAddressEnumerator`
-/// and `GProxyAddressEnumerator`
 public protocol SocketConnectableIfaceProtocol {
         /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3021,12 +3049,13 @@ public protocol SocketConnectableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for returning a `GSocketAddressEnumerator`
+/// and `GProxyAddressEnumerator`
+///
 /// The `SocketConnectableIfaceRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectableIface` instance.
 /// It exposes methods that can operate on this data type through `SocketConnectableIfaceProtocol` conformance.
 /// Use `SocketConnectableIfaceRef` only as an `unowned` reference to an existing `GSocketConnectableIface` instance.
 ///
-/// Provides an interface for returning a `GSocketAddressEnumerator`
-/// and `GProxyAddressEnumerator`
 public struct SocketConnectableIfaceRef: SocketConnectableIfaceProtocol {
         /// Untyped pointer to the underlying `GSocketConnectableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3147,12 +3176,13 @@ public extension SocketConnectionClassRef {
 
 // MARK: - SocketConnectionClass Record
 
+
+///
 /// The `SocketConnectionClassProtocol` protocol exposes the methods and properties of an underlying `GSocketConnectionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketConnectionClass`.
 /// Alternatively, use `SocketConnectionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SocketConnectionClassProtocol {
         /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3164,11 +3194,12 @@ public protocol SocketConnectionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SocketConnectionClassRef` type acts as a lightweight Swift reference to an underlying `GSocketConnectionClass` instance.
 /// It exposes methods that can operate on this data type through `SocketConnectionClassProtocol` conformance.
 /// Use `SocketConnectionClassRef` only as an `unowned` reference to an existing `GSocketConnectionClass` instance.
 ///
-
 public struct SocketConnectionClassRef: SocketConnectionClassProtocol {
         /// Untyped pointer to the underlying `GSocketConnectionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3293,12 +3324,13 @@ public extension SocketControlMessageClassRef {
 
 // MARK: - SocketControlMessageClass Record
 
+/// Class structure for `GSocketControlMessage`.
+///
 /// The `SocketControlMessageClassProtocol` protocol exposes the methods and properties of an underlying `GSocketControlMessageClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketControlMessageClass`.
 /// Alternatively, use `SocketControlMessageClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GSocketControlMessage`.
 public protocol SocketControlMessageClassProtocol {
         /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3310,11 +3342,12 @@ public protocol SocketControlMessageClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GSocketControlMessage`.
+///
 /// The `SocketControlMessageClassRef` type acts as a lightweight Swift reference to an underlying `GSocketControlMessageClass` instance.
 /// It exposes methods that can operate on this data type through `SocketControlMessageClassProtocol` conformance.
 /// Use `SocketControlMessageClassRef` only as an `unowned` reference to an existing `GSocketControlMessageClass` instance.
 ///
-/// Class structure for `GSocketControlMessage`.
 public struct SocketControlMessageClassRef: SocketControlMessageClassProtocol {
         /// Untyped pointer to the underlying `GSocketControlMessageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3447,12 +3480,13 @@ public extension SocketListenerClassRef {
 
 // MARK: - SocketListenerClass Record
 
+/// Class structure for `GSocketListener`.
+///
 /// The `SocketListenerClassProtocol` protocol exposes the methods and properties of an underlying `GSocketListenerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketListenerClass`.
 /// Alternatively, use `SocketListenerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GSocketListener`.
 public protocol SocketListenerClassProtocol {
         /// Untyped pointer to the underlying `GSocketListenerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3464,11 +3498,12 @@ public protocol SocketListenerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GSocketListener`.
+///
 /// The `SocketListenerClassRef` type acts as a lightweight Swift reference to an underlying `GSocketListenerClass` instance.
 /// It exposes methods that can operate on this data type through `SocketListenerClassProtocol` conformance.
 /// Use `SocketListenerClassRef` only as an `unowned` reference to an existing `GSocketListenerClass` instance.
 ///
-/// Class structure for `GSocketListener`.
 public struct SocketListenerClassRef: SocketListenerClassProtocol {
         /// Untyped pointer to the underlying `GSocketListenerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3595,12 +3630,13 @@ public extension SocketServiceClassRef {
 
 // MARK: - SocketServiceClass Record
 
+/// Class structure for `GSocketService`.
+///
 /// The `SocketServiceClassProtocol` protocol exposes the methods and properties of an underlying `GSocketServiceClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketServiceClass`.
 /// Alternatively, use `SocketServiceClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GSocketService`.
 public protocol SocketServiceClassProtocol {
         /// Untyped pointer to the underlying `GSocketServiceClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3612,11 +3648,12 @@ public protocol SocketServiceClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GSocketService`.
+///
 /// The `SocketServiceClassRef` type acts as a lightweight Swift reference to an underlying `GSocketServiceClass` instance.
 /// It exposes methods that can operate on this data type through `SocketServiceClassProtocol` conformance.
 /// Use `SocketServiceClassRef` only as an `unowned` reference to an existing `GSocketServiceClass` instance.
 ///
-/// Class structure for `GSocketService`.
 public struct SocketServiceClassRef: SocketServiceClassProtocol {
         /// Untyped pointer to the underlying `GSocketServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3728,11 +3765,6 @@ public extension SocketServiceClassProtocol {
 
 // MARK: - SrvTarget Record
 
-/// The `SrvTargetProtocol` protocol exposes the methods and properties of an underlying `GSrvTarget` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SrvTarget`.
-/// Alternatively, use `SrvTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// SRV (service) records are used by some network protocols to provide
 /// service-specific aliasing and load-balancing. For example, XMPP
 /// (Jabber) uses SRV records to locate the XMPP server for a domain;
@@ -3747,6 +3779,12 @@ public extension SocketServiceClassProtocol {
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
+///
+/// The `SrvTargetProtocol` protocol exposes the methods and properties of an underlying `GSrvTarget` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SrvTarget`.
+/// Alternatively, use `SrvTargetRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SrvTargetProtocol {
         /// Untyped pointer to the underlying `GSrvTarget` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3758,10 +3796,6 @@ public protocol SrvTargetProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SrvTargetRef` type acts as a lightweight Swift reference to an underlying `GSrvTarget` instance.
-/// It exposes methods that can operate on this data type through `SrvTargetProtocol` conformance.
-/// Use `SrvTargetRef` only as an `unowned` reference to an existing `GSrvTarget` instance.
-///
 /// SRV (service) records are used by some network protocols to provide
 /// service-specific aliasing and load-balancing. For example, XMPP
 /// (Jabber) uses SRV records to locate the XMPP server for a domain;
@@ -3776,6 +3810,11 @@ public protocol SrvTargetProtocol {
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
+///
+/// The `SrvTargetRef` type acts as a lightweight Swift reference to an underlying `GSrvTarget` instance.
+/// It exposes methods that can operate on this data type through `SrvTargetProtocol` conformance.
+/// Use `SrvTargetRef` only as an `unowned` reference to an existing `GSrvTarget` instance.
+///
 public struct SrvTargetRef: SrvTargetProtocol {
         /// Untyped pointer to the underlying `GSrvTarget` instance.
     /// For type-safe access, use the generated, typed pointer `srv_target_ptr` property instead.
@@ -3862,10 +3901,6 @@ public extension SrvTargetRef {
     }
 }
 
-/// The `SrvTarget` type acts as an owner of an underlying `GSrvTarget` instance.
-/// It provides the methods that can operate on this data type through `SrvTargetProtocol` conformance.
-/// Use `SrvTarget` as a strong reference or owner of a `GSrvTarget` instance.
-///
 /// SRV (service) records are used by some network protocols to provide
 /// service-specific aliasing and load-balancing. For example, XMPP
 /// (Jabber) uses SRV records to locate the XMPP server for a domain;
@@ -3880,6 +3915,11 @@ public extension SrvTargetRef {
 /// to the remote service, you can use `GNetworkService`'s
 /// `GSocketConnectable` interface and not need to worry about
 /// `GSrvTarget` at all.
+///
+/// The `SrvTarget` type acts as an owner of an underlying `GSrvTarget` instance.
+/// It provides the methods that can operate on this data type through `SrvTargetProtocol` conformance.
+/// Use `SrvTarget` as a strong reference or owner of a `GSrvTarget` instance.
+///
 open class SrvTarget: SrvTargetProtocol {
         /// Untyped pointer to the underlying `GSrvTarget` instance.
     /// For type-safe access, use the generated, typed pointer `srv_target_ptr` property instead.
@@ -4141,13 +4181,14 @@ public extension SrvTargetProtocol {
 
 // MARK: - StaticResource Record
 
+/// `GStaticResource` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `StaticResourceProtocol` protocol exposes the methods and properties of an underlying `GStaticResource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StaticResource`.
 /// Alternatively, use `StaticResourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GStaticResource` is an opaque data structure and can only be accessed
-/// using the following functions.
 public protocol StaticResourceProtocol {
         /// Untyped pointer to the underlying `GStaticResource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4159,12 +4200,13 @@ public protocol StaticResourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GStaticResource` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `StaticResourceRef` type acts as a lightweight Swift reference to an underlying `GStaticResource` instance.
 /// It exposes methods that can operate on this data type through `StaticResourceProtocol` conformance.
 /// Use `StaticResourceRef` only as an `unowned` reference to an existing `GStaticResource` instance.
 ///
-/// `GStaticResource` is an opaque data structure and can only be accessed
-/// using the following functions.
 public struct StaticResourceRef: StaticResourceProtocol {
         /// Untyped pointer to the underlying `GStaticResource` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4243,12 +4285,13 @@ public extension StaticResourceRef {
 
     }
 
+/// `GStaticResource` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `StaticResource` type acts as an owner of an underlying `GStaticResource` instance.
 /// It provides the methods that can operate on this data type through `StaticResourceProtocol` conformance.
 /// Use `StaticResource` as a strong reference or owner of a `GStaticResource` instance.
 ///
-/// `GStaticResource` is an opaque data structure and can only be accessed
-/// using the following functions.
 open class StaticResource: StaticResourceProtocol {
         /// Untyped pointer to the underlying `GStaticResource` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4481,12 +4524,13 @@ public extension TaskClassRef {
 
 // MARK: - TaskClass Record
 
+
+///
 /// The `TaskClassProtocol` protocol exposes the methods and properties of an underlying `GTaskClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TaskClass`.
 /// Alternatively, use `TaskClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TaskClassProtocol {
         /// Untyped pointer to the underlying `GTaskClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4498,11 +4542,12 @@ public protocol TaskClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TaskClassRef` type acts as a lightweight Swift reference to an underlying `GTaskClass` instance.
 /// It exposes methods that can operate on this data type through `TaskClassProtocol` conformance.
 /// Use `TaskClassRef` only as an `unowned` reference to an existing `GTaskClass` instance.
 ///
-
 public struct TaskClassRef: TaskClassProtocol {
         /// Untyped pointer to the underlying `GTaskClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

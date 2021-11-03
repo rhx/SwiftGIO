@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - ActionEntry Record
 
-/// The `ActionEntryProtocol` protocol exposes the methods and properties of an underlying `GActionEntry` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ActionEntry`.
-/// Alternatively, use `ActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This struct defines a single action.  It is for use with
 /// `g_action_map_add_action_entries()`.
 /// 
@@ -19,6 +14,12 @@ import GLibObject
 /// the future.
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
+///
+/// The `ActionEntryProtocol` protocol exposes the methods and properties of an underlying `GActionEntry` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ActionEntry`.
+/// Alternatively, use `ActionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionEntryProtocol {
         /// Untyped pointer to the underlying `GActionEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -30,10 +31,6 @@ public protocol ActionEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionEntryRef` type acts as a lightweight Swift reference to an underlying `GActionEntry` instance.
-/// It exposes methods that can operate on this data type through `ActionEntryProtocol` conformance.
-/// Use `ActionEntryRef` only as an `unowned` reference to an existing `GActionEntry` instance.
-///
 /// This struct defines a single action.  It is for use with
 /// `g_action_map_add_action_entries()`.
 /// 
@@ -44,6 +41,11 @@ public protocol ActionEntryProtocol {
 /// the future.
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
+///
+/// The `ActionEntryRef` type acts as a lightweight Swift reference to an underlying `GActionEntry` instance.
+/// It exposes methods that can operate on this data type through `ActionEntryProtocol` conformance.
+/// Use `ActionEntryRef` only as an `unowned` reference to an existing `GActionEntry` instance.
+///
 public struct ActionEntryRef: ActionEntryProtocol {
         /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -122,10 +124,6 @@ public extension ActionEntryRef {
 
     }
 
-/// The `ActionEntry` type acts as an owner of an underlying `GActionEntry` instance.
-/// It provides the methods that can operate on this data type through `ActionEntryProtocol` conformance.
-/// Use `ActionEntry` as a strong reference or owner of a `GActionEntry` instance.
-///
 /// This struct defines a single action.  It is for use with
 /// `g_action_map_add_action_entries()`.
 /// 
@@ -136,6 +134,11 @@ public extension ActionEntryRef {
 /// the future.
 /// 
 /// See `g_action_map_add_action_entries()` for an example.
+///
+/// The `ActionEntry` type acts as an owner of an underlying `GActionEntry` instance.
+/// It provides the methods that can operate on this data type through `ActionEntryProtocol` conformance.
+/// Use `ActionEntry` as a strong reference or owner of a `GActionEntry` instance.
+///
 open class ActionEntry: ActionEntryProtocol {
         /// Untyped pointer to the underlying `GActionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -375,12 +378,13 @@ public extension ActionGroupInterfaceRef {
 
 // MARK: - ActionGroupInterface Record
 
+/// The virtual function table for `GActionGroup`.
+///
 /// The `ActionGroupInterfaceProtocol` protocol exposes the methods and properties of an underlying `GActionGroupInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ActionGroupInterface`.
 /// Alternatively, use `ActionGroupInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GActionGroup`.
 public protocol ActionGroupInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionGroupInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -392,11 +396,12 @@ public protocol ActionGroupInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GActionGroup`.
+///
 /// The `ActionGroupInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionGroupInterface` instance.
 /// It exposes methods that can operate on this data type through `ActionGroupInterfaceProtocol` conformance.
 /// Use `ActionGroupInterfaceRef` only as an `unowned` reference to an existing `GActionGroupInterface` instance.
 ///
-/// The virtual function table for `GActionGroup`.
 public struct ActionGroupInterfaceRef: ActionGroupInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionGroupInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -537,12 +542,13 @@ public extension ActionInterfaceRef {
 
 // MARK: - ActionInterface Record
 
+/// The virtual function table for `GAction`.
+///
 /// The `ActionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GActionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ActionInterface`.
 /// Alternatively, use `ActionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GAction`.
 public protocol ActionInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -554,11 +560,12 @@ public protocol ActionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GAction`.
+///
 /// The `ActionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionInterface` instance.
 /// It exposes methods that can operate on this data type through `ActionInterfaceProtocol` conformance.
 /// Use `ActionInterfaceRef` only as an `unowned` reference to an existing `GActionInterface` instance.
 ///
-/// The virtual function table for `GAction`.
 public struct ActionInterfaceRef: ActionInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -687,12 +694,13 @@ public extension ActionMapInterfaceRef {
 
 // MARK: - ActionMapInterface Record
 
+/// The virtual function table for `GActionMap`.
+///
 /// The `ActionMapInterfaceProtocol` protocol exposes the methods and properties of an underlying `GActionMapInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ActionMapInterface`.
 /// Alternatively, use `ActionMapInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GActionMap`.
 public protocol ActionMapInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionMapInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -704,11 +712,12 @@ public protocol ActionMapInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GActionMap`.
+///
 /// The `ActionMapInterfaceRef` type acts as a lightweight Swift reference to an underlying `GActionMapInterface` instance.
 /// It exposes methods that can operate on this data type through `ActionMapInterfaceProtocol` conformance.
 /// Use `ActionMapInterfaceRef` only as an `unowned` reference to an existing `GActionMapInterface` instance.
 ///
-/// The virtual function table for `GActionMap`.
 public struct ActionMapInterfaceRef: ActionMapInterfaceProtocol {
         /// Untyped pointer to the underlying `GActionMapInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -827,12 +836,13 @@ public extension AppInfoIfaceRef {
 
 // MARK: - AppInfoIface Record
 
+/// Application Information interface, for operating system portability.
+///
 /// The `AppInfoIfaceProtocol` protocol exposes the methods and properties of an underlying `GAppInfoIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AppInfoIface`.
 /// Alternatively, use `AppInfoIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Application Information interface, for operating system portability.
 public protocol AppInfoIfaceProtocol {
         /// Untyped pointer to the underlying `GAppInfoIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -844,11 +854,12 @@ public protocol AppInfoIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Application Information interface, for operating system portability.
+///
 /// The `AppInfoIfaceRef` type acts as a lightweight Swift reference to an underlying `GAppInfoIface` instance.
 /// It exposes methods that can operate on this data type through `AppInfoIfaceProtocol` conformance.
 /// Use `AppInfoIfaceRef` only as an `unowned` reference to an existing `GAppInfoIface` instance.
 ///
-/// Application Information interface, for operating system portability.
 public struct AppInfoIfaceRef: AppInfoIfaceProtocol {
         /// Untyped pointer to the underlying `GAppInfoIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1013,12 +1024,13 @@ public extension AppLaunchContextClassRef {
 
 // MARK: - AppLaunchContextClass Record
 
+
+///
 /// The `AppLaunchContextClassProtocol` protocol exposes the methods and properties of an underlying `GAppLaunchContextClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AppLaunchContextClass`.
 /// Alternatively, use `AppLaunchContextClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol AppLaunchContextClassProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1030,11 +1042,12 @@ public protocol AppLaunchContextClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `AppLaunchContextClassRef` type acts as a lightweight Swift reference to an underlying `GAppLaunchContextClass` instance.
 /// It exposes methods that can operate on this data type through `AppLaunchContextClassProtocol` conformance.
 /// Use `AppLaunchContextClassRef` only as an `unowned` reference to an existing `GAppLaunchContextClass` instance.
 ///
-
 public struct AppLaunchContextClassRef: AppLaunchContextClassProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1163,12 +1176,13 @@ public extension ApplicationClassRef {
 
 // MARK: - ApplicationClass Record
 
+/// Virtual function table for `GApplication`.
+///
 /// The `ApplicationClassProtocol` protocol exposes the methods and properties of an underlying `GApplicationClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ApplicationClass`.
 /// Alternatively, use `ApplicationClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual function table for `GApplication`.
 public protocol ApplicationClassProtocol {
         /// Untyped pointer to the underlying `GApplicationClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1180,11 +1194,12 @@ public protocol ApplicationClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Virtual function table for `GApplication`.
+///
 /// The `ApplicationClassRef` type acts as a lightweight Swift reference to an underlying `GApplicationClass` instance.
 /// It exposes methods that can operate on this data type through `ApplicationClassProtocol` conformance.
 /// Use `ApplicationClassRef` only as an `unowned` reference to an existing `GApplicationClass` instance.
 ///
-/// Virtual function table for `GApplication`.
 public struct ApplicationClassRef: ApplicationClassProtocol {
         /// Untyped pointer to the underlying `GApplicationClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1324,13 +1339,14 @@ public extension ApplicationCommandLineClassRef {
 
 // MARK: - ApplicationCommandLineClass Record
 
+/// The `GApplicationCommandLineClass-struct`
+/// contains private data only.
+///
 /// The `ApplicationCommandLineClassProtocol` protocol exposes the methods and properties of an underlying `GApplicationCommandLineClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ApplicationCommandLineClass`.
 /// Alternatively, use `ApplicationCommandLineClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GApplicationCommandLineClass-struct`
-/// contains private data only.
 public protocol ApplicationCommandLineClassProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1342,12 +1358,13 @@ public protocol ApplicationCommandLineClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GApplicationCommandLineClass-struct`
+/// contains private data only.
+///
 /// The `ApplicationCommandLineClassRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLineClass` instance.
 /// It exposes methods that can operate on this data type through `ApplicationCommandLineClassProtocol` conformance.
 /// Use `ApplicationCommandLineClassRef` only as an `unowned` reference to an existing `GApplicationCommandLineClass` instance.
 ///
-/// The `GApplicationCommandLineClass-struct`
-/// contains private data only.
 public struct ApplicationCommandLineClassRef: ApplicationCommandLineClassProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLineClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1463,13 +1480,14 @@ public extension AsyncInitableIfaceRef {
 
 // MARK: - AsyncInitableIface Record
 
+/// Provides an interface for asynchronous initializing object such that
+/// initialization may fail.
+///
 /// The `AsyncInitableIfaceProtocol` protocol exposes the methods and properties of an underlying `GAsyncInitableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AsyncInitableIface`.
 /// Alternatively, use `AsyncInitableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for asynchronous initializing object such that
-/// initialization may fail.
 public protocol AsyncInitableIfaceProtocol {
         /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1481,12 +1499,13 @@ public protocol AsyncInitableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for asynchronous initializing object such that
+/// initialization may fail.
+///
 /// The `AsyncInitableIfaceRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitableIface` instance.
 /// It exposes methods that can operate on this data type through `AsyncInitableIfaceProtocol` conformance.
 /// Use `AsyncInitableIfaceRef` only as an `unowned` reference to an existing `GAsyncInitableIface` instance.
 ///
-/// Provides an interface for asynchronous initializing object such that
-/// initialization may fail.
 public struct AsyncInitableIfaceRef: AsyncInitableIfaceProtocol {
         /// Untyped pointer to the underlying `GAsyncInitableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1605,12 +1624,13 @@ public extension AsyncResultIfaceRef {
 
 // MARK: - AsyncResultIface Record
 
+/// Interface definition for `GAsyncResult`.
+///
 /// The `AsyncResultIfaceProtocol` protocol exposes the methods and properties of an underlying `GAsyncResultIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AsyncResultIface`.
 /// Alternatively, use `AsyncResultIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface definition for `GAsyncResult`.
 public protocol AsyncResultIfaceProtocol {
         /// Untyped pointer to the underlying `GAsyncResultIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1622,11 +1642,12 @@ public protocol AsyncResultIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface definition for `GAsyncResult`.
+///
 /// The `AsyncResultIfaceRef` type acts as a lightweight Swift reference to an underlying `GAsyncResultIface` instance.
 /// It exposes methods that can operate on this data type through `AsyncResultIfaceProtocol` conformance.
 /// Use `AsyncResultIfaceRef` only as an `unowned` reference to an existing `GAsyncResultIface` instance.
 ///
-/// Interface definition for `GAsyncResult`.
 public struct AsyncResultIfaceRef: AsyncResultIfaceProtocol {
         /// Untyped pointer to the underlying `GAsyncResultIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1747,12 +1768,13 @@ public extension BufferedInputStreamClassRef {
 
 // MARK: - BufferedInputStreamClass Record
 
+
+///
 /// The `BufferedInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GBufferedInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BufferedInputStreamClass`.
 /// Alternatively, use `BufferedInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BufferedInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1764,11 +1786,12 @@ public protocol BufferedInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BufferedInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `BufferedInputStreamClassProtocol` conformance.
 /// Use `BufferedInputStreamClassRef` only as an `unowned` reference to an existing `GBufferedInputStreamClass` instance.
 ///
-
 public struct BufferedInputStreamClassRef: BufferedInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GBufferedInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

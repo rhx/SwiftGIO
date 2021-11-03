@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - Settings Class
 
-/// The `SettingsProtocol` protocol exposes the methods and properties of an underlying `GSettings` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Settings`.
-/// Alternatively, use `SettingsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GSettings` class provides a convenient API for storing and retrieving
 /// application settings.
 /// 
@@ -88,7 +83,7 @@ import GLibObject
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
-/// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
+/// [gschema.dtd](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/gschema.dtd)
 /// 
 /// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
@@ -293,6 +288,12 @@ import GLibObject
 /// automatically included in the schema compilation, install and uninstall
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
+///
+/// The `SettingsProtocol` protocol exposes the methods and properties of an underlying `GSettings` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Settings`.
+/// Alternatively, use `SettingsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SettingsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSettings` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -304,10 +305,6 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SettingsRef` type acts as a lightweight Swift reference to an underlying `GSettings` instance.
-/// It exposes methods that can operate on this data type through `SettingsProtocol` conformance.
-/// Use `SettingsRef` only as an `unowned` reference to an existing `GSettings` instance.
-///
 /// The `GSettings` class provides a convenient API for storing and retrieving
 /// application settings.
 /// 
@@ -387,7 +384,7 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
-/// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
+/// [gschema.dtd](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/gschema.dtd)
 /// 
 /// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
@@ -592,6 +589,11 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
 /// automatically included in the schema compilation, install and uninstall
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
+///
+/// The `SettingsRef` type acts as a lightweight Swift reference to an underlying `GSettings` instance.
+/// It exposes methods that can operate on this data type through `SettingsProtocol` conformance.
+/// Use `SettingsRef` only as an `unowned` reference to an existing `GSettings` instance.
+///
 public struct SettingsRef: SettingsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSettings` instance.
     /// For type-safe access, use the generated, typed pointer `settings_ptr` property instead.
@@ -827,10 +829,6 @@ public extension SettingsRef {
     }
 }
 
-/// The `Settings` type acts as a reference-counted owner of an underlying `GSettings` instance.
-/// It provides the methods that can operate on this data type through `SettingsProtocol` conformance.
-/// Use `Settings` as a strong reference or owner of a `GSettings` instance.
-///
 /// The `GSettings` class provides a convenient API for storing and retrieving
 /// application settings.
 /// 
@@ -910,7 +908,7 @@ public extension SettingsRef {
 /// utility. The input is a schema description in an XML format.
 /// 
 /// A DTD for the gschema XML format can be found here:
-/// [gschema.dtd](https://git.gnome.org/browse/glib/tree/gio/gschema.dtd)
+/// [gschema.dtd](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/gschema.dtd)
 /// 
 /// The [glib-compile-schemas](#glib-compile-schemas) tool expects schema
 /// files to have the extension `.gschema.xml`.
@@ -1115,6 +1113,11 @@ public extension SettingsRef {
 /// automatically included in the schema compilation, install and uninstall
 /// rules. It should not be committed to version control or included in
 /// `EXTRA_DIST`.
+///
+/// The `Settings` type acts as a reference-counted owner of an underlying `GSettings` instance.
+/// It provides the methods that can operate on this data type through `SettingsProtocol` conformance.
+/// Use `Settings` as a strong reference or owner of a `GSettings` instance.
+///
 open class Settings: GLibObject.Object, SettingsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1541,12 +1544,14 @@ public enum SettingsSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1792,12 +1797,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1841,12 +1848,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1890,12 +1899,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1939,12 +1950,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1988,12 +2001,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2037,12 +2052,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2086,12 +2103,14 @@ public extension SettingsProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2700,11 +2719,6 @@ public extension SettingsProtocol {
 
 // MARK: - SettingsBackend Class
 
-/// The `SettingsBackendProtocol` protocol exposes the methods and properties of an underlying `GSettingsBackend` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SettingsBackend`.
-/// Alternatively, use `SettingsBackendRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GSettingsBackend` interface defines a generic interface for
 /// non-strictly-typed data that is stored in a hierarchy. To implement
 /// an alternative storage backend for `GSettings`, you need to implement
@@ -2729,6 +2743,12 @@ public extension SettingsProtocol {
 /// as the public GIO API. For this reason, you have to define the
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
+///
+/// The `SettingsBackendProtocol` protocol exposes the methods and properties of an underlying `GSettingsBackend` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SettingsBackend`.
+/// Alternatively, use `SettingsBackendRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SettingsBackendProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSettingsBackend` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2740,10 +2760,6 @@ public protocol SettingsBackendProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SettingsBackendRef` type acts as a lightweight Swift reference to an underlying `GSettingsBackend` instance.
-/// It exposes methods that can operate on this data type through `SettingsBackendProtocol` conformance.
-/// Use `SettingsBackendRef` only as an `unowned` reference to an existing `GSettingsBackend` instance.
-///
 /// The `GSettingsBackend` interface defines a generic interface for
 /// non-strictly-typed data that is stored in a hierarchy. To implement
 /// an alternative storage backend for `GSettings`, you need to implement
@@ -2768,6 +2784,11 @@ public protocol SettingsBackendProtocol: GLibObject.ObjectProtocol {
 /// as the public GIO API. For this reason, you have to define the
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
+///
+/// The `SettingsBackendRef` type acts as a lightweight Swift reference to an underlying `GSettingsBackend` instance.
+/// It exposes methods that can operate on this data type through `SettingsBackendProtocol` conformance.
+/// Use `SettingsBackendRef` only as an `unowned` reference to an existing `GSettingsBackend` instance.
+///
 public struct SettingsBackendRef: SettingsBackendProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSettingsBackend` instance.
     /// For type-safe access, use the generated, typed pointer `settings_backend_ptr` property instead.
@@ -2858,10 +2879,6 @@ public extension SettingsBackendRef {
     }
 }
 
-/// The `SettingsBackend` type acts as a reference-counted owner of an underlying `GSettingsBackend` instance.
-/// It provides the methods that can operate on this data type through `SettingsBackendProtocol` conformance.
-/// Use `SettingsBackend` as a strong reference or owner of a `GSettingsBackend` instance.
-///
 /// The `GSettingsBackend` interface defines a generic interface for
 /// non-strictly-typed data that is stored in a hierarchy. To implement
 /// an alternative storage backend for `GSettings`, you need to implement
@@ -2886,6 +2903,11 @@ public extension SettingsBackendRef {
 /// as the public GIO API. For this reason, you have to define the
 /// C preprocessor symbol `G_SETTINGS_ENABLE_BACKEND` before including
 /// `gio/gsettingsbackend.h`.
+///
+/// The `SettingsBackend` type acts as a reference-counted owner of an underlying `GSettingsBackend` instance.
+/// It provides the methods that can operate on this data type through `SettingsBackendProtocol` conformance.
+/// Use `SettingsBackend` as a strong reference or owner of a `GSettingsBackend` instance.
+///
 open class SettingsBackend: GLibObject.Object, SettingsBackendProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3043,12 +3065,14 @@ public enum SettingsBackendSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3093,7 +3117,7 @@ public extension SettingsBackendProtocol {
     /// `tree`, computes the longest common prefix and calls
     /// `g_settings_backend_changed()`.
     @inlinable func changed<TreeT: GLib.TreeProtocol>(tree: TreeT, originTag: gpointer! = nil) {
-        g_settings_backend_changed_tree(settings_backend_ptr, tree._ptr, originTag)
+        g_settings_backend_changed_tree(settings_backend_ptr, tree.tree_ptr, originTag)
     
     }
 
@@ -3183,16 +3207,17 @@ public extension SettingsBackendProtocol {
 
 // MARK: - SimpleAction Class
 
-/// The `SimpleActionProtocol` protocol exposes the methods and properties of an underlying `GSimpleAction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SimpleAction`.
-/// Alternatively, use `SimpleActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GSimpleAction` is the obvious simple implementation of the `GAction`
 /// interface. This is the easiest way to create an action for purposes of
 /// adding it to a `GSimpleActionGroup`.
 /// 
 /// See also `GtkAction`.
+///
+/// The `SimpleActionProtocol` protocol exposes the methods and properties of an underlying `GSimpleAction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SimpleAction`.
+/// Alternatively, use `SimpleActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SimpleActionProtocol: GLibObject.ObjectProtocol, ActionProtocol {
         /// Untyped pointer to the underlying `GSimpleAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3204,15 +3229,16 @@ public protocol SimpleActionProtocol: GLibObject.ObjectProtocol, ActionProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SimpleActionRef` type acts as a lightweight Swift reference to an underlying `GSimpleAction` instance.
-/// It exposes methods that can operate on this data type through `SimpleActionProtocol` conformance.
-/// Use `SimpleActionRef` only as an `unowned` reference to an existing `GSimpleAction` instance.
-///
 /// A `GSimpleAction` is the obvious simple implementation of the `GAction`
 /// interface. This is the easiest way to create an action for purposes of
 /// adding it to a `GSimpleActionGroup`.
 /// 
 /// See also `GtkAction`.
+///
+/// The `SimpleActionRef` type acts as a lightweight Swift reference to an underlying `GSimpleAction` instance.
+/// It exposes methods that can operate on this data type through `SimpleActionProtocol` conformance.
+/// Use `SimpleActionRef` only as an `unowned` reference to an existing `GSimpleAction` instance.
+///
 public struct SimpleActionRef: SimpleActionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimpleAction` instance.
     /// For type-safe access, use the generated, typed pointer `simple_action_ptr` property instead.
@@ -3323,15 +3349,16 @@ public extension SimpleActionRef {
     }
 }
 
-/// The `SimpleAction` type acts as a reference-counted owner of an underlying `GSimpleAction` instance.
-/// It provides the methods that can operate on this data type through `SimpleActionProtocol` conformance.
-/// Use `SimpleAction` as a strong reference or owner of a `GSimpleAction` instance.
-///
 /// A `GSimpleAction` is the obvious simple implementation of the `GAction`
 /// interface. This is the easiest way to create an action for purposes of
 /// adding it to a `GSimpleActionGroup`.
 /// 
 /// See also `GtkAction`.
+///
+/// The `SimpleAction` type acts as a reference-counted owner of an underlying `GSimpleAction` instance.
+/// It provides the methods that can operate on this data type through `SimpleActionProtocol` conformance.
+/// Use `SimpleAction` as a strong reference or owner of a `GSimpleAction` instance.
+///
 open class SimpleAction: GLibObject.Object, SimpleActionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3630,12 +3657,14 @@ public enum SimpleActionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3798,12 +3827,14 @@ public extension SimpleActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3847,12 +3878,14 @@ public extension SimpleActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3896,12 +3929,14 @@ public extension SimpleActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3945,12 +3980,14 @@ public extension SimpleActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3994,12 +4031,14 @@ public extension SimpleActionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4086,13 +4125,14 @@ public extension SimpleActionProtocol {
 
 // MARK: - SimpleActionGroup Class
 
+/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
+/// implementing the `GActionGroup` and `GActionMap` interfaces.
+///
 /// The `SimpleActionGroupProtocol` protocol exposes the methods and properties of an underlying `GSimpleActionGroup` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SimpleActionGroup`.
 /// Alternatively, use `SimpleActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
-/// implementing the `GActionGroup` and `GActionMap` interfaces.
 public protocol SimpleActionGroupProtocol: GLibObject.ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
         /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4104,12 +4144,13 @@ public protocol SimpleActionGroupProtocol: GLibObject.ObjectProtocol, ActionGrou
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
+/// implementing the `GActionGroup` and `GActionMap` interfaces.
+///
 /// The `SimpleActionGroupRef` type acts as a lightweight Swift reference to an underlying `GSimpleActionGroup` instance.
 /// It exposes methods that can operate on this data type through `SimpleActionGroupProtocol` conformance.
 /// Use `SimpleActionGroupRef` only as an `unowned` reference to an existing `GSimpleActionGroup` instance.
 ///
-/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
-/// implementing the `GActionGroup` and `GActionMap` interfaces.
 public struct SimpleActionGroupRef: SimpleActionGroupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimpleActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `simple_action_group_ptr` property instead.
@@ -4196,12 +4237,13 @@ public extension SimpleActionGroupRef {
     }
 }
 
+/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
+/// implementing the `GActionGroup` and `GActionMap` interfaces.
+///
 /// The `SimpleActionGroup` type acts as a reference-counted owner of an underlying `GSimpleActionGroup` instance.
 /// It provides the methods that can operate on this data type through `SimpleActionGroupProtocol` conformance.
 /// Use `SimpleActionGroup` as a strong reference or owner of a `GSimpleActionGroup` instance.
 ///
-/// `GSimpleActionGroup` is a hash table filled with `GAction` objects,
-/// implementing the `GActionGroup` and `GActionMap` interfaces.
 open class SimpleActionGroup: GLibObject.Object, SimpleActionGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4355,12 +4397,14 @@ public enum SimpleActionGroupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4430,11 +4474,6 @@ public extension SimpleActionGroupProtocol {
 
 // MARK: - SimpleAsyncResult Class
 
-/// The `SimpleAsyncResultProtocol` protocol exposes the methods and properties of an underlying `GSimpleAsyncResult` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SimpleAsyncResult`.
-/// Alternatively, use `SimpleAsyncResultRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// As of GLib 2.46, `GSimpleAsyncResult` is deprecated in favor of
 /// `GTask`, which provides a simpler API.
 /// 
@@ -4602,6 +4641,12 @@ public extension SimpleActionGroupProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `SimpleAsyncResultProtocol` protocol exposes the methods and properties of an underlying `GSimpleAsyncResult` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SimpleAsyncResult`.
+/// Alternatively, use `SimpleAsyncResultRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SimpleAsyncResultProtocol: GLibObject.ObjectProtocol, AsyncResultProtocol {
         /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4613,10 +4658,6 @@ public protocol SimpleAsyncResultProtocol: GLibObject.ObjectProtocol, AsyncResul
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SimpleAsyncResultRef` type acts as a lightweight Swift reference to an underlying `GSimpleAsyncResult` instance.
-/// It exposes methods that can operate on this data type through `SimpleAsyncResultProtocol` conformance.
-/// Use `SimpleAsyncResultRef` only as an `unowned` reference to an existing `GSimpleAsyncResult` instance.
-///
 /// As of GLib 2.46, `GSimpleAsyncResult` is deprecated in favor of
 /// `GTask`, which provides a simpler API.
 /// 
@@ -4784,6 +4825,11 @@ public protocol SimpleAsyncResultProtocol: GLibObject.ObjectProtocol, AsyncResul
 /// }
 /// ```
 /// 
+///
+/// The `SimpleAsyncResultRef` type acts as a lightweight Swift reference to an underlying `GSimpleAsyncResult` instance.
+/// It exposes methods that can operate on this data type through `SimpleAsyncResultProtocol` conformance.
+/// Use `SimpleAsyncResultRef` only as an `unowned` reference to an existing `GSimpleAsyncResult` instance.
+///
 public struct SimpleAsyncResultRef: SimpleAsyncResultProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimpleAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `simple_async_result_ptr` property instead.
@@ -4927,10 +4973,6 @@ public extension SimpleAsyncResultRef {
     }
 }
 
-/// The `SimpleAsyncResult` type acts as a reference-counted owner of an underlying `GSimpleAsyncResult` instance.
-/// It provides the methods that can operate on this data type through `SimpleAsyncResultProtocol` conformance.
-/// Use `SimpleAsyncResult` as a strong reference or owner of a `GSimpleAsyncResult` instance.
-///
 /// As of GLib 2.46, `GSimpleAsyncResult` is deprecated in favor of
 /// `GTask`, which provides a simpler API.
 /// 
@@ -5098,6 +5140,11 @@ public extension SimpleAsyncResultRef {
 /// }
 /// ```
 /// 
+///
+/// The `SimpleAsyncResult` type acts as a reference-counted owner of an underlying `GSimpleAsyncResult` instance.
+/// It provides the methods that can operate on this data type through `SimpleAsyncResultProtocol` conformance.
+/// Use `SimpleAsyncResult` as a strong reference or owner of a `GSimpleAsyncResult` instance.
+///
 open class SimpleAsyncResult: GLibObject.Object, SimpleAsyncResultProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5312,12 +5359,14 @@ public enum SimpleAsyncResultSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5640,11 +5689,6 @@ public extension SimpleAsyncResultProtocol {
 
 // MARK: - SimpleIOStream Class
 
-/// The `SimpleIOStreamProtocol` protocol exposes the methods and properties of an underlying `GSimpleIOStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SimpleIOStream`.
-/// Alternatively, use `SimpleIOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GSimpleIOStream creates a `GIOStream` from an arbitrary `GInputStream` and
 /// `GOutputStream`. This allows any pair of input and output streams to be used
 /// with `GIOStream` methods.
@@ -5653,6 +5697,12 @@ public extension SimpleAsyncResultProtocol {
 /// by other means, for instance creating them with platform specific methods as
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
+///
+/// The `SimpleIOStreamProtocol` protocol exposes the methods and properties of an underlying `GSimpleIOStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SimpleIOStream`.
+/// Alternatively, use `SimpleIOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SimpleIOStreamProtocol: IOStreamProtocol {
         /// Untyped pointer to the underlying `GSimpleIOStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5664,10 +5714,6 @@ public protocol SimpleIOStreamProtocol: IOStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SimpleIOStreamRef` type acts as a lightweight Swift reference to an underlying `GSimpleIOStream` instance.
-/// It exposes methods that can operate on this data type through `SimpleIOStreamProtocol` conformance.
-/// Use `SimpleIOStreamRef` only as an `unowned` reference to an existing `GSimpleIOStream` instance.
-///
 /// GSimpleIOStream creates a `GIOStream` from an arbitrary `GInputStream` and
 /// `GOutputStream`. This allows any pair of input and output streams to be used
 /// with `GIOStream` methods.
@@ -5676,6 +5722,11 @@ public protocol SimpleIOStreamProtocol: IOStreamProtocol {
 /// by other means, for instance creating them with platform specific methods as
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
+///
+/// The `SimpleIOStreamRef` type acts as a lightweight Swift reference to an underlying `GSimpleIOStream` instance.
+/// It exposes methods that can operate on this data type through `SimpleIOStreamProtocol` conformance.
+/// Use `SimpleIOStreamRef` only as an `unowned` reference to an existing `GSimpleIOStream` instance.
+///
 public struct SimpleIOStreamRef: SimpleIOStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimpleIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `simple_io_stream_ptr` property instead.
@@ -5763,10 +5814,6 @@ public extension SimpleIOStreamRef {
     }
 }
 
-/// The `SimpleIOStream` type acts as a reference-counted owner of an underlying `GSimpleIOStream` instance.
-/// It provides the methods that can operate on this data type through `SimpleIOStreamProtocol` conformance.
-/// Use `SimpleIOStream` as a strong reference or owner of a `GSimpleIOStream` instance.
-///
 /// GSimpleIOStream creates a `GIOStream` from an arbitrary `GInputStream` and
 /// `GOutputStream`. This allows any pair of input and output streams to be used
 /// with `GIOStream` methods.
@@ -5775,6 +5822,11 @@ public extension SimpleIOStreamRef {
 /// by other means, for instance creating them with platform specific methods as
 /// `g_unix_input_stream_new()` or `g_win32_input_stream_new()`, and you want
 /// to take advantage of the methods provided by `GIOStream`.
+///
+/// The `SimpleIOStream` type acts as a reference-counted owner of an underlying `GSimpleIOStream` instance.
+/// It provides the methods that can operate on this data type through `SimpleIOStreamProtocol` conformance.
+/// Use `SimpleIOStream` as a strong reference or owner of a `GSimpleIOStream` instance.
+///
 open class SimpleIOStream: IOStream, SimpleIOStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5986,12 +6038,14 @@ public enum SimpleIOStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6015,16 +6069,17 @@ public extension SimpleIOStreamProtocol {
 
 // MARK: - SimplePermission Class
 
-/// The `SimplePermissionProtocol` protocol exposes the methods and properties of an underlying `GSimplePermission` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SimplePermission`.
-/// Alternatively, use `SimplePermissionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSimplePermission` is a trivial implementation of `GPermission` that
 /// represents a permission that is either always or never allowed.  The
 /// value is given at construction and doesn't change.
 /// 
 /// Calling request or release will result in errors.
+///
+/// The `SimplePermissionProtocol` protocol exposes the methods and properties of an underlying `GSimplePermission` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SimplePermission`.
+/// Alternatively, use `SimplePermissionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SimplePermissionProtocol: PermissionProtocol {
         /// Untyped pointer to the underlying `GSimplePermission` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6036,15 +6091,16 @@ public protocol SimplePermissionProtocol: PermissionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SimplePermissionRef` type acts as a lightweight Swift reference to an underlying `GSimplePermission` instance.
-/// It exposes methods that can operate on this data type through `SimplePermissionProtocol` conformance.
-/// Use `SimplePermissionRef` only as an `unowned` reference to an existing `GSimplePermission` instance.
-///
 /// `GSimplePermission` is a trivial implementation of `GPermission` that
 /// represents a permission that is either always or never allowed.  The
 /// value is given at construction and doesn't change.
 /// 
 /// Calling request or release will result in errors.
+///
+/// The `SimplePermissionRef` type acts as a lightweight Swift reference to an underlying `GSimplePermission` instance.
+/// It exposes methods that can operate on this data type through `SimplePermissionProtocol` conformance.
+/// Use `SimplePermissionRef` only as an `unowned` reference to an existing `GSimplePermission` instance.
+///
 public struct SimplePermissionRef: SimplePermissionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimplePermission` instance.
     /// For type-safe access, use the generated, typed pointer `simple_permission_ptr` property instead.
@@ -6132,15 +6188,16 @@ public extension SimplePermissionRef {
     }
 }
 
-/// The `SimplePermission` type acts as a reference-counted owner of an underlying `GSimplePermission` instance.
-/// It provides the methods that can operate on this data type through `SimplePermissionProtocol` conformance.
-/// Use `SimplePermission` as a strong reference or owner of a `GSimplePermission` instance.
-///
 /// `GSimplePermission` is a trivial implementation of `GPermission` that
 /// represents a permission that is either always or never allowed.  The
 /// value is given at construction and doesn't change.
 /// 
 /// Calling request or release will result in errors.
+///
+/// The `SimplePermission` type acts as a reference-counted owner of an underlying `GSimplePermission` instance.
+/// It provides the methods that can operate on this data type through `SimplePermissionProtocol` conformance.
+/// Use `SimplePermission` as a strong reference or owner of a `GSimplePermission` instance.
+///
 open class SimplePermission: Permission, SimplePermissionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6358,12 +6415,14 @@ public enum SimplePermissionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6393,11 +6452,6 @@ public extension SimplePermissionProtocol {
 
 // MARK: - SimpleProxyResolver Class
 
-/// The `SimpleProxyResolverProtocol` protocol exposes the methods and properties of an underlying `GSimpleProxyResolver` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SimpleProxyResolver`.
-/// Alternatively, use `SimpleProxyResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSimpleProxyResolver` is a simple `GProxyResolver` implementation
 /// that handles a single default proxy, multiple URI-scheme-specific
 /// proxies, and a list of hosts that proxies should not be used for.
@@ -6406,6 +6460,12 @@ public extension SimplePermissionProtocol {
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
+///
+/// The `SimpleProxyResolverProtocol` protocol exposes the methods and properties of an underlying `GSimpleProxyResolver` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SimpleProxyResolver`.
+/// Alternatively, use `SimpleProxyResolverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SimpleProxyResolverProtocol: GLibObject.ObjectProtocol, ProxyResolverProtocol {
         /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6417,10 +6477,6 @@ public protocol SimpleProxyResolverProtocol: GLibObject.ObjectProtocol, ProxyRes
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SimpleProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GSimpleProxyResolver` instance.
-/// It exposes methods that can operate on this data type through `SimpleProxyResolverProtocol` conformance.
-/// Use `SimpleProxyResolverRef` only as an `unowned` reference to an existing `GSimpleProxyResolver` instance.
-///
 /// `GSimpleProxyResolver` is a simple `GProxyResolver` implementation
 /// that handles a single default proxy, multiple URI-scheme-specific
 /// proxies, and a list of hosts that proxies should not be used for.
@@ -6429,6 +6485,11 @@ public protocol SimpleProxyResolverProtocol: GLibObject.ObjectProtocol, ProxyRes
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
+///
+/// The `SimpleProxyResolverRef` type acts as a lightweight Swift reference to an underlying `GSimpleProxyResolver` instance.
+/// It exposes methods that can operate on this data type through `SimpleProxyResolverProtocol` conformance.
+/// Use `SimpleProxyResolverRef` only as an `unowned` reference to an existing `GSimpleProxyResolver` instance.
+///
 public struct SimpleProxyResolverRef: SimpleProxyResolverProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSimpleProxyResolver` instance.
     /// For type-safe access, use the generated, typed pointer `simple_proxy_resolver_ptr` property instead.
@@ -6510,10 +6571,6 @@ public extension SimpleProxyResolverRef {
 
     }
 
-/// The `SimpleProxyResolver` type acts as a reference-counted owner of an underlying `GSimpleProxyResolver` instance.
-/// It provides the methods that can operate on this data type through `SimpleProxyResolverProtocol` conformance.
-/// Use `SimpleProxyResolver` as a strong reference or owner of a `GSimpleProxyResolver` instance.
-///
 /// `GSimpleProxyResolver` is a simple `GProxyResolver` implementation
 /// that handles a single default proxy, multiple URI-scheme-specific
 /// proxies, and a list of hosts that proxies should not be used for.
@@ -6522,6 +6579,11 @@ public extension SimpleProxyResolverRef {
 /// can be used as the base class for another proxy resolver
 /// implementation, or it can be created and used manually, such as
 /// with `g_socket_client_set_proxy_resolver()`.
+///
+/// The `SimpleProxyResolver` type acts as a reference-counted owner of an underlying `GSimpleProxyResolver` instance.
+/// It provides the methods that can operate on this data type through `SimpleProxyResolverProtocol` conformance.
+/// Use `SimpleProxyResolver` as a strong reference or owner of a `GSimpleProxyResolver` instance.
+///
 open class SimpleProxyResolver: GLibObject.Object, SimpleProxyResolverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6766,12 +6828,14 @@ public enum SimpleProxyResolverSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6876,11 +6940,6 @@ public extension SimpleProxyResolverProtocol {
 
 // MARK: - Socket Class
 
-/// The `SocketProtocol` protocol exposes the methods and properties of an underlying `GSocket` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Socket`.
-/// Alternatively, use `SocketRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GSocket` is a low-level networking primitive. It is a more or less
 /// direct mapping of the BSD socket API in a portable GObject based API.
 /// It supports both the UNIX socket implementations and winsock2 on Windows.
@@ -6932,6 +6991,12 @@ public extension SimpleProxyResolverProtocol {
 /// Like most other APIs in GLib, `GSocket` is not inherently thread safe. To use
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
+///
+/// The `SocketProtocol` protocol exposes the methods and properties of an underlying `GSocket` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Socket`.
+/// Alternatively, use `SocketRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketProtocol: GLibObject.ObjectProtocol, DatagramBasedProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GSocket` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6943,10 +7008,6 @@ public protocol SocketProtocol: GLibObject.ObjectProtocol, DatagramBasedProtocol
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketRef` type acts as a lightweight Swift reference to an underlying `GSocket` instance.
-/// It exposes methods that can operate on this data type through `SocketProtocol` conformance.
-/// Use `SocketRef` only as an `unowned` reference to an existing `GSocket` instance.
-///
 /// A `GSocket` is a low-level networking primitive. It is a more or less
 /// direct mapping of the BSD socket API in a portable GObject based API.
 /// It supports both the UNIX socket implementations and winsock2 on Windows.
@@ -6998,6 +7059,11 @@ public protocol SocketProtocol: GLibObject.ObjectProtocol, DatagramBasedProtocol
 /// Like most other APIs in GLib, `GSocket` is not inherently thread safe. To use
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
+///
+/// The `SocketRef` type acts as a lightweight Swift reference to an underlying `GSocket` instance.
+/// It exposes methods that can operate on this data type through `SocketProtocol` conformance.
+/// Use `SocketRef` only as an `unowned` reference to an existing `GSocket` instance.
+///
 public struct SocketRef: SocketProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocket` instance.
     /// For type-safe access, use the generated, typed pointer `socket_ptr` property instead.
@@ -7138,10 +7204,6 @@ public extension SocketRef {
     }
 }
 
-/// The `Socket` type acts as a reference-counted owner of an underlying `GSocket` instance.
-/// It provides the methods that can operate on this data type through `SocketProtocol` conformance.
-/// Use `Socket` as a strong reference or owner of a `GSocket` instance.
-///
 /// A `GSocket` is a low-level networking primitive. It is a more or less
 /// direct mapping of the BSD socket API in a portable GObject based API.
 /// It supports both the UNIX socket implementations and winsock2 on Windows.
@@ -7193,6 +7255,11 @@ public extension SocketRef {
 /// Like most other APIs in GLib, `GSocket` is not inherently thread safe. To use
 /// a `GSocket` concurrently from multiple threads, you must implement your own
 /// locking.
+///
+/// The `Socket` type acts as a reference-counted owner of an underlying `GSocket` instance.
+/// It provides the methods that can operate on this data type through `SocketProtocol` conformance.
+/// Use `Socket` as a strong reference or owner of a `GSocket` instance.
+///
 open class Socket: GLibObject.Object, SocketProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7475,12 +7542,14 @@ public enum SocketSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9225,14 +9294,15 @@ public extension SocketProtocol {
 
 // MARK: - SocketAddress Class
 
+/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
+/// sockets API. This is an abstract class; use `GInetSocketAddress`
+/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
+///
 /// The `SocketAddressProtocol` protocol exposes the methods and properties of an underlying `GSocketAddress` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SocketAddress`.
 /// Alternatively, use `SocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
-/// sockets API. This is an abstract class; use `GInetSocketAddress`
-/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 public protocol SocketAddressProtocol: GLibObject.ObjectProtocol, SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9244,13 +9314,14 @@ public protocol SocketAddressProtocol: GLibObject.ObjectProtocol, SocketConnecta
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
+/// sockets API. This is an abstract class; use `GInetSocketAddress`
+/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
+///
 /// The `SocketAddressRef` type acts as a lightweight Swift reference to an underlying `GSocketAddress` instance.
 /// It exposes methods that can operate on this data type through `SocketAddressProtocol` conformance.
 /// Use `SocketAddressRef` only as an `unowned` reference to an existing `GSocketAddress` instance.
 ///
-/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
-/// sockets API. This is an abstract class; use `GInetSocketAddress`
-/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 public struct SocketAddressRef: SocketAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `socket_address_ptr` property instead.
@@ -9344,13 +9415,14 @@ public extension SocketAddressRef {
     }
 }
 
+/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
+/// sockets API. This is an abstract class; use `GInetSocketAddress`
+/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
+///
 /// The `SocketAddress` type acts as a reference-counted owner of an underlying `GSocketAddress` instance.
 /// It provides the methods that can operate on this data type through `SocketAddressProtocol` conformance.
 /// Use `SocketAddress` as a strong reference or owner of a `GSocketAddress` instance.
 ///
-/// `GSocketAddress` is the equivalent of struct sockaddr in the BSD
-/// sockets API. This is an abstract class; use `GInetSocketAddress`
-/// for internet sockets, or `GUnixSocketAddress` for UNIX domain sockets.
 open class SocketAddress: GLibObject.Object, SocketAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9567,12 +9639,14 @@ public enum SocketAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9646,11 +9720,6 @@ public extension SocketAddressProtocol {
 
 // MARK: - SocketAddressEnumerator Class
 
-/// The `SocketAddressEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GSocketAddressEnumerator` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketAddressEnumerator`.
-/// Alternatively, use `SocketAddressEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
 /// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
@@ -9665,6 +9734,12 @@ public extension SocketAddressProtocol {
 /// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
+///
+/// The `SocketAddressEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GSocketAddressEnumerator` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketAddressEnumerator`.
+/// Alternatively, use `SocketAddressEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -9676,10 +9751,6 @@ public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressEnumerator` instance.
-/// It exposes methods that can operate on this data type through `SocketAddressEnumeratorProtocol` conformance.
-/// Use `SocketAddressEnumeratorRef` only as an `unowned` reference to an existing `GSocketAddressEnumerator` instance.
-///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
 /// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
@@ -9694,6 +9765,11 @@ public protocol SocketAddressEnumeratorProtocol: GLibObject.ObjectProtocol {
 /// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
+///
+/// The `SocketAddressEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GSocketAddressEnumerator` instance.
+/// It exposes methods that can operate on this data type through `SocketAddressEnumeratorProtocol` conformance.
+/// Use `SocketAddressEnumeratorRef` only as an `unowned` reference to an existing `GSocketAddressEnumerator` instance.
+///
 public struct SocketAddressEnumeratorRef: SocketAddressEnumeratorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketAddressEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `socket_address_enumerator_ptr` property instead.
@@ -9775,10 +9851,6 @@ public extension SocketAddressEnumeratorRef {
 
     }
 
-/// The `SocketAddressEnumerator` type acts as a reference-counted owner of an underlying `GSocketAddressEnumerator` instance.
-/// It provides the methods that can operate on this data type through `SocketAddressEnumeratorProtocol` conformance.
-/// Use `SocketAddressEnumerator` as a strong reference or owner of a `GSocketAddressEnumerator` instance.
-///
 /// `GSocketAddressEnumerator` is an enumerator type for `GSocketAddress`
 /// instances. It is returned by enumeration functions such as
 /// `g_socket_connectable_enumerate()`, which returns a `GSocketAddressEnumerator`
@@ -9793,6 +9865,11 @@ public extension SocketAddressEnumeratorRef {
 /// `g_socket_address_enumerator_next()` has returned `nil`, further
 /// enumeration with that `GSocketAddressEnumerator` is not possible, and it can
 /// be unreffed.
+///
+/// The `SocketAddressEnumerator` type acts as a reference-counted owner of an underlying `GSocketAddressEnumerator` instance.
+/// It provides the methods that can operate on this data type through `SocketAddressEnumeratorProtocol` conformance.
+/// Use `SocketAddressEnumerator` as a strong reference or owner of a `GSocketAddressEnumerator` instance.
+///
 open class SocketAddressEnumerator: GLibObject.Object, SocketAddressEnumeratorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9940,12 +10017,14 @@ public enum SocketAddressEnumeratorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10036,11 +10115,6 @@ public extension SocketAddressEnumeratorProtocol {
 
 // MARK: - SocketClient Class
 
-/// The `SocketClientProtocol` protocol exposes the methods and properties of an underlying `GSocketClient` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketClient`.
-/// Alternatively, use `SocketClientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSocketClient` is a lightweight high-level utility class for connecting to
 /// a network host using a connection oriented socket type.
 /// 
@@ -10054,6 +10128,12 @@ public extension SocketAddressEnumeratorProtocol {
 /// 
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
+///
+/// The `SocketClientProtocol` protocol exposes the methods and properties of an underlying `GSocketClient` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketClient`.
+/// Alternatively, use `SocketClientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketClientProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSocketClient` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10065,10 +10145,6 @@ public protocol SocketClientProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketClientRef` type acts as a lightweight Swift reference to an underlying `GSocketClient` instance.
-/// It exposes methods that can operate on this data type through `SocketClientProtocol` conformance.
-/// Use `SocketClientRef` only as an `unowned` reference to an existing `GSocketClient` instance.
-///
 /// `GSocketClient` is a lightweight high-level utility class for connecting to
 /// a network host using a connection oriented socket type.
 /// 
@@ -10082,6 +10158,11 @@ public protocol SocketClientProtocol: GLibObject.ObjectProtocol {
 /// 
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
+///
+/// The `SocketClientRef` type acts as a lightweight Swift reference to an underlying `GSocketClient` instance.
+/// It exposes methods that can operate on this data type through `SocketClientProtocol` conformance.
+/// Use `SocketClientRef` only as an `unowned` reference to an existing `GSocketClient` instance.
+///
 public struct SocketClientRef: SocketClientProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketClient` instance.
     /// For type-safe access, use the generated, typed pointer `socket_client_ptr` property instead.
@@ -10168,10 +10249,6 @@ public extension SocketClientRef {
     }
 }
 
-/// The `SocketClient` type acts as a reference-counted owner of an underlying `GSocketClient` instance.
-/// It provides the methods that can operate on this data type through `SocketClientProtocol` conformance.
-/// Use `SocketClient` as a strong reference or owner of a `GSocketClient` instance.
-///
 /// `GSocketClient` is a lightweight high-level utility class for connecting to
 /// a network host using a connection oriented socket type.
 /// 
@@ -10185,6 +10262,11 @@ public extension SocketClientRef {
 /// 
 /// As `GSocketClient` is a lightweight object, you don't need to cache it. You
 /// can just create a new one any time you need one.
+///
+/// The `SocketClient` type acts as a reference-counted owner of an underlying `GSocketClient` instance.
+/// It provides the methods that can operate on this data type through `SocketClientProtocol` conformance.
+/// Use `SocketClient` as a strong reference or owner of a `GSocketClient` instance.
+///
 open class SocketClient: GLibObject.Object, SocketClientProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10452,12 +10534,14 @@ public enum SocketClientSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10593,12 +10677,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10642,12 +10728,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10691,12 +10779,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10740,12 +10830,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10789,12 +10881,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10838,12 +10932,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10887,12 +10983,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10936,12 +11034,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10985,12 +11085,14 @@ public extension SocketClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11794,11 +11896,6 @@ public extension SocketClientProtocol {
 
 // MARK: - SocketConnection Class
 
-/// The `SocketConnectionProtocol` protocol exposes the methods and properties of an underlying `GSocketConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketConnection`.
-/// Alternatively, use `SocketConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSocketConnection` is a `GIOStream` for a connected socket. They
 /// can be created either by `GSocketClient` when connecting to a host,
 /// or by `GSocketListener` when accepting a new client.
@@ -11815,6 +11912,12 @@ public extension SocketClientProtocol {
 /// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
+///
+/// The `SocketConnectionProtocol` protocol exposes the methods and properties of an underlying `GSocketConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketConnection`.
+/// Alternatively, use `SocketConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketConnectionProtocol: IOStreamProtocol {
         /// Untyped pointer to the underlying `GSocketConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11826,10 +11929,6 @@ public protocol SocketConnectionProtocol: IOStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketConnectionRef` type acts as a lightweight Swift reference to an underlying `GSocketConnection` instance.
-/// It exposes methods that can operate on this data type through `SocketConnectionProtocol` conformance.
-/// Use `SocketConnectionRef` only as an `unowned` reference to an existing `GSocketConnection` instance.
-///
 /// `GSocketConnection` is a `GIOStream` for a connected socket. They
 /// can be created either by `GSocketClient` when connecting to a host,
 /// or by `GSocketListener` when accepting a new client.
@@ -11846,6 +11945,11 @@ public protocol SocketConnectionProtocol: IOStreamProtocol {
 /// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
+///
+/// The `SocketConnectionRef` type acts as a lightweight Swift reference to an underlying `GSocketConnection` instance.
+/// It exposes methods that can operate on this data type through `SocketConnectionProtocol` conformance.
+/// Use `SocketConnectionRef` only as an `unowned` reference to an existing `GSocketConnection` instance.
+///
 public struct SocketConnectionRef: SocketConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketConnection` instance.
     /// For type-safe access, use the generated, typed pointer `socket_connection_ptr` property instead.
@@ -11927,10 +12031,6 @@ public extension SocketConnectionRef {
 
     }
 
-/// The `SocketConnection` type acts as a reference-counted owner of an underlying `GSocketConnection` instance.
-/// It provides the methods that can operate on this data type through `SocketConnectionProtocol` conformance.
-/// Use `SocketConnection` as a strong reference or owner of a `GSocketConnection` instance.
-///
 /// `GSocketConnection` is a `GIOStream` for a connected socket. They
 /// can be created either by `GSocketClient` when connecting to a host,
 /// or by `GSocketListener` when accepting a new client.
@@ -11947,6 +12047,11 @@ public extension SocketConnectionRef {
 /// To close a `GSocketConnection`, use `g_io_stream_close()`. Closing both
 /// substreams of the `GIOStream` separately will not close the underlying
 /// `GSocket`.
+///
+/// The `SocketConnection` type acts as a reference-counted owner of an underlying `GSocketConnection` instance.
+/// It provides the methods that can operate on this data type through `SocketConnectionProtocol` conformance.
+/// Use `SocketConnection` as a strong reference or owner of a `GSocketConnection` instance.
+///
 open class SocketConnection: IOStream, SocketConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12152,12 +12257,14 @@ public enum SocketConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12320,11 +12427,6 @@ public extension SocketConnectionProtocol {
 
 // MARK: - SocketControlMessage Class
 
-/// The `SocketControlMessageProtocol` protocol exposes the methods and properties of an underlying `GSocketControlMessage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketControlMessage`.
-/// Alternatively, use `SocketControlMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GSocketControlMessage` is a special-purpose utility message that
 /// can be sent to or received from a `GSocket`. These types of
 /// messages are often called "ancillary data".
@@ -12345,6 +12447,12 @@ public extension SocketConnectionProtocol {
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
+///
+/// The `SocketControlMessageProtocol` protocol exposes the methods and properties of an underlying `GSocketControlMessage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketControlMessage`.
+/// Alternatively, use `SocketControlMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketControlMessageProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12356,10 +12464,6 @@ public protocol SocketControlMessageProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketControlMessageRef` type acts as a lightweight Swift reference to an underlying `GSocketControlMessage` instance.
-/// It exposes methods that can operate on this data type through `SocketControlMessageProtocol` conformance.
-/// Use `SocketControlMessageRef` only as an `unowned` reference to an existing `GSocketControlMessage` instance.
-///
 /// A `GSocketControlMessage` is a special-purpose utility message that
 /// can be sent to or received from a `GSocket`. These types of
 /// messages are often called "ancillary data".
@@ -12380,6 +12484,11 @@ public protocol SocketControlMessageProtocol: GLibObject.ObjectProtocol {
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
+///
+/// The `SocketControlMessageRef` type acts as a lightweight Swift reference to an underlying `GSocketControlMessage` instance.
+/// It exposes methods that can operate on this data type through `SocketControlMessageProtocol` conformance.
+/// Use `SocketControlMessageRef` only as an `unowned` reference to an existing `GSocketControlMessage` instance.
+///
 public struct SocketControlMessageRef: SocketControlMessageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketControlMessage` instance.
     /// For type-safe access, use the generated, typed pointer `socket_control_message_ptr` property instead.
@@ -12472,10 +12581,6 @@ public extension SocketControlMessageRef {
     }
 }
 
-/// The `SocketControlMessage` type acts as a reference-counted owner of an underlying `GSocketControlMessage` instance.
-/// It provides the methods that can operate on this data type through `SocketControlMessageProtocol` conformance.
-/// Use `SocketControlMessage` as a strong reference or owner of a `GSocketControlMessage` instance.
-///
 /// A `GSocketControlMessage` is a special-purpose utility message that
 /// can be sent to or received from a `GSocket`. These types of
 /// messages are often called "ancillary data".
@@ -12496,6 +12601,11 @@ public extension SocketControlMessageRef {
 /// this class and implement the deserialize method. Also, make sure your
 /// class is registered with the GType typesystem before calling
 /// `g_socket_receive_message()` to read such a message.
+///
+/// The `SocketControlMessage` type acts as a reference-counted owner of an underlying `GSocketControlMessage` instance.
+/// It provides the methods that can operate on this data type through `SocketControlMessageProtocol` conformance.
+/// Use `SocketControlMessage` as a strong reference or owner of a `GSocketControlMessage` instance.
+///
 open class SocketControlMessage: GLibObject.Object, SocketControlMessageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12655,12 +12765,14 @@ public enum SocketControlMessageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12753,11 +12865,6 @@ public extension SocketControlMessageProtocol {
 
 // MARK: - SocketListener Class
 
-/// The `SocketListenerProtocol` protocol exposes the methods and properties of an underlying `GSocketListener` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketListener`.
-/// Alternatively, use `SocketListenerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GSocketListener` is an object that keeps track of a set
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
@@ -12772,6 +12879,12 @@ public extension SocketControlMessageProtocol {
 /// If you want to implement a network server, also look at `GSocketService`
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
+///
+/// The `SocketListenerProtocol` protocol exposes the methods and properties of an underlying `GSocketListener` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketListener`.
+/// Alternatively, use `SocketListenerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketListenerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSocketListener` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12783,10 +12896,6 @@ public protocol SocketListenerProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketListenerRef` type acts as a lightweight Swift reference to an underlying `GSocketListener` instance.
-/// It exposes methods that can operate on this data type through `SocketListenerProtocol` conformance.
-/// Use `SocketListenerRef` only as an `unowned` reference to an existing `GSocketListener` instance.
-///
 /// A `GSocketListener` is an object that keeps track of a set
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
@@ -12801,6 +12910,11 @@ public protocol SocketListenerProtocol: GLibObject.ObjectProtocol {
 /// If you want to implement a network server, also look at `GSocketService`
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
+///
+/// The `SocketListenerRef` type acts as a lightweight Swift reference to an underlying `GSocketListener` instance.
+/// It exposes methods that can operate on this data type through `SocketListenerProtocol` conformance.
+/// Use `SocketListenerRef` only as an `unowned` reference to an existing `GSocketListener` instance.
+///
 public struct SocketListenerRef: SocketListenerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketListener` instance.
     /// For type-safe access, use the generated, typed pointer `socket_listener_ptr` property instead.
@@ -12889,10 +13003,6 @@ public extension SocketListenerRef {
     }
 }
 
-/// The `SocketListener` type acts as a reference-counted owner of an underlying `GSocketListener` instance.
-/// It provides the methods that can operate on this data type through `SocketListenerProtocol` conformance.
-/// Use `SocketListener` as a strong reference or owner of a `GSocketListener` instance.
-///
 /// A `GSocketListener` is an object that keeps track of a set
 /// of server sockets and helps you accept sockets from any of the
 /// socket, either sync or async.
@@ -12907,6 +13017,11 @@ public extension SocketListenerRef {
 /// If you want to implement a network server, also look at `GSocketService`
 /// and `GThreadedSocketService` which are subclasses of `GSocketListener`
 /// that make this even easier.
+///
+/// The `SocketListener` type acts as a reference-counted owner of an underlying `GSocketListener` instance.
+/// It provides the methods that can operate on this data type through `SocketListenerProtocol` conformance.
+/// Use `SocketListener` as a strong reference or owner of a `GSocketListener` instance.
+///
 open class SocketListener: GLibObject.Object, SocketListenerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13122,12 +13237,14 @@ public enum SocketListenerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13208,12 +13325,14 @@ public extension SocketListenerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -13287,7 +13406,7 @@ public extension SocketListenerProtocol {
     /// This is the asynchronous version of `g_socket_listener_accept()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call `g_socket_listener_accept_socket()`
+    /// called. You can then call `g_socket_listener_accept_finish()`
     /// to get the result of the operation.
     @inlinable func acceptAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         g_socket_listener_accept_async(socket_listener_ptr, cancellable?.cancellable_ptr, callback, userData)
@@ -13296,7 +13415,7 @@ public extension SocketListenerProtocol {
     /// This is the asynchronous version of `g_socket_listener_accept()`.
     /// 
     /// When the operation is finished `callback` will be
-    /// called. You can then call `g_socket_listener_accept_socket()`
+    /// called. You can then call `g_socket_listener_accept_finish()`
     /// to get the result of the operation.
     @inlinable func acceptAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         g_socket_listener_accept_async(socket_listener_ptr, cancellable?.cancellable_ptr, callback, userData)
@@ -13578,11 +13697,6 @@ public extension SocketListenerProtocol {
 
 // MARK: - SocketService Class
 
-/// The `SocketServiceProtocol` protocol exposes the methods and properties of an underlying `GSocketService` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SocketService`.
-/// Alternatively, use `SocketServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
 /// connection is made to the service the `GSocketService::incoming`
@@ -13609,6 +13723,12 @@ public extension SocketListenerProtocol {
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
+///
+/// The `SocketServiceProtocol` protocol exposes the methods and properties of an underlying `GSocketService` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SocketService`.
+/// Alternatively, use `SocketServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SocketServiceProtocol: SocketListenerProtocol {
         /// Untyped pointer to the underlying `GSocketService` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -13620,10 +13740,6 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SocketServiceRef` type acts as a lightweight Swift reference to an underlying `GSocketService` instance.
-/// It exposes methods that can operate on this data type through `SocketServiceProtocol` conformance.
-/// Use `SocketServiceRef` only as an `unowned` reference to an existing `GSocketService` instance.
-///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
 /// connection is made to the service the `GSocketService::incoming`
@@ -13650,6 +13766,11 @@ public protocol SocketServiceProtocol: SocketListenerProtocol {
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
+///
+/// The `SocketServiceRef` type acts as a lightweight Swift reference to an underlying `GSocketService` instance.
+/// It exposes methods that can operate on this data type through `SocketServiceProtocol` conformance.
+/// Use `SocketServiceRef` only as an `unowned` reference to an existing `GSocketService` instance.
+///
 public struct SocketServiceRef: SocketServiceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSocketService` instance.
     /// For type-safe access, use the generated, typed pointer `socket_service_ptr` property instead.
@@ -13742,10 +13863,6 @@ public extension SocketServiceRef {
     }
 }
 
-/// The `SocketService` type acts as a reference-counted owner of an underlying `GSocketService` instance.
-/// It provides the methods that can operate on this data type through `SocketServiceProtocol` conformance.
-/// Use `SocketService` as a strong reference or owner of a `GSocketService` instance.
-///
 /// A `GSocketService` is an object that represents a service that
 /// is provided to the network or over local sockets.  When a new
 /// connection is made to the service the `GSocketService::incoming`
@@ -13772,6 +13889,11 @@ public extension SocketServiceRef {
 /// threadsafe in general. However, the calls to start and stop the
 /// service are thread-safe so these can be used from threads that
 /// handle incoming clients.
+///
+/// The `SocketService` type acts as a reference-counted owner of an underlying `GSocketService` instance.
+/// It provides the methods that can operate on this data type through `SocketServiceProtocol` conformance.
+/// Use `SocketService` as a strong reference or owner of a `GSocketService` instance.
+///
 open class SocketService: SocketListener, SocketServiceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14001,12 +14123,14 @@ public enum SocketServiceSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14092,12 +14216,14 @@ public extension SocketServiceProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14194,11 +14320,6 @@ public extension SocketServiceProtocol {
 
 // MARK: - Subprocess Class
 
-/// The `SubprocessProtocol` protocol exposes the methods and properties of an underlying `GSubprocess` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Subprocess`.
-/// Alternatively, use `SubprocessRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GSubprocess` allows the creation of and interaction with child
 /// processes.
 /// 
@@ -14253,6 +14374,12 @@ public extension SocketServiceProtocol {
 /// `g_subprocess_wait()`.  After the process exits, the status can be
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
+///
+/// The `SubprocessProtocol` protocol exposes the methods and properties of an underlying `GSubprocess` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Subprocess`.
+/// Alternatively, use `SubprocessRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SubprocessProtocol: GLibObject.ObjectProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GSubprocess` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -14264,10 +14391,6 @@ public protocol SubprocessProtocol: GLibObject.ObjectProtocol, InitableProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SubprocessRef` type acts as a lightweight Swift reference to an underlying `GSubprocess` instance.
-/// It exposes methods that can operate on this data type through `SubprocessProtocol` conformance.
-/// Use `SubprocessRef` only as an `unowned` reference to an existing `GSubprocess` instance.
-///
 /// `GSubprocess` allows the creation of and interaction with child
 /// processes.
 /// 
@@ -14322,6 +14445,11 @@ public protocol SubprocessProtocol: GLibObject.ObjectProtocol, InitableProtocol 
 /// `g_subprocess_wait()`.  After the process exits, the status can be
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
+///
+/// The `SubprocessRef` type acts as a lightweight Swift reference to an underlying `GSubprocess` instance.
+/// It exposes methods that can operate on this data type through `SubprocessProtocol` conformance.
+/// Use `SubprocessRef` only as an `unowned` reference to an existing `GSubprocess` instance.
+///
 public struct SubprocessRef: SubprocessProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSubprocess` instance.
     /// For type-safe access, use the generated, typed pointer `subprocess_ptr` property instead.
@@ -14426,10 +14554,6 @@ public extension SubprocessRef {
     }
 }
 
-/// The `Subprocess` type acts as a reference-counted owner of an underlying `GSubprocess` instance.
-/// It provides the methods that can operate on this data type through `SubprocessProtocol` conformance.
-/// Use `Subprocess` as a strong reference or owner of a `GSubprocess` instance.
-///
 /// `GSubprocess` allows the creation of and interaction with child
 /// processes.
 /// 
@@ -14484,6 +14608,11 @@ public extension SubprocessRef {
 /// `g_subprocess_wait()`.  After the process exits, the status can be
 /// checked using functions such as `g_subprocess_get_if_exited()` (which
 /// are similar to the familiar WIFEXITED-style POSIX macros).
+///
+/// The `Subprocess` type acts as a reference-counted owner of an underlying `GSubprocess` instance.
+/// It provides the methods that can operate on this data type through `SubprocessProtocol` conformance.
+/// Use `Subprocess` as a strong reference or owner of a `GSubprocess` instance.
+///
 open class Subprocess: GLibObject.Object, SubprocessProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -14712,12 +14841,14 @@ public enum SubprocessSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -14952,7 +15083,7 @@ public extension SubprocessProtocol {
     /// 
     /// This value has no particular meaning, but it can be used with the
     /// macros defined by the system headers such as WIFEXITED.  It can also
-    /// be used with `g_spawn_check_exit_status()`.
+    /// be used with `g_spawn_check_wait_status()`.
     /// 
     /// It is more likely that you want to use `g_subprocess_get_if_exited()`
     /// followed by `g_subprocess_get_exit_status()`.
@@ -15079,14 +15210,14 @@ public extension SubprocessProtocol {
     
     }
 
-    /// Combines `g_subprocess_wait()` with `g_spawn_check_exit_status()`.
+    /// Combines `g_subprocess_wait()` with `g_spawn_check_wait_status()`.
     @inlinable func waitCheck(cancellable: CancellableRef? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_subprocess_wait_check(subprocess_ptr, cancellable?.cancellable_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
-    /// Combines `g_subprocess_wait()` with `g_spawn_check_exit_status()`.
+    /// Combines `g_subprocess_wait()` with `g_spawn_check_wait_status()`.
     @inlinable func waitCheck<CancellableT: CancellableProtocol>(cancellable: CancellableT?) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_subprocess_wait_check(subprocess_ptr, cancellable?.cancellable_ptr, &error)) != 0)
@@ -15094,14 +15225,14 @@ public extension SubprocessProtocol {
         return rv
     }
 
-    /// Combines `g_subprocess_wait_async()` with `g_spawn_check_exit_status()`.
+    /// Combines `g_subprocess_wait_async()` with `g_spawn_check_wait_status()`.
     /// 
     /// This is the asynchronous version of `g_subprocess_wait_check()`.
     @inlinable func waitCheckAsync(cancellable: CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         g_subprocess_wait_check_async(subprocess_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
-    /// Combines `g_subprocess_wait_async()` with `g_spawn_check_exit_status()`.
+    /// Combines `g_subprocess_wait_async()` with `g_spawn_check_wait_status()`.
     /// 
     /// This is the asynchronous version of `g_subprocess_wait_check()`.
     @inlinable func waitCheckAsync<CancellableT: CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
@@ -15206,7 +15337,7 @@ public extension SubprocessProtocol {
     /// 
     /// This value has no particular meaning, but it can be used with the
     /// macros defined by the system headers such as WIFEXITED.  It can also
-    /// be used with `g_spawn_check_exit_status()`.
+    /// be used with `g_spawn_check_wait_status()`.
     /// 
     /// It is more likely that you want to use `g_subprocess_get_if_exited()`
     /// followed by `g_subprocess_get_exit_status()`.
@@ -15218,7 +15349,7 @@ public extension SubprocessProtocol {
         /// 
         /// This value has no particular meaning, but it can be used with the
         /// macros defined by the system headers such as WIFEXITED.  It can also
-        /// be used with `g_spawn_check_exit_status()`.
+        /// be used with `g_spawn_check_wait_status()`.
         /// 
         /// It is more likely that you want to use `g_subprocess_get_if_exited()`
         /// followed by `g_subprocess_get_exit_status()`.
@@ -15329,11 +15460,6 @@ public extension SubprocessProtocol {
 
 // MARK: - SubprocessLauncher Class
 
-/// The `SubprocessLauncherProtocol` protocol exposes the methods and properties of an underlying `GSubprocessLauncher` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SubprocessLauncher`.
-/// Alternatively, use `SubprocessLauncherRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This class contains a set of options for launching child processes,
 /// such as where its standard input and output will be directed, the
 /// argument list, the environment, and more.
@@ -15342,6 +15468,12 @@ public extension SubprocessProtocol {
 /// popular cases, use of this class allows access to more advanced
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
+///
+/// The `SubprocessLauncherProtocol` protocol exposes the methods and properties of an underlying `GSubprocessLauncher` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SubprocessLauncher`.
+/// Alternatively, use `SubprocessLauncherRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SubprocessLauncherProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -15353,10 +15485,6 @@ public protocol SubprocessLauncherProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SubprocessLauncherRef` type acts as a lightweight Swift reference to an underlying `GSubprocessLauncher` instance.
-/// It exposes methods that can operate on this data type through `SubprocessLauncherProtocol` conformance.
-/// Use `SubprocessLauncherRef` only as an `unowned` reference to an existing `GSubprocessLauncher` instance.
-///
 /// This class contains a set of options for launching child processes,
 /// such as where its standard input and output will be directed, the
 /// argument list, the environment, and more.
@@ -15365,6 +15493,11 @@ public protocol SubprocessLauncherProtocol: GLibObject.ObjectProtocol {
 /// popular cases, use of this class allows access to more advanced
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
+///
+/// The `SubprocessLauncherRef` type acts as a lightweight Swift reference to an underlying `GSubprocessLauncher` instance.
+/// It exposes methods that can operate on this data type through `SubprocessLauncherProtocol` conformance.
+/// Use `SubprocessLauncherRef` only as an `unowned` reference to an existing `GSubprocessLauncher` instance.
+///
 public struct SubprocessLauncherRef: SubprocessLauncherProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GSubprocessLauncher` instance.
     /// For type-safe access, use the generated, typed pointer `subprocess_launcher_ptr` property instead.
@@ -15455,10 +15588,6 @@ public extension SubprocessLauncherRef {
     }
 }
 
-/// The `SubprocessLauncher` type acts as a reference-counted owner of an underlying `GSubprocessLauncher` instance.
-/// It provides the methods that can operate on this data type through `SubprocessLauncherProtocol` conformance.
-/// Use `SubprocessLauncher` as a strong reference or owner of a `GSubprocessLauncher` instance.
-///
 /// This class contains a set of options for launching child processes,
 /// such as where its standard input and output will be directed, the
 /// argument list, the environment, and more.
@@ -15467,6 +15596,11 @@ public extension SubprocessLauncherRef {
 /// popular cases, use of this class allows access to more advanced
 /// options.  It can also be used to launch multiple subprocesses with
 /// a similar configuration.
+///
+/// The `SubprocessLauncher` type acts as a reference-counted owner of an underlying `GSubprocessLauncher` instance.
+/// It provides the methods that can operate on this data type through `SubprocessLauncherProtocol` conformance.
+/// Use `SubprocessLauncher` as a strong reference or owner of a `GSubprocessLauncher` instance.
+///
 open class SubprocessLauncher: GLibObject.Object, SubprocessLauncherProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -15679,12 +15813,14 @@ public enum SubprocessLauncherSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -15697,6 +15833,21 @@ public enum SubprocessLauncherSignalName: String, SignalNameProtocol {
 public extension SubprocessLauncherProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSubprocessLauncher` instance.
     @inlinable var subprocess_launcher_ptr: UnsafeMutablePointer<GSubprocessLauncher>! { return ptr?.assumingMemoryBound(to: GSubprocessLauncher.self) }
+
+    /// Closes all the file descriptors previously passed to the object with
+    /// `g_subprocess_launcher_take_fd()`, `g_subprocess_launcher_take_stderr_fd()`, etc.
+    /// 
+    /// After calling this method, any subsequent calls to `g_subprocess_launcher_spawn()` or `g_subprocess_launcher_spawnv()` will
+    /// return `G_IO_ERROR_CLOSED`. This method is idempotent if
+    /// called more than once.
+    /// 
+    /// This function is called automatically when the `GSubprocessLauncher`
+    /// is disposed, but is provided separately so that garbage collected
+    /// language bindings can call it earlier to guarantee when FDs are closed.
+    @inlinable func close() {
+        g_subprocess_launcher_close(subprocess_launcher_ptr)
+    
+    }
 
     /// Returns the value of the environment variable `variable` in the
     /// environment of processes launched from this launcher.
@@ -15950,11 +16101,6 @@ public extension SubprocessLauncherProtocol {
 
 // MARK: - Task Class
 
-/// The `TaskProtocol` protocol exposes the methods and properties of an underlying `GTask` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Task`.
-/// Alternatively, use `TaskRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
 /// ## Asynchronous operations
@@ -16457,6 +16603,12 @@ public extension SubprocessLauncherProtocol {
 ///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
+///
+/// The `TaskProtocol` protocol exposes the methods and properties of an underlying `GTask` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Task`.
+/// Alternatively, use `TaskRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TaskProtocol: GLibObject.ObjectProtocol, AsyncResultProtocol {
         /// Untyped pointer to the underlying `GTask` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -16468,10 +16620,6 @@ public protocol TaskProtocol: GLibObject.ObjectProtocol, AsyncResultProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TaskRef` type acts as a lightweight Swift reference to an underlying `GTask` instance.
-/// It exposes methods that can operate on this data type through `TaskProtocol` conformance.
-/// Use `TaskRef` only as an `unowned` reference to an existing `GTask` instance.
-///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
 /// ## Asynchronous operations
@@ -16974,6 +17122,11 @@ public protocol TaskProtocol: GLibObject.ObjectProtocol, AsyncResultProtocol {
 ///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
+///
+/// The `TaskRef` type acts as a lightweight Swift reference to an underlying `GTask` instance.
+/// It exposes methods that can operate on this data type through `TaskProtocol` conformance.
+/// Use `TaskRef` only as an `unowned` reference to an existing `GTask` instance.
+///
 public struct TaskRef: TaskProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTask` instance.
     /// For type-safe access, use the generated, typed pointer `task_ptr` property instead.
@@ -17075,10 +17228,6 @@ public extension TaskRef {
     }
 }
 
-/// The `Task` type acts as a reference-counted owner of an underlying `GTask` instance.
-/// It provides the methods that can operate on this data type through `TaskProtocol` conformance.
-/// Use `Task` as a strong reference or owner of a `GTask` instance.
-///
 /// A `GTask` represents and manages a cancellable "task".
 /// 
 /// ## Asynchronous operations
@@ -17581,6 +17730,11 @@ public extension TaskRef {
 ///   having come from the ``_async()`` wrapper
 ///   function (for "short-circuit" results, such as when passing
 ///   0 to `g_input_stream_read_async()`).
+///
+/// The `Task` type acts as a reference-counted owner of an underlying `GTask` instance.
+/// It provides the methods that can operate on this data type through `TaskProtocol` conformance.
+/// Use `Task` as a strong reference or owner of a `GTask` instance.
+///
 open class Task: GLibObject.Object, TaskProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -17813,12 +17967,14 @@ public enum TaskSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -18094,9 +18250,9 @@ public extension TaskProtocol {
     /// 
     /// Although GLib currently rate-limits the tasks queued via
     /// `g_task_run_in_thread()`, you should not assume that it will always
-    /// do this. If you have a very large number of tasks to run, but don't
-    /// want them to all run at once, you should only queue a limited
-    /// number of them at a time.
+    /// do this. If you have a very large number of tasks to run (several tens of
+    /// tasks), but don't want them to all run at once, you should only queue a
+    /// limited number of them (around ten) at a time.
     @inlinable func runInThread(taskFunc: GTaskThreadFunc?) {
         g_task_run_in_thread(task_ptr, taskFunc)
     

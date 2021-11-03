@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - BufferedOutputStream Class
 
-/// The `BufferedOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GBufferedOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BufferedOutputStream`.
-/// Alternatively, use `BufferedOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Buffered output stream implements `GFilterOutputStream` and provides
 /// for buffered writes.
 /// 
@@ -23,6 +18,12 @@ import GLibObject
 /// buffered output stream's buffer, use
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GBufferedOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BufferedOutputStream`.
+/// Alternatively, use `BufferedOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,10 +35,6 @@ public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, Seekab
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BufferedOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedOutputStream` instance.
-/// It exposes methods that can operate on this data type through `BufferedOutputStreamProtocol` conformance.
-/// Use `BufferedOutputStreamRef` only as an `unowned` reference to an existing `GBufferedOutputStream` instance.
-///
 /// Buffered output stream implements `GFilterOutputStream` and provides
 /// for buffered writes.
 /// 
@@ -52,6 +49,11 @@ public protocol BufferedOutputStreamProtocol: FilterOutputStreamProtocol, Seekab
 /// buffered output stream's buffer, use
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedOutputStream` instance.
+/// It exposes methods that can operate on this data type through `BufferedOutputStreamProtocol` conformance.
+/// Use `BufferedOutputStreamRef` only as an `unowned` reference to an existing `GBufferedOutputStream` instance.
+///
 public struct BufferedOutputStreamRef: BufferedOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GBufferedOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `buffered_output_stream_ptr` property instead.
@@ -149,10 +151,6 @@ public extension BufferedOutputStreamRef {
     }
 }
 
-/// The `BufferedOutputStream` type acts as a reference-counted owner of an underlying `GBufferedOutputStream` instance.
-/// It provides the methods that can operate on this data type through `BufferedOutputStreamProtocol` conformance.
-/// Use `BufferedOutputStream` as a strong reference or owner of a `GBufferedOutputStream` instance.
-///
 /// Buffered output stream implements `GFilterOutputStream` and provides
 /// for buffered writes.
 /// 
@@ -167,6 +165,11 @@ public extension BufferedOutputStreamRef {
 /// buffered output stream's buffer, use
 /// `g_buffered_output_stream_set_buffer_size()`. Note that the buffer's
 /// size cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedOutputStream` type acts as a reference-counted owner of an underlying `GBufferedOutputStream` instance.
+/// It provides the methods that can operate on this data type through `BufferedOutputStreamProtocol` conformance.
+/// Use `BufferedOutputStream` as a strong reference or owner of a `GBufferedOutputStream` instance.
+///
 open class BufferedOutputStream: FilterOutputStream, BufferedOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -391,12 +394,14 @@ public enum BufferedOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -483,13 +488,14 @@ public extension BufferedOutputStreamProtocol {
 
 // MARK: - BytesIcon Class
 
+/// `GBytesIcon` specifies an image held in memory in a common format (usually
+/// png) to be used as icon.
+///
 /// The `BytesIconProtocol` protocol exposes the methods and properties of an underlying `GBytesIcon` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BytesIcon`.
 /// Alternatively, use `BytesIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GBytesIcon` specifies an image held in memory in a common format (usually
-/// png) to be used as icon.
 public protocol BytesIconProtocol: GLibObject.ObjectProtocol, IconProtocol, LoadableIconProtocol {
         /// Untyped pointer to the underlying `GBytesIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -501,12 +507,13 @@ public protocol BytesIconProtocol: GLibObject.ObjectProtocol, IconProtocol, Load
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GBytesIcon` specifies an image held in memory in a common format (usually
+/// png) to be used as icon.
+///
 /// The `BytesIconRef` type acts as a lightweight Swift reference to an underlying `GBytesIcon` instance.
 /// It exposes methods that can operate on this data type through `BytesIconProtocol` conformance.
 /// Use `BytesIconRef` only as an `unowned` reference to an existing `GBytesIcon` instance.
 ///
-/// `GBytesIcon` specifies an image held in memory in a common format (usually
-/// png) to be used as icon.
 public struct BytesIconRef: BytesIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GBytesIcon` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_icon_ptr` property instead.
@@ -588,12 +595,13 @@ public extension BytesIconRef {
 
     }
 
+/// `GBytesIcon` specifies an image held in memory in a common format (usually
+/// png) to be used as icon.
+///
 /// The `BytesIcon` type acts as a reference-counted owner of an underlying `GBytesIcon` instance.
 /// It provides the methods that can operate on this data type through `BytesIconProtocol` conformance.
 /// Use `BytesIcon` as a strong reference or owner of a `GBytesIcon` instance.
 ///
-/// `GBytesIcon` specifies an image held in memory in a common format (usually
-/// png) to be used as icon.
 open class BytesIcon: GLibObject.Object, BytesIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -797,12 +805,14 @@ public enum BytesIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -838,14 +848,15 @@ public extension BytesIconProtocol {
 
 // MARK: - Cancellable Class
 
+/// GCancellable is a thread-safe operation cancellation stack used
+/// throughout GIO to allow for cancellation of synchronous and
+/// asynchronous operations.
+///
 /// The `CancellableProtocol` protocol exposes the methods and properties of an underlying `GCancellable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Cancellable`.
 /// Alternatively, use `CancellableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GCancellable is a thread-safe operation cancellation stack used
-/// throughout GIO to allow for cancellation of synchronous and
-/// asynchronous operations.
 public protocol CancellableProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GCancellable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -857,13 +868,14 @@ public protocol CancellableProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// GCancellable is a thread-safe operation cancellation stack used
+/// throughout GIO to allow for cancellation of synchronous and
+/// asynchronous operations.
+///
 /// The `CancellableRef` type acts as a lightweight Swift reference to an underlying `GCancellable` instance.
 /// It exposes methods that can operate on this data type through `CancellableProtocol` conformance.
 /// Use `CancellableRef` only as an `unowned` reference to an existing `GCancellable` instance.
 ///
-/// GCancellable is a thread-safe operation cancellation stack used
-/// throughout GIO to allow for cancellation of synchronous and
-/// asynchronous operations.
 public struct CancellableRef: CancellableProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GCancellable` instance.
     /// For type-safe access, use the generated, typed pointer `cancellable_ptr` property instead.
@@ -962,13 +974,14 @@ public extension CancellableRef {
     }
 }
 
+/// GCancellable is a thread-safe operation cancellation stack used
+/// throughout GIO to allow for cancellation of synchronous and
+/// asynchronous operations.
+///
 /// The `Cancellable` type acts as a reference-counted owner of an underlying `GCancellable` instance.
 /// It provides the methods that can operate on this data type through `CancellableProtocol` conformance.
 /// Use `Cancellable` as a strong reference or owner of a `GCancellable` instance.
 ///
-/// GCancellable is a thread-safe operation cancellation stack used
-/// throughout GIO to allow for cancellation of synchronous and
-/// asynchronous operations.
 open class Cancellable: GLibObject.Object, CancellableProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1188,12 +1201,14 @@ public enum CancellableSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

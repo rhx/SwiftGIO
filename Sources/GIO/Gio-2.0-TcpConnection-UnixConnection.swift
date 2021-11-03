@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - TcpConnection Class
 
+/// This is the subclass of `GSocketConnection` that is created
+/// for TCP/IP sockets.
+///
 /// The `TcpConnectionProtocol` protocol exposes the methods and properties of an underlying `GTcpConnection` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TcpConnection`.
 /// Alternatively, use `TcpConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This is the subclass of `GSocketConnection` that is created
-/// for TCP/IP sockets.
 public protocol TcpConnectionProtocol: SocketConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol TcpConnectionProtocol: SocketConnectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// This is the subclass of `GSocketConnection` that is created
+/// for TCP/IP sockets.
+///
 /// The `TcpConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpConnection` instance.
 /// It exposes methods that can operate on this data type through `TcpConnectionProtocol` conformance.
 /// Use `TcpConnectionRef` only as an `unowned` reference to an existing `GTcpConnection` instance.
 ///
-/// This is the subclass of `GSocketConnection` that is created
-/// for TCP/IP sockets.
 public struct TcpConnectionRef: TcpConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTcpConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tcp_connection_ptr` property instead.
@@ -109,12 +111,13 @@ public extension TcpConnectionRef {
 
     }
 
+/// This is the subclass of `GSocketConnection` that is created
+/// for TCP/IP sockets.
+///
 /// The `TcpConnection` type acts as a reference-counted owner of an underlying `GTcpConnection` instance.
 /// It provides the methods that can operate on this data type through `TcpConnectionProtocol` conformance.
 /// Use `TcpConnection` as a strong reference or owner of a `GTcpConnection` instance.
 ///
-/// This is the subclass of `GSocketConnection` that is created
-/// for TCP/IP sockets.
 open class TcpConnection: SocketConnection, TcpConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -321,12 +324,14 @@ public enum TcpConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -402,16 +407,17 @@ public extension TcpConnectionProtocol {
 
 // MARK: - TcpWrapperConnection Class
 
-/// The `TcpWrapperConnectionProtocol` protocol exposes the methods and properties of an underlying `GTcpWrapperConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TcpWrapperConnection`.
-/// Alternatively, use `TcpWrapperConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GTcpWrapperConnection` can be used to wrap a `GIOStream` that is
 /// based on a `GSocket`, but which is not actually a
 /// `GSocketConnection`. This is used by `GSocketClient` so that it can
 /// always return a `GSocketConnection`, even when the connection it has
 /// actually created is not directly a `GSocketConnection`.
+///
+/// The `TcpWrapperConnectionProtocol` protocol exposes the methods and properties of an underlying `GTcpWrapperConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TcpWrapperConnection`.
+/// Alternatively, use `TcpWrapperConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TcpWrapperConnectionProtocol: TcpConnectionProtocol {
         /// Untyped pointer to the underlying `GTcpWrapperConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -423,15 +429,16 @@ public protocol TcpWrapperConnectionProtocol: TcpConnectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TcpWrapperConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnection` instance.
-/// It exposes methods that can operate on this data type through `TcpWrapperConnectionProtocol` conformance.
-/// Use `TcpWrapperConnectionRef` only as an `unowned` reference to an existing `GTcpWrapperConnection` instance.
-///
 /// A `GTcpWrapperConnection` can be used to wrap a `GIOStream` that is
 /// based on a `GSocket`, but which is not actually a
 /// `GSocketConnection`. This is used by `GSocketClient` so that it can
 /// always return a `GSocketConnection`, even when the connection it has
 /// actually created is not directly a `GSocketConnection`.
+///
+/// The `TcpWrapperConnectionRef` type acts as a lightweight Swift reference to an underlying `GTcpWrapperConnection` instance.
+/// It exposes methods that can operate on this data type through `TcpWrapperConnectionProtocol` conformance.
+/// Use `TcpWrapperConnectionRef` only as an `unowned` reference to an existing `GTcpWrapperConnection` instance.
+///
 public struct TcpWrapperConnectionRef: TcpWrapperConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTcpWrapperConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tcp_wrapper_connection_ptr` property instead.
@@ -518,15 +525,16 @@ public extension TcpWrapperConnectionRef {
     }
 }
 
-/// The `TcpWrapperConnection` type acts as a reference-counted owner of an underlying `GTcpWrapperConnection` instance.
-/// It provides the methods that can operate on this data type through `TcpWrapperConnectionProtocol` conformance.
-/// Use `TcpWrapperConnection` as a strong reference or owner of a `GTcpWrapperConnection` instance.
-///
 /// A `GTcpWrapperConnection` can be used to wrap a `GIOStream` that is
 /// based on a `GSocket`, but which is not actually a
 /// `GSocketConnection`. This is used by `GSocketClient` so that it can
 /// always return a `GSocketConnection`, even when the connection it has
 /// actually created is not directly a `GSocketConnection`.
+///
+/// The `TcpWrapperConnection` type acts as a reference-counted owner of an underlying `GTcpWrapperConnection` instance.
+/// It provides the methods that can operate on this data type through `TcpWrapperConnectionProtocol` conformance.
+/// Use `TcpWrapperConnection` as a strong reference or owner of a `GTcpWrapperConnection` instance.
+///
 open class TcpWrapperConnection: TcpConnection, TcpWrapperConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -740,12 +748,14 @@ public enum TcpWrapperConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -793,11 +803,6 @@ public extension TcpWrapperConnectionProtocol {
 
 // MARK: - TestDBus Class
 
-/// The `TestDBusProtocol` protocol exposes the methods and properties of an underlying `GTestDBus` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TestDBus`.
-/// Alternatively, use `TestDBusRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
@@ -842,7 +847,7 @@ public extension TcpWrapperConnectionProtocol {
 /// 
 /// An example of a test fixture for D-Bus services can be found
 /// here:
-/// [gdbus-test-fixture.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-test-fixture.c)
+/// [gdbus-test-fixture.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-test-fixture.c)
 /// 
 /// Note that these examples only deal with isolating the D-Bus aspect of your
 /// service. To successfully run isolated unit tests on your service you may need
@@ -871,6 +876,12 @@ public extension TcpWrapperConnectionProtocol {
 ///     CLEANFILES += gschemas.compiled
 /// ```
 /// 
+///
+/// The `TestDBusProtocol` protocol exposes the methods and properties of an underlying `GTestDBus` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TestDBus`.
+/// Alternatively, use `TestDBusRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTestDBus` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -882,10 +893,6 @@ public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TestDBusRef` type acts as a lightweight Swift reference to an underlying `GTestDBus` instance.
-/// It exposes methods that can operate on this data type through `TestDBusProtocol` conformance.
-/// Use `TestDBusRef` only as an `unowned` reference to an existing `GTestDBus` instance.
-///
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
@@ -930,7 +937,7 @@ public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
 /// 
 /// An example of a test fixture for D-Bus services can be found
 /// here:
-/// [gdbus-test-fixture.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-test-fixture.c)
+/// [gdbus-test-fixture.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-test-fixture.c)
 /// 
 /// Note that these examples only deal with isolating the D-Bus aspect of your
 /// service. To successfully run isolated unit tests on your service you may need
@@ -959,6 +966,11 @@ public protocol TestDBusProtocol: GLibObject.ObjectProtocol {
 ///     CLEANFILES += gschemas.compiled
 /// ```
 /// 
+///
+/// The `TestDBusRef` type acts as a lightweight Swift reference to an underlying `GTestDBus` instance.
+/// It exposes methods that can operate on this data type through `TestDBusProtocol` conformance.
+/// Use `TestDBusRef` only as an `unowned` reference to an existing `GTestDBus` instance.
+///
 public struct TestDBusRef: TestDBusProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTestDBus` instance.
     /// For type-safe access, use the generated, typed pointer `test_dbus_ptr` property instead.
@@ -1045,10 +1057,6 @@ public extension TestDBusRef {
     }
 }
 
-/// The `TestDBus` type acts as a reference-counted owner of an underlying `GTestDBus` instance.
-/// It provides the methods that can operate on this data type through `TestDBusProtocol` conformance.
-/// Use `TestDBus` as a strong reference or owner of a `GTestDBus` instance.
-///
 /// A helper class for testing code which uses D-Bus without touching the user's
 /// session bus.
 /// 
@@ -1093,7 +1101,7 @@ public extension TestDBusRef {
 /// 
 /// An example of a test fixture for D-Bus services can be found
 /// here:
-/// [gdbus-test-fixture.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-test-fixture.c)
+/// [gdbus-test-fixture.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-test-fixture.c)
 /// 
 /// Note that these examples only deal with isolating the D-Bus aspect of your
 /// service. To successfully run isolated unit tests on your service you may need
@@ -1122,6 +1130,11 @@ public extension TestDBusRef {
 ///     CLEANFILES += gschemas.compiled
 /// ```
 /// 
+///
+/// The `TestDBus` type acts as a reference-counted owner of an underlying `GTestDBus` instance.
+/// It provides the methods that can operate on this data type through `TestDBusProtocol` conformance.
+/// Use `TestDBus` as a strong reference or owner of a `GTestDBus` instance.
+///
 open class TestDBus: GLibObject.Object, TestDBusProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1331,12 +1344,14 @@ public enum TestDBusSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1434,11 +1449,6 @@ public extension TestDBusProtocol {
 
 // MARK: - ThemedIcon Class
 
-/// The `ThemedIconProtocol` protocol exposes the methods and properties of an underlying `GThemedIcon` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ThemedIcon`.
-/// Alternatively, use `ThemedIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GThemedIcon` is an implementation of `GIcon` that supports icon themes.
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
@@ -1446,6 +1456,12 @@ public extension TestDBusProtocol {
 /// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
+///
+/// The `ThemedIconProtocol` protocol exposes the methods and properties of an underlying `GThemedIcon` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ThemedIcon`.
+/// Alternatively, use `ThemedIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ThemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GThemedIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1457,10 +1473,6 @@ public protocol ThemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ThemedIconRef` type acts as a lightweight Swift reference to an underlying `GThemedIcon` instance.
-/// It exposes methods that can operate on this data type through `ThemedIconProtocol` conformance.
-/// Use `ThemedIconRef` only as an `unowned` reference to an existing `GThemedIcon` instance.
-///
 /// `GThemedIcon` is an implementation of `GIcon` that supports icon themes.
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
@@ -1468,6 +1480,11 @@ public protocol ThemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
 /// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
+///
+/// The `ThemedIconRef` type acts as a lightweight Swift reference to an underlying `GThemedIcon` instance.
+/// It exposes methods that can operate on this data type through `ThemedIconProtocol` conformance.
+/// Use `ThemedIconRef` only as an `unowned` reference to an existing `GThemedIcon` instance.
+///
 public struct ThemedIconRef: ThemedIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GThemedIcon` instance.
     /// For type-safe access, use the generated, typed pointer `themed_icon_ptr` property instead.
@@ -1549,10 +1566,6 @@ public extension ThemedIconRef {
 
     }
 
-/// The `ThemedIcon` type acts as a reference-counted owner of an underlying `GThemedIcon` instance.
-/// It provides the methods that can operate on this data type through `ThemedIconProtocol` conformance.
-/// Use `ThemedIcon` as a strong reference or owner of a `GThemedIcon` instance.
-///
 /// `GThemedIcon` is an implementation of `GIcon` that supports icon themes.
 /// `GThemedIcon` contains a list of all of the icons present in an icon
 /// theme, so that icons can be looked up quickly. `GThemedIcon` does
@@ -1560,6 +1573,11 @@ public extension ThemedIconRef {
 /// IDeally something like `gtk_icon_theme_choose_icon()` should be used to
 /// resolve the list of names so that fallback icons work nicely with
 /// themes that inherit other themes.
+///
+/// The `ThemedIcon` type acts as a reference-counted owner of an underlying `GThemedIcon` instance.
+/// It provides the methods that can operate on this data type through `ThemedIconProtocol` conformance.
+/// Use `ThemedIcon` as a strong reference or owner of a `GThemedIcon` instance.
+///
 open class ThemedIcon: GLibObject.Object, ThemedIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1783,12 +1801,14 @@ public enum ThemedIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1862,11 +1882,6 @@ public extension ThemedIconProtocol {
 
 // MARK: - ThreadedSocketService Class
 
-/// The `ThreadedSocketServiceProtocol` protocol exposes the methods and properties of an underlying `GThreadedSocketService` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ThreadedSocketService`.
-/// Alternatively, use `ThreadedSocketServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
@@ -1882,6 +1897,12 @@ public extension ThemedIconProtocol {
 /// 
 /// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
+///
+/// The `ThreadedSocketServiceProtocol` protocol exposes the methods and properties of an underlying `GThreadedSocketService` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ThreadedSocketService`.
+/// Alternatively, use `ThreadedSocketServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
         /// Untyped pointer to the underlying `GThreadedSocketService` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1893,10 +1914,6 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ThreadedSocketServiceRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketService` instance.
-/// It exposes methods that can operate on this data type through `ThreadedSocketServiceProtocol` conformance.
-/// Use `ThreadedSocketServiceRef` only as an `unowned` reference to an existing `GThreadedSocketService` instance.
-///
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
@@ -1912,6 +1929,11 @@ public protocol ThreadedSocketServiceProtocol: SocketServiceProtocol {
 /// 
 /// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
+///
+/// The `ThreadedSocketServiceRef` type acts as a lightweight Swift reference to an underlying `GThreadedSocketService` instance.
+/// It exposes methods that can operate on this data type through `ThreadedSocketServiceProtocol` conformance.
+/// Use `ThreadedSocketServiceRef` only as an `unowned` reference to an existing `GThreadedSocketService` instance.
+///
 public struct ThreadedSocketServiceRef: ThreadedSocketServiceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GThreadedSocketService` instance.
     /// For type-safe access, use the generated, typed pointer `threaded_socket_service_ptr` property instead.
@@ -1999,10 +2021,6 @@ public extension ThreadedSocketServiceRef {
     }
 }
 
-/// The `ThreadedSocketService` type acts as a reference-counted owner of an underlying `GThreadedSocketService` instance.
-/// It provides the methods that can operate on this data type through `ThreadedSocketServiceProtocol` conformance.
-/// Use `ThreadedSocketService` as a strong reference or owner of a `GThreadedSocketService` instance.
-///
 /// A `GThreadedSocketService` is a simple subclass of `GSocketService`
 /// that handles incoming connections by creating a worker thread and
 /// dispatching the connection to it by emitting the
@@ -2018,6 +2036,11 @@ public extension ThreadedSocketServiceRef {
 /// 
 /// As with `GSocketService`, you may connect to `GThreadedSocketService::run`,
 /// or subclass and override the default handler.
+///
+/// The `ThreadedSocketService` type acts as a reference-counted owner of an underlying `GThreadedSocketService` instance.
+/// It provides the methods that can operate on this data type through `ThreadedSocketServiceProtocol` conformance.
+/// Use `ThreadedSocketService` as a strong reference or owner of a `GThreadedSocketService` instance.
+///
 open class ThreadedSocketService: SocketService, ThreadedSocketServiceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2243,12 +2266,14 @@ public enum ThreadedSocketServiceSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2337,12 +2362,14 @@ public extension ThreadedSocketServiceProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2394,16 +2421,17 @@ public extension ThreadedSocketServiceProtocol {
 
 // MARK: - TLSCertificate Class
 
-/// The `TLSCertificateProtocol` protocol exposes the methods and properties of an underlying `GTlsCertificate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TLSCertificate`.
-/// Alternatively, use `TLSCertificateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A certificate used for TLS authentication and encryption.
 /// This can represent either a certificate only (eg, the certificate
 /// received by a client from a server), or the combination of
 /// a certificate and a private key (which is needed when acting as a
 /// `GTlsServerConnection`).
+///
+/// The `TLSCertificateProtocol` protocol exposes the methods and properties of an underlying `GTlsCertificate` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TLSCertificate`.
+/// Alternatively, use `TLSCertificateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TLSCertificateProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsCertificate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2415,15 +2443,16 @@ public protocol TLSCertificateProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TLSCertificateRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificate` instance.
-/// It exposes methods that can operate on this data type through `TLSCertificateProtocol` conformance.
-/// Use `TLSCertificateRef` only as an `unowned` reference to an existing `GTlsCertificate` instance.
-///
 /// A certificate used for TLS authentication and encryption.
 /// This can represent either a certificate only (eg, the certificate
 /// received by a client from a server), or the combination of
 /// a certificate and a private key (which is needed when acting as a
 /// `GTlsServerConnection`).
+///
+/// The `TLSCertificateRef` type acts as a lightweight Swift reference to an underlying `GTlsCertificate` instance.
+/// It exposes methods that can operate on this data type through `TLSCertificateProtocol` conformance.
+/// Use `TLSCertificateRef` only as an `unowned` reference to an existing `GTlsCertificate` instance.
+///
 public struct TLSCertificateRef: TLSCertificateProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsCertificate` instance.
     /// For type-safe access, use the generated, typed pointer `tls_certificate_ptr` property instead.
@@ -2564,6 +2593,37 @@ public extension TLSCertificateRef {
         if let error = error { throw GLibError(error) }
         ptr = UnsafeMutableRawPointer(rv)
     }
+
+    /// Creates a `GTlsCertificate` from a
+    /// [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html) URI.
+    /// 
+    /// An example `pkcs11_uri` would be `pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My`20Client``20Certificate`;id=`01``
+    /// 
+    /// Where the token’s layout is:
+    /// 
+    /// ```
+    /// Object 0:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=private%20key;type=private
+    ///   Type: Private key (RSA-2048)
+    ///   ID: 01
+    /// 
+    /// Object 1:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=Certificate%20for%20Authentication;type=cert
+    ///   Type: X.509 Certificate (RSA-2048)
+    ///   ID: 01
+    /// ```
+    /// 
+    /// In this case the certificate and private key would both be detected and used as expected.
+    /// `pkcs_uri` may also just reference an X.509 certificate object and then optionally
+    /// `private_key_pkcs11_uri` allows using a private key exposed under a different URI.
+    /// 
+    /// Note that the private key is not accessed until usage and may fail or require a PIN later.
+    @inlinable init(pkcs11URIs pkcs11URI: UnsafePointer<gchar>!, privateKeyPkcs11URI: UnsafePointer<gchar>? = nil) throws {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_certificate_new_from_pkcs11_uris(pkcs11URI, privateKeyPkcs11URI, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
+    }
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
     /// returned certificate will be the first certificate found in `file`. As
     /// of GLib 2.44, if `file` contains more certificates it will try to load
@@ -2628,17 +2688,50 @@ public extension TLSCertificateRef {
         guard let rv = maybeRV else { return nil }
         return rv
     }
+
+    /// Creates a `GTlsCertificate` from a
+    /// [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html) URI.
+    /// 
+    /// An example `pkcs11_uri` would be `pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My`20Client``20Certificate`;id=`01``
+    /// 
+    /// Where the token’s layout is:
+    /// 
+    /// ```
+    /// Object 0:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=private%20key;type=private
+    ///   Type: Private key (RSA-2048)
+    ///   ID: 01
+    /// 
+    /// Object 1:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=Certificate%20for%20Authentication;type=cert
+    ///   Type: X.509 Certificate (RSA-2048)
+    ///   ID: 01
+    /// ```
+    /// 
+    /// In this case the certificate and private key would both be detected and used as expected.
+    /// `pkcs_uri` may also just reference an X.509 certificate object and then optionally
+    /// `private_key_pkcs11_uri` allows using a private key exposed under a different URI.
+    /// 
+    /// Note that the private key is not accessed until usage and may fail or require a PIN later.
+    @inlinable static func newFrom(pkcs11URIs pkcs11URI: UnsafePointer<gchar>!, privateKeyPkcs11URI: UnsafePointer<gchar>? = nil) throws -> TLSCertificateRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let maybeRV = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_new_from_pkcs11_uris(pkcs11URI, privateKeyPkcs11URI, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
+    }
 }
 
-/// The `TLSCertificate` type acts as a reference-counted owner of an underlying `GTlsCertificate` instance.
-/// It provides the methods that can operate on this data type through `TLSCertificateProtocol` conformance.
-/// Use `TLSCertificate` as a strong reference or owner of a `GTlsCertificate` instance.
-///
 /// A certificate used for TLS authentication and encryption.
 /// This can represent either a certificate only (eg, the certificate
 /// received by a client from a server), or the combination of
 /// a certificate and a private key (which is needed when acting as a
 /// `GTlsServerConnection`).
+///
+/// The `TLSCertificate` type acts as a reference-counted owner of an underlying `GTlsCertificate` instance.
+/// It provides the methods that can operate on this data type through `TLSCertificateProtocol` conformance.
+/// Use `TLSCertificate` as a strong reference or owner of a `GTlsCertificate` instance.
+///
 open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2829,6 +2922,38 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
+    /// Creates a `GTlsCertificate` from a
+    /// [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html) URI.
+    /// 
+    /// An example `pkcs11_uri` would be `pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My`20Client``20Certificate`;id=`01``
+    /// 
+    /// Where the token’s layout is:
+    /// 
+    /// ```
+    /// Object 0:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=private%20key;type=private
+    ///   Type: Private key (RSA-2048)
+    ///   ID: 01
+    /// 
+    /// Object 1:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=Certificate%20for%20Authentication;type=cert
+    ///   Type: X.509 Certificate (RSA-2048)
+    ///   ID: 01
+    /// ```
+    /// 
+    /// In this case the certificate and private key would both be detected and used as expected.
+    /// `pkcs_uri` may also just reference an X.509 certificate object and then optionally
+    /// `private_key_pkcs11_uri` allows using a private key exposed under a different URI.
+    /// 
+    /// Note that the private key is not accessed until usage and may fail or require a PIN later.
+    @inlinable public init(pkcs11URIs pkcs11URI: UnsafePointer<gchar>!, privateKeyPkcs11URI: UnsafePointer<gchar>? = nil) throws {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_tls_certificate_new_from_pkcs11_uris(pkcs11URI, privateKeyPkcs11URI, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
+    }
+
     /// Creates a `GTlsCertificate` from the PEM-encoded data in `file`. The
     /// returned certificate will be the first certificate found in `file`. As
     /// of GLib 2.44, if `file` contains more certificates it will try to load
@@ -2897,6 +3022,39 @@ open class TLSCertificate: GLibObject.Object, TLSCertificateProtocol {
         return rv
     }
 
+    /// Creates a `GTlsCertificate` from a
+    /// [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html) URI.
+    /// 
+    /// An example `pkcs11_uri` would be `pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My`20Client``20Certificate`;id=`01``
+    /// 
+    /// Where the token’s layout is:
+    /// 
+    /// ```
+    /// Object 0:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=private%20key;type=private
+    ///   Type: Private key (RSA-2048)
+    ///   ID: 01
+    /// 
+    /// Object 1:
+    ///   URL: pkcs11:model=Model;manufacturer=Manufacture;serial=1;token=My%20Client%20Certificate;id=%01;object=Certificate%20for%20Authentication;type=cert
+    ///   Type: X.509 Certificate (RSA-2048)
+    ///   ID: 01
+    /// ```
+    /// 
+    /// In this case the certificate and private key would both be detected and used as expected.
+    /// `pkcs_uri` may also just reference an X.509 certificate object and then optionally
+    /// `private_key_pkcs11_uri` allows using a private key exposed under a different URI.
+    /// 
+    /// Note that the private key is not accessed until usage and may fail or require a PIN later.
+    @inlinable public static func newFrom(pkcs11URIs pkcs11URI: UnsafePointer<gchar>!, privateKeyPkcs11URI: UnsafePointer<gchar>? = nil) throws -> TLSCertificate! {
+        var error: UnsafeMutablePointer<GError>?
+        let maybeRV = TLSCertificate(gconstpointer: gconstpointer(g_tls_certificate_new_from_pkcs11_uris(pkcs11URI, privateKeyPkcs11URI, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
+        return rv
+    }
+
 }
 
 public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
@@ -2908,32 +3066,87 @@ public enum TLSCertificatePropertyName: String, PropertyNameProtocol {
     /// This property and the `GTlsCertificate:certificate`
     /// property represent the same data, just in different forms.
     case certificatePem = "certificate-pem"
+    /// The DNS names from the certificate's Subject Alternative Names (SANs),
+    /// `nil` if unavailable.
+    case dnsNames = "dns-names"
+    /// The IP addresses from the certificate's Subject Alternative Names (SANs),
+    /// `nil` if unavailable.
+    case ipAddresses = "ip-addresses"
     /// A `GTlsCertificate` representing the entity that issued this
     /// certificate. If `nil`, this means that the certificate is either
     /// self-signed, or else the certificate of the issuer is not
     /// available.
-    case issuer = "issuer"
-    /// The DER (binary) encoded representation of the certificate's
-    /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate:private-key-pem`
-    /// property) can be set when constructing a key (eg, from a file),
-    /// but cannot be read.
     /// 
-    /// PKCS`8` format is supported since 2.32; earlier releases only
-    /// support PKCS`1`. You can use the `openssl rsa`
-    /// tool to convert PKCS`8` keys to PKCS`1`.
+    /// Beware the issuer certificate may not be the same as the
+    /// certificate that would actually be used to construct a valid
+    /// certification path during certificate verification.
+    /// [RFC 4158](https://datatracker.ietf.org/doc/html/rfc4158) explains
+    /// why an issuer certificate cannot be naively assumed to be part of the
+    /// the certification path (though GLib's TLS backends may not follow the
+    /// path building strategies outlined in this RFC). Due to the complexity
+    /// of certification path building, GLib does not provide any way to know
+    /// which certification path will actually be used. Accordingly, this
+    /// property cannot be used to make security-related decisions. Only
+    /// GLib itself should make security decisions about TLS certificates.
+    case issuer = "issuer"
+    /// The issuer from the certificate,
+    /// `nil` if unavailable.
+    case issuerName = "issuer-name"
+    /// The time at which this cert is no longer valid,
+    /// `nil` if unavailable.
+    case notValidAfter = "not-valid-after"
+    /// The time at which this cert is considered to be valid,
+    /// `nil` if unavailable.
+    case notValidBefore = "not-valid-before"
+    /// A URI referencing the [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html)
+    /// objects containing an X.509 certificate and optionally a private key.
+    /// 
+    /// If `nil`, the certificate is either not backed by PKCS \`11` or the
+    /// `GTlsBackend` does not support PKCS \`11`.
+    case pkcs11URI = "pkcs11-uri"
+    /// The DER (binary) encoded representation of the certificate's
+    /// private key, in either [PKCS \`1` format](https://datatracker.ietf.org/doc/html/rfc8017)
+    /// or unencrypted [PKCS \`8` format.](https://datatracker.ietf.org/doc/html/rfc5208)
+    /// PKCS \`8` format is supported since 2.32; earlier releases only
+    /// support PKCS \`1`. You can use the `openssl rsa` tool to convert
+    /// PKCS \`8` keys to PKCS \`1`.
+    /// 
+    /// This property (or the `GTlsCertificate:private-key-pem` property)
+    /// can be set when constructing a key (for example, from a file).
+    /// Since GLib 2.70, it is now also readable; however, be aware that if
+    /// the private key is backed by a PKCS \`11` URI – for example, if it
+    /// is stored on a smartcard – then this property will be `nil`. If so,
+    /// the private key must be referenced via its PKCS \`11` URI,
+    /// `GTlsCertificate:private-key-pkcs11-uri`. You must check both
+    /// properties to see if the certificate really has a private key.
+    /// When this property is read, the output format will be unencrypted
+    /// PKCS \`8`.
     case privateKey = "private-key"
     /// The PEM (ASCII) encoded representation of the certificate's
-    /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
-    /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
-    /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate:private-key` property) can be set when
-    /// constructing a key (eg, from a file), but cannot be read.
+    /// private key in either [PKCS \`1` format](https://datatracker.ietf.org/doc/html/rfc8017)
+    /// ("`BEGIN RSA PRIVATE KEY`") or unencrypted
+    /// [PKCS \`8` format](https://datatracker.ietf.org/doc/html/rfc5208)
+    /// ("`BEGIN PRIVATE KEY`"). PKCS \`8` format is supported since 2.32;
+    /// earlier releases only support PKCS \`1`. You can use the `openssl rsa`
+    /// tool to convert PKCS \`8` keys to PKCS \`1`.
     /// 
-    /// PKCS`8` format is supported since 2.32; earlier releases only
-    /// support PKCS`1`. You can use the `openssl rsa`
-    /// tool to convert PKCS`8` keys to PKCS`1`.
+    /// This property (or the `GTlsCertificate:private-key` property)
+    /// can be set when constructing a key (for example, from a file).
+    /// Since GLib 2.70, it is now also readable; however, be aware that if
+    /// the private key is backed by a PKCS \`11` URI - for example, if it
+    /// is stored on a smartcard - then this property will be `nil`. If so,
+    /// the private key must be referenced via its PKCS \`11` URI,
+    /// `GTlsCertificate:private-key-pkcs11-uri`. You must check both
+    /// properties to see if the certificate really has a private key.
+    /// When this property is read, the output format will be unencrypted
+    /// PKCS \`8`.
     case privateKeyPem = "private-key-pem"
+    /// A URI referencing a [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html)
+    /// object containing a private key.
+    case privateKeyPkcs11URI = "private-key-pkcs11-uri"
+    /// The subject from the cert,
+    /// `nil` if unavailable.
+    case subjectName = "subject-name"
 }
 
 public extension TLSCertificateProtocol {
@@ -3005,12 +3218,14 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3023,32 +3238,87 @@ public enum TLSCertificateSignalName: String, SignalNameProtocol {
     /// This property and the `GTlsCertificate:certificate`
     /// property represent the same data, just in different forms.
     case notifyCertificatePem = "notify::certificate-pem"
+    /// The DNS names from the certificate's Subject Alternative Names (SANs),
+    /// `nil` if unavailable.
+    case notifyDnsNames = "notify::dns-names"
+    /// The IP addresses from the certificate's Subject Alternative Names (SANs),
+    /// `nil` if unavailable.
+    case notifyIpAddresses = "notify::ip-addresses"
     /// A `GTlsCertificate` representing the entity that issued this
     /// certificate. If `nil`, this means that the certificate is either
     /// self-signed, or else the certificate of the issuer is not
     /// available.
-    case notifyIssuer = "notify::issuer"
-    /// The DER (binary) encoded representation of the certificate's
-    /// private key, in either PKCS`1` format or unencrypted PKCS`8`
-    /// format. This property (or the `GTlsCertificate:private-key-pem`
-    /// property) can be set when constructing a key (eg, from a file),
-    /// but cannot be read.
     /// 
-    /// PKCS`8` format is supported since 2.32; earlier releases only
-    /// support PKCS`1`. You can use the `openssl rsa`
-    /// tool to convert PKCS`8` keys to PKCS`1`.
+    /// Beware the issuer certificate may not be the same as the
+    /// certificate that would actually be used to construct a valid
+    /// certification path during certificate verification.
+    /// [RFC 4158](https://datatracker.ietf.org/doc/html/rfc4158) explains
+    /// why an issuer certificate cannot be naively assumed to be part of the
+    /// the certification path (though GLib's TLS backends may not follow the
+    /// path building strategies outlined in this RFC). Due to the complexity
+    /// of certification path building, GLib does not provide any way to know
+    /// which certification path will actually be used. Accordingly, this
+    /// property cannot be used to make security-related decisions. Only
+    /// GLib itself should make security decisions about TLS certificates.
+    case notifyIssuer = "notify::issuer"
+    /// The issuer from the certificate,
+    /// `nil` if unavailable.
+    case notifyIssuerName = "notify::issuer-name"
+    /// The time at which this cert is no longer valid,
+    /// `nil` if unavailable.
+    case notifyNotValidAfter = "notify::not-valid-after"
+    /// The time at which this cert is considered to be valid,
+    /// `nil` if unavailable.
+    case notifyNotValidBefore = "notify::not-valid-before"
+    /// A URI referencing the [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html)
+    /// objects containing an X.509 certificate and optionally a private key.
+    /// 
+    /// If `nil`, the certificate is either not backed by PKCS \`11` or the
+    /// `GTlsBackend` does not support PKCS \`11`.
+    case notifyPkcs11URI = "notify::pkcs11-uri"
+    /// The DER (binary) encoded representation of the certificate's
+    /// private key, in either [PKCS \`1` format](https://datatracker.ietf.org/doc/html/rfc8017)
+    /// or unencrypted [PKCS \`8` format.](https://datatracker.ietf.org/doc/html/rfc5208)
+    /// PKCS \`8` format is supported since 2.32; earlier releases only
+    /// support PKCS \`1`. You can use the `openssl rsa` tool to convert
+    /// PKCS \`8` keys to PKCS \`1`.
+    /// 
+    /// This property (or the `GTlsCertificate:private-key-pem` property)
+    /// can be set when constructing a key (for example, from a file).
+    /// Since GLib 2.70, it is now also readable; however, be aware that if
+    /// the private key is backed by a PKCS \`11` URI – for example, if it
+    /// is stored on a smartcard – then this property will be `nil`. If so,
+    /// the private key must be referenced via its PKCS \`11` URI,
+    /// `GTlsCertificate:private-key-pkcs11-uri`. You must check both
+    /// properties to see if the certificate really has a private key.
+    /// When this property is read, the output format will be unencrypted
+    /// PKCS \`8`.
     case notifyPrivateKey = "notify::private-key"
     /// The PEM (ASCII) encoded representation of the certificate's
-    /// private key in either PKCS`1` format ("`BEGIN RSA PRIVATE
-    /// KEY`") or unencrypted PKCS`8` format ("`BEGIN
-    /// PRIVATE KEY`"). This property (or the
-    /// `GTlsCertificate:private-key` property) can be set when
-    /// constructing a key (eg, from a file), but cannot be read.
+    /// private key in either [PKCS \`1` format](https://datatracker.ietf.org/doc/html/rfc8017)
+    /// ("`BEGIN RSA PRIVATE KEY`") or unencrypted
+    /// [PKCS \`8` format](https://datatracker.ietf.org/doc/html/rfc5208)
+    /// ("`BEGIN PRIVATE KEY`"). PKCS \`8` format is supported since 2.32;
+    /// earlier releases only support PKCS \`1`. You can use the `openssl rsa`
+    /// tool to convert PKCS \`8` keys to PKCS \`1`.
     /// 
-    /// PKCS`8` format is supported since 2.32; earlier releases only
-    /// support PKCS`1`. You can use the `openssl rsa`
-    /// tool to convert PKCS`8` keys to PKCS`1`.
+    /// This property (or the `GTlsCertificate:private-key` property)
+    /// can be set when constructing a key (for example, from a file).
+    /// Since GLib 2.70, it is now also readable; however, be aware that if
+    /// the private key is backed by a PKCS \`11` URI - for example, if it
+    /// is stored on a smartcard - then this property will be `nil`. If so,
+    /// the private key must be referenced via its PKCS \`11` URI,
+    /// `GTlsCertificate:private-key-pkcs11-uri`. You must check both
+    /// properties to see if the certificate really has a private key.
+    /// When this property is read, the output format will be unencrypted
+    /// PKCS \`8`.
     case notifyPrivateKeyPem = "notify::private-key-pem"
+    /// A URI referencing a [PKCS \`11`](https://docs.oasis-open.org/pkcs11/pkcs11-base/v3.0/os/pkcs11-base-v3.0-os.html)
+    /// object containing a private key.
+    case notifyPrivateKeyPkcs11URI = "notify::private-key-pkcs11-uri"
+    /// The subject from the cert,
+    /// `nil` if unavailable.
+    case notifySubjectName = "notify::subject-name"
 }
 
 // MARK: TLSCertificate has no signals
@@ -3057,9 +3327,45 @@ public extension TLSCertificateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTlsCertificate` instance.
     @inlinable var tls_certificate_ptr: UnsafeMutablePointer<GTlsCertificate>! { return ptr?.assumingMemoryBound(to: GTlsCertificate.self) }
 
+    /// Gets the value of `GTlsCertificate:dns-names`.
+    @inlinable func getDnsNames() -> GLib.PtrArrayRef! {
+        let rv = GLib.PtrArrayRef(g_tls_certificate_get_dns_names(tls_certificate_ptr))
+        return rv
+    }
+
+    /// Gets the value of `GTlsCertificate:ip-addresses`.
+    @inlinable func getIpAddresses() -> GLib.PtrArrayRef! {
+        let rv = GLib.PtrArrayRef(g_tls_certificate_get_ip_addresses(tls_certificate_ptr))
+        return rv
+    }
+
     /// Gets the `GTlsCertificate` representing `cert`'s issuer, if known
     @inlinable func getIssuer() -> TLSCertificateRef! {
         guard let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_get_issuer(tls_certificate_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Returns the issuer name from the certificate.
+    @inlinable func getIssuerName() -> String! {
+        let rv = g_tls_certificate_get_issuer_name(tls_certificate_ptr).map({ String(cString: $0) })
+        return rv
+    }
+
+    /// Returns the time at which the certificate became or will become invalid.
+    @inlinable func getNotValidAfter() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_tls_certificate_get_not_valid_after(tls_certificate_ptr))
+        return rv
+    }
+
+    /// Returns the time at which the certificate became or will become valid.
+    @inlinable func getNotValidBefore() -> GLib.DateTimeRef! {
+        let rv = GLib.DateTimeRef(g_tls_certificate_get_not_valid_before(tls_certificate_ptr))
+        return rv
+    }
+
+    /// Returns the subject name from the certificate.
+    @inlinable func getSubjectName() -> String! {
+        let rv = g_tls_certificate_get_subject_name(tls_certificate_ptr).map({ String(cString: $0) })
         return rv
     }
 
@@ -3092,6 +3398,13 @@ public extension TLSCertificateProtocol {
     /// 
     /// (All other `GTlsCertificateFlags` values will always be set or unset
     /// as appropriate.)
+    /// 
+    /// Because TLS session context is not used, `GTlsCertificate` may not
+    /// perform as many checks on the certificates as `GTlsConnection` would.
+    /// For example, certificate constraints cannot be honored, and some
+    /// revocation checks cannot be performed. The best way to verify TLS
+    /// certificates used by a TLS connection is to let `GTlsConnection`
+    /// handle the verification.
     @inlinable func verify(identity: SocketConnectableRef? = nil, trustedCa: TLSCertificateRef? = nil) -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trustedCa?.tls_certificate_ptr))
         return rv
@@ -3115,6 +3428,13 @@ public extension TLSCertificateProtocol {
     /// 
     /// (All other `GTlsCertificateFlags` values will always be set or unset
     /// as appropriate.)
+    /// 
+    /// Because TLS session context is not used, `GTlsCertificate` may not
+    /// perform as many checks on the certificates as `GTlsConnection` would.
+    /// For example, certificate constraints cannot be honored, and some
+    /// revocation checks cannot be performed. The best way to verify TLS
+    /// certificates used by a TLS connection is to let `GTlsConnection`
+    /// handle the verification.
     @inlinable func verify<SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol>(identity: SocketConnectableT?, trustedCa: TLSCertificateT?) -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_tls_certificate_verify(tls_certificate_ptr, identity?.socket_connectable_ptr, trustedCa?.tls_certificate_ptr))
         return rv
@@ -3140,14 +3460,80 @@ public extension TLSCertificateProtocol {
         if let error = error { throw GLibError(error) }
         return rv
     }
+    /// Gets the value of `GTlsCertificate:dns-names`.
+    @inlinable var dnsNames: GLib.PtrArrayRef! {
+        /// Gets the value of `GTlsCertificate:dns-names`.
+        get {
+            let rv = GLib.PtrArrayRef(g_tls_certificate_get_dns_names(tls_certificate_ptr))
+            return rv
+        }
+    }
+
+    /// Gets the value of `GTlsCertificate:ip-addresses`.
+    @inlinable var ipAddresses: GLib.PtrArrayRef! {
+        /// Gets the value of `GTlsCertificate:ip-addresses`.
+        get {
+            let rv = GLib.PtrArrayRef(g_tls_certificate_get_ip_addresses(tls_certificate_ptr))
+            return rv
+        }
+    }
+
     /// A `GTlsCertificate` representing the entity that issued this
     /// certificate. If `nil`, this means that the certificate is either
     /// self-signed, or else the certificate of the issuer is not
     /// available.
+    /// 
+    /// Beware the issuer certificate may not be the same as the
+    /// certificate that would actually be used to construct a valid
+    /// certification path during certificate verification.
+    /// [RFC 4158](https://datatracker.ietf.org/doc/html/rfc4158) explains
+    /// why an issuer certificate cannot be naively assumed to be part of the
+    /// the certification path (though GLib's TLS backends may not follow the
+    /// path building strategies outlined in this RFC). Due to the complexity
+    /// of certification path building, GLib does not provide any way to know
+    /// which certification path will actually be used. Accordingly, this
+    /// property cannot be used to make security-related decisions. Only
+    /// GLib itself should make security decisions about TLS certificates.
     @inlinable var issuer: TLSCertificateRef! {
         /// Gets the `GTlsCertificate` representing `cert`'s issuer, if known
         get {
             guard let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_certificate_get_issuer(tls_certificate_ptr))) else { return nil }
+            return rv
+        }
+    }
+
+    /// Returns the issuer name from the certificate.
+    @inlinable var issuerName: String! {
+        /// Returns the issuer name from the certificate.
+        get {
+            let rv = g_tls_certificate_get_issuer_name(tls_certificate_ptr).map({ String(cString: $0) })
+            return rv
+        }
+    }
+
+    /// Returns the time at which the certificate became or will become invalid.
+    @inlinable var notValidAfter: GLib.DateTimeRef! {
+        /// Returns the time at which the certificate became or will become invalid.
+        get {
+            let rv = GLib.DateTimeRef(g_tls_certificate_get_not_valid_after(tls_certificate_ptr))
+            return rv
+        }
+    }
+
+    /// Returns the time at which the certificate became or will become valid.
+    @inlinable var notValidBefore: GLib.DateTimeRef! {
+        /// Returns the time at which the certificate became or will become valid.
+        get {
+            let rv = GLib.DateTimeRef(g_tls_certificate_get_not_valid_before(tls_certificate_ptr))
+            return rv
+        }
+    }
+
+    /// Returns the subject name from the certificate.
+    @inlinable var subjectName: String! {
+        /// Returns the subject name from the certificate.
+        get {
+            let rv = g_tls_certificate_get_subject_name(tls_certificate_ptr).map({ String(cString: $0) })
             return rv
         }
     }
@@ -3167,17 +3553,18 @@ public extension TLSCertificateProtocol {
 
 // MARK: - TLSConnection Class
 
-/// The `TLSConnectionProtocol` protocol exposes the methods and properties of an underlying `GTlsConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TLSConnection`.
-/// Alternatively, use `TLSConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GTlsConnection` is the base TLS connection class type, which wraps
 /// a `GIOStream` and provides TLS encryption on top of it. Its
 /// subclasses, `GTlsClientConnection` and `GTlsServerConnection`,
 /// implement client-side and server-side TLS, respectively.
 /// 
 /// For DTLS (Datagram TLS) support, see `GDtlsConnection`.
+///
+/// The `TLSConnectionProtocol` protocol exposes the methods and properties of an underlying `GTlsConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TLSConnection`.
+/// Alternatively, use `TLSConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TLSConnectionProtocol: IOStreamProtocol {
         /// Untyped pointer to the underlying `GTlsConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3189,16 +3576,17 @@ public protocol TLSConnectionProtocol: IOStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TLSConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsConnection` instance.
-/// It exposes methods that can operate on this data type through `TLSConnectionProtocol` conformance.
-/// Use `TLSConnectionRef` only as an `unowned` reference to an existing `GTlsConnection` instance.
-///
 /// `GTlsConnection` is the base TLS connection class type, which wraps
 /// a `GIOStream` and provides TLS encryption on top of it. Its
 /// subclasses, `GTlsClientConnection` and `GTlsServerConnection`,
 /// implement client-side and server-side TLS, respectively.
 /// 
 /// For DTLS (Datagram TLS) support, see `GDtlsConnection`.
+///
+/// The `TLSConnectionRef` type acts as a lightweight Swift reference to an underlying `GTlsConnection` instance.
+/// It exposes methods that can operate on this data type through `TLSConnectionProtocol` conformance.
+/// Use `TLSConnectionRef` only as an `unowned` reference to an existing `GTlsConnection` instance.
+///
 public struct TLSConnectionRef: TLSConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsConnection` instance.
     /// For type-safe access, use the generated, typed pointer `tls_connection_ptr` property instead.
@@ -3280,16 +3668,17 @@ public extension TLSConnectionRef {
 
     }
 
-/// The `TLSConnection` type acts as a reference-counted owner of an underlying `GTlsConnection` instance.
-/// It provides the methods that can operate on this data type through `TLSConnectionProtocol` conformance.
-/// Use `TLSConnection` as a strong reference or owner of a `GTlsConnection` instance.
-///
 /// `GTlsConnection` is the base TLS connection class type, which wraps
 /// a `GIOStream` and provides TLS encryption on top of it. Its
 /// subclasses, `GTlsClientConnection` and `GTlsServerConnection`,
 /// implement client-side and server-side TLS, respectively.
 /// 
 /// For DTLS (Datagram TLS) support, see `GDtlsConnection`.
+///
+/// The `TLSConnection` type acts as a reference-counted owner of an underlying `GTlsConnection` instance.
+/// It provides the methods that can operate on this data type through `TLSConnectionProtocol` conformance.
+/// Use `TLSConnection` as a strong reference or owner of a `GTlsConnection` instance.
+///
 open class TLSConnection: IOStream, TLSConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3433,6 +3822,8 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case certificate = "certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case ciphersuiteName = "ciphersuite-name"
     case closed = "closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -3461,6 +3852,8 @@ public enum TLSConnectionPropertyName: String, PropertyNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case peerCertificateErrors = "peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case protocolVersion = "protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -3582,12 +3975,14 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3605,6 +4000,8 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// The connection's certificate; see
     /// `g_tls_connection_set_certificate()`.
     case notifyCertificate = "notify::certificate"
+    /// The name of the TLS ciphersuite in use. See `g_tls_connection_get_ciphersuite_name()`.
+    case notifyCiphersuiteName = "notify::ciphersuite-name"
     case notifyClosed = "notify::closed"
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
@@ -3633,6 +4030,8 @@ public enum TLSConnectionSignalName: String, SignalNameProtocol {
     /// `GTlsConnection::accept-certificate` overrode the default
     /// behavior.
     case notifyPeerCertificateErrors = "notify::peer-certificate-errors"
+    /// The TLS protocol version in use. See `g_tls_connection_get_protocol_version()`.
+    case notifyProtocolVersion = "notify::protocol-version"
     /// The rehandshaking mode. See
     /// `g_tls_connection_set_rehandshake_mode()`.
     ///
@@ -3753,12 +4152,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3802,12 +4203,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3851,12 +4254,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3900,12 +4305,65 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::ciphersuite-name` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCiphersuiteName` signal is emitted
+    @discardableResult @inlinable func onNotifyCiphersuiteName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TLSConnectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<TLSConnectionRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(TLSConnectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyCiphersuiteName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::ciphersuite-name` signal for using the `connect(signal:)` methods
+    static var notifyCiphersuiteNameSignal: TLSConnectionSignalName { .notifyCiphersuiteName }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3949,12 +4407,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3998,12 +4458,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4047,12 +4509,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4096,12 +4560,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4145,12 +4611,65 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::protocol-version` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyProtocolVersion` signal is emitted
+    @discardableResult @inlinable func onNotifyProtocolVersion(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: TLSConnectionRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<TLSConnectionRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(TLSConnectionRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyProtocolVersion,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::protocol-version` signal for using the `connect(signal:)` methods
+    static var notifyProtocolVersionSignal: TLSConnectionSignalName { .notifyProtocolVersion }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4194,12 +4713,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4243,12 +4764,14 @@ public extension TLSConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4337,6 +4860,19 @@ public extension TLSConnectionProtocol {
         return rv
     }
 
+    /// Returns the name of the current TLS ciphersuite, or `nil` if the
+    /// connection has not handshaked or has been closed. Beware that the TLS
+    /// backend may use any of multiple different naming conventions, because
+    /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+    /// are different from each other and different from the standard, IANA-
+    /// registered ciphersuite names. The ciphersuite name is intended to be
+    /// displayed to the user for informative purposes only, and parsing it
+    /// is not recommended.
+    @inlinable func getCiphersuiteName() -> String! {
+        let rv = g_tls_connection_get_ciphersuite_name(tls_connection_ptr).map({ String(cString: $0) })
+        return rv
+    }
+
     /// Gets the certificate database that `conn` uses to verify
     /// peer certificates. See `g_tls_connection_set_database()`.
     @inlinable func getDatabase() -> TLSDatabaseRef! {
@@ -4377,6 +4913,15 @@ public extension TLSConnectionProtocol {
     /// not set during the emission of `GTlsConnection::accept-certificate`.)
     @inlinable func getPeerCertificateErrors() -> TLSCertificateFlags {
         let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
+        return rv
+    }
+
+    /// Returns the current TLS protocol version, which may be
+    /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+    /// has been closed, or if the TLS backend has implemented a protocol version
+    /// that is not a recognized `GTlsProtocolVersion`.
+    @inlinable func getProtocolVersion() -> GTlsProtocolVersion {
+        let rv = g_tls_connection_get_protocol_version(tls_connection_ptr)
         return rv
     }
 
@@ -4683,6 +5228,29 @@ public extension TLSConnectionProtocol {
         }
     }
 
+    /// Returns the name of the current TLS ciphersuite, or `nil` if the
+    /// connection has not handshaked or has been closed. Beware that the TLS
+    /// backend may use any of multiple different naming conventions, because
+    /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+    /// are different from each other and different from the standard, IANA-
+    /// registered ciphersuite names. The ciphersuite name is intended to be
+    /// displayed to the user for informative purposes only, and parsing it
+    /// is not recommended.
+    @inlinable var ciphersuiteName: String! {
+        /// Returns the name of the current TLS ciphersuite, or `nil` if the
+        /// connection has not handshaked or has been closed. Beware that the TLS
+        /// backend may use any of multiple different naming conventions, because
+        /// OpenSSL and GnuTLS have their own ciphersuite naming conventions that
+        /// are different from each other and different from the standard, IANA-
+        /// registered ciphersuite names. The ciphersuite name is intended to be
+        /// displayed to the user for informative purposes only, and parsing it
+        /// is not recommended.
+        get {
+            let rv = g_tls_connection_get_ciphersuite_name(tls_connection_ptr).map({ String(cString: $0) })
+            return rv
+        }
+    }
+
     /// The certificate database to use when verifying this TLS connection.
     /// If no certificate database is set, then the default database will be
     /// used. See `g_tls_backend_get_default_database()`.
@@ -4771,6 +5339,21 @@ public extension TLSConnectionProtocol {
         /// not set during the emission of `GTlsConnection::accept-certificate`.)
         get {
             let rv = TLSCertificateFlags(g_tls_connection_get_peer_certificate_errors(tls_connection_ptr))
+            return rv
+        }
+    }
+
+    /// Returns the current TLS protocol version, which may be
+    /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+    /// has been closed, or if the TLS backend has implemented a protocol version
+    /// that is not a recognized `GTlsProtocolVersion`.
+    @inlinable var protocolVersion: GTlsProtocolVersion {
+        /// Returns the current TLS protocol version, which may be
+        /// `G_TLS_PROTOCOL_VERSION_UNKNOWN` if the connection has not handshaked, or
+        /// has been closed, or if the TLS backend has implemented a protocol version
+        /// that is not a recognized `GTlsProtocolVersion`.
+        get {
+            let rv = g_tls_connection_get_protocol_version(tls_connection_ptr)
             return rv
         }
     }
@@ -4896,11 +5479,6 @@ public extension TLSConnectionProtocol {
 
 // MARK: - TLSDatabase Class
 
-/// The `TLSDatabaseProtocol` protocol exposes the methods and properties of an underlying `GTlsDatabase` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TLSDatabase`.
-/// Alternatively, use `TLSDatabaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GTlsDatabase` is used to look up certificates and other information
 /// from a certificate or key store. It is an abstract base class which
 /// TLS library specific subtypes override.
@@ -4910,6 +5488,12 @@ public extension TLSConnectionProtocol {
 /// 
 /// Most common client applications will not directly interact with
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
+///
+/// The `TLSDatabaseProtocol` protocol exposes the methods and properties of an underlying `GTlsDatabase` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TLSDatabase`.
+/// Alternatively, use `TLSDatabaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TLSDatabaseProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsDatabase` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4921,10 +5505,6 @@ public protocol TLSDatabaseProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TLSDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabase` instance.
-/// It exposes methods that can operate on this data type through `TLSDatabaseProtocol` conformance.
-/// Use `TLSDatabaseRef` only as an `unowned` reference to an existing `GTlsDatabase` instance.
-///
 /// `GTlsDatabase` is used to look up certificates and other information
 /// from a certificate or key store. It is an abstract base class which
 /// TLS library specific subtypes override.
@@ -4934,6 +5514,11 @@ public protocol TLSDatabaseProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Most common client applications will not directly interact with
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
+///
+/// The `TLSDatabaseRef` type acts as a lightweight Swift reference to an underlying `GTlsDatabase` instance.
+/// It exposes methods that can operate on this data type through `TLSDatabaseProtocol` conformance.
+/// Use `TLSDatabaseRef` only as an `unowned` reference to an existing `GTlsDatabase` instance.
+///
 public struct TLSDatabaseRef: TLSDatabaseProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsDatabase` instance.
     /// For type-safe access, use the generated, typed pointer `tls_database_ptr` property instead.
@@ -5015,10 +5600,6 @@ public extension TLSDatabaseRef {
 
     }
 
-/// The `TLSDatabase` type acts as a reference-counted owner of an underlying `GTlsDatabase` instance.
-/// It provides the methods that can operate on this data type through `TLSDatabaseProtocol` conformance.
-/// Use `TLSDatabase` as a strong reference or owner of a `GTlsDatabase` instance.
-///
 /// `GTlsDatabase` is used to look up certificates and other information
 /// from a certificate or key store. It is an abstract base class which
 /// TLS library specific subtypes override.
@@ -5028,6 +5609,11 @@ public extension TLSDatabaseRef {
 /// 
 /// Most common client applications will not directly interact with
 /// `GTlsDatabase`. It is used internally by `GTlsConnection`.
+///
+/// The `TLSDatabase` type acts as a reference-counted owner of an underlying `GTlsDatabase` instance.
+/// It provides the methods that can operate on this data type through `TLSDatabaseProtocol` conformance.
+/// Use `TLSDatabase` as a strong reference or owner of a `GTlsDatabase` instance.
+///
 open class TLSDatabase: GLibObject.Object, TLSDatabaseProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5175,12 +5761,14 @@ public enum TLSDatabaseSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5269,28 +5857,52 @@ public extension TLSDatabaseProtocol {
         return rv
     }
 
-    /// Look up the issuer of `certificate` in the database.
+    /// Look up the issuer of `certificate` in the database. The
+    /// `GTlsCertificate:issuer` property of `certificate` is not modified, and
+    /// the two certificates are not hooked into a chain.
     /// 
-    /// The `GTlsCertificate:issuer` property
-    /// of `certificate` is not modified, and the two certificates are not hooked
-    /// into a chain.
+    /// This function can block. Use `g_tls_database_lookup_certificate_issuer_async()`
+    /// to perform the lookup operation asynchronously.
     /// 
-    /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
-    /// the lookup operation asynchronously.
+    /// Beware this function cannot be used to build certification paths. The
+    /// issuer certificate returned by this function may not be the same as
+    /// the certificate that would actually be used to construct a valid
+    /// certification path during certificate verification.
+    /// [RFC 4158](https://datatracker.ietf.org/doc/html/rfc4158) explains
+    /// why an issuer certificate cannot be naively assumed to be part of the
+    /// the certification path (though GLib's TLS backends may not follow the
+    /// path building strategies outlined in this RFC). Due to the complexity
+    /// of certification path building, GLib does not provide any way to know
+    /// which certification path will actually be used when verifying a TLS
+    /// certificate. Accordingly, this function cannot be used to make
+    /// security-related decisions. Only GLib itself should make security
+    /// decisions about TLS certificates.
     @inlinable func lookupCertificateIssuer<TLSCertificateT: TLSCertificateProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionRef? = nil, flags: GTlsDatabaseLookupFlags, cancellable: CancellableRef? = nil) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
-    /// Look up the issuer of `certificate` in the database.
+    /// Look up the issuer of `certificate` in the database. The
+    /// `GTlsCertificate:issuer` property of `certificate` is not modified, and
+    /// the two certificates are not hooked into a chain.
     /// 
-    /// The `GTlsCertificate:issuer` property
-    /// of `certificate` is not modified, and the two certificates are not hooked
-    /// into a chain.
+    /// This function can block. Use `g_tls_database_lookup_certificate_issuer_async()`
+    /// to perform the lookup operation asynchronously.
     /// 
-    /// This function can block, use `g_tls_database_lookup_certificate_issuer_async()` to perform
-    /// the lookup operation asynchronously.
+    /// Beware this function cannot be used to build certification paths. The
+    /// issuer certificate returned by this function may not be the same as
+    /// the certificate that would actually be used to construct a valid
+    /// certification path during certificate verification.
+    /// [RFC 4158](https://datatracker.ietf.org/doc/html/rfc4158) explains
+    /// why an issuer certificate cannot be naively assumed to be part of the
+    /// the certification path (though GLib's TLS backends may not follow the
+    /// path building strategies outlined in this RFC). Due to the complexity
+    /// of certification path building, GLib does not provide any way to know
+    /// which certification path will actually be used when verifying a TLS
+    /// certificate. Accordingly, this function cannot be used to make
+    /// security-related decisions. Only GLib itself should make security
+    /// decisions about TLS certificates.
     @inlinable func lookupCertificateIssuer<CancellableT: CancellableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(certificate: TLSCertificateT, interaction: TLSInteractionT?, flags: GTlsDatabaseLookupFlags, cancellable: CancellableT?) throws -> TLSCertificateRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateRef(gconstpointer: gconstpointer(g_tls_database_lookup_certificate_issuer(tls_database_ptr, certificate.tls_certificate_ptr, interaction?.tls_interaction_ptr, flags, cancellable?.cancellable_ptr, &error)))
@@ -5371,15 +5983,11 @@ public extension TLSDatabaseProtocol {
         return rv
     }
 
-    /// Determines the validity of a certificate chain after looking up and
-    /// adding any missing certificates to the chain.
+    /// Determines the validity of a certificate chain, outside the context
+    /// of a TLS session.
     /// 
     /// `chain` is a chain of `GTlsCertificate` objects each pointing to the next
-    /// certificate in the chain by its `GTlsCertificate:issuer` property. The chain may initially
-    /// consist of one or more certificates. After the verification process is
-    /// complete, `chain` may be modified by adding missing certificates, or removing
-    /// extra certificates. If a certificate anchor was found, then it is added to
-    /// the `chain`.
+    /// certificate in the chain by its `GTlsCertificate:issuer` property.
     /// 
     /// `purpose` describes the purpose (or usage) for which the certificate
     /// is being used. Typically `purpose` will be set to `G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER`
@@ -5406,23 +6014,38 @@ public extension TLSDatabaseProtocol {
     /// accordingly. `error` is not set when `chain` is successfully analyzed
     /// but found to be invalid.
     /// 
-    /// This function can block, use `g_tls_database_verify_chain_async()` to perform
-    /// the verification operation asynchronously.
+    /// Prior to GLib 2.48, GLib's default TLS backend modified `chain` to
+    /// represent the certification path built by `GTlsDatabase` during
+    /// certificate verification by adjusting the `GTlsCertificate:issuer`
+    /// property of each certificate in `chain`. Since GLib 2.48, this no
+    /// longer occurs, so you cannot rely on `GTlsCertificate:issuer` to
+    /// represent the actual certification path used during certificate
+    /// verification.
+    /// 
+    /// Because TLS session context is not used, `GTlsDatabase` may not
+    /// perform as many checks on the certificates as `GTlsConnection` would.
+    /// For example, certificate constraints cannot be honored, and some
+    /// revocation checks cannot be performed. The best way to verify TLS
+    /// certificates used by a TLS connection is to let `GTlsConnection`
+    /// handle the verification.
+    /// 
+    /// The TLS backend may attempt to look up and add missing certificates
+    /// to the chain. Since GLib 2.70, this may involve HTTP requests to
+    /// download missing certificates.
+    /// 
+    /// This function can block. Use `g_tls_database_verify_chain_async()` to
+    /// perform the verification operation asynchronously.
     @inlinable func verify<TLSCertificateT: TLSCertificateProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableRef? = nil, interaction: TLSInteractionRef? = nil, flags: TLSDatabaseVerifyFlags, cancellable: CancellableRef? = nil) throws -> TLSCertificateFlags {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateFlags(g_tls_database_verify_chain(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
-    /// Determines the validity of a certificate chain after looking up and
-    /// adding any missing certificates to the chain.
+    /// Determines the validity of a certificate chain, outside the context
+    /// of a TLS session.
     /// 
     /// `chain` is a chain of `GTlsCertificate` objects each pointing to the next
-    /// certificate in the chain by its `GTlsCertificate:issuer` property. The chain may initially
-    /// consist of one or more certificates. After the verification process is
-    /// complete, `chain` may be modified by adding missing certificates, or removing
-    /// extra certificates. If a certificate anchor was found, then it is added to
-    /// the `chain`.
+    /// certificate in the chain by its `GTlsCertificate:issuer` property.
     /// 
     /// `purpose` describes the purpose (or usage) for which the certificate
     /// is being used. Typically `purpose` will be set to `G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER`
@@ -5449,8 +6072,27 @@ public extension TLSDatabaseProtocol {
     /// accordingly. `error` is not set when `chain` is successfully analyzed
     /// but found to be invalid.
     /// 
-    /// This function can block, use `g_tls_database_verify_chain_async()` to perform
-    /// the verification operation asynchronously.
+    /// Prior to GLib 2.48, GLib's default TLS backend modified `chain` to
+    /// represent the certification path built by `GTlsDatabase` during
+    /// certificate verification by adjusting the `GTlsCertificate:issuer`
+    /// property of each certificate in `chain`. Since GLib 2.48, this no
+    /// longer occurs, so you cannot rely on `GTlsCertificate:issuer` to
+    /// represent the actual certification path used during certificate
+    /// verification.
+    /// 
+    /// Because TLS session context is not used, `GTlsDatabase` may not
+    /// perform as many checks on the certificates as `GTlsConnection` would.
+    /// For example, certificate constraints cannot be honored, and some
+    /// revocation checks cannot be performed. The best way to verify TLS
+    /// certificates used by a TLS connection is to let `GTlsConnection`
+    /// handle the verification.
+    /// 
+    /// The TLS backend may attempt to look up and add missing certificates
+    /// to the chain. Since GLib 2.70, this may involve HTTP requests to
+    /// download missing certificates.
+    /// 
+    /// This function can block. Use `g_tls_database_verify_chain_async()` to
+    /// perform the verification operation asynchronously.
     @inlinable func verify<CancellableT: CancellableProtocol, SocketConnectableT: SocketConnectableProtocol, TLSCertificateT: TLSCertificateProtocol, TLSInteractionT: TLSInteractionProtocol>(chain: TLSCertificateT, purpose: UnsafePointer<gchar>!, identity: SocketConnectableT?, interaction: TLSInteractionT?, flags: TLSDatabaseVerifyFlags, cancellable: CancellableT?) throws -> TLSCertificateFlags {
         var error: UnsafeMutablePointer<GError>?
         let rv = TLSCertificateFlags(g_tls_database_verify_chain(tls_database_ptr, chain.tls_certificate_ptr, purpose, identity?.socket_connectable_ptr, interaction?.tls_interaction_ptr, flags.value, cancellable?.cancellable_ptr, &error))
@@ -5506,11 +6148,6 @@ public extension TLSDatabaseProtocol {
 
 // MARK: - TLSInteraction Class
 
-/// The `TLSInteractionProtocol` protocol exposes the methods and properties of an underlying `GTlsInteraction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TLSInteraction`.
-/// Alternatively, use `TLSInteractionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GTlsInteraction` provides a mechanism for the TLS connection and database
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
@@ -5531,6 +6168,12 @@ public extension TLSDatabaseProtocol {
 /// initialization function. Any interactions not implemented will return
 /// `G_TLS_INTERACTION_UNHANDLED`. If a derived class implements an async method,
 /// it must also implement the corresponding finish method.
+///
+/// The `TLSInteractionProtocol` protocol exposes the methods and properties of an underlying `GTlsInteraction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TLSInteraction`.
+/// Alternatively, use `TLSInteractionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TLSInteractionProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsInteraction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5542,10 +6185,6 @@ public protocol TLSInteractionProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TLSInteractionRef` type acts as a lightweight Swift reference to an underlying `GTlsInteraction` instance.
-/// It exposes methods that can operate on this data type through `TLSInteractionProtocol` conformance.
-/// Use `TLSInteractionRef` only as an `unowned` reference to an existing `GTlsInteraction` instance.
-///
 /// `GTlsInteraction` provides a mechanism for the TLS connection and database
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
@@ -5566,6 +6205,11 @@ public protocol TLSInteractionProtocol: GLibObject.ObjectProtocol {
 /// initialization function. Any interactions not implemented will return
 /// `G_TLS_INTERACTION_UNHANDLED`. If a derived class implements an async method,
 /// it must also implement the corresponding finish method.
+///
+/// The `TLSInteractionRef` type acts as a lightweight Swift reference to an underlying `GTlsInteraction` instance.
+/// It exposes methods that can operate on this data type through `TLSInteractionProtocol` conformance.
+/// Use `TLSInteractionRef` only as an `unowned` reference to an existing `GTlsInteraction` instance.
+///
 public struct TLSInteractionRef: TLSInteractionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsInteraction` instance.
     /// For type-safe access, use the generated, typed pointer `tls_interaction_ptr` property instead.
@@ -5647,10 +6291,6 @@ public extension TLSInteractionRef {
 
     }
 
-/// The `TLSInteraction` type acts as a reference-counted owner of an underlying `GTlsInteraction` instance.
-/// It provides the methods that can operate on this data type through `TLSInteractionProtocol` conformance.
-/// Use `TLSInteraction` as a strong reference or owner of a `GTlsInteraction` instance.
-///
 /// `GTlsInteraction` provides a mechanism for the TLS connection and database
 /// code to interact with the user. It can be used to ask the user for passwords.
 /// 
@@ -5671,6 +6311,11 @@ public extension TLSInteractionRef {
 /// initialization function. Any interactions not implemented will return
 /// `G_TLS_INTERACTION_UNHANDLED`. If a derived class implements an async method,
 /// it must also implement the corresponding finish method.
+///
+/// The `TLSInteraction` type acts as a reference-counted owner of an underlying `GTlsInteraction` instance.
+/// It provides the methods that can operate on this data type through `TLSInteractionProtocol` conformance.
+/// Use `TLSInteraction` as a strong reference or owner of a `GTlsInteraction` instance.
+///
 open class TLSInteraction: GLibObject.Object, TLSInteractionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5818,12 +6463,14 @@ public enum TLSInteractionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6132,12 +6779,13 @@ public extension TLSInteractionProtocol {
 
 // MARK: - TLSPassword Class
 
+/// Holds a password used in TLS.
+///
 /// The `TLSPasswordProtocol` protocol exposes the methods and properties of an underlying `GTlsPassword` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TLSPassword`.
 /// Alternatively, use `TLSPasswordRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Holds a password used in TLS.
 public protocol TLSPasswordProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GTlsPassword` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6149,11 +6797,12 @@ public protocol TLSPasswordProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Holds a password used in TLS.
+///
 /// The `TLSPasswordRef` type acts as a lightweight Swift reference to an underlying `GTlsPassword` instance.
 /// It exposes methods that can operate on this data type through `TLSPasswordProtocol` conformance.
 /// Use `TLSPasswordRef` only as an `unowned` reference to an existing `GTlsPassword` instance.
 ///
-/// Holds a password used in TLS.
 public struct TLSPasswordRef: TLSPasswordProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GTlsPassword` instance.
     /// For type-safe access, use the generated, typed pointer `tls_password_ptr` property instead.
@@ -6240,11 +6889,12 @@ public extension TLSPasswordRef {
     }
 }
 
+/// Holds a password used in TLS.
+///
 /// The `TLSPassword` type acts as a reference-counted owner of an underlying `GTlsPassword` instance.
 /// It provides the methods that can operate on this data type through `TLSPasswordProtocol` conformance.
 /// Use `TLSPassword` as a strong reference or owner of a `GTlsPassword` instance.
 ///
-/// Holds a password used in TLS.
 open class TLSPassword: GLibObject.Object, TLSPasswordProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6455,12 +7105,14 @@ public enum TLSPasswordSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6493,7 +7145,7 @@ public extension TLSPasswordProtocol {
     /// password value is not nul-terminated, so you can only pass `nil`
     /// for `length` in contexts where you know the password will have a
     /// certain fixed length.)
-    @inlinable func getValue(length: UnsafeMutablePointer<gsize>? = nil) -> String! {
+    @inlinable func getValue(length: UnsafeMutablePointer<gsize>!) -> String! {
         let rv = g_tls_password_get_value(tls_password_ptr, length).map({ String(cString: $0) })
         return rv
     }
@@ -6606,11 +7258,6 @@ public extension TLSPasswordProtocol {
 
 // MARK: - UnixConnection Class
 
-/// The `UnixConnectionProtocol` protocol exposes the methods and properties of an underlying `GUnixConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixConnection`.
-/// Alternatively, use `UnixConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This is the subclass of `GSocketConnection` that is created
 /// for UNIX domain sockets.
 /// 
@@ -6620,6 +7267,12 @@ public extension TLSPasswordProtocol {
 /// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
+///
+/// The `UnixConnectionProtocol` protocol exposes the methods and properties of an underlying `GUnixConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixConnection`.
+/// Alternatively, use `UnixConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixConnectionProtocol: SocketConnectionProtocol {
         /// Untyped pointer to the underlying `GUnixConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6631,10 +7284,6 @@ public protocol UnixConnectionProtocol: SocketConnectionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixConnectionRef` type acts as a lightweight Swift reference to an underlying `GUnixConnection` instance.
-/// It exposes methods that can operate on this data type through `UnixConnectionProtocol` conformance.
-/// Use `UnixConnectionRef` only as an `unowned` reference to an existing `GUnixConnection` instance.
-///
 /// This is the subclass of `GSocketConnection` that is created
 /// for UNIX domain sockets.
 /// 
@@ -6644,6 +7293,11 @@ public protocol UnixConnectionProtocol: SocketConnectionProtocol {
 /// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
+///
+/// The `UnixConnectionRef` type acts as a lightweight Swift reference to an underlying `GUnixConnection` instance.
+/// It exposes methods that can operate on this data type through `UnixConnectionProtocol` conformance.
+/// Use `UnixConnectionRef` only as an `unowned` reference to an existing `GUnixConnection` instance.
+///
 public struct UnixConnectionRef: UnixConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixConnection` instance.
     /// For type-safe access, use the generated, typed pointer `unix_connection_ptr` property instead.
@@ -6725,10 +7379,6 @@ public extension UnixConnectionRef {
 
     }
 
-/// The `UnixConnection` type acts as a reference-counted owner of an underlying `GUnixConnection` instance.
-/// It provides the methods that can operate on this data type through `UnixConnectionProtocol` conformance.
-/// Use `UnixConnection` as a strong reference or owner of a `GUnixConnection` instance.
-///
 /// This is the subclass of `GSocketConnection` that is created
 /// for UNIX domain sockets.
 /// 
@@ -6738,6 +7388,11 @@ public extension UnixConnectionRef {
 /// Note that `&lt;gio/gunixconnection.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc`
 /// pkg-config file when using it.
+///
+/// The `UnixConnection` type acts as a reference-counted owner of an underlying `GUnixConnection` instance.
+/// It provides the methods that can operate on this data type through `UnixConnectionProtocol` conformance.
+/// Use `UnixConnection` as a strong reference or owner of a `GUnixConnection` instance.
+///
 open class UnixConnection: SocketConnection, UnixConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6943,12 +7598,14 @@ public enum UnixConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

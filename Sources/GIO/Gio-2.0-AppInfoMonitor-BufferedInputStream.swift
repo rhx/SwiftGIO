@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - AppInfoMonitor Class
 
-/// The `AppInfoMonitorProtocol` protocol exposes the methods and properties of an underlying `GAppInfoMonitor` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppInfoMonitor`.
-/// Alternatively, use `AppInfoMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GAppInfoMonitor` is a very simple object used for monitoring the app
 /// info database for changes (ie: newly installed or removed
 /// applications).
@@ -26,6 +21,12 @@ import GLibObject
 /// The reason for this is that changes to the list of installed
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
+///
+/// The `AppInfoMonitorProtocol` protocol exposes the methods and properties of an underlying `GAppInfoMonitor` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppInfoMonitor`.
+/// Alternatively, use `AppInfoMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppInfoMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -37,10 +38,6 @@ public protocol AppInfoMonitorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppInfoMonitorRef` type acts as a lightweight Swift reference to an underlying `GAppInfoMonitor` instance.
-/// It exposes methods that can operate on this data type through `AppInfoMonitorProtocol` conformance.
-/// Use `AppInfoMonitorRef` only as an `unowned` reference to an existing `GAppInfoMonitor` instance.
-///
 /// `GAppInfoMonitor` is a very simple object used for monitoring the app
 /// info database for changes (ie: newly installed or removed
 /// applications).
@@ -58,6 +55,11 @@ public protocol AppInfoMonitorProtocol: GLibObject.ObjectProtocol {
 /// The reason for this is that changes to the list of installed
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
+///
+/// The `AppInfoMonitorRef` type acts as a lightweight Swift reference to an underlying `GAppInfoMonitor` instance.
+/// It exposes methods that can operate on this data type through `AppInfoMonitorProtocol` conformance.
+/// Use `AppInfoMonitorRef` only as an `unowned` reference to an existing `GAppInfoMonitor` instance.
+///
 public struct AppInfoMonitorRef: AppInfoMonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GAppInfoMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_monitor_ptr` property instead.
@@ -152,10 +154,6 @@ public extension AppInfoMonitorRef {
     }
 }
 
-/// The `AppInfoMonitor` type acts as a reference-counted owner of an underlying `GAppInfoMonitor` instance.
-/// It provides the methods that can operate on this data type through `AppInfoMonitorProtocol` conformance.
-/// Use `AppInfoMonitor` as a strong reference or owner of a `GAppInfoMonitor` instance.
-///
 /// `GAppInfoMonitor` is a very simple object used for monitoring the app
 /// info database for changes (ie: newly installed or removed
 /// applications).
@@ -173,6 +171,11 @@ public extension AppInfoMonitorRef {
 /// The reason for this is that changes to the list of installed
 /// applications often come in groups (like during system updates) and
 /// rescanning the list on every change is pointless and expensive.
+///
+/// The `AppInfoMonitor` type acts as a reference-counted owner of an underlying `GAppInfoMonitor` instance.
+/// It provides the methods that can operate on this data type through `AppInfoMonitorProtocol` conformance.
+/// Use `AppInfoMonitor` as a strong reference or owner of a `GAppInfoMonitor` instance.
+///
 open class AppInfoMonitor: GLibObject.Object, AppInfoMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -337,12 +340,14 @@ public enum AppInfoMonitorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -420,14 +425,15 @@ public extension AppInfoMonitorProtocol {
 
 // MARK: - AppLaunchContext Class
 
+/// Integrating the launch with the launching application. This is used to
+/// handle for instance startup notification and launching the new application
+/// on the same screen as the launching window.
+///
 /// The `AppLaunchContextProtocol` protocol exposes the methods and properties of an underlying `GAppLaunchContext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AppLaunchContext`.
 /// Alternatively, use `AppLaunchContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Integrating the launch with the launching application. This is used to
-/// handle for instance startup notification and launching the new application
-/// on the same screen as the launching window.
 public protocol AppLaunchContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -439,13 +445,14 @@ public protocol AppLaunchContextProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Integrating the launch with the launching application. This is used to
+/// handle for instance startup notification and launching the new application
+/// on the same screen as the launching window.
+///
 /// The `AppLaunchContextRef` type acts as a lightweight Swift reference to an underlying `GAppLaunchContext` instance.
 /// It exposes methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContextRef` only as an `unowned` reference to an existing `GAppLaunchContext` instance.
 ///
-/// Integrating the launch with the launching application. This is used to
-/// handle for instance startup notification and launching the new application
-/// on the same screen as the launching window.
 public struct AppLaunchContextRef: AppLaunchContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
@@ -533,13 +540,14 @@ public extension AppLaunchContextRef {
     }
 }
 
+/// Integrating the launch with the launching application. This is used to
+/// handle for instance startup notification and launching the new application
+/// on the same screen as the launching window.
+///
 /// The `AppLaunchContext` type acts as a reference-counted owner of an underlying `GAppLaunchContext` instance.
 /// It provides the methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContext` as a strong reference or owner of a `GAppLaunchContext` instance.
 ///
-/// Integrating the launch with the launching application. This is used to
-/// handle for instance startup notification and launching the new application
-/// on the same screen as the launching window.
 open class AppLaunchContext: GLibObject.Object, AppLaunchContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -704,12 +712,14 @@ public enum AppLaunchContextSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -933,11 +943,6 @@ public extension AppLaunchContextProtocol {
 
 // MARK: - Application Class
 
-/// The `ApplicationProtocol` protocol exposes the methods and properties of an underlying `GApplication` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Application`.
-/// Alternatively, use `ApplicationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GApplication` is the foundation of an application.  It wraps some
 /// low-level platform-specific services and is intended to act as the
 /// foundation for higher-level application classes such as
@@ -1045,13 +1050,19 @@ public extension AppLaunchContextProtocol {
 /// respectively.
 /// 
 /// For an example of opening files with a GApplication, see
-/// [gapplication-example-open.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-open.c).
+/// [gapplication-example-open.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-open.c).
 /// 
 /// For an example of using actions with GApplication, see
-/// [gapplication-example-actions.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-actions.c).
+/// [gapplication-example-actions.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-actions.c).
 /// 
 /// For an example of using extra D-Bus hooks with GApplication, see
-/// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
+/// [gapplication-example-dbushooks.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-dbushooks.c).
+///
+/// The `ApplicationProtocol` protocol exposes the methods and properties of an underlying `GApplication` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Application`.
+/// Alternatively, use `ApplicationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProtocol, ActionMapProtocol {
         /// Untyped pointer to the underlying `GApplication` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1063,10 +1074,6 @@ public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProto
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GApplication` instance.
-/// It exposes methods that can operate on this data type through `ApplicationProtocol` conformance.
-/// Use `ApplicationRef` only as an `unowned` reference to an existing `GApplication` instance.
-///
 /// A `GApplication` is the foundation of an application.  It wraps some
 /// low-level platform-specific services and is intended to act as the
 /// foundation for higher-level application classes such as
@@ -1174,13 +1181,18 @@ public protocol ApplicationProtocol: GLibObject.ObjectProtocol, ActionGroupProto
 /// respectively.
 /// 
 /// For an example of opening files with a GApplication, see
-/// [gapplication-example-open.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-open.c).
+/// [gapplication-example-open.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-open.c).
 /// 
 /// For an example of using actions with GApplication, see
-/// [gapplication-example-actions.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-actions.c).
+/// [gapplication-example-actions.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-actions.c).
 /// 
 /// For an example of using extra D-Bus hooks with GApplication, see
-/// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
+/// [gapplication-example-dbushooks.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-dbushooks.c).
+///
+/// The `ApplicationRef` type acts as a lightweight Swift reference to an underlying `GApplication` instance.
+/// It exposes methods that can operate on this data type through `ApplicationProtocol` conformance.
+/// Use `ApplicationRef` only as an `unowned` reference to an existing `GApplication` instance.
+///
 public struct ApplicationRef: ApplicationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GApplication` instance.
     /// For type-safe access, use the generated, typed pointer `application_ptr` property instead.
@@ -1284,10 +1296,6 @@ public extension ApplicationRef {
     }
 }
 
-/// The `Application` type acts as a reference-counted owner of an underlying `GApplication` instance.
-/// It provides the methods that can operate on this data type through `ApplicationProtocol` conformance.
-/// Use `Application` as a strong reference or owner of a `GApplication` instance.
-///
 /// A `GApplication` is the foundation of an application.  It wraps some
 /// low-level platform-specific services and is intended to act as the
 /// foundation for higher-level application classes such as
@@ -1395,13 +1403,18 @@ public extension ApplicationRef {
 /// respectively.
 /// 
 /// For an example of opening files with a GApplication, see
-/// [gapplication-example-open.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-open.c).
+/// [gapplication-example-open.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-open.c).
 /// 
 /// For an example of using actions with GApplication, see
-/// [gapplication-example-actions.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-actions.c).
+/// [gapplication-example-actions.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-actions.c).
 /// 
 /// For an example of using extra D-Bus hooks with GApplication, see
-/// [gapplication-example-dbushooks.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c).
+/// [gapplication-example-dbushooks.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-dbushooks.c).
+///
+/// The `Application` type acts as a reference-counted owner of an underlying `GApplication` instance.
+/// It provides the methods that can operate on this data type through `ApplicationProtocol` conformance.
+/// Use `Application` as a strong reference or owner of a `GApplication` instance.
+///
 open class Application: GLibObject.Object, ApplicationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1692,12 +1705,14 @@ public enum ApplicationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1979,12 +1994,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2028,12 +2045,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2077,12 +2096,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2126,12 +2147,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2175,12 +2198,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2224,12 +2249,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2273,12 +2300,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2322,12 +2351,14 @@ public extension ApplicationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2613,6 +2644,8 @@ public extension ApplicationProtocol {
     /// spinner).
     /// 
     /// To cancel the busy indication, use `g_application_unmark_busy()`.
+    /// 
+    /// The application must be registered before calling this function.
     @inlinable func markBusy() {
         g_application_mark_busy(application_ptr)
     
@@ -2777,7 +2810,7 @@ public extension ApplicationProtocol {
     /// and override `local_command_line()`. In this case, you most likely want
     /// to return `true` from your `local_command_line()` implementation to
     /// suppress the default handling. See
-    /// [gapplication-example-cmdline2.c](#gapplication-example-cmdline2)
+    /// [gapplication-example-cmdline2.c](#https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c)
     /// for an example.
     /// 
     /// If, after the above is done, the use count of the application is zero
@@ -3270,11 +3303,6 @@ public extension ApplicationProtocol {
 
 // MARK: - ApplicationCommandLine Class
 
-/// The `ApplicationCommandLineProtocol` protocol exposes the methods and properties of an underlying `GApplicationCommandLine` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ApplicationCommandLine`.
-/// Alternatively, use `ApplicationCommandLineRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
 /// in the `GApplication::command-line` signal and virtual function.
@@ -3336,7 +3364,7 @@ public extension ApplicationProtocol {
 /// }
 /// ```
 /// The complete example can be found here:
-/// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
+/// [gapplication-example-cmdline.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline.c)
 /// 
 /// In more complicated cases, the handling of the comandline can be
 /// split between the launcher and the primary instance.
@@ -3388,7 +3416,7 @@ public extension ApplicationProtocol {
 /// instance.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline2.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline2.c)
+/// [gapplication-example-cmdline2.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c)
 /// 
 /// If handling the commandline requires a lot of work, it may
 /// be better to defer it.
@@ -3431,7 +3459,13 @@ public extension ApplicationProtocol {
 /// hold the application until you are done with the commandline.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
+/// [gapplication-example-cmdline3.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline3.c)
+///
+/// The `ApplicationCommandLineProtocol` protocol exposes the methods and properties of an underlying `GApplicationCommandLine` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ApplicationCommandLine`.
+/// Alternatively, use `ApplicationCommandLineRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3443,10 +3477,6 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ApplicationCommandLineRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLine` instance.
-/// It exposes methods that can operate on this data type through `ApplicationCommandLineProtocol` conformance.
-/// Use `ApplicationCommandLineRef` only as an `unowned` reference to an existing `GApplicationCommandLine` instance.
-///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
 /// in the `GApplication::command-line` signal and virtual function.
@@ -3508,7 +3538,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// }
 /// ```
 /// The complete example can be found here:
-/// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
+/// [gapplication-example-cmdline.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline.c)
 /// 
 /// In more complicated cases, the handling of the comandline can be
 /// split between the launcher and the primary instance.
@@ -3560,7 +3590,7 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// instance.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline2.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline2.c)
+/// [gapplication-example-cmdline2.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c)
 /// 
 /// If handling the commandline requires a lot of work, it may
 /// be better to defer it.
@@ -3603,7 +3633,12 @@ public protocol ApplicationCommandLineProtocol: GLibObject.ObjectProtocol {
 /// hold the application until you are done with the commandline.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
+/// [gapplication-example-cmdline3.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline3.c)
+///
+/// The `ApplicationCommandLineRef` type acts as a lightweight Swift reference to an underlying `GApplicationCommandLine` instance.
+/// It exposes methods that can operate on this data type through `ApplicationCommandLineProtocol` conformance.
+/// Use `ApplicationCommandLineRef` only as an `unowned` reference to an existing `GApplicationCommandLine` instance.
+///
 public struct ApplicationCommandLineRef: ApplicationCommandLineProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GApplicationCommandLine` instance.
     /// For type-safe access, use the generated, typed pointer `application_command_line_ptr` property instead.
@@ -3685,10 +3720,6 @@ public extension ApplicationCommandLineRef {
 
     }
 
-/// The `ApplicationCommandLine` type acts as a reference-counted owner of an underlying `GApplicationCommandLine` instance.
-/// It provides the methods that can operate on this data type through `ApplicationCommandLineProtocol` conformance.
-/// Use `ApplicationCommandLine` as a strong reference or owner of a `GApplicationCommandLine` instance.
-///
 /// `GApplicationCommandLine` represents a command-line invocation of
 /// an application.  It is created by `GApplication` and emitted
 /// in the `GApplication::command-line` signal and virtual function.
@@ -3750,7 +3781,7 @@ public extension ApplicationCommandLineRef {
 /// }
 /// ```
 /// The complete example can be found here:
-/// [gapplication-example-cmdline.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline.c)
+/// [gapplication-example-cmdline.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline.c)
 /// 
 /// In more complicated cases, the handling of the comandline can be
 /// split between the launcher and the primary instance.
@@ -3802,7 +3833,7 @@ public extension ApplicationCommandLineRef {
 /// instance.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline2.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline2.c)
+/// [gapplication-example-cmdline2.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline2.c)
 /// 
 /// If handling the commandline requires a lot of work, it may
 /// be better to defer it.
@@ -3845,7 +3876,12 @@ public extension ApplicationCommandLineRef {
 /// hold the application until you are done with the commandline.
 /// 
 /// The complete example can be found here:
-/// [gapplication-example-cmdline3.c](https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-cmdline3.c)
+/// [gapplication-example-cmdline3.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gapplication-example-cmdline3.c)
+///
+/// The `ApplicationCommandLine` type acts as a reference-counted owner of an underlying `GApplicationCommandLine` instance.
+/// It provides the methods that can operate on this data type through `ApplicationCommandLineProtocol` conformance.
+/// Use `ApplicationCommandLine` as a strong reference or owner of a `GApplicationCommandLine` instance.
+///
 open class ApplicationCommandLine: GLibObject.Object, ApplicationCommandLineProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4051,12 +4087,14 @@ public enum ApplicationCommandLineSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4426,11 +4464,6 @@ public extension ApplicationCommandLineProtocol {
 
 // MARK: - BufferedInputStream Class
 
-/// The `BufferedInputStreamProtocol` protocol exposes the methods and properties of an underlying `GBufferedInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `BufferedInputStream`.
-/// Alternatively, use `BufferedInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Buffered input stream implements `GFilterInputStream` and provides
 /// for buffered reads.
 /// 
@@ -4445,6 +4478,12 @@ public extension ApplicationCommandLineProtocol {
 /// buffered input stream's buffer, use
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedInputStreamProtocol` protocol exposes the methods and properties of an underlying `GBufferedInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `BufferedInputStream`.
+/// Alternatively, use `BufferedInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GBufferedInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4456,10 +4495,6 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BufferedInputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStream` instance.
-/// It exposes methods that can operate on this data type through `BufferedInputStreamProtocol` conformance.
-/// Use `BufferedInputStreamRef` only as an `unowned` reference to an existing `GBufferedInputStream` instance.
-///
 /// Buffered input stream implements `GFilterInputStream` and provides
 /// for buffered reads.
 /// 
@@ -4474,6 +4509,11 @@ public protocol BufferedInputStreamProtocol: FilterInputStreamProtocol, Seekable
 /// buffered input stream's buffer, use
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedInputStreamRef` type acts as a lightweight Swift reference to an underlying `GBufferedInputStream` instance.
+/// It exposes methods that can operate on this data type through `BufferedInputStreamProtocol` conformance.
+/// Use `BufferedInputStreamRef` only as an `unowned` reference to an existing `GBufferedInputStream` instance.
+///
 public struct BufferedInputStreamRef: BufferedInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GBufferedInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `buffered_input_stream_ptr` property instead.
@@ -4574,10 +4614,6 @@ public extension BufferedInputStreamRef {
     }
 }
 
-/// The `BufferedInputStream` type acts as a reference-counted owner of an underlying `GBufferedInputStream` instance.
-/// It provides the methods that can operate on this data type through `BufferedInputStreamProtocol` conformance.
-/// Use `BufferedInputStream` as a strong reference or owner of a `GBufferedInputStream` instance.
-///
 /// Buffered input stream implements `GFilterInputStream` and provides
 /// for buffered reads.
 /// 
@@ -4592,6 +4628,11 @@ public extension BufferedInputStreamRef {
 /// buffered input stream's buffer, use
 /// `g_buffered_input_stream_set_buffer_size()`. Note that the buffer's size
 /// cannot be reduced below the size of the data within the buffer.
+///
+/// The `BufferedInputStream` type acts as a reference-counted owner of an underlying `GBufferedInputStream` instance.
+/// It provides the methods that can operate on this data type through `BufferedInputStreamProtocol` conformance.
+/// Use `BufferedInputStream` as a strong reference or owner of a `GBufferedInputStream` instance.
+///
 open class BufferedInputStream: FilterInputStream, BufferedInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4818,12 +4859,14 @@ public enum BufferedInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

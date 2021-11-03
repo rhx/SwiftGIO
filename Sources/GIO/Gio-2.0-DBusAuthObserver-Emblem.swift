@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - DBusAuthObserver Class
 
-/// The `DBusAuthObserverProtocol` protocol exposes the methods and properties of an underlying `GDBusAuthObserver` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusAuthObserver`.
-/// Alternatively, use `DBusAuthObserverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GDBusAuthObserver` type provides a mechanism for participating
 /// in how a `GDBusServer` (or a `GDBusConnection`) authenticates remote
 /// peers. Simply instantiate a `GDBusAuthObserver` and connect to the
@@ -74,6 +69,12 @@ import GLibObject
 /// }
 /// ```
 /// 
+///
+/// The `DBusAuthObserverProtocol` protocol exposes the methods and properties of an underlying `GDBusAuthObserver` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusAuthObserver`.
+/// Alternatively, use `DBusAuthObserverRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusAuthObserverProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -85,10 +86,6 @@ public protocol DBusAuthObserverProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusAuthObserverRef` type acts as a lightweight Swift reference to an underlying `GDBusAuthObserver` instance.
-/// It exposes methods that can operate on this data type through `DBusAuthObserverProtocol` conformance.
-/// Use `DBusAuthObserverRef` only as an `unowned` reference to an existing `GDBusAuthObserver` instance.
-///
 /// The `GDBusAuthObserver` type provides a mechanism for participating
 /// in how a `GDBusServer` (or a `GDBusConnection`) authenticates remote
 /// peers. Simply instantiate a `GDBusAuthObserver` and connect to the
@@ -154,6 +151,11 @@ public protocol DBusAuthObserverProtocol: GLibObject.ObjectProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `DBusAuthObserverRef` type acts as a lightweight Swift reference to an underlying `GDBusAuthObserver` instance.
+/// It exposes methods that can operate on this data type through `DBusAuthObserverProtocol` conformance.
+/// Use `DBusAuthObserverRef` only as an `unowned` reference to an existing `GDBusAuthObserver` instance.
+///
 public struct DBusAuthObserverRef: DBusAuthObserverProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusAuthObserver` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_auth_observer_ptr` property instead.
@@ -240,10 +242,6 @@ public extension DBusAuthObserverRef {
     }
 }
 
-/// The `DBusAuthObserver` type acts as a reference-counted owner of an underlying `GDBusAuthObserver` instance.
-/// It provides the methods that can operate on this data type through `DBusAuthObserverProtocol` conformance.
-/// Use `DBusAuthObserver` as a strong reference or owner of a `GDBusAuthObserver` instance.
-///
 /// The `GDBusAuthObserver` type provides a mechanism for participating
 /// in how a `GDBusServer` (or a `GDBusConnection`) authenticates remote
 /// peers. Simply instantiate a `GDBusAuthObserver` and connect to the
@@ -309,6 +307,11 @@ public extension DBusAuthObserverRef {
 /// }
 /// ```
 /// 
+///
+/// The `DBusAuthObserver` type acts as a reference-counted owner of an underlying `GDBusAuthObserver` instance.
+/// It provides the methods that can operate on this data type through `DBusAuthObserverProtocol` conformance.
+/// Use `DBusAuthObserver` as a strong reference or owner of a `GDBusAuthObserver` instance.
+///
 open class DBusAuthObserver: GLibObject.Object, DBusAuthObserverProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -467,12 +470,14 @@ public enum DBusAuthObserverSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -594,11 +599,6 @@ public extension DBusAuthObserverProtocol {
 
 // MARK: - DBusConnection Class
 
-/// The `DBusConnectionProtocol` protocol exposes the methods and properties of an underlying `GDBusConnection` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusConnection`.
-/// Alternatively, use `DBusConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GDBusConnection` type is used for D-Bus connections to remote
 /// peers such as a message buses. It is a low-level API that offers a
 /// lot of flexibility. For instance, it lets you establish a connection
@@ -632,22 +632,28 @@ public extension DBusAuthObserverProtocol {
 /// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
-/// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
+/// [gdbus-example-server.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-server.c)
 /// 
 /// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
-/// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
+/// [gdbus-example-subtree.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-subtree.c)
 /// 
 /// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
-/// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
+/// [gdbus-unix-fd-client.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
 /// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
-/// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
+/// [gdbus-example-export.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-export.c)
+///
+/// The `DBusConnectionProtocol` protocol exposes the methods and properties of an underlying `GDBusConnection` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusConnection`.
+/// Alternatively, use `DBusConnectionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusConnectionProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusConnection` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -659,10 +665,6 @@ public protocol DBusConnectionProtocol: GLibObject.ObjectProtocol, AsyncInitable
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusConnectionRef` type acts as a lightweight Swift reference to an underlying `GDBusConnection` instance.
-/// It exposes methods that can operate on this data type through `DBusConnectionProtocol` conformance.
-/// Use `DBusConnectionRef` only as an `unowned` reference to an existing `GDBusConnection` instance.
-///
 /// The `GDBusConnection` type is used for D-Bus connections to remote
 /// peers such as a message buses. It is a low-level API that offers a
 /// lot of flexibility. For instance, it lets you establish a connection
@@ -696,22 +698,27 @@ public protocol DBusConnectionProtocol: GLibObject.ObjectProtocol, AsyncInitable
 /// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
-/// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
+/// [gdbus-example-server.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-server.c)
 /// 
 /// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
-/// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
+/// [gdbus-example-subtree.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-subtree.c)
 /// 
 /// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
-/// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
+/// [gdbus-unix-fd-client.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
 /// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
-/// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
+/// [gdbus-example-export.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-export.c)
+///
+/// The `DBusConnectionRef` type acts as a lightweight Swift reference to an underlying `GDBusConnection` instance.
+/// It exposes methods that can operate on this data type through `DBusConnectionProtocol` conformance.
+/// Use `DBusConnectionRef` only as an `unowned` reference to an existing `GDBusConnection` instance.
+///
 public struct DBusConnectionRef: DBusConnectionProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusConnection` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_connection_ptr` property instead.
@@ -919,10 +926,6 @@ public extension DBusConnectionRef {
     }
 }
 
-/// The `DBusConnection` type acts as a reference-counted owner of an underlying `GDBusConnection` instance.
-/// It provides the methods that can operate on this data type through `DBusConnectionProtocol` conformance.
-/// Use `DBusConnection` as a strong reference or owner of a `GDBusConnection` instance.
-///
 /// The `GDBusConnection` type is used for D-Bus connections to remote
 /// peers such as a message buses. It is a low-level API that offers a
 /// lot of flexibility. For instance, it lets you establish a connection
@@ -956,22 +959,27 @@ public extension DBusConnectionRef {
 /// ## An example D-Bus server # <a name="gdbus-server"></a>
 /// 
 /// Here is an example for a D-Bus server:
-/// [gdbus-example-server.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-server.c)
+/// [gdbus-example-server.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-server.c)
 /// 
 /// ## An example for exporting a subtree # <a name="gdbus-subtree-server"></a>
 /// 
 /// Here is an example for exporting a subtree:
-/// [gdbus-example-subtree.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-subtree.c)
+/// [gdbus-example-subtree.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-subtree.c)
 /// 
 /// ## An example for file descriptor passing # <a name="gdbus-unix-fd-client"></a>
 /// 
 /// Here is an example for passing UNIX file descriptors:
-/// [gdbus-unix-fd-client.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-unix-fd-client.c)
+/// [gdbus-unix-fd-client.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-unix-fd-client.c)
 /// 
 /// ## An example for exporting a GObject # <a name="gdbus-export"></a>
 /// 
 /// Here is an example for exporting a `GObject:`
-/// [gdbus-example-export.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-export.c)
+/// [gdbus-example-export.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-export.c)
+///
+/// The `DBusConnection` type acts as a reference-counted owner of an underlying `GDBusConnection` instance.
+/// It provides the methods that can operate on this data type through `DBusConnectionProtocol` conformance.
+/// Use `DBusConnection` as a strong reference or owner of a `GDBusConnection` instance.
+///
 open class DBusConnection: GLibObject.Object, DBusConnectionProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1268,6 +1276,15 @@ public enum DBusConnectionPropertyName: String, PropertyNameProtocol {
     /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
+    /// 
+    /// Note that the
+    /// [D-Bus specification](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
+    /// uses the term ‘UUID’ to refer to this, whereas GLib consistently uses the
+    /// term ‘GUID’ for historical reasons.
+    /// 
+    /// Despite its name, the format of `GDBusConnection:guid` does not follow
+    /// [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122) or the Microsoft
+    /// GUID format.
     case guid = "guid"
     /// The underlying `GIOStream` used for I/O.
     /// 
@@ -1369,12 +1386,14 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1411,6 +1430,15 @@ public enum DBusConnectionSignalName: String, SignalNameProtocol {
     /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
+    /// 
+    /// Note that the
+    /// [D-Bus specification](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
+    /// uses the term ‘UUID’ to refer to this, whereas GLib consistently uses the
+    /// term ‘GUID’ for historical reasons.
+    /// 
+    /// Despite its name, the format of `GDBusConnection:guid` does not follow
+    /// [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122) or the Microsoft
+    /// GUID format.
     case notifyGuid = "notify::guid"
     /// The underlying `GIOStream` used for I/O.
     /// 
@@ -1511,12 +1539,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1560,12 +1590,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1609,12 +1641,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1658,12 +1692,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1707,12 +1743,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1756,12 +1794,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1805,12 +1845,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1854,12 +1896,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1903,12 +1947,14 @@ public extension DBusConnectionProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2971,6 +3017,9 @@ public extension DBusConnectionProtocol {
     /// `g_dbus_connection_signal_subscribe()` is called, in order to avoid memory
     /// leaks through callbacks queued on the `GMainContext` after it’s stopped being
     /// iterated.
+    /// Alternatively, any idle source with a priority lower than `G_PRIORITY_DEFAULT`
+    /// that was scheduled after unsubscription, also indicates that all resources
+    /// of this subscription are released.
     @inlinable func signalUnsubscribe(subscriptionID: Int) {
         g_dbus_connection_signal_unsubscribe(dbus_connection_ptr, guint(subscriptionID))
     
@@ -3116,6 +3165,15 @@ public extension DBusConnectionProtocol {
     /// `GDBusConnection:flags` property you will be able to read the GUID
     /// of the other peer here after the connection has been successfully
     /// initialized.
+    /// 
+    /// Note that the
+    /// [D-Bus specification](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
+    /// uses the term ‘UUID’ to refer to this, whereas GLib consistently uses the
+    /// term ‘GUID’ for historical reasons.
+    /// 
+    /// Despite its name, the format of `GDBusConnection:guid` does not follow
+    /// [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122) or the Microsoft
+    /// GUID format.
     @inlinable var guid: String! {
         /// The GUID of the peer performing the role of server when
         /// authenticating. See `GDBusConnection:guid` for more details.
@@ -3216,12 +3274,13 @@ public extension DBusConnectionProtocol {
 
 // MARK: - DBusInterfaceSkeleton Class
 
+/// Abstract base class for D-Bus interfaces on the service side.
+///
 /// The `DBusInterfaceSkeletonProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceSkeleton` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusInterfaceSkeleton`.
 /// Alternatively, use `DBusInterfaceSkeletonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Abstract base class for D-Bus interfaces on the service side.
 public protocol DBusInterfaceSkeletonProtocol: GLibObject.ObjectProtocol, DBusInterfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3233,11 +3292,12 @@ public protocol DBusInterfaceSkeletonProtocol: GLibObject.ObjectProtocol, DBusIn
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Abstract base class for D-Bus interfaces on the service side.
+///
 /// The `DBusInterfaceSkeletonRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceSkeleton` instance.
 /// It exposes methods that can operate on this data type through `DBusInterfaceSkeletonProtocol` conformance.
 /// Use `DBusInterfaceSkeletonRef` only as an `unowned` reference to an existing `GDBusInterfaceSkeleton` instance.
 ///
-/// Abstract base class for D-Bus interfaces on the service side.
 public struct DBusInterfaceSkeletonRef: DBusInterfaceSkeletonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusInterfaceSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_skeleton_ptr` property instead.
@@ -3319,11 +3379,12 @@ public extension DBusInterfaceSkeletonRef {
 
     }
 
+/// Abstract base class for D-Bus interfaces on the service side.
+///
 /// The `DBusInterfaceSkeleton` type acts as a reference-counted owner of an underlying `GDBusInterfaceSkeleton` instance.
 /// It provides the methods that can operate on this data type through `DBusInterfaceSkeletonProtocol` conformance.
 /// Use `DBusInterfaceSkeleton` as a strong reference or owner of a `GDBusInterfaceSkeleton` instance.
 ///
-/// Abstract base class for D-Bus interfaces on the service side.
 open class DBusInterfaceSkeleton: GLibObject.Object, DBusInterfaceSkeletonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3561,12 +3622,14 @@ public enum DBusInterfaceSkeletonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3676,12 +3739,14 @@ public extension DBusInterfaceSkeletonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3904,14 +3969,15 @@ public extension DBusInterfaceSkeletonProtocol {
 
 // MARK: - DBusMenuModel Class
 
+/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
+/// as a proxy for a menu model that is exported over D-Bus with
+/// `g_dbus_connection_export_menu_model()`.
+///
 /// The `DBusMenuModelProtocol` protocol exposes the methods and properties of an underlying `GDBusMenuModel` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusMenuModel`.
 /// Alternatively, use `DBusMenuModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
-/// as a proxy for a menu model that is exported over D-Bus with
-/// `g_dbus_connection_export_menu_model()`.
 public protocol DBusMenuModelProtocol: MenuModelProtocol {
         /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3923,13 +3989,14 @@ public protocol DBusMenuModelProtocol: MenuModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
+/// as a proxy for a menu model that is exported over D-Bus with
+/// `g_dbus_connection_export_menu_model()`.
+///
 /// The `DBusMenuModelRef` type acts as a lightweight Swift reference to an underlying `GDBusMenuModel` instance.
 /// It exposes methods that can operate on this data type through `DBusMenuModelProtocol` conformance.
 /// Use `DBusMenuModelRef` only as an `unowned` reference to an existing `GDBusMenuModel` instance.
 ///
-/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
-/// as a proxy for a menu model that is exported over D-Bus with
-/// `g_dbus_connection_export_menu_model()`.
 public struct DBusMenuModelRef: DBusMenuModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_menu_model_ptr` property instead.
@@ -4023,13 +4090,14 @@ public extension DBusMenuModelRef {
     }
 }
 
+/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
+/// as a proxy for a menu model that is exported over D-Bus with
+/// `g_dbus_connection_export_menu_model()`.
+///
 /// The `DBusMenuModel` type acts as a reference-counted owner of an underlying `GDBusMenuModel` instance.
 /// It provides the methods that can operate on this data type through `DBusMenuModelProtocol` conformance.
 /// Use `DBusMenuModel` as a strong reference or owner of a `GDBusMenuModel` instance.
 ///
-/// `GDBusMenuModel` is an implementation of `GMenuModel` that can be used
-/// as a proxy for a menu model that is exported over D-Bus with
-/// `g_dbus_connection_export_menu_model()`.
 open class DBusMenuModel: MenuModel, DBusMenuModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4211,12 +4279,14 @@ public enum DBusMenuModelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4238,13 +4308,14 @@ public extension DBusMenuModelProtocol {
 
 // MARK: - DBusMessage Class
 
+/// A type for representing D-Bus messages that can be sent or received
+/// on a `GDBusConnection`.
+///
 /// The `DBusMessageProtocol` protocol exposes the methods and properties of an underlying `GDBusMessage` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusMessage`.
 /// Alternatively, use `DBusMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A type for representing D-Bus messages that can be sent or received
-/// on a `GDBusConnection`.
 public protocol DBusMessageProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4256,12 +4327,13 @@ public protocol DBusMessageProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A type for representing D-Bus messages that can be sent or received
+/// on a `GDBusConnection`.
+///
 /// The `DBusMessageRef` type acts as a lightweight Swift reference to an underlying `GDBusMessage` instance.
 /// It exposes methods that can operate on this data type through `DBusMessageProtocol` conformance.
 /// Use `DBusMessageRef` only as an `unowned` reference to an existing `GDBusMessage` instance.
 ///
-/// A type for representing D-Bus messages that can be sent or received
-/// on a `GDBusConnection`.
 public struct DBusMessageRef: DBusMessageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusMessage` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_message_ptr` property instead.
@@ -4361,14 +4433,14 @@ public extension DBusMessageRef {
     }
 
     /// Creates a new `GDBusMessage` for a method call.
-    @inlinable init(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+    @inlinable init(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) {
+        let rv = g_dbus_message_new_method_call(name, path, interface, method)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
-    @inlinable init(signal path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+    @inlinable init(signal path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) {
+        let rv = g_dbus_message_new_signal(path, interface, signal)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GDBusMessage` from the data stored at `blob`. The byte
@@ -4386,24 +4458,25 @@ public extension DBusMessageRef {
     }
 
     /// Creates a new `GDBusMessage` for a method call.
-    @inlinable static func newMethodCall(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) -> DBusMessageRef! {
-        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_call(name, path, interface_, method))) else { return nil }
+    @inlinable static func newMethodCall(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) -> DBusMessageRef! {
+        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_method_call(name, path, interface, method))) else { return nil }
         return rv
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
-    @inlinable static func new(signal path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) -> DBusMessageRef! {
-        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_signal(path, interface_, signal))) else { return nil }
+    @inlinable static func new(signal path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) -> DBusMessageRef! {
+        guard let rv = DBusMessageRef(gconstpointer: gconstpointer(g_dbus_message_new_signal(path, interface, signal))) else { return nil }
         return rv
     }
 }
 
+/// A type for representing D-Bus messages that can be sent or received
+/// on a `GDBusConnection`.
+///
 /// The `DBusMessage` type acts as a reference-counted owner of an underlying `GDBusMessage` instance.
 /// It provides the methods that can operate on this data type through `DBusMessageProtocol` conformance.
 /// Use `DBusMessage` as a strong reference or owner of a `GDBusMessage` instance.
 ///
-/// A type for representing D-Bus messages that can be sent or received
-/// on a `GDBusConnection`.
 open class DBusMessage: GLibObject.Object, DBusMessageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4551,15 +4624,15 @@ open class DBusMessage: GLibObject.Object, DBusMessageProtocol {
     }
 
     /// Creates a new `GDBusMessage` for a method call.
-    @inlinable public init(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) {
-        let rv = g_dbus_message_new_method_call(name, path, interface_, method)
+    @inlinable public init(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) {
+        let rv = g_dbus_message_new_method_call(name, path, interface, method)
         super.init(gpointer: (rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
-    @inlinable public init(signal path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) {
-        let rv = g_dbus_message_new_signal(path, interface_, signal)
+    @inlinable public init(signal path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) {
+        let rv = g_dbus_message_new_signal(path, interface, signal)
         super.init(gpointer: (rv))
         if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
@@ -4580,15 +4653,15 @@ open class DBusMessage: GLibObject.Object, DBusMessageProtocol {
     }
 
     /// Creates a new `GDBusMessage` for a method call.
-    @inlinable public static func newMethodCall(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) -> DBusMessage! {
-        guard let rv = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_method_call(name, path, interface_, method))) else { return nil }
+    @inlinable public static func newMethodCall(method_call name: UnsafePointer<gchar>? = nil, path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>? = nil, method: UnsafePointer<gchar>!) -> DBusMessage! {
+        guard let rv = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_method_call(name, path, interface, method))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
     /// Creates a new `GDBusMessage` for a signal emission.
-    @inlinable public static func new(signal path: UnsafePointer<gchar>!, interface_: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) -> DBusMessage! {
-        guard let rv = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_signal(path, interface_, signal))) else { return nil }
+    @inlinable public static func new(signal path: UnsafePointer<gchar>!, interface: UnsafePointer<gchar>!, signal: UnsafePointer<gchar>!) -> DBusMessage! {
+        guard let rv = DBusMessage(gconstpointer: gconstpointer(g_dbus_message_new_signal(path, interface, signal))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
@@ -4668,12 +4741,14 @@ public enum DBusMessageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4809,6 +4884,8 @@ public extension DBusMessageProtocol {
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
+    /// 
+    /// This will always be non-`nil`, but may be an empty string.
     @inlinable func getSignature() -> String! {
         let rv = g_dbus_message_get_signature(dbus_message_ptr).map({ String(cString: $0) })
         return rv
@@ -5252,8 +5329,12 @@ public extension DBusMessageProtocol {
     }
 
     /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
+    /// 
+    /// This will always be non-`nil`, but may be an empty string.
     @inlinable var signature: String! {
         /// Convenience getter for the `G_DBUS_MESSAGE_HEADER_FIELD_SIGNATURE` header field.
+        /// 
+        /// This will always be non-`nil`, but may be an empty string.
         get {
             let rv = g_dbus_message_get_signature(dbus_message_ptr).map({ String(cString: $0) })
             return rv
@@ -5310,11 +5391,6 @@ public extension DBusMessageProtocol {
 
 // MARK: - DBusMethodInvocation Class
 
-/// The `DBusMethodInvocationProtocol` protocol exposes the methods and properties of an underlying `GDBusMethodInvocation` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusMethodInvocation`.
-/// Alternatively, use `DBusMethodInvocationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Instances of the `GDBusMethodInvocation` class are used when
 /// handling D-Bus method calls. It provides a way to asynchronously
 /// return results and errors.
@@ -5322,6 +5398,12 @@ public extension DBusMessageProtocol {
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
+///
+/// The `DBusMethodInvocationProtocol` protocol exposes the methods and properties of an underlying `GDBusMethodInvocation` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusMethodInvocation`.
+/// Alternatively, use `DBusMethodInvocationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusMethodInvocationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5333,10 +5415,6 @@ public protocol DBusMethodInvocationProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusMethodInvocationRef` type acts as a lightweight Swift reference to an underlying `GDBusMethodInvocation` instance.
-/// It exposes methods that can operate on this data type through `DBusMethodInvocationProtocol` conformance.
-/// Use `DBusMethodInvocationRef` only as an `unowned` reference to an existing `GDBusMethodInvocation` instance.
-///
 /// Instances of the `GDBusMethodInvocation` class are used when
 /// handling D-Bus method calls. It provides a way to asynchronously
 /// return results and errors.
@@ -5344,6 +5422,11 @@ public protocol DBusMethodInvocationProtocol: GLibObject.ObjectProtocol {
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
+///
+/// The `DBusMethodInvocationRef` type acts as a lightweight Swift reference to an underlying `GDBusMethodInvocation` instance.
+/// It exposes methods that can operate on this data type through `DBusMethodInvocationProtocol` conformance.
+/// Use `DBusMethodInvocationRef` only as an `unowned` reference to an existing `GDBusMethodInvocation` instance.
+///
 public struct DBusMethodInvocationRef: DBusMethodInvocationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusMethodInvocation` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_invocation_ptr` property instead.
@@ -5425,10 +5508,6 @@ public extension DBusMethodInvocationRef {
 
     }
 
-/// The `DBusMethodInvocation` type acts as a reference-counted owner of an underlying `GDBusMethodInvocation` instance.
-/// It provides the methods that can operate on this data type through `DBusMethodInvocationProtocol` conformance.
-/// Use `DBusMethodInvocation` as a strong reference or owner of a `GDBusMethodInvocation` instance.
-///
 /// Instances of the `GDBusMethodInvocation` class are used when
 /// handling D-Bus method calls. It provides a way to asynchronously
 /// return results and errors.
@@ -5436,6 +5515,11 @@ public extension DBusMethodInvocationRef {
 /// The normal way to obtain a `GDBusMethodInvocation` object is to receive
 /// it as an argument to the `handle_method_call()` function in a
 /// `GDBusInterfaceVTable` that was passed to `g_dbus_connection_register_object()`.
+///
+/// The `DBusMethodInvocation` type acts as a reference-counted owner of an underlying `GDBusMethodInvocation` instance.
+/// It provides the methods that can operate on this data type through `DBusMethodInvocationProtocol` conformance.
+/// Use `DBusMethodInvocation` as a strong reference or owner of a `GDBusMethodInvocation` instance.
+///
 open class DBusMethodInvocation: GLibObject.Object, DBusMethodInvocationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5583,12 +5667,14 @@ public enum DBusMethodInvocationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5997,11 +6083,6 @@ public extension DBusMethodInvocationProtocol {
 
 // MARK: - DBusObjectManagerClient Class
 
-/// The `DBusObjectManagerClientProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerClient` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusObjectManagerClient`.
-/// Alternatively, use `DBusObjectManagerClientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDBusObjectManagerClient` is used to create, monitor and delete object
 /// proxies for remote objects exported by a `GDBusObjectManagerServer` (or any
 /// code implementing the
@@ -6077,6 +6158,12 @@ public extension DBusMethodInvocationProtocol {
 /// originating from the `GDBusObjectManagerClient` object will be created in
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
+///
+/// The `DBusObjectManagerClientProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerClient` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusObjectManagerClient`.
+/// Alternatively, use `DBusObjectManagerClientRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusObjectManagerClientProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, DBusObjectManagerProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6088,10 +6175,6 @@ public protocol DBusObjectManagerClientProtocol: GLibObject.ObjectProtocol, Asyn
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectManagerClientRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerClient` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectManagerClientProtocol` conformance.
-/// Use `DBusObjectManagerClientRef` only as an `unowned` reference to an existing `GDBusObjectManagerClient` instance.
-///
 /// `GDBusObjectManagerClient` is used to create, monitor and delete object
 /// proxies for remote objects exported by a `GDBusObjectManagerServer` (or any
 /// code implementing the
@@ -6167,6 +6250,11 @@ public protocol DBusObjectManagerClientProtocol: GLibObject.ObjectProtocol, Asyn
 /// originating from the `GDBusObjectManagerClient` object will be created in
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
+///
+/// The `DBusObjectManagerClientRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerClient` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectManagerClientProtocol` conformance.
+/// Use `DBusObjectManagerClientRef` only as an `unowned` reference to an existing `GDBusObjectManagerClient` instance.
+///
 public struct DBusObjectManagerClientRef: DBusObjectManagerClientProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusObjectManagerClient` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_client_ptr` property instead.
@@ -6248,10 +6336,6 @@ public extension DBusObjectManagerClientRef {
 
     }
 
-/// The `DBusObjectManagerClient` type acts as a reference-counted owner of an underlying `GDBusObjectManagerClient` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectManagerClientProtocol` conformance.
-/// Use `DBusObjectManagerClient` as a strong reference or owner of a `GDBusObjectManagerClient` instance.
-///
 /// `GDBusObjectManagerClient` is used to create, monitor and delete object
 /// proxies for remote objects exported by a `GDBusObjectManagerServer` (or any
 /// code implementing the
@@ -6327,6 +6411,11 @@ public extension DBusObjectManagerClientRef {
 /// originating from the `GDBusObjectManagerClient` object will be created in
 /// the same context and, consequently, will deliver signals in the
 /// same main loop.
+///
+/// The `DBusObjectManagerClient` type acts as a reference-counted owner of an underlying `GDBusObjectManagerClient` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectManagerClientProtocol` conformance.
+/// Use `DBusObjectManagerClient` as a strong reference or owner of a `GDBusObjectManagerClient` instance.
+///
 open class DBusObjectManagerClient: GLibObject.Object, DBusObjectManagerClientProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -6573,12 +6662,14 @@ public enum DBusObjectManagerClientSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6711,12 +6802,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6760,12 +6853,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6809,12 +6904,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6858,12 +6955,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6907,12 +7006,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -6956,12 +7057,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7005,12 +7108,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7054,12 +7159,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7103,12 +7210,14 @@ public extension DBusObjectManagerClientProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7224,11 +7333,6 @@ public extension DBusObjectManagerClientProtocol {
 
 // MARK: - DBusObjectManagerServer Class
 
-/// The `DBusObjectManagerServerProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerServer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusObjectManagerServer`.
-/// Alternatively, use `DBusObjectManagerServerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDBusObjectManagerServer` is used to export `GDBusObject` instances using
 /// the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -7251,6 +7355,12 @@ public extension DBusObjectManagerClientProtocol {
 /// intended to be used with `GDBusObjectManagerServer` or any D-Bus
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
+///
+/// The `DBusObjectManagerServerProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerServer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusObjectManagerServer`.
+/// Alternatively, use `DBusObjectManagerServerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusObjectManagerServerProtocol: GLibObject.ObjectProtocol, DBusObjectManagerProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7262,10 +7372,6 @@ public protocol DBusObjectManagerServerProtocol: GLibObject.ObjectProtocol, DBus
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectManagerServerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerServer` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectManagerServerProtocol` conformance.
-/// Use `DBusObjectManagerServerRef` only as an `unowned` reference to an existing `GDBusObjectManagerServer` instance.
-///
 /// `GDBusObjectManagerServer` is used to export `GDBusObject` instances using
 /// the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -7288,6 +7394,11 @@ public protocol DBusObjectManagerServerProtocol: GLibObject.ObjectProtocol, DBus
 /// intended to be used with `GDBusObjectManagerServer` or any D-Bus
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
+///
+/// The `DBusObjectManagerServerRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerServer` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectManagerServerProtocol` conformance.
+/// Use `DBusObjectManagerServerRef` only as an `unowned` reference to an existing `GDBusObjectManagerServer` instance.
+///
 public struct DBusObjectManagerServerRef: DBusObjectManagerServerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusObjectManagerServer` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_manager_server_ptr` property instead.
@@ -7380,10 +7491,6 @@ public extension DBusObjectManagerServerRef {
     }
 }
 
-/// The `DBusObjectManagerServer` type acts as a reference-counted owner of an underlying `GDBusObjectManagerServer` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectManagerServerProtocol` conformance.
-/// Use `DBusObjectManagerServer` as a strong reference or owner of a `GDBusObjectManagerServer` instance.
-///
 /// `GDBusObjectManagerServer` is used to export `GDBusObject` instances using
 /// the standardized
 /// [org.freedesktop.DBus.ObjectManager](http://dbus.freedesktop.org/doc/dbus-specification.html`standard-interfaces-objectmanager`)
@@ -7406,6 +7513,11 @@ public extension DBusObjectManagerServerRef {
 /// intended to be used with `GDBusObjectManagerServer` or any D-Bus
 /// object implementing the org.freedesktop.DBus.ObjectManager
 /// interface.
+///
+/// The `DBusObjectManagerServer` type acts as a reference-counted owner of an underlying `GDBusObjectManagerServer` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectManagerServerProtocol` conformance.
+/// Use `DBusObjectManagerServer` as a strong reference or owner of a `GDBusObjectManagerServer` instance.
+///
 open class DBusObjectManagerServer: GLibObject.Object, DBusObjectManagerServerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -7623,12 +7735,14 @@ public enum DBusObjectManagerServerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -7727,15 +7841,16 @@ public extension DBusObjectManagerServerProtocol {
 
 // MARK: - DBusObjectProxy Class
 
+/// A `GDBusObjectProxy` is an object used to represent a remote object
+/// with one or more D-Bus interfaces. Normally, you don't instantiate
+/// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
+/// is used to obtain it.
+///
 /// The `DBusObjectProxyProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectProxy` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectProxy`.
 /// Alternatively, use `DBusObjectProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GDBusObjectProxy` is an object used to represent a remote object
-/// with one or more D-Bus interfaces. Normally, you don't instantiate
-/// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
-/// is used to obtain it.
 public protocol DBusObjectProxyProtocol: GLibObject.ObjectProtocol, DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -7747,14 +7862,15 @@ public protocol DBusObjectProxyProtocol: GLibObject.ObjectProtocol, DBusObjectPr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectProxyRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectProxy` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectProxyProtocol` conformance.
-/// Use `DBusObjectProxyRef` only as an `unowned` reference to an existing `GDBusObjectProxy` instance.
-///
 /// A `GDBusObjectProxy` is an object used to represent a remote object
 /// with one or more D-Bus interfaces. Normally, you don't instantiate
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
+///
+/// The `DBusObjectProxyRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectProxy` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectProxyProtocol` conformance.
+/// Use `DBusObjectProxyRef` only as an `unowned` reference to an existing `GDBusObjectProxy` instance.
+///
 public struct DBusObjectProxyRef: DBusObjectProxyProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusObjectProxy` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_proxy_ptr` property instead.
@@ -7842,14 +7958,15 @@ public extension DBusObjectProxyRef {
     }
 }
 
-/// The `DBusObjectProxy` type acts as a reference-counted owner of an underlying `GDBusObjectProxy` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectProxyProtocol` conformance.
-/// Use `DBusObjectProxy` as a strong reference or owner of a `GDBusObjectProxy` instance.
-///
 /// A `GDBusObjectProxy` is an object used to represent a remote object
 /// with one or more D-Bus interfaces. Normally, you don't instantiate
 /// a `GDBusObjectProxy` yourself - typically `GDBusObjectManagerClient`
 /// is used to obtain it.
+///
+/// The `DBusObjectProxy` type acts as a reference-counted owner of an underlying `GDBusObjectProxy` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectProxyProtocol` conformance.
+/// Use `DBusObjectProxy` as a strong reference or owner of a `GDBusObjectProxy` instance.
+///
 open class DBusObjectProxy: GLibObject.Object, DBusObjectProxyProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8062,12 +8179,14 @@ public enum DBusObjectProxySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8108,16 +8227,17 @@ public extension DBusObjectProxyProtocol {
 
 // MARK: - DBusObjectSkeleton Class
 
-/// The `DBusObjectSkeletonProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectSkeleton` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusObjectSkeleton`.
-/// Alternatively, use `DBusObjectSkeletonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GDBusObjectSkeleton` instance is essentially a group of D-Bus
 /// interfaces. The set of exported interfaces on the object may be
 /// dynamic and change at runtime.
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
+///
+/// The `DBusObjectSkeletonProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectSkeleton` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusObjectSkeleton`.
+/// Alternatively, use `DBusObjectSkeletonRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusObjectSkeletonProtocol: GLibObject.ObjectProtocol, DBusObjectProtocol {
         /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8129,15 +8249,16 @@ public protocol DBusObjectSkeletonProtocol: GLibObject.ObjectProtocol, DBusObjec
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusObjectSkeletonRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectSkeleton` instance.
-/// It exposes methods that can operate on this data type through `DBusObjectSkeletonProtocol` conformance.
-/// Use `DBusObjectSkeletonRef` only as an `unowned` reference to an existing `GDBusObjectSkeleton` instance.
-///
 /// A `GDBusObjectSkeleton` instance is essentially a group of D-Bus
 /// interfaces. The set of exported interfaces on the object may be
 /// dynamic and change at runtime.
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
+///
+/// The `DBusObjectSkeletonRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectSkeleton` instance.
+/// It exposes methods that can operate on this data type through `DBusObjectSkeletonProtocol` conformance.
+/// Use `DBusObjectSkeletonRef` only as an `unowned` reference to an existing `GDBusObjectSkeleton` instance.
+///
 public struct DBusObjectSkeletonRef: DBusObjectSkeletonProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusObjectSkeleton` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_object_skeleton_ptr` property instead.
@@ -8224,15 +8345,16 @@ public extension DBusObjectSkeletonRef {
     }
 }
 
-/// The `DBusObjectSkeleton` type acts as a reference-counted owner of an underlying `GDBusObjectSkeleton` instance.
-/// It provides the methods that can operate on this data type through `DBusObjectSkeletonProtocol` conformance.
-/// Use `DBusObjectSkeleton` as a strong reference or owner of a `GDBusObjectSkeleton` instance.
-///
 /// A `GDBusObjectSkeleton` instance is essentially a group of D-Bus
 /// interfaces. The set of exported interfaces on the object may be
 /// dynamic and change at runtime.
 /// 
 /// This type is intended to be used with `GDBusObjectManager`.
+///
+/// The `DBusObjectSkeleton` type acts as a reference-counted owner of an underlying `GDBusObjectSkeleton` instance.
+/// It provides the methods that can operate on this data type through `DBusObjectSkeletonProtocol` conformance.
+/// Use `DBusObjectSkeleton` as a strong reference or owner of a `GDBusObjectSkeleton` instance.
+///
 open class DBusObjectSkeleton: GLibObject.Object, DBusObjectSkeletonProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -8451,12 +8573,14 @@ public enum DBusObjectSkeletonSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8542,12 +8666,14 @@ public extension DBusObjectSkeletonProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -8590,8 +8716,8 @@ public extension DBusObjectSkeletonProtocol {
     /// 
     /// Note that `object` takes its own reference on `interface_` and holds
     /// it until removed.
-    @inlinable func addInterface<DBusInterfaceSkeletonT: DBusInterfaceSkeletonProtocol>(interface_: DBusInterfaceSkeletonT) {
-        g_dbus_object_skeleton_add_interface(dbus_object_skeleton_ptr, interface_.dbus_interface_skeleton_ptr)
+    @inlinable func add<DBusInterfaceSkeletonT: DBusInterfaceSkeletonProtocol>(interface: DBusInterfaceSkeletonT) {
+        g_dbus_object_skeleton_add_interface(dbus_object_skeleton_ptr, interface.dbus_interface_skeleton_ptr)
     
     }
 
@@ -8604,8 +8730,8 @@ public extension DBusObjectSkeletonProtocol {
     }
 
     /// Removes `interface_` from `object`.
-    @inlinable func removeInterface<DBusInterfaceSkeletonT: DBusInterfaceSkeletonProtocol>(interface_: DBusInterfaceSkeletonT) {
-        g_dbus_object_skeleton_remove_interface(dbus_object_skeleton_ptr, interface_.dbus_interface_skeleton_ptr)
+    @inlinable func remove<DBusInterfaceSkeletonT: DBusInterfaceSkeletonProtocol>(interface: DBusInterfaceSkeletonT) {
+        g_dbus_object_skeleton_remove_interface(dbus_object_skeleton_ptr, interface.dbus_interface_skeleton_ptr)
     
     }
 
@@ -8634,11 +8760,6 @@ public extension DBusObjectSkeletonProtocol {
 
 // MARK: - DBusProxy Class
 
-/// The `DBusProxyProtocol` protocol exposes the methods and properties of an underlying `GDBusProxy` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusProxy`.
-/// Alternatively, use `DBusProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDBusProxy` is a base class used for proxies to access a D-Bus
 /// interface on a remote object. A `GDBusProxy` can be constructed for
 /// both well-known and unique names.
@@ -8661,6 +8782,13 @@ public extension DBusObjectSkeletonProtocol {
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
+/// If the proxy is for a stateless D-Bus service, where the name owner may
+/// be started and stopped between calls, the `GDBusProxy:g-name-owner` tracking
+/// of `GDBusProxy` will cause the proxy to drop signal and property changes from
+/// the service after it has restarted for the first time. When interacting
+/// with a stateless D-Bus service, do not use `GDBusProxy` — use direct D-Bus
+/// method calls and signal connections.
+/// 
 /// The generic `GDBusProxy::g-properties-changed` and
 /// `GDBusProxy::g-signal` signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
@@ -8675,7 +8803,13 @@ public extension DBusObjectSkeletonProtocol {
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
-/// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
+/// [gdbus-example-watch-proxy.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-watch-proxy.c)
+///
+/// The `DBusProxyProtocol` protocol exposes the methods and properties of an underlying `GDBusProxy` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusProxy`.
+/// Alternatively, use `DBusProxyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusProxyProtocol: GLibObject.ObjectProtocol, AsyncInitableProtocol, DBusInterfaceProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusProxy` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -8687,10 +8821,6 @@ public protocol DBusProxyProtocol: GLibObject.ObjectProtocol, AsyncInitableProto
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusProxyRef` type acts as a lightweight Swift reference to an underlying `GDBusProxy` instance.
-/// It exposes methods that can operate on this data type through `DBusProxyProtocol` conformance.
-/// Use `DBusProxyRef` only as an `unowned` reference to an existing `GDBusProxy` instance.
-///
 /// `GDBusProxy` is a base class used for proxies to access a D-Bus
 /// interface on a remote object. A `GDBusProxy` can be constructed for
 /// both well-known and unique names.
@@ -8713,6 +8843,13 @@ public protocol DBusProxyProtocol: GLibObject.ObjectProtocol, AsyncInitableProto
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
+/// If the proxy is for a stateless D-Bus service, where the name owner may
+/// be started and stopped between calls, the `GDBusProxy:g-name-owner` tracking
+/// of `GDBusProxy` will cause the proxy to drop signal and property changes from
+/// the service after it has restarted for the first time. When interacting
+/// with a stateless D-Bus service, do not use `GDBusProxy` — use direct D-Bus
+/// method calls and signal connections.
+/// 
 /// The generic `GDBusProxy::g-properties-changed` and
 /// `GDBusProxy::g-signal` signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
@@ -8727,7 +8864,12 @@ public protocol DBusProxyProtocol: GLibObject.ObjectProtocol, AsyncInitableProto
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
-/// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
+/// [gdbus-example-watch-proxy.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-watch-proxy.c)
+///
+/// The `DBusProxyRef` type acts as a lightweight Swift reference to an underlying `GDBusProxy` instance.
+/// It exposes methods that can operate on this data type through `DBusProxyProtocol` conformance.
+/// Use `DBusProxyRef` only as an `unowned` reference to an existing `GDBusProxy` instance.
+///
 public struct DBusProxyRef: DBusProxyProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusProxy` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_proxy_ptr` property instead.
@@ -8921,10 +9063,6 @@ public extension DBusProxyRef {
     }
 }
 
-/// The `DBusProxy` type acts as a reference-counted owner of an underlying `GDBusProxy` instance.
-/// It provides the methods that can operate on this data type through `DBusProxyProtocol` conformance.
-/// Use `DBusProxy` as a strong reference or owner of a `GDBusProxy` instance.
-///
 /// `GDBusProxy` is a base class used for proxies to access a D-Bus
 /// interface on a remote object. A `GDBusProxy` can be constructed for
 /// both well-known and unique names.
@@ -8947,6 +9085,13 @@ public extension DBusProxyRef {
 /// the message bus launching an owner (unless
 /// `G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START` is set).
 /// 
+/// If the proxy is for a stateless D-Bus service, where the name owner may
+/// be started and stopped between calls, the `GDBusProxy:g-name-owner` tracking
+/// of `GDBusProxy` will cause the proxy to drop signal and property changes from
+/// the service after it has restarted for the first time. When interacting
+/// with a stateless D-Bus service, do not use `GDBusProxy` — use direct D-Bus
+/// method calls and signal connections.
+/// 
 /// The generic `GDBusProxy::g-properties-changed` and
 /// `GDBusProxy::g-signal` signals are not very convenient to work with.
 /// Therefore, the recommended way of working with proxies is to subclass
@@ -8961,7 +9106,12 @@ public extension DBusProxyRef {
 /// of the thread where the instance was constructed.
 /// 
 /// An example using a proxy for a well-known name can be found in
-/// [gdbus-example-watch-proxy.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-proxy.c)
+/// [gdbus-example-watch-proxy.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-watch-proxy.c)
+///
+/// The `DBusProxy` type acts as a reference-counted owner of an underlying `GDBusProxy` instance.
+/// It provides the methods that can operate on this data type through `DBusProxyProtocol` conformance.
+/// Use `DBusProxy` as a strong reference or owner of a `GDBusProxy` instance.
+///
 open class DBusProxy: GLibObject.Object, DBusProxyProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -9351,12 +9501,14 @@ public enum DBusProxySignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9508,12 +9660,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9557,12 +9711,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9606,12 +9762,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9655,12 +9813,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9704,12 +9864,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9753,12 +9915,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9802,12 +9966,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9851,12 +10017,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -9900,12 +10068,14 @@ public extension DBusProxyProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10223,6 +10393,10 @@ public extension DBusProxyProtocol {
     }
 
     /// Gets the name that `proxy` was constructed for.
+    /// 
+    /// When connected to a message bus, this will usually be non-`nil`.
+    /// However, it may be `nil` for a proxy that communicates using a peer-to-peer
+    /// pattern.
     @inlinable func getName() -> String! {
         let rv = g_dbus_proxy_get_name(dbus_proxy_ptr).map({ String(cString: $0) })
         return rv
@@ -10425,8 +10599,16 @@ public extension DBusProxyProtocol {
     }
 
     /// Gets the name that `proxy` was constructed for.
+    /// 
+    /// When connected to a message bus, this will usually be non-`nil`.
+    /// However, it may be `nil` for a proxy that communicates using a peer-to-peer
+    /// pattern.
     @inlinable var name: String! {
         /// Gets the name that `proxy` was constructed for.
+        /// 
+        /// When connected to a message bus, this will usually be non-`nil`.
+        /// However, it may be `nil` for a proxy that communicates using a peer-to-peer
+        /// pattern.
         get {
             let rv = g_dbus_proxy_get_name(dbus_proxy_ptr).map({ String(cString: $0) })
             return rv
@@ -10467,11 +10649,6 @@ public extension DBusProxyProtocol {
 
 // MARK: - DBusServer Class
 
-/// The `DBusServerProtocol` protocol exposes the methods and properties of an underlying `GDBusServer` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusServer`.
-/// Alternatively, use `DBusServerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GDBusServer` is a helper for listening to and accepting D-Bus
 /// connections. This can be used to create a new D-Bus server, allowing two
 /// peers to use the D-Bus protocol for their own specialized communication.
@@ -10482,7 +10659,7 @@ public extension DBusProxyProtocol {
 /// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with GDBus can be found
-/// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
+/// in [gdbus-example-peer.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-peer.c).
 /// 
 /// Note that a minimal `GDBusServer` will accept connections from any
 /// peer. In many use-cases it will be necessary to add a `GDBusAuthObserver`
@@ -10490,6 +10667,12 @@ public extension DBusProxyProtocol {
 /// as the same user that is running the `GDBusServer`. Since GLib 2.68 this can
 /// be achieved more simply by passing the
 /// `G_DBUS_SERVER_FLAGS_AUTHENTICATION_REQUIRE_SAME_USER` flag to the server.
+///
+/// The `DBusServerProtocol` protocol exposes the methods and properties of an underlying `GDBusServer` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusServer`.
+/// Alternatively, use `DBusServerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusServerProtocol: GLibObject.ObjectProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GDBusServer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -10501,10 +10684,6 @@ public protocol DBusServerProtocol: GLibObject.ObjectProtocol, InitableProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusServerRef` type acts as a lightweight Swift reference to an underlying `GDBusServer` instance.
-/// It exposes methods that can operate on this data type through `DBusServerProtocol` conformance.
-/// Use `DBusServerRef` only as an `unowned` reference to an existing `GDBusServer` instance.
-///
 /// `GDBusServer` is a helper for listening to and accepting D-Bus
 /// connections. This can be used to create a new D-Bus server, allowing two
 /// peers to use the D-Bus protocol for their own specialized communication.
@@ -10515,7 +10694,7 @@ public protocol DBusServerProtocol: GLibObject.ObjectProtocol, InitableProtocol 
 /// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with GDBus can be found
-/// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
+/// in [gdbus-example-peer.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-peer.c).
 /// 
 /// Note that a minimal `GDBusServer` will accept connections from any
 /// peer. In many use-cases it will be necessary to add a `GDBusAuthObserver`
@@ -10523,6 +10702,11 @@ public protocol DBusServerProtocol: GLibObject.ObjectProtocol, InitableProtocol 
 /// as the same user that is running the `GDBusServer`. Since GLib 2.68 this can
 /// be achieved more simply by passing the
 /// `G_DBUS_SERVER_FLAGS_AUTHENTICATION_REQUIRE_SAME_USER` flag to the server.
+///
+/// The `DBusServerRef` type acts as a lightweight Swift reference to an underlying `GDBusServer` instance.
+/// It exposes methods that can operate on this data type through `DBusServerProtocol` conformance.
+/// Use `DBusServerRef` only as an `unowned` reference to an existing `GDBusServer` instance.
+///
 public struct DBusServerRef: DBusServerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusServer` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_server_ptr` property instead.
@@ -10657,10 +10841,6 @@ public extension DBusServerRef {
     }
 }
 
-/// The `DBusServer` type acts as a reference-counted owner of an underlying `GDBusServer` instance.
-/// It provides the methods that can operate on this data type through `DBusServerProtocol` conformance.
-/// Use `DBusServer` as a strong reference or owner of a `GDBusServer` instance.
-///
 /// `GDBusServer` is a helper for listening to and accepting D-Bus
 /// connections. This can be used to create a new D-Bus server, allowing two
 /// peers to use the D-Bus protocol for their own specialized communication.
@@ -10671,7 +10851,7 @@ public extension DBusServerRef {
 /// session or system bus, you should instead use `g_bus_own_name()`.
 /// 
 /// An example of peer-to-peer communication with GDBus can be found
-/// in [gdbus-example-peer.c](https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-peer.c).
+/// in [gdbus-example-peer.c](https://gitlab.gnome.org/GNOME/glib/-/blob/HEAD/gio/tests/gdbus-example-peer.c).
 /// 
 /// Note that a minimal `GDBusServer` will accept connections from any
 /// peer. In many use-cases it will be necessary to add a `GDBusAuthObserver`
@@ -10679,6 +10859,11 @@ public extension DBusServerRef {
 /// as the same user that is running the `GDBusServer`. Since GLib 2.68 this can
 /// be achieved more simply by passing the
 /// `G_DBUS_SERVER_FLAGS_AUTHENTICATION_REQUIRE_SAME_USER` flag to the server.
+///
+/// The `DBusServer` type acts as a reference-counted owner of an underlying `GDBusServer` instance.
+/// It provides the methods that can operate on this data type through `DBusServerProtocol` conformance.
+/// Use `DBusServer` as a strong reference or owner of a `GDBusServer` instance.
+///
 open class DBusServer: GLibObject.Object, DBusServerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -10874,7 +11059,9 @@ public enum DBusServerPropertyName: String, PropertyNameProtocol {
     case clientAddress = "client-address"
     /// Flags from the `GDBusServerFlags` enumeration.
     case flags = "flags"
-    /// The guid of the server.
+    /// The GUID of the server.
+    /// 
+    /// See `GDBusConnection:guid` for more details.
     case guid = "guid"
 }
 
@@ -10969,12 +11156,14 @@ public enum DBusServerSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -10989,7 +11178,9 @@ public enum DBusServerSignalName: String, SignalNameProtocol {
     case notifyClientAddress = "notify::client-address"
     /// Flags from the `GDBusServerFlags` enumeration.
     case notifyFlags = "notify::flags"
-    /// The guid of the server.
+    /// The GUID of the server.
+    /// 
+    /// See `GDBusConnection:guid` for more details.
     case notifyGuid = "notify::guid"
 }
 
@@ -11082,12 +11273,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11131,12 +11324,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11180,12 +11375,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11229,12 +11426,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11278,12 +11477,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11327,12 +11528,14 @@ public extension DBusServerProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -11371,6 +11574,8 @@ public extension DBusServerProtocol {
     /// Gets a
     /// [D-Bus address](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
     /// string that can be used by clients to connect to `server`.
+    /// 
+    /// This is valid and non-empty if initializing the `GDBusServer` succeeded.
     @inlinable func getClientAddress() -> String! {
         let rv = g_dbus_server_get_client_address(dbus_server_ptr).map({ String(cString: $0) })
         return rv
@@ -11382,7 +11587,7 @@ public extension DBusServerProtocol {
         return rv
     }
 
-    /// Gets the GUID for `server`.
+    /// Gets the GUID for `server`, as provided to `g_dbus_server_new_sync()`.
     @inlinable func getGuid() -> String! {
         let rv = g_dbus_server_get_guid(dbus_server_ptr).map({ String(cString: $0) })
         return rv
@@ -11402,10 +11607,14 @@ public extension DBusServerProtocol {
     /// Gets a
     /// [D-Bus address](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
     /// string that can be used by clients to connect to `server`.
+    /// 
+    /// This is valid and non-empty if initializing the `GDBusServer` succeeded.
     @inlinable var clientAddress: String! {
         /// Gets a
         /// [D-Bus address](https://dbus.freedesktop.org/doc/dbus-specification.html`addresses`)
         /// string that can be used by clients to connect to `server`.
+        /// 
+        /// This is valid and non-empty if initializing the `GDBusServer` succeeded.
         get {
             let rv = g_dbus_server_get_client_address(dbus_server_ptr).map({ String(cString: $0) })
             return rv
@@ -11421,9 +11630,11 @@ public extension DBusServerProtocol {
         }
     }
 
-    /// The guid of the server.
+    /// The GUID of the server.
+    /// 
+    /// See `GDBusConnection:guid` for more details.
     @inlinable var guid: String! {
-        /// Gets the GUID for `server`.
+        /// Gets the GUID for `server`, as provided to `g_dbus_server_new_sync()`.
         get {
             let rv = g_dbus_server_get_guid(dbus_server_ptr).map({ String(cString: $0) })
             return rv
@@ -11446,13 +11657,14 @@ public extension DBusServerProtocol {
 
 // MARK: - DataInputStream Class
 
+/// Data input stream implements `GInputStream` and includes functions for
+/// reading structured data directly from a binary input stream.
+///
 /// The `DataInputStreamProtocol` protocol exposes the methods and properties of an underlying `GDataInputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DataInputStream`.
 /// Alternatively, use `DataInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Data input stream implements `GInputStream` and includes functions for
-/// reading structured data directly from a binary input stream.
 public protocol DataInputStreamProtocol: BufferedInputStreamProtocol {
         /// Untyped pointer to the underlying `GDataInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -11464,12 +11676,13 @@ public protocol DataInputStreamProtocol: BufferedInputStreamProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Data input stream implements `GInputStream` and includes functions for
+/// reading structured data directly from a binary input stream.
+///
 /// The `DataInputStreamRef` type acts as a lightweight Swift reference to an underlying `GDataInputStream` instance.
 /// It exposes methods that can operate on this data type through `DataInputStreamProtocol` conformance.
 /// Use `DataInputStreamRef` only as an `unowned` reference to an existing `GDataInputStream` instance.
 ///
-/// Data input stream implements `GInputStream` and includes functions for
-/// reading structured data directly from a binary input stream.
 public struct DataInputStreamRef: DataInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDataInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `data_input_stream_ptr` property instead.
@@ -11556,12 +11769,13 @@ public extension DataInputStreamRef {
     }
 }
 
+/// Data input stream implements `GInputStream` and includes functions for
+/// reading structured data directly from a binary input stream.
+///
 /// The `DataInputStream` type acts as a reference-counted owner of an underlying `GDataInputStream` instance.
 /// It provides the methods that can operate on this data type through `DataInputStreamProtocol` conformance.
 /// Use `DataInputStream` as a strong reference or owner of a `GDataInputStream` instance.
 ///
-/// Data input stream implements `GInputStream` and includes functions for
-/// reading structured data directly from a binary input stream.
 open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -11700,8 +11914,13 @@ open class DataInputStream: BufferedInputStream, DataInputStreamProtocol {
 public enum DataInputStreamPropertyName: String, PropertyNameProtocol {
     case baseStream = "base-stream"
     case bufferSize = "buffer-size"
+    /// The :byte-order property determines the byte ordering that
+    /// is used when reading multi-byte entities (such as integers)
+    /// from the stream.
     case byteOrder = "byte-order"
     case closeBaseStream = "close-base-stream"
+    /// The :newline-type property determines what is considered
+    /// as a line ending when reading complete lines from the stream.
     case newlineType = "newline-type"
 }
 
@@ -11774,20 +11993,27 @@ public enum DataInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBaseStream = "notify::base-stream"
     case notifyBufferSize = "notify::buffer-size"
+    /// The :byte-order property determines the byte ordering that
+    /// is used when reading multi-byte entities (such as integers)
+    /// from the stream.
     case notifyByteOrder = "notify::byte-order"
     case notifyCloseBaseStream = "notify::close-base-stream"
+    /// The :newline-type property determines what is considered
+    /// as a line ending when reading complete lines from the stream.
     case notifyNewlineType = "notify::newline-type"
 }
 
@@ -12327,13 +12553,14 @@ public extension DataInputStreamProtocol {
 
 // MARK: - DataOutputStream Class
 
+/// Data output stream implements `GOutputStream` and includes functions for
+/// writing data directly to an output stream.
+///
 /// The `DataOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GDataOutputStream` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DataOutputStream`.
 /// Alternatively, use `DataOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Data output stream implements `GOutputStream` and includes functions for
-/// writing data directly to an output stream.
 public protocol DataOutputStreamProtocol: FilterOutputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GDataOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12345,12 +12572,13 @@ public protocol DataOutputStreamProtocol: FilterOutputStreamProtocol, SeekablePr
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Data output stream implements `GOutputStream` and includes functions for
+/// writing data directly to an output stream.
+///
 /// The `DataOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GDataOutputStream` instance.
 /// It exposes methods that can operate on this data type through `DataOutputStreamProtocol` conformance.
 /// Use `DataOutputStreamRef` only as an `unowned` reference to an existing `GDataOutputStream` instance.
 ///
-/// Data output stream implements `GOutputStream` and includes functions for
-/// writing data directly to an output stream.
 public struct DataOutputStreamRef: DataOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDataOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `data_output_stream_ptr` property instead.
@@ -12437,12 +12665,13 @@ public extension DataOutputStreamRef {
     }
 }
 
+/// Data output stream implements `GOutputStream` and includes functions for
+/// writing data directly to an output stream.
+///
 /// The `DataOutputStream` type acts as a reference-counted owner of an underlying `GDataOutputStream` instance.
 /// It provides the methods that can operate on this data type through `DataOutputStreamProtocol` conformance.
 /// Use `DataOutputStream` as a strong reference or owner of a `GDataOutputStream` instance.
 ///
-/// Data output stream implements `GOutputStream` and includes functions for
-/// writing data directly to an output stream.
 open class DataOutputStream: FilterOutputStream, DataOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -12655,12 +12884,14 @@ public enum DataOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -12837,17 +13068,18 @@ public extension DataOutputStreamProtocol {
 
 // MARK: - Emblem Class
 
-/// The `EmblemProtocol` protocol exposes the methods and properties of an underlying `GEmblem` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Emblem`.
-/// Alternatively, use `EmblemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GEmblem` is an implementation of `GIcon` that supports
 /// having an emblem, which is an icon with additional properties.
 /// It can than be added to a `GEmblemedIcon`.
 /// 
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
+///
+/// The `EmblemProtocol` protocol exposes the methods and properties of an underlying `GEmblem` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Emblem`.
+/// Alternatively, use `EmblemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EmblemProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GEmblem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -12859,16 +13091,17 @@ public protocol EmblemProtocol: GLibObject.ObjectProtocol, IconProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EmblemRef` type acts as a lightweight Swift reference to an underlying `GEmblem` instance.
-/// It exposes methods that can operate on this data type through `EmblemProtocol` conformance.
-/// Use `EmblemRef` only as an `unowned` reference to an existing `GEmblem` instance.
-///
 /// `GEmblem` is an implementation of `GIcon` that supports
 /// having an emblem, which is an icon with additional properties.
 /// It can than be added to a `GEmblemedIcon`.
 /// 
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
+///
+/// The `EmblemRef` type acts as a lightweight Swift reference to an underlying `GEmblem` instance.
+/// It exposes methods that can operate on this data type through `EmblemProtocol` conformance.
+/// Use `EmblemRef` only as an `unowned` reference to an existing `GEmblem` instance.
+///
 public struct EmblemRef: EmblemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GEmblem` instance.
     /// For type-safe access, use the generated, typed pointer `emblem_ptr` property instead.
@@ -12966,16 +13199,17 @@ public extension EmblemRef {
     }
 }
 
-/// The `Emblem` type acts as a reference-counted owner of an underlying `GEmblem` instance.
-/// It provides the methods that can operate on this data type through `EmblemProtocol` conformance.
-/// Use `Emblem` as a strong reference or owner of a `GEmblem` instance.
-///
 /// `GEmblem` is an implementation of `GIcon` that supports
 /// having an emblem, which is an icon with additional properties.
 /// It can than be added to a `GEmblemedIcon`.
 /// 
 /// Currently, only metainformation about the emblem's origin is
 /// supported. More may be added in the future.
+///
+/// The `Emblem` type acts as a reference-counted owner of an underlying `GEmblem` instance.
+/// It provides the methods that can operate on this data type through `EmblemProtocol` conformance.
+/// Use `Emblem` as a strong reference or owner of a `GEmblem` instance.
+///
 open class Emblem: GLibObject.Object, EmblemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -13198,12 +13432,14 @@ public enum EmblemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

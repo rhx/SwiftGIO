@@ -4,13 +4,14 @@ import GLibObject
 
 // MARK: - CharsetConverter Class
 
+/// `GCharsetConverter` is an implementation of `GConverter` based on
+/// GIConv.
+///
 /// The `CharsetConverterProtocol` protocol exposes the methods and properties of an underlying `GCharsetConverter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CharsetConverter`.
 /// Alternatively, use `CharsetConverterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GCharsetConverter` is an implementation of `GConverter` based on
-/// GIConv.
 public protocol CharsetConverterProtocol: GLibObject.ObjectProtocol, ConverterProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GCharsetConverter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -22,12 +23,13 @@ public protocol CharsetConverterProtocol: GLibObject.ObjectProtocol, ConverterPr
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GCharsetConverter` is an implementation of `GConverter` based on
+/// GIConv.
+///
 /// The `CharsetConverterRef` type acts as a lightweight Swift reference to an underlying `GCharsetConverter` instance.
 /// It exposes methods that can operate on this data type through `CharsetConverterProtocol` conformance.
 /// Use `CharsetConverterRef` only as an `unowned` reference to an existing `GCharsetConverter` instance.
 ///
-/// `GCharsetConverter` is an implementation of `GConverter` based on
-/// GIConv.
 public struct CharsetConverterRef: CharsetConverterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GCharsetConverter` instance.
     /// For type-safe access, use the generated, typed pointer `charset_converter_ptr` property instead.
@@ -116,12 +118,13 @@ public extension CharsetConverterRef {
     }
 }
 
+/// `GCharsetConverter` is an implementation of `GConverter` based on
+/// GIConv.
+///
 /// The `CharsetConverter` type acts as a reference-counted owner of an underlying `GCharsetConverter` instance.
 /// It provides the methods that can operate on this data type through `CharsetConverterProtocol` conformance.
 /// Use `CharsetConverter` as a strong reference or owner of a `GCharsetConverter` instance.
 ///
-/// `GCharsetConverter` is an implementation of `GConverter` based on
-/// GIConv.
 open class CharsetConverter: GLibObject.Object, CharsetConverterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -334,12 +337,14 @@ public enum CharsetConverterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -401,16 +406,17 @@ public extension CharsetConverterProtocol {
 
 // MARK: - ConverterInputStream Class
 
-/// The `ConverterInputStreamProtocol` protocol exposes the methods and properties of an underlying `GConverterInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ConverterInputStream`.
-/// Alternatively, use `ConverterInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Converter input stream implements `GInputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `ConverterInputStreamProtocol` protocol exposes the methods and properties of an underlying `GConverterInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ConverterInputStream`.
+/// Alternatively, use `ConverterInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ConverterInputStreamProtocol: FilterInputStreamProtocol, PollableInputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -422,15 +428,16 @@ public protocol ConverterInputStreamProtocol: FilterInputStreamProtocol, Pollabl
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ConverterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStream` instance.
-/// It exposes methods that can operate on this data type through `ConverterInputStreamProtocol` conformance.
-/// Use `ConverterInputStreamRef` only as an `unowned` reference to an existing `GConverterInputStream` instance.
-///
 /// Converter input stream implements `GInputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `ConverterInputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStream` instance.
+/// It exposes methods that can operate on this data type through `ConverterInputStreamProtocol` conformance.
+/// Use `ConverterInputStreamRef` only as an `unowned` reference to an existing `GConverterInputStream` instance.
+///
 public struct ConverterInputStreamRef: ConverterInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GConverterInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `converter_input_stream_ptr` property instead.
@@ -517,15 +524,16 @@ public extension ConverterInputStreamRef {
     }
 }
 
-/// The `ConverterInputStream` type acts as a reference-counted owner of an underlying `GConverterInputStream` instance.
-/// It provides the methods that can operate on this data type through `ConverterInputStreamProtocol` conformance.
-/// Use `ConverterInputStream` as a strong reference or owner of a `GConverterInputStream` instance.
-///
 /// Converter input stream implements `GInputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `ConverterInputStream` type acts as a reference-counted owner of an underlying `GConverterInputStream` instance.
+/// It provides the methods that can operate on this data type through `ConverterInputStreamProtocol` conformance.
+/// Use `ConverterInputStream` as a strong reference or owner of a `GConverterInputStream` instance.
+///
 open class ConverterInputStream: FilterInputStream, ConverterInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -736,12 +744,14 @@ public enum ConverterInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -785,16 +795,17 @@ public extension ConverterInputStreamProtocol {
 
 // MARK: - ConverterOutputStream Class
 
-/// The `ConverterOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GConverterOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ConverterOutputStream`.
-/// Alternatively, use `ConverterOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Converter output stream implements `GOutputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterOutputStream` implements
 /// `GPollableOutputStream`.
+///
+/// The `ConverterOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GConverterOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ConverterOutputStream`.
+/// Alternatively, use `ConverterOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ConverterOutputStreamProtocol: FilterOutputStreamProtocol, PollableOutputStreamProtocol {
         /// Untyped pointer to the underlying `GConverterOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -806,15 +817,16 @@ public protocol ConverterOutputStreamProtocol: FilterOutputStreamProtocol, Polla
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ConverterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStream` instance.
-/// It exposes methods that can operate on this data type through `ConverterOutputStreamProtocol` conformance.
-/// Use `ConverterOutputStreamRef` only as an `unowned` reference to an existing `GConverterOutputStream` instance.
-///
 /// Converter output stream implements `GOutputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterOutputStream` implements
 /// `GPollableOutputStream`.
+///
+/// The `ConverterOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStream` instance.
+/// It exposes methods that can operate on this data type through `ConverterOutputStreamProtocol` conformance.
+/// Use `ConverterOutputStreamRef` only as an `unowned` reference to an existing `GConverterOutputStream` instance.
+///
 public struct ConverterOutputStreamRef: ConverterOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GConverterOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `converter_output_stream_ptr` property instead.
@@ -901,15 +913,16 @@ public extension ConverterOutputStreamRef {
     }
 }
 
-/// The `ConverterOutputStream` type acts as a reference-counted owner of an underlying `GConverterOutputStream` instance.
-/// It provides the methods that can operate on this data type through `ConverterOutputStreamProtocol` conformance.
-/// Use `ConverterOutputStream` as a strong reference or owner of a `GConverterOutputStream` instance.
-///
 /// Converter output stream implements `GOutputStream` and allows
 /// conversion of data of various types during reading.
 /// 
 /// As of GLib 2.34, `GConverterOutputStream` implements
 /// `GPollableOutputStream`.
+///
+/// The `ConverterOutputStream` type acts as a reference-counted owner of an underlying `GConverterOutputStream` instance.
+/// It provides the methods that can operate on this data type through `ConverterOutputStreamProtocol` conformance.
+/// Use `ConverterOutputStream` as a strong reference or owner of a `GConverterOutputStream` instance.
+///
 open class ConverterOutputStream: FilterOutputStream, ConverterOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1120,12 +1133,14 @@ public enum ConverterOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1169,11 +1184,6 @@ public extension ConverterOutputStreamProtocol {
 
 // MARK: - Credentials Class
 
-/// The `CredentialsProtocol` protocol exposes the methods and properties of an underlying `GCredentials` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Credentials`.
-/// Alternatively, use `CredentialsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GCredentials` type is a reference-counted wrapper for native
 /// credentials. This information is typically used for identifying,
 /// authenticating and authorizing other processes.
@@ -1208,6 +1218,12 @@ public extension ConverterOutputStreamProtocol {
 /// On Solaris (including OpenSolaris and its derivatives), the native
 /// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
+///
+/// The `CredentialsProtocol` protocol exposes the methods and properties of an underlying `GCredentials` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Credentials`.
+/// Alternatively, use `CredentialsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GCredentials` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1219,10 +1235,6 @@ public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CredentialsRef` type acts as a lightweight Swift reference to an underlying `GCredentials` instance.
-/// It exposes methods that can operate on this data type through `CredentialsProtocol` conformance.
-/// Use `CredentialsRef` only as an `unowned` reference to an existing `GCredentials` instance.
-///
 /// The `GCredentials` type is a reference-counted wrapper for native
 /// credentials. This information is typically used for identifying,
 /// authenticating and authorizing other processes.
@@ -1257,6 +1269,11 @@ public protocol CredentialsProtocol: GLibObject.ObjectProtocol {
 /// On Solaris (including OpenSolaris and its derivatives), the native
 /// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
+///
+/// The `CredentialsRef` type acts as a lightweight Swift reference to an underlying `GCredentials` instance.
+/// It exposes methods that can operate on this data type through `CredentialsProtocol` conformance.
+/// Use `CredentialsRef` only as an `unowned` reference to an existing `GCredentials` instance.
+///
 public struct CredentialsRef: CredentialsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GCredentials` instance.
     /// For type-safe access, use the generated, typed pointer `credentials_ptr` property instead.
@@ -1344,10 +1361,6 @@ public extension CredentialsRef {
     }
 }
 
-/// The `Credentials` type acts as a reference-counted owner of an underlying `GCredentials` instance.
-/// It provides the methods that can operate on this data type through `CredentialsProtocol` conformance.
-/// Use `Credentials` as a strong reference or owner of a `GCredentials` instance.
-///
 /// The `GCredentials` type is a reference-counted wrapper for native
 /// credentials. This information is typically used for identifying,
 /// authenticating and authorizing other processes.
@@ -1382,6 +1395,11 @@ public extension CredentialsRef {
 /// On Solaris (including OpenSolaris and its derivatives), the native
 /// credential type is a `ucred_t`. This corresponds to
 /// `G_CREDENTIALS_TYPE_SOLARIS_UCRED`.
+///
+/// The `Credentials` type acts as a reference-counted owner of an underlying `GCredentials` instance.
+/// It provides the methods that can operate on this data type through `CredentialsProtocol` conformance.
+/// Use `Credentials` as a strong reference or owner of a `GCredentials` instance.
+///
 open class Credentials: GLibObject.Object, CredentialsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1536,12 +1554,14 @@ public enum CredentialsSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1699,14 +1719,15 @@ public extension CredentialsProtocol {
 
 // MARK: - DBusActionGroup Class
 
+/// `GDBusActionGroup` is an implementation of the `GActionGroup`
+/// interface that can be used as a proxy for an action group
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
+///
 /// The `DBusActionGroupProtocol` protocol exposes the methods and properties of an underlying `GDBusActionGroup` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusActionGroup`.
 /// Alternatively, use `DBusActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GDBusActionGroup` is an implementation of the `GActionGroup`
-/// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 public protocol DBusActionGroupProtocol: GLibObject.ObjectProtocol, ActionGroupProtocol, RemoteActionGroupProtocol {
         /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1718,13 +1739,14 @@ public protocol DBusActionGroupProtocol: GLibObject.ObjectProtocol, ActionGroupP
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GDBusActionGroup` is an implementation of the `GActionGroup`
+/// interface that can be used as a proxy for an action group
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
+///
 /// The `DBusActionGroupRef` type acts as a lightweight Swift reference to an underlying `GDBusActionGroup` instance.
 /// It exposes methods that can operate on this data type through `DBusActionGroupProtocol` conformance.
 /// Use `DBusActionGroupRef` only as an `unowned` reference to an existing `GDBusActionGroup` instance.
 ///
-/// `GDBusActionGroup` is an implementation of the `GActionGroup`
-/// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 public struct DBusActionGroupRef: DBusActionGroupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GDBusActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_action_group_ptr` property instead.
@@ -1823,13 +1845,14 @@ public extension DBusActionGroupRef {
     }
 }
 
+/// `GDBusActionGroup` is an implementation of the `GActionGroup`
+/// interface that can be used as a proxy for an action group
+/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
+///
 /// The `DBusActionGroup` type acts as a reference-counted owner of an underlying `GDBusActionGroup` instance.
 /// It provides the methods that can operate on this data type through `DBusActionGroupProtocol` conformance.
 /// Use `DBusActionGroup` as a strong reference or owner of a `GDBusActionGroup` instance.
 ///
-/// `GDBusActionGroup` is an implementation of the `GActionGroup`
-/// interface that can be used as a proxy for an action group
-/// that is exported over D-Bus with `g_dbus_connection_export_action_group()`.
 open class DBusActionGroup: GLibObject.Object, DBusActionGroupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1995,12 +2018,14 @@ public enum DBusActionGroupSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

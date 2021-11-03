@@ -19,12 +19,13 @@ public extension NativeVolumeMonitorClassRef {
 
 // MARK: - NativeVolumeMonitorClass Record
 
+
+///
 /// The `NativeVolumeMonitorClassProtocol` protocol exposes the methods and properties of an underlying `GNativeVolumeMonitorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeVolumeMonitorClass`.
 /// Alternatively, use `NativeVolumeMonitorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NativeVolumeMonitorClassProtocol {
         /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol NativeVolumeMonitorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NativeVolumeMonitorClassRef` type acts as a lightweight Swift reference to an underlying `GNativeVolumeMonitorClass` instance.
 /// It exposes methods that can operate on this data type through `NativeVolumeMonitorClassProtocol` conformance.
 /// Use `NativeVolumeMonitorClassRef` only as an `unowned` reference to an existing `GNativeVolumeMonitorClass` instance.
 ///
-
 public struct NativeVolumeMonitorClassRef: NativeVolumeMonitorClassProtocol {
         /// Untyped pointer to the underlying `GNativeVolumeMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -155,12 +157,13 @@ public extension NetworkAddressClassRef {
 
 // MARK: - NetworkAddressClass Record
 
+
+///
 /// The `NetworkAddressClassProtocol` protocol exposes the methods and properties of an underlying `GNetworkAddressClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NetworkAddressClass`.
 /// Alternatively, use `NetworkAddressClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NetworkAddressClassProtocol {
         /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -172,11 +175,12 @@ public protocol NetworkAddressClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NetworkAddressClassRef` type acts as a lightweight Swift reference to an underlying `GNetworkAddressClass` instance.
 /// It exposes methods that can operate on this data type through `NetworkAddressClassProtocol` conformance.
 /// Use `NetworkAddressClassRef` only as an `unowned` reference to an existing `GNetworkAddressClass` instance.
 ///
-
 public struct NetworkAddressClassRef: NetworkAddressClassProtocol {
         /// Untyped pointer to the underlying `GNetworkAddressClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -289,12 +293,13 @@ public extension NetworkMonitorInterfaceRef {
 
 // MARK: - NetworkMonitorInterface Record
 
+/// The virtual function table for `GNetworkMonitor`.
+///
 /// The `NetworkMonitorInterfaceProtocol` protocol exposes the methods and properties of an underlying `GNetworkMonitorInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NetworkMonitorInterface`.
 /// Alternatively, use `NetworkMonitorInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The virtual function table for `GNetworkMonitor`.
 public protocol NetworkMonitorInterfaceProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -306,11 +311,12 @@ public protocol NetworkMonitorInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The virtual function table for `GNetworkMonitor`.
+///
 /// The `NetworkMonitorInterfaceRef` type acts as a lightweight Swift reference to an underlying `GNetworkMonitorInterface` instance.
 /// It exposes methods that can operate on this data type through `NetworkMonitorInterfaceProtocol` conformance.
 /// Use `NetworkMonitorInterfaceRef` only as an `unowned` reference to an existing `GNetworkMonitorInterface` instance.
 ///
-/// The virtual function table for `GNetworkMonitor`.
 public struct NetworkMonitorInterfaceRef: NetworkMonitorInterfaceProtocol {
         /// Untyped pointer to the underlying `GNetworkMonitorInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -433,12 +439,13 @@ public extension NetworkServiceClassRef {
 
 // MARK: - NetworkServiceClass Record
 
+
+///
 /// The `NetworkServiceClassProtocol` protocol exposes the methods and properties of an underlying `GNetworkServiceClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NetworkServiceClass`.
 /// Alternatively, use `NetworkServiceClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NetworkServiceClassProtocol {
         /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -450,11 +457,12 @@ public protocol NetworkServiceClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NetworkServiceClassRef` type acts as a lightweight Swift reference to an underlying `GNetworkServiceClass` instance.
 /// It exposes methods that can operate on this data type through `NetworkServiceClassProtocol` conformance.
 /// Use `NetworkServiceClassRef` only as an `unowned` reference to an existing `GNetworkServiceClass` instance.
 ///
-
 public struct NetworkServiceClassRef: NetworkServiceClassProtocol {
         /// Untyped pointer to the underlying `GNetworkServiceClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -567,12 +575,13 @@ public extension OsxAppInfoClassRef {
 
 // MARK: - OsxAppInfoClass Record
 
+
+///
 /// The `OsxAppInfoClassProtocol` protocol exposes the methods and properties of an underlying `GOsxAppInfoClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OsxAppInfoClass`.
 /// Alternatively, use `OsxAppInfoClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OsxAppInfoClassProtocol {
         /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -584,11 +593,12 @@ public protocol OsxAppInfoClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OsxAppInfoClassRef` type acts as a lightweight Swift reference to an underlying `GOsxAppInfoClass` instance.
 /// It exposes methods that can operate on this data type through `OsxAppInfoClassProtocol` conformance.
 /// Use `OsxAppInfoClassRef` only as an `unowned` reference to an existing `GOsxAppInfoClass` instance.
 ///
-
 public struct OsxAppInfoClassRef: OsxAppInfoClassProtocol {
         /// Untyped pointer to the underlying `GOsxAppInfoClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

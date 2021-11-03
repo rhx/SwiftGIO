@@ -19,12 +19,13 @@ public extension BufferedOutputStreamClassRef {
 
 // MARK: - BufferedOutputStreamClass Record
 
+
+///
 /// The `BufferedOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GBufferedOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BufferedOutputStreamClass`.
 /// Alternatively, use `BufferedOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol BufferedOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol BufferedOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `BufferedOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GBufferedOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `BufferedOutputStreamClassProtocol` conformance.
 /// Use `BufferedOutputStreamClassRef` only as an `unowned` reference to an existing `GBufferedOutputStreamClass` instance.
 ///
-
 public struct BufferedOutputStreamClassRef: BufferedOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GBufferedOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -157,12 +159,13 @@ public extension CancellableClassRef {
 
 // MARK: - CancellableClass Record
 
+
+///
 /// The `CancellableClassProtocol` protocol exposes the methods and properties of an underlying `GCancellableClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CancellableClass`.
 /// Alternatively, use `CancellableClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CancellableClassProtocol {
         /// Untyped pointer to the underlying `GCancellableClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -174,11 +177,12 @@ public protocol CancellableClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CancellableClassRef` type acts as a lightweight Swift reference to an underlying `GCancellableClass` instance.
 /// It exposes methods that can operate on this data type through `CancellableClassProtocol` conformance.
 /// Use `CancellableClassRef` only as an `unowned` reference to an existing `GCancellableClass` instance.
 ///
-
 public struct CancellableClassRef: CancellableClassProtocol {
         /// Untyped pointer to the underlying `GCancellableClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

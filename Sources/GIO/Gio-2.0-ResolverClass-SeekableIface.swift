@@ -19,12 +19,13 @@ public extension ResolverClassRef {
 
 // MARK: - ResolverClass Record
 
+
+///
 /// The `ResolverClassProtocol` protocol exposes the methods and properties of an underlying `GResolverClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ResolverClass`.
 /// Alternatively, use `ResolverClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ResolverClassProtocol {
         /// Untyped pointer to the underlying `GResolverClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol ResolverClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ResolverClassRef` type acts as a lightweight Swift reference to an underlying `GResolverClass` instance.
 /// It exposes methods that can operate on this data type through `ResolverClassProtocol` conformance.
 /// Use `ResolverClassRef` only as an `unowned` reference to an existing `GResolverClass` instance.
 ///
-
 public struct ResolverClassRef: ResolverClassProtocol {
         /// Untyped pointer to the underlying `GResolverClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -170,11 +172,6 @@ public extension ResolverClassProtocol {
 
 // MARK: - Resource Record
 
-/// The `ResourceProtocol` protocol exposes the methods and properties of an underlying `GResource` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Resource`.
-/// Alternatively, use `ResourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Applications and libraries often contain binary or textual data that is
 /// really part of the application, rather than user data. For instance
 /// `GtkBuilder` .ui files, splashscreen images, GMenu markup XML, CSS files,
@@ -311,6 +308,12 @@ public extension ResolverClassProtocol {
 /// Substitutions must start with a slash, and must not contain a trailing slash before the '='.  The path after
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
+///
+/// The `ResourceProtocol` protocol exposes the methods and properties of an underlying `GResource` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Resource`.
+/// Alternatively, use `ResourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -322,10 +325,6 @@ public protocol ResourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ResourceRef` type acts as a lightweight Swift reference to an underlying `GResource` instance.
-/// It exposes methods that can operate on this data type through `ResourceProtocol` conformance.
-/// Use `ResourceRef` only as an `unowned` reference to an existing `GResource` instance.
-///
 /// Applications and libraries often contain binary or textual data that is
 /// really part of the application, rather than user data. For instance
 /// `GtkBuilder` .ui files, splashscreen images, GMenu markup XML, CSS files,
@@ -462,6 +461,11 @@ public protocol ResourceProtocol {
 /// Substitutions must start with a slash, and must not contain a trailing slash before the '='.  The path after
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
+///
+/// The `ResourceRef` type acts as a lightweight Swift reference to an underlying `GResource` instance.
+/// It exposes methods that can operate on this data type through `ResourceProtocol` conformance.
+/// Use `ResourceRef` only as an `unowned` reference to an existing `GResource` instance.
+///
 public struct ResourceRef: ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
@@ -595,10 +599,6 @@ public extension ResourceRef {
     }
 }
 
-/// The `Resource` type acts as a reference-counted owner of an underlying `GResource` instance.
-/// It provides the methods that can operate on this data type through `ResourceProtocol` conformance.
-/// Use `Resource` as a strong reference or owner of a `GResource` instance.
-///
 /// Applications and libraries often contain binary or textual data that is
 /// really part of the application, rather than user data. For instance
 /// `GtkBuilder` .ui files, splashscreen images, GMenu markup XML, CSS files,
@@ -735,6 +735,11 @@ public extension ResourceRef {
 /// Substitutions must start with a slash, and must not contain a trailing slash before the '='.  The path after
 /// the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
 /// location of a single resource with an individual file.
+///
+/// The `Resource` type acts as a reference-counted owner of an underlying `GResource` instance.
+/// It provides the methods that can operate on this data type through `ResourceProtocol` conformance.
+/// Use `Resource` as a strong reference or owner of a `GResource` instance.
+///
 open class Resource: ResourceProtocol {
         /// Untyped pointer to the underlying `GResource` instance.
     /// For type-safe access, use the generated, typed pointer `resource_ptr` property instead.
@@ -1068,12 +1073,13 @@ public extension SeekableIfaceRef {
 
 // MARK: - SeekableIface Record
 
+/// Provides an interface for implementing seekable functionality on I/O Streams.
+///
 /// The `SeekableIfaceProtocol` protocol exposes the methods and properties of an underlying `GSeekableIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SeekableIface`.
 /// Alternatively, use `SeekableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for implementing seekable functionality on I/O Streams.
 public protocol SeekableIfaceProtocol {
         /// Untyped pointer to the underlying `GSeekableIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1085,11 +1091,12 @@ public protocol SeekableIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for implementing seekable functionality on I/O Streams.
+///
 /// The `SeekableIfaceRef` type acts as a lightweight Swift reference to an underlying `GSeekableIface` instance.
 /// It exposes methods that can operate on this data type through `SeekableIfaceProtocol` conformance.
 /// Use `SeekableIfaceRef` only as an `unowned` reference to an existing `GSeekableIface` instance.
 ///
-/// Provides an interface for implementing seekable functionality on I/O Streams.
 public struct SeekableIfaceRef: SeekableIfaceProtocol {
         /// Untyped pointer to the underlying `GSeekableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

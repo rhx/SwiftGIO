@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - UnixCredentialsMessage Class
 
-/// The `UnixCredentialsMessageProtocol` protocol exposes the methods and properties of an underlying `GUnixCredentialsMessage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixCredentialsMessage`.
-/// Alternatively, use `UnixCredentialsMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
 /// may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -20,6 +15,12 @@ import GLibObject
 /// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
 /// `g_socket_get_credentials()`.
+///
+/// The `UnixCredentialsMessageProtocol` protocol exposes the methods and properties of an underlying `GUnixCredentialsMessage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixCredentialsMessage`.
+/// Alternatively, use `UnixCredentialsMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
         /// Untyped pointer to the underlying `GUnixCredentialsMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -31,10 +32,6 @@ public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixCredentialsMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixCredentialsMessage` instance.
-/// It exposes methods that can operate on this data type through `UnixCredentialsMessageProtocol` conformance.
-/// Use `UnixCredentialsMessageRef` only as an `unowned` reference to an existing `GUnixCredentialsMessage` instance.
-///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
 /// may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -46,6 +43,11 @@ public protocol UnixCredentialsMessageProtocol: SocketControlMessageProtocol {
 /// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
 /// `g_socket_get_credentials()`.
+///
+/// The `UnixCredentialsMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixCredentialsMessage` instance.
+/// It exposes methods that can operate on this data type through `UnixCredentialsMessageProtocol` conformance.
+/// Use `UnixCredentialsMessageRef` only as an `unowned` reference to an existing `GUnixCredentialsMessage` instance.
+///
 public struct UnixCredentialsMessageRef: UnixCredentialsMessageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixCredentialsMessage` instance.
     /// For type-safe access, use the generated, typed pointer `unix_credentials_message_ptr` property instead.
@@ -143,10 +145,6 @@ public extension UnixCredentialsMessageRef {
     }
 }
 
-/// The `UnixCredentialsMessage` type acts as a reference-counted owner of an underlying `GUnixCredentialsMessage` instance.
-/// It provides the methods that can operate on this data type through `UnixCredentialsMessageProtocol` conformance.
-/// Use `UnixCredentialsMessage` as a strong reference or owner of a `GUnixCredentialsMessage` instance.
-///
 /// This `GSocketControlMessage` contains a `GCredentials` instance.  It
 /// may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -158,6 +156,11 @@ public extension UnixCredentialsMessageRef {
 /// `g_unix_connection_receive_credentials()`. To receive credentials of
 /// a foreign process connected to a socket, use
 /// `g_socket_get_credentials()`.
+///
+/// The `UnixCredentialsMessage` type acts as a reference-counted owner of an underlying `GUnixCredentialsMessage` instance.
+/// It provides the methods that can operate on this data type through `UnixCredentialsMessageProtocol` conformance.
+/// Use `UnixCredentialsMessage` as a strong reference or owner of a `GUnixCredentialsMessage` instance.
+///
 open class UnixCredentialsMessage: SocketControlMessage, UnixCredentialsMessageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -380,12 +383,14 @@ public enum UnixCredentialsMessageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -429,11 +434,6 @@ public extension UnixCredentialsMessageProtocol {
 
 // MARK: - UnixFDList Class
 
-/// The `UnixFDListProtocol` protocol exposes the methods and properties of an underlying `GUnixFDList` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixFDList`.
-/// Alternatively, use `UnixFDListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GUnixFDList` contains a list of file descriptors.  It owns the file
 /// descriptors that it contains, closing them when finalized.
 /// 
@@ -444,6 +444,12 @@ public extension UnixCredentialsMessageProtocol {
 /// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDListProtocol` protocol exposes the methods and properties of an underlying `GUnixFDList` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixFDList`.
+/// Alternatively, use `UnixFDListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GUnixFDList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -455,10 +461,6 @@ public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixFDListRef` type acts as a lightweight Swift reference to an underlying `GUnixFDList` instance.
-/// It exposes methods that can operate on this data type through `UnixFDListProtocol` conformance.
-/// Use `UnixFDListRef` only as an `unowned` reference to an existing `GUnixFDList` instance.
-///
 /// A `GUnixFDList` contains a list of file descriptors.  It owns the file
 /// descriptors that it contains, closing them when finalized.
 /// 
@@ -469,6 +471,11 @@ public protocol UnixFDListProtocol: GLibObject.ObjectProtocol {
 /// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDListRef` type acts as a lightweight Swift reference to an underlying `GUnixFDList` instance.
+/// It exposes methods that can operate on this data type through `UnixFDListProtocol` conformance.
+/// Use `UnixFDListRef` only as an `unowned` reference to an existing `GUnixFDList` instance.
+///
 public struct UnixFDListRef: UnixFDListProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixFDList` instance.
     /// For type-safe access, use the generated, typed pointer `unix_fd_list_ptr` property instead.
@@ -580,10 +587,6 @@ public extension UnixFDListRef {
     }
 }
 
-/// The `UnixFDList` type acts as a reference-counted owner of an underlying `GUnixFDList` instance.
-/// It provides the methods that can operate on this data type through `UnixFDListProtocol` conformance.
-/// Use `UnixFDList` as a strong reference or owner of a `GUnixFDList` instance.
-///
 /// A `GUnixFDList` contains a list of file descriptors.  It owns the file
 /// descriptors that it contains, closing them when finalized.
 /// 
@@ -594,6 +597,11 @@ public extension UnixFDListRef {
 /// Note that `&lt;gio/gunixfdlist.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDList` type acts as a reference-counted owner of an underlying `GUnixFDList` instance.
+/// It provides the methods that can operate on this data type through `UnixFDListProtocol` conformance.
+/// Use `UnixFDList` as a strong reference or owner of a `GUnixFDList` instance.
+///
 open class UnixFDList: GLibObject.Object, UnixFDListProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -774,12 +782,14 @@ public enum UnixFDListSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -824,9 +834,9 @@ public extension UnixFDListProtocol {
     /// 
     /// A possible cause of failure is exceeding the per-process or
     /// system-wide file descriptor limit.
-    @inlinable func get(index_: Int) throws -> Int {
+    @inlinable func get(index: Int) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_unix_fd_list_get(unix_fd_list_ptr, gint(index_), &error))
+        let rv = Int(g_unix_fd_list_get(unix_fd_list_ptr, gint(index), &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -904,11 +914,6 @@ public extension UnixFDListProtocol {
 
 // MARK: - UnixFDMessage Class
 
-/// The `UnixFDMessageProtocol` protocol exposes the methods and properties of an underlying `GUnixFDMessage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixFDMessage`.
-/// Alternatively, use `UnixFDMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
 /// It may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -922,6 +927,12 @@ public extension UnixFDListProtocol {
 /// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDMessageProtocol` protocol exposes the methods and properties of an underlying `GUnixFDMessage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixFDMessage`.
+/// Alternatively, use `UnixFDMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
         /// Untyped pointer to the underlying `GUnixFDMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -933,10 +944,6 @@ public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixFDMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixFDMessage` instance.
-/// It exposes methods that can operate on this data type through `UnixFDMessageProtocol` conformance.
-/// Use `UnixFDMessageRef` only as an `unowned` reference to an existing `GUnixFDMessage` instance.
-///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
 /// It may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -950,6 +957,11 @@ public protocol UnixFDMessageProtocol: SocketControlMessageProtocol {
 /// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDMessageRef` type acts as a lightweight Swift reference to an underlying `GUnixFDMessage` instance.
+/// It exposes methods that can operate on this data type through `UnixFDMessageProtocol` conformance.
+/// Use `UnixFDMessageRef` only as an `unowned` reference to an existing `GUnixFDMessage` instance.
+///
 public struct UnixFDMessageRef: UnixFDMessageProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixFDMessage` instance.
     /// For type-safe access, use the generated, typed pointer `unix_fd_message_ptr` property instead.
@@ -1048,10 +1060,6 @@ public extension UnixFDMessageRef {
     }
 }
 
-/// The `UnixFDMessage` type acts as a reference-counted owner of an underlying `GUnixFDMessage` instance.
-/// It provides the methods that can operate on this data type through `UnixFDMessageProtocol` conformance.
-/// Use `UnixFDMessage` as a strong reference or owner of a `GUnixFDMessage` instance.
-///
 /// This `GSocketControlMessage` contains a `GUnixFDList`.
 /// It may be sent using `g_socket_send_message()` and received using
 /// `g_socket_receive_message()` over UNIX sockets (ie: sockets in the
@@ -1065,6 +1073,11 @@ public extension UnixFDMessageRef {
 /// Note that `&lt;gio/gunixfdmessage.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixFDMessage` type acts as a reference-counted owner of an underlying `GUnixFDMessage` instance.
+/// It provides the methods that can operate on this data type through `UnixFDMessageProtocol` conformance.
+/// Use `UnixFDMessage` as a strong reference or owner of a `GUnixFDMessage` instance.
+///
 open class UnixFDMessage: SocketControlMessage, UnixFDMessageProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1287,12 +1300,14 @@ public enum UnixFDMessageSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1378,11 +1393,6 @@ public extension UnixFDMessageProtocol {
 
 // MARK: - UnixInputStream Class
 
-/// The `UnixInputStreamProtocol` protocol exposes the methods and properties of an underlying `GUnixInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixInputStream`.
-/// Alternatively, use `UnixInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -1392,6 +1402,12 @@ public extension UnixFDMessageProtocol {
 /// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixInputStreamProtocol` protocol exposes the methods and properties of an underlying `GUnixInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixInputStream`.
+/// Alternatively, use `UnixInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBasedProtocol, PollableInputStreamProtocol {
         /// Untyped pointer to the underlying `GUnixInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1403,10 +1419,6 @@ public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBase
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixInputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixInputStream` instance.
-/// It exposes methods that can operate on this data type through `UnixInputStreamProtocol` conformance.
-/// Use `UnixInputStreamRef` only as an `unowned` reference to an existing `GUnixInputStream` instance.
-///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -1416,6 +1428,11 @@ public protocol UnixInputStreamProtocol: InputStreamProtocol, FileDescriptorBase
 /// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixInputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixInputStream` instance.
+/// It exposes methods that can operate on this data type through `UnixInputStreamProtocol` conformance.
+/// Use `UnixInputStreamRef` only as an `unowned` reference to an existing `GUnixInputStream` instance.
+///
 public struct UnixInputStreamRef: UnixInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `unix_input_stream_ptr` property instead.
@@ -1505,10 +1522,6 @@ public extension UnixInputStreamRef {
     }
 }
 
-/// The `UnixInputStream` type acts as a reference-counted owner of an underlying `GUnixInputStream` instance.
-/// It provides the methods that can operate on this data type through `UnixInputStreamProtocol` conformance.
-/// Use `UnixInputStream` as a strong reference or owner of a `GUnixInputStream` instance.
-///
 /// `GUnixInputStream` implements `GInputStream` for reading from a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -1518,6 +1531,11 @@ public extension UnixInputStreamRef {
 /// Note that `&lt;gio/gunixinputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `UnixInputStream` type acts as a reference-counted owner of an underlying `GUnixInputStream` instance.
+/// It provides the methods that can operate on this data type through `UnixInputStreamProtocol` conformance.
+/// Use `UnixInputStream` as a strong reference or owner of a `GUnixInputStream` instance.
+///
 open class UnixInputStream: InputStream, UnixInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1732,12 +1750,14 @@ public enum UnixInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1813,12 +1833,13 @@ public extension UnixInputStreamProtocol {
 
 // MARK: - UnixMountMonitor Class
 
+/// Watches `GUnixMounts` for changes.
+///
 /// The `UnixMountMonitorProtocol` protocol exposes the methods and properties of an underlying `GUnixMountMonitor` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `UnixMountMonitor`.
 /// Alternatively, use `UnixMountMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Watches `GUnixMounts` for changes.
 public protocol UnixMountMonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GUnixMountMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1830,11 +1851,12 @@ public protocol UnixMountMonitorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Watches `GUnixMounts` for changes.
+///
 /// The `UnixMountMonitorRef` type acts as a lightweight Swift reference to an underlying `GUnixMountMonitor` instance.
 /// It exposes methods that can operate on this data type through `UnixMountMonitorProtocol` conformance.
 /// Use `UnixMountMonitorRef` only as an `unowned` reference to an existing `GUnixMountMonitor` instance.
 ///
-/// Watches `GUnixMounts` for changes.
 public struct UnixMountMonitorRef: UnixMountMonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixMountMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `unix_mount_monitor_ptr` property instead.
@@ -1940,11 +1962,12 @@ public extension UnixMountMonitorRef {
     }
 }
 
+/// Watches `GUnixMounts` for changes.
+///
 /// The `UnixMountMonitor` type acts as a reference-counted owner of an underlying `GUnixMountMonitor` instance.
 /// It provides the methods that can operate on this data type through `UnixMountMonitorProtocol` conformance.
 /// Use `UnixMountMonitor` as a strong reference or owner of a `GUnixMountMonitor` instance.
 ///
-/// Watches `GUnixMounts` for changes.
 open class UnixMountMonitor: GLibObject.Object, UnixMountMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2122,12 +2145,14 @@ public enum UnixMountMonitorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2243,11 +2268,6 @@ public extension UnixMountMonitorProtocol {
 
 // MARK: - UnixOutputStream Class
 
-/// The `UnixOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GUnixOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixOutputStream`.
-/// Alternatively, use `UnixOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -2257,6 +2277,12 @@ public extension UnixMountMonitorProtocol {
 /// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GUnixOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixOutputStream`.
+/// Alternatively, use `UnixOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBasedProtocol, PollableOutputStreamProtocol {
         /// Untyped pointer to the underlying `GUnixOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2268,10 +2294,6 @@ public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBa
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixOutputStream` instance.
-/// It exposes methods that can operate on this data type through `UnixOutputStreamProtocol` conformance.
-/// Use `UnixOutputStreamRef` only as an `unowned` reference to an existing `GUnixOutputStream` instance.
-///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -2281,6 +2303,11 @@ public protocol UnixOutputStreamProtocol: OutputStreamProtocol, FileDescriptorBa
 /// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GUnixOutputStream` instance.
+/// It exposes methods that can operate on this data type through `UnixOutputStreamProtocol` conformance.
+/// Use `UnixOutputStreamRef` only as an `unowned` reference to an existing `GUnixOutputStream` instance.
+///
 public struct UnixOutputStreamRef: UnixOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `unix_output_stream_ptr` property instead.
@@ -2370,10 +2397,6 @@ public extension UnixOutputStreamRef {
     }
 }
 
-/// The `UnixOutputStream` type acts as a reference-counted owner of an underlying `GUnixOutputStream` instance.
-/// It provides the methods that can operate on this data type through `UnixOutputStreamProtocol` conformance.
-/// Use `UnixOutputStream` as a strong reference or owner of a `GUnixOutputStream` instance.
-///
 /// `GUnixOutputStream` implements `GOutputStream` for writing to a UNIX
 /// file descriptor, including asynchronous operations. (If the file
 /// descriptor refers to a socket or pipe, this will use `poll()` to do
@@ -2383,6 +2406,11 @@ public extension UnixOutputStreamRef {
 /// Note that `&lt;gio/gunixoutputstream.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixOutputStream` type acts as a reference-counted owner of an underlying `GUnixOutputStream` instance.
+/// It provides the methods that can operate on this data type through `UnixOutputStreamProtocol` conformance.
+/// Use `UnixOutputStream` as a strong reference or owner of a `GUnixOutputStream` instance.
+///
 open class UnixOutputStream: OutputStream, UnixOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2597,12 +2625,14 @@ public enum UnixOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2678,11 +2708,6 @@ public extension UnixOutputStreamProtocol {
 
 // MARK: - UnixSocketAddress Class
 
-/// The `UnixSocketAddressProtocol` protocol exposes the methods and properties of an underlying `GUnixSocketAddress` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `UnixSocketAddress`.
-/// Alternatively, use `UnixSocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Support for UNIX-domain (also known as local) sockets.
 /// 
 /// UNIX domain sockets are generally visible in the filesystem.
@@ -2697,6 +2722,12 @@ public extension UnixOutputStreamProtocol {
 /// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixSocketAddressProtocol` protocol exposes the methods and properties of an underlying `GUnixSocketAddress` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `UnixSocketAddress`.
+/// Alternatively, use `UnixSocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
         /// Untyped pointer to the underlying `GUnixSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2708,10 +2739,6 @@ public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `UnixSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GUnixSocketAddress` instance.
-/// It exposes methods that can operate on this data type through `UnixSocketAddressProtocol` conformance.
-/// Use `UnixSocketAddressRef` only as an `unowned` reference to an existing `GUnixSocketAddress` instance.
-///
 /// Support for UNIX-domain (also known as local) sockets.
 /// 
 /// UNIX domain sockets are generally visible in the filesystem.
@@ -2726,6 +2753,11 @@ public protocol UnixSocketAddressProtocol: SocketAddressProtocol {
 /// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GUnixSocketAddress` instance.
+/// It exposes methods that can operate on this data type through `UnixSocketAddressProtocol` conformance.
+/// Use `UnixSocketAddressRef` only as an `unowned` reference to an existing `GUnixSocketAddress` instance.
+///
 public struct UnixSocketAddressRef: UnixSocketAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GUnixSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `unix_socket_address_ptr` property instead.
@@ -2906,10 +2938,6 @@ public extension UnixSocketAddressRef {
     }
 }
 
-/// The `UnixSocketAddress` type acts as a reference-counted owner of an underlying `GUnixSocketAddress` instance.
-/// It provides the methods that can operate on this data type through `UnixSocketAddressProtocol` conformance.
-/// Use `UnixSocketAddress` as a strong reference or owner of a `GUnixSocketAddress` instance.
-///
 /// Support for UNIX-domain (also known as local) sockets.
 /// 
 /// UNIX domain sockets are generally visible in the filesystem.
@@ -2924,6 +2952,11 @@ public extension UnixSocketAddressRef {
 /// Note that `&lt;gio/gunixsocketaddress.h&gt;` belongs to the UNIX-specific GIO
 /// interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config file
 /// when using it.
+///
+/// The `UnixSocketAddress` type acts as a reference-counted owner of an underlying `GUnixSocketAddress` instance.
+/// It provides the methods that can operate on this data type through `UnixSocketAddressProtocol` conformance.
+/// Use `UnixSocketAddress` as a strong reference or owner of a `GUnixSocketAddress` instance.
+///
 open class UnixSocketAddress: SocketAddress, UnixSocketAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3240,12 +3273,14 @@ public enum UnixSocketAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3367,12 +3402,13 @@ public extension UnixSocketAddressProtocol {
 
 // MARK: - Vfs Class
 
+/// Entry point for using GIO functionality.
+///
 /// The `VfsProtocol` protocol exposes the methods and properties of an underlying `GVfs` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Vfs`.
 /// Alternatively, use `VfsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Entry point for using GIO functionality.
 public protocol VfsProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GVfs` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3384,11 +3420,12 @@ public protocol VfsProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Entry point for using GIO functionality.
+///
 /// The `VfsRef` type acts as a lightweight Swift reference to an underlying `GVfs` instance.
 /// It exposes methods that can operate on this data type through `VfsProtocol` conformance.
 /// Use `VfsRef` only as an `unowned` reference to an existing `GVfs` instance.
 ///
-/// Entry point for using GIO functionality.
 public struct VfsRef: VfsProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GVfs` instance.
     /// For type-safe access, use the generated, typed pointer `vfs_ptr` property instead.
@@ -3481,11 +3518,12 @@ public extension VfsRef {
     }
 }
 
+/// Entry point for using GIO functionality.
+///
 /// The `Vfs` type acts as a reference-counted owner of an underlying `GVfs` instance.
 /// It provides the methods that can operate on this data type through `VfsProtocol` conformance.
 /// Use `Vfs` as a strong reference or owner of a `GVfs` instance.
 ///
-/// Entry point for using GIO functionality.
 open class Vfs: GLibObject.Object, VfsProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3646,12 +3684,14 @@ public enum VfsSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

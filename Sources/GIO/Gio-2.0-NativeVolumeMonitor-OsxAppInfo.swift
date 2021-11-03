@@ -4,12 +4,13 @@ import GLibObject
 
 // MARK: - NativeVolumeMonitor Class
 
+
+///
 /// The `NativeVolumeMonitorProtocol` protocol exposes the methods and properties of an underlying `GNativeVolumeMonitor` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeVolumeMonitor`.
 /// Alternatively, use `NativeVolumeMonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol NativeVolumeMonitorProtocol: VolumeMonitorProtocol {
         /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol NativeVolumeMonitorProtocol: VolumeMonitorProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `NativeVolumeMonitorRef` type acts as a lightweight Swift reference to an underlying `GNativeVolumeMonitor` instance.
 /// It exposes methods that can operate on this data type through `NativeVolumeMonitorProtocol` conformance.
 /// Use `NativeVolumeMonitorRef` only as an `unowned` reference to an existing `GNativeVolumeMonitor` instance.
 ///
-
 public struct NativeVolumeMonitorRef: NativeVolumeMonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GNativeVolumeMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `native_volume_monitor_ptr` property instead.
@@ -107,11 +109,12 @@ public extension NativeVolumeMonitorRef {
 
     }
 
+
+///
 /// The `NativeVolumeMonitor` type acts as a reference-counted owner of an underlying `GNativeVolumeMonitor` instance.
 /// It provides the methods that can operate on this data type through `NativeVolumeMonitorProtocol` conformance.
 /// Use `NativeVolumeMonitor` as a strong reference or owner of a `GNativeVolumeMonitor` instance.
 ///
-
 open class NativeVolumeMonitor: VolumeMonitor, NativeVolumeMonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -280,12 +283,14 @@ public enum NativeVolumeMonitorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -319,11 +324,6 @@ public extension NativeVolumeMonitorProtocol {
 
 // MARK: - NetworkAddress Class
 
-/// The `NetworkAddressProtocol` protocol exposes the methods and properties of an underlying `GNetworkAddress` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NetworkAddress`.
-/// Alternatively, use `NetworkAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GNetworkAddress` provides an easy way to resolve a hostname and
 /// then attempt to connect to that host, handling the possibility of
 /// multiple IP addresses and multiple address families.
@@ -334,6 +334,12 @@ public extension NativeVolumeMonitorProtocol {
 /// 
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkAddressProtocol` protocol exposes the methods and properties of an underlying `GNetworkAddress` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NetworkAddress`.
+/// Alternatively, use `NetworkAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NetworkAddressProtocol: GLibObject.ObjectProtocol, SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GNetworkAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -345,10 +351,6 @@ public protocol NetworkAddressProtocol: GLibObject.ObjectProtocol, SocketConnect
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NetworkAddressRef` type acts as a lightweight Swift reference to an underlying `GNetworkAddress` instance.
-/// It exposes methods that can operate on this data type through `NetworkAddressProtocol` conformance.
-/// Use `NetworkAddressRef` only as an `unowned` reference to an existing `GNetworkAddress` instance.
-///
 /// `GNetworkAddress` provides an easy way to resolve a hostname and
 /// then attempt to connect to that host, handling the possibility of
 /// multiple IP addresses and multiple address families.
@@ -359,6 +361,11 @@ public protocol NetworkAddressProtocol: GLibObject.ObjectProtocol, SocketConnect
 /// 
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkAddressRef` type acts as a lightweight Swift reference to an underlying `GNetworkAddress` instance.
+/// It exposes methods that can operate on this data type through `NetworkAddressProtocol` conformance.
+/// Use `NetworkAddressRef` only as an `unowned` reference to an existing `GNetworkAddress` instance.
+///
 public struct NetworkAddressRef: NetworkAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GNetworkAddress` instance.
     /// For type-safe access, use the generated, typed pointer `network_address_ptr` property instead.
@@ -440,10 +447,6 @@ public extension NetworkAddressRef {
 
     }
 
-/// The `NetworkAddress` type acts as a reference-counted owner of an underlying `GNetworkAddress` instance.
-/// It provides the methods that can operate on this data type through `NetworkAddressProtocol` conformance.
-/// Use `NetworkAddress` as a strong reference or owner of a `GNetworkAddress` instance.
-///
 /// `GNetworkAddress` provides an easy way to resolve a hostname and
 /// then attempt to connect to that host, handling the possibility of
 /// multiple IP addresses and multiple address families.
@@ -454,6 +457,11 @@ public extension NetworkAddressRef {
 /// 
 /// See `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkAddress` type acts as a reference-counted owner of an underlying `GNetworkAddress` instance.
+/// It provides the methods that can operate on this data type through `NetworkAddressProtocol` conformance.
+/// Use `NetworkAddress` as a strong reference or owner of a `GNetworkAddress` instance.
+///
 open class NetworkAddress: GLibObject.Object, NetworkAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -658,12 +666,14 @@ public enum NetworkAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -737,11 +747,6 @@ public extension NetworkAddressProtocol {
 
 // MARK: - NetworkService Class
 
-/// The `NetworkServiceProtocol` protocol exposes the methods and properties of an underlying `GNetworkService` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `NetworkService`.
-/// Alternatively, use `NetworkServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Like `GNetworkAddress` does with hostnames, `GNetworkService`
 /// provides an easy way to resolve a SRV record, and then attempt to
 /// connect to one of the hosts that implements that service, handling
@@ -751,6 +756,12 @@ public extension NetworkAddressProtocol {
 /// See `GSrvTarget` for more information about SRV records, and see
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkServiceProtocol` protocol exposes the methods and properties of an underlying `GNetworkService` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `NetworkService`.
+/// Alternatively, use `NetworkServiceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NetworkServiceProtocol: GLibObject.ObjectProtocol, SocketConnectableProtocol {
         /// Untyped pointer to the underlying `GNetworkService` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -762,10 +773,6 @@ public protocol NetworkServiceProtocol: GLibObject.ObjectProtocol, SocketConnect
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NetworkServiceRef` type acts as a lightweight Swift reference to an underlying `GNetworkService` instance.
-/// It exposes methods that can operate on this data type through `NetworkServiceProtocol` conformance.
-/// Use `NetworkServiceRef` only as an `unowned` reference to an existing `GNetworkService` instance.
-///
 /// Like `GNetworkAddress` does with hostnames, `GNetworkService`
 /// provides an easy way to resolve a SRV record, and then attempt to
 /// connect to one of the hosts that implements that service, handling
@@ -775,6 +782,11 @@ public protocol NetworkServiceProtocol: GLibObject.ObjectProtocol, SocketConnect
 /// See `GSrvTarget` for more information about SRV records, and see
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkServiceRef` type acts as a lightweight Swift reference to an underlying `GNetworkService` instance.
+/// It exposes methods that can operate on this data type through `NetworkServiceProtocol` conformance.
+/// Use `NetworkServiceRef` only as an `unowned` reference to an existing `GNetworkService` instance.
+///
 public struct NetworkServiceRef: NetworkServiceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GNetworkService` instance.
     /// For type-safe access, use the generated, typed pointer `network_service_ptr` property instead.
@@ -856,10 +868,6 @@ public extension NetworkServiceRef {
 
     }
 
-/// The `NetworkService` type acts as a reference-counted owner of an underlying `GNetworkService` instance.
-/// It provides the methods that can operate on this data type through `NetworkServiceProtocol` conformance.
-/// Use `NetworkService` as a strong reference or owner of a `GNetworkService` instance.
-///
 /// Like `GNetworkAddress` does with hostnames, `GNetworkService`
 /// provides an easy way to resolve a SRV record, and then attempt to
 /// connect to one of the hosts that implements that service, handling
@@ -869,6 +877,11 @@ public extension NetworkServiceRef {
 /// See `GSrvTarget` for more information about SRV records, and see
 /// `GSocketConnectable` for an example of using the connectable
 /// interface.
+///
+/// The `NetworkService` type acts as a reference-counted owner of an underlying `GNetworkService` instance.
+/// It provides the methods that can operate on this data type through `NetworkServiceProtocol` conformance.
+/// Use `NetworkService` as a strong reference or owner of a `GNetworkService` instance.
+///
 open class NetworkService: GLibObject.Object, NetworkServiceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1074,12 +1087,14 @@ public enum NetworkServiceSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1182,11 +1197,6 @@ public extension NetworkServiceProtocol {
 
 // MARK: - Notification Class
 
-/// The `NotificationProtocol` protocol exposes the methods and properties of an underlying `GNotification` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Notification`.
-/// Alternatively, use `NotificationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GNotification` is a mechanism for creating a notification to be shown
 /// to the user -- typically as a pop-up notification presented by the
 /// desktop environment shell.
@@ -1200,6 +1210,29 @@ public extension NetworkServiceProtocol {
 /// not running, applications using `GNotification` should be able to be
 /// started as a D-Bus service, using `GApplication`.
 /// 
+/// In order for `GNotification` to work, the application must have installed
+/// a `.desktop` file. For example:
+/// ```
+///  [Desktop Entry]
+///   Name=Test Application
+///   Comment=Description of what Test Application does
+///   Exec=gnome-test-application
+///   Icon=org.gnome.TestApplication
+///   Terminal=false
+///   Type=Application
+///   Categories=GNOME;GTK;TestApplication Category;
+///   StartupNotify=true
+///   DBusActivatable=true
+///   X-GNOME-UsesNotifications=true
+/// ```
+/// 
+/// The `X-GNOME-UsesNotifications` key indicates to GNOME Control Center
+/// that this application uses notifications, so it can be listed in the
+/// Control Center’s ‘Notifications’ panel.
+/// 
+/// The `.desktop` file must be named as `org.gnome.TestApplication.desktop`,
+/// where `org.gnome.TestApplication` is the ID passed to `g_application_new()`.
+/// 
 /// User interaction with a notification (either the default action, or
 /// buttons) must be associated with actions on the application (ie:
 /// "app." actions).  It is not possible to route user interaction
@@ -1208,6 +1241,12 @@ public extension NetworkServiceProtocol {
 /// clicked.
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
+///
+/// The `NotificationProtocol` protocol exposes the methods and properties of an underlying `GNotification` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Notification`.
+/// Alternatively, use `NotificationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol NotificationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GNotification` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1219,10 +1258,6 @@ public protocol NotificationProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `NotificationRef` type acts as a lightweight Swift reference to an underlying `GNotification` instance.
-/// It exposes methods that can operate on this data type through `NotificationProtocol` conformance.
-/// Use `NotificationRef` only as an `unowned` reference to an existing `GNotification` instance.
-///
 /// `GNotification` is a mechanism for creating a notification to be shown
 /// to the user -- typically as a pop-up notification presented by the
 /// desktop environment shell.
@@ -1236,6 +1271,29 @@ public protocol NotificationProtocol: GLibObject.ObjectProtocol {
 /// not running, applications using `GNotification` should be able to be
 /// started as a D-Bus service, using `GApplication`.
 /// 
+/// In order for `GNotification` to work, the application must have installed
+/// a `.desktop` file. For example:
+/// ```
+///  [Desktop Entry]
+///   Name=Test Application
+///   Comment=Description of what Test Application does
+///   Exec=gnome-test-application
+///   Icon=org.gnome.TestApplication
+///   Terminal=false
+///   Type=Application
+///   Categories=GNOME;GTK;TestApplication Category;
+///   StartupNotify=true
+///   DBusActivatable=true
+///   X-GNOME-UsesNotifications=true
+/// ```
+/// 
+/// The `X-GNOME-UsesNotifications` key indicates to GNOME Control Center
+/// that this application uses notifications, so it can be listed in the
+/// Control Center’s ‘Notifications’ panel.
+/// 
+/// The `.desktop` file must be named as `org.gnome.TestApplication.desktop`,
+/// where `org.gnome.TestApplication` is the ID passed to `g_application_new()`.
+/// 
 /// User interaction with a notification (either the default action, or
 /// buttons) must be associated with actions on the application (ie:
 /// "app." actions).  It is not possible to route user interaction
@@ -1244,6 +1302,11 @@ public protocol NotificationProtocol: GLibObject.ObjectProtocol {
 /// clicked.
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
+///
+/// The `NotificationRef` type acts as a lightweight Swift reference to an underlying `GNotification` instance.
+/// It exposes methods that can operate on this data type through `NotificationProtocol` conformance.
+/// Use `NotificationRef` only as an `unowned` reference to an existing `GNotification` instance.
+///
 public struct NotificationRef: NotificationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GNotification` instance.
     /// For type-safe access, use the generated, typed pointer `notification_ptr` property instead.
@@ -1335,10 +1398,6 @@ public extension NotificationRef {
     }
 }
 
-/// The `Notification` type acts as a reference-counted owner of an underlying `GNotification` instance.
-/// It provides the methods that can operate on this data type through `NotificationProtocol` conformance.
-/// Use `Notification` as a strong reference or owner of a `GNotification` instance.
-///
 /// `GNotification` is a mechanism for creating a notification to be shown
 /// to the user -- typically as a pop-up notification presented by the
 /// desktop environment shell.
@@ -1352,6 +1411,29 @@ public extension NotificationRef {
 /// not running, applications using `GNotification` should be able to be
 /// started as a D-Bus service, using `GApplication`.
 /// 
+/// In order for `GNotification` to work, the application must have installed
+/// a `.desktop` file. For example:
+/// ```
+///  [Desktop Entry]
+///   Name=Test Application
+///   Comment=Description of what Test Application does
+///   Exec=gnome-test-application
+///   Icon=org.gnome.TestApplication
+///   Terminal=false
+///   Type=Application
+///   Categories=GNOME;GTK;TestApplication Category;
+///   StartupNotify=true
+///   DBusActivatable=true
+///   X-GNOME-UsesNotifications=true
+/// ```
+/// 
+/// The `X-GNOME-UsesNotifications` key indicates to GNOME Control Center
+/// that this application uses notifications, so it can be listed in the
+/// Control Center’s ‘Notifications’ panel.
+/// 
+/// The `.desktop` file must be named as `org.gnome.TestApplication.desktop`,
+/// where `org.gnome.TestApplication` is the ID passed to `g_application_new()`.
+/// 
 /// User interaction with a notification (either the default action, or
 /// buttons) must be associated with actions on the application (ie:
 /// "app." actions).  It is not possible to route user interaction
@@ -1360,6 +1442,11 @@ public extension NotificationRef {
 /// clicked.
 /// 
 /// A notification can be sent with `g_application_send_notification()`.
+///
+/// The `Notification` type acts as a reference-counted owner of an underlying `GNotification` instance.
+/// It provides the methods that can operate on this data type through `NotificationProtocol` conformance.
+/// Use `Notification` as a strong reference or owner of a `GNotification` instance.
+///
 open class Notification: GLibObject.Object, NotificationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1518,12 +1605,14 @@ public enum NotificationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1576,6 +1665,17 @@ public extension NotificationProtocol {
     /// Sets the body of `notification` to `body`.
     @inlinable func set(body: UnsafePointer<gchar>? = nil) {
         g_notification_set_body(notification_ptr, body)
+    
+    }
+
+    /// Sets the type of `notification` to `category`. Categories have a main
+    /// type like `email`, `im` or `device` and can have a detail separated
+    /// by a `.`, e.g. `im.received` or `email.arrived`. Setting the category
+    /// helps the notification server to select proper feedback to the user.
+    /// 
+    /// Standard categories are [listed in the specification](https://specifications.freedesktop.org/notification-spec/latest/ar01s06.html).
+    @inlinable func set(category: UnsafePointer<gchar>? = nil) {
+        g_notification_set_category(notification_ptr, category)
     
     }
 
@@ -1662,12 +1762,13 @@ public extension NotificationProtocol {
 
 // MARK: - OsxAppInfo Class
 
+
+///
 /// The `OsxAppInfoProtocol` protocol exposes the methods and properties of an underlying `GOsxAppInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OsxAppInfo`.
 /// Alternatively, use `OsxAppInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OsxAppInfoProtocol: GLibObject.ObjectProtocol, AppInfoProtocol {
         /// Untyped pointer to the underlying `GOsxAppInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1679,11 +1780,12 @@ public protocol OsxAppInfoProtocol: GLibObject.ObjectProtocol, AppInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OsxAppInfoRef` type acts as a lightweight Swift reference to an underlying `GOsxAppInfo` instance.
 /// It exposes methods that can operate on this data type through `OsxAppInfoProtocol` conformance.
 /// Use `OsxAppInfoRef` only as an `unowned` reference to an existing `GOsxAppInfo` instance.
 ///
-
 public struct OsxAppInfoRef: OsxAppInfoProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GOsxAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `osx_app_info_ptr` property instead.
@@ -1765,11 +1867,12 @@ public extension OsxAppInfoRef {
 
     }
 
+
+///
 /// The `OsxAppInfo` type acts as a reference-counted owner of an underlying `GOsxAppInfo` instance.
 /// It provides the methods that can operate on this data type through `OsxAppInfoProtocol` conformance.
 /// Use `OsxAppInfo` as a strong reference or owner of a `GOsxAppInfo` instance.
 ///
-
 open class OsxAppInfo: GLibObject.Object, OsxAppInfoProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1917,12 +2020,14 @@ public enum OsxAppInfoSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

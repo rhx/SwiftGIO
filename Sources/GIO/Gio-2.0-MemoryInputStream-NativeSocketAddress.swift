@@ -4,16 +4,17 @@ import GLibObject
 
 // MARK: - MemoryInputStream Class
 
-/// The `MemoryInputStreamProtocol` protocol exposes the methods and properties of an underlying `GMemoryInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MemoryInputStream`.
-/// Alternatively, use `MemoryInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMemoryInputStream` is a class for using arbitrary
 /// memory chunks as input for GIO streaming input operations.
 /// 
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `MemoryInputStreamProtocol` protocol exposes the methods and properties of an underlying `GMemoryInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MemoryInputStream`.
+/// Alternatively, use `MemoryInputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GMemoryInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -25,15 +26,16 @@ public protocol MemoryInputStreamProtocol: InputStreamProtocol, PollableInputStr
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MemoryInputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStream` instance.
-/// It exposes methods that can operate on this data type through `MemoryInputStreamProtocol` conformance.
-/// Use `MemoryInputStreamRef` only as an `unowned` reference to an existing `GMemoryInputStream` instance.
-///
 /// `GMemoryInputStream` is a class for using arbitrary
 /// memory chunks as input for GIO streaming input operations.
 /// 
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `MemoryInputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryInputStream` instance.
+/// It exposes methods that can operate on this data type through `MemoryInputStreamProtocol` conformance.
+/// Use `MemoryInputStreamRef` only as an `unowned` reference to an existing `GMemoryInputStream` instance.
+///
 public struct MemoryInputStreamRef: MemoryInputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMemoryInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_input_stream_ptr` property instead.
@@ -143,15 +145,16 @@ public extension MemoryInputStreamRef {
     }
 }
 
-/// The `MemoryInputStream` type acts as a reference-counted owner of an underlying `GMemoryInputStream` instance.
-/// It provides the methods that can operate on this data type through `MemoryInputStreamProtocol` conformance.
-/// Use `MemoryInputStream` as a strong reference or owner of a `GMemoryInputStream` instance.
-///
 /// `GMemoryInputStream` is a class for using arbitrary
 /// memory chunks as input for GIO streaming input operations.
 /// 
 /// As of GLib 2.34, `GMemoryInputStream` implements
 /// `GPollableInputStream`.
+///
+/// The `MemoryInputStream` type acts as a reference-counted owner of an underlying `GMemoryInputStream` instance.
+/// It provides the methods that can operate on this data type through `MemoryInputStreamProtocol` conformance.
+/// Use `MemoryInputStream` as a strong reference or owner of a `GMemoryInputStream` instance.
+///
 open class MemoryInputStream: InputStream, MemoryInputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -332,12 +335,14 @@ public enum MemoryInputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -378,16 +383,17 @@ public extension MemoryInputStreamProtocol {
 
 // MARK: - MemoryOutputStream Class
 
-/// The `MemoryOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GMemoryOutputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MemoryOutputStream`.
-/// Alternatively, use `MemoryOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMemoryOutputStream` is a class for using arbitrary
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
+///
+/// The `MemoryOutputStreamProtocol` protocol exposes the methods and properties of an underlying `GMemoryOutputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MemoryOutputStream`.
+/// Alternatively, use `MemoryOutputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutputStreamProtocol, SeekableProtocol {
         /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -399,15 +405,16 @@ public protocol MemoryOutputStreamProtocol: OutputStreamProtocol, PollableOutput
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MemoryOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStream` instance.
-/// It exposes methods that can operate on this data type through `MemoryOutputStreamProtocol` conformance.
-/// Use `MemoryOutputStreamRef` only as an `unowned` reference to an existing `GMemoryOutputStream` instance.
-///
 /// `GMemoryOutputStream` is a class for using arbitrary
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
+///
+/// The `MemoryOutputStreamRef` type acts as a lightweight Swift reference to an underlying `GMemoryOutputStream` instance.
+/// It exposes methods that can operate on this data type through `MemoryOutputStreamProtocol` conformance.
+/// Use `MemoryOutputStreamRef` only as an `unowned` reference to an existing `GMemoryOutputStream` instance.
+///
 public struct MemoryOutputStreamRef: MemoryOutputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMemoryOutputStream` instance.
     /// For type-safe access, use the generated, typed pointer `memory_output_stream_ptr` property instead.
@@ -542,15 +549,16 @@ public extension MemoryOutputStreamRef {
     }
 }
 
-/// The `MemoryOutputStream` type acts as a reference-counted owner of an underlying `GMemoryOutputStream` instance.
-/// It provides the methods that can operate on this data type through `MemoryOutputStreamProtocol` conformance.
-/// Use `MemoryOutputStream` as a strong reference or owner of a `GMemoryOutputStream` instance.
-///
 /// `GMemoryOutputStream` is a class for using arbitrary
 /// memory chunks as output for GIO streaming output operations.
 /// 
 /// As of GLib 2.34, `GMemoryOutputStream` trivially implements
 /// `GPollableOutputStream:` it always polls as ready.
+///
+/// The `MemoryOutputStream` type acts as a reference-counted owner of an underlying `GMemoryOutputStream` instance.
+/// It provides the methods that can operate on this data type through `MemoryOutputStreamProtocol` conformance.
+/// Use `MemoryOutputStream` as a strong reference or owner of a `GMemoryOutputStream` instance.
+///
 open class MemoryOutputStream: OutputStream, MemoryOutputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -817,12 +825,14 @@ public enum MemoryOutputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -959,11 +969,6 @@ public extension MemoryOutputStreamProtocol {
 
 // MARK: - Menu Class
 
-/// The `MenuProtocol` protocol exposes the methods and properties of an underlying `GMenu` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Menu`.
-/// Alternatively, use `MenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMenu` is a simple implementation of `GMenuModel`.
 /// You populate a `GMenu` by adding `GMenuItem` instances to it.
 /// 
@@ -972,6 +977,12 @@ public extension MemoryOutputStreamProtocol {
 /// a regular item, use `g_menu_insert()`. To add a section, use
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
+///
+/// The `MenuProtocol` protocol exposes the methods and properties of an underlying `GMenu` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Menu`.
+/// Alternatively, use `MenuRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuProtocol: MenuModelProtocol {
         /// Untyped pointer to the underlying `GMenu` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -983,10 +994,6 @@ public protocol MenuProtocol: MenuModelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuRef` type acts as a lightweight Swift reference to an underlying `GMenu` instance.
-/// It exposes methods that can operate on this data type through `MenuProtocol` conformance.
-/// Use `MenuRef` only as an `unowned` reference to an existing `GMenu` instance.
-///
 /// `GMenu` is a simple implementation of `GMenuModel`.
 /// You populate a `GMenu` by adding `GMenuItem` instances to it.
 /// 
@@ -995,6 +1002,11 @@ public protocol MenuProtocol: MenuModelProtocol {
 /// a regular item, use `g_menu_insert()`. To add a section, use
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
+///
+/// The `MenuRef` type acts as a lightweight Swift reference to an underlying `GMenu` instance.
+/// It exposes methods that can operate on this data type through `MenuProtocol` conformance.
+/// Use `MenuRef` only as an `unowned` reference to an existing `GMenu` instance.
+///
 public struct MenuRef: MenuProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMenu` instance.
     /// For type-safe access, use the generated, typed pointer `menu_ptr` property instead.
@@ -1083,10 +1095,6 @@ public extension MenuRef {
     }
 }
 
-/// The `Menu` type acts as a reference-counted owner of an underlying `GMenu` instance.
-/// It provides the methods that can operate on this data type through `MenuProtocol` conformance.
-/// Use `Menu` as a strong reference or owner of a `GMenu` instance.
-///
 /// `GMenu` is a simple implementation of `GMenuModel`.
 /// You populate a `GMenu` by adding `GMenuItem` instances to it.
 /// 
@@ -1095,6 +1103,11 @@ public extension MenuRef {
 /// a regular item, use `g_menu_insert()`. To add a section, use
 /// `g_menu_insert_section()`. To add a submenu, use
 /// `g_menu_insert_submenu()`.
+///
+/// The `Menu` type acts as a reference-counted owner of an underlying `GMenu` instance.
+/// It provides the methods that can operate on this data type through `MenuProtocol` conformance.
+/// Use `Menu` as a strong reference or owner of a `GMenu` instance.
+///
 open class Menu: MenuModel, MenuProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1271,12 +1284,14 @@ public enum MenuSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1441,13 +1456,14 @@ public extension MenuProtocol {
 
 // MARK: - MenuAttributeIter Class
 
+/// `GMenuAttributeIter` is an opaque structure type.  You must access it
+/// using the functions below.
+///
 /// The `MenuAttributeIterProtocol` protocol exposes the methods and properties of an underlying `GMenuAttributeIter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuAttributeIter`.
 /// Alternatively, use `MenuAttributeIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GMenuAttributeIter` is an opaque structure type.  You must access it
-/// using the functions below.
 public protocol MenuAttributeIterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1459,12 +1475,13 @@ public protocol MenuAttributeIterProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GMenuAttributeIter` is an opaque structure type.  You must access it
+/// using the functions below.
+///
 /// The `MenuAttributeIterRef` type acts as a lightweight Swift reference to an underlying `GMenuAttributeIter` instance.
 /// It exposes methods that can operate on this data type through `MenuAttributeIterProtocol` conformance.
 /// Use `MenuAttributeIterRef` only as an `unowned` reference to an existing `GMenuAttributeIter` instance.
 ///
-/// `GMenuAttributeIter` is an opaque structure type.  You must access it
-/// using the functions below.
 public struct MenuAttributeIterRef: MenuAttributeIterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMenuAttributeIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_attribute_iter_ptr` property instead.
@@ -1546,12 +1563,13 @@ public extension MenuAttributeIterRef {
 
     }
 
+/// `GMenuAttributeIter` is an opaque structure type.  You must access it
+/// using the functions below.
+///
 /// The `MenuAttributeIter` type acts as a reference-counted owner of an underlying `GMenuAttributeIter` instance.
 /// It provides the methods that can operate on this data type through `MenuAttributeIterProtocol` conformance.
 /// Use `MenuAttributeIter` as a strong reference or owner of a `GMenuAttributeIter` instance.
 ///
-/// `GMenuAttributeIter` is an opaque structure type.  You must access it
-/// using the functions below.
 open class MenuAttributeIter: GLibObject.Object, MenuAttributeIterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1699,12 +1717,14 @@ public enum MenuAttributeIterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1811,13 +1831,14 @@ public extension MenuAttributeIterProtocol {
 
 // MARK: - MenuItem Class
 
+/// `GMenuItem` is an opaque structure type.  You must access it using the
+/// functions below.
+///
 /// The `MenuItemProtocol` protocol exposes the methods and properties of an underlying `GMenuItem` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuItem`.
 /// Alternatively, use `MenuItemRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GMenuItem` is an opaque structure type.  You must access it using the
-/// functions below.
 public protocol MenuItemProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuItem` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1829,12 +1850,13 @@ public protocol MenuItemProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GMenuItem` is an opaque structure type.  You must access it using the
+/// functions below.
+///
 /// The `MenuItemRef` type acts as a lightweight Swift reference to an underlying `GMenuItem` instance.
 /// It exposes methods that can operate on this data type through `MenuItemProtocol` conformance.
 /// Use `MenuItemRef` only as an `unowned` reference to an existing `GMenuItem` instance.
 ///
-/// `GMenuItem` is an opaque structure type.  You must access it using the
-/// functions below.
 public struct MenuItemRef: MenuItemProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMenuItem` instance.
     /// For type-safe access, use the generated, typed pointer `menu_item_ptr` property instead.
@@ -2097,12 +2119,13 @@ public extension MenuItemRef {
     }
 }
 
+/// `GMenuItem` is an opaque structure type.  You must access it using the
+/// functions below.
+///
 /// The `MenuItem` type acts as a reference-counted owner of an underlying `GMenuItem` instance.
 /// It provides the methods that can operate on this data type through `MenuItemProtocol` conformance.
 /// Use `MenuItem` as a strong reference or owner of a `GMenuItem` instance.
 ///
-/// `GMenuItem` is an opaque structure type.  You must access it using the
-/// functions below.
 open class MenuItem: GLibObject.Object, MenuItemProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2438,12 +2461,14 @@ public enum MenuItemSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2746,13 +2771,14 @@ public extension MenuItemProtocol {
 
 // MARK: - MenuLinkIter Class
 
+/// `GMenuLinkIter` is an opaque structure type.  You must access it using
+/// the functions below.
+///
 /// The `MenuLinkIterProtocol` protocol exposes the methods and properties of an underlying `GMenuLinkIter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MenuLinkIter`.
 /// Alternatively, use `MenuLinkIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GMenuLinkIter` is an opaque structure type.  You must access it using
-/// the functions below.
 public protocol MenuLinkIterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2764,12 +2790,13 @@ public protocol MenuLinkIterProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GMenuLinkIter` is an opaque structure type.  You must access it using
+/// the functions below.
+///
 /// The `MenuLinkIterRef` type acts as a lightweight Swift reference to an underlying `GMenuLinkIter` instance.
 /// It exposes methods that can operate on this data type through `MenuLinkIterProtocol` conformance.
 /// Use `MenuLinkIterRef` only as an `unowned` reference to an existing `GMenuLinkIter` instance.
 ///
-/// `GMenuLinkIter` is an opaque structure type.  You must access it using
-/// the functions below.
 public struct MenuLinkIterRef: MenuLinkIterProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMenuLinkIter` instance.
     /// For type-safe access, use the generated, typed pointer `menu_link_iter_ptr` property instead.
@@ -2851,12 +2878,13 @@ public extension MenuLinkIterRef {
 
     }
 
+/// `GMenuLinkIter` is an opaque structure type.  You must access it using
+/// the functions below.
+///
 /// The `MenuLinkIter` type acts as a reference-counted owner of an underlying `GMenuLinkIter` instance.
 /// It provides the methods that can operate on this data type through `MenuLinkIterProtocol` conformance.
 /// Use `MenuLinkIter` as a strong reference or owner of a `GMenuLinkIter` instance.
 ///
-/// `GMenuLinkIter` is an opaque structure type.  You must access it using
-/// the functions below.
 open class MenuLinkIter: GLibObject.Object, MenuLinkIterProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3004,12 +3032,14 @@ public enum MenuLinkIterSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3111,11 +3141,6 @@ public extension MenuLinkIterProtocol {
 
 // MARK: - MenuModel Class
 
-/// The `MenuModelProtocol` protocol exposes the methods and properties of an underlying `GMenuModel` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MenuModel`.
-/// Alternatively, use `MenuModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMenuModel` represents the contents of a menu -- an ordered list of
 /// menu items. The items are associated with actions, which can be
 /// activated through them. Items can be grouped in sections, and may
@@ -3229,6 +3254,12 @@ public extension MenuLinkIterProtocol {
 /// of the action with the target value as the parameter. The menu item should
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
+///
+/// The `MenuModelProtocol` protocol exposes the methods and properties of an underlying `GMenuModel` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MenuModel`.
+/// Alternatively, use `MenuModelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MenuModelProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMenuModel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3240,10 +3271,6 @@ public protocol MenuModelProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MenuModelRef` type acts as a lightweight Swift reference to an underlying `GMenuModel` instance.
-/// It exposes methods that can operate on this data type through `MenuModelProtocol` conformance.
-/// Use `MenuModelRef` only as an `unowned` reference to an existing `GMenuModel` instance.
-///
 /// `GMenuModel` represents the contents of a menu -- an ordered list of
 /// menu items. The items are associated with actions, which can be
 /// activated through them. Items can be grouped in sections, and may
@@ -3357,6 +3384,11 @@ public protocol MenuModelProtocol: GLibObject.ObjectProtocol {
 /// of the action with the target value as the parameter. The menu item should
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
+///
+/// The `MenuModelRef` type acts as a lightweight Swift reference to an underlying `GMenuModel` instance.
+/// It exposes methods that can operate on this data type through `MenuModelProtocol` conformance.
+/// Use `MenuModelRef` only as an `unowned` reference to an existing `GMenuModel` instance.
+///
 public struct MenuModelRef: MenuModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMenuModel` instance.
     /// For type-safe access, use the generated, typed pointer `menu_model_ptr` property instead.
@@ -3438,10 +3470,6 @@ public extension MenuModelRef {
 
     }
 
-/// The `MenuModel` type acts as a reference-counted owner of an underlying `GMenuModel` instance.
-/// It provides the methods that can operate on this data type through `MenuModelProtocol` conformance.
-/// Use `MenuModel` as a strong reference or owner of a `GMenuModel` instance.
-///
 /// `GMenuModel` represents the contents of a menu -- an ordered list of
 /// menu items. The items are associated with actions, which can be
 /// activated through them. Items can be grouped in sections, and may
@@ -3555,6 +3583,11 @@ public extension MenuModelRef {
 /// of the action with the target value as the parameter. The menu item should
 /// be rendered as "selected" when the state of the action is equal to the
 /// target value of the menu item.
+///
+/// The `MenuModel` type acts as a reference-counted owner of an underlying `GMenuModel` instance.
+/// It provides the methods that can operate on this data type through `MenuModelProtocol` conformance.
+/// Use `MenuModel` as a strong reference or owner of a `GMenuModel` instance.
+///
 open class MenuModel: GLibObject.Object, MenuModelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3723,12 +3756,14 @@ public enum MenuModelSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3946,11 +3981,6 @@ public extension MenuModelProtocol {
 
 // MARK: - MountOperation Class
 
-/// The `MountOperationProtocol` protocol exposes the methods and properties of an underlying `GMountOperation` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MountOperation`.
-/// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GMountOperation` provides a mechanism for interacting with the user.
 /// It can be used for authenticating mountable operations, such as loop
 /// mounting files, hard drive partitions or server locations. It can
@@ -3972,6 +4002,12 @@ public extension MenuModelProtocol {
 /// encrypting file containers, partitions or whole disks, typically used with Windows.
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
+///
+/// The `MountOperationProtocol` protocol exposes the methods and properties of an underlying `GMountOperation` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MountOperation`.
+/// Alternatively, use `MountOperationRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MountOperationProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GMountOperation` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3983,10 +4019,6 @@ public protocol MountOperationProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GMountOperation` instance.
-/// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
-/// Use `MountOperationRef` only as an `unowned` reference to an existing `GMountOperation` instance.
-///
 /// `GMountOperation` provides a mechanism for interacting with the user.
 /// It can be used for authenticating mountable operations, such as loop
 /// mounting files, hard drive partitions or server locations. It can
@@ -4008,6 +4040,11 @@ public protocol MountOperationProtocol: GLibObject.ObjectProtocol {
 /// encrypting file containers, partitions or whole disks, typically used with Windows.
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
+///
+/// The `MountOperationRef` type acts as a lightweight Swift reference to an underlying `GMountOperation` instance.
+/// It exposes methods that can operate on this data type through `MountOperationProtocol` conformance.
+/// Use `MountOperationRef` only as an `unowned` reference to an existing `GMountOperation` instance.
+///
 public struct MountOperationRef: MountOperationProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GMountOperation` instance.
     /// For type-safe access, use the generated, typed pointer `mount_operation_ptr` property instead.
@@ -4094,10 +4131,6 @@ public extension MountOperationRef {
     }
 }
 
-/// The `MountOperation` type acts as a reference-counted owner of an underlying `GMountOperation` instance.
-/// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
-/// Use `MountOperation` as a strong reference or owner of a `GMountOperation` instance.
-///
 /// `GMountOperation` provides a mechanism for interacting with the user.
 /// It can be used for authenticating mountable operations, such as loop
 /// mounting files, hard drive partitions or server locations. It can
@@ -4119,6 +4152,11 @@ public extension MountOperationRef {
 /// encrypting file containers, partitions or whole disks, typically used with Windows.
 /// [VeraCrypt](https://www.veracrypt.fr/) is a maintained fork of TrueCrypt with various
 /// improvements and auditing fixes.
+///
+/// The `MountOperation` type acts as a reference-counted owner of an underlying `GMountOperation` instance.
+/// It provides the methods that can operate on this data type through `MountOperationProtocol` conformance.
+/// Use `MountOperation` as a strong reference or owner of a `GMountOperation` instance.
+///
 open class MountOperation: GLibObject.Object, MountOperationProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4372,12 +4410,14 @@ public enum MountOperationSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4654,12 +4694,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4703,12 +4745,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4752,12 +4796,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4801,12 +4847,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4850,12 +4898,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4899,12 +4949,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4948,12 +5000,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -4997,12 +5051,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5046,12 +5102,14 @@ public extension MountOperationProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -5344,12 +5402,13 @@ public extension MountOperationProtocol {
 
 // MARK: - NativeSocketAddress Class
 
+/// A socket address of some unknown native type.
+///
 /// The `NativeSocketAddressProtocol` protocol exposes the methods and properties of an underlying `GNativeSocketAddress` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `NativeSocketAddress`.
 /// Alternatively, use `NativeSocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A socket address of some unknown native type.
 public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
         /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5361,11 +5420,12 @@ public protocol NativeSocketAddressProtocol: SocketAddressProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A socket address of some unknown native type.
+///
 /// The `NativeSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GNativeSocketAddress` instance.
 /// It exposes methods that can operate on this data type through `NativeSocketAddressProtocol` conformance.
 /// Use `NativeSocketAddressRef` only as an `unowned` reference to an existing `GNativeSocketAddress` instance.
 ///
-/// A socket address of some unknown native type.
 public struct NativeSocketAddressRef: NativeSocketAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GNativeSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `native_socket_address_ptr` property instead.
@@ -5452,11 +5512,12 @@ public extension NativeSocketAddressRef {
     }
 }
 
+/// A socket address of some unknown native type.
+///
 /// The `NativeSocketAddress` type acts as a reference-counted owner of an underlying `GNativeSocketAddress` instance.
 /// It provides the methods that can operate on this data type through `NativeSocketAddressProtocol` conformance.
 /// Use `NativeSocketAddress` as a strong reference or owner of a `GNativeSocketAddress` instance.
 ///
-/// A socket address of some unknown native type.
 open class NativeSocketAddress: SocketAddress, NativeSocketAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5665,12 +5726,14 @@ public enum NativeSocketAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

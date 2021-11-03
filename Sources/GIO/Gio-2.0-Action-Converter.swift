@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - Action Interface
 
-/// The `ActionProtocol` protocol exposes the methods and properties of an underlying `GAction` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Action`.
-/// Alternatively, use `ActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
@@ -38,6 +33,12 @@ import GLibObject
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
+///
+/// The `ActionProtocol` protocol exposes the methods and properties of an underlying `GAction` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Action`.
+/// Alternatively, use `ActionRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -49,10 +50,6 @@ public protocol ActionProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GAction` instance.
-/// It exposes methods that can operate on this data type through `ActionProtocol` conformance.
-/// Use `ActionRef` only as an `unowned` reference to an existing `GAction` instance.
-///
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
@@ -82,6 +79,11 @@ public protocol ActionProtocol {
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
+///
+/// The `ActionRef` type acts as a lightweight Swift reference to an underlying `GAction` instance.
+/// It exposes methods that can operate on this data type through `ActionProtocol` conformance.
+/// Use `ActionRef` only as an `unowned` reference to an existing `GAction` instance.
+///
 public struct ActionRef: ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
@@ -160,10 +162,6 @@ public extension ActionRef {
 
     }
 
-/// The `Action` type acts as an owner of an underlying `GAction` instance.
-/// It provides the methods that can operate on this data type through `ActionProtocol` conformance.
-/// Use `Action` as a strong reference or owner of a `GAction` instance.
-///
 /// `GAction` represents a single named action.
 /// 
 /// The main interface to an action is that it can be activated with
@@ -193,6 +191,11 @@ public extension ActionRef {
 /// 
 /// Probably the only useful thing to do with a `GAction` is to put it
 /// inside of a `GSimpleActionGroup`.
+///
+/// The `Action` type acts as an owner of an underlying `GAction` instance.
+/// It provides the methods that can operate on this data type through `ActionProtocol` conformance.
+/// Use `Action` as a strong reference or owner of a `GAction` instance.
+///
 open class Action: ActionProtocol {
         /// Untyped pointer to the underlying `GAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
@@ -700,11 +703,6 @@ public extension ActionProtocol {
 
 // MARK: - ActionGroup Interface
 
-/// The `ActionGroupProtocol` protocol exposes the methods and properties of an underlying `GActionGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ActionGroup`.
-/// Alternatively, use `ActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GActionGroup` represents a group of actions. Actions can be used to
 /// expose functionality in a structured way, either from one part of a
 /// program to another, or to the outside world. Action groups are often
@@ -750,6 +748,12 @@ public extension ActionProtocol {
 /// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
+///
+/// The `ActionGroupProtocol` protocol exposes the methods and properties of an underlying `GActionGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ActionGroup`.
+/// Alternatively, use `ActionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -761,10 +765,6 @@ public protocol ActionGroupProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GActionGroup` instance.
-/// It exposes methods that can operate on this data type through `ActionGroupProtocol` conformance.
-/// Use `ActionGroupRef` only as an `unowned` reference to an existing `GActionGroup` instance.
-///
 /// `GActionGroup` represents a group of actions. Actions can be used to
 /// expose functionality in a structured way, either from one part of a
 /// program to another, or to the outside world. Action groups are often
@@ -810,6 +810,11 @@ public protocol ActionGroupProtocol {
 /// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
+///
+/// The `ActionGroupRef` type acts as a lightweight Swift reference to an underlying `GActionGroup` instance.
+/// It exposes methods that can operate on this data type through `ActionGroupProtocol` conformance.
+/// Use `ActionGroupRef` only as an `unowned` reference to an existing `GActionGroup` instance.
+///
 public struct ActionGroupRef: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
@@ -888,10 +893,6 @@ public extension ActionGroupRef {
 
     }
 
-/// The `ActionGroup` type acts as an owner of an underlying `GActionGroup` instance.
-/// It provides the methods that can operate on this data type through `ActionGroupProtocol` conformance.
-/// Use `ActionGroup` as a strong reference or owner of a `GActionGroup` instance.
-///
 /// `GActionGroup` represents a group of actions. Actions can be used to
 /// expose functionality in a structured way, either from one part of a
 /// program to another, or to the outside world. Action groups are often
@@ -937,6 +938,11 @@ public extension ActionGroupRef {
 /// `g_action_group_query_action()`.  The other virtual functions should
 /// not be implemented - their "wrappers" are actually implemented with
 /// calls to `g_action_group_query_action()`.
+///
+/// The `ActionGroup` type acts as an owner of an underlying `GActionGroup` instance.
+/// It provides the methods that can operate on this data type through `ActionGroupProtocol` conformance.
+/// Use `ActionGroup` as a strong reference or owner of a `GActionGroup` instance.
+///
 open class ActionGroup: ActionGroupProtocol {
         /// Untyped pointer to the underlying `GActionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `action_group_ptr` property instead.
@@ -1510,11 +1516,6 @@ public extension ActionGroupProtocol {
 
 // MARK: - ActionMap Interface
 
-/// The `ActionMapProtocol` protocol exposes the methods and properties of an underlying `GActionMap` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ActionMap`.
-/// Alternatively, use `ActionMapRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GActionMap interface is implemented by `GActionGroup`
 /// implementations that operate by containing a number of
 /// named `GAction` instances, such as `GSimpleActionGroup`.
@@ -1524,6 +1525,12 @@ public extension ActionGroupProtocol {
 /// prefixed names (e.g. by prepending "app." or "win.").
 /// This is the motivation for the 'Map' part of the interface
 /// name.
+///
+/// The `ActionMapProtocol` protocol exposes the methods and properties of an underlying `GActionMap` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ActionMap`.
+/// Alternatively, use `ActionMapRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1535,10 +1542,6 @@ public protocol ActionMapProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ActionMapRef` type acts as a lightweight Swift reference to an underlying `GActionMap` instance.
-/// It exposes methods that can operate on this data type through `ActionMapProtocol` conformance.
-/// Use `ActionMapRef` only as an `unowned` reference to an existing `GActionMap` instance.
-///
 /// The GActionMap interface is implemented by `GActionGroup`
 /// implementations that operate by containing a number of
 /// named `GAction` instances, such as `GSimpleActionGroup`.
@@ -1548,6 +1551,11 @@ public protocol ActionMapProtocol {
 /// prefixed names (e.g. by prepending "app." or "win.").
 /// This is the motivation for the 'Map' part of the interface
 /// name.
+///
+/// The `ActionMapRef` type acts as a lightweight Swift reference to an underlying `GActionMap` instance.
+/// It exposes methods that can operate on this data type through `ActionMapProtocol` conformance.
+/// Use `ActionMapRef` only as an `unowned` reference to an existing `GActionMap` instance.
+///
 public struct ActionMapRef: ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
@@ -1626,10 +1634,6 @@ public extension ActionMapRef {
 
     }
 
-/// The `ActionMap` type acts as an owner of an underlying `GActionMap` instance.
-/// It provides the methods that can operate on this data type through `ActionMapProtocol` conformance.
-/// Use `ActionMap` as a strong reference or owner of a `GActionMap` instance.
-///
 /// The GActionMap interface is implemented by `GActionGroup`
 /// implementations that operate by containing a number of
 /// named `GAction` instances, such as `GSimpleActionGroup`.
@@ -1639,6 +1643,11 @@ public extension ActionMapRef {
 /// prefixed names (e.g. by prepending "app." or "win.").
 /// This is the motivation for the 'Map' part of the interface
 /// name.
+///
+/// The `ActionMap` type acts as an owner of an underlying `GActionMap` instance.
+/// It provides the methods that can operate on this data type through `ActionMapProtocol` conformance.
+/// Use `ActionMap` as a strong reference or owner of a `GActionMap` instance.
+///
 open class ActionMap: ActionMapProtocol {
         /// Untyped pointer to the underlying `GActionMap` instance.
     /// For type-safe access, use the generated, typed pointer `action_map_ptr` property instead.
@@ -1871,11 +1880,6 @@ public extension ActionMapProtocol {
 
 // MARK: - AppInfo Interface
 
-/// The `AppInfoProtocol` protocol exposes the methods and properties of an underlying `GAppInfo` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AppInfo`.
-/// Alternatively, use `AppInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GAppInfo` and `GAppLaunchContext` are used for describing and launching
 /// applications installed on the system.
 /// 
@@ -1924,6 +1928,12 @@ public extension ActionMapProtocol {
 /// for applications to rely on the format of a particular URIs.
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
+///
+/// The `AppInfoProtocol` protocol exposes the methods and properties of an underlying `GAppInfo` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AppInfo`.
+/// Alternatively, use `AppInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1935,10 +1945,6 @@ public protocol AppInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AppInfoRef` type acts as a lightweight Swift reference to an underlying `GAppInfo` instance.
-/// It exposes methods that can operate on this data type through `AppInfoProtocol` conformance.
-/// Use `AppInfoRef` only as an `unowned` reference to an existing `GAppInfo` instance.
-///
 /// `GAppInfo` and `GAppLaunchContext` are used for describing and launching
 /// applications installed on the system.
 /// 
@@ -1987,6 +1993,11 @@ public protocol AppInfoProtocol {
 /// for applications to rely on the format of a particular URIs.
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
+///
+/// The `AppInfoRef` type acts as a lightweight Swift reference to an underlying `GAppInfo` instance.
+/// It exposes methods that can operate on this data type through `AppInfoProtocol` conformance.
+/// Use `AppInfoRef` only as an `unowned` reference to an existing `GAppInfo` instance.
+///
 public struct AppInfoRef: AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
@@ -2094,10 +2105,6 @@ public extension AppInfoRef {
     }
 }
 
-/// The `AppInfo` type acts as an owner of an underlying `GAppInfo` instance.
-/// It provides the methods that can operate on this data type through `AppInfoProtocol` conformance.
-/// Use `AppInfo` as a strong reference or owner of a `GAppInfo` instance.
-///
 /// `GAppInfo` and `GAppLaunchContext` are used for describing and launching
 /// applications installed on the system.
 /// 
@@ -2146,6 +2153,11 @@ public extension AppInfoRef {
 /// for applications to rely on the format of a particular URIs.
 /// Different launcher applications (e.g. file managers) may have
 /// different ideas of what a given URI means.
+///
+/// The `AppInfo` type acts as an owner of an underlying `GAppInfo` instance.
+/// It provides the methods that can operate on this data type through `AppInfoProtocol` conformance.
+/// Use `AppInfo` as a strong reference or owner of a `GAppInfo` instance.
+///
 open class AppInfo: AppInfoProtocol {
         /// Untyped pointer to the underlying `GAppInfo` instance.
     /// For type-safe access, use the generated, typed pointer `app_info_ptr` property instead.
@@ -2725,11 +2737,6 @@ public extension AppInfoProtocol {
 
 // MARK: - AsyncInitable Interface
 
-/// The `AsyncInitableProtocol` protocol exposes the methods and properties of an underlying `GAsyncInitable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AsyncInitable`.
-/// Alternatively, use `AsyncInitableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This is the asynchronous version of `GInitable`; it behaves the same
 /// in all ways except that initialization is asynchronous. For more details
 /// see the descriptions on `GInitable`.
@@ -2831,6 +2838,12 @@ public extension AppInfoProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `AsyncInitableProtocol` protocol exposes the methods and properties of an underlying `GAsyncInitable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AsyncInitable`.
+/// Alternatively, use `AsyncInitableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2842,10 +2855,6 @@ public protocol AsyncInitableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AsyncInitableRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitable` instance.
-/// It exposes methods that can operate on this data type through `AsyncInitableProtocol` conformance.
-/// Use `AsyncInitableRef` only as an `unowned` reference to an existing `GAsyncInitable` instance.
-///
 /// This is the asynchronous version of `GInitable`; it behaves the same
 /// in all ways except that initialization is asynchronous. For more details
 /// see the descriptions on `GInitable`.
@@ -2947,6 +2956,11 @@ public protocol AsyncInitableProtocol {
 /// }
 /// ```
 /// 
+///
+/// The `AsyncInitableRef` type acts as a lightweight Swift reference to an underlying `GAsyncInitable` instance.
+/// It exposes methods that can operate on this data type through `AsyncInitableProtocol` conformance.
+/// Use `AsyncInitableRef` only as an `unowned` reference to an existing `GAsyncInitable` instance.
+///
 public struct AsyncInitableRef: AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
@@ -3025,10 +3039,6 @@ public extension AsyncInitableRef {
 
     }
 
-/// The `AsyncInitable` type acts as an owner of an underlying `GAsyncInitable` instance.
-/// It provides the methods that can operate on this data type through `AsyncInitableProtocol` conformance.
-/// Use `AsyncInitable` as a strong reference or owner of a `GAsyncInitable` instance.
-///
 /// This is the asynchronous version of `GInitable`; it behaves the same
 /// in all ways except that initialization is asynchronous. For more details
 /// see the descriptions on `GInitable`.
@@ -3130,6 +3140,11 @@ public extension AsyncInitableRef {
 /// }
 /// ```
 /// 
+///
+/// The `AsyncInitable` type acts as an owner of an underlying `GAsyncInitable` instance.
+/// It provides the methods that can operate on this data type through `AsyncInitableProtocol` conformance.
+/// Use `AsyncInitable` as a strong reference or owner of a `GAsyncInitable` instance.
+///
 open class AsyncInitable: AsyncInitableProtocol {
         /// Untyped pointer to the underlying `GAsyncInitable` instance.
     /// For type-safe access, use the generated, typed pointer `async_initable_ptr` property instead.
@@ -3390,11 +3405,6 @@ public extension AsyncInitableProtocol {
 
 // MARK: - AsyncResult Interface
 
-/// The `AsyncResultProtocol` protocol exposes the methods and properties of an underlying `GAsyncResult` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `AsyncResult`.
-/// Alternatively, use `AsyncResultRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Provides a base class for implementing asynchronous function results.
 /// 
 /// Asynchronous operations are broken up into two separate operations
@@ -3480,6 +3490,12 @@ public extension AsyncInitableProtocol {
 /// higher priority. It is recommended to choose priorities between
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
+///
+/// The `AsyncResultProtocol` protocol exposes the methods and properties of an underlying `GAsyncResult` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `AsyncResult`.
+/// Alternatively, use `AsyncResultRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3491,10 +3507,6 @@ public protocol AsyncResultProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `AsyncResultRef` type acts as a lightweight Swift reference to an underlying `GAsyncResult` instance.
-/// It exposes methods that can operate on this data type through `AsyncResultProtocol` conformance.
-/// Use `AsyncResultRef` only as an `unowned` reference to an existing `GAsyncResult` instance.
-///
 /// Provides a base class for implementing asynchronous function results.
 /// 
 /// Asynchronous operations are broken up into two separate operations
@@ -3580,6 +3592,11 @@ public protocol AsyncResultProtocol {
 /// higher priority. It is recommended to choose priorities between
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
+///
+/// The `AsyncResultRef` type acts as a lightweight Swift reference to an underlying `GAsyncResult` instance.
+/// It exposes methods that can operate on this data type through `AsyncResultProtocol` conformance.
+/// Use `AsyncResultRef` only as an `unowned` reference to an existing `GAsyncResult` instance.
+///
 public struct AsyncResultRef: AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
@@ -3658,10 +3675,6 @@ public extension AsyncResultRef {
 
     }
 
-/// The `AsyncResult` type acts as an owner of an underlying `GAsyncResult` instance.
-/// It provides the methods that can operate on this data type through `AsyncResultProtocol` conformance.
-/// Use `AsyncResult` as a strong reference or owner of a `GAsyncResult` instance.
-///
 /// Provides a base class for implementing asynchronous function results.
 /// 
 /// Asynchronous operations are broken up into two separate operations
@@ -3747,6 +3760,11 @@ public extension AsyncResultRef {
 /// higher priority. It is recommended to choose priorities between
 /// `G_PRIORITY_LOW` and `G_PRIORITY_HIGH`, with `G_PRIORITY_DEFAULT`
 /// as a default.
+///
+/// The `AsyncResult` type acts as an owner of an underlying `GAsyncResult` instance.
+/// It provides the methods that can operate on this data type through `AsyncResultProtocol` conformance.
+/// Use `AsyncResult` as a strong reference or owner of a `GAsyncResult` instance.
+///
 open class AsyncResult: AsyncResultProtocol {
         /// Untyped pointer to the underlying `GAsyncResult` instance.
     /// For type-safe access, use the generated, typed pointer `async_result_ptr` property instead.
@@ -3997,11 +4015,6 @@ public extension AsyncResultProtocol {
 
 // MARK: - Converter Interface
 
-/// The `ConverterProtocol` protocol exposes the methods and properties of an underlying `GConverter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Converter`.
-/// Alternatively, use `ConverterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GConverter` is implemented by objects that convert
 /// binary data in various ways. The conversion can be
 /// stateful and may fail at any place.
@@ -4009,6 +4022,12 @@ public extension AsyncResultProtocol {
 /// Some example conversions are: character set conversion,
 /// compression, decompression and regular expression
 /// replace.
+///
+/// The `ConverterProtocol` protocol exposes the methods and properties of an underlying `GConverter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Converter`.
+/// Alternatively, use `ConverterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4020,10 +4039,6 @@ public protocol ConverterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ConverterRef` type acts as a lightweight Swift reference to an underlying `GConverter` instance.
-/// It exposes methods that can operate on this data type through `ConverterProtocol` conformance.
-/// Use `ConverterRef` only as an `unowned` reference to an existing `GConverter` instance.
-///
 /// `GConverter` is implemented by objects that convert
 /// binary data in various ways. The conversion can be
 /// stateful and may fail at any place.
@@ -4031,6 +4046,11 @@ public protocol ConverterProtocol {
 /// Some example conversions are: character set conversion,
 /// compression, decompression and regular expression
 /// replace.
+///
+/// The `ConverterRef` type acts as a lightweight Swift reference to an underlying `GConverter` instance.
+/// It exposes methods that can operate on this data type through `ConverterProtocol` conformance.
+/// Use `ConverterRef` only as an `unowned` reference to an existing `GConverter` instance.
+///
 public struct ConverterRef: ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.
@@ -4109,10 +4129,6 @@ public extension ConverterRef {
 
     }
 
-/// The `Converter` type acts as an owner of an underlying `GConverter` instance.
-/// It provides the methods that can operate on this data type through `ConverterProtocol` conformance.
-/// Use `Converter` as a strong reference or owner of a `GConverter` instance.
-///
 /// `GConverter` is implemented by objects that convert
 /// binary data in various ways. The conversion can be
 /// stateful and may fail at any place.
@@ -4120,6 +4136,11 @@ public extension ConverterRef {
 /// Some example conversions are: character set conversion,
 /// compression, decompression and regular expression
 /// replace.
+///
+/// The `Converter` type acts as an owner of an underlying `GConverter` instance.
+/// It provides the methods that can operate on this data type through `ConverterProtocol` conformance.
+/// Use `Converter` as a strong reference or owner of a `GConverter` instance.
+///
 open class Converter: ConverterProtocol {
         /// Untyped pointer to the underlying `GConverter` instance.
     /// For type-safe access, use the generated, typed pointer `converter_ptr` property instead.

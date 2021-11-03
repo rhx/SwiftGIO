@@ -4,12 +4,13 @@ import GLibObject
 
 // MARK: - DBusArgInfo Record
 
+/// Information about an argument for a method or a signal.
+///
 /// The `DBusArgInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusArgInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusArgInfo`.
 /// Alternatively, use `DBusArgInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about an argument for a method or a signal.
 public protocol DBusArgInfoProtocol {
         /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,11 +22,12 @@ public protocol DBusArgInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about an argument for a method or a signal.
+///
 /// The `DBusArgInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusArgInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusArgInfoProtocol` conformance.
 /// Use `DBusArgInfoRef` only as an `unowned` reference to an existing `GDBusArgInfo` instance.
 ///
-/// Information about an argument for a method or a signal.
 public struct DBusArgInfoRef: DBusArgInfoProtocol {
         /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_arg_info_ptr` property instead.
@@ -104,11 +106,12 @@ public extension DBusArgInfoRef {
 
     }
 
+/// Information about an argument for a method or a signal.
+///
 /// The `DBusArgInfo` type acts as a reference-counted owner of an underlying `GDBusArgInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusArgInfoProtocol` conformance.
 /// Use `DBusArgInfo` as a strong reference or owner of a `GDBusArgInfo` instance.
 ///
-/// Information about an argument for a method or a signal.
 open class DBusArgInfo: DBusArgInfoProtocol {
         /// Untyped pointer to the underlying `GDBusArgInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_arg_info_ptr` property instead.
@@ -336,12 +339,13 @@ public extension DBusArgInfoProtocol {
 
 // MARK: - DBusErrorEntry Record
 
+/// Struct used in `g_dbus_error_register_error_domain()`.
+///
 /// The `DBusErrorEntryProtocol` protocol exposes the methods and properties of an underlying `GDBusErrorEntry` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusErrorEntry`.
 /// Alternatively, use `DBusErrorEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Struct used in `g_dbus_error_register_error_domain()`.
 public protocol DBusErrorEntryProtocol {
         /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -353,11 +357,12 @@ public protocol DBusErrorEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Struct used in `g_dbus_error_register_error_domain()`.
+///
 /// The `DBusErrorEntryRef` type acts as a lightweight Swift reference to an underlying `GDBusErrorEntry` instance.
 /// It exposes methods that can operate on this data type through `DBusErrorEntryProtocol` conformance.
 /// Use `DBusErrorEntryRef` only as an `unowned` reference to an existing `GDBusErrorEntry` instance.
 ///
-/// Struct used in `g_dbus_error_register_error_domain()`.
 public struct DBusErrorEntryRef: DBusErrorEntryProtocol {
         /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -436,11 +441,12 @@ public extension DBusErrorEntryRef {
 
     }
 
+/// Struct used in `g_dbus_error_register_error_domain()`.
+///
 /// The `DBusErrorEntry` type acts as an owner of an underlying `GDBusErrorEntry` instance.
 /// It provides the methods that can operate on this data type through `DBusErrorEntryProtocol` conformance.
 /// Use `DBusErrorEntry` as a strong reference or owner of a `GDBusErrorEntry` instance.
 ///
-/// Struct used in `g_dbus_error_register_error_domain()`.
 open class DBusErrorEntry: DBusErrorEntryProtocol {
         /// Untyped pointer to the underlying `GDBusErrorEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -643,12 +649,13 @@ public extension DBusInterfaceIfaceRef {
 
 // MARK: - DBusInterfaceIface Record
 
+/// Base type for D-Bus interfaces.
+///
 /// The `DBusInterfaceIfaceProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusInterfaceIface`.
 /// Alternatively, use `DBusInterfaceIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base type for D-Bus interfaces.
 public protocol DBusInterfaceIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -660,11 +667,12 @@ public protocol DBusInterfaceIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Base type for D-Bus interfaces.
+///
 /// The `DBusInterfaceIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceIface` instance.
 /// It exposes methods that can operate on this data type through `DBusInterfaceIfaceProtocol` conformance.
 /// Use `DBusInterfaceIfaceRef` only as an `unowned` reference to an existing `GDBusInterfaceIface` instance.
 ///
-/// Base type for D-Bus interfaces.
 public struct DBusInterfaceIfaceRef: DBusInterfaceIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -772,12 +780,13 @@ public extension DBusInterfaceIfaceProtocol {
 
 // MARK: - DBusInterfaceInfo Record
 
+/// Information about a D-Bus interface.
+///
 /// The `DBusInterfaceInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusInterfaceInfo`.
 /// Alternatively, use `DBusInterfaceInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about a D-Bus interface.
 public protocol DBusInterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -789,11 +798,12 @@ public protocol DBusInterfaceInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about a D-Bus interface.
+///
 /// The `DBusInterfaceInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusInterfaceInfoProtocol` conformance.
 /// Use `DBusInterfaceInfoRef` only as an `unowned` reference to an existing `GDBusInterfaceInfo` instance.
 ///
-/// Information about a D-Bus interface.
 public struct DBusInterfaceInfoRef: DBusInterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_info_ptr` property instead.
@@ -872,11 +882,12 @@ public extension DBusInterfaceInfoRef {
 
     }
 
+/// Information about a D-Bus interface.
+///
 /// The `DBusInterfaceInfo` type acts as a reference-counted owner of an underlying `GDBusInterfaceInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusInterfaceInfoProtocol` conformance.
 /// Use `DBusInterfaceInfo` as a strong reference or owner of a `GDBusInterfaceInfo` instance.
 ///
-/// Information about a D-Bus interface.
 open class DBusInterfaceInfo: DBusInterfaceInfoProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_interface_info_ptr` property instead.
@@ -1206,12 +1217,13 @@ public extension DBusInterfaceSkeletonClassRef {
 
 // MARK: - DBusInterfaceSkeletonClass Record
 
+/// Class structure for `GDBusInterfaceSkeleton`.
+///
 /// The `DBusInterfaceSkeletonClassProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceSkeletonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusInterfaceSkeletonClass`.
 /// Alternatively, use `DBusInterfaceSkeletonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusInterfaceSkeleton`.
 public protocol DBusInterfaceSkeletonClassProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1223,11 +1235,12 @@ public protocol DBusInterfaceSkeletonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusInterfaceSkeleton`.
+///
 /// The `DBusInterfaceSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceSkeletonClass` instance.
 /// It exposes methods that can operate on this data type through `DBusInterfaceSkeletonClassProtocol` conformance.
 /// Use `DBusInterfaceSkeletonClassRef` only as an `unowned` reference to an existing `GDBusInterfaceSkeletonClass` instance.
 ///
-/// Class structure for `GDBusInterfaceSkeleton`.
 public struct DBusInterfaceSkeletonClassRef: DBusInterfaceSkeletonClassProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1341,11 +1354,6 @@ public extension DBusInterfaceSkeletonClassProtocol {
 
 // MARK: - DBusInterfaceVTable Record
 
-/// The `DBusInterfaceVTableProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceVTable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DBusInterfaceVTable`.
-/// Alternatively, use `DBusInterfaceVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Virtual table for handling properties and method calls for a D-Bus
 /// interface.
 /// 
@@ -1387,6 +1395,12 @@ public extension DBusInterfaceSkeletonClassProtocol {
 /// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
+///
+/// The `DBusInterfaceVTableProtocol` protocol exposes the methods and properties of an underlying `GDBusInterfaceVTable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DBusInterfaceVTable`.
+/// Alternatively, use `DBusInterfaceVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DBusInterfaceVTableProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1398,10 +1412,6 @@ public protocol DBusInterfaceVTableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DBusInterfaceVTableRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceVTable` instance.
-/// It exposes methods that can operate on this data type through `DBusInterfaceVTableProtocol` conformance.
-/// Use `DBusInterfaceVTableRef` only as an `unowned` reference to an existing `GDBusInterfaceVTable` instance.
-///
 /// Virtual table for handling properties and method calls for a D-Bus
 /// interface.
 /// 
@@ -1443,6 +1453,11 @@ public protocol DBusInterfaceVTableProtocol {
 /// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
+///
+/// The `DBusInterfaceVTableRef` type acts as a lightweight Swift reference to an underlying `GDBusInterfaceVTable` instance.
+/// It exposes methods that can operate on this data type through `DBusInterfaceVTableProtocol` conformance.
+/// Use `DBusInterfaceVTableRef` only as an `unowned` reference to an existing `GDBusInterfaceVTable` instance.
+///
 public struct DBusInterfaceVTableRef: DBusInterfaceVTableProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1521,10 +1536,6 @@ public extension DBusInterfaceVTableRef {
 
     }
 
-/// The `DBusInterfaceVTable` type acts as an owner of an underlying `GDBusInterfaceVTable` instance.
-/// It provides the methods that can operate on this data type through `DBusInterfaceVTableProtocol` conformance.
-/// Use `DBusInterfaceVTable` as a strong reference or owner of a `GDBusInterfaceVTable` instance.
-///
 /// Virtual table for handling properties and method calls for a D-Bus
 /// interface.
 /// 
@@ -1566,6 +1577,11 @@ public extension DBusInterfaceVTableRef {
 /// you must ensure that you either provide a non-`nil` `set_property``()`
 /// function or provide an implementation of the `Set` call. If implementing
 /// the call, you must return the value of type `G_VARIANT_TYPE_UNIT`.
+///
+/// The `DBusInterfaceVTable` type acts as an owner of an underlying `GDBusInterfaceVTable` instance.
+/// It provides the methods that can operate on this data type through `DBusInterfaceVTableProtocol` conformance.
+/// Use `DBusInterfaceVTable` as a strong reference or owner of a `GDBusInterfaceVTable` instance.
+///
 open class DBusInterfaceVTable: DBusInterfaceVTableProtocol {
         /// Untyped pointer to the underlying `GDBusInterfaceVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1768,12 +1784,13 @@ public extension DBusInterfaceVTableProtocol {
 
 // MARK: - DBusMethodInfo Record
 
+/// Information about a method on an D-Bus interface.
+///
 /// The `DBusMethodInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusMethodInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusMethodInfo`.
 /// Alternatively, use `DBusMethodInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about a method on an D-Bus interface.
 public protocol DBusMethodInfoProtocol {
         /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1785,11 +1802,12 @@ public protocol DBusMethodInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about a method on an D-Bus interface.
+///
 /// The `DBusMethodInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusMethodInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusMethodInfoProtocol` conformance.
 /// Use `DBusMethodInfoRef` only as an `unowned` reference to an existing `GDBusMethodInfo` instance.
 ///
-/// Information about a method on an D-Bus interface.
 public struct DBusMethodInfoRef: DBusMethodInfoProtocol {
         /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_info_ptr` property instead.
@@ -1868,11 +1886,12 @@ public extension DBusMethodInfoRef {
 
     }
 
+/// Information about a method on an D-Bus interface.
+///
 /// The `DBusMethodInfo` type acts as a reference-counted owner of an underlying `GDBusMethodInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusMethodInfoProtocol` conformance.
 /// Use `DBusMethodInfo` as a strong reference or owner of a `GDBusMethodInfo` instance.
 ///
-/// Information about a method on an D-Bus interface.
 open class DBusMethodInfo: DBusMethodInfoProtocol {
         /// Untyped pointer to the underlying `GDBusMethodInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_method_info_ptr` property instead.
@@ -2113,12 +2132,13 @@ public extension DBusMethodInfoProtocol {
 
 // MARK: - DBusNodeInfo Record
 
+/// Information about nodes in a remote object hierarchy.
+///
 /// The `DBusNodeInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusNodeInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusNodeInfo`.
 /// Alternatively, use `DBusNodeInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about nodes in a remote object hierarchy.
 public protocol DBusNodeInfoProtocol {
         /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2130,11 +2150,12 @@ public protocol DBusNodeInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about nodes in a remote object hierarchy.
+///
 /// The `DBusNodeInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusNodeInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusNodeInfoProtocol` conformance.
 /// Use `DBusNodeInfoRef` only as an `unowned` reference to an existing `GDBusNodeInfo` instance.
 ///
-/// Information about nodes in a remote object hierarchy.
 public struct DBusNodeInfoRef: DBusNodeInfoProtocol {
         /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_node_info_ptr` property instead.
@@ -2242,11 +2263,12 @@ public extension DBusNodeInfoRef {
     }
 }
 
+/// Information about nodes in a remote object hierarchy.
+///
 /// The `DBusNodeInfo` type acts as a reference-counted owner of an underlying `GDBusNodeInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusNodeInfoProtocol` conformance.
 /// Use `DBusNodeInfo` as a strong reference or owner of a `GDBusNodeInfo` instance.
 ///
-/// Information about nodes in a remote object hierarchy.
 open class DBusNodeInfo: DBusNodeInfoProtocol {
         /// Untyped pointer to the underlying `GDBusNodeInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_node_info_ptr` property instead.
@@ -2548,12 +2570,13 @@ public extension DBusObjectIfaceRef {
 
 // MARK: - DBusObjectIface Record
 
+/// Base object type for D-Bus objects.
+///
 /// The `DBusObjectIfaceProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectIface`.
 /// Alternatively, use `DBusObjectIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base object type for D-Bus objects.
 public protocol DBusObjectIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusObjectIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2565,11 +2588,12 @@ public protocol DBusObjectIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Base object type for D-Bus objects.
+///
 /// The `DBusObjectIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectIface` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectIfaceProtocol` conformance.
 /// Use `DBusObjectIfaceRef` only as an `unowned` reference to an existing `GDBusObjectIface` instance.
 ///
-/// Base object type for D-Bus objects.
 public struct DBusObjectIfaceRef: DBusObjectIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusObjectIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2694,12 +2718,13 @@ public extension DBusObjectManagerClientClassRef {
 
 // MARK: - DBusObjectManagerClientClass Record
 
+/// Class structure for `GDBusObjectManagerClient`.
+///
 /// The `DBusObjectManagerClientClassProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerClientClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectManagerClientClass`.
 /// Alternatively, use `DBusObjectManagerClientClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusObjectManagerClient`.
 public protocol DBusObjectManagerClientClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2711,11 +2736,12 @@ public protocol DBusObjectManagerClientClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusObjectManagerClient`.
+///
 /// The `DBusObjectManagerClientClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerClientClass` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectManagerClientClassProtocol` conformance.
 /// Use `DBusObjectManagerClientClassRef` only as an `unowned` reference to an existing `GDBusObjectManagerClientClass` instance.
 ///
-/// Class structure for `GDBusObjectManagerClient`.
 public struct DBusObjectManagerClientClassRef: DBusObjectManagerClientClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerClientClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2836,12 +2862,13 @@ public extension DBusObjectManagerIfaceRef {
 
 // MARK: - DBusObjectManagerIface Record
 
+/// Base type for D-Bus object managers.
+///
 /// The `DBusObjectManagerIfaceProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectManagerIface`.
 /// Alternatively, use `DBusObjectManagerIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base type for D-Bus object managers.
 public protocol DBusObjectManagerIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2853,11 +2880,12 @@ public protocol DBusObjectManagerIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Base type for D-Bus object managers.
+///
 /// The `DBusObjectManagerIfaceRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerIface` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectManagerIfaceProtocol` conformance.
 /// Use `DBusObjectManagerIfaceRef` only as an `unowned` reference to an existing `GDBusObjectManagerIface` instance.
 ///
-/// Base type for D-Bus object managers.
 public struct DBusObjectManagerIfaceRef: DBusObjectManagerIfaceProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2988,12 +3016,13 @@ public extension DBusObjectManagerServerClassRef {
 
 // MARK: - DBusObjectManagerServerClass Record
 
+/// Class structure for `GDBusObjectManagerServer`.
+///
 /// The `DBusObjectManagerServerClassProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectManagerServerClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectManagerServerClass`.
 /// Alternatively, use `DBusObjectManagerServerClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusObjectManagerServer`.
 public protocol DBusObjectManagerServerClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3005,11 +3034,12 @@ public protocol DBusObjectManagerServerClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusObjectManagerServer`.
+///
 /// The `DBusObjectManagerServerClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectManagerServerClass` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectManagerServerClassProtocol` conformance.
 /// Use `DBusObjectManagerServerClassRef` only as an `unowned` reference to an existing `GDBusObjectManagerServerClass` instance.
 ///
-/// Class structure for `GDBusObjectManagerServer`.
 public struct DBusObjectManagerServerClassRef: DBusObjectManagerServerClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectManagerServerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3126,12 +3156,13 @@ public extension DBusObjectProxyClassRef {
 
 // MARK: - DBusObjectProxyClass Record
 
+/// Class structure for `GDBusObjectProxy`.
+///
 /// The `DBusObjectProxyClassProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectProxyClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectProxyClass`.
 /// Alternatively, use `DBusObjectProxyClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusObjectProxy`.
 public protocol DBusObjectProxyClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3143,11 +3174,12 @@ public protocol DBusObjectProxyClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusObjectProxy`.
+///
 /// The `DBusObjectProxyClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectProxyClass` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectProxyClassProtocol` conformance.
 /// Use `DBusObjectProxyClassRef` only as an `unowned` reference to an existing `GDBusObjectProxyClass` instance.
 ///
-/// Class structure for `GDBusObjectProxy`.
 public struct DBusObjectProxyClassRef: DBusObjectProxyClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3264,12 +3296,13 @@ public extension DBusObjectSkeletonClassRef {
 
 // MARK: - DBusObjectSkeletonClass Record
 
+/// Class structure for `GDBusObjectSkeleton`.
+///
 /// The `DBusObjectSkeletonClassProtocol` protocol exposes the methods and properties of an underlying `GDBusObjectSkeletonClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusObjectSkeletonClass`.
 /// Alternatively, use `DBusObjectSkeletonClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusObjectSkeleton`.
 public protocol DBusObjectSkeletonClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3281,11 +3314,12 @@ public protocol DBusObjectSkeletonClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusObjectSkeleton`.
+///
 /// The `DBusObjectSkeletonClassRef` type acts as a lightweight Swift reference to an underlying `GDBusObjectSkeletonClass` instance.
 /// It exposes methods that can operate on this data type through `DBusObjectSkeletonClassProtocol` conformance.
 /// Use `DBusObjectSkeletonClassRef` only as an `unowned` reference to an existing `GDBusObjectSkeletonClass` instance.
 ///
-/// Class structure for `GDBusObjectSkeleton`.
 public struct DBusObjectSkeletonClassRef: DBusObjectSkeletonClassProtocol {
         /// Untyped pointer to the underlying `GDBusObjectSkeletonClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3389,12 +3423,13 @@ public extension DBusObjectSkeletonClassProtocol {
 
 // MARK: - DBusPropertyInfo Record
 
+/// Information about a D-Bus property on a D-Bus interface.
+///
 /// The `DBusPropertyInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusPropertyInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusPropertyInfo`.
 /// Alternatively, use `DBusPropertyInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about a D-Bus property on a D-Bus interface.
 public protocol DBusPropertyInfoProtocol {
         /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3406,11 +3441,12 @@ public protocol DBusPropertyInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about a D-Bus property on a D-Bus interface.
+///
 /// The `DBusPropertyInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusPropertyInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusPropertyInfoProtocol` conformance.
 /// Use `DBusPropertyInfoRef` only as an `unowned` reference to an existing `GDBusPropertyInfo` instance.
 ///
-/// Information about a D-Bus property on a D-Bus interface.
 public struct DBusPropertyInfoRef: DBusPropertyInfoProtocol {
         /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_property_info_ptr` property instead.
@@ -3489,11 +3525,12 @@ public extension DBusPropertyInfoRef {
 
     }
 
+/// Information about a D-Bus property on a D-Bus interface.
+///
 /// The `DBusPropertyInfo` type acts as a reference-counted owner of an underlying `GDBusPropertyInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusPropertyInfoProtocol` conformance.
 /// Use `DBusPropertyInfo` as a strong reference or owner of a `GDBusPropertyInfo` instance.
 ///
-/// Information about a D-Bus property on a D-Bus interface.
 open class DBusPropertyInfo: DBusPropertyInfoProtocol {
         /// Untyped pointer to the underlying `GDBusPropertyInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_property_info_ptr` property instead.
@@ -3749,12 +3786,13 @@ public extension DBusProxyClassRef {
 
 // MARK: - DBusProxyClass Record
 
+/// Class structure for `GDBusProxy`.
+///
 /// The `DBusProxyClassProtocol` protocol exposes the methods and properties of an underlying `GDBusProxyClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusProxyClass`.
 /// Alternatively, use `DBusProxyClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GDBusProxy`.
 public protocol DBusProxyClassProtocol {
         /// Untyped pointer to the underlying `GDBusProxyClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3766,11 +3804,12 @@ public protocol DBusProxyClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GDBusProxy`.
+///
 /// The `DBusProxyClassRef` type acts as a lightweight Swift reference to an underlying `GDBusProxyClass` instance.
 /// It exposes methods that can operate on this data type through `DBusProxyClassProtocol` conformance.
 /// Use `DBusProxyClassRef` only as an `unowned` reference to an existing `GDBusProxyClass` instance.
 ///
-/// Class structure for `GDBusProxy`.
 public struct DBusProxyClassRef: DBusProxyClassProtocol {
         /// Untyped pointer to the underlying `GDBusProxyClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3869,12 +3908,13 @@ public extension DBusProxyClassProtocol {
 
 // MARK: - DBusSignalInfo Record
 
+/// Information about a signal on a D-Bus interface.
+///
 /// The `DBusSignalInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusSignalInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusSignalInfo`.
 /// Alternatively, use `DBusSignalInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about a signal on a D-Bus interface.
 public protocol DBusSignalInfoProtocol {
         /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3886,11 +3926,12 @@ public protocol DBusSignalInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about a signal on a D-Bus interface.
+///
 /// The `DBusSignalInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusSignalInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusSignalInfoProtocol` conformance.
 /// Use `DBusSignalInfoRef` only as an `unowned` reference to an existing `GDBusSignalInfo` instance.
 ///
-/// Information about a signal on a D-Bus interface.
 public struct DBusSignalInfoRef: DBusSignalInfoProtocol {
         /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_signal_info_ptr` property instead.
@@ -3969,11 +4010,12 @@ public extension DBusSignalInfoRef {
 
     }
 
+/// Information about a signal on a D-Bus interface.
+///
 /// The `DBusSignalInfo` type acts as a reference-counted owner of an underlying `GDBusSignalInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusSignalInfoProtocol` conformance.
 /// Use `DBusSignalInfo` as a strong reference or owner of a `GDBusSignalInfo` instance.
 ///
-/// Information about a signal on a D-Bus interface.
 open class DBusSignalInfo: DBusSignalInfoProtocol {
         /// Untyped pointer to the underlying `GDBusSignalInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_signal_info_ptr` property instead.
@@ -4201,12 +4243,13 @@ public extension DBusSignalInfoProtocol {
 
 // MARK: - DBusSubtreeVTable Record
 
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
+///
 /// The `DBusSubtreeVTableProtocol` protocol exposes the methods and properties of an underlying `GDBusSubtreeVTable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusSubtreeVTable`.
 /// Alternatively, use `DBusSubtreeVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public protocol DBusSubtreeVTableProtocol {
         /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4218,11 +4261,12 @@ public protocol DBusSubtreeVTableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
+///
 /// The `DBusSubtreeVTableRef` type acts as a lightweight Swift reference to an underlying `GDBusSubtreeVTable` instance.
 /// It exposes methods that can operate on this data type through `DBusSubtreeVTableProtocol` conformance.
 /// Use `DBusSubtreeVTableRef` only as an `unowned` reference to an existing `GDBusSubtreeVTable` instance.
 ///
-/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 public struct DBusSubtreeVTableRef: DBusSubtreeVTableProtocol {
         /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4301,11 +4345,12 @@ public extension DBusSubtreeVTableRef {
 
     }
 
+/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
+///
 /// The `DBusSubtreeVTable` type acts as an owner of an underlying `GDBusSubtreeVTable` instance.
 /// It provides the methods that can operate on this data type through `DBusSubtreeVTableProtocol` conformance.
 /// Use `DBusSubtreeVTable` as a strong reference or owner of a `GDBusSubtreeVTable` instance.
 ///
-/// Virtual table for handling subtrees registered with `g_dbus_connection_register_subtree()`.
 open class DBusSubtreeVTable: DBusSubtreeVTableProtocol {
         /// Untyped pointer to the underlying `GDBusSubtreeVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4523,12 +4568,13 @@ public extension DataInputStreamClassRef {
 
 // MARK: - DataInputStreamClass Record
 
+
+///
 /// The `DataInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GDataInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DataInputStreamClass`.
 /// Alternatively, use `DataInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DataInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4540,11 +4586,12 @@ public protocol DataInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DataInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GDataInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `DataInputStreamClassProtocol` conformance.
 /// Use `DataInputStreamClassRef` only as an `unowned` reference to an existing `GDataInputStreamClass` instance.
 ///
-
 public struct DataInputStreamClassRef: DataInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GDataInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4667,12 +4714,13 @@ public extension DataOutputStreamClassRef {
 
 // MARK: - DataOutputStreamClass Record
 
+
+///
 /// The `DataOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GDataOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DataOutputStreamClass`.
 /// Alternatively, use `DataOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol DataOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4684,11 +4732,12 @@ public protocol DataOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `DataOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GDataOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `DataOutputStreamClassProtocol` conformance.
 /// Use `DataOutputStreamClassRef` only as an `unowned` reference to an existing `GDataOutputStreamClass` instance.
 ///
-
 public struct DataOutputStreamClassRef: DataOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GDataOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4811,16 +4860,17 @@ public extension DatagramBasedInterfaceRef {
 
 // MARK: - DatagramBasedInterface Record
 
-/// The `DatagramBasedInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDatagramBasedInterface` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `DatagramBasedInterface`.
-/// Alternatively, use `DatagramBasedInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Provides an interface for socket-like objects which have datagram semantics,
 /// following the Berkeley sockets API. The interface methods are thin wrappers
 /// around the corresponding virtual methods, and no pre-processing of inputs is
 /// implemented — so implementations of this API must handle all functionality
 /// documented in the interface methods.
+///
+/// The `DatagramBasedInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDatagramBasedInterface` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `DatagramBasedInterface`.
+/// Alternatively, use `DatagramBasedInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DatagramBasedInterfaceProtocol {
         /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4832,15 +4882,16 @@ public protocol DatagramBasedInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DatagramBasedInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDatagramBasedInterface` instance.
-/// It exposes methods that can operate on this data type through `DatagramBasedInterfaceProtocol` conformance.
-/// Use `DatagramBasedInterfaceRef` only as an `unowned` reference to an existing `GDatagramBasedInterface` instance.
-///
 /// Provides an interface for socket-like objects which have datagram semantics,
 /// following the Berkeley sockets API. The interface methods are thin wrappers
 /// around the corresponding virtual methods, and no pre-processing of inputs is
 /// implemented — so implementations of this API must handle all functionality
 /// documented in the interface methods.
+///
+/// The `DatagramBasedInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDatagramBasedInterface` instance.
+/// It exposes methods that can operate on this data type through `DatagramBasedInterfaceProtocol` conformance.
+/// Use `DatagramBasedInterfaceRef` only as an `unowned` reference to an existing `GDatagramBasedInterface` instance.
+///
 public struct DatagramBasedInterfaceRef: DatagramBasedInterfaceProtocol {
         /// Untyped pointer to the underlying `GDatagramBasedInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4965,12 +5016,13 @@ public extension DriveIfaceRef {
 
 // MARK: - DriveIface Record
 
+/// Interface for creating `GDrive` implementations.
+///
 /// The `DriveIfaceProtocol` protocol exposes the methods and properties of an underlying `GDriveIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DriveIface`.
 /// Alternatively, use `DriveIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Interface for creating `GDrive` implementations.
 public protocol DriveIfaceProtocol {
         /// Untyped pointer to the underlying `GDriveIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4982,11 +5034,12 @@ public protocol DriveIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Interface for creating `GDrive` implementations.
+///
 /// The `DriveIfaceRef` type acts as a lightweight Swift reference to an underlying `GDriveIface` instance.
 /// It exposes methods that can operate on this data type through `DriveIfaceProtocol` conformance.
 /// Use `DriveIfaceRef` only as an `unowned` reference to an existing `GDriveIface` instance.
 ///
-/// Interface for creating `GDrive` implementations.
 public struct DriveIfaceRef: DriveIfaceProtocol {
         /// Untyped pointer to the underlying `GDriveIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5165,12 +5218,13 @@ public extension DtlsClientConnectionInterfaceRef {
 
 // MARK: - DtlsClientConnectionInterface Record
 
+/// vtable for a `GDtlsClientConnection` implementation.
+///
 /// The `DtlsClientConnectionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDtlsClientConnectionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DtlsClientConnectionInterface`.
 /// Alternatively, use `DtlsClientConnectionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// vtable for a `GDtlsClientConnection` implementation.
 public protocol DtlsClientConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5182,11 +5236,12 @@ public protocol DtlsClientConnectionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// vtable for a `GDtlsClientConnection` implementation.
+///
 /// The `DtlsClientConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsClientConnectionInterface` instance.
 /// It exposes methods that can operate on this data type through `DtlsClientConnectionInterfaceProtocol` conformance.
 /// Use `DtlsClientConnectionInterfaceRef` only as an `unowned` reference to an existing `GDtlsClientConnectionInterface` instance.
 ///
-/// vtable for a `GDtlsClientConnection` implementation.
 public struct DtlsClientConnectionInterfaceRef: DtlsClientConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsClientConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5301,12 +5356,13 @@ public extension DtlsConnectionInterfaceRef {
 
 // MARK: - DtlsConnectionInterface Record
 
+/// Virtual method table for a `GDtlsConnection` implementation.
+///
 /// The `DtlsConnectionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDtlsConnectionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DtlsConnectionInterface`.
 /// Alternatively, use `DtlsConnectionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Virtual method table for a `GDtlsConnection` implementation.
 public protocol DtlsConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5318,11 +5374,12 @@ public protocol DtlsConnectionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Virtual method table for a `GDtlsConnection` implementation.
+///
 /// The `DtlsConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsConnectionInterface` instance.
 /// It exposes methods that can operate on this data type through `DtlsConnectionInterfaceProtocol` conformance.
 /// Use `DtlsConnectionInterfaceRef` only as an `unowned` reference to an existing `GDtlsConnectionInterface` instance.
 ///
-/// Virtual method table for a `GDtlsConnection` implementation.
 public struct DtlsConnectionInterfaceRef: DtlsConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5457,12 +5514,13 @@ public extension DtlsServerConnectionInterfaceRef {
 
 // MARK: - DtlsServerConnectionInterface Record
 
+/// vtable for a `GDtlsServerConnection` implementation.
+///
 /// The `DtlsServerConnectionInterfaceProtocol` protocol exposes the methods and properties of an underlying `GDtlsServerConnectionInterface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DtlsServerConnectionInterface`.
 /// Alternatively, use `DtlsServerConnectionInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// vtable for a `GDtlsServerConnection` implementation.
 public protocol DtlsServerConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5474,11 +5532,12 @@ public protocol DtlsServerConnectionInterfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// vtable for a `GDtlsServerConnection` implementation.
+///
 /// The `DtlsServerConnectionInterfaceRef` type acts as a lightweight Swift reference to an underlying `GDtlsServerConnectionInterface` instance.
 /// It exposes methods that can operate on this data type through `DtlsServerConnectionInterfaceProtocol` conformance.
 /// Use `DtlsServerConnectionInterfaceRef` only as an `unowned` reference to an existing `GDtlsServerConnectionInterface` instance.
 ///
-/// vtable for a `GDtlsServerConnection` implementation.
 public struct DtlsServerConnectionInterfaceRef: DtlsServerConnectionInterfaceProtocol {
         /// Untyped pointer to the underlying `GDtlsServerConnectionInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5593,12 +5652,13 @@ public extension EmblemClassRef {
 
 // MARK: - EmblemClass Record
 
+
+///
 /// The `EmblemClassProtocol` protocol exposes the methods and properties of an underlying `GEmblemClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `EmblemClass`.
 /// Alternatively, use `EmblemClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol EmblemClassProtocol {
         /// Untyped pointer to the underlying `GEmblemClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5610,11 +5670,12 @@ public protocol EmblemClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `EmblemClassRef` type acts as a lightweight Swift reference to an underlying `GEmblemClass` instance.
 /// It exposes methods that can operate on this data type through `EmblemClassProtocol` conformance.
 /// Use `EmblemClassRef` only as an `unowned` reference to an existing `GEmblemClass` instance.
 ///
-
 public struct EmblemClassRef: EmblemClassProtocol {
         /// Untyped pointer to the underlying `GEmblemClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

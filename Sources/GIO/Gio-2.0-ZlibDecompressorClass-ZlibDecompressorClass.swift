@@ -19,12 +19,13 @@ public extension ZlibDecompressorClassRef {
 
 // MARK: - ZlibDecompressorClass Record
 
+
+///
 /// The `ZlibDecompressorClassProtocol` protocol exposes the methods and properties of an underlying `GZlibDecompressorClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ZlibDecompressorClass`.
 /// Alternatively, use `ZlibDecompressorClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ZlibDecompressorClassProtocol {
         /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol ZlibDecompressorClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ZlibDecompressorClassRef` type acts as a lightweight Swift reference to an underlying `GZlibDecompressorClass` instance.
 /// It exposes methods that can operate on this data type through `ZlibDecompressorClassProtocol` conformance.
 /// Use `ZlibDecompressorClassRef` only as an `unowned` reference to an existing `GZlibDecompressorClass` instance.
 ///
-
 public struct ZlibDecompressorClassRef: ZlibDecompressorClassProtocol {
         /// Untyped pointer to the underlying `GZlibDecompressorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

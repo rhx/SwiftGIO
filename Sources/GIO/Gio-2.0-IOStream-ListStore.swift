@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - IOStream Class
 
-/// The `IOStreamProtocol` protocol exposes the methods and properties of an underlying `GIOStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IOStream`.
-/// Alternatively, use `IOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// GIOStream represents an object that has both read and write streams.
 /// Generally the two streams act as separate input and output streams,
 /// but they share some common resources and state. For instance, for
@@ -55,6 +50,12 @@ import GLibObject
 /// the wrapper stream is idle. Note that the semantics of such operations may
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
+///
+/// The `IOStreamProtocol` protocol exposes the methods and properties of an underlying `GIOStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IOStream`.
+/// Alternatively, use `IOStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IOStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GIOStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -66,10 +67,6 @@ public protocol IOStreamProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IOStreamRef` type acts as a lightweight Swift reference to an underlying `GIOStream` instance.
-/// It exposes methods that can operate on this data type through `IOStreamProtocol` conformance.
-/// Use `IOStreamRef` only as an `unowned` reference to an existing `GIOStream` instance.
-///
 /// GIOStream represents an object that has both read and write streams.
 /// Generally the two streams act as separate input and output streams,
 /// but they share some common resources and state. For instance, for
@@ -116,6 +113,11 @@ public protocol IOStreamProtocol: GLibObject.ObjectProtocol {
 /// the wrapper stream is idle. Note that the semantics of such operations may
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
+///
+/// The `IOStreamRef` type acts as a lightweight Swift reference to an underlying `GIOStream` instance.
+/// It exposes methods that can operate on this data type through `IOStreamProtocol` conformance.
+/// Use `IOStreamRef` only as an `unowned` reference to an existing `GIOStream` instance.
+///
 public struct IOStreamRef: IOStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GIOStream` instance.
     /// For type-safe access, use the generated, typed pointer `io_stream_ptr` property instead.
@@ -197,10 +199,6 @@ public extension IOStreamRef {
 
     }
 
-/// The `IOStream` type acts as a reference-counted owner of an underlying `GIOStream` instance.
-/// It provides the methods that can operate on this data type through `IOStreamProtocol` conformance.
-/// Use `IOStream` as a strong reference or owner of a `GIOStream` instance.
-///
 /// GIOStream represents an object that has both read and write streams.
 /// Generally the two streams act as separate input and output streams,
 /// but they share some common resources and state. For instance, for
@@ -247,6 +245,11 @@ public extension IOStreamRef {
 /// the wrapper stream is idle. Note that the semantics of such operations may
 /// not be well-defined due to the state the wrapper stream leaves the base
 /// stream in (though they are guaranteed not to crash).
+///
+/// The `IOStream` type acts as a reference-counted owner of an underlying `GIOStream` instance.
+/// It provides the methods that can operate on this data type through `IOStreamProtocol` conformance.
+/// Use `IOStream` as a strong reference or owner of a `GIOStream` instance.
+///
 open class IOStream: GLibObject.Object, IOStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -451,12 +454,14 @@ public enum IOStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -744,11 +749,6 @@ public extension IOStreamProtocol {
 
 // MARK: - InetAddress Class
 
-/// The `InetAddressProtocol` protocol exposes the methods and properties of an underlying `GInetAddress` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `InetAddress`.
-/// Alternatively, use `InetAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
 /// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
@@ -759,6 +759,12 @@ public extension IOStreamProtocol {
 /// To actually connect to a remote host, you will need a
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
+///
+/// The `InetAddressProtocol` protocol exposes the methods and properties of an underlying `GInetAddress` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `InetAddress`.
+/// Alternatively, use `InetAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol InetAddressProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GInetAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -770,10 +776,6 @@ public protocol InetAddressProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InetAddressRef` type acts as a lightweight Swift reference to an underlying `GInetAddress` instance.
-/// It exposes methods that can operate on this data type through `InetAddressProtocol` conformance.
-/// Use `InetAddressRef` only as an `unowned` reference to an existing `GInetAddress` instance.
-///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
 /// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
@@ -784,6 +786,11 @@ public protocol InetAddressProtocol: GLibObject.ObjectProtocol {
 /// To actually connect to a remote host, you will need a
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
+///
+/// The `InetAddressRef` type acts as a lightweight Swift reference to an underlying `GInetAddress` instance.
+/// It exposes methods that can operate on this data type through `InetAddressProtocol` conformance.
+/// Use `InetAddressRef` only as an `unowned` reference to an existing `GInetAddress` instance.
+///
 public struct InetAddressRef: InetAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GInetAddress` instance.
     /// For type-safe access, use the generated, typed pointer `inet_address_ptr` property instead.
@@ -917,10 +924,6 @@ public extension InetAddressRef {
     }
 }
 
-/// The `InetAddress` type acts as a reference-counted owner of an underlying `GInetAddress` instance.
-/// It provides the methods that can operate on this data type through `InetAddressProtocol` conformance.
-/// Use `InetAddress` as a strong reference or owner of a `GInetAddress` instance.
-///
 /// `GInetAddress` represents an IPv4 or IPv6 internet address. Use
 /// `g_resolver_lookup_by_name()` or `g_resolver_lookup_by_name_async()` to
 /// look up the `GInetAddress` for a hostname. Use
@@ -931,6 +934,11 @@ public extension InetAddressRef {
 /// To actually connect to a remote host, you will need a
 /// `GInetSocketAddress` (which includes a `GInetAddress` as well as a
 /// port number).
+///
+/// The `InetAddress` type acts as a reference-counted owner of an underlying `GInetAddress` instance.
+/// It provides the methods that can operate on this data type through `InetAddressProtocol` conformance.
+/// Use `InetAddress` as a strong reference or owner of a `GInetAddress` instance.
+///
 open class InetAddress: GLibObject.Object, InetAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1224,12 +1232,14 @@ public enum InetAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1503,15 +1513,16 @@ public extension InetAddressProtocol {
 
 // MARK: - InetAddressMask Class
 
+/// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
+/// described by a base address and a length indicating how many bits
+/// of the base address are relevant for matching purposes. These are
+/// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
+///
 /// The `InetAddressMaskProtocol` protocol exposes the methods and properties of an underlying `GInetAddressMask` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InetAddressMask`.
 /// Alternatively, use `InetAddressMaskRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
-/// described by a base address and a length indicating how many bits
-/// of the base address are relevant for matching purposes. These are
-/// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
 public protocol InetAddressMaskProtocol: GLibObject.ObjectProtocol, InitableProtocol {
         /// Untyped pointer to the underlying `GInetAddressMask` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1523,14 +1534,15 @@ public protocol InetAddressMaskProtocol: GLibObject.ObjectProtocol, InitableProt
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InetAddressMaskRef` type acts as a lightweight Swift reference to an underlying `GInetAddressMask` instance.
-/// It exposes methods that can operate on this data type through `InetAddressMaskProtocol` conformance.
-/// Use `InetAddressMaskRef` only as an `unowned` reference to an existing `GInetAddressMask` instance.
-///
 /// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
+///
+/// The `InetAddressMaskRef` type acts as a lightweight Swift reference to an underlying `GInetAddressMask` instance.
+/// It exposes methods that can operate on this data type through `InetAddressMaskProtocol` conformance.
+/// Use `InetAddressMaskRef` only as an `unowned` reference to an existing `GInetAddressMask` instance.
+///
 public struct InetAddressMaskRef: InetAddressMaskProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GInetAddressMask` instance.
     /// For type-safe access, use the generated, typed pointer `inet_address_mask_ptr` property instead.
@@ -1642,14 +1654,15 @@ public extension InetAddressMaskRef {
     }
 }
 
-/// The `InetAddressMask` type acts as a reference-counted owner of an underlying `GInetAddressMask` instance.
-/// It provides the methods that can operate on this data type through `InetAddressMaskProtocol` conformance.
-/// Use `InetAddressMask` as a strong reference or owner of a `GInetAddressMask` instance.
-///
 /// `GInetAddressMask` represents a range of IPv4 or IPv6 addresses
 /// described by a base address and a length indicating how many bits
 /// of the base address are relevant for matching purposes. These are
 /// often given in string form. Eg, "10.0.0.0/8", or "fe80``/10".
+///
+/// The `InetAddressMask` type acts as a reference-counted owner of an underlying `GInetAddressMask` instance.
+/// It provides the methods that can operate on this data type through `InetAddressMaskProtocol` conformance.
+/// Use `InetAddressMask` as a strong reference or owner of a `GInetAddressMask` instance.
+///
 open class InetAddressMask: GLibObject.Object, InetAddressMaskProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1887,12 +1900,14 @@ public enum InetAddressMaskSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -1982,13 +1997,14 @@ public extension InetAddressMaskProtocol {
 
 // MARK: - InetSocketAddress Class
 
+/// An IPv4 or IPv6 socket address; that is, the combination of a
+/// `GInetAddress` and a port number.
+///
 /// The `InetSocketAddressProtocol` protocol exposes the methods and properties of an underlying `GInetSocketAddress` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `InetSocketAddress`.
 /// Alternatively, use `InetSocketAddressRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An IPv4 or IPv6 socket address; that is, the combination of a
-/// `GInetAddress` and a port number.
 public protocol InetSocketAddressProtocol: SocketAddressProtocol {
         /// Untyped pointer to the underlying `GInetSocketAddress` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2000,12 +2016,13 @@ public protocol InetSocketAddressProtocol: SocketAddressProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An IPv4 or IPv6 socket address; that is, the combination of a
+/// `GInetAddress` and a port number.
+///
 /// The `InetSocketAddressRef` type acts as a lightweight Swift reference to an underlying `GInetSocketAddress` instance.
 /// It exposes methods that can operate on this data type through `InetSocketAddressProtocol` conformance.
 /// Use `InetSocketAddressRef` only as an `unowned` reference to an existing `GInetSocketAddress` instance.
 ///
-/// An IPv4 or IPv6 socket address; that is, the combination of a
-/// `GInetAddress` and a port number.
 public struct InetSocketAddressRef: InetSocketAddressProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GInetSocketAddress` instance.
     /// For type-safe access, use the generated, typed pointer `inet_socket_address_ptr` property instead.
@@ -2109,12 +2126,13 @@ public extension InetSocketAddressRef {
     }
 }
 
+/// An IPv4 or IPv6 socket address; that is, the combination of a
+/// `GInetAddress` and a port number.
+///
 /// The `InetSocketAddress` type acts as a reference-counted owner of an underlying `GInetSocketAddress` instance.
 /// It provides the methods that can operate on this data type through `InetSocketAddressProtocol` conformance.
 /// Use `InetSocketAddress` as a strong reference or owner of a `GInetSocketAddress` instance.
 ///
-/// An IPv4 or IPv6 socket address; that is, the combination of a
-/// `GInetAddress` and a port number.
 open class InetSocketAddress: SocketAddress, InetSocketAddressProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2347,12 +2365,14 @@ public enum InetSocketAddressSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -2448,11 +2468,6 @@ public extension InetSocketAddressProtocol {
 
 // MARK: - InputStream Class
 
-/// The `InputStreamProtocol` protocol exposes the methods and properties of an underlying `GInputStream` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `InputStream`.
-/// Alternatively, use `InputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
 /// to close a stream (`g_input_stream_close()`) and to skip some content
 /// (`g_input_stream_skip()`).
@@ -2464,6 +2479,12 @@ public extension InetSocketAddressProtocol {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `InputStreamProtocol` protocol exposes the methods and properties of an underlying `GInputStream` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `InputStream`.
+/// Alternatively, use `InputStreamRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol InputStreamProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GInputStream` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2475,10 +2496,6 @@ public protocol InputStreamProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `InputStreamRef` type acts as a lightweight Swift reference to an underlying `GInputStream` instance.
-/// It exposes methods that can operate on this data type through `InputStreamProtocol` conformance.
-/// Use `InputStreamRef` only as an `unowned` reference to an existing `GInputStream` instance.
-///
 /// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
 /// to close a stream (`g_input_stream_close()`) and to skip some content
 /// (`g_input_stream_skip()`).
@@ -2490,6 +2507,11 @@ public protocol InputStreamProtocol: GLibObject.ObjectProtocol {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `InputStreamRef` type acts as a lightweight Swift reference to an underlying `GInputStream` instance.
+/// It exposes methods that can operate on this data type through `InputStreamProtocol` conformance.
+/// Use `InputStreamRef` only as an `unowned` reference to an existing `GInputStream` instance.
+///
 public struct InputStreamRef: InputStreamProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GInputStream` instance.
     /// For type-safe access, use the generated, typed pointer `input_stream_ptr` property instead.
@@ -2571,10 +2593,6 @@ public extension InputStreamRef {
 
     }
 
-/// The `InputStream` type acts as a reference-counted owner of an underlying `GInputStream` instance.
-/// It provides the methods that can operate on this data type through `InputStreamProtocol` conformance.
-/// Use `InputStream` as a strong reference or owner of a `GInputStream` instance.
-///
 /// `GInputStream` has functions to read from a stream (`g_input_stream_read()`),
 /// to close a stream (`g_input_stream_close()`) and to skip some content
 /// (`g_input_stream_skip()`).
@@ -2586,6 +2604,11 @@ public extension InputStreamRef {
 /// streaming APIs.
 /// 
 /// All of these functions have async variants too.
+///
+/// The `InputStream` type acts as a reference-counted owner of an underlying `GInputStream` instance.
+/// It provides the methods that can operate on this data type through `InputStreamProtocol` conformance.
+/// Use `InputStream` as a strong reference or owner of a `GInputStream` instance.
+///
 open class InputStream: GLibObject.Object, InputStreamProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2733,12 +2756,14 @@ public enum InputStreamSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -3358,16 +3383,17 @@ public extension InputStreamProtocol {
 
 // MARK: - ListStore Class
 
-/// The `ListStoreProtocol` protocol exposes the methods and properties of an underlying `GListStore` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `ListStore`.
-/// Alternatively, use `ListStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GListStore` is a simple implementation of `GListModel` that stores all
 /// items in memory.
 /// 
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
+///
+/// The `ListStoreProtocol` protocol exposes the methods and properties of an underlying `GListStore` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `ListStore`.
+/// Alternatively, use `ListStoreRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ListStoreProtocol: GLibObject.ObjectProtocol, ListModelProtocol {
         /// Untyped pointer to the underlying `GListStore` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3379,15 +3405,16 @@ public protocol ListStoreProtocol: GLibObject.ObjectProtocol, ListModelProtocol 
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GListStore` instance.
-/// It exposes methods that can operate on this data type through `ListStoreProtocol` conformance.
-/// Use `ListStoreRef` only as an `unowned` reference to an existing `GListStore` instance.
-///
 /// `GListStore` is a simple implementation of `GListModel` that stores all
 /// items in memory.
 /// 
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
+///
+/// The `ListStoreRef` type acts as a lightweight Swift reference to an underlying `GListStore` instance.
+/// It exposes methods that can operate on this data type through `ListStoreProtocol` conformance.
+/// Use `ListStoreRef` only as an `unowned` reference to an existing `GListStore` instance.
+///
 public struct ListStoreRef: ListStoreProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GListStore` instance.
     /// For type-safe access, use the generated, typed pointer `list_store_ptr` property instead.
@@ -3475,15 +3502,16 @@ public extension ListStoreRef {
     }
 }
 
-/// The `ListStore` type acts as a reference-counted owner of an underlying `GListStore` instance.
-/// It provides the methods that can operate on this data type through `ListStoreProtocol` conformance.
-/// Use `ListStore` as a strong reference or owner of a `GListStore` instance.
-///
 /// `GListStore` is a simple implementation of `GListModel` that stores all
 /// items in memory.
 /// 
 /// It provides insertions, deletions, and lookups in logarithmic time
 /// with a fast path for the common case of iterating the list linearly.
+///
+/// The `ListStore` type acts as a reference-counted owner of an underlying `GListStore` instance.
+/// It provides the methods that can operate on this data type through `ListStoreProtocol` conformance.
+/// Use `ListStore` as a strong reference or owner of a `GListStore` instance.
+///
 open class ListStore: GLibObject.Object, ListStoreProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3695,12 +3723,14 @@ public enum ListStoreSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.

@@ -4,17 +4,18 @@ import GLibObject
 
 // MARK: - FileDescriptorBased Interface
 
-/// The `FileDescriptorBasedProtocol` protocol exposes the methods and properties of an underlying `GFileDescriptorBased` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileDescriptorBased`.
-/// Alternatively, use `FileDescriptorBasedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
 /// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `FileDescriptorBasedProtocol` protocol exposes the methods and properties of an underlying `GFileDescriptorBased` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileDescriptorBased`.
+/// Alternatively, use `FileDescriptorBasedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -26,16 +27,17 @@ public protocol FileDescriptorBasedProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileDescriptorBasedRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBased` instance.
-/// It exposes methods that can operate on this data type through `FileDescriptorBasedProtocol` conformance.
-/// Use `FileDescriptorBasedRef` only as an `unowned` reference to an existing `GFileDescriptorBased` instance.
-///
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
 /// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `FileDescriptorBasedRef` type acts as a lightweight Swift reference to an underlying `GFileDescriptorBased` instance.
+/// It exposes methods that can operate on this data type through `FileDescriptorBasedProtocol` conformance.
+/// Use `FileDescriptorBasedRef` only as an `unowned` reference to an existing `GFileDescriptorBased` instance.
+///
 public struct FileDescriptorBasedRef: FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
@@ -114,16 +116,17 @@ public extension FileDescriptorBasedRef {
 
     }
 
-/// The `FileDescriptorBased` type acts as an owner of an underlying `GFileDescriptorBased` instance.
-/// It provides the methods that can operate on this data type through `FileDescriptorBasedProtocol` conformance.
-/// Use `FileDescriptorBased` as a strong reference or owner of a `GFileDescriptorBased` instance.
-///
 /// `GFileDescriptorBased` is implemented by streams (implementations of
 /// `GInputStream` or `GOutputStream`) that are based on file descriptors.
 /// 
 /// Note that `&lt;gio/gfiledescriptorbased.h&gt;` belongs to the UNIX-specific
 /// GIO interfaces, thus you have to use the `gio-unix-2.0.pc` pkg-config
 /// file when using it.
+///
+/// The `FileDescriptorBased` type acts as an owner of an underlying `GFileDescriptorBased` instance.
+/// It provides the methods that can operate on this data type through `FileDescriptorBasedProtocol` conformance.
+/// Use `FileDescriptorBased` as a strong reference or owner of a `GFileDescriptorBased` instance.
+///
 open class FileDescriptorBased: FileDescriptorBasedProtocol {
         /// Untyped pointer to the underlying `GFileDescriptorBased` instance.
     /// For type-safe access, use the generated, typed pointer `file_descriptor_based_ptr` property instead.
@@ -299,11 +302,6 @@ public extension FileDescriptorBasedProtocol {
 
 // MARK: - Icon Interface
 
-/// The `IconProtocol` protocol exposes the methods and properties of an underlying `GIcon` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Icon`.
-/// Alternatively, use `IconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GIcon` is a very minimal interface for icons. It provides functions
 /// for checking the equality of two icons, hashing of icons and
 /// serializing an icon to and from strings.
@@ -332,6 +330,12 @@ public extension FileDescriptorBasedProtocol {
 /// implementation of `g_icon_serialize()` that gives a result that is
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
+///
+/// The `IconProtocol` protocol exposes the methods and properties of an underlying `GIcon` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Icon`.
+/// Alternatively, use `IconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -343,10 +347,6 @@ public protocol IconProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `IconRef` type acts as a lightweight Swift reference to an underlying `GIcon` instance.
-/// It exposes methods that can operate on this data type through `IconProtocol` conformance.
-/// Use `IconRef` only as an `unowned` reference to an existing `GIcon` instance.
-///
 /// `GIcon` is a very minimal interface for icons. It provides functions
 /// for checking the equality of two icons, hashing of icons and
 /// serializing an icon to and from strings.
@@ -375,6 +375,11 @@ public protocol IconProtocol {
 /// implementation of `g_icon_serialize()` that gives a result that is
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
+///
+/// The `IconRef` type acts as a lightweight Swift reference to an underlying `GIcon` instance.
+/// It exposes methods that can operate on this data type through `IconProtocol` conformance.
+/// Use `IconRef` only as an `unowned` reference to an existing `GIcon` instance.
+///
 public struct IconRef: IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.
@@ -472,10 +477,6 @@ public extension IconRef {
     }
 }
 
-/// The `Icon` type acts as an owner of an underlying `GIcon` instance.
-/// It provides the methods that can operate on this data type through `IconProtocol` conformance.
-/// Use `Icon` as a strong reference or owner of a `GIcon` instance.
-///
 /// `GIcon` is a very minimal interface for icons. It provides functions
 /// for checking the equality of two icons, hashing of icons and
 /// serializing an icon to and from strings.
@@ -504,6 +505,11 @@ public extension IconRef {
 /// implementation of `g_icon_serialize()` that gives a result that is
 /// understood by `g_icon_deserialize()`, yielding one of the built-in icon
 /// types.
+///
+/// The `Icon` type acts as an owner of an underlying `GIcon` instance.
+/// It provides the methods that can operate on this data type through `IconProtocol` conformance.
+/// Use `Icon` as a strong reference or owner of a `GIcon` instance.
+///
 open class Icon: IconProtocol {
         /// Untyped pointer to the underlying `GIcon` instance.
     /// For type-safe access, use the generated, typed pointer `icon_ptr` property instead.

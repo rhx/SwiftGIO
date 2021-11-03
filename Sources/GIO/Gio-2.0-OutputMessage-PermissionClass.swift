@@ -4,11 +4,6 @@ import GLibObject
 
 // MARK: - OutputMessage Record
 
-/// The `OutputMessageProtocol` protocol exposes the methods and properties of an underlying `GOutputMessage` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `OutputMessage`.
-/// Alternatively, use `OutputMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Structure used for scatter/gather data output when sending multiple
 /// messages or packets in one go. You generally pass in an array of
 /// `GOutputVectors` and the operation will use all the buffers as if they
@@ -16,6 +11,12 @@ import GLibObject
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
+///
+/// The `OutputMessageProtocol` protocol exposes the methods and properties of an underlying `GOutputMessage` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `OutputMessage`.
+/// Alternatively, use `OutputMessageRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OutputMessageProtocol {
         /// Untyped pointer to the underlying `GOutputMessage` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -27,10 +28,6 @@ public protocol OutputMessageProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OutputMessageRef` type acts as a lightweight Swift reference to an underlying `GOutputMessage` instance.
-/// It exposes methods that can operate on this data type through `OutputMessageProtocol` conformance.
-/// Use `OutputMessageRef` only as an `unowned` reference to an existing `GOutputMessage` instance.
-///
 /// Structure used for scatter/gather data output when sending multiple
 /// messages or packets in one go. You generally pass in an array of
 /// `GOutputVectors` and the operation will use all the buffers as if they
@@ -38,6 +35,11 @@ public protocol OutputMessageProtocol {
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
+///
+/// The `OutputMessageRef` type acts as a lightweight Swift reference to an underlying `GOutputMessage` instance.
+/// It exposes methods that can operate on this data type through `OutputMessageProtocol` conformance.
+/// Use `OutputMessageRef` only as an `unowned` reference to an existing `GOutputMessage` instance.
+///
 public struct OutputMessageRef: OutputMessageProtocol {
         /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -116,10 +118,6 @@ public extension OutputMessageRef {
 
     }
 
-/// The `OutputMessage` type acts as an owner of an underlying `GOutputMessage` instance.
-/// It provides the methods that can operate on this data type through `OutputMessageProtocol` conformance.
-/// Use `OutputMessage` as a strong reference or owner of a `GOutputMessage` instance.
-///
 /// Structure used for scatter/gather data output when sending multiple
 /// messages or packets in one go. You generally pass in an array of
 /// `GOutputVectors` and the operation will use all the buffers as if they
@@ -127,6 +125,11 @@ public extension OutputMessageRef {
 /// 
 /// If `address` is `nil` then the message is sent to the default receiver
 /// (as previously set by `g_socket_connect()`).
+///
+/// The `OutputMessage` type acts as an owner of an underlying `GOutputMessage` instance.
+/// It provides the methods that can operate on this data type through `OutputMessageProtocol` conformance.
+/// Use `OutputMessage` as a strong reference or owner of a `GOutputMessage` instance.
+///
 open class OutputMessage: OutputMessageProtocol {
         /// Untyped pointer to the underlying `GOutputMessage` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -387,12 +390,13 @@ public extension OutputStreamClassRef {
 
 // MARK: - OutputStreamClass Record
 
+
+///
 /// The `OutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OutputStreamClass`.
 /// Alternatively, use `OutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol OutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -404,11 +408,12 @@ public protocol OutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `OutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `OutputStreamClassProtocol` conformance.
 /// Use `OutputStreamClassRef` only as an `unowned` reference to an existing `GOutputStreamClass` instance.
 ///
-
 public struct OutputStreamClassRef: OutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -546,15 +551,16 @@ public extension OutputStreamClassProtocol {
 
 // MARK: - OutputVector Record
 
+/// Structure used for scatter/gather data output.
+/// You generally pass in an array of `GOutputVectors`
+/// and the operation will use all the buffers as if they were
+/// one buffer.
+///
 /// The `OutputVectorProtocol` protocol exposes the methods and properties of an underlying `GOutputVector` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OutputVector`.
 /// Alternatively, use `OutputVectorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Structure used for scatter/gather data output.
-/// You generally pass in an array of `GOutputVectors`
-/// and the operation will use all the buffers as if they were
-/// one buffer.
 public protocol OutputVectorProtocol {
         /// Untyped pointer to the underlying `GOutputVector` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -566,14 +572,15 @@ public protocol OutputVectorProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OutputVectorRef` type acts as a lightweight Swift reference to an underlying `GOutputVector` instance.
-/// It exposes methods that can operate on this data type through `OutputVectorProtocol` conformance.
-/// Use `OutputVectorRef` only as an `unowned` reference to an existing `GOutputVector` instance.
-///
 /// Structure used for scatter/gather data output.
 /// You generally pass in an array of `GOutputVectors`
 /// and the operation will use all the buffers as if they were
 /// one buffer.
+///
+/// The `OutputVectorRef` type acts as a lightweight Swift reference to an underlying `GOutputVector` instance.
+/// It exposes methods that can operate on this data type through `OutputVectorProtocol` conformance.
+/// Use `OutputVectorRef` only as an `unowned` reference to an existing `GOutputVector` instance.
+///
 public struct OutputVectorRef: OutputVectorProtocol {
         /// Untyped pointer to the underlying `GOutputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -652,14 +659,15 @@ public extension OutputVectorRef {
 
     }
 
-/// The `OutputVector` type acts as an owner of an underlying `GOutputVector` instance.
-/// It provides the methods that can operate on this data type through `OutputVectorProtocol` conformance.
-/// Use `OutputVector` as a strong reference or owner of a `GOutputVector` instance.
-///
 /// Structure used for scatter/gather data output.
 /// You generally pass in an array of `GOutputVectors`
 /// and the operation will use all the buffers as if they were
 /// one buffer.
+///
+/// The `OutputVector` type acts as an owner of an underlying `GOutputVector` instance.
+/// It provides the methods that can operate on this data type through `OutputVectorProtocol` conformance.
+/// Use `OutputVector` as a strong reference or owner of a `GOutputVector` instance.
+///
 open class OutputVector: OutputVectorProtocol {
         /// Untyped pointer to the underlying `GOutputVector` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -862,12 +870,13 @@ public extension PermissionClassRef {
 
 // MARK: - PermissionClass Record
 
+
+///
 /// The `PermissionClassProtocol` protocol exposes the methods and properties of an underlying `GPermissionClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PermissionClass`.
 /// Alternatively, use `PermissionClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol PermissionClassProtocol {
         /// Untyped pointer to the underlying `GPermissionClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -879,11 +888,12 @@ public protocol PermissionClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `PermissionClassRef` type acts as a lightweight Swift reference to an underlying `GPermissionClass` instance.
 /// It exposes methods that can operate on this data type through `PermissionClassProtocol` conformance.
 /// Use `PermissionClassRef` only as an `unowned` reference to an existing `GPermissionClass` instance.
 ///
-
 public struct PermissionClassRef: PermissionClassProtocol {
         /// Untyped pointer to the underlying `GPermissionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

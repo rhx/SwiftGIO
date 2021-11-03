@@ -19,12 +19,13 @@ public extension CharsetConverterClassRef {
 
 // MARK: - CharsetConverterClass Record
 
+
+///
 /// The `CharsetConverterClassProtocol` protocol exposes the methods and properties of an underlying `GCharsetConverterClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CharsetConverterClass`.
 /// Alternatively, use `CharsetConverterClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol CharsetConverterClassProtocol {
         /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -36,11 +37,12 @@ public protocol CharsetConverterClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `CharsetConverterClassRef` type acts as a lightweight Swift reference to an underlying `GCharsetConverterClass` instance.
 /// It exposes methods that can operate on this data type through `CharsetConverterClassProtocol` conformance.
 /// Use `CharsetConverterClassRef` only as an `unowned` reference to an existing `GCharsetConverterClass` instance.
 ///
-
 public struct CharsetConverterClassRef: CharsetConverterClassProtocol {
         /// Untyped pointer to the underlying `GCharsetConverterClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -153,14 +155,15 @@ public extension ConverterIfaceRef {
 
 // MARK: - ConverterIface Record
 
+/// Provides an interface for converting data from one type
+/// to another type. The conversion can be stateful
+/// and may fail at any place.
+///
 /// The `ConverterIfaceProtocol` protocol exposes the methods and properties of an underlying `GConverterIface` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConverterIface`.
 /// Alternatively, use `ConverterIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Provides an interface for converting data from one type
-/// to another type. The conversion can be stateful
-/// and may fail at any place.
 public protocol ConverterIfaceProtocol {
         /// Untyped pointer to the underlying `GConverterIface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -172,13 +175,14 @@ public protocol ConverterIfaceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Provides an interface for converting data from one type
+/// to another type. The conversion can be stateful
+/// and may fail at any place.
+///
 /// The `ConverterIfaceRef` type acts as a lightweight Swift reference to an underlying `GConverterIface` instance.
 /// It exposes methods that can operate on this data type through `ConverterIfaceProtocol` conformance.
 /// Use `ConverterIfaceRef` only as an `unowned` reference to an existing `GConverterIface` instance.
 ///
-/// Provides an interface for converting data from one type
-/// to another type. The conversion can be stateful
-/// and may fail at any place.
 public struct ConverterIfaceRef: ConverterIfaceProtocol {
         /// Untyped pointer to the underlying `GConverterIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -297,12 +301,13 @@ public extension ConverterInputStreamClassRef {
 
 // MARK: - ConverterInputStreamClass Record
 
+
+///
 /// The `ConverterInputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GConverterInputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConverterInputStreamClass`.
 /// Alternatively, use `ConverterInputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConverterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -314,11 +319,12 @@ public protocol ConverterInputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConverterInputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GConverterInputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `ConverterInputStreamClassProtocol` conformance.
 /// Use `ConverterInputStreamClassRef` only as an `unowned` reference to an existing `GConverterInputStreamClass` instance.
 ///
-
 public struct ConverterInputStreamClassRef: ConverterInputStreamClassProtocol {
         /// Untyped pointer to the underlying `GConverterInputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -441,12 +447,13 @@ public extension ConverterOutputStreamClassRef {
 
 // MARK: - ConverterOutputStreamClass Record
 
+
+///
 /// The `ConverterOutputStreamClassProtocol` protocol exposes the methods and properties of an underlying `GConverterOutputStreamClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ConverterOutputStreamClass`.
 /// Alternatively, use `ConverterOutputStreamClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol ConverterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -458,11 +465,12 @@ public protocol ConverterOutputStreamClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `ConverterOutputStreamClassRef` type acts as a lightweight Swift reference to an underlying `GConverterOutputStreamClass` instance.
 /// It exposes methods that can operate on this data type through `ConverterOutputStreamClassProtocol` conformance.
 /// Use `ConverterOutputStreamClassRef` only as an `unowned` reference to an existing `GConverterOutputStreamClass` instance.
 ///
-
 public struct ConverterOutputStreamClassRef: ConverterOutputStreamClassProtocol {
         /// Untyped pointer to the underlying `GConverterOutputStreamClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -585,12 +593,13 @@ public extension CredentialsClassRef {
 
 // MARK: - CredentialsClass Record
 
+/// Class structure for `GCredentials`.
+///
 /// The `CredentialsClassProtocol` protocol exposes the methods and properties of an underlying `GCredentialsClass` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `CredentialsClass`.
 /// Alternatively, use `CredentialsClassRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Class structure for `GCredentials`.
 public protocol CredentialsClassProtocol {
         /// Untyped pointer to the underlying `GCredentialsClass` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -602,11 +611,12 @@ public protocol CredentialsClassProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Class structure for `GCredentials`.
+///
 /// The `CredentialsClassRef` type acts as a lightweight Swift reference to an underlying `GCredentialsClass` instance.
 /// It exposes methods that can operate on this data type through `CredentialsClassProtocol` conformance.
 /// Use `CredentialsClassRef` only as an `unowned` reference to an existing `GCredentialsClass` instance.
 ///
-/// Class structure for `GCredentials`.
 public struct CredentialsClassRef: CredentialsClassProtocol {
         /// Untyped pointer to the underlying `GCredentialsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -698,12 +708,13 @@ public extension CredentialsClassProtocol {
 
 // MARK: - DBusAnnotationInfo Record
 
+/// Information about an annotation.
+///
 /// The `DBusAnnotationInfoProtocol` protocol exposes the methods and properties of an underlying `GDBusAnnotationInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DBusAnnotationInfo`.
 /// Alternatively, use `DBusAnnotationInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Information about an annotation.
 public protocol DBusAnnotationInfoProtocol {
         /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -715,11 +726,12 @@ public protocol DBusAnnotationInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Information about an annotation.
+///
 /// The `DBusAnnotationInfoRef` type acts as a lightweight Swift reference to an underlying `GDBusAnnotationInfo` instance.
 /// It exposes methods that can operate on this data type through `DBusAnnotationInfoProtocol` conformance.
 /// Use `DBusAnnotationInfoRef` only as an `unowned` reference to an existing `GDBusAnnotationInfo` instance.
 ///
-/// Information about an annotation.
 public struct DBusAnnotationInfoRef: DBusAnnotationInfoProtocol {
         /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_annotation_info_ptr` property instead.
@@ -798,11 +810,12 @@ public extension DBusAnnotationInfoRef {
 
     }
 
+/// Information about an annotation.
+///
 /// The `DBusAnnotationInfo` type acts as a reference-counted owner of an underlying `GDBusAnnotationInfo` instance.
 /// It provides the methods that can operate on this data type through `DBusAnnotationInfoProtocol` conformance.
 /// Use `DBusAnnotationInfo` as a strong reference or owner of a `GDBusAnnotationInfo` instance.
 ///
-/// Information about an annotation.
 open class DBusAnnotationInfo: DBusAnnotationInfoProtocol {
         /// Untyped pointer to the underlying `GDBusAnnotationInfo` instance.
     /// For type-safe access, use the generated, typed pointer `dbus_annotation_info_ptr` property instead.

@@ -4,17 +4,18 @@ import GLibObject
 
 // MARK: - EmblemedIcon Class
 
-/// The `EmblemedIconProtocol` protocol exposes the methods and properties of an underlying `GEmblemedIcon` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `EmblemedIcon`.
-/// Alternatively, use `EmblemedIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
 /// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
+///
+/// The `EmblemedIconProtocol` protocol exposes the methods and properties of an underlying `GEmblemedIcon` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `EmblemedIcon`.
+/// Alternatively, use `EmblemedIconRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol EmblemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
         /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -26,16 +27,17 @@ public protocol EmblemedIconProtocol: GLibObject.ObjectProtocol, IconProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `EmblemedIconRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIcon` instance.
-/// It exposes methods that can operate on this data type through `EmblemedIconProtocol` conformance.
-/// Use `EmblemedIconRef` only as an `unowned` reference to an existing `GEmblemedIcon` instance.
-///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
 /// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
+///
+/// The `EmblemedIconRef` type acts as a lightweight Swift reference to an underlying `GEmblemedIcon` instance.
+/// It exposes methods that can operate on this data type through `EmblemedIconProtocol` conformance.
+/// Use `EmblemedIconRef` only as an `unowned` reference to an existing `GEmblemedIcon` instance.
+///
 public struct EmblemedIconRef: EmblemedIconProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GEmblemedIcon` instance.
     /// For type-safe access, use the generated, typed pointer `emblemed_icon_ptr` property instead.
@@ -117,16 +119,17 @@ public extension EmblemedIconRef {
 
     }
 
-/// The `EmblemedIcon` type acts as a reference-counted owner of an underlying `GEmblemedIcon` instance.
-/// It provides the methods that can operate on this data type through `EmblemedIconProtocol` conformance.
-/// Use `EmblemedIcon` as a strong reference or owner of a `GEmblemedIcon` instance.
-///
 /// `GEmblemedIcon` is an implementation of `GIcon` that supports
 /// adding an emblem to an icon. Adding multiple emblems to an
 /// icon is ensured via `g_emblemed_icon_add_emblem()`.
 /// 
 /// Note that `GEmblemedIcon` allows no control over the position
 /// of the emblems. See also `GEmblem` for more information.
+///
+/// The `EmblemedIcon` type acts as a reference-counted owner of an underlying `GEmblemedIcon` instance.
+/// It provides the methods that can operate on this data type through `EmblemedIconProtocol` conformance.
+/// Use `EmblemedIcon` as a strong reference or owner of a `GEmblemedIcon` instance.
+///
 open class EmblemedIcon: GLibObject.Object, EmblemedIconProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -329,12 +332,14 @@ public enum EmblemedIconSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
@@ -404,11 +409,6 @@ public extension EmblemedIconProtocol {
 
 // MARK: - FileEnumerator Class
 
-/// The `FileEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GFileEnumerator` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FileEnumerator`.
-/// Alternatively, use `FileEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
 /// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
@@ -435,6 +435,12 @@ public extension EmblemedIconProtocol {
 /// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
+///
+/// The `FileEnumeratorProtocol` protocol exposes the methods and properties of an underlying `GFileEnumerator` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `FileEnumerator`.
+/// Alternatively, use `FileEnumeratorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol FileEnumeratorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GFileEnumerator` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -446,10 +452,6 @@ public protocol FileEnumeratorProtocol: GLibObject.ObjectProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FileEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GFileEnumerator` instance.
-/// It exposes methods that can operate on this data type through `FileEnumeratorProtocol` conformance.
-/// Use `FileEnumeratorRef` only as an `unowned` reference to an existing `GFileEnumerator` instance.
-///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
 /// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
@@ -476,6 +478,11 @@ public protocol FileEnumeratorProtocol: GLibObject.ObjectProtocol {
 /// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
+///
+/// The `FileEnumeratorRef` type acts as a lightweight Swift reference to an underlying `GFileEnumerator` instance.
+/// It exposes methods that can operate on this data type through `FileEnumeratorProtocol` conformance.
+/// Use `FileEnumeratorRef` only as an `unowned` reference to an existing `GFileEnumerator` instance.
+///
 public struct FileEnumeratorRef: FileEnumeratorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GFileEnumerator` instance.
     /// For type-safe access, use the generated, typed pointer `file_enumerator_ptr` property instead.
@@ -557,10 +564,6 @@ public extension FileEnumeratorRef {
 
     }
 
-/// The `FileEnumerator` type acts as a reference-counted owner of an underlying `GFileEnumerator` instance.
-/// It provides the methods that can operate on this data type through `FileEnumeratorProtocol` conformance.
-/// Use `FileEnumerator` as a strong reference or owner of a `GFileEnumerator` instance.
-///
 /// `GFileEnumerator` allows you to operate on a set of `GFiles`,
 /// returning a `GFileInfo` structure for each file enumerated (e.g.
 /// `g_file_enumerate_children()` will return a `GFileEnumerator` for each
@@ -587,6 +590,11 @@ public extension FileEnumeratorRef {
 /// its asynchronous version, `g_file_enumerator_close_async()`. Once
 /// a `GFileEnumerator` is closed, no further actions may be performed
 /// on it, and it should be freed with `g_object_unref()`.
+///
+/// The `FileEnumerator` type acts as a reference-counted owner of an underlying `GFileEnumerator` instance.
+/// It provides the methods that can operate on this data type through `FileEnumeratorProtocol` conformance.
+/// Use `FileEnumerator` as a strong reference or owner of a `GFileEnumerator` instance.
+///
 open class FileEnumerator: GLibObject.Object, FileEnumeratorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -789,12 +797,14 @@ public enum FileEnumeratorSignalName: String, SignalNameProtocol {
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
     /// `g_signal_connect()` call, like this:
+    /// 
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
+    /// 
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
