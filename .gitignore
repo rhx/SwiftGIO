@@ -6,5 +6,6 @@
 /*.xcodeproj
 /.swiftpm
 *.tgz
+undocumented.json
 Package.pins
 Package.resolved
