@@ -1,4 +1,4 @@
-name: Ubuntu 18.04
+name: Linux
 
 # Dependencies of this package
 env:
@@ -15,24 +15,27 @@ on:
       - main
 
 jobs:
-
-  # Ubuntu 18.04 tasks
-  build-ubuntu-18_04-swift-latest:
-    runs-on: ubuntu-18.04
+  build-linux:
+    strategy: 
+      matrix:
+        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
+        swift: ['5.9', '5.7']
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: YOCKOW/Action-setup-swift@v1
+      - uses: uses: swift-actions/setup-swift@v1
         with:
-          swift-version: '5.6.1'
+          swift-version: ${{ matrix.swift }}
 
-      - name: Print Swift version to confirm
-        run: swift --version
+      - name: Print Linux and Swift version
+        run: |
+          lsb_release -d
+          swift --version
 
-      - name: Fetch dependencies for general repository
+      - name: Fetch Linux dependencies
         run: sudo apt-get install $UBUNTU_APT
 
       - name: Checkout SwiftGIO
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: SwiftGIO
 
@@ -49,7 +52,7 @@ jobs:
           cd ..
 
       - name: Remove unneeded files and archive artifacts
-        run: |
+        run: | 
           cd SwiftGIO
           swift package clean
           rm -rf .build/repositories
@@ -58,7 +61,7 @@ jobs:
       - name: 'Upload Artefact'
         uses: actions/upload-artifact@v2
         with:
-          name: build-artefact-18.04-5.3
+          name: build-artefact-${{ matrix.os }}-${{ matrix.swift }}
           path: |
             SwiftGIO/Sources/
           retention-days: 1
