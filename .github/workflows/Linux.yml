@@ -22,7 +22,7 @@ jobs:
         swift: ['5.9', '5.7']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: uses: swift-actions/setup-swift@v1
+      - uses: swift-actions/setup-swift@v1
         with:
           swift-version: ${{ matrix.swift }}
 
