@@ -16,10 +16,11 @@ on:
 
 jobs:
   build-linux:
-    strategy: 
+    strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
-        swift: ['5.9', '5.7']
+        swift: ["5.9", "5.7"]
+    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
       - uses: swift-actions/setup-swift@v1
@@ -32,6 +33,7 @@ jobs:
           swift --version
 
       - name: Fetch Linux dependencies
+        if: ${{ runner.os == 'Linux' }}
         run: sudo apt-get install $UBUNTU_APT
 
       - name: Checkout SwiftGIO
@@ -51,17 +53,10 @@ jobs:
           swift test
           cd ..
 
-      - name: Remove unneeded files and archive artifacts
-        run: | 
+      - name: Remove unneeded files and archive artefacts
+        run: |
+          rm -rf _tempGTK
           cd SwiftGIO
           swift package clean
           rm -rf .build/repositories
           cd ..
-
-      - name: 'Upload Artefact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artefact-${{ matrix.os }}-${{ matrix.swift }}
-          path: |
-            SwiftGIO/Sources/
-          retention-days: 1
